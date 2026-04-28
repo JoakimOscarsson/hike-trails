@@ -4,13 +4,13 @@ import { XMLParser } from "fast-xml-parser";
 import { resolveLocationFromStart } from "./location.mjs";
 import { applySormlandsledenResearchOverlays } from "./sormlandsleden-research-overlays.mjs";
 import { buildSormlandsledenRouteGroups } from "./sormlandsleden-route-groups.mjs";
+import { readHikingSourceData, writeHikingSourceData } from "./lib/hiking-source-shards.mjs";
 import { writeHikeData } from "./write-hike-data.mjs";
 import { annotateTrailSystemFacilityProximity } from "./facility-proximity.mjs";
 import { annotateTrailSystemCommuteAccess } from "./commute-access.mjs";
 
 const projectRoot = process.cwd();
 const hikesPath = path.join(projectRoot, "data", "hikes.json");
-const trailSystemsPath = path.join(projectRoot, "data", "trail-systems.json");
 const routesDir = path.join(projectRoot, "public", "routes");
 const today = new Date().toISOString().slice(0, 10);
 
@@ -1834,15 +1834,15 @@ const trailSystem = await annotateTrailSystemCommuteAccess(await annotateTrailSy
   ]
 }, { projectRoot, thresholdKm: 2 }));
 
-const trailSystems = JSON.parse(await readFile(trailSystemsPath, "utf8").catch(() => "[]"));
+const trailSystems = await readHikingSourceData({ projectRoot });
 const nextTrailSystems = [
-  ...trailSystems.filter((system) => system.id === "roslagsleden" || system.id === "sormlandsleden").filter((system) => system.id !== trailSystem.id),
+  ...trailSystems.filter((system) => system.id !== trailSystem.id),
   trailSystem
 ];
 const nextHikes = [];
 
 await writeFile(hikesPath, `${JSON.stringify(nextHikes, null, 2)}\n`);
-await writeFile(trailSystemsPath, `${JSON.stringify(nextTrailSystems, null, 2)}\n`);
+await writeHikingSourceData(nextTrailSystems, { projectRoot });
 await writeHikeData(nextHikes, nextTrailSystems);
 
 console.log(`Wrote Sörmlandsleden as one trail system with ${trailSystem.sections.length} sections.`);

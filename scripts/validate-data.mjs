@@ -835,11 +835,83 @@ async function validateLibraryIndex() {
   }
 }
 
+async function readHikingSourceTrailSystems() {
+  const hikingSourceDir = path.join(projectRoot, "data", "source", "hiking");
+  const entries = (await readdir(hikingSourceDir, { withFileTypes: true }).catch(() => []))
+    .filter((entry) => entry.isDirectory())
+    .sort((a, b) => a.name.localeCompare(b.name));
+  const trailSystems = [];
+
+  if (!entries.length) {
+    addError("data/source/hiking", "Expected at least one hiking trail-system source shard directory");
+    return trailSystems;
+  }
+
+  for (const entry of entries) {
+    const systemDir = path.join(hikingSourceDir, entry.name);
+    const sectionsDir = path.join(systemDir, "sections");
+    const scope = `data/source/hiking/${entry.name}`;
+    const manifest = await readJson(path.join(systemDir, "manifest.json"), `${scope}/manifest.json`);
+    const sectionIds = (await readJson(path.join(systemDir, "sections-index.json"), `${scope}/sections-index.json`)) ?? [];
+    const routeGroups = (await readJson(path.join(systemDir, "route-groups.json"), `${scope}/route-groups.json`)) ?? [];
+    const presets = (await readJson(path.join(systemDir, "presets.json"), `${scope}/presets.json`)) ?? [];
+    const sectionFiles = new Set((await readdir(sectionsDir).catch(() => [])).filter((file) => file.endsWith(".json")));
+    const sections = [];
+
+    if (!isObject(manifest)) {
+      addError(`${scope}/manifest.json`, "Expected an object manifest");
+      continue;
+    }
+    if (manifest.id !== entry.name) addError(`${scope}/manifest.json`, `manifest ID must match directory name "${entry.name}"`);
+    for (const field of ["sections", "routeGroups", "presets"]) {
+      if (field in manifest) addError(`${scope}/manifest.json`, `manifest must not duplicate ${field}; keep it in its source shard`);
+    }
+    if (!Array.isArray(sectionIds)) addError(`${scope}/sections-index.json`, "Expected an array of ordered section IDs");
+    if (!Array.isArray(routeGroups)) addError(`${scope}/route-groups.json`, "Expected an array");
+    if (!Array.isArray(presets)) addError(`${scope}/presets.json`, "Expected an array");
+    if (!sectionFiles.size) addError(`${scope}/sections`, "Expected at least one section shard");
+    validateUnique(`${scope}/sections-index.json`, "section IDs", Array.isArray(sectionIds) ? sectionIds : []);
+
+    for (const sectionId of Array.isArray(sectionIds) ? sectionIds : []) {
+      const sectionFile = `${sectionId}.json`;
+      if (!sectionFiles.has(sectionFile)) addError(`${scope}/sections-index.json`, `section shard is missing: ${sectionFile}`);
+    }
+    for (const sectionFile of sectionFiles) {
+      const sectionId = sectionFile.replace(/\.json$/, "");
+      if (Array.isArray(sectionIds) && !sectionIds.includes(sectionId)) {
+        addError(`${scope}/sections/${sectionFile}`, "section shard is not listed in sections-index.json");
+      }
+    }
+
+    for (const sectionId of Array.isArray(sectionIds) ? sectionIds : []) {
+      const sectionFile = `${sectionId}.json`;
+      if (!sectionFiles.has(sectionFile)) continue;
+      const section = await readJson(path.join(sectionsDir, sectionFile), `${scope}/sections/${sectionFile}`);
+      if (!isObject(section)) {
+        addError(`${scope}/sections/${sectionFile}`, "Expected an object section shard");
+        continue;
+      }
+      if (section.id !== sectionId) {
+        addError(`${scope}/sections/${sectionFile}`, `section ID "${section.id}" must match file name`);
+      }
+      sections.push(section);
+    }
+
+    trailSystems.push({
+      ...manifest,
+      sections,
+      ...(Array.isArray(routeGroups) && routeGroups.length ? { routeGroups } : {}),
+      presets: Array.isArray(presets) ? presets : []
+    });
+  }
+
+  return trailSystems;
+}
+
 async function validateSourceData() {
   const hikesPath = path.join(projectRoot, "data", "hikes.json");
-  const trailSystemsPath = path.join(projectRoot, "data", "trail-systems.json");
   const hikes = (await readJson(hikesPath)) ?? [];
-  const trailSystems = (await readJson(trailSystemsPath)) ?? [];
+  const trailSystems = await readHikingSourceTrailSystems();
 
   if (!Array.isArray(hikes)) addError(displayPath(hikesPath), "Expected an array");
   else {
@@ -847,12 +919,9 @@ async function validateSourceData() {
     for (const hike of hikes) validateHike(hike, `data/hikes.json hike ${hike.id ?? "(missing id)"}`);
   }
 
-  if (!Array.isArray(trailSystems)) addError(displayPath(trailSystemsPath), "Expected an array");
-  else {
-    validateUnique("data/trail-systems.json", "trail-system IDs", trailSystems.map((system) => system.id));
-    for (const trailSystem of trailSystems) {
-      await validateTrailSystem(trailSystem, `data/trail-systems.json system ${trailSystem.id ?? "(missing id)"}`);
-    }
+  validateUnique("data/source/hiking", "trail-system IDs", trailSystems.map((system) => system.id));
+  for (const trailSystem of trailSystems) {
+    await validateTrailSystem(trailSystem, `data/source/hiking/${trailSystem.id ?? "(missing id)"}`);
   }
 }
 

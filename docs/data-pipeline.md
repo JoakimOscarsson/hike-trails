@@ -45,6 +45,7 @@ Still transitional:
 
 - Legacy compatibility files still exist: `public/data/hikes-index.json` and `public/data/trail-systems/<trail-system-id>.json`.
 - Runtime fallback to legacy hiking data remains only for the migration window; new runtime work should continue using `library-index.json` and shards.
+- Hiking trail-system source now lives in `data/source/hiking/**`; `data/trail-systems.json` is no longer a source input.
 - `npm run data:build` is still a local/manual gate for source data, generator, or public contract changes; `ci:check` validates current outputs but does not regenerate them.
 - `npm run ui:smoke` still rewrites `docs/test-reports/hike-ui-smoke-report-2026-04-28.md` locally; hosted CI uses `npm run ui:smoke:artifact` instead.
 - Candidate trail research and kayak research seed files remain import inputs only, not runtime dependencies.
@@ -82,7 +83,7 @@ The app prefers `library-index.json` and trail-system shards. It falls back to `
 Current app/generator inputs remain:
 
 - `data/hikes.json`
-- `data/trail-systems.json`
+- `data/source/hiking/**`
 - `data/source/kayaking/**`
 - `data/commute-stops-osm-cache.json`
 - `data/research-progress/sormlandsleden.json`
@@ -671,7 +672,7 @@ Done:
   - `public/routes/sormlandsleden-stage-6.geojson`
   - `public/routes/sormlandsleden-stage-9.geojson`
   - `public/routes/sormlandsleden-stage-10.geojson`
-- Swapped the matching `endpointCoordinates.start` / `endpointCoordinates.end` values in `data/trail-systems.json`.
+- Swapped the matching `endpointCoordinates.start` / `endpointCoordinates.end` values in the then-current hiking source aggregate.
 - Regenerated the public hiking index and trail-system compatibility/shard outputs so the source and runtime contracts stay aligned.
 - Updated the current documentation boundary so older endpoint-warning notes are marked as historical.
 

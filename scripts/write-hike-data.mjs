@@ -1,12 +1,12 @@
 import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { buildHikingOverviewGeoJSON } from "./lib/build-overview-geojson.mjs";
+import { readHikingSourceData } from "./lib/hiking-source-shards.mjs";
 import { normalizeSearchText } from "./lib/search-text.mjs";
 import { trailSystemShardIndexPaths, writeTrailSystemShards } from "./lib/write-trail-system-shards.mjs";
 
 const projectRoot = process.cwd();
 const sourcePath = path.join(projectRoot, "data", "hikes.json");
-const trailSystemsPath = path.join(projectRoot, "data", "trail-systems.json");
 const publicDataDir = path.join(projectRoot, "public", "data");
 const publicHikesDir = path.join(publicDataDir, "hikes");
 const publicTrailSystemsDir = path.join(publicDataDir, "trail-systems");
@@ -129,7 +129,7 @@ function toLibraryIndexItem(item) {
 }
 
 export async function writeHikeData(hikes, trailSystems) {
-  const systems = trailSystems ?? JSON.parse(await readFile(trailSystemsPath, "utf8").catch(() => "[]"));
+  const systems = trailSystems ?? (await readHikingSourceData({ projectRoot }));
   const systemIds = new Set(systems.map((system) => system.id));
   await mkdir(publicHikesDir, { recursive: true });
   await mkdir(publicTrailSystemsDir, { recursive: true });
@@ -179,7 +179,7 @@ export async function writeHikeData(hikes, trailSystems) {
 
 if (process.argv[1] && import.meta.url === new URL(process.argv[1], "file://").href) {
   const hikes = JSON.parse(await readFile(sourcePath, "utf8"));
-  const trailSystems = JSON.parse(await readFile(trailSystemsPath, "utf8").catch(() => "[]"));
+  const trailSystems = await readHikingSourceData({ projectRoot });
   await writeHikeData(hikes, trailSystems);
   console.log(
     `Wrote ${hikes.length} hike detail files, ${trailSystems.length} trail systems, trail-system shards, hiking overview, compatibility index, and library index`

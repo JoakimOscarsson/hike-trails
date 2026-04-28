@@ -2,13 +2,13 @@ import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { XMLParser } from "fast-xml-parser";
 import { resolveLocationFromStart } from "./location.mjs";
+import { readHikingSourceData, writeHikingSourceData } from "./lib/hiking-source-shards.mjs";
 import { writeHikeData } from "./write-hike-data.mjs";
 import { annotateTrailSystemFacilityProximity } from "./facility-proximity.mjs";
 import { annotateTrailSystemCommuteAccess } from "./commute-access.mjs";
 
 const projectRoot = process.cwd();
 const hikesPath = path.join(projectRoot, "data", "hikes.json");
-const trailSystemsPath = path.join(projectRoot, "data", "trail-systems.json");
 const routesDir = path.join(projectRoot, "public", "routes");
 
 const facilityCoordinates = {
@@ -1230,11 +1230,11 @@ const trailSystem = await annotateTrailSystemCommuteAccess(await annotateTrailSy
 
 const hikes = JSON.parse(await readFile(hikesPath, "utf8"));
 const nextHikes = hikes.filter((hike) => !isOldRoslagsledenStandalone(hike));
-const trailSystems = JSON.parse(await readFile(trailSystemsPath, "utf8").catch(() => "[]"));
+const trailSystems = await readHikingSourceData({ projectRoot });
 const nextTrailSystems = [trailSystem, ...trailSystems.filter((system) => system.id !== trailSystem.id)];
 
 await writeFile(hikesPath, `${JSON.stringify(nextHikes, null, 2)}\n`);
-await writeFile(trailSystemsPath, `${JSON.stringify(nextTrailSystems, null, 2)}\n`);
+await writeHikingSourceData(nextTrailSystems, { projectRoot });
 await writeHikeData(nextHikes, nextTrailSystems);
 
 console.log(`Wrote Roslagsleden as one trail system with ${trailSystem.sections.length} sections.`);

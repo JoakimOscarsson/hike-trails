@@ -5,7 +5,8 @@ This directory contains both current app inputs and research-only candidate inpu
 ## Current App/Generator Inputs
 
 - `hikes.json`: current standalone hike source data used by `scripts/write-hike-data.mjs`.
-- `trail-systems.json`: current hiking trail-system source aggregate used by the build/generator scripts.
+- `source/hiking/`: current sharded hiking trail-system source used by the build/generator scripts.
+- `source/kayaking/`: current sharded kayaking source used by the kayak import/generator scripts.
 - `commute-stops-osm-cache.json`: cached OSM transit-stop data used by `scripts/commute-access.mjs`.
 - `research-progress/sormlandsleden.json`: Sormlandsleden research progress/support data for already integrated trail work.
 
