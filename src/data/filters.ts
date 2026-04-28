@@ -10,6 +10,7 @@ import {
   hasTrailSystemRouteInDistanceWindow,
   hasTrailSystemRouteOver,
   trailDistanceFilterRanges,
+  trailTimeFilterRanges,
   type TrailDistanceFilter as DistanceFilter
 } from "./trailRouteSelection";
 import { isKayakTripIndexItem } from "../utils/libraryItem";
@@ -87,12 +88,8 @@ export const recommendedTimeLabels: Record<RecommendedTime, string> = {
   "6-plus-days": "6-10 days"
 };
 
-const hikingTimeWindows: Record<HikingTimeFilter, { minKm: number; maxKm?: number; legacyTime?: RecommendedTime }> = {
-  dayhike: { minKm: 0, maxKm: 20 },
-  weekend: { minKm: 20, maxKm: 50 },
-  "3-5-days": { minKm: 50, maxKm: 125 },
-  "6-10-days": { minKm: 125, maxKm: 250, legacyTime: "6-plus-days" },
-  "10-plus-days": { minKm: 250 }
+const legacyTimeFilters: Partial<Record<HikingTimeFilter, RecommendedTime>> = {
+  "6-10-days": "6-plus-days"
 };
 
 export const recommendedTimeFilters: Array<{
@@ -101,12 +98,12 @@ export const recommendedTimeFilters: Array<{
   matches: (item: LibraryIndexItem) => boolean;
 }> = [
   { id: "all", label: "Any", matches: () => true },
-  ...Object.entries(hikingTimeWindows).map(([id, window]) => ({
+  ...Object.entries(trailTimeFilterRanges).map(([id, window]) => ({
     id: id as HikingTimeFilter,
     label: recommendedTimeLabels[id as HikingTimeFilter],
     matches: (item: LibraryIndexItem) => {
       if (itemDistanceInWindow(item, window.minKm, window.maxKm)) return true;
-      const legacyTime = window.legacyTime;
+      const legacyTime = legacyTimeFilters[id as HikingTimeFilter];
       const recommendedTimes = item.recommendedTimes ?? [];
       return recommendedTimes.includes(id as RecommendedTime) || (legacyTime ? recommendedTimes.includes(legacyTime) : false);
     }

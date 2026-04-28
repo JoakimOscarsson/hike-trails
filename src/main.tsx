@@ -152,6 +152,7 @@ function App() {
             isStarred={starredItemIds.has(selectedDetail.id)}
             onToggleStar={toggleStar}
             distanceFilter={distanceFilter}
+            recommendedTimeFilter={recommendedTimeFilter}
             onBackToOverview={backToOverview}
           />
         ) : isKayakTrip(selectedDetail) ? (

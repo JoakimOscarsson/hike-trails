@@ -14,7 +14,8 @@ import {
   recommendedTimeForDistance,
   recommendedTimeLabels,
   routeGroupKindLabels,
-  type DistanceFilter
+  type DistanceFilter,
+  type RecommendedTimeFilter
 } from "../data/filters";
 import { DeferredMapMount } from "../map/DeferredMapMount";
 import { TrailSystemMap, type TrailMapFocusTarget } from "../map/TrailSystemMap";
@@ -432,12 +433,14 @@ export function TrailSystemDetails({
   isStarred,
   onToggleStar,
   distanceFilter,
+  recommendedTimeFilter,
   onBackToOverview
 }: {
   trailSystem: TrailSystem;
   isStarred: boolean;
   onToggleStar: (id: string) => void;
   distanceFilter: DistanceFilter;
+  recommendedTimeFilter: RecommendedTimeFilter;
   onBackToOverview: () => void;
 }) {
   const [viewMode, setViewMode] = React.useState<"builder" | "info">("builder");
@@ -445,7 +448,8 @@ export function TrailSystemDetails({
   const mainRouteGroups = primaryRouteGroups(trailSystem);
   const contextualRouteGroups = routeGroups.filter((group) => group.kind !== "mainline");
   const sectionLookup = React.useMemo(() => sectionLookupForTrailSystem(trailSystem), [trailSystem]);
-  const initialRouteMatch = matchingRouteGroupRange(trailSystem, distanceFilter);
+  const routeSeedFilter = distanceFilter !== "all" ? distanceFilter : recommendedTimeFilter;
+  const initialRouteMatch = matchingRouteGroupRange(trailSystem, routeSeedFilter);
   const initialRouteGroup = mainRouteGroups.find((group) => group.id === initialRouteMatch?.routeGroupId) ?? mainRouteGroups[0];
   const initialRouteSections = sectionsForIds(initialRouteGroup.sectionIds, sectionLookup);
   const [routeGroupId, setRouteGroupId] = React.useState(initialRouteGroup.id);
@@ -541,14 +545,14 @@ export function TrailSystemDetails({
   }, [availableContextGroups]);
 
   React.useEffect(() => {
-    const nextRange = matchingRouteGroupRange(trailSystem, distanceFilter);
+    const nextRange = matchingRouteGroupRange(trailSystem, routeSeedFilter);
     if (!nextRange) return;
     setRouteGroupId(nextRange.routeGroupId);
     setStartSectionId(nextRange.startSectionId);
     setEndSectionId(nextRange.endSectionId);
     setSelectedContextGroupIds(new Set());
     setViewMode("builder");
-  }, [distanceFilter, trailSystem]);
+  }, [routeSeedFilter, trailSystem]);
 
   function applyPreset(start: string, end: string) {
     const presetGroup = mainRouteGroups.find((group) => group.sectionIds.includes(start) && group.sectionIds.includes(end));

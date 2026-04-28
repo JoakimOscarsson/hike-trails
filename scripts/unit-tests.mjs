@@ -178,6 +178,40 @@ try {
     });
   });
 
+  test("uses hiking time windows for trail-system route ranges", () => {
+    const trailSystem = {
+      id: "trail-system",
+      sections: [
+        { id: "a", distanceKm: 8 },
+        { id: "b", distanceKm: 7 },
+        { id: "c", distanceKm: 13 },
+        { id: "d", distanceKm: 10 },
+        { id: "e", distanceKm: 12 },
+        { id: "f", distanceKm: 65 }
+      ],
+      routeGroups: [
+        { id: "main", name: "Main", kind: "mainline", sectionIds: ["a", "b", "c", "d", "e", "f"], connectsToSectionIds: [] }
+      ],
+      presets: [
+        { id: "stockholm-start-day", name: "Stockholm start day", startSectionId: "a", endSectionId: "b" },
+        { id: "curated-weekend", name: "Curated weekend", startSectionId: "c", endSectionId: "e" }
+      ]
+    };
+
+    assert.deepEqual(routeSelection.matchingRouteGroupRange(trailSystem, "weekend"), {
+      routeGroupId: "main",
+      startSectionId: "c",
+      endSectionId: "e",
+      distanceKm: 35
+    });
+    assert.deepEqual(routeSelection.matchingRouteGroupRange(trailSystem, "3-5-days"), {
+      routeGroupId: "main",
+      startSectionId: "f",
+      endSectionId: "f",
+      distanceKm: 65
+    });
+  });
+
   test("matches trail-system distance filters against route-group distance windows", () => {
     const trailSystemItem = {
       id: "trail-system",

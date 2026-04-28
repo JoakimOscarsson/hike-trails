@@ -1,6 +1,8 @@
-import type { LibraryIndexItem, TrailRouteGroup, TrailSection, TrailSystem } from "../types";
+import type { LibraryIndexItem, RecommendedTime, TrailRouteGroup, TrailSection, TrailSystem } from "../types";
 
 export type TrailDistanceFilter = "all" | "short" | "half-day" | "full-day" | "long" | "very-long";
+export type TrailTimeFilter = Exclude<RecommendedTime, "6-plus-days">;
+export type TrailRouteFilter = TrailDistanceFilter | TrailTimeFilter;
 export type TrailDistanceRange = { minKm: number; maxKm?: number };
 export type TrailSectionRange = { startSectionId: string; endSectionId: string; distanceKm: number };
 export type TrailRouteGroupRange = TrailSectionRange & { routeGroupId: string };
@@ -11,6 +13,19 @@ export const trailDistanceFilterRanges: Partial<Record<TrailDistanceFilter, Trai
   "full-day": { minKm: 10, maxKm: 20 },
   long: { minKm: 20, maxKm: 40 },
   "very-long": { minKm: 40 }
+};
+
+export const trailTimeFilterRanges: Record<TrailTimeFilter, TrailDistanceRange> = {
+  dayhike: { minKm: 0, maxKm: 20 },
+  weekend: { minKm: 20, maxKm: 50 },
+  "3-5-days": { minKm: 50, maxKm: 125 },
+  "6-10-days": { minKm: 125, maxKm: 250 },
+  "10-plus-days": { minKm: 250 }
+};
+
+export const trailRouteFilterRanges: Partial<Record<TrailRouteFilter, TrailDistanceRange>> = {
+  ...trailDistanceFilterRanges,
+  ...trailTimeFilterRanges
 };
 
 function distanceMatchesRange(distanceKm: number, range: TrailDistanceRange) {
@@ -47,8 +62,8 @@ export function hasTrailSystemRouteOver(item: LibraryIndexItem, minKm: number) {
   return hasTrailSystemRouteInDistanceWindow(item, minKm);
 }
 
-export function matchingSectionRange(sections: TrailSection[], distanceFilter: TrailDistanceFilter) {
-  const range = trailDistanceFilterRanges[distanceFilter];
+export function matchingSectionRange(sections: TrailSection[], routeFilter: TrailRouteFilter) {
+  const range = trailRouteFilterRanges[routeFilter];
   if (!range) return null;
 
   let best: TrailSectionRange | null = null;
@@ -134,8 +149,8 @@ function routeGroupRangeBetweenSections(
   };
 }
 
-export function matchingPresetRouteGroupRange(trailSystem: TrailSystem, distanceFilter: TrailDistanceFilter) {
-  const range = trailDistanceFilterRanges[distanceFilter];
+export function matchingPresetRouteGroupRange(trailSystem: TrailSystem, routeFilter: TrailRouteFilter) {
+  const range = trailRouteFilterRanges[routeFilter];
   if (!range) return null;
 
   for (const preset of trailSystem.presets ?? []) {
@@ -148,8 +163,8 @@ export function matchingPresetRouteGroupRange(trailSystem: TrailSystem, distance
   return null;
 }
 
-export function matchingRouteGroupRange(trailSystem: TrailSystem, distanceFilter: TrailDistanceFilter) {
-  const presetRange = matchingPresetRouteGroupRange(trailSystem, distanceFilter);
+export function matchingRouteGroupRange(trailSystem: TrailSystem, routeFilter: TrailRouteFilter) {
+  const presetRange = matchingPresetRouteGroupRange(trailSystem, routeFilter);
   if (presetRange) return presetRange;
 
   const groups = primaryRouteGroups(trailSystem);
@@ -157,7 +172,7 @@ export function matchingRouteGroupRange(trailSystem: TrailSystem, distanceFilter
 
   for (const group of groups) {
     const { sections } = sectionsForRouteGroup(trailSystem, group.id);
-    const range = matchingSectionRange(sections, distanceFilter);
+    const range = matchingSectionRange(sections, routeFilter);
     if (range && (!best || range.distanceKm < best.distanceKm)) {
       best = { routeGroupId: group.id, ...range };
     }
