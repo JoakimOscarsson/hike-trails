@@ -829,6 +829,54 @@ async function assertInfoPrintPolish(client) {
   }
 }
 
+async function assertOverviewRouteColorVariety(client, { scope, minimumUniqueColors }) {
+  await waitFor(
+    () =>
+      evaluate(
+        client,
+        `document.querySelector(".overview-route-map svg") && document.querySelectorAll(".overview-route-map .leaflet-interactive").length > 0`
+      ),
+    { timeoutMs: 8_000, label: `${scope} mounted route layers` }
+  );
+
+  const stats = await evaluate(
+    client,
+    `(() => {
+      const numberOr = (value, fallback) => {
+        const parsed = Number(value);
+        return Number.isFinite(parsed) ? parsed : fallback;
+      };
+      const normalizeColor = (value) => value.trim().toLowerCase().replace(/\\s+/g, "");
+      const elements = [
+        ...document.querySelectorAll(".overview-route-map path.leaflet-interactive, .overview-route-map circle.leaflet-interactive")
+      ];
+      const visibleRouteLayers = elements.filter((element) => {
+        const styles = getComputedStyle(element);
+        const stroke = normalizeColor(element.getAttribute("stroke") || styles.stroke || "");
+        const opacity = numberOr(element.getAttribute("opacity") || styles.opacity, 1);
+        const strokeOpacity = numberOr(element.getAttribute("stroke-opacity") || styles.getPropertyValue("stroke-opacity"), 1);
+        return stroke && stroke !== "none" && stroke !== "#000000" && stroke !== "rgb(0,0,0)" && opacity > 0.1 && strokeOpacity > 0.1;
+      });
+      const colors = visibleRouteLayers.map((element) =>
+        normalizeColor(element.getAttribute("stroke") || getComputedStyle(element).stroke || "")
+      );
+      return {
+        routeLayerCount: visibleRouteLayers.length,
+        uniqueColors: [...new Set(colors)]
+      };
+    })()`
+  );
+
+  if ((stats?.uniqueColors?.length ?? 0) < minimumUniqueColors) {
+    addError(
+      scope,
+      `Expected at least ${minimumUniqueColors} visible overview route colors, got ${stats?.uniqueColors?.length ?? 0} across ${
+        stats?.routeLayerCount ?? 0
+      } visible route layers.`
+    );
+  }
+}
+
 async function exerciseApp(client, origin, expectations) {
   await client.send("Network.enable");
   await client.send("Runtime.enable");
@@ -839,6 +887,7 @@ async function exerciseApp(client, origin, expectations) {
   await waitForText(client, "Hiking Routes");
   await waitForRequest("/data/library-index.json");
   await waitForRequest("/data/overviews/hiking.geojson");
+  await assertOverviewRouteColorVariety(client, { scope: "hiking overview colors", minimumUniqueColors: 2 });
 
   await clickButton(client, "Roslagsleden");
   await waitForRequest("/data/trail-systems/roslagsleden/manifest.json");
@@ -876,6 +925,10 @@ async function exerciseApp(client, origin, expectations) {
   await clickButton(client, "Kayaking");
   await waitForText(client, "Kayak Trips");
   await waitForRequest("/data/overviews/kayaking.geojson");
+  await assertOverviewRouteColorVariety(client, {
+    scope: "kayaking overview colors",
+    minimumUniqueColors: Math.min(expectations.total, 24)
+  });
   await waitForRequest("/data/kayak-facilities.json");
   await exerciseKayakFilters(client, expectations);
 
@@ -941,6 +994,7 @@ async function main() {
   console.log(`- local runtime requests observed: ${new Set(requestPaths()).size} unique paths, ${appRequests.length} total requests`);
   console.log("- trail-system selections used shard JSON and did not request legacy all-in-one trail-system JSON");
   console.log("- kayak overview, facilities, detail, and route corridor loaded from public runtime paths");
+  console.log("- overview maps expose a broad visible route-color scale");
   console.log("- kayak water/exposure/confidence filters update from compact index metadata without detail/route fetches");
   console.log("- trail-system maps stayed within the selected/context route request budget");
   console.log("- route builder accessibility and print overflow checks passed");

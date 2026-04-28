@@ -8,7 +8,7 @@ This document tracks the data-contract refactor in small implementation slices. 
 
 Runtime data is now in a transitional hiking-plus-kayak public contract. The visible app loads hiking and kayaking records from the shared index. Kayaking has a typed overview/detail branch, compact kayak-specific filters, water/exposure/research-confidence filtering, linked facility rendering on kayak detail maps, and a live browser runtime-path/interaction/accessibility/print probe; richer overview facility layers and caveat-severity workflows remain future work.
 
-As of Slice 22, overview maps still initialize immediately because they are primary navigation surfaces. Non-overview route/detail maps defer on small screens until their reserved map area is near the viewport, reducing below-fold route-geometry and tile work without changing the desktop behavior or public data contract. As of Slice 23, trail-system detail maps render selected/context route geometry only; the hiking overview map remains the full-network orientation surface. As of Slices 24-28, map extraction has moved `DeferredMapMount`, standalone hike `RouteMap`, kayak `KayakTripMap`, and `TrailSystemMap` into `src/map/**`; route-builder orchestration and top-level library load/filter state still live in `src/main.tsx`. As of Slice 31, trail-system route loading/drawing helpers live in `src/map/trailSystemRouteLayers.ts`; as of Slice 32, hiking facility marker rendering lives in `src/map/hikingFacilityMarkers.tsx`; as of Slice 33, hiking commute marker rendering lives in `src/map/hikingCommuteMarkers.tsx`; as of Slice 34, selected-route-first bounds fitting lives in `src/map/fitMapBounds.ts`; as of Slice 40, hiking detail maps and facility lists hide facilities marked off-route by the existing proximity metadata, and same-coordinate hiking facilities render as expandable map clusters. As of Slice 41, sidebar/detail view shells and filter contracts live outside `src/main.tsx`.
+As of Slice 22, overview maps still initialize immediately because they are primary navigation surfaces. Non-overview route/detail maps defer on small screens until their reserved map area is near the viewport, reducing below-fold route-geometry and tile work without changing the desktop behavior or public data contract. As of Slice 23, trail-system detail maps render selected/context route geometry only; the hiking overview map remains the full-network orientation surface. As of Slices 24-28, map extraction has moved `DeferredMapMount`, standalone hike `RouteMap`, kayak `KayakTripMap`, and `TrailSystemMap` into `src/map/**`; route-builder orchestration and top-level library load/filter state still live in `src/main.tsx`. As of Slice 31, trail-system route loading/drawing helpers live in `src/map/trailSystemRouteLayers.ts`; as of Slice 32, hiking facility marker rendering lives in `src/map/hikingFacilityMarkers.tsx`; as of Slice 33, hiking commute marker rendering lives in `src/map/hikingCommuteMarkers.tsx`; as of Slice 34, selected-route-first bounds fitting lives in `src/map/fitMapBounds.ts`; as of Slice 40, hiking detail maps and facility lists hide facilities marked off-route by the existing proximity metadata, and same-coordinate hiking facilities render as expandable map clusters. As of Slice 41, sidebar/detail view shells and filter contracts live outside `src/main.tsx`. As of Slice 42, overview routes use a generated deterministic color scale instead of a six-color palette.
 
 Kayak `hasFollowup` is intentionally an internal audit/detail signal as of Slice 19. It stays in the compact public contract for validation and future editorial workflows, but it is not exposed as a sidebar filter because every current kayak route has follow-up/research notes and a visible filter would not narrow the list.
 
@@ -35,7 +35,7 @@ Completed and stable enough to build on:
 - Hiking and kayaking overview/detail runtime paths, kayak source import, kayak detail facility rendering, and compact kayak filters.
 - Mobile below-fold map deferral for non-overview maps.
 - Trail-system selected/context route loading; detail maps no longer fetch every background route.
-- Browser runtime probe and UI smoke report covering runtime paths, selected/context request budgets, filter behavior, accessibility, print polish, and mobile deferral, with CI artifact upload for the smoke report.
+- Browser runtime probe and UI smoke report covering runtime paths, selected/context request budgets, overview color variety, filter behavior, accessibility, print polish, and mobile deferral, with CI artifact upload for the smoke report.
 - Map component/helper extraction through Slice 34: standalone hike map, kayak trip map, trail-system map, route layers, hiking facility markers, hiking commute markers, and selected-route-first bounds fitting.
 - Sidebar/detail view extraction through Slice 41: `LibrarySidebar`, `TrailSystemDetails`, `HikeDetails`, `KayakTripDetails`, shared detail blocks, load-state type, and activity/filter helpers now live in focused modules.
 - Trail-system selected section-detail loading is isolated in `src/data/useTrailSectionDetails.ts`.
@@ -54,7 +54,7 @@ Still transitional:
 Recommended next safe milestones:
 
 1. Reassess whether `src/map/TrailSystemMap.tsx` is small enough to pause map extraction.
-2. Continue route-builder/data-loading cleanup only in small behavior-preserving slices with browser probes after each change; the next cleanup candidate is extracting library loading and filter orchestration from `src/main.tsx`.
+2. Continue route-builder/data-loading cleanup only in small behavior-preserving slices with browser probes after each change; the next app-shell cleanup candidate is extracting library loading and filter orchestration from `src/main.tsx`.
 3. Decide when legacy compatibility hiking JSON can stop being generated, after hosting/deploy needs are clear.
 4. Add deploy/cache-header validation only after the static hosting target is known.
 5. Decide whether the UI smoke artifact should later include screenshots or be split into a separate optional workflow if runtime becomes too slow.
@@ -1456,6 +1456,35 @@ Recommended next work:
 
 1. Extract library loading, activity filter state, and derived visible-item computation from `src/main.tsx` into focused hooks if continuing app-shell cleanup.
 2. Keep route-builder extraction as a separate later slice after the loading/filter hook boundary is stable.
+3. Add deploy/cache-header validation only after the static hosting target is known.
+
+## Slice 42: Overview Color Scale
+
+Status: implemented in the `codex/data-validation-foundation` worktree after Slice 41.
+
+Done:
+
+- Replaced the six-color overview route palette with `src/map/overviewColors.ts`, a deterministic generated route color scale.
+- Kept colors stable by overview feature ID while avoiding exact repeats across the currently rendered overview feature set.
+- Added light-map contrast checks and distance spacing before a color is accepted for a feature.
+- Updated `OverviewMap` to build one color map from the full overview feature collection so filters do not reshuffle route colors.
+- Extended `npm run runtime:browser-probe` to assert that hiking and kayaking overview maps expose a broad set of visible route colors.
+
+Not done:
+
+- No public data, source data, route geometry, or generated overview GeoJSON changed in this slice.
+- No legend was added; the current overview interaction still relies on hover highlighting and tooltips.
+- No map-tile-aware contrast sampling was added. The check uses a light neutral map background assumption, which matches the current OSM-style map context closely enough for this UI guardrail.
+
+Known warnings and follow-up:
+
+- The color scale can still become visually busy if hundreds of routes are visible at once. At that point, add clustering, category layers, or a hover/search-first interaction instead of trying to solve everything with color alone.
+- Exact color uniqueness is guarded for the current data size by the browser probe; future very large datasets may intentionally accept some close colors after the spacing threshold degrades.
+
+Recommended next work:
+
+1. Replace first-import kayak validation magic counts with manifest-derived completeness checks.
+2. Keep library loading/filter orchestration extraction as a later app-shell cleanup candidate.
 3. Add deploy/cache-header validation only after the static hosting target is known.
 
 ## Verification Checklist

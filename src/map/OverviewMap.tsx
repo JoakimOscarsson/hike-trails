@@ -1,38 +1,34 @@
 import React from "react";
 import L from "leaflet";
 import type { LibraryIndexItem, LibraryOverviewFeature, LibraryOverviewFeatureCollection } from "../types";
+import { buildOverviewColorMap, fallbackOverviewColor } from "./overviewColors";
 import { useLeafletMap } from "./useLeafletMap";
 
-const routeColors = ["#d85b36", "#2f6f8f", "#46623b", "#6d5b9b", "#b9802f", "#5f6d7a"];
-
-function hashString(value: string) {
-  let hash = 0;
-  for (let index = 0; index < value.length; index += 1) {
-    hash = (hash << 5) - hash + value.charCodeAt(index);
-    hash |= 0;
-  }
-  return Math.abs(hash);
+function routeColor(id: string, colorById: Map<string, string>) {
+  return colorById.get(id) ?? fallbackOverviewColor(id);
 }
 
-function routeColor(id: string) {
-  return routeColors[hashString(id) % routeColors.length];
-}
-
-function overviewStyle(id: string, hoveredItemId: string | null, hoverId = id): L.PathOptions {
+function overviewStyle(id: string, hoveredItemId: string | null, colorById: Map<string, string>, hoverId = id): L.PathOptions {
   const hasHover = Boolean(hoveredItemId);
   const isHovered = hoveredItemId === hoverId;
+  const color = routeColor(id, colorById);
   return {
-    color: hasHover && !isHovered ? "#8f978c" : routeColor(id),
-    fillColor: hasHover && !isHovered ? "#8f978c" : routeColor(id),
+    color: hasHover && !isHovered ? "#8f978c" : color,
+    fillColor: hasHover && !isHovered ? "#8f978c" : color,
     fillOpacity: isHovered ? 0.82 : 0.52,
     opacity: hasHover && !isHovered ? 0.24 : 0.88,
     weight: isHovered ? 7 : 4
   };
 }
 
-function overviewPointStyle(id: string, hoveredItemId: string | null, hoverId = id): L.CircleMarkerOptions {
+function overviewPointStyle(
+  id: string,
+  hoveredItemId: string | null,
+  colorById: Map<string, string>,
+  hoverId = id
+): L.CircleMarkerOptions {
   return {
-    ...overviewStyle(id, hoveredItemId, hoverId),
+    ...overviewStyle(id, hoveredItemId, colorById, hoverId),
     radius: hoveredItemId === hoverId ? 7 : 5
   };
 }
@@ -76,6 +72,10 @@ export function OverviewMap({
   const layersRef = React.useRef<Map<string, L.GeoJSON>>(new Map());
   const hoverIdsRef = React.useRef<Map<string, string>>(new Map());
   const itemMap = React.useMemo(() => new Map(items.map((item) => [item.overviewFeatureId ?? item.id, item])), [items]);
+  const colorById = React.useMemo(
+    () => buildOverviewColorMap(overview.features.map((feature) => feature.properties?.id).filter((id): id is string => Boolean(id))),
+    [overview]
+  );
 
   React.useEffect(() => {
     const map = mapRef.current;
@@ -110,8 +110,8 @@ export function OverviewMap({
       };
 
       const layer = L.geoJSON(feature, {
-        style: () => overviewStyle(id, null, hoverId),
-        pointToLayer: (_feature, latlng) => L.circleMarker(latlng, overviewPointStyle(id, null, hoverId)),
+        style: () => overviewStyle(id, null, colorById, hoverId),
+        pointToLayer: (_feature, latlng) => L.circleMarker(latlng, overviewPointStyle(id, null, colorById, hoverId)),
         onEachFeature: (_feature, featureLayer) => attachFeatureInteractions(featureLayer)
       }).addTo(layerGroup);
       L.geoJSON(feature, {
@@ -135,18 +135,18 @@ export function OverviewMap({
       hoverIdsRef.current.clear();
       layerGroup.remove();
     };
-  }, [itemMap, mapRef, onHoverItemId, onSelect, overview]);
+  }, [colorById, itemMap, mapRef, onHoverItemId, onSelect, overview]);
 
   React.useEffect(() => {
     for (const [id, layer] of layersRef.current) {
       const hoverId = hoverIdsRef.current.get(id) ?? id;
-      layer.setStyle(overviewStyle(id, hoveredItemId, hoverId));
+      layer.setStyle(overviewStyle(id, hoveredItemId, colorById, hoverId));
       layer.eachLayer((childLayer) => {
         if (childLayer instanceof L.CircleMarker) childLayer.setRadius(hoveredItemId === hoverId ? 7 : 5);
       });
       if (hoveredItemId === hoverId) layer.bringToFront();
     }
-  }, [hoveredItemId]);
+  }, [colorById, hoveredItemId]);
 
   return <div ref={containerRef} className="route-map overview-route-map" />;
 }
