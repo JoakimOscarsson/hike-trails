@@ -151,6 +151,33 @@ try {
     ]);
   });
 
+  test("prefers curated trail-system presets when they match distance filters", () => {
+    const trailSystem = {
+      id: "trail-system",
+      sections: [
+        { id: "a", distanceKm: 8 },
+        { id: "b", distanceKm: 7 },
+        { id: "c", distanceKm: 13 },
+        { id: "d", distanceKm: 10 },
+        { id: "e", distanceKm: 12 }
+      ],
+      routeGroups: [
+        { id: "main", name: "Main", kind: "mainline", sectionIds: ["a", "b", "c", "d", "e"], connectsToSectionIds: [] }
+      ],
+      presets: [
+        { id: "shorter-preset", name: "Shorter preset", startSectionId: "a", endSectionId: "b" },
+        { id: "curated-weekend", name: "Curated weekend", startSectionId: "a", endSectionId: "d" }
+      ]
+    };
+
+    assert.deepEqual(routeSelection.matchingRouteGroupRange(trailSystem, "long"), {
+      routeGroupId: "main",
+      startSectionId: "a",
+      endSectionId: "d",
+      distanceKm: 38
+    });
+  });
+
   test("matches trail-system distance filters against route-group distance windows", () => {
     const trailSystemItem = {
       id: "trail-system",

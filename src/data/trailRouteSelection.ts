@@ -13,6 +13,10 @@ export const trailDistanceFilterRanges: Partial<Record<TrailDistanceFilter, Trai
   "very-long": { minKm: 40 }
 };
 
+function distanceMatchesRange(distanceKm: number, range: TrailDistanceRange) {
+  return distanceKm > range.minKm && (typeof range.maxKm !== "number" || distanceKm <= range.maxKm);
+}
+
 function routeDistanceGroupsForIndexItem(item: LibraryIndexItem) {
   return item.itemType === "trail-system"
     ? item.routeGroupDistances?.length
@@ -53,11 +57,7 @@ export function matchingSectionRange(sections: TrailSection[], distanceFilter: T
     let total = 0;
     for (let end = start; end < sections.length; end += 1) {
       total += sections[end].distanceKm;
-      if (
-        total > range.minKm &&
-        (typeof range.maxKm !== "number" || total <= range.maxKm) &&
-        (!best || total < best.distanceKm)
-      ) {
+      if (distanceMatchesRange(total, range) && (!best || total < best.distanceKm)) {
         best = {
           startSectionId: sections[start].id,
           endSectionId: sections[end].id,
@@ -115,7 +115,43 @@ export function primaryRouteGroups(trailSystem: TrailSystem) {
   return mainlineGroups.length ? mainlineGroups : groups;
 }
 
+function routeGroupRangeBetweenSections(
+  trailSystem: TrailSystem,
+  routeGroupId: string,
+  startSectionId: string,
+  endSectionId: string
+) {
+  const { sections } = sectionsForRouteGroup(trailSystem, routeGroupId);
+  const startIndex = sections.findIndex((section) => section.id === startSectionId);
+  const endIndex = sections.findIndex((section) => section.id === endSectionId);
+  if (startIndex < 0 || endIndex < startIndex) return null;
+  const rangeSections = sections.slice(startIndex, endIndex + 1);
+  return {
+    routeGroupId,
+    startSectionId,
+    endSectionId,
+    distanceKm: rangeSections.reduce((sum, section) => sum + section.distanceKm, 0)
+  };
+}
+
+export function matchingPresetRouteGroupRange(trailSystem: TrailSystem, distanceFilter: TrailDistanceFilter) {
+  const range = trailDistanceFilterRanges[distanceFilter];
+  if (!range) return null;
+
+  for (const preset of trailSystem.presets ?? []) {
+    for (const group of primaryRouteGroups(trailSystem)) {
+      const routeRange = routeGroupRangeBetweenSections(trailSystem, group.id, preset.startSectionId, preset.endSectionId);
+      if (routeRange && distanceMatchesRange(routeRange.distanceKm, range)) return routeRange;
+    }
+  }
+
+  return null;
+}
+
 export function matchingRouteGroupRange(trailSystem: TrailSystem, distanceFilter: TrailDistanceFilter) {
+  const presetRange = matchingPresetRouteGroupRange(trailSystem, distanceFilter);
+  if (presetRange) return presetRange;
+
   const groups = primaryRouteGroups(trailSystem);
   let best: TrailRouteGroupRange | null = null;
 
