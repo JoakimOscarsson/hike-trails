@@ -1098,11 +1098,50 @@ async function readKayakSourceShards(kind) {
   return records;
 }
 
+function kayakSourceShardPath(kind, id) {
+  return `data/source/kayaking/${kind}/${id}.json`;
+}
+
+function validateKayakManifestShardList(sourceShards, kind, records) {
+  const manifestScope = `data/source/kayaking/source-manifest.json sourceShards.${kind}`;
+  const manifestRecords = sourceShards?.[kind];
+  if (!Array.isArray(manifestRecords)) {
+    addError(manifestScope, "must be an array of source shard entries");
+    return;
+  }
+
+  validateUnique(manifestScope, "manifest source shard IDs", manifestRecords.map((entry) => entry?.id));
+  const manifestIds = new Set();
+  for (const [index, entry] of manifestRecords.entries()) {
+    const entryScope = `${manifestScope}[${index}]`;
+    if (!isObject(entry)) {
+      addError(entryScope, "manifest source shard entry must be an object");
+      continue;
+    }
+    if (typeof entry.id !== "string" || !entry.id.trim()) {
+      addError(entryScope, "id is required");
+      continue;
+    }
+    manifestIds.add(entry.id);
+    const expectedPath = kayakSourceShardPath(kind, entry.id);
+    if (entry.path !== expectedPath) addError(entryScope, `path must be "${expectedPath}"`);
+  }
+
+  const recordIds = new Set(records.map((record) => record?.id).filter((id) => typeof id === "string"));
+  for (const recordId of recordIds) {
+    if (!manifestIds.has(recordId)) addError(manifestScope, `missing manifest entry for source shard "${recordId}"`);
+  }
+  for (const manifestId of manifestIds) {
+    if (!recordIds.has(manifestId)) addError(manifestScope, `manifest entry "${manifestId}" does not have a source shard file`);
+  }
+}
+
 async function validateKayakSourceShards(tripIds) {
   const sourceRoot = path.join(projectRoot, "data", "source", "kayaking");
   const sourceScope = "data/source/kayaking";
   const metadataPath = path.join(sourceRoot, "metadata.json");
   const manifestPath = path.join(sourceRoot, "source-manifest.json");
+  let sourceShards = null;
   if (!(await pathExists(metadataPath))) addError(`${sourceScope}/metadata.json`, "metadata.json is required");
   else {
     const metadata = await readJson(metadataPath, `${sourceScope}/metadata.json`);
@@ -1114,7 +1153,7 @@ async function validateKayakSourceShards(tripIds) {
   if (!(await pathExists(manifestPath))) addError(`${sourceScope}/source-manifest.json`, "source-manifest.json is required");
   else {
     const manifest = await readJson(manifestPath, `${sourceScope}/source-manifest.json`);
-    const sourceShards = manifest?.sourceShards;
+    sourceShards = manifest?.sourceShards;
     if (!isObject(sourceShards)) addError(`${sourceScope}/source-manifest.json`, "sourceShards metadata is required");
     for (const field of ["metadataPath", "routesPath", "facilitiesPath", "parkingPath"]) {
       const value = sourceShards?.[field];
@@ -1131,6 +1170,10 @@ async function validateKayakSourceShards(tripIds) {
   ]);
   const routeIds = new Set(routes.map((route) => route?.id).filter((id) => typeof id === "string"));
   const facilityIds = new Set(facilities.map((facility) => facility?.id).filter((id) => typeof id === "string"));
+  const parkingIds = new Set(parking.map((parkingRecord) => parkingRecord?.id).filter((id) => typeof id === "string"));
+  validateKayakManifestShardList(sourceShards, "routes", routes);
+  validateKayakManifestShardList(sourceShards, "facilities", facilities);
+  validateKayakManifestShardList(sourceShards, "parking", parking);
   for (const parkingRecord of parking) {
     if (facilityIds.has(parkingRecord?.id)) {
       addError(
@@ -1147,8 +1190,12 @@ async function validateKayakSourceShards(tripIds) {
       if (!tripIds.has(routeId)) addError("data/source/kayaking/routes", `route source shard "${routeId}" has no generated kayak trip`);
     }
   }
-  if (facilities.length < 39) addError("data/source/kayaking/facilities", "Expected at least 39 non-parking facility source shards");
-  if (parking.length < 22) addError("data/source/kayaking/parking", "Expected at least 22 parking source shards");
+  return {
+    routeIds,
+    facilityIds,
+    parkingIds,
+    expectedRuntimeFacilityIds: new Set([...facilityIds, ...parkingIds])
+  };
 }
 
 async function validateKayakTrip(trip, scope, { facilityIds = null } = {}) {
@@ -1251,13 +1298,12 @@ async function validateKayakRuntimeData() {
 
   const facilities = hasFacilities ? await readJson(kayakFacilitiesPath, "public/data/kayak-facilities.json") : [];
   const facilityIds = new Set();
+  const facilitiesById = new Map();
   if (Array.isArray(facilities)) {
     validateUnique("public/data/kayak-facilities.json", "kayak facility IDs", facilities.map((facility) => facility.id));
-    if (facilities.length < 61) addError("public/data/kayak-facilities.json", "Expected at least 61 kayak facility records from the initial import");
-    const parkingCount = facilities.filter((facility) => facility.type === "parking" || (facility.categories ?? []).includes("parking")).length;
-    if (parkingCount < 22) addError("public/data/kayak-facilities.json", "Expected at least 22 parking-category kayak facility records");
     for (const facility of facilities) {
       facilityIds.add(facility.id);
+      facilitiesById.set(facility.id, facility);
       if (facility.activity !== "kayaking") addError(`kayak facility ${facility.id}`, 'activity must be "kayaking"');
       validateEnum(`kayak facility ${facility.id}`, "type", facility.type, allowedKayakFacilityTypes);
       if (typeof facility.description !== "string") addError(`kayak facility ${facility.id}`, "description must be a string");
@@ -1271,8 +1317,7 @@ async function validateKayakRuntimeData() {
   }
 
   if (!hasTripsDir) return;
-  const tripFiles = (await readdir(kayakTripsDir)).filter((file) => file.endsWith(".json"));
-  if (tripFiles.length < 34) addError("public/data/kayak-trips", "Expected at least 34 kayak trip detail files from the initial import");
+  const tripFiles = (await readdir(kayakTripsDir)).filter((file) => file.endsWith(".json")).sort((a, b) => a.localeCompare(b));
   const tripIds = new Set();
   const trips = [];
   for (const file of tripFiles) {
@@ -1280,6 +1325,39 @@ async function validateKayakRuntimeData() {
     const trip = await readJson(tripPath);
     tripIds.add(trip?.id);
     trips.push({ trip, file });
+  }
+  validateUnique("public/data/kayak-trips", "kayak trip IDs", trips.map(({ trip }) => trip?.id));
+  const kayakSource = await validateKayakSourceShards(tripIds);
+  if (kayakSource.routeIds.size && tripFiles.length !== kayakSource.routeIds.size) {
+    addError(
+      "public/data/kayak-trips",
+      `Expected ${kayakSource.routeIds.size} kayak trip detail files from source route shards, found ${tripFiles.length}`
+    );
+  }
+  if (Array.isArray(facilities) && kayakSource.expectedRuntimeFacilityIds.size) {
+    if (facilities.length !== kayakSource.expectedRuntimeFacilityIds.size) {
+      addError(
+        "public/data/kayak-facilities.json",
+        `Expected ${kayakSource.expectedRuntimeFacilityIds.size} facility records from source facility/parking shards, found ${facilities.length}`
+      );
+    }
+    for (const expectedFacilityId of kayakSource.expectedRuntimeFacilityIds) {
+      if (!facilityIds.has(expectedFacilityId)) {
+        addError("public/data/kayak-facilities.json", `missing facility record generated from source shard "${expectedFacilityId}"`);
+      }
+    }
+    for (const facilityId of facilityIds) {
+      if (!kayakSource.expectedRuntimeFacilityIds.has(facilityId)) {
+        addError("public/data/kayak-facilities.json", `facility record "${facilityId}" has no source facility or parking shard`);
+      }
+    }
+    for (const parkingId of kayakSource.parkingIds) {
+      const facility = facilitiesById.get(parkingId);
+      const isParking = facility?.type === "parking" || (facility?.categories ?? []).includes("parking");
+      if (!isParking) {
+        addError("public/data/kayak-facilities.json", `source parking shard "${parkingId}" is not marked as parking in runtime facilities`);
+      }
+    }
   }
 
   if (Array.isArray(facilities)) {
@@ -1294,7 +1372,6 @@ async function validateKayakRuntimeData() {
     const scope = `kayak trip ${trip?.id ?? file}`;
     await validateKayakTrip(trip, scope, { facilityIds });
   }
-  await validateKayakSourceShards(tripIds);
   await validateKayakingOverview(tripIds);
 
   const libraryIndex = await readJson(path.join(publicRoot, "data", "library-index.json"), "public/data/library-index.json");

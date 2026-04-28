@@ -8,7 +8,7 @@ This document tracks the data-contract refactor in small implementation slices. 
 
 Runtime data is now in a transitional hiking-plus-kayak public contract. The visible app loads hiking and kayaking records from the shared index. Kayaking has a typed overview/detail branch, compact kayak-specific filters, water/exposure/research-confidence filtering, linked facility rendering on kayak detail maps, and a live browser runtime-path/interaction/accessibility/print probe; richer overview facility layers and caveat-severity workflows remain future work.
 
-As of Slice 22, overview maps still initialize immediately because they are primary navigation surfaces. Non-overview route/detail maps defer on small screens until their reserved map area is near the viewport, reducing below-fold route-geometry and tile work without changing the desktop behavior or public data contract. As of Slice 23, trail-system detail maps render selected/context route geometry only; the hiking overview map remains the full-network orientation surface. As of Slices 24-28, map extraction has moved `DeferredMapMount`, standalone hike `RouteMap`, kayak `KayakTripMap`, and `TrailSystemMap` into `src/map/**`; route-builder orchestration and top-level library load/filter state still live in `src/main.tsx`. As of Slice 31, trail-system route loading/drawing helpers live in `src/map/trailSystemRouteLayers.ts`; as of Slice 32, hiking facility marker rendering lives in `src/map/hikingFacilityMarkers.tsx`; as of Slice 33, hiking commute marker rendering lives in `src/map/hikingCommuteMarkers.tsx`; as of Slice 34, selected-route-first bounds fitting lives in `src/map/fitMapBounds.ts`; as of Slice 40, hiking detail maps and facility lists hide facilities marked off-route by the existing proximity metadata, and same-coordinate hiking facilities render as expandable map clusters. As of Slice 41, sidebar/detail view shells and filter contracts live outside `src/main.tsx`. As of Slice 42, overview routes use a generated deterministic color scale instead of a six-color palette.
+As of Slice 22, overview maps still initialize immediately because they are primary navigation surfaces. Non-overview route/detail maps defer on small screens until their reserved map area is near the viewport, reducing below-fold route-geometry and tile work without changing the desktop behavior or public data contract. As of Slice 23, trail-system detail maps render selected/context route geometry only; the hiking overview map remains the full-network orientation surface. As of Slices 24-28, map extraction has moved `DeferredMapMount`, standalone hike `RouteMap`, kayak `KayakTripMap`, and `TrailSystemMap` into `src/map/**`; route-builder orchestration and top-level library load/filter state still live in `src/main.tsx`. As of Slice 31, trail-system route loading/drawing helpers live in `src/map/trailSystemRouteLayers.ts`; as of Slice 32, hiking facility marker rendering lives in `src/map/hikingFacilityMarkers.tsx`; as of Slice 33, hiking commute marker rendering lives in `src/map/hikingCommuteMarkers.tsx`; as of Slice 34, selected-route-first bounds fitting lives in `src/map/fitMapBounds.ts`; as of Slice 40, hiking detail maps and facility lists hide facilities marked off-route by the existing proximity metadata, and same-coordinate hiking facilities render as expandable map clusters. As of Slice 41, sidebar/detail view shells and filter contracts live outside `src/main.tsx`. As of Slice 42, overview routes use a generated deterministic color scale instead of a six-color palette. As of Slice 43, kayak validation derives source/runtime counts from `source-manifest.json` and source shards rather than first-import constants.
 
 Kayak `hasFollowup` is intentionally an internal audit/detail signal as of Slice 19. It stays in the compact public contract for validation and future editorial workflows, but it is not exposed as a sidebar filter because every current kayak route has follow-up/research notes and a visible filter would not narrow the list.
 
@@ -41,6 +41,7 @@ Completed and stable enough to build on:
 - Trail-system selected section-detail loading is isolated in `src/data/useTrailSectionDetails.ts`.
 - Trail-system route-group range and section lookup helpers are isolated in `src/data/trailRouteSelection.ts`.
 - Hiking trail-system facility display now uses existing `routeProximity` metadata to keep off-route facilities out of selected-section lists/maps, and overlapping same-coordinate hiking facility markers expand into individual icons.
+- Kayak source/runtime validation derives route, facility, and parking expectations from `data/source/kayaking/source-manifest.json` plus source shard files.
 
 Still transitional:
 
@@ -1484,6 +1485,35 @@ Known warnings and follow-up:
 Recommended next work:
 
 1. Replace first-import kayak validation magic counts with manifest-derived completeness checks.
+2. Keep library loading/filter orchestration extraction as a later app-shell cleanup candidate.
+3. Add deploy/cache-header validation only after the static hosting target is known.
+
+## Slice 43: Kayak Validation Counts From Source Manifest
+
+Status: implemented in the `codex/data-validation-foundation` worktree after Slice 42.
+
+Done:
+
+- Removed first-import hard-coded kayak validation minimums for 34 trip files, 61 facility records, 39 non-parking facility shards, and 22 parking shards.
+- Added validation that `data/source/kayaking/source-manifest.json` lists `routes`, `facilities`, and `parking` shard entries with paths matching their IDs.
+- Added bidirectional checks between source-manifest shard entries and actual source shard files.
+- Derived expected runtime kayak trip count from source route shards.
+- Derived expected runtime kayak facility IDs from source facility plus parking shard IDs, and verified parking source shards remain parking-category runtime facilities.
+- Added kayak trip ID uniqueness validation for generated trip detail files.
+
+Not done:
+
+- No source records, generated kayak runtime files, route geometry, overview GeoJSON, or app runtime code changed in this slice.
+- Validation still assumes the source manifest is the source-of-truth inventory for app-owned kayak source shards; refreshing the raw research snapshot remains an explicit importer operation.
+
+Known warnings and follow-up:
+
+- If future kayak data introduces another source shard category, add it to the manifest-derived validation rather than adding a new fixed count.
+- Runtime facility count is expected to match source facility plus parking IDs exactly. If the product later intentionally creates derived/synthetic kayak facilities, that should be represented explicitly in the source manifest or a generated-output manifest.
+
+Recommended next work:
+
+1. Add an LRU or bounded invalidation strategy for the route geometry cache.
 2. Keep library loading/filter orchestration extraction as a later app-shell cleanup candidate.
 3. Add deploy/cache-header validation only after the static hosting target is known.
 
