@@ -1304,7 +1304,7 @@ p.inline-warning,
 
 .transit-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 8px;
 }
 
@@ -1316,6 +1316,7 @@ p.inline-warning,
 .transit-item {
   display: grid;
   gap: 8px;
+  min-width: 0;
   padding: 9px;
   border: 1px solid #d7d9d1;
   border-radius: 8px;
@@ -1354,25 +1355,31 @@ p.inline-warning,
   margin: 0;
   color: #20231f;
   font-size: 0.9rem;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
 }
 
 .commute-lines {
   display: grid;
   gap: 5px;
+  min-width: 0;
 }
 
 .commute-line {
   display: flex !important;
   align-items: center;
   gap: 7px;
+  min-width: 0;
   margin: 0 !important;
   text-transform: none !important;
   color: #3d4739 !important;
   font-size: 0.78rem !important;
   font-weight: 650 !important;
+  overflow-wrap: anywhere;
 }
 
 .commute-line strong {
+  flex: 0 0 auto;
   min-width: 34px;
   color: #697064;
   font-size: 0.68rem;
@@ -1380,6 +1387,7 @@ p.inline-warning,
 }
 
 .commute-line small {
+  flex: 0 0 auto;
   margin-left: auto;
   color: #20321f;
   font-size: 0.72rem;
@@ -1791,7 +1799,6 @@ p.inline-warning,
   .facts,
   .compact-facts,
   .overview-stats,
-  .transit-list,
   .facility-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
