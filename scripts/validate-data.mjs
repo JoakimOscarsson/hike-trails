@@ -26,6 +26,7 @@ const allowedRouteSourceFormats = new Set([
 ]);
 const allowedNavigationUses = new Set(["navigable-route", "planning-reference", "not-for-navigation"]);
 const allowedMapConfidences = new Set(["low", "medium", "high", "missing"]);
+const allowedResearchConfidences = new Set(["low", "medium", "high"]);
 const allowedKayakWaterZones = new Set(["inner", "middle", "outer", "unknown"]);
 const allowedKayakExposureLevels = new Set(["sheltered", "mixed", "exposed"]);
 const allowedKayakRouteConfidences = new Set(["low", "medium", "medium-high", "high"]);
@@ -1059,6 +1060,63 @@ function validateKayakManifestShardList(sourceShards, kind, records) {
   }
 }
 
+function validateStringArray(scope, label, value) {
+  if (!Array.isArray(value)) {
+    addError(scope, `${label} must be an array`);
+    return;
+  }
+  for (const [index, item] of value.entries()) {
+    if (typeof item !== "string" || !item.trim()) addError(scope, `${label}[${index}] must be a non-empty string`);
+  }
+}
+
+function validateOptionalStringArray(scope, label, value) {
+  if (value == null) return;
+  validateStringArray(scope, label, value);
+}
+
+function validateKayakPlace(scope, label, value) {
+  if (value == null) return;
+  const placeScope = `${scope} ${label}`;
+  if (!isObject(value)) {
+    addError(placeScope, "must be an object or null");
+    return;
+  }
+  if (typeof value.name !== "string" || !value.name.trim()) addError(placeScope, "name is required");
+  if (Object.hasOwn(value, "coordinates")) {
+    if (value.coordinates == null) addError(placeScope, "coordinates must be omitted or a valid [lat, lon] pair");
+    else validateLatLon(placeScope, "coordinates", value.coordinates);
+  }
+  if (value.notes != null && typeof value.notes !== "string") addError(placeScope, "notes must be a string when present");
+}
+
+function validateKayakAccess(scope, value) {
+  const accessScope = `${scope} access`;
+  if (!isObject(value)) {
+    addError(accessScope, "must be an object");
+    return;
+  }
+  const allowedFields = new Set(["publicTransport", "ferry", "parking", "launchNotes", "other"]);
+  for (const field of Object.keys(value)) {
+    if (!allowedFields.has(field)) addError(accessScope, `has unsupported field "${field}"`);
+  }
+  for (const field of allowedFields) validateStringArray(accessScope, field, value[field]);
+}
+
+function validateKayakSafety(scope, value) {
+  if (value == null) return;
+  const safetyScope = `${scope} safety`;
+  if (!isObject(value)) {
+    addError(safetyScope, "must be an object when present");
+    return;
+  }
+  if (value.exposure != null && typeof value.exposure !== "string") addError(safetyScope, "exposure must be a string when present");
+  for (const field of ["crossings", "windWeatherNotes", "navigationNotes", "seasonalNotes"]) {
+    validateOptionalStringArray(safetyScope, field, value[field]);
+  }
+  validateEnum(safetyScope, "confidence", value.confidence, allowedKayakRouteConfidences, { required: false });
+}
+
 async function validateKayakSourceShards(tripIds) {
   const sourceRoot = path.join(projectRoot, "data", "source", "kayaking");
   const sourceScope = "data/source/kayaking";
@@ -1132,7 +1190,19 @@ async function validateKayakTrip(trip, scope, { facilityIds = null } = {}) {
   validateEnum(scope, "waterZone", trip.waterZone, allowedKayakWaterZones);
   validateEnum(scope, "exposureLevel", trip.exposureLevel, allowedKayakExposureLevels);
   validateEnum(scope, "research.routeConfidence", trip.research?.routeConfidence, allowedKayakRouteConfidences);
+  validateEnum(scope, "research.facilityConfidence", trip.research?.facilityConfidence, allowedResearchConfidences);
   if (trip.distanceKm !== null && !isFiniteNumber(trip.distanceKm)) addError(scope, "distanceKm must be a finite number or null");
+  validateKayakPlace(scope, "start", trip.start);
+  validateKayakPlace(scope, "end", trip.end);
+  if (!Array.isArray(trip.waypoints)) addError(scope, "waypoints must be an array");
+  else {
+    trip.waypoints.forEach((waypoint, index) => {
+      if (waypoint == null) addError(scope, `waypoints[${index}] must be an object`);
+      else validateKayakPlace(scope, `waypoints[${index}]`, waypoint);
+    });
+  }
+  validateKayakAccess(scope, trip.access);
+  validateKayakSafety(scope, trip.safety);
   validateLatLon(scope, "map.center", trip.map?.center, { required: true });
   validateEnum(scope, "route.geometryStatus", trip.route?.geometryStatus, allowedGeometryStatuses);
   validateEnum(scope, "route.mapConfidence", trip.route?.mapConfidence, allowedMapConfidences);

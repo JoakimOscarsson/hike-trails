@@ -336,6 +336,20 @@ export type KayakTripIndexItem = GenericLibraryIndexItem & {
   hasFollowup: boolean;
 };
 
+export type KayakPlace = {
+  name: string;
+  coordinates?: [number, number];
+  notes?: string;
+};
+
+export type KayakAccess = {
+  publicTransport: string[];
+  ferry: string[];
+  parking: string[];
+  launchNotes: string[];
+  other: string[];
+};
+
 export type KayakTrip = {
   id: string;
   activity: "kayaking";
@@ -356,17 +370,17 @@ export type KayakTrip = {
   routeType: string;
   season: string;
   description: string;
-  start?: unknown;
-  end?: unknown;
-  waypoints?: unknown[];
-  access?: unknown;
+  start: KayakPlace | null;
+  end: KayakPlace | null;
+  waypoints: KayakPlace[];
+  access: KayakAccess;
   safety?: {
     exposure?: string;
     crossings?: string[];
     windWeatherNotes?: string[];
     navigationNotes?: string[];
     seasonalNotes?: string[];
-    confidence?: ResearchConfidence | string;
+    confidence?: KayakRouteConfidence;
   };
   campingRules?: string | string[];
   protectionRules?: {
@@ -379,8 +393,8 @@ export type KayakTrip = {
   sources: HikeSource[];
   research: {
     status: ResearchStatus;
-    routeConfidence: KayakRouteConfidence | string;
-    facilityConfidence: ResearchConfidence | string;
+    routeConfidence: KayakRouteConfidence;
+    facilityConfidence: ResearchConfidence;
     needsFollowup: string[];
     contradictions: string[];
     corrections: string[];

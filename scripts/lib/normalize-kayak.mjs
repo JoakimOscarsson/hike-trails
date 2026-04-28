@@ -33,6 +33,13 @@ function textFromUnknown(value) {
     .join(" ");
 }
 
+function stringItemsFromUnknown(value) {
+  if (!value) return [];
+  if (Array.isArray(value)) return value.flatMap((item) => stringItemsFromUnknown(item));
+  if (typeof value === "string") return value.trim() ? [value.trim()] : [];
+  return [];
+}
+
 function normalizeDuration(value) {
   if (value === "day") return "dayhike";
   return allowedDurations.has(value) ? value : "dayhike";
@@ -100,6 +107,70 @@ function lonLatToLatLon(coordinate) {
   return Array.isArray(coordinate) && Number.isFinite(coordinate[0]) && Number.isFinite(coordinate[1])
     ? [coordinate[1], coordinate[0]]
     : undefined;
+}
+
+function normalizePlaceCoordinates(coordinates) {
+  if (!Array.isArray(coordinates) || coordinates.length < 2 || !Number.isFinite(coordinates[0]) || !Number.isFinite(coordinates[1])) {
+    return undefined;
+  }
+  const [first, second] = coordinates;
+  if (Math.abs(first) <= 90 && Math.abs(second) <= 180) {
+    return [Number(first.toFixed(6)), Number(second.toFixed(6))];
+  }
+  if (Math.abs(first) <= 180 && Math.abs(second) <= 90) {
+    return [Number(second.toFixed(6)), Number(first.toFixed(6))];
+  }
+  return undefined;
+}
+
+function normalizeKayakPlace(value) {
+  if (!value) return null;
+  if (typeof value === "string") {
+    const name = value.trim();
+    return name ? { name } : null;
+  }
+  if (typeof value !== "object" || Array.isArray(value)) return null;
+
+  const name = textFromUnknown(value.name ?? value.label ?? value.title);
+  if (!name) return null;
+  const coordinates = normalizePlaceCoordinates(value.coordinates ?? value.coordinate);
+  const notes = textFromUnknown(value.notes ?? value.note);
+
+  return {
+    name,
+    ...(coordinates ? { coordinates } : {}),
+    ...(notes ? { notes } : {})
+  };
+}
+
+function normalizeKayakWaypoints(value) {
+  return asArray(value)
+    .map((waypoint) => normalizeKayakPlace(waypoint))
+    .filter(Boolean);
+}
+
+function normalizeKayakAccess(value) {
+  const access = {
+    publicTransport: [],
+    ferry: [],
+    parking: [],
+    launchNotes: [],
+    other: []
+  };
+
+  if (!value) return access;
+  if (Array.isArray(value) || typeof value === "string") {
+    access.other = stringItemsFromUnknown(value);
+    return access;
+  }
+  if (typeof value !== "object") return access;
+
+  access.publicTransport = stringItemsFromUnknown(value.publicTransport);
+  access.ferry = stringItemsFromUnknown(value.ferry);
+  access.parking = stringItemsFromUnknown(value.parking);
+  access.launchNotes = stringItemsFromUnknown(value.launchNotes);
+  access.other = stringItemsFromUnknown(value.other);
+  return access;
 }
 
 function routeCenter(lineString) {
@@ -217,10 +288,10 @@ export function normalizeKayakRoute(route, { dataset, facilityIds }) {
     routeType: route.routeType ?? "Open itinerary",
     season: route.season ?? "May-September, weather permitting",
     description: route.description ?? route.classificationNotes ?? "",
-    start: route.start ?? null,
-    end: route.end ?? null,
-    waypoints: route.waypoints ?? [],
-    access: route.access ?? [],
+    start: normalizeKayakPlace(route.start),
+    end: normalizeKayakPlace(route.end),
+    waypoints: normalizeKayakWaypoints(route.waypoints),
+    access: normalizeKayakAccess(route.access),
     safety: route.safety ?? {
       exposure: route.exposure ?? "",
       confidence: route.confidence ?? route.map?.mapConfidence ?? "medium"

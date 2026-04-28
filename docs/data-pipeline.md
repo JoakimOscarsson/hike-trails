@@ -8,7 +8,7 @@ This document tracks the data-contract refactor in small implementation slices. 
 
 Runtime data is now in a transitional hiking-plus-kayak public contract. The visible app loads hiking and kayaking records from the shared index. Kayaking has a typed overview/detail branch, compact kayak-specific filters, water/exposure/research-confidence filtering, linked facility rendering on kayak detail maps, and a live browser runtime-path/interaction/accessibility/print probe; richer overview facility layers and caveat-severity workflows remain future work.
 
-As of Slice 22, overview maps still initialize immediately because they are primary navigation surfaces. Non-overview route/detail maps defer on small screens until their reserved map area is near the viewport, reducing below-fold route-geometry and tile work without changing the desktop behavior or public data contract. As of Slice 23, trail-system detail maps render selected/context route geometry only; the hiking overview map remains the full-network orientation surface. As of Slices 24-28, map extraction has moved `DeferredMapMount`, standalone hike `RouteMap`, kayak `KayakTripMap`, and `TrailSystemMap` into `src/map/**`; route-builder orchestration and top-level library load/filter state still live in `src/main.tsx`. As of Slice 31, trail-system route loading/drawing helpers live in `src/map/trailSystemRouteLayers.ts`; as of Slice 32, hiking facility marker rendering lives in `src/map/hikingFacilityMarkers.tsx`; as of Slice 33, hiking commute marker rendering lives in `src/map/hikingCommuteMarkers.tsx`; as of Slice 34, selected-route-first bounds fitting lives in `src/map/fitMapBounds.ts`; as of Slice 40, hiking detail maps and facility lists hide facilities marked off-route by the existing proximity metadata, and same-coordinate hiking facilities render as expandable map clusters. As of Slice 41, sidebar/detail view shells and filter contracts live outside `src/main.tsx`. As of Slice 42, overview routes use a generated deterministic color scale instead of a six-color palette. As of Slice 43, kayak validation derives source/runtime counts from `source-manifest.json` and source shards rather than first-import constants. As of Slice 44, route geometry caching is bounded by an LRU entry limit. As of Slice 45, the generated shared library index is composed from hiking and kayaking activity-owned fragments so scoped activity builds do not regenerate the other activity. As of Slice 46, legacy hiking compatibility index and all-in-one trail-system JSON outputs are no longer generated. As of Slice 47, Roslagsleden and Sörmlandsleden builders share common GPX, route-writing, section-cleanup, location, and persistence helpers.
+As of Slice 22, overview maps still initialize immediately because they are primary navigation surfaces. Non-overview route/detail maps defer on small screens until their reserved map area is near the viewport, reducing below-fold route-geometry and tile work without changing the desktop behavior or public data contract. As of Slice 23, trail-system detail maps render selected/context route geometry only; the hiking overview map remains the full-network orientation surface. As of Slices 24-28, map extraction has moved `DeferredMapMount`, standalone hike `RouteMap`, kayak `KayakTripMap`, and `TrailSystemMap` into `src/map/**`; route-builder orchestration and top-level library load/filter state still live in `src/main.tsx`. As of Slice 31, trail-system route loading/drawing helpers live in `src/map/trailSystemRouteLayers.ts`; as of Slice 32, hiking facility marker rendering lives in `src/map/hikingFacilityMarkers.tsx`; as of Slice 33, hiking commute marker rendering lives in `src/map/hikingCommuteMarkers.tsx`; as of Slice 34, selected-route-first bounds fitting lives in `src/map/fitMapBounds.ts`; as of Slice 40, hiking detail maps and facility lists hide facilities marked off-route by the existing proximity metadata, and same-coordinate hiking facilities render as expandable map clusters. As of Slice 41, sidebar/detail view shells and filter contracts live outside `src/main.tsx`. As of Slice 42, overview routes use a generated deterministic color scale instead of a six-color palette. As of Slice 43, kayak validation derives source/runtime counts from `source-manifest.json` and source shards rather than first-import constants. As of Slice 44, route geometry caching is bounded by an LRU entry limit. As of Slice 45, the generated shared library index is composed from hiking and kayaking activity-owned fragments so scoped activity builds do not regenerate the other activity. As of Slice 46, legacy hiking compatibility index and all-in-one trail-system JSON outputs are no longer generated. As of Slice 47, Roslagsleden and Sörmlandsleden builders share common GPX, route-writing, section-cleanup, location, and persistence helpers. As of Slice 48, kayak trip start/end/waypoint/access details are normalized into typed public runtime shapes and validated before the app consumes them.
 
 Kayak `hasFollowup` is intentionally an internal audit/detail signal as of Slice 19. It stays in the compact public contract for validation and future editorial workflows, but it is not exposed as a sidebar filter because every current kayak route has follow-up/research notes and a visible filter would not narrow the list.
 
@@ -44,6 +44,7 @@ Completed and stable enough to build on:
 - Trail-specific hiking builders share common helper code in `scripts/lib/trail-system-builder.mjs`.
 - Hiking trail-system facility display now uses existing `routeProximity` metadata to keep off-route facilities out of selected-section lists/maps, and overlapping same-coordinate hiking facility markers expand into individual icons.
 - Kayak source/runtime validation derives route, facility, and parking expectations from `data/source/kayaking/source-manifest.json` plus source shard files.
+- Kayak trip start/end/waypoint/access details are normalized to the typed `KayakPlace` and `KayakAccess` runtime contracts.
 
 Still transitional:
 
@@ -1636,6 +1637,37 @@ Recommended next work:
 
 1. Type the remaining kayak detail fields that still use generic/unknown shapes.
 2. Extract shared official-catalog or route-network primitives only when a second trail needs the same pattern.
+3. Add deploy/cache-header validation once the static hosting target is known.
+
+## Slice 48: Typed Kayak Detail Boundary
+
+Status: implemented in the `codex/data-validation-foundation` worktree after Slice 47.
+
+Done:
+
+- Added `KayakPlace` and `KayakAccess` public TypeScript contracts.
+- Changed kayak route normalization so `start`, `end`, and `waypoints` become typed place records with optional coordinates and notes.
+- Changed kayak route normalization so `access` always contains `publicTransport`, `ferry`, `parking`, `launchNotes`, and `other` string arrays.
+- Tightened kayak research confidence types in the public detail contract.
+- Updated kayak detail rendering to consume the typed access shape instead of flattening arbitrary unknown objects.
+- Extended data validation to require the typed kayak place/access/safety shapes and to validate kayak facility-confidence values.
+- Regenerated kayak trip runtime JSON from the app-owned kayaking source shards.
+
+Not done:
+
+- Kayak source research remains heterogeneous; the normalizer is the boundary that turns source records into the runtime contract.
+- Facility `access` is still a simple string array because facility records already have a stable app-facing shape and were not part of this finding.
+- The kayak UI still shows access as one compact list; grouped access presentation can be added later without changing the runtime data shape.
+
+Known warnings and follow-up:
+
+- New kayak imports should add any novel access buckets to `KayakAccess`, `normalizeKayakAccess`, and validation together rather than adding ad hoc runtime fields.
+- If start/end/waypoint coordinates are added to source shards, they must be app `[lat, lon]` pairs or unambiguous `[lon, lat]` pairs that the normalizer can convert.
+
+Recommended next work:
+
+1. Decide whether kayak detail UI should show start/end/waypoints as a compact itinerary block.
+2. Keep source-record flexibility in `data/source/kayaking/**`, but require all public runtime additions to be typed and validated.
 3. Add deploy/cache-header validation once the static hosting target is known.
 
 ## Verification Checklist

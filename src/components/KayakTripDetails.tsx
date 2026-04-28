@@ -80,17 +80,6 @@ function KayakFacilityMapFilters({
   );
 }
 
-function listFromUnknown(value: unknown): string[] {
-  if (!value) return [];
-  if (Array.isArray(value)) return value.filter((item): item is string => typeof item === "string" && item.trim().length > 0);
-  if (typeof value === "string") return value.trim() ? [value] : [];
-  if (typeof value !== "object") return [];
-
-  return Object.values(value)
-    .flatMap((entry) => (Array.isArray(entry) ? entry : [entry]))
-    .filter((item): item is string => typeof item === "string" && item.trim().length > 0);
-}
-
 function kayakSafetyItems(trip: KayakTrip) {
   return [
     trip.safety?.exposure,
@@ -99,6 +88,16 @@ function kayakSafetyItems(trip: KayakTrip) {
     ...(trip.safety?.navigationNotes ?? []),
     ...(trip.safety?.seasonalNotes ?? [])
   ].filter((item): item is string => typeof item === "string" && item.trim().length > 0);
+}
+
+function kayakAccessItems(access: KayakTrip["access"]) {
+  return [
+    ...access.publicTransport,
+    ...access.ferry,
+    ...access.parking,
+    ...access.launchNotes,
+    ...access.other
+  ].filter((item) => item.trim().length > 0);
 }
 
 function kayakCampingText(trip: KayakTrip) {
@@ -196,7 +195,7 @@ export function KayakTripDetails({
 }) {
   const [routeMapStatus, setRouteMapStatus] = React.useState<HikeMapStatus>("loading");
   const [selectedKayakFacilityTypes, setSelectedKayakFacilityTypes] = React.useState<Set<KayakFacilityType>>(() => new Set());
-  const accessItems = listFromUnknown(trip.access);
+  const accessItems = kayakAccessItems(trip.access);
   const safetyItems = kayakSafetyItems(trip);
   const linkedFacilities = React.useMemo(() => linkedKayakFacilities(trip, kayakFacilities), [kayakFacilities, trip]);
   const linkedFacilityTypesKey = React.useMemo(
