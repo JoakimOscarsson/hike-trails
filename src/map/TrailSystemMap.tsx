@@ -131,7 +131,7 @@ export function TrailSystemMap({
         map,
         focusedFacilityId: focusTarget?.id
       });
-      addHikingCommuteMarkers({ accessPoints, markerLayerGroup: poiLayerGroup, visibleTypes: visibleCommuteTypes });
+      addHikingCommuteMarkers({ accessPoints, markerLayerGroup: poiLayerGroup, map, visibleTypes: visibleCommuteTypes });
     }
 
     map.on("zoomend", drawPointsOfInterest);

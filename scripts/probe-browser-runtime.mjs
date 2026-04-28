@@ -601,6 +601,8 @@ async function readHikingMapHelperState(client) {
       const facilityClusterMarkers = [...document.querySelectorAll(".facility-cluster-marker")].length;
       const facilitySpiderMarkers = [...document.querySelectorAll(".facility-spider-marker")].length;
       const commuteMarkers = [...document.querySelectorAll(".commute-marker")].length;
+      const commuteClusterMarkers = [...document.querySelectorAll(".commute-cluster-marker")].length;
+      const commuteSpiderMarkers = [...document.querySelectorAll(".commute-spider-marker")].length;
       const facilityMarkerPosition = getComputedStyle(document.querySelector(".facility-marker")).position;
       const chip = chips.find((candidate) => candidate.getAttribute("aria-label")?.includes("Camping"));
       const chipType = chip?.dataset.facilityType ?? "";
@@ -613,6 +615,8 @@ async function readHikingMapHelperState(client) {
         facilityClusterMarkers,
         facilitySpiderMarkers,
         commuteMarkers,
+        commuteClusterMarkers,
+        commuteSpiderMarkers,
         facilityMarkerPosition,
         chipCount: chips.length,
         chipType,
@@ -642,6 +646,8 @@ async function waitForStableHikingMapHelperState(client, { campingPressed, label
         state.facilityClusterMarkers,
         state.facilitySpiderMarkers,
         state.commuteMarkers,
+        state.commuteClusterMarkers,
+        state.commuteSpiderMarkers,
         state.facilityMarkerPosition,
         state.chipCount,
         state.chipType,
@@ -681,6 +687,7 @@ async function assertHikingMapHelpers(client) {
   if (!before.activeFacilityMarkers) addError("browser hiking map helpers", "Facility markers were not rendered on the trail-system map.");
   if (!before.facilityClusterMarkers) addError("browser hiking map helpers", "Overlapping facility cluster markers were not rendered.");
   if (!before.commuteMarkers) addError("browser hiking map helpers", "Commute markers were not rendered on the trail-system map.");
+  if (!before.commuteClusterMarkers) addError("browser hiking map helpers", "Overlapping commute cluster markers were not rendered.");
   if (before.facilityMarkerPosition !== "absolute") {
     addError("browser hiking map helpers", `Facility markers must keep Leaflet absolute positioning, got "${before.facilityMarkerPosition}".`);
   }
@@ -713,6 +720,24 @@ async function assertHikingMapHelpers(client) {
     await waitFor(
       () => evaluate(client, `document.querySelectorAll(".facility-spider-marker").length > 1`),
       { timeoutMs: 4_000, label: "facility cluster expansion" }
+    );
+  }
+
+  const expandedCommuteCluster = await evaluate(
+    client,
+    `(() => {
+      const cluster = document.querySelector(".commute-cluster-marker");
+      if (!cluster) return { ok: false };
+      cluster.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, view: window }));
+      return { ok: true };
+    })()`
+  );
+  if (!expandedCommuteCluster.ok) {
+    addError("browser hiking map helpers", "Could not find an overlapping commute cluster marker to expand.");
+  } else {
+    await waitFor(
+      () => evaluate(client, `document.querySelectorAll(".commute-spider-marker").length > 1`),
+      { timeoutMs: 4_000, label: "commute cluster expansion" }
     );
   }
 
