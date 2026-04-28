@@ -308,6 +308,7 @@ export function Sidebar({
                   className={isStarred ? "star-button active" : "star-button"}
                   onClick={() => onToggleStar(item.id)}
                   type="button"
+                  aria-pressed={isStarred}
                   aria-label={isStarred ? `Unstar ${item.name}` : `Star ${item.name}`}
                   title={isStarred ? "Unstar route" : "Star route"}
                 >
