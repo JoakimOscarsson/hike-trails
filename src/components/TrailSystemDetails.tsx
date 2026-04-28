@@ -38,7 +38,7 @@ function uniqueStrings(items: string[]) {
   return [...new Set(items.map((item) => item.trim()).filter(Boolean))];
 }
 
-function sectionLabel(section: TrailSection) {
+function sectionLabel(section: Pick<TrailSection, "stageNumber">) {
   return `Stage ${section.stageNumber}`;
 }
 
@@ -241,12 +241,48 @@ function CommuteStopLine({ label, stop }: { label: string; stop?: TrailCommuteSt
   );
 }
 
-function TransitAccessList({
-  accessPoints
+function TransitAccessCard({
+  accessPoint,
+  label,
+  emphasis = false
 }: {
-  accessPoints: SelectedTrailAccessPoint[];
+  accessPoint: SelectedTrailAccessPoint;
+  label: string;
+  emphasis?: boolean;
 }) {
+  return (
+    <article className={emphasis ? "transit-item selected-endpoint" : "transit-item"} key={accessPoint.id}>
+      <div>
+        <span>
+          {label}
+          {accessPoint.coordinateSource !== "route-geometry" ? " · approximate" : ""}
+        </span>
+        <h3>{accessPoint.placeName}</h3>
+      </div>
+      <div className="commute-lines">
+        <CommuteStopLine label="Bus" stop={accessPoint.busStop} />
+        <CommuteStopLine label="Train" stop={accessPoint.trainStop} />
+      </div>
+    </article>
+  );
+}
+
+function TransitAccessList({ sections }: { sections: TrailSection[] }) {
   const [isOpen, setIsOpen] = React.useState(false);
+  const accessPoints = selectedAccessPoints(sections);
+  const firstSection = sections[0];
+  const lastSection = sections[sections.length - 1];
+  const selectedStart = firstSection
+    ? accessPoints.find((accessPoint) => accessPoint.sectionId === firstSection.id && accessPoint.endpoint === "start")
+    : undefined;
+  const selectedEnd = lastSection
+    ? accessPoints.find((accessPoint) => accessPoint.sectionId === lastSection.id && accessPoint.endpoint === "end")
+    : undefined;
+  const selectedStartId = selectedStart?.id;
+  const selectedEndId = selectedEnd?.id;
+  const intermediateAccessPoints = accessPoints.filter(
+    (accessPoint) => accessPoint.id !== selectedStartId && accessPoint.id !== selectedEndId
+  );
 
   return (
     <section className="info-block transit-block">
@@ -266,23 +302,29 @@ function TransitAccessList({
 
       <div className={isOpen ? "transit-panel" : "transit-panel collapsed"}>
         {accessPoints.length ? (
-          <div className="transit-list">
-            {accessPoints.map((accessPoint) => (
-              <article className="transit-item" key={accessPoint.id}>
-                <div>
-                  <span>
-                    Stage {accessPoint.stageNumber} · {accessPoint.endpoint}
-                    {accessPoint.coordinateSource !== "route-geometry" ? " · approximate" : ""}
-                  </span>
-                  <h3>{accessPoint.placeName}</h3>
+          <>
+            <div className="transit-list selected-transit-list">
+              {selectedStart ? (
+                <TransitAccessCard accessPoint={selectedStart} label="Selected start" emphasis />
+              ) : null}
+              {selectedEnd ? <TransitAccessCard accessPoint={selectedEnd} label="Selected end" emphasis /> : null}
+            </div>
+
+            {intermediateAccessPoints.length ? (
+              <>
+                <h3 className="transit-subhead">Intermediate stage access</h3>
+                <div className="transit-list">
+                  {intermediateAccessPoints.map((accessPoint) => (
+                    <TransitAccessCard
+                      accessPoint={accessPoint}
+                      key={accessPoint.id}
+                      label={`${sectionLabel(accessPoint)} · ${accessPoint.endpoint}`}
+                    />
+                  ))}
                 </div>
-                <div className="commute-lines">
-                  <CommuteStopLine label="Bus" stop={accessPoint.busStop} />
-                  <CommuteStopLine label="Train" stop={accessPoint.trainStop} />
-                </div>
-              </article>
-            ))}
-          </div>
+              </>
+            ) : null}
+          </>
         ) : (
           <p>No transit access points are attached to this route yet.</p>
         )}
@@ -604,7 +646,7 @@ export function TrailSystemDetails({
           <InfoList title="Camping Rules" icon={<Tent size={18} />} items={campingRuleItems} />
 
           <FacilityList facilities={selectedFacilities} onFocusFacility={focusFacilityOnMap} />
-          <TransitAccessList accessPoints={accessPoints} />
+          <TransitAccessList sections={detailedPrimaryRouteSections} />
           <InfoList
             title="Selected Sections"
             icon={<Info size={18} />}
