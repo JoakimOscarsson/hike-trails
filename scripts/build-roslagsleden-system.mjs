@@ -1,15 +1,18 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { XMLParser } from "fast-xml-parser";
-import { resolveLocationFromStart } from "./location.mjs";
-import { readHikingSourceData, writeHikingSourceData } from "./lib/hiking-source-shards.mjs";
-import { writeHikeData } from "./write-hike-data.mjs";
 import { annotateTrailSystemFacilityProximity } from "./facility-proximity.mjs";
 import { annotateTrailSystemCommuteAccess } from "./commute-access.mjs";
+import {
+  centerFromCoordinates,
+  endpointCoordinatesFromRoute,
+  locationFromFirstSectionStart,
+  parseGpxFeatureCollection,
+  persistTrailSystemBuild,
+  runtimeSectionsFromBuiltSections,
+  writeRouteFeatureCollection
+} from "./lib/trail-system-builder.mjs";
 
 const projectRoot = process.cwd();
 const hikesPath = path.join(projectRoot, "data", "hikes.json");
-const routesDir = path.join(projectRoot, "public", "routes");
 
 const facilityCoordinates = {
   "fjaturen-shelter": [59.455831, 18.001051],
@@ -1027,66 +1030,15 @@ const sectionSeeds = [
   }
 ];
 
-function asArray(value) {
-  if (!value) return [];
-  return Array.isArray(value) ? value : [value];
-}
-
-function parseGpx(gpx, name) {
-  const parser = new XMLParser({
-    ignoreAttributes: false,
-    attributeNamePrefix: "",
-    parseAttributeValue: true
-  });
-  const parsed = parser.parse(gpx);
-  const features = [];
-  const coordinates = [];
-
-  for (const track of asArray(parsed.gpx?.trk)) {
-    for (const segment of asArray(track.trkseg)) {
-      const segmentCoordinates = asArray(segment.trkpt)
-        .map((point) => [Number(point.lon), Number(point.lat)])
-        .filter(([lon, lat]) => Number.isFinite(lon) && Number.isFinite(lat));
-
-      if (segmentCoordinates.length > 1) {
-        coordinates.push(...segmentCoordinates);
-        features.push({
-          type: "Feature",
-          properties: { name: track.name || name },
-          geometry: { type: "LineString", coordinates: segmentCoordinates }
-        });
-      }
-    }
-  }
-
-  return { features, coordinates };
-}
-
-function centerFromCoordinates(coordinates) {
-  const sums = coordinates.reduce(
-    (acc, [lon, lat]) => {
-      acc.lon += lon;
-      acc.lat += lat;
-      return acc;
-    },
-    { lon: 0, lat: 0 }
-  );
-
-  return [Number((sums.lat / coordinates.length).toFixed(6)), Number((sums.lon / coordinates.length).toFixed(6))];
-}
-
 async function buildSection(seed) {
   const response = await fetch(seed.gpxUrl);
   if (!response.ok) throw new Error(`Failed to fetch ${seed.gpxUrl}: ${response.status}`);
 
-  const parsed = parseGpx(await response.text(), seed.name);
+  const parsed = parseGpxFeatureCollection(await response.text(), seed.name);
   if (!parsed.coordinates.length) throw new Error(`No coordinates found for ${seed.name}`);
 
   const geojsonPath = `/routes/${seed.id}.geojson`;
-  await writeFile(
-    path.join(projectRoot, "public", geojsonPath),
-    `${JSON.stringify({ type: "FeatureCollection", features: parsed.features }, null, 2)}\n`
-  );
+  await writeRouteFeatureCollection({ projectRoot, geojsonPath, features: parsed.features });
 
   return {
     id: seed.id,
@@ -1124,20 +1076,11 @@ async function buildSection(seed) {
       gpxUrl: seed.gpxUrl,
       geojsonPath
     },
-    endpointCoordinates: {
-      source: "route-geometry",
-      start: [parsed.coordinates[0][1], parsed.coordinates[0][0]],
-      end: [
-        parsed.coordinates[parsed.coordinates.length - 1][1],
-        parsed.coordinates[parsed.coordinates.length - 1][0]
-      ]
-    },
+    endpointCoordinates: endpointCoordinatesFromRoute(parsed.coordinates),
     start: parsed.coordinates[0],
     center: centerFromCoordinates(parsed.coordinates)
   };
 }
-
-await mkdir(routesDir, { recursive: true });
 
 const sectionsWithCoordinates = [];
 for (const seed of sectionSeeds) {
@@ -1146,11 +1089,7 @@ for (const seed of sectionSeeds) {
   console.log(`Built ${section.name}`);
 }
 
-const firstStart = sectionsWithCoordinates[0].start;
-const location = await resolveLocationFromStart([
-  Number(firstStart[1].toFixed(6)),
-  Number(firstStart[0].toFixed(6))
-]);
+const location = await locationFromFirstSectionStart(sectionsWithCoordinates);
 const distanceKm = Number(sectionsWithCoordinates.reduce((total, section) => total + section.distanceKm, 0).toFixed(1));
 
 const trailSystem = await annotateTrailSystemCommuteAccess(await annotateTrailSystemFacilityProximity({
@@ -1195,7 +1134,7 @@ const trailSystem = await annotateTrailSystemCommuteAccess(await annotateTrailSy
     zoom: 9,
     externalUrl: "https://www.naturkartan.se/en/stockholms-lan/roslagsleden"
   },
-  sections: sectionsWithCoordinates.map(({ start, center, ...section }) => section),
+  sections: runtimeSectionsFromBuiltSections(sectionsWithCoordinates),
   presets: [
     {
       id: "intro-weekend",
@@ -1228,13 +1167,11 @@ const trailSystem = await annotateTrailSystemCommuteAccess(await annotateTrailSy
   ]
 }, { projectRoot, thresholdKm: 2 }));
 
-const hikes = JSON.parse(await readFile(hikesPath, "utf8"));
-const nextHikes = hikes.filter((hike) => !isOldRoslagsledenStandalone(hike));
-const trailSystems = await readHikingSourceData({ projectRoot });
-const nextTrailSystems = [trailSystem, ...trailSystems.filter((system) => system.id !== trailSystem.id)];
-
-await writeFile(hikesPath, `${JSON.stringify(nextHikes, null, 2)}\n`);
-await writeHikingSourceData(nextTrailSystems, { projectRoot });
-await writeHikeData(nextHikes, nextTrailSystems);
+await persistTrailSystemBuild({
+  projectRoot,
+  hikesPath,
+  trailSystem,
+  filterHikes: (hike) => !isOldRoslagsledenStandalone(hike)
+});
 
 console.log(`Wrote Roslagsleden as one trail system with ${trailSystem.sections.length} sections.`);

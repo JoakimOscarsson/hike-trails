@@ -1,17 +1,22 @@
-import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { XMLParser } from "fast-xml-parser";
-import { resolveLocationFromStart } from "./location.mjs";
 import { applySormlandsledenResearchOverlays } from "./sormlandsleden-research-overlays.mjs";
 import { buildSormlandsledenRouteGroups } from "./sormlandsleden-route-groups.mjs";
-import { readHikingSourceData, writeHikingSourceData } from "./lib/hiking-source-shards.mjs";
-import { writeHikeData } from "./write-hike-data.mjs";
 import { annotateTrailSystemFacilityProximity } from "./facility-proximity.mjs";
 import { annotateTrailSystemCommuteAccess } from "./commute-access.mjs";
+import {
+  asArray,
+  centerFromCoordinates,
+  endpointCoordinatesFromRoute,
+  locationFromFirstSectionStart,
+  parseGpxFeatureCollection,
+  persistTrailSystemBuild,
+  runtimeSectionsFromBuiltSections,
+  writeRouteFeatureCollection
+} from "./lib/trail-system-builder.mjs";
 
 const projectRoot = process.cwd();
 const hikesPath = path.join(projectRoot, "data", "hikes.json");
-const routesDir = path.join(projectRoot, "public", "routes");
 const today = new Date().toISOString().slice(0, 10);
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -736,36 +741,6 @@ async function buildAllSectionSeeds(curatedSeeds) {
 
 const sectionSeeds = await buildAllSectionSeeds(curatedSectionSeeds);
 
-function arrayify(value) {
-  if (!value) return [];
-  return Array.isArray(value) ? value : [value];
-}
-
-function parseGpx(xml, name) {
-  const parser = new XMLParser({ ignoreAttributes: false });
-  const gpx = parser.parse(xml).gpx;
-  const features = [];
-  const coordinates = [];
-
-  for (const track of arrayify(gpx?.trk)) {
-    for (const segment of arrayify(track.trkseg)) {
-      const segmentCoordinates = arrayify(segment.trkpt)
-        .map((point) => [Number(point["@_lon"]), Number(point["@_lat"])])
-        .filter(([lon, lat]) => Number.isFinite(lon) && Number.isFinite(lat));
-      if (segmentCoordinates.length) {
-        coordinates.push(...segmentCoordinates);
-        features.push({
-          type: "Feature",
-          properties: { name: track.name || name },
-          geometry: { type: "LineString", coordinates: segmentCoordinates }
-        });
-      }
-    }
-  }
-
-  return { features, coordinates };
-}
-
 function haversineDistanceKm(a, b) {
   const toRadians = (degrees) => (degrees * Math.PI) / 180;
   const radiusKm = 6371.0088;
@@ -849,9 +824,9 @@ function buildOfficialRouteNetwork(gpxText) {
     adjacency[to].push([from, weight]);
   }
 
-  for (const track of arrayify(parsed?.trk)) {
-    for (const segment of arrayify(track.trkseg)) {
-      const coordinates = arrayify(segment.trkpt)
+  for (const track of asArray(parsed?.trk)) {
+    for (const segment of asArray(track.trkseg)) {
+      const coordinates = asArray(segment.trkpt)
         .map((point) => [Number(point["@_lon"]), Number(point["@_lat"])])
         .filter(([lon, lat]) => Number.isFinite(lon) && Number.isFinite(lat));
       if (coordinates.length < 2) continue;
@@ -1568,19 +1543,6 @@ async function buildOfficialRouteGeometryBySection(sectionSeeds) {
   return routeBySectionId;
 }
 
-function centerFromCoordinates(coordinates) {
-  const sums = coordinates.reduce(
-    (acc, [lon, lat]) => {
-      acc.lon += lon;
-      acc.lat += lat;
-      return acc;
-    },
-    { lon: 0, lat: 0 }
-  );
-
-  return [Number((sums.lat / coordinates.length).toFixed(6)), Number((sums.lon / coordinates.length).toFixed(6))];
-}
-
 function hydrateFacility(seed, facilityTuple) {
   const [id, name, type, description, provider] = facilityTuple;
   return {
@@ -1601,10 +1563,7 @@ async function buildSection(seed) {
     const officialRoute = officialRouteGeometryBySectionId.get(seed.id);
     if (officialRoute) {
       const geojsonPath = `/routes/${seed.id}.geojson`;
-      await writeFile(
-        path.join(projectRoot, "public", geojsonPath),
-        `${JSON.stringify(officialRoute.geojson, null, 2)}\n`
-      );
+      await writeRouteFeatureCollection({ projectRoot, geojsonPath, features: officialRoute.geojson.features });
 
       const coordinates = officialRoute.route.coordinates;
       return {
@@ -1627,11 +1586,7 @@ async function buildSection(seed) {
           gpxUrl: officialRoute.gpxUrl,
           geojsonPath
         },
-        endpointCoordinates: {
-          source: "route-geometry",
-          start: [coordinates[0][1], coordinates[0][0]],
-          end: [coordinates[coordinates.length - 1][1], coordinates[coordinates.length - 1][0]]
-        },
+        endpointCoordinates: endpointCoordinatesFromRoute(coordinates),
         start: coordinates[0],
         center: centerFromCoordinates(coordinates)
       };
@@ -1669,14 +1624,11 @@ async function buildSection(seed) {
     };
   }
 
-  const parsed = parseGpx(await fetchTextWithRetry(seed.gpxUrl), seed.name);
+  const parsed = parseGpxFeatureCollection(await fetchTextWithRetry(seed.gpxUrl), seed.name);
   if (!parsed.coordinates.length) throw new Error(`No coordinates found for ${seed.name}`);
 
   const geojsonPath = `/routes/${seed.id}.geojson`;
-  await writeFile(
-    path.join(projectRoot, "public", geojsonPath),
-    `${JSON.stringify({ type: "FeatureCollection", features: parsed.features }, null, 2)}\n`
-  );
+  await writeRouteFeatureCollection({ projectRoot, geojsonPath, features: parsed.features });
 
   return {
     id: seed.id,
@@ -1698,20 +1650,11 @@ async function buildSection(seed) {
       gpxUrl: seed.gpxUrl,
       geojsonPath
     },
-    endpointCoordinates: {
-      source: "route-geometry",
-      start: [parsed.coordinates[0][1], parsed.coordinates[0][0]],
-      end: [
-        parsed.coordinates[parsed.coordinates.length - 1][1],
-        parsed.coordinates[parsed.coordinates.length - 1][0]
-      ]
-    },
+    endpointCoordinates: endpointCoordinatesFromRoute(parsed.coordinates),
     start: parsed.coordinates[0],
     center: centerFromCoordinates(parsed.coordinates)
   };
 }
-
-await mkdir(routesDir, { recursive: true });
 
 const sectionsWithCoordinates = [];
 for (const seed of sectionSeeds) {
@@ -1720,11 +1663,7 @@ for (const seed of sectionSeeds) {
   console.log(`Built ${section.name}`);
 }
 
-const firstStart = sectionsWithCoordinates[0].start;
-const location = await resolveLocationFromStart([
-  Number(firstStart[1].toFixed(6)),
-  Number(firstStart[0].toFixed(6))
-]);
+const location = await locationFromFirstSectionStart(sectionsWithCoordinates);
 const distanceKm = Number(sectionsWithCoordinates.reduce((total, section) => total + section.distanceKm, 0).toFixed(1));
 const routeGroups = buildSormlandsledenRouteGroups(sectionsWithCoordinates);
 const groupedSectionIds = new Set(routeGroups.flatMap((group) => group.sectionIds));
@@ -1779,7 +1718,7 @@ const trailSystem = await annotateTrailSystemCommuteAccess(await annotateTrailSy
     zoom: 9,
     externalUrl: "https://www.sormlandsleden.se/planera-vandring/"
   },
-  sections: sectionsWithCoordinates.map(({ start, center, ...section }) => section),
+  sections: runtimeSectionsFromBuiltSections(sectionsWithCoordinates),
   routeGroups,
   presets: [
     {
@@ -1834,15 +1773,11 @@ const trailSystem = await annotateTrailSystemCommuteAccess(await annotateTrailSy
   ]
 }, { projectRoot, thresholdKm: 2 }));
 
-const trailSystems = await readHikingSourceData({ projectRoot });
-const nextTrailSystems = [
-  ...trailSystems.filter((system) => system.id !== trailSystem.id),
-  trailSystem
-];
-const nextHikes = [];
-
-await writeFile(hikesPath, `${JSON.stringify(nextHikes, null, 2)}\n`);
-await writeHikingSourceData(nextTrailSystems, { projectRoot });
-await writeHikeData(nextHikes, nextTrailSystems);
+await persistTrailSystemBuild({
+  projectRoot,
+  hikesPath,
+  trailSystem,
+  filterHikes: () => false
+});
 
 console.log(`Wrote Sörmlandsleden as one trail system with ${trailSystem.sections.length} sections.`);
