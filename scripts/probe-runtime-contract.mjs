@@ -207,7 +207,7 @@ async function probeTrailSystem(item, compatibilityById) {
     };
     for (const [field, expectedPath] of Object.entries(expectedPaths)) {
       if (compatibilityItem[field] !== expectedPath) {
-        addError(scope, `compatibility record ${field} must be "${expectedPath}" while hikes-index fallback remains active`);
+        addError(scope, `compatibility record ${field} must be "${expectedPath}" while compatibility output remains published`);
       }
     }
   }
@@ -261,7 +261,7 @@ async function createPublicFetch({ failLibraryIndex = false, requestedPaths = []
 
 async function probeRuntimeLoader(mode, runtimeLibrary) {
   const requestedPaths = [];
-  const fetchImpl = await createPublicFetch({ failLibraryIndex: mode === "compatibility-fallback", requestedPaths });
+  const fetchImpl = await createPublicFetch({ requestedPaths });
   const items = await runtimeLibrary.loadLibraryIndex(fetchImpl).catch((error) => {
     addError(`runtime loader ${mode}`, `loadLibraryIndex failed: ${error.message}`);
     return [];
@@ -285,11 +285,6 @@ async function probeRuntimeLoader(mode, runtimeLibrary) {
   }
 
   const kayakItems = items.filter((candidate) => candidate.activity === "kayaking" || candidate.itemType === "kayak-trip");
-  if (mode === "compatibility-fallback") {
-    if (kayakItems.length) addError(`runtime loader ${mode}`, "hikes-index compatibility fallback must not include kayak records");
-    return;
-  }
-
   if (!kayakItems.length) addError(`runtime loader ${mode}`, "library-index should expose kayak-trip records");
   for (const item of kayakItems) {
     const scope = `runtime loader ${mode} kayak ${item.id}`;
@@ -349,6 +344,49 @@ async function probeRuntimeLoader(mode, runtimeLibrary) {
     if (detail.route?.geojsonPath && !(await pathExists(publicPath(detail.route.geojsonPath)))) {
       addError(scope, `detail route geojsonPath does not exist: ${detail.route.geojsonPath}`);
     }
+  }
+}
+
+async function probeLegacyFallbackRemoval(runtimeLibrary, trailSystems) {
+  const indexRequestPaths = [];
+  const failingIndexFetch = await createPublicFetch({ failLibraryIndex: true, requestedPaths: indexRequestPaths });
+  const loadedFromFallback = await runtimeLibrary
+    .loadLibraryIndex(failingIndexFetch)
+    .then(() => true)
+    .catch(() => false);
+
+  if (loadedFromFallback) {
+    addError("runtime loader required library-index", "loadLibraryIndex must fail when /data/library-index.json cannot load");
+  }
+  if (indexRequestPaths.includes("/data/hikes-index.json")) {
+    addError("runtime loader required library-index", "loadLibraryIndex must not request legacy /data/hikes-index.json fallback");
+  }
+
+  const trailSystem = trailSystems[0];
+  if (!trailSystem) return;
+
+  const legacyPath = `/data/trail-systems/${trailSystem.id}.json`;
+  const missingShardItem = {
+    ...trailSystem,
+    detailPath: legacyPath
+  };
+  delete missingShardItem.manifestPath;
+  delete missingShardItem.sectionsIndexPath;
+  delete missingShardItem.routeGroupsPath;
+  delete missingShardItem.presetsPath;
+
+  const detailRequestPaths = [];
+  const fetchImpl = await createPublicFetch({ requestedPaths: detailRequestPaths });
+  const loadedFromLegacyDetail = await runtimeLibrary
+    .loadLibraryDetail(missingShardItem, fetchImpl)
+    .then(() => true)
+    .catch(() => false);
+
+  if (loadedFromLegacyDetail) {
+    addError("runtime loader required trail-system shards", "trail-system detail loading must fail when shard paths are missing");
+  }
+  if (detailRequestPaths.includes(legacyPath)) {
+    addError("runtime loader required trail-system shards", `trail-system detail loading must not request legacy ${legacyPath}`);
   }
 }
 
@@ -510,7 +548,7 @@ async function main() {
   let kayakFacilityStats = { facilities: 0, linkedFacilities: 0 };
   if (runtimeLibrary) {
     await probeRuntimeLoader("library-index", runtimeLibrary);
-    await probeRuntimeLoader("compatibility-fallback", runtimeLibrary);
+    await probeLegacyFallbackRemoval(runtimeLibrary, trailSystems);
     kayakFacilityStats = await probeKayakFacilityLoader(
       runtimeLibrary,
       new Set(kayaks.map((item) => item.id).filter((id) => typeof id === "string"))
@@ -537,6 +575,7 @@ async function main() {
   console.log("- kayak-trip detail loading exercises detailPath records through the shared runtime loader");
   console.log(`- kayak facilities: ${kayakFacilityStats.facilities} records, ${kayakFacilityStats.linkedFacilities} route links`);
   console.log("- current trail-system runtime records initialize from shards and do not point at legacy all-in-one JSON");
+  console.log("- missing library-index or trail-system shard paths fail without legacy hikes-index/detail JSON fallback");
 }
 
 main().catch((error) => {

@@ -44,7 +44,7 @@ Completed and stable enough to build on:
 Still transitional:
 
 - Legacy compatibility files still exist: `public/data/hikes-index.json` and `public/data/trail-systems/<trail-system-id>.json`.
-- Runtime fallback to legacy hiking data remains only for the migration window; new runtime work should continue using `library-index.json` and shards.
+- Runtime code now requires `library-index.json` and trail-system shard paths. Legacy hiking files remain compatibility outputs, not runtime fallbacks.
 - Hiking trail-system source now lives in `data/source/hiking/**`; `data/trail-systems.json` is no longer a source input.
 - `npm run data:build` is still a local/manual gate for source data, generator, or public contract changes; `ci:check` validates current outputs but does not regenerate them.
 - `npm run ui:smoke` still rewrites `docs/test-reports/hike-ui-smoke-report-2026-04-28.md` locally; hosted CI uses `npm run ui:smoke:artifact` instead.
@@ -54,7 +54,7 @@ Recommended next safe milestones:
 
 1. Reassess whether `src/map/TrailSystemMap.tsx` is small enough to pause map extraction.
 2. Continue route-builder/data-loading cleanup only in small behavior-preserving slices with browser probes after each change; the next cleanup should be larger route-builder state/view extraction only if it stays behavior-preserving.
-3. Decide when legacy compatibility hiking JSON can stop being a runtime fallback, after migration confidence and hosting/deploy needs are clear.
+3. Decide when legacy compatibility hiking JSON can stop being generated, after hosting/deploy needs are clear.
 4. Add deploy/cache-header validation only after the static hosting target is known.
 5. Decide whether the UI smoke artifact should later include screenshots or be split into a separate optional workflow if runtime becomes too slow.
 
@@ -78,7 +78,7 @@ Compatibility outputs still exist:
 - `public/data/hikes-index.json`
 - `public/data/trail-systems/<trail-system-id>.json`
 
-The app prefers `library-index.json` and trail-system shards. It falls back to `hikes-index.json` or legacy all-in-one trail-system JSON only during the migration window when the generic index or shard paths are unavailable.
+The app requires `library-index.json` and trail-system shards. If the generic index or shard paths are unavailable, runtime loading fails visibly instead of falling back to legacy all-in-one trail-system JSON.
 
 Current app/generator inputs remain:
 
@@ -310,7 +310,7 @@ Done:
 - Generic trail-system records include `activity: "hiking"` and shard paths, but intentionally omit the legacy all-in-one `detailPath`.
 - Compatibility `hikes-index.json` still includes the legacy `detailPath` during migration.
 - `npm run data:validate` now validates `library-index.json`, requires unique overview feature IDs, rejects trail-system generic records that point at the legacy all-in-one detail JSON, and checks shard paths/references.
-- The app now prefers `library-index.json` and falls back to `hikes-index.json` only during the transition.
+- The app initially preferred `library-index.json` and fell back to `hikes-index.json` during the transition; a later cleanup removed that fallback.
 - Selecting a trail system loads `manifest.json`, `sections-index.json`, `route-groups.json`, and `presets.json` instead of the legacy all-in-one trail-system file.
 - The route builder initializes from section-index summaries.
 - Selected/context section detail shards are fetched on demand for facilities, commute access, and info text.
@@ -323,14 +323,14 @@ Not done:
 - No kayak source data, kayak runtime data, kayak overview, or kayak details UI was added.
 - The route builder still lives in `src/main.tsx`; hooks/components were not split yet.
 - Selected section detail hydration has no explicit inline loading/error UI beyond keeping the route builder usable from summaries.
-- The legacy all-in-one trail-system JSON files are still generated for compatibility and fallback.
+- The legacy all-in-one trail-system JSON files are still generated for compatibility.
 - Browser/network automation has not yet asserted request-by-request that selecting a trail system avoids the legacy all-in-one detail JSON; Slice 8 adds a static/runtime contract probe for the same boundary.
 
 Recommended next work:
 
 1. Run and keep extending `npm run runtime:probe` while the sharded runtime contract is changing.
 2. Start kayak source import only after the sharded loading path remains green.
-3. Later, remove legacy all-in-one trail-system fallback only after sharded runtime loading has shipped and stayed stable.
+3. Later, stop generating legacy all-in-one trail-system outputs once hosting/deploy compatibility no longer needs them.
 
 ## Slice 8: Runtime Contract Probe
 
@@ -347,13 +347,13 @@ Done:
 - The probe checks that `hikes-index.json` still keeps compatibility records with legacy all-in-one `detailPath` values and shard paths during the migration.
 - The probe checks that trail-system overview features do not expose legacy all-in-one `detailPath` values.
 - The app's index/detail loading code is now in `src/data/library.ts`.
-- The probe imports the actual runtime loader from `src/data/library.ts` with a mocked `fetch` and verifies both the normal `library-index.json` path and the `hikes-index.json` fallback path request shards, not legacy all-in-one trail-system JSON.
+- The probe imports the actual runtime loader from `src/data/library.ts` with a mocked `fetch`, verifies the normal `library-index.json` path requests shards, and verifies missing generic index/shard paths fail without requesting legacy fallback files.
 
 Not done:
 
 - This is not browser request-interception against a live Vite app; it proves the app's shared runtime loader behavior with mocked `fetch`.
 - Its first version focused on the hiking sharded runtime loader. Slice 10 extends the same probe to kayak index, overview, and detail loading.
-- The legacy all-in-one trail-system JSON files and fallback branch remain in place for compatibility.
+- The legacy all-in-one trail-system JSON files remain in place for compatibility, but the runtime fallback branch has been removed.
 
 Recommended next work:
 
@@ -1422,7 +1422,7 @@ Recommended next work:
 
 1. Keep route-builder state/view extraction as the next behavior-preserving cleanup candidate if continuing implementation.
 2. Add deploy/cache-header validation only after the static hosting target is known.
-3. Decide when legacy compatibility hiking JSON can stop being a runtime fallback after migration confidence is clear.
+3. Decide when legacy compatibility hiking JSON can stop being generated after deploy compatibility is clear.
 
 ## Verification Checklist
 

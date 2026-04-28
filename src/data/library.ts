@@ -25,11 +25,7 @@ export function withDefaultActivity(items: LibraryIndexItem[]): LibraryIndexItem
 }
 
 export async function loadLibraryIndex(fetchImpl: FetchLike = fetch) {
-  try {
-    return withDefaultActivity(await fetchJson<LibraryIndexItem[]>("/data/library-index.json", fetchImpl));
-  } catch {
-    return withDefaultActivity(await fetchJson<LibraryIndexItem[]>("/data/hikes-index.json", fetchImpl));
-  }
+  return withDefaultActivity(await fetchJson<LibraryIndexItem[]>("/data/library-index.json", fetchImpl));
 }
 
 export async function loadKayakFacilities(fetchImpl: FetchLike = fetch) {
@@ -38,7 +34,7 @@ export async function loadKayakFacilities(fetchImpl: FetchLike = fetch) {
 
 type TrailSystemIndexRecord = Extract<LibraryIndexItem, { itemType: "trail-system" }>;
 
-export function hasTrailSystemShardPaths(item: TrailSystemIndexRecord) {
+function hasTrailSystemShardPaths(item: TrailSystemIndexRecord) {
   return Boolean(item.manifestPath && item.sectionsIndexPath && item.routeGroupsPath && item.presetsPath);
 }
 
@@ -60,8 +56,7 @@ export async function loadTrailSystemFromShards(
   fetchImpl: FetchLike = fetch
 ): Promise<TrailSystem> {
   if (!hasTrailSystemShardPaths(item)) {
-    if (!item.detailPath) throw new Error(`Trail system ${item.name} is missing shard paths and detailPath fallback.`);
-    return fetchJson<TrailSystem>(item.detailPath, fetchImpl);
+    throw new Error(`Trail system ${item.name} is missing required shard paths.`);
   }
 
   const [manifest, sectionsIndex, routeGroups, presets] = await Promise.all([
