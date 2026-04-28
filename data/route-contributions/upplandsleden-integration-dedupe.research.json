@@ -1,0 +1,5342 @@
+{
+  "id": "upplandsleden-integration-dedupe-v1",
+  "trailId": "upplandsleden",
+  "status": "iteration-3-integration-dedupe-complete",
+  "createdAt": "2026-04-27",
+  "scope": "Numbered Upplandsleden etapper 1-31 dedupe registry. Standalone slinga/loop files were added later and should be deduped against these canonical groups by source URL/coordinate during import.",
+  "summary": {
+    "files": 31,
+    "dedupeGroups": 44,
+    "sharedFacilityOrPoi": 11,
+    "mixedFacilityAccess": 23,
+    "accessMetadata": 7,
+    "suppressionMetadata": 3,
+    "routeBoundaryMetadata": 0
+  },
+  "integrationRules": [
+    "Rows in section files remain section-scoped for provenance; importer should dedupe by this registry before creating visible facilities.",
+    "For shared endpoint facilities such as Kolarmoraån, Risön, Lövstabruk, Österbybruk, Skokloster, Häggeby, Almunge and Knutby, create one canonical place/facility and attach all relevant sectionRefs.",
+    "Keep parking and transit rows out of normal facility imports unless the app adds a dedicated access layer.",
+    "Do not promote suppressions, leakage rows, rule-warning rows or no-water/no-car metadata into visible facilities.",
+    "When a cluster contains multiple normal facility types at the same place, keep one canonical row per type under one shared place cluster.",
+    "Rows marked pending remain pending even if they sit inside a canonical cluster; do not import until the pending reason is resolved."
+  ],
+  "unresolvedQualityThemes": [
+    "Commercial/seasonal services should remain pending unless current opening/access data is verified close to import time.",
+    "Standalone slinga/loop contribution files now exist; import should dedupe shared endpoint facilities against the numbered-etapp registry by source URL/coordinate."
+  ],
+  "dedupeGroups": [
+    {
+      "id": "upplandsleden-dedupe-001-parkering-nyby",
+      "kind": "access-metadata",
+      "canonicalName": "Parkering Nyby",
+      "canonicalCoords": [
+        59.783108523,
+        17.753942269
+      ],
+      "sectionRefs": [
+        1,
+        2
+      ],
+      "policy": "Do not import as normal public trail facilities. Keep as access-layer metadata or collapse by coordinate/name if an access layer is added.",
+      "items": [
+        {
+          "etapp": 1,
+          "file": "upplandsleden-etapp-1-sunnersta-nyby.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-1-nyby-parking",
+          "type": "parking",
+          "name": "Parkering Nyby",
+          "coords": [
+            59.7831085230001,
+            17.753942269
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp1"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 2,
+          "file": "upplandsleden-etapp-2-nyby-fjallnora.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-2-nyby-parking",
+          "type": "parking",
+          "name": "Parkering Nyby",
+          "coords": [
+            59.78310852300007,
+            17.75394226900005
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp2"
+          ],
+          "decision": "transportMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-002-badplats-fjallnora",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Badplats, Fjällnora",
+      "canonicalCoords": [
+        59.836750721,
+        17.916280013
+      ],
+      "sectionRefs": [
+        2,
+        3
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 2,
+          "file": "upplandsleden-etapp-2-nyby-fjallnora.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-2-fjallnora-swimming",
+          "type": "swimming",
+          "name": "Badplats, Fjällnora",
+          "coords": [
+            59.83675756500003,
+            17.91628641300008
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp2"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 2,
+          "file": "upplandsleden-etapp-2-nyby-fjallnora.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-2-fjallnora-rest-area",
+          "type": "rest-area",
+          "name": "Rastplats, Fjällnora",
+          "coords": [
+            59.83675756500003,
+            17.91628641300008
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp2"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 2,
+          "file": "upplandsleden-etapp-2-nyby-fjallnora.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-2-fjallnora-water",
+          "type": "water",
+          "name": "Vatten, Fjällnora",
+          "coords": [
+            59.83675756500003,
+            17.91628641300008
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp2"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 2,
+          "file": "upplandsleden-etapp-2-nyby-fjallnora.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-2-fjallnora-parking",
+          "type": "parking",
+          "name": "Parkering Fjällnora",
+          "coords": [
+            59.83675756500003,
+            17.91628641300008
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp2"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 3,
+          "file": "upplandsleden-etapp-3-fjallnora-lanna.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-3-fjallnora-swimming",
+          "type": "swimming",
+          "name": "Badplats, Fjällnora",
+          "coords": [
+            59.83674387700006,
+            17.91627361200005
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp3"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 3,
+          "file": "upplandsleden-etapp-3-fjallnora-lanna.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-3-fjallnora-water",
+          "type": "water",
+          "name": "Vatten, Fjällnora",
+          "coords": [
+            59.83674387700006,
+            17.91627361200005
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp3"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 3,
+          "file": "upplandsleden-etapp-3-fjallnora-lanna.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-3-fjallnora-food",
+          "type": "food",
+          "name": "Café, Fjällnora",
+          "coords": [
+            59.83674387700006,
+            17.91627361200005
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp3"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 3,
+          "file": "upplandsleden-etapp-3-fjallnora-lanna.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-3-fjallnora-parking",
+          "type": "parking",
+          "name": "Parkering Fjällnora",
+          "coords": [
+            59.83674387700006,
+            17.91627361200005
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp3"
+          ],
+          "decision": "transportMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-003-parkering-lanna-kopphagen",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Parkering Länna/Kopphagen",
+      "canonicalCoords": [
+        59.870281052,
+        17.956137834
+      ],
+      "sectionRefs": [
+        3,
+        4
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 3,
+          "file": "upplandsleden-etapp-3-fjallnora-lanna.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-3-lanna-parking",
+          "type": "parking",
+          "name": "Parkering Länna/Kopphagen",
+          "coords": [
+            59.87028105200005,
+            17.95613783400006
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp3"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 4,
+          "file": "upplandsleden-etapp-4-lanna-almunge.research.json",
+          "bucket": "pending",
+          "id": "upplandsleden-etapp-4-lanna-food-shop",
+          "type": "food",
+          "name": "Länna bruk / Länna macken service",
+          "coords": [
+            59.87028105200005,
+            17.95613783400006
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp4"
+          ],
+          "decision": "pendingOnly"
+        },
+        {
+          "etapp": 4,
+          "file": "upplandsleden-etapp-4-lanna-almunge.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-4-lanna-parking",
+          "type": "parking",
+          "name": "Parkering Länna/Kopphagen",
+          "coords": [
+            59.87028105200005,
+            17.95613783400006
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp4"
+          ],
+          "decision": "transportMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-004-vatten-almunge-kyrka",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Vatten, Almunge kyrka",
+      "canonicalCoords": [
+        59.864515929,
+        18.071232856
+      ],
+      "sectionRefs": [
+        4,
+        5
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 4,
+          "file": "upplandsleden-etapp-4-lanna-almunge.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-4-almunge-kyrka-water",
+          "type": "water",
+          "name": "Vatten, Almunge kyrka",
+          "coords": [
+            59.86451592900005,
+            18.07123285600005
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp4"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 4,
+          "file": "upplandsleden-etapp-4-lanna-almunge.research.json",
+          "bucket": "pending",
+          "id": "upplandsleden-etapp-4-almunge-food-shop",
+          "type": "food",
+          "name": "Almunge centrum service",
+          "coords": [
+            59.86451592900005,
+            18.07123285600005
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp4"
+          ],
+          "decision": "pendingOnly"
+        },
+        {
+          "etapp": 4,
+          "file": "upplandsleden-etapp-4-lanna-almunge.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-4-almunge-parking",
+          "type": "parking",
+          "name": "Parkering Almunge",
+          "coords": [
+            59.86451592900005,
+            18.07123285600005
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp4"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 5,
+          "file": "upplandsleden-etapp-5-almunge-sodersjon.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-5-almunge-kyrka-water",
+          "type": "water",
+          "name": "Vatten, Almunge kyrka",
+          "coords": [
+            59.86451592900005,
+            18.07123285600005
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp5"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 5,
+          "file": "upplandsleden-etapp-5-almunge-sodersjon.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-5-almunge-parking",
+          "type": "parking",
+          "name": "Parkering Almunge",
+          "coords": [
+            59.86451592900005,
+            18.07123285600005
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp5"
+          ],
+          "decision": "transportMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-005-vatten-knutby-kyrka",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Vatten, Knutby kyrka",
+      "canonicalCoords": [
+        59.907349518,
+        18.261904137
+      ],
+      "sectionRefs": [
+        6,
+        7
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 6,
+          "file": "upplandsleden-etapp-6-sodersjon-knutby.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-6-knutby-kyrka-water",
+          "type": "water",
+          "name": "Vatten, Knutby kyrka",
+          "coords": [
+            59.90734951800005,
+            18.2619041370001
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp6"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 6,
+          "file": "upplandsleden-etapp-6-sodersjon-knutby.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-6-knutby-parking",
+          "type": "parking",
+          "name": "Parkering Knutby",
+          "coords": [
+            59.90734951800005,
+            18.2619041370001
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp6"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 7,
+          "file": "upplandsleden-etapp-7-knutby-bennebol.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-7-knutby-kyrka-water",
+          "type": "water",
+          "name": "Vatten, Knutby kyrka",
+          "coords": [
+            59.90734951800005,
+            18.2619041370001
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp7"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 7,
+          "file": "upplandsleden-etapp-7-knutby-bennebol.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-7-knutby-parking",
+          "type": "parking",
+          "name": "Parkering Knutby",
+          "coords": [
+            59.90734951800005,
+            18.2619041370001
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp7"
+          ],
+          "decision": "transportMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-006-bennebols-bruk",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Bennebols bruk",
+      "canonicalCoords": [
+        59.956268502,
+        18.362876692
+      ],
+      "sectionRefs": [
+        7,
+        8
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 7,
+          "file": "upplandsleden-etapp-7-knutby-bennebol.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-7-bennebol-heritage",
+          "type": "heritage",
+          "name": "Bennebols bruk",
+          "coords": [
+            59.95623782900003,
+            18.362839269000006
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp7"
+          ],
+          "decision": "normalPois"
+        },
+        {
+          "etapp": 7,
+          "file": "upplandsleden-etapp-7-knutby-bennebol.research.json",
+          "bucket": "pending",
+          "id": "upplandsleden-etapp-7-hasthagen-kilholmen-attraction",
+          "type": "attraction",
+          "name": "Hästhagen-Kilholmens naturreservat",
+          "coords": [
+            59.95623782900003,
+            18.362839269000006
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp7"
+          ],
+          "decision": "pendingOnly"
+        },
+        {
+          "etapp": 7,
+          "file": "upplandsleden-etapp-7-knutby-bennebol.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-7-bennebol-parking",
+          "type": "parking",
+          "name": "Liten parkering vid Hästhagen-Kilholmen/Bennebol",
+          "coords": [
+            59.95623782900003,
+            18.362839269000006
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp7"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 8,
+          "file": "upplandsleden-etapp-8-bennebol-pansarudden.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-8-bennebol-heritage",
+          "type": "heritage",
+          "name": "Bennebols bruk",
+          "coords": [
+            59.95636051986512,
+            18.36298896123071
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp8",
+            "upplandsstiftelsen_etapp8"
+          ],
+          "decision": "normalPois"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-007-pansaruddens-naturreservat",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Pansaruddens naturreservat",
+      "canonicalCoords": [
+        59.986702673,
+        18.35482554
+      ],
+      "sectionRefs": [
+        8,
+        9
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 8,
+          "file": "upplandsleden-etapp-8-bennebol-pansarudden.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-8-pansarudden-attraction",
+          "type": "attraction",
+          "name": "Pansaruddens naturreservat",
+          "coords": [
+            59.98666554975782,
+            18.35492094475046
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp8",
+            "naturkartan_pansarudden"
+          ],
+          "decision": "normalPois"
+        },
+        {
+          "etapp": 8,
+          "file": "upplandsleden-etapp-8-bennebol-pansarudden.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-8-pansarudden-parking",
+          "type": "parking",
+          "name": "Norra parkeringen, Pansarudden",
+          "coords": [
+            59.98666554975782,
+            18.35492094475046
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp8"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 8,
+          "file": "upplandsleden-etapp-8-bennebol-pansarudden.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-8-slinga81-leakage",
+          "type": "rule-warning",
+          "name": "Pansaruddenslingan 8:1 closure/leakage",
+          "coords": [
+            59.98666554975782,
+            18.35492094475046
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_pansarudden"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 9,
+          "file": "upplandsleden-etapp-9-pansarudden-kolarmora.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-9-pansarudden-attraction",
+          "type": "attraction",
+          "name": "Pansaruddens naturreservat",
+          "coords": [
+            59.98675835700004,
+            18.35468243200012
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp9",
+            "naturkartan_pansarudden"
+          ],
+          "decision": "normalPois"
+        },
+        {
+          "etapp": 9,
+          "file": "upplandsleden-etapp-9-pansarudden-kolarmora.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-9-pansarudden-parking",
+          "type": "parking",
+          "name": "Norra parkeringen, Pansarudden",
+          "coords": [
+            59.98675835700004,
+            18.35468243200012
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp9"
+          ],
+          "decision": "transportMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-008-vindskydd-vid-kolarmoraan",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Vindskydd vid Kolarmoraån",
+      "canonicalCoords": [
+        60.037835224,
+        18.348301437
+      ],
+      "sectionRefs": [
+        9,
+        10
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 9,
+          "file": "upplandsleden-etapp-9-pansarudden-kolarmora.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-9-kolarmoraan-shelter",
+          "type": "shelter",
+          "name": "Vindskydd vid Kolarmoraån",
+          "coords": [
+            60.03771446700006,
+            18.34890548300007
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp9"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 9,
+          "file": "upplandsleden-etapp-9-pansarudden-kolarmora.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-9-kolarmora-no-car-access",
+          "type": "transit",
+          "name": "Kolarmoraån endpoint no car access",
+          "coords": [
+            60.03771446700006,
+            18.34890548300007
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp9"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 10,
+          "file": "upplandsleden-etapp-10-kolarmora-gimo.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-10-kolarmoraan-shelters",
+          "type": "shelter",
+          "name": "Vindskydd, Kolarmoraån",
+          "coords": [
+            60.03787108268606,
+            18.34812227360158
+          ],
+          "confidence": "high",
+          "sources": [
+            "kolarmora_shelter",
+            "naturkartan_etapp10",
+            "roslagen_etapp10"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 10,
+          "file": "upplandsleden-etapp-10-kolarmora-gimo.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-10-kolarmoraan-toilet",
+          "type": "toilet",
+          "name": "Torrtoalett, Kolarmoraån",
+          "coords": [
+            60.0379333,
+            18.34781
+          ],
+          "confidence": "high",
+          "sources": [
+            "kolarmora_shelter",
+            "osm_kolarmora_toilet"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 10,
+          "file": "upplandsleden-etapp-10-kolarmora-gimo.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-10-kolarmoraan-fireplace",
+          "type": "fireplace",
+          "name": "Eldstad, Kolarmoraån",
+          "coords": [
+            60.03787108268606,
+            18.34812227360158
+          ],
+          "confidence": "high",
+          "sources": [
+            "kolarmora_shelter"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 10,
+          "file": "upplandsleden-etapp-10-kolarmora-gimo.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-10-kolarmoraan-rest-area",
+          "type": "rest-area",
+          "name": "Rastplats, Kolarmoraån",
+          "coords": [
+            60.03787108268606,
+            18.34812227360158
+          ],
+          "confidence": "high",
+          "sources": [
+            "kolarmora_shelter"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 10,
+          "file": "upplandsleden-etapp-10-kolarmora-gimo.research.json",
+          "bucket": "pending",
+          "id": "upplandsleden-etapp-10-kolarmoraan-tenting-pending",
+          "type": "campsite",
+          "name": "Possible tenting at Kolarmoraån",
+          "coords": [
+            60.03787108268606,
+            18.34812227360158
+          ],
+          "confidence": "medium",
+          "sources": [
+            "kolarmora_shelter"
+          ],
+          "decision": "pendingOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-009-hammaren-gimo-bruk",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Hammaren / Gimo bruk",
+      "canonicalCoords": [
+        60.178412714,
+        18.172068818
+      ],
+      "sectionRefs": [
+        10,
+        11
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 10,
+          "file": "upplandsleden-etapp-10-kolarmora-gimo.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-10-hammaren-gimo-bruk",
+          "type": "heritage",
+          "name": "Hammaren / Gimo bruk",
+          "coords": [
+            60.178324591,
+            18.1720322680001
+          ],
+          "confidence": "high",
+          "sources": [
+            "dammledenslingan",
+            "naturkartan_etapp10"
+          ],
+          "decision": "normalPois"
+        },
+        {
+          "etapp": 10,
+          "file": "upplandsleden-etapp-10-kolarmora-gimo.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-10-gimo-herrgard-parking-metadata",
+          "type": "parking",
+          "name": "Parkering, Gimo herrgård",
+          "coords": [
+            60.1784567756858,
+            18.1720870928427
+          ],
+          "confidence": null,
+          "sources": [
+            "gimo_herrgard_parking"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 11,
+          "file": "upplandsleden-etapp-11-gimo-osterbybruk.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-11-gimo-herrgard-parking",
+          "type": "parking",
+          "name": "Parkering, Gimo herrgård",
+          "coords": [
+            60.1784567756858,
+            18.1720870928427
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_gimo_parking",
+            "naturkartan_etapp11"
+          ],
+          "decision": "transportMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-010-toalett-osterbybruk",
+      "kind": "shared-facility-or-poi",
+      "canonicalName": "Toalett, Österbybruk",
+      "canonicalCoords": [
+        60.19549121,
+        17.895920258
+      ],
+      "sectionRefs": [
+        11,
+        12
+      ],
+      "policy": "Import once as a canonical shared row and attach sectionRefs for every etapp that uses it.",
+      "items": [
+        {
+          "etapp": 11,
+          "file": "upplandsleden-etapp-11-gimo-osterbybruk.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-11-osterbybruk-toilet",
+          "type": "toilet",
+          "name": "Toalett, Österbybruk",
+          "coords": [
+            60.19549120965664,
+            17.89592025780652
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_osterbybruk_toilet",
+            "naturkartan_etapp11",
+            "upplandsstiftelsen_etapp11",
+            "naturkartan_etapp12"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 12,
+          "file": "upplandsleden-etapp-12-osterbybruk-rison.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-12-osterbybruk-toilet",
+          "type": "toilet",
+          "name": "Toalett, Österbybruk torget",
+          "coords": [
+            60.19549120965664,
+            17.89592025780652
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_toalett_osterbybruk",
+            "naturkartan_etapp12",
+            "osthammar_public_toilets"
+          ],
+          "decision": "normalFacilities"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-011-vatten-osterbybruk",
+      "kind": "shared-facility-or-poi",
+      "canonicalName": "Vatten, Österbybruk",
+      "canonicalCoords": [
+        60.196923265,
+        17.90106481
+      ],
+      "sectionRefs": [
+        11,
+        12
+      ],
+      "policy": "Import once as a canonical shared row and attach sectionRefs for every etapp that uses it.",
+      "items": [
+        {
+          "etapp": 11,
+          "file": "upplandsleden-etapp-11-gimo-osterbybruk.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-11-osterbybruk-water",
+          "type": "water",
+          "name": "Vatten, Österbybruk",
+          "coords": [
+            60.19692326517256,
+            17.90106480985554
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_osterbybruk_water",
+            "naturkartan_etapp11",
+            "upplandsstiftelsen_etapp11",
+            "naturkartan_etapp12"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 12,
+          "file": "upplandsleden-etapp-12-osterbybruk-rison.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-12-osterbybruk-water",
+          "type": "water",
+          "name": "Vatten, Österbybruk",
+          "coords": [
+            60.19692326517256,
+            17.90106480985554
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_vatten_osterbybruk",
+            "naturkartan_etapp12",
+            "upplandsstiftelsen_etapp12"
+          ],
+          "decision": "normalFacilities"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-012-vallonsmedjan-i-osterbybruk",
+      "kind": "shared-facility-or-poi",
+      "canonicalName": "Vallonsmedjan i Österbybruk",
+      "canonicalCoords": [
+        60.193847,
+        17.9000409
+      ],
+      "sectionRefs": [
+        11,
+        12
+      ],
+      "policy": "Import once as a canonical shared row and attach sectionRefs for every etapp that uses it.",
+      "items": [
+        {
+          "etapp": 11,
+          "file": "upplandsleden-etapp-11-gimo-osterbybruk.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-11-osterbybruk-vallonsmedjan",
+          "type": "heritage",
+          "name": "Vallonsmedjan i Österbybruk",
+          "coords": [
+            60.193847,
+            17.9000408
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_vallonsmedjan",
+            "osterbybruk_herrgard"
+          ],
+          "decision": "normalPois"
+        },
+        {
+          "etapp": 12,
+          "file": "upplandsleden-etapp-12-osterbybruk-rison.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-12-osterbybruk-cultural-duplicates",
+          "type": "heritage",
+          "name": "Österbybruk heritage cluster",
+          "coords": [
+            60.193847,
+            17.900041
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_osterbybruk_herrgard",
+            "naturkartan_vallonsmedjan",
+            "osterbybruk_herrgard",
+            "vallonbruken_osterbybruk"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-013-rwc-osterbybruk-busstation",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "RWC, Österbybruk busstation",
+      "canonicalCoords": [
+        60.197170249,
+        17.898033035
+      ],
+      "sectionRefs": [
+        11,
+        12
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 11,
+          "file": "upplandsleden-etapp-11-gimo-osterbybruk.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-11-osterbybruk-bus-waiting-hall-rwc",
+          "type": "toilet",
+          "name": "RWC, Österbybruk busstation",
+          "coords": [
+            60.197038498281,
+            17.897925718674
+          ],
+          "confidence": "high",
+          "sources": [
+            "osthammar_public_toilets",
+            "osthammar_kommunkartan",
+            "naturkartan_osterbybruk_busstation"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 11,
+          "file": "upplandsleden-etapp-11-gimo-osterbybruk.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-11-osterbybruk-busstation",
+          "type": "transit",
+          "name": "Österbybruk busstation / bussterminal",
+          "coords": [
+            60.19700233664054,
+            17.89823519117465
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_osterbybruk_busstation",
+            "ul_817_timetable",
+            "ul_823_timetable",
+            "ul_752_timetable"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 11,
+          "file": "upplandsleden-etapp-11-gimo-osterbybruk.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-11-osterbybruk-end-parking",
+          "type": "parking",
+          "name": "Parkering, Österbybruk",
+          "coords": [
+            60.1974879938262,
+            17.8977834601367
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_osterbybruk_parking",
+            "naturkartan_etapp11"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 12,
+          "file": "upplandsleden-etapp-12-osterbybruk-rison.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-12-osterbybruk-busstation-rwc",
+          "type": "toilet",
+          "name": "RWC, Österbybruk busstation",
+          "coords": [
+            60.19700233664054,
+            17.89823519117465
+          ],
+          "confidence": "medium",
+          "sources": [
+            "osthammar_public_toilets",
+            "naturkartan_osterbybruk_busstation"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 12,
+          "file": "upplandsleden-etapp-12-osterbybruk-rison.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-12-osterbybruk-busstation",
+          "type": "transit",
+          "name": "Österbybruk busstation",
+          "coords": [
+            60.19700233664054,
+            17.89823519117465
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_osterbybruk_busstation",
+            "naturkartan_etapp12"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 12,
+          "file": "upplandsleden-etapp-12-osterbybruk-rison.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-12-osterbybruk-parking",
+          "type": "parking",
+          "name": "Parkering, Österbybruk",
+          "coords": [
+            60.1974879938262,
+            17.8977834601367
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_osterbybruk_parking"
+          ],
+          "decision": "transportMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-014-oppen-raststuga-rison",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Öppen raststuga, Risön",
+      "canonicalCoords": [
+        60.308059262,
+        17.865105377
+      ],
+      "sectionRefs": [
+        12,
+        13
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 12,
+          "file": "upplandsleden-etapp-12-osterbybruk-rison.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-12-rison-open-cabin",
+          "type": "shelter",
+          "name": "Öppen raststuga, Risön",
+          "coords": [
+            60.30825426850566,
+            17.86389910609977
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_oppen_stuga_rison",
+            "vindskyddskartan_rison",
+            "lansstyrelsen_florarna"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 12,
+          "file": "upplandsleden-etapp-12-osterbybruk-rison.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-12-rison-water",
+          "type": "water",
+          "name": "Vatten, Risön",
+          "coords": [
+            60.30828398583383,
+            17.864692233230585
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_rison_water",
+            "naturkartan_etapp12",
+            "upplandsstiftelsen_etapp12",
+            "lansstyrelsen_florarna"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 12,
+          "file": "upplandsleden-etapp-12-osterbybruk-rison.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-12-rison-toilet",
+          "type": "toilet",
+          "name": "Toalett, Risön",
+          "coords": [
+            60.30800476983704,
+            17.8656792640686
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_rison",
+            "lansstyrelsen_florarna"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 12,
+          "file": "upplandsleden-etapp-12-osterbybruk-rison.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-12-rison-rest-area",
+          "type": "rest-area",
+          "name": "Rastplats, Risön",
+          "coords": [
+            60.30800476983704,
+            17.8656792640686
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_rison",
+            "roslagen_florarna",
+            "lansstyrelsen_florarna"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 12,
+          "file": "upplandsleden-etapp-12-osterbybruk-rison.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-12-rison-fireplace",
+          "type": "fireplace",
+          "name": "Eldplats, Risön",
+          "coords": [
+            60.30800476983704,
+            17.8656792640686
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_rison",
+            "roslagen_florarna",
+            "lansstyrelsen_florarna"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 12,
+          "file": "upplandsleden-etapp-12-osterbybruk-rison.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-12-rison-campsite",
+          "type": "campsite",
+          "name": "Tältplats, Risön",
+          "coords": [
+            60.30800476983704,
+            17.8656792640686
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_rison",
+            "naturkartan_etapp13",
+            "lansstyrelsen_florarna"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 12,
+          "file": "upplandsleden-etapp-12-osterbybruk-rison.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-12-rison-parking",
+          "type": "parking",
+          "name": "Parkering, Risön",
+          "coords": [
+            60.30797022626583,
+            17.86429524421692
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_parkering_rison",
+            "naturkartan_etapp12"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 12,
+          "file": "upplandsleden-etapp-12-osterbybruk-rison.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-12-rison-booked-amenities-context",
+          "type": "attraction",
+          "name": "Risön booked indoor amenities",
+          "coords": [
+            60.308005,
+            17.865679
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_rison",
+            "roslagen_florarna"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 13,
+          "file": "upplandsleden-etapp-13-rison-lovstabruk.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-13-rison-open-cabin",
+          "type": "shelter",
+          "name": "Öppen raststuga, Risön",
+          "coords": [
+            60.30825426850566,
+            17.86389910609977
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_open_cabin_rison",
+            "naturkartan_rison",
+            "naturkartan_etapp13",
+            "upplandsstiftelsen_etapp13"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 13,
+          "file": "upplandsleden-etapp-13-rison-lovstabruk.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-13-rison-water",
+          "type": "water",
+          "name": "Vatten, Risön",
+          "coords": [
+            60.30828398583383,
+            17.864692233230585
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_rison_water",
+            "naturkartan_etapp13",
+            "upplandsstiftelsen_etapp13",
+            "lansstyrelsen_florarna"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 13,
+          "file": "upplandsleden-etapp-13-rison-lovstabruk.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-13-rison-toilet",
+          "type": "toilet",
+          "name": "Torrtoalett, Risön",
+          "coords": [
+            60.30800476983704,
+            17.8656792640686
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_rison",
+            "lansstyrelsen_florarna"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 13,
+          "file": "upplandsleden-etapp-13-rison-lovstabruk.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-13-rison-rest-area",
+          "type": "rest-area",
+          "name": "Rastplats, Risön",
+          "coords": [
+            60.30800476983704,
+            17.8656792640686
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_rison",
+            "naturkartan_etapp13",
+            "lansstyrelsen_florarna",
+            "visit_roslagen_vikingaleden9"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 13,
+          "file": "upplandsleden-etapp-13-rison-lovstabruk.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-13-rison-fireplace",
+          "type": "fireplace",
+          "name": "Grillplats, Risön",
+          "coords": [
+            60.30800476983704,
+            17.8656792640686
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_rison",
+            "lansstyrelsen_florarna",
+            "roslagen_florarna"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 13,
+          "file": "upplandsleden-etapp-13-rison-lovstabruk.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-13-rison-campsite",
+          "type": "campsite",
+          "name": "Tältplats, Risön",
+          "coords": [
+            60.30800476983704,
+            17.8656792640686
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_rison",
+            "naturkartan_etapp13",
+            "lansstyrelsen_florarna"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 13,
+          "file": "upplandsleden-etapp-13-rison-lovstabruk.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-13-rison-parking",
+          "type": "parking",
+          "name": "Parkering, Risön",
+          "coords": [
+            60.30797022626583,
+            17.86429524421692
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_rison_parking",
+            "naturkartan_etapp13"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 13,
+          "file": "upplandsleden-etapp-13-rison-lovstabruk.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-13-rison-booked-amenities",
+          "type": "attraction",
+          "name": "Risön booked indoor amenities",
+          "coords": [
+            60.30800476983704,
+            17.8656792640686
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_rison",
+            "lansstyrelsen_florarna"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 13,
+          "file": "upplandsleden-etapp-13-rison-lovstabruk.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-13-etapp12-leakage",
+          "type": "attraction",
+          "name": "Etapp 12 leakage",
+          "coords": [
+            60.307942557,
+            17.864225866
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp12",
+            "naturkartan_etapp13"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-015-toalett-lovstabruk",
+      "kind": "shared-facility-or-poi",
+      "canonicalName": "Toalett, Lövstabruk",
+      "canonicalCoords": [
+        60.40895845,
+        17.877323193
+      ],
+      "sectionRefs": [
+        13,
+        14
+      ],
+      "policy": "Create one place cluster at this coordinate and import one canonical row per distinct normal facility/POI type; attach sectionRefs for every etapp that uses it.",
+      "items": [
+        {
+          "etapp": 13,
+          "file": "upplandsleden-etapp-13-rison-lovstabruk.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-13-lovstabruk-toilet",
+          "type": "toilet",
+          "name": "Toalett, Lövstabruk",
+          "coords": [
+            60.4089584495311,
+            17.8773231928594
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_lovstabruk_toilet_water",
+            "naturkartan_etapp13",
+            "naturkartan_etapp14"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 13,
+          "file": "upplandsleden-etapp-13-rison-lovstabruk.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-13-lovstabruk-water",
+          "type": "water",
+          "name": "Vatten, Lövstabruk",
+          "coords": [
+            60.4089584495311,
+            17.8773231928594
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_lovstabruk_toilet_water",
+            "naturkartan_etapp13",
+            "naturkartan_etapp14"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 14,
+          "file": "upplandsleden-etapp-14-lovstabruk-vastland.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-14-lovstabruk-toilet",
+          "type": "toilet",
+          "name": "Toalett, Lövstabruk",
+          "coords": [
+            60.4089584495311,
+            17.8773231928594
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_lovstabruk_toilet_water",
+            "naturkartan_etapp14",
+            "upplandsstiftelsen_etapp14"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 14,
+          "file": "upplandsleden-etapp-14-lovstabruk-vastland.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-14-lovstabruk-water",
+          "type": "water",
+          "name": "Vatten, Lövstabruk",
+          "coords": [
+            60.4089584495311,
+            17.8773231928594
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_lovstabruk_toilet_water",
+            "naturkartan_etapp14",
+            "upplandsstiftelsen_etapp14"
+          ],
+          "decision": "normalFacilities"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-016-lovstabruk-bruksmiljo",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Lövstabruk bruksmiljö",
+      "canonicalCoords": [
+        60.408161012,
+        17.879217681
+      ],
+      "sectionRefs": [
+        13,
+        14
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 13,
+          "file": "upplandsleden-etapp-13-rison-lovstabruk.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-13-lovstabruk-bruksmiljo",
+          "type": "heritage",
+          "name": "Lövstabruk bruksmiljö",
+          "coords": [
+            60.408125051,
+            17.879244638
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp13",
+            "tierp_lovstabruk",
+            "vallonbruken_lovstabruk",
+            "nationalmuseum_lovstabruk"
+          ],
+          "decision": "normalPois"
+        },
+        {
+          "etapp": 13,
+          "file": "upplandsleden-etapp-13-rison-lovstabruk.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-13-lovstabruk-herrgarden-bus",
+          "type": "transit",
+          "name": "Busshållplats, Lövstabruk Herrgården",
+          "coords": [
+            60.40828687739532,
+            17.879123333354528
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_lovstabruk_bus",
+            "naturkartan_etapp13",
+            "ul"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 13,
+          "file": "upplandsleden-etapp-13-rison-lovstabruk.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-13-lovstabruk-commercial-services",
+          "type": "food",
+          "name": "Lövstabruk seasonal visitor services",
+          "coords": [
+            60.408125051,
+            17.879244638
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp13",
+            "tierp_lovstabruk",
+            "vallonbruken_lovstabruk"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 13,
+          "file": "upplandsleden-etapp-13-rison-lovstabruk.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-13-etapp14-leakage",
+          "type": "attraction",
+          "name": "Etapp 14 leakage",
+          "coords": [
+            60.408125051,
+            17.879244638
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp13",
+            "naturkartan_etapp14"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 13,
+          "file": "upplandsleden-etapp-13-rison-lovstabruk.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-13-gpx-direction-metadata",
+          "type": "rule-warning",
+          "name": "Etapp 13 GPX stored in reverse direction",
+          "coords": [
+            60.408125051,
+            17.879244638
+          ],
+          "confidence": "high",
+          "sources": [
+            "upplandsleden_etapp13_gpx",
+            "naturkartan_etapp13"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 14,
+          "file": "upplandsleden-etapp-14-lovstabruk-vastland.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-14-lovstabruk-bruksmiljo",
+          "type": "heritage",
+          "name": "Lövstabruk bruksmiljö",
+          "coords": [
+            60.408125051,
+            17.879244638
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp14",
+            "tierp_lovstabruk",
+            "vallonbruken_lovstabruk"
+          ],
+          "decision": "normalPois"
+        },
+        {
+          "etapp": 14,
+          "file": "upplandsleden-etapp-14-lovstabruk-vastland.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-14-lovstabruk-herrgarden-bus",
+          "type": "transit",
+          "name": "Busshållplats, Lövstabruk Herrgården",
+          "coords": [
+            60.40828687739532,
+            17.879123333354528
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_lovstabruk_bus",
+            "naturkartan_etapp14",
+            "ul"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 14,
+          "file": "upplandsleden-etapp-14-lovstabruk-vastland.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-14-lovstabruk-commercial-services",
+          "type": "food",
+          "name": "Lövstabruk seasonal visitor services",
+          "coords": [
+            60.408125051,
+            17.879244638
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp14",
+            "tierp_lovstabruk",
+            "vallonbruken_lovstabruk"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 14,
+          "file": "upplandsleden-etapp-14-lovstabruk-vastland.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-14-etapp13-leakage",
+          "type": "attraction",
+          "name": "Etapp 13 leakage",
+          "coords": [
+            60.408125051,
+            17.879244638
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp13",
+            "naturkartan_etapp14"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-017-parkering-norra-lovstabruk",
+      "kind": "access-metadata",
+      "canonicalName": "Parkering, norra Lövstabruk",
+      "canonicalCoords": [
+        60.411353606,
+        17.879551671
+      ],
+      "sectionRefs": [
+        13,
+        14
+      ],
+      "policy": "Do not import as normal public trail facilities. Keep as access-layer metadata or collapse by coordinate/name if an access layer is added.",
+      "items": [
+        {
+          "etapp": 13,
+          "file": "upplandsleden-etapp-13-rison-lovstabruk.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-13-lovstabruk-parking",
+          "type": "parking",
+          "name": "Parkering, norra Lövstabruk",
+          "coords": [
+            60.4113536060103,
+            17.8795516711731
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_lovstabruk_parking",
+            "naturkartan_etapp13"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 14,
+          "file": "upplandsleden-etapp-14-lovstabruk-vastland.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-14-lovstabruk-parking",
+          "type": "parking",
+          "name": "Parkering, norra Lövstabruk",
+          "coords": [
+            60.4113536060103,
+            17.8795516711731
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_lovstabruk_parking",
+            "naturkartan_etapp14"
+          ],
+          "decision": "transportMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-018-vindskydd-vastland",
+      "kind": "shared-facility-or-poi",
+      "canonicalName": "Vindskydd, Västland",
+      "canonicalCoords": [
+        60.447723493,
+        17.617163344
+      ],
+      "sectionRefs": [
+        14,
+        15
+      ],
+      "policy": "Create one place cluster at this coordinate and import one canonical row per distinct normal facility/POI type; attach sectionRefs for every etapp that uses it.",
+      "items": [
+        {
+          "etapp": 14,
+          "file": "upplandsleden-etapp-14-lovstabruk-vastland.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-14-vastland-shelter",
+          "type": "shelter",
+          "name": "Vindskydd, Västland",
+          "coords": [
+            60.447723493433,
+            17.6171633438302
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_vastland_shelter",
+            "naturkartan_etapp14",
+            "naturkartan_etapp15",
+            "tamnaran_canoe_vastland"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 14,
+          "file": "upplandsleden-etapp-14-lovstabruk-vastland.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-14-vastland-fireplace",
+          "type": "fireplace",
+          "name": "Eldplats, Västland",
+          "coords": [
+            60.447723493433,
+            17.6171633438302
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_vastland_shelter",
+            "naturkartan_etapp14",
+            "tamnaran_canoe_vastland"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 14,
+          "file": "upplandsleden-etapp-14-lovstabruk-vastland.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-14-vastland-rest-area",
+          "type": "rest-area",
+          "name": "Rastplats, Västland",
+          "coords": [
+            60.447723493433,
+            17.6171633438302
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_vastland_shelter",
+            "naturkartan_etapp14",
+            "tamnaran_canoe_vastland"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 14,
+          "file": "upplandsleden-etapp-14-lovstabruk-vastland.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-14-tamnaran-canoe-context",
+          "type": "attraction",
+          "name": "Tämnarån canoe/river context",
+          "coords": [
+            60.447723493433,
+            17.6171633438302
+          ],
+          "confidence": "medium",
+          "sources": [
+            "tamnaran_canoe_vastland",
+            "tierp_canoe"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 15,
+          "file": "upplandsleden-etapp-15-vastland-marma.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-15-vastland-shelter",
+          "type": "shelter",
+          "name": "Vindskydd, Västland",
+          "coords": [
+            60.447723493433,
+            17.6171633438302
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_vastland_shelter",
+            "naturkartan_etapp15",
+            "naturkartan_etapp14"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 15,
+          "file": "upplandsleden-etapp-15-vastland-marma.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-15-vastland-fireplace",
+          "type": "fireplace",
+          "name": "Eldplats, Västland",
+          "coords": [
+            60.447723493433,
+            17.6171633438302
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_vastland_shelter",
+            "naturkartan_etapp15"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 15,
+          "file": "upplandsleden-etapp-15-vastland-marma.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-15-vastland-rest-area",
+          "type": "rest-area",
+          "name": "Rastplats, Västland",
+          "coords": [
+            60.447723493433,
+            17.6171633438302
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_vastland_shelter",
+            "naturkartan_etapp15"
+          ],
+          "decision": "normalFacilities"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-019-vatten-vastlands-kyrka",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Vatten, Västlands kyrka",
+      "canonicalCoords": [
+        60.447876522,
+        17.613949116
+      ],
+      "sectionRefs": [
+        14,
+        15
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 14,
+          "file": "upplandsleden-etapp-14-lovstabruk-vastland.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-14-vastlands-kyrka-water",
+          "type": "water",
+          "name": "Vatten, Västlands kyrka",
+          "coords": [
+            60.4478041442777,
+            17.6144635898133
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_vastland_water",
+            "naturkartan_etapp15",
+            "naturkartan_etapp14"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 14,
+          "file": "upplandsleden-etapp-14-lovstabruk-vastland.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-14-vastland-parking",
+          "type": "parking",
+          "name": "Parkering, Västland",
+          "coords": [
+            60.44801256743705,
+            17.613944509954166
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_vastland_parking",
+            "naturkartan_etapp14",
+            "naturkartan_etapp15"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 14,
+          "file": "upplandsleden-etapp-14-lovstabruk-vastland.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-14-etapp15-leakage",
+          "type": "attraction",
+          "name": "Etapp 15 leakage",
+          "coords": [
+            60.447817892,
+            17.613429647
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp14",
+            "naturkartan_etapp15"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 15,
+          "file": "upplandsleden-etapp-15-vastland-marma.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-15-vastlands-kyrka-water",
+          "type": "water",
+          "name": "Vatten, Västlands kyrka",
+          "coords": [
+            60.4478041442777,
+            17.6144635898133
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_vastland_water",
+            "naturkartan_etapp15",
+            "upplandsstiftelsen_etapp15",
+            "naturkartan_etapp14"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 15,
+          "file": "upplandsleden-etapp-15-vastland-marma.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-15-vastland-parking",
+          "type": "parking",
+          "name": "Parkering, Västland",
+          "coords": [
+            60.44801256743705,
+            17.613944509954166
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_vastland_parking",
+            "naturkartan_etapp15",
+            "naturkartan_etapp14"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 15,
+          "file": "upplandsleden-etapp-15-vastland-marma.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-15-etapp14-leakage",
+          "type": "attraction",
+          "name": "Etapp 14 leakage",
+          "coords": [
+            60.447807814,
+            17.613448852
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp14",
+            "naturkartan_etapp15"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-020-toalett-vastlands-kyrka",
+      "kind": "shared-facility-or-poi",
+      "canonicalName": "Toalett, Västlands kyrka",
+      "canonicalCoords": [
+        60.446449457,
+        17.614163182
+      ],
+      "sectionRefs": [
+        14,
+        15
+      ],
+      "policy": "Import once as a canonical shared row and attach sectionRefs for every etapp that uses it.",
+      "items": [
+        {
+          "etapp": 14,
+          "file": "upplandsleden-etapp-14-lovstabruk-vastland.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-14-vastlands-kyrka-toilet",
+          "type": "toilet",
+          "name": "Toalett, Västlands kyrka",
+          "coords": [
+            60.4464494571684,
+            17.6141631824036
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_vastland_toilet",
+            "naturkartan_etapp14",
+            "naturkartan_etapp15"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 15,
+          "file": "upplandsleden-etapp-15-vastland-marma.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-15-vastlands-kyrka-toilet",
+          "type": "toilet",
+          "name": "Toalett, Västlands kyrka",
+          "coords": [
+            60.4464494571684,
+            17.6141631824036
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_vastland_toilet",
+            "naturkartan_etapp15",
+            "naturkartan_etapp14"
+          ],
+          "decision": "normalFacilities"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-021-busshallplats-vastlands-kyrka",
+      "kind": "access-metadata",
+      "canonicalName": "Busshållplats, Västlands kyrka",
+      "canonicalCoords": [
+        60.449524301,
+        17.614146758
+      ],
+      "sectionRefs": [
+        14,
+        15
+      ],
+      "policy": "Do not import as normal public trail facilities. Keep as access-layer metadata or collapse by coordinate/name if an access layer is added.",
+      "items": [
+        {
+          "etapp": 14,
+          "file": "upplandsleden-etapp-14-lovstabruk-vastland.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-14-vastlands-kyrka-bus",
+          "type": "transit",
+          "name": "Busshållplats, Västlands kyrka",
+          "coords": [
+            60.44952430123721,
+            17.614146757601702
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_vastland_bus",
+            "naturkartan_etapp14",
+            "naturkartan_etapp15",
+            "ul"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 15,
+          "file": "upplandsleden-etapp-15-vastland-marma.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-15-vastlands-kyrka-bus",
+          "type": "transit",
+          "name": "Busshållplats, Västlands kyrka",
+          "coords": [
+            60.44952430123721,
+            17.614146757601702
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_vastland_bus",
+            "naturkartan_etapp15",
+            "ul"
+          ],
+          "decision": "transportMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-022-marmabadet",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Marmabadet",
+      "canonicalCoords": [
+        60.489761454,
+        17.422714654
+      ],
+      "sectionRefs": [
+        15,
+        16
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 15,
+          "file": "upplandsleden-etapp-15-vastland-marma.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-15-marmabadet-swimming",
+          "type": "swimming",
+          "name": "Marmabadet",
+          "coords": [
+            60.4893525679893,
+            17.4224909415312
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_marmabadet",
+            "alvkarleby_bathing",
+            "hav_marma_badplats",
+            "naturkartan_etapp16"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 15,
+          "file": "upplandsleden-etapp-15-vastland-marma.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-15-marmabadet-rest-area",
+          "type": "rest-area",
+          "name": "Rastplats, Marmabadet",
+          "coords": [
+            60.4893525679893,
+            17.4224909415312
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_marmabadet",
+            "naturkartan_etapp16"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 15,
+          "file": "upplandsleden-etapp-15-vastland-marma.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-15-marma-toilet",
+          "type": "toilet",
+          "name": "Toalett, Marma badplats",
+          "coords": [
+            60.4897861527719,
+            17.422605178978
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_marma_toilet_water",
+            "naturkartan_marmabadet",
+            "naturkartan_etapp16"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 15,
+          "file": "upplandsleden-etapp-15-vastland-marma.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-15-marma-water",
+          "type": "water",
+          "name": "Vatten, Marma badplats",
+          "coords": [
+            60.4897861527719,
+            17.422605178978
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_marma_toilet_water",
+            "naturkartan_etapp16"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 15,
+          "file": "upplandsleden-etapp-15-vastland-marma.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-15-marma-parking",
+          "type": "parking",
+          "name": "Parkering, Marma",
+          "coords": [
+            60.4901703423929,
+            17.4230804942248
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_marma_parking",
+            "naturkartan_etapp15",
+            "naturkartan_etapp16"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 15,
+          "file": "upplandsleden-etapp-15-vastland-marma.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-15-marma-commercial-services",
+          "type": "food",
+          "name": "Marma kiosk and store context",
+          "coords": [
+            60.4901703423929,
+            17.4230804942248
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp15"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 15,
+          "file": "upplandsleden-etapp-15-vastland-marma.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-15-etapp16-leakage",
+          "type": "attraction",
+          "name": "Etapp 16 leakage",
+          "coords": [
+            60.489864814,
+            17.422793066
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp15",
+            "naturkartan_etapp16"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 16,
+          "file": "upplandsleden-etapp-16-marma-alvkarleby.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-16-marmabadet-swimming",
+          "type": "swimming",
+          "name": "Marmabadet",
+          "coords": [
+            60.4893525679893,
+            17.4224909415312
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_marmabadet",
+            "naturkartan_etapp16",
+            "alvkarleby_bathing",
+            "hav_marma_badplats"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 16,
+          "file": "upplandsleden-etapp-16-marma-alvkarleby.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-16-marmabadet-rest-area",
+          "type": "rest-area",
+          "name": "Rastplats, Marmabadet",
+          "coords": [
+            60.4893525679893,
+            17.4224909415312
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_marmabadet",
+            "naturkartan_etapp16"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 16,
+          "file": "upplandsleden-etapp-16-marma-alvkarleby.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-16-marma-toilet",
+          "type": "toilet",
+          "name": "Toalett, Marma badplats",
+          "coords": [
+            60.4897861527719,
+            17.422605178978
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_marma_toilet_water",
+            "naturkartan_etapp16",
+            "naturkartan_marmabadet"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 16,
+          "file": "upplandsleden-etapp-16-marma-alvkarleby.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-16-marma-water",
+          "type": "water",
+          "name": "Vatten, Marma badplats",
+          "coords": [
+            60.4897861527719,
+            17.422605178978
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_marma_toilet_water",
+            "naturkartan_etapp16"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 16,
+          "file": "upplandsleden-etapp-16-marma-alvkarleby.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-16-marma-parking",
+          "type": "parking",
+          "name": "Parkering, Marma",
+          "coords": [
+            60.4901703423929,
+            17.4230804942248
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_marma_parking",
+            "naturkartan_etapp16",
+            "naturkartan_etapp15"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 16,
+          "file": "upplandsleden-etapp-16-marma-alvkarleby.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-16-marma-shooting-range-context",
+          "type": "rule-warning",
+          "name": "Marma skjutfält context",
+          "coords": [
+            60.489864814,
+            17.422793066
+          ],
+          "confidence": "medium",
+          "sources": [
+            "forsvarsmakten_marma_shooting_range"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 16,
+          "file": "upplandsleden-etapp-16-marma-alvkarleby.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-16-etapp15-leakage",
+          "type": "attraction",
+          "name": "Etapp 15 leakage",
+          "coords": [
+            60.489864814,
+            17.422793066
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp15",
+            "naturkartan_etapp16"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-023-busshallplats-marma-centrum",
+      "kind": "access-metadata",
+      "canonicalName": "Busshållplats, Marma centrum",
+      "canonicalCoords": [
+        60.490293913,
+        17.426230302
+      ],
+      "sectionRefs": [
+        15,
+        16
+      ],
+      "policy": "Do not import as normal public trail facilities. Keep as access-layer metadata or collapse by coordinate/name if an access layer is added.",
+      "items": [
+        {
+          "etapp": 15,
+          "file": "upplandsleden-etapp-15-vastland-marma.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-15-marma-bus",
+          "type": "transit",
+          "name": "Busshållplats, Marma centrum",
+          "coords": [
+            60.490293912981855,
+            17.426230302481144
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_marma_bus",
+            "naturkartan_etapp15",
+            "ul"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 16,
+          "file": "upplandsleden-etapp-16-marma-alvkarleby.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-16-marma-bus",
+          "type": "transit",
+          "name": "Busshållplats, Marma centrum",
+          "coords": [
+            60.490293912981855,
+            17.426230302481144
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_marma_bus",
+            "naturkartan_etapp16",
+            "ul"
+          ],
+          "decision": "transportMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-024-tagstation-marma",
+      "kind": "access-metadata",
+      "canonicalName": "Tågstation, Marma",
+      "canonicalCoords": [
+        60.491284482,
+        17.430660322
+      ],
+      "sectionRefs": [
+        15,
+        16
+      ],
+      "policy": "Do not import as normal public trail facilities. Keep as access-layer metadata or collapse by coordinate/name if an access layer is added.",
+      "items": [
+        {
+          "etapp": 15,
+          "file": "upplandsleden-etapp-15-vastland-marma.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-15-marma-train",
+          "type": "transit",
+          "name": "Tågstation, Marma",
+          "coords": [
+            60.49128448246704,
+            17.430660322270228
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_marma_train",
+            "naturkartan_etapp15",
+            "ul"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 16,
+          "file": "upplandsleden-etapp-16-marma-alvkarleby.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-16-marma-train",
+          "type": "transit",
+          "name": "Tågstation, Marma",
+          "coords": [
+            60.49128448246704,
+            17.430660322270228
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_marma_train",
+            "naturkartan_etapp16",
+            "ul"
+          ],
+          "decision": "transportMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-025-toalett-laxon-cafe-furiren",
+      "kind": "shared-facility-or-poi",
+      "canonicalName": "Toalett, Laxön / Café Furiren",
+      "canonicalCoords": [
+        60.562379213,
+        17.436127553
+      ],
+      "sectionRefs": [
+        16,
+        17
+      ],
+      "policy": "Create one place cluster at this coordinate and import one canonical row per distinct normal facility/POI type; attach sectionRefs for every etapp that uses it.",
+      "items": [
+        {
+          "etapp": 16,
+          "file": "upplandsleden-etapp-16-marma-alvkarleby.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-16-laxon-toilet",
+          "type": "toilet",
+          "name": "Toalett, Laxön / Café Furiren",
+          "coords": [
+            60.5623792125551,
+            17.4361275531163
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_laxon_toilet_water",
+            "upplandsstiftelsen_etapp16",
+            "naturkartan_etapp16"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 16,
+          "file": "upplandsleden-etapp-16-marma-alvkarleby.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-16-laxon-water",
+          "type": "water",
+          "name": "Vatten, Laxön / Café Furiren",
+          "coords": [
+            60.5623792125551,
+            17.4361275531163
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_laxon_toilet_water",
+            "upplandsstiftelsen_etapp16"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 17,
+          "file": "upplandsleden-etapp-17-alvkarleby-langhall.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-17-laxon-toilet",
+          "type": "toilet",
+          "name": "Toalett, Laxön / Café Furiren",
+          "coords": [
+            60.5623792125551,
+            17.4361275531163
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_laxon_toilet_water",
+            "naturkartan_etapp17",
+            "upplandsstiftelsen_etapp17",
+            "cafe_furiren"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 17,
+          "file": "upplandsleden-etapp-17-alvkarleby-langhall.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-17-laxon-water",
+          "type": "water",
+          "name": "Vatten, Laxön / Café Furiren",
+          "coords": [
+            60.5623792125551,
+            17.4361275531163
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_laxon_toilet_water",
+            "upplandsstiftelsen_etapp17",
+            "cafe_furiren",
+            "alvkarleby_cafe_furiren"
+          ],
+          "decision": "normalFacilities"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-026-laxon",
+      "kind": "shared-facility-or-poi",
+      "canonicalName": "Laxön",
+      "canonicalCoords": [
+        60.561483816,
+        17.436315693
+      ],
+      "sectionRefs": [
+        16,
+        17
+      ],
+      "policy": "Import once as a canonical shared row and attach sectionRefs for every etapp that uses it.",
+      "items": [
+        {
+          "etapp": 16,
+          "file": "upplandsleden-etapp-16-marma-alvkarleby.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-16-laxon-heritage",
+          "type": "heritage",
+          "name": "Laxön",
+          "coords": [
+            60.56147976956672,
+            17.43631961565151
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_laxon",
+            "alvkarleby_laxon",
+            "naturkartan_etapp16"
+          ],
+          "decision": "normalPois"
+        },
+        {
+          "etapp": 16,
+          "file": "upplandsleden-etapp-16-marma-alvkarleby.research.json",
+          "bucket": "pending",
+          "id": "upplandsleden-etapp-16-alvkarlebyfallen",
+          "type": "attraction",
+          "name": "Älvkarlebyfallen",
+          "coords": [
+            60.5615,
+            17.4363
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp16",
+            "alvkarleby_culture_history"
+          ],
+          "decision": "pendingOnly"
+        },
+        {
+          "etapp": 16,
+          "file": "upplandsleden-etapp-16-marma-alvkarleby.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-16-laxon-commercial-services",
+          "type": "food",
+          "name": "Laxön seasonal visitor services",
+          "coords": [
+            60.56147976956672,
+            17.43631961565151
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp16",
+            "naturkartan_laxon",
+            "alvkarleby_laxon"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 17,
+          "file": "upplandsleden-etapp-17-alvkarleby-langhall.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-17-laxon-heritage",
+          "type": "heritage",
+          "name": "Laxön",
+          "coords": [
+            60.56147976956672,
+            17.43631961565151
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_laxon",
+            "naturkartan_etapp17"
+          ],
+          "decision": "normalPois"
+        },
+        {
+          "etapp": 17,
+          "file": "upplandsleden-etapp-17-alvkarleby-langhall.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-17-laxon-commercial-services",
+          "type": "food",
+          "name": "Laxön commercial visitor services",
+          "coords": [
+            60.56147976956672,
+            17.43631961565151
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_laxon",
+            "naturkartan_etapp17",
+            "cafe_furiren"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-027-parkering-alvkarleby",
+      "kind": "suppression-metadata",
+      "canonicalName": "Parkering, Älvkarleby",
+      "canonicalCoords": [
+        60.565253564,
+        17.438249841
+      ],
+      "sectionRefs": [
+        16,
+        17
+      ],
+      "policy": "Keep suppressed/context-only. Do not import as public facilities.",
+      "items": [
+        {
+          "etapp": 16,
+          "file": "upplandsleden-etapp-16-marma-alvkarleby.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-16-alvkarleby-parking",
+          "type": "parking",
+          "name": "Parkering, Älvkarleby",
+          "coords": [
+            60.5652616461459,
+            17.4379892356243
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_alvkarleby_parking",
+            "naturkartan_etapp16",
+            "naturkartan_etapp17"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 16,
+          "file": "upplandsleden-etapp-16-marma-alvkarleby.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-16-alvkarleby-turisten-bus",
+          "type": "transit",
+          "name": "Busshållplats, Älvkarleby Turisten",
+          "coords": [
+            60.5650862814212,
+            17.4388065596734
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_alvkarleby_bus",
+            "naturkartan_etapp16",
+            "naturkartan_etapp17",
+            "ul"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 16,
+          "file": "upplandsleden-etapp-16-marma-alvkarleby.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-16-etapp17-leakage",
+          "type": "attraction",
+          "name": "Etapp 17 leakage",
+          "coords": [
+            60.565412763,
+            17.437953728
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp16",
+            "naturkartan_etapp17"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 17,
+          "file": "upplandsleden-etapp-17-alvkarleby-langhall.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-17-alvkarleby-parking",
+          "type": "parking",
+          "name": "Parkering, Älvkarleby",
+          "coords": [
+            60.5652616461459,
+            17.4379892356243
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_alvkarleby_parking",
+            "naturkartan_etapp17",
+            "naturkartan_etapp16"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 17,
+          "file": "upplandsleden-etapp-17-alvkarleby-langhall.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-17-alvkarleby-turisten-bus",
+          "type": "transit",
+          "name": "Busshållplats, Älvkarleby Turisten",
+          "coords": [
+            60.5650862814212,
+            17.4388065596734
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_alvkarleby_bus",
+            "naturkartan_etapp17",
+            "ul"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 17,
+          "file": "upplandsleden-etapp-17-alvkarleby-langhall.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-17-etapp16-leakage",
+          "type": "attraction",
+          "name": "Etapp 16 leakage",
+          "coords": [
+            60.565412763,
+            17.437953728
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp16",
+            "naturkartan_etapp17"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-028-tagstation-alvkarleby",
+      "kind": "access-metadata",
+      "canonicalName": "Tågstation, Älvkarleby",
+      "canonicalCoords": [
+        60.555037818,
+        17.428366602
+      ],
+      "sectionRefs": [
+        16,
+        17
+      ],
+      "policy": "Do not import as normal public trail facilities. Keep as access-layer metadata or collapse by coordinate/name if an access layer is added.",
+      "items": [
+        {
+          "etapp": 16,
+          "file": "upplandsleden-etapp-16-marma-alvkarleby.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-16-alvkarleby-train",
+          "type": "transit",
+          "name": "Tågstation, Älvkarleby",
+          "coords": [
+            60.5550378181316,
+            17.4283666021114
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_alvkarleby_train",
+            "naturkartan_etapp16",
+            "ul"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 17,
+          "file": "upplandsleden-etapp-17-alvkarleby-langhall.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-17-alvkarleby-train",
+          "type": "transit",
+          "name": "Tågstation, Älvkarleby",
+          "coords": [
+            60.5550378181316,
+            17.4283666021114
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_alvkarleby_train",
+            "naturkartan_etapp17",
+            "ul"
+          ],
+          "decision": "transportMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-029-vindskydd-skekarsbo-udden",
+      "kind": "shared-facility-or-poi",
+      "canonicalName": "Vindskydd, Skekarsbo / Udden",
+      "canonicalCoords": [
+        60.212504015,
+        16.849202096
+      ],
+      "sectionRefs": [
+        18,
+        19
+      ],
+      "policy": "Create one place cluster at this coordinate and import one canonical row per distinct normal facility/POI type; attach sectionRefs for every etapp that uses it.",
+      "items": [
+        {
+          "etapp": 18,
+          "file": "upplandsleden-etapp-18-skekarsbo-gysinge.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-18-skekarsbo-shelter",
+          "type": "shelter",
+          "name": "Vindskydd, Skekarsbo / Udden",
+          "coords": [
+            60.21250401519769,
+            16.84920209649649
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_skekarsbo_udde",
+            "naturkartan_etapp18",
+            "farnebofjarden_rules"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 18,
+          "file": "upplandsleden-etapp-18-skekarsbo-gysinge.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-18-skekarsbo-fireplace",
+          "type": "fireplace",
+          "name": "Eldplats, Skekarsbo / Udden",
+          "coords": [
+            60.21250401519769,
+            16.84920209649649
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_skekarsbo_udde",
+            "farnebofjarden_rules"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 18,
+          "file": "upplandsleden-etapp-18-skekarsbo-gysinge.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-18-skekarsbo-rest-area",
+          "type": "rest-area",
+          "name": "Rastplats, Skekarsbo / Udden",
+          "coords": [
+            60.21250401519769,
+            16.84920209649649
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_skekarsbo_udde",
+            "naturkartan_etapp18"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 19,
+          "file": "upplandsleden-etapp-19-skekarsbo-nora-kyrka.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-19-skekarsbo-shelter",
+          "type": "shelter",
+          "name": "Vindskydd, Skekarsbo",
+          "coords": [
+            60.21250401519769,
+            16.84920209649649
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_skekarsbo_udde",
+            "naturkartan_etapp19",
+            "naturkartan_etapp18"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 19,
+          "file": "upplandsleden-etapp-19-skekarsbo-nora-kyrka.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-19-skekarsbo-fireplace",
+          "type": "fireplace",
+          "name": "Eldplats, Skekarsbo",
+          "coords": [
+            60.21250401519769,
+            16.84920209649649
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_skekarsbo_udde",
+            "naturkartan_etapp19"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 19,
+          "file": "upplandsleden-etapp-19-skekarsbo-nora-kyrka.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-19-skekarsbo-rest-area",
+          "type": "rest-area",
+          "name": "Rastplats, Skekarsbo",
+          "coords": [
+            60.21250401519769,
+            16.84920209649649
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_skekarsbo_udde",
+            "naturkartan_etapp19"
+          ],
+          "decision": "normalFacilities"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-030-parkering-skekarsbo",
+      "kind": "suppression-metadata",
+      "canonicalName": "Parkering, Skekarsbo",
+      "canonicalCoords": [
+        60.21203119,
+        16.850471488
+      ],
+      "sectionRefs": [
+        18,
+        19
+      ],
+      "policy": "Keep suppressed/context-only. Do not import as public facilities.",
+      "items": [
+        {
+          "etapp": 18,
+          "file": "upplandsleden-etapp-18-skekarsbo-gysinge.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-18-skekarsbo-parking",
+          "type": "parking",
+          "name": "Parkering, Skekarsbo",
+          "coords": [
+            60.21159032060209,
+            16.85015261594128
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_skekarsbo_tower",
+            "naturkartan_etapp18"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 18,
+          "file": "upplandsleden-etapp-18-skekarsbo-gysinge.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-18-skekarsbo-toilet-metadata",
+          "type": "toilet",
+          "name": "Toalett, Skekarsbo",
+          "coords": [
+            60.21178104718409,
+            16.85015315436176
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_skekarsbo_tower",
+            "naturkartan_skekarsbo_udde"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 18,
+          "file": "upplandsleden-etapp-18-skekarsbo-gysinge.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-18-etapp19-leakage",
+          "type": "attraction",
+          "name": "Etapp 19 leakage",
+          "coords": [
+            60.212408483,
+            16.8507901800001
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp18",
+            "naturkartan_etapp19"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 19,
+          "file": "upplandsleden-etapp-19-skekarsbo-nora-kyrka.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-19-skekarsbo-parking",
+          "type": "parking",
+          "name": "Parkering, Skekarsbo",
+          "coords": [
+            60.21159032060209,
+            16.85015261594128
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_skekarsbo_parking",
+            "naturkartan_etapp19",
+            "naturkartan_etapp18"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 19,
+          "file": "upplandsleden-etapp-19-skekarsbo-nora-kyrka.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-19-farnebofjarden-rules",
+          "type": "rule-warning",
+          "name": "Färnebofjärden start-area rules",
+          "coords": [
+            60.212408483,
+            16.8507901800001
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_skekarsbo_tower",
+            "naturkartan_etapp19"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 19,
+          "file": "upplandsleden-etapp-19-skekarsbo-nora-kyrka.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-19-etapp18-leakage",
+          "type": "attraction",
+          "name": "Etapp 18 leakage",
+          "coords": [
+            60.212408483,
+            16.8507901800001
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp18",
+            "naturkartan_etapp19"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-031-dricksvatten-nora-kyrka",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Dricksvatten, Nora kyrka",
+      "canonicalCoords": [
+        60.154981862,
+        16.920996738
+      ],
+      "sectionRefs": [
+        19,
+        20
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 19,
+          "file": "upplandsleden-etapp-19-skekarsbo-nora-kyrka.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-19-nora-kyrka-water",
+          "type": "water",
+          "name": "Dricksvatten, Nora kyrka",
+          "coords": [
+            60.1549818620001,
+            16.920996738
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp19",
+            "naturkartan_etapp20"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 19,
+          "file": "upplandsleden-etapp-19-skekarsbo-nora-kyrka.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-19-nora-kyrka-toilet",
+          "type": "toilet",
+          "name": "Toalett, Nora kyrka",
+          "coords": [
+            60.1549818620001,
+            16.920996738
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_hagudden_kyrkspangen",
+            "naturkartan_etapp20"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 19,
+          "file": "upplandsleden-etapp-19-skekarsbo-nora-kyrka.research.json",
+          "bucket": "pending",
+          "id": "upplandsleden-etapp-19-nora-kyrka-parking",
+          "type": "parking",
+          "name": "Parkering, Nora kyrka",
+          "coords": [
+            60.1549818620001,
+            16.920996738
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp19",
+            "naturkartan_hagudden_kyrkspangen"
+          ],
+          "decision": "pendingOnly"
+        },
+        {
+          "etapp": 19,
+          "file": "upplandsleden-etapp-19-skekarsbo-nora-kyrka.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-19-tarnsjo-bus",
+          "type": "transit",
+          "name": "Busshållplats, Tärnsjö centrum",
+          "coords": [
+            60.1549818620001,
+            16.920996738
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp19",
+            "ul"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 19,
+          "file": "upplandsleden-etapp-19-skekarsbo-nora-kyrka.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-19-tarnsjo-commercial-services",
+          "type": "food",
+          "name": "Tärnsjö commercial services",
+          "coords": [
+            60.1549818620001,
+            16.920996738
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp19"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 19,
+          "file": "upplandsleden-etapp-19-skekarsbo-nora-kyrka.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-19-etapp20-leakage",
+          "type": "attraction",
+          "name": "Etapp 20 leakage",
+          "coords": [
+            60.1549818620001,
+            16.920996738
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp19",
+            "naturkartan_etapp20"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 20,
+          "file": "upplandsleden-etapp-20-nora-kyrka-osta.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-20-nora-kyrka-water",
+          "type": "water",
+          "name": "Vatten, Nora kyrka",
+          "coords": [
+            60.15498186200006,
+            16.920996737999985
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp20",
+            "naturkartan_etapp19"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 20,
+          "file": "upplandsleden-etapp-20-nora-kyrka-osta.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-20-nora-kyrka-toilet",
+          "type": "toilet",
+          "name": "Toalett, Nora kyrka",
+          "coords": [
+            60.15498186200006,
+            16.920996737999985
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp20",
+            "naturkartan_etapp19"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 20,
+          "file": "upplandsleden-etapp-20-nora-kyrka-osta.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-20-nora-kyrka-parking",
+          "type": "parking",
+          "name": "Parkering, Nora kyrka",
+          "coords": [
+            60.15498186200006,
+            16.920996737999985
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp20"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 20,
+          "file": "upplandsleden-etapp-20-nora-kyrka-osta.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-20-tarnsjo-bus",
+          "type": "transit",
+          "name": "Busshållplats Tärnsjö centrum",
+          "coords": [
+            60.15498186200006,
+            16.920996737999985
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp20",
+            "upplandsstiftelsen_sandig_as"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 20,
+          "file": "upplandsleden-etapp-20-nora-kyrka-osta.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-20-tarnsjo-commercial-services",
+          "type": "food",
+          "name": "Service i Tärnsjö",
+          "coords": [
+            60.15498186200006,
+            16.920996737999985
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp20"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 20,
+          "file": "upplandsleden-etapp-20-nora-kyrka-osta.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-20-etapp19-leakage",
+          "type": "shelter",
+          "name": "Etapp 19 facilities",
+          "coords": [
+            60.15498186200006,
+            16.920996737999985
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp19"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-032-vindskydd-skarsjon",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Vindskydd, Skärsjön",
+      "canonicalCoords": [
+        59.899780476,
+        17.123724891
+      ],
+      "sectionRefs": [
+        21,
+        22
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 21,
+          "file": "upplandsleden-etapp-21-siggeforasjon-tenasjon.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-21-skarsjon-shelter",
+          "type": "shelter",
+          "name": "Vindskydd, Skärsjön",
+          "coords": [
+            59.89978047627098,
+            17.12372489124868
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_skarsjon_rest",
+            "naturkartan_etapp21",
+            "upplandsstiftelsen_etapp21"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 21,
+          "file": "upplandsleden-etapp-21-siggeforasjon-tenasjon.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-21-skarsjon-fireplace",
+          "type": "fireplace",
+          "name": "Eldplats, Skärsjön",
+          "coords": [
+            59.89978047627098,
+            17.12372489124868
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_skarsjon_rest",
+            "naturkartan_etapp21"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 21,
+          "file": "upplandsleden-etapp-21-siggeforasjon-tenasjon.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-21-skarsjon-rest-area",
+          "type": "rest-area",
+          "name": "Rastplats, Skärsjön",
+          "coords": [
+            59.89978047627098,
+            17.12372489124868
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_skarsjon_rest",
+            "naturkartan_etapp21"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 21,
+          "file": "upplandsleden-etapp-21-siggeforasjon-tenasjon.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-21-skarsjon-campsite",
+          "type": "campsite",
+          "name": "Tältmöjlighet, Skärsjön",
+          "coords": [
+            59.89978047627098,
+            17.12372489124868
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_skarsjon_rest"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 21,
+          "file": "upplandsleden-etapp-21-siggeforasjon-tenasjon.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-21-skarsjon-swimming",
+          "type": "swimming",
+          "name": "Badmöjlighet, Skärsjön",
+          "coords": [
+            59.89978047627098,
+            17.12372489124868
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp21"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 21,
+          "file": "upplandsleden-etapp-21-siggeforasjon-tenasjon.research.json",
+          "bucket": "pending",
+          "id": "upplandsleden-etapp-21-rosenbacka-bus",
+          "type": "transit",
+          "name": "Busshållplats Rosenbacka",
+          "coords": [
+            59.89978047627098,
+            17.12372489124868
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp21"
+          ],
+          "decision": "pendingOnly"
+        },
+        {
+          "etapp": 22,
+          "file": "upplandsleden-etapp-22-tenasjon-skattmansoadalen.research.json",
+          "bucket": "pending",
+          "id": "upplandsleden-etapp-22-rosenbacka-bus",
+          "type": "transit",
+          "name": "Busshållplats Rosenbacka",
+          "coords": [
+            59.89978047627098,
+            17.12372489124868
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp22",
+            "naturkartan_etapp21"
+          ],
+          "decision": "pendingOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-033-tenabadet",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Tenabadet",
+      "canonicalCoords": [
+        59.886838651,
+        17.090357812
+      ],
+      "sectionRefs": [
+        21,
+        22
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 21,
+          "file": "upplandsleden-etapp-21-siggeforasjon-tenasjon.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-21-tenabadet-swimming",
+          "type": "swimming",
+          "name": "Tenabadet",
+          "coords": [
+            59.88683865128937,
+            17.09035781204
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_tenabadet",
+            "naturkartan_etapp21",
+            "heby_upplandsleden"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 21,
+          "file": "upplandsleden-etapp-21-siggeforasjon-tenasjon.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-21-tenabadet-fireplace",
+          "type": "fireplace",
+          "name": "Eldplats, Tenabadet",
+          "coords": [
+            59.88683865128937,
+            17.09035781204
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_tenabadet"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 21,
+          "file": "upplandsleden-etapp-21-siggeforasjon-tenasjon.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-21-tenabadet-rest-area",
+          "type": "rest-area",
+          "name": "Rastplats, Tenabadet",
+          "coords": [
+            59.88683865128937,
+            17.09035781204
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_tenabadet"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 21,
+          "file": "upplandsleden-etapp-21-siggeforasjon-tenasjon.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-21-tenasjon-meadow-attraction",
+          "type": "attraction",
+          "name": "Slåtteräng vid Tenasjön",
+          "coords": [
+            59.88683865128937,
+            17.09035781204
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_tenabadet",
+            "naturkartan_etapp21",
+            "heby_upplandsleden"
+          ],
+          "decision": "normalPois"
+        },
+        {
+          "etapp": 21,
+          "file": "upplandsleden-etapp-21-siggeforasjon-tenasjon.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-21-tenabadet-parking",
+          "type": "parking",
+          "name": "Parkering, Tenabadet",
+          "coords": [
+            59.88683865128937,
+            17.09035781204
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_tenabadet",
+            "naturkartan_etapp21"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 21,
+          "file": "upplandsleden-etapp-21-siggeforasjon-tenasjon.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-21-etapp22-leakage",
+          "type": "shelter",
+          "name": "Etapp 22 Tenasjön south shelter and Skattmansöådalen",
+          "coords": [
+            59.88683865128937,
+            17.09035781204
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp22"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 22,
+          "file": "upplandsleden-etapp-22-tenasjon-skattmansoadalen.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-22-tenabadet-swimming",
+          "type": "swimming",
+          "name": "Tenabadet",
+          "coords": [
+            59.88683865128937,
+            17.09035781204
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_tenabadet",
+            "naturkartan_etapp22",
+            "naturkartan_etapp21"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 22,
+          "file": "upplandsleden-etapp-22-tenasjon-skattmansoadalen.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-22-tenabadet-fireplace",
+          "type": "fireplace",
+          "name": "Eldplats, Tenabadet",
+          "coords": [
+            59.88683865128937,
+            17.09035781204
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_tenabadet"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 22,
+          "file": "upplandsleden-etapp-22-tenasjon-skattmansoadalen.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-22-tenabadet-rest-area",
+          "type": "rest-area",
+          "name": "Rastplats, Tenabadet",
+          "coords": [
+            59.88683865128937,
+            17.09035781204
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_tenabadet"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 22,
+          "file": "upplandsleden-etapp-22-tenasjon-skattmansoadalen.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-22-etapp21-leakage",
+          "type": "shelter",
+          "name": "Etapp 21 facilities",
+          "coords": [
+            59.88683865128937,
+            17.09035781204
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp21"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-034-rastplats-ytterkvarn",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Rastplats, Ytterkvarn",
+      "canonicalCoords": [
+        59.833096677,
+        17.061131246
+      ],
+      "sectionRefs": [
+        22,
+        23
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 22,
+          "file": "upplandsleden-etapp-22-tenasjon-skattmansoadalen.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-22-yttterkvarn-rest-area",
+          "type": "rest-area",
+          "name": "Rastplats, Ytterkvarn",
+          "coords": [
+            59.83302883100004,
+            17.06097210999997
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp22",
+            "upplandsstiftelsen_etapp22",
+            "naturkartan_etapp23"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 22,
+          "file": "upplandsleden-etapp-22-tenasjon-skattmansoadalen.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-22-yttterkvarn-heritage",
+          "type": "heritage",
+          "name": "Ytterkvarn stenvalvsbro och kvarn-/brukslämning",
+          "coords": [
+            59.83302883100004,
+            17.06097210999997
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp22",
+            "naturkartan_etapp23",
+            "naturkartan_skattmansoadalen"
+          ],
+          "decision": "normalPois"
+        },
+        {
+          "etapp": 22,
+          "file": "upplandsleden-etapp-22-tenasjon-skattmansoadalen.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-22-skattmansoadalen-attraction",
+          "type": "attraction",
+          "name": "Skattmansöådalen naturreservat",
+          "coords": [
+            59.83332282830921,
+            17.06166168261734
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_skattmansoadalen",
+            "naturkartan_etapp22"
+          ],
+          "decision": "normalPois"
+        },
+        {
+          "etapp": 22,
+          "file": "upplandsleden-etapp-22-tenasjon-skattmansoadalen.research.json",
+          "bucket": "pending",
+          "id": "upplandsleden-etapp-22-skattmanso-toilet",
+          "type": "toilet",
+          "name": "Torrtoalett, Skattmansöådalen",
+          "coords": [
+            59.83332282830921,
+            17.06166168261734
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_skattmansoadalen"
+          ],
+          "decision": "pendingOnly"
+        },
+        {
+          "etapp": 22,
+          "file": "upplandsleden-etapp-22-tenasjon-skattmansoadalen.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-22-yttterkvarn-parking",
+          "type": "parking",
+          "name": "Parkering, Ytterkvarn / Skattmansöådalen",
+          "coords": [
+            59.83302883100004,
+            17.06097210999997
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp22",
+            "naturkartan_skattmansoadalen"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 22,
+          "file": "upplandsleden-etapp-22-tenasjon-skattmansoadalen.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-22-no-bus-skattmansoadalen",
+          "type": "transit",
+          "name": "Ingen buss till Skattmansöådalen",
+          "coords": [
+            59.83302883100004,
+            17.06097210999997
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp22"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 22,
+          "file": "upplandsleden-etapp-22-tenasjon-skattmansoadalen.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-22-skattmansoadalen-rules",
+          "type": "rule-warning",
+          "name": "Skattmansöådalen reservatsföreskrifter",
+          "coords": [
+            59.83332282830921,
+            17.06166168261734
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_skattmansoadalen"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 22,
+          "file": "upplandsleden-etapp-22-tenasjon-skattmansoadalen.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-22-etapp23-leakage",
+          "type": "rest-area",
+          "name": "Etapp 23 facilities",
+          "coords": [
+            59.83302883100004,
+            17.06097210999997
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp23"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 23,
+          "file": "upplandsleden-etapp-23-skattmansoadalen-harnevi-ip.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-23-ytterkvarn-rest-area",
+          "type": "rest-area",
+          "name": "Rastplats, Ytterkvarn",
+          "coords": [
+            59.83302883100004,
+            17.0609721190001
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp23",
+            "naturkartan_etapp22"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 23,
+          "file": "upplandsleden-etapp-23-skattmansoadalen-harnevi-ip.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-23-ytterkvarn-heritage",
+          "type": "heritage",
+          "name": "Ytterkvarn stenvalvsbro och kvarn-/brukslämning",
+          "coords": [
+            59.83302883100004,
+            17.0609721190001
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp23",
+            "naturkartan_skattmansoadalen"
+          ],
+          "decision": "normalPois"
+        },
+        {
+          "etapp": 23,
+          "file": "upplandsleden-etapp-23-skattmansoadalen-harnevi-ip.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-23-yttterkvarn-parking",
+          "type": "parking",
+          "name": "Parkering, Ytterkvarn",
+          "coords": [
+            59.83302883100004,
+            17.0609721190001
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp23"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 23,
+          "file": "upplandsleden-etapp-23-skattmansoadalen-harnevi-ip.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-23-skattmansoadalen-rules",
+          "type": "rule-warning",
+          "name": "Skattmansöådalen reservatsregler",
+          "coords": [
+            59.83302883100004,
+            17.0609721190001
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_skattmansoadalen"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 23,
+          "file": "upplandsleden-etapp-23-skattmansoadalen-harnevi-ip.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-23-etapp22-leakage",
+          "type": "shelter",
+          "name": "Etapp 22 Skattmansöbacken/Tenasjön facilities",
+          "coords": [
+            59.83302883100004,
+            17.0609721190001
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp22"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-035-eldstad-harnevi-ip",
+      "kind": "shared-facility-or-poi",
+      "canonicalName": "Eldstad, Härnevi IP",
+      "canonicalCoords": [
+        59.724083351,
+        17.066718137
+      ],
+      "sectionRefs": [
+        23,
+        24
+      ],
+      "policy": "Create one place cluster at this coordinate and import one canonical row per distinct normal facility/POI type; attach sectionRefs for every etapp that uses it.",
+      "items": [
+        {
+          "etapp": 23,
+          "file": "upplandsleden-etapp-23-skattmansoadalen-harnevi-ip.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-23-harnevi-ip-fireplace",
+          "type": "fireplace",
+          "name": "Eldstad, Härnevi IP",
+          "coords": [
+            59.72409458092619,
+            17.06678960730227
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_harnevi_ip_rest",
+            "naturkartan_etapp23",
+            "naturkartan_etapp24"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 23,
+          "file": "upplandsleden-etapp-23-skattmansoadalen-harnevi-ip.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-23-harnevi-ip-rest-area",
+          "type": "rest-area",
+          "name": "Rastplats, Härnevi IP",
+          "coords": [
+            59.72409458092619,
+            17.06678960730227
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_harnevi_ip_rest",
+            "naturkartan_etapp23"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 23,
+          "file": "upplandsleden-etapp-23-skattmansoadalen-harnevi-ip.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-23-harnevi-ip-shelter",
+          "type": "shelter",
+          "name": "Vindskydd/grillkoja, Härnevi IP",
+          "coords": [
+            59.72409458092619,
+            17.06678960730227
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_harnevi_ip_rest",
+            "naturkartan_etapp23"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 23,
+          "file": "upplandsleden-etapp-23-skattmansoadalen-harnevi-ip.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-23-etapp24-leakage",
+          "type": "rest-area",
+          "name": "Etapp 24 Härnevi-Gånsta facilities",
+          "coords": [
+            59.72409458092619,
+            17.06678960730227
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp24"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 24,
+          "file": "upplandsleden-etapp-24-harnevi-ip-gansta.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-24-harnevi-ip-fireplace",
+          "type": "fireplace",
+          "name": "Eldstad, Härnevi IP",
+          "coords": [
+            59.72409458092619,
+            17.06678960730227
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_harnevi_ip_rest",
+            "naturkartan_etapp24",
+            "naturkartan_etapp23"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 24,
+          "file": "upplandsleden-etapp-24-harnevi-ip-gansta.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-24-harnevi-ip-rest-area",
+          "type": "rest-area",
+          "name": "Rastplats, Härnevi IP",
+          "coords": [
+            59.72409458092619,
+            17.06678960730227
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_harnevi_ip_rest",
+            "naturkartan_etapp24"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 24,
+          "file": "upplandsleden-etapp-24-harnevi-ip-gansta.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-24-harnevi-ip-shelter",
+          "type": "shelter",
+          "name": "Vindskydd/grillkoja, Härnevi IP",
+          "coords": [
+            59.72409458092619,
+            17.06678960730227
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_harnevi_ip_rest",
+            "naturkartan_etapp24"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 24,
+          "file": "upplandsleden-etapp-24-harnevi-ip-gansta.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-24-etapp23-leakage",
+          "type": "heritage",
+          "name": "Etapp 23 Torstuna/Skattmansö facilities",
+          "coords": [
+            59.72400473784452,
+            17.0662178452211
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp23"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-036-toalett-harnevi-ip",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Toalett, Härnevi IP",
+      "canonicalCoords": [
+        59.724323323,
+        17.06875847
+      ],
+      "sectionRefs": [
+        23,
+        24
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 23,
+          "file": "upplandsleden-etapp-23-skattmansoadalen-harnevi-ip.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-23-harnevi-ip-toilet",
+          "type": "toilet",
+          "name": "Toalett, Härnevi IP",
+          "coords": [
+            59.72450915690601,
+            17.06856940128779
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_harnevi_ip_toilet",
+            "naturkartan_harnevi_ip_rest"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 23,
+          "file": "upplandsleden-etapp-23-skattmansoadalen-harnevi-ip.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-23-harnevi-ip-water",
+          "type": "water",
+          "name": "Dricksvatten, Härnevi IP",
+          "coords": [
+            59.724382395829,
+            17.06870109473689
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_harnevi_ip_water",
+            "naturkartan_harnevi_ip_rest",
+            "naturkartan_etapp23"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 23,
+          "file": "upplandsleden-etapp-23-skattmansoadalen-harnevi-ip.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-23-harnevi-ip-parking",
+          "type": "parking",
+          "name": "Parkering, Härnevi IP",
+          "coords": [
+            59.72407841604539,
+            17.06900491418682
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_harnevi_ip_parking",
+            "naturkartan_etapp23"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 24,
+          "file": "upplandsleden-etapp-24-harnevi-ip-gansta.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-24-harnevi-ip-toilet",
+          "type": "toilet",
+          "name": "Toalett, Härnevi IP",
+          "coords": [
+            59.72450915690601,
+            17.06856940128779
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_harnevi_ip_toilet",
+            "naturkartan_etapp24"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 24,
+          "file": "upplandsleden-etapp-24-harnevi-ip-gansta.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-24-harnevi-ip-water",
+          "type": "water",
+          "name": "Dricksvatten, Härnevi IP",
+          "coords": [
+            59.724382395829,
+            17.06870109473689
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_harnevi_ip_water",
+            "naturkartan_etapp24"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 24,
+          "file": "upplandsleden-etapp-24-harnevi-ip-gansta.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-24-harnevi-ip-parking",
+          "type": "parking",
+          "name": "Parkering, Härnevi IP",
+          "coords": [
+            59.72407841604539,
+            17.06900491418682
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_harnevi_ip_parking",
+            "naturkartan_etapp24"
+          ],
+          "decision": "transportMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-037-harnevi-kyrka",
+      "kind": "shared-facility-or-poi",
+      "canonicalName": "Härnevi kyrka",
+      "canonicalCoords": [
+        59.726,
+        17.069
+      ],
+      "sectionRefs": [
+        23,
+        24
+      ],
+      "policy": "Import once as a canonical shared row and attach sectionRefs for every etapp that uses it.",
+      "items": [
+        {
+          "etapp": 23,
+          "file": "upplandsleden-etapp-23-skattmansoadalen-harnevi-ip.research.json",
+          "bucket": "pending",
+          "id": "upplandsleden-etapp-23-harnevi-kyrka-heritage",
+          "type": "heritage",
+          "name": "Härnevi kyrka",
+          "coords": [
+            59.726,
+            17.069
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp23"
+          ],
+          "decision": "pendingOnly"
+        },
+        {
+          "etapp": 24,
+          "file": "upplandsleden-etapp-24-harnevi-ip-gansta.research.json",
+          "bucket": "pending",
+          "id": "upplandsleden-etapp-24-harnevi-kyrka-water",
+          "type": "water",
+          "name": "Vatten, Härnevi kyrka",
+          "coords": [
+            59.726,
+            17.069
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp24"
+          ],
+          "decision": "pendingOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-038-gansta-to-bredsand-handoff",
+      "kind": "suppression-metadata",
+      "canonicalName": "Gånsta to Bredsand handoff",
+      "canonicalCoords": [
+        59.623797532,
+        17.095591998
+      ],
+      "sectionRefs": [
+        24,
+        25
+      ],
+      "policy": "Keep suppressed/context-only. Do not import as public facilities.",
+      "items": [
+        {
+          "etapp": 24,
+          "file": "upplandsleden-etapp-24-harnevi-ip-gansta.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-24-etapp25-handoff-pending",
+          "type": "transit",
+          "name": "Gånsta to Bredsand handoff",
+          "coords": [
+            59.623885993,
+            17.09558722
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp24"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 25,
+          "file": "upplandsleden-etapp-25-gansta-boglosa.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-25-ganstagarden-parking",
+          "type": "parking",
+          "name": "Parkering, Gånstagården",
+          "coords": [
+            59.62362061039284,
+            17.09560155371219
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_gansta_parking",
+            "naturkartan_etapp25"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 25,
+          "file": "upplandsleden-etapp-25-gansta-boglosa.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-25-etapp24-leakage",
+          "type": "rest-area",
+          "name": "Etapp 24 Gånsta/Enköping facilities",
+          "coords": [
+            59.623885993,
+            17.09558722
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp24"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-039-parkering-vid-boglosa",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Parkering vid Boglösa",
+      "canonicalCoords": [
+        59.587907856,
+        17.164224689
+      ],
+      "sectionRefs": [
+        25,
+        26
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 25,
+          "file": "upplandsleden-etapp-25-gansta-boglosa.research.json",
+          "bucket": "pending",
+          "id": "upplandsleden-etapp-25-boglosa-end-parking",
+          "type": "parking",
+          "name": "Parkering vid Boglösa",
+          "coords": [
+            59.58790786,
+            17.1642246540001
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp25"
+          ],
+          "decision": "pendingOnly"
+        },
+        {
+          "etapp": 25,
+          "file": "upplandsleden-etapp-25-gansta-boglosa.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-25-etapp26-leakage",
+          "type": "rest-area",
+          "name": "Etapp 26 Boglösa-Lillkyrka facilities",
+          "coords": [
+            59.58790786,
+            17.1642246540001
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp25"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 26,
+          "file": "upplandsleden-etapp-26-boglosa-lillkyrka.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-26-boglosa-start-parking",
+          "type": "parking",
+          "name": "Parkering söder/öster om Boglösa",
+          "coords": [
+            59.5879078520001,
+            17.1642247240001
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp26"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 26,
+          "file": "upplandsleden-etapp-26-boglosa-lillkyrka.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-26-etapp25-leakage",
+          "type": "heritage",
+          "name": "Boglösa hällristningsområde / Hemsta spur",
+          "coords": [
+            59.5879078520001,
+            17.1642247240001
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp26"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-040-lillkyrka-etappmal",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Lillkyrka etappmål",
+      "canonicalCoords": [
+        59.557494364,
+        17.247552516
+      ],
+      "sectionRefs": [
+        26,
+        27
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 26,
+          "file": "upplandsleden-etapp-26-boglosa-lillkyrka.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-26-lillkyrka-end-rest-context",
+          "type": "rest-area",
+          "name": "Lillkyrka etappmål",
+          "coords": [
+            59.557494364,
+            17.247552516
+          ],
+          "confidence": "low",
+          "sources": [
+            "naturkartan_etapp26"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 26,
+          "file": "upplandsleden-etapp-26-boglosa-lillkyrka.research.json",
+          "bucket": "pending",
+          "id": "upplandsleden-etapp-26-lillkyrka-toilet",
+          "type": "toilet",
+          "name": "Toalett, Lillkyrka församlingshem",
+          "coords": [
+            59.557494364,
+            17.247552516
+          ],
+          "confidence": "medium",
+          "sources": [
+            "enkoping_toilets"
+          ],
+          "decision": "pendingOnly"
+        },
+        {
+          "etapp": 26,
+          "file": "upplandsleden-etapp-26-boglosa-lillkyrka.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-26-lillkyrka-parking",
+          "type": "parking",
+          "name": "Parkering vid Lillkyrka idrottsplats",
+          "coords": [
+            59.557494364,
+            17.247552516
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp26"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 26,
+          "file": "upplandsleden-etapp-26-boglosa-lillkyrka.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-26-lillkyrka-bus",
+          "type": "transit",
+          "name": "Busshållplats Lillkyrka Trögdshemmet",
+          "coords": [
+            59.557494364,
+            17.247552516
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp26"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 26,
+          "file": "upplandsleden-etapp-26-boglosa-lillkyrka.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-26-etapp27-leakage",
+          "type": "rest-area",
+          "name": "Etapp 27 Lillkyrka-Veckholm facilities",
+          "coords": [
+            59.557494364,
+            17.247552516
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp26"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 27,
+          "file": "upplandsleden-etapp-27-lillkyrka-veckholm.research.json",
+          "bucket": "pending",
+          "id": "upplandsleden-etapp-27-lillkyrka-water",
+          "type": "water",
+          "name": "Vatten, Lillkyrka församlingsgård",
+          "coords": [
+            59.557494364,
+            17.247552516
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp27",
+            "upplandsstiftelsen_etapp27"
+          ],
+          "decision": "pendingOnly"
+        },
+        {
+          "etapp": 27,
+          "file": "upplandsleden-etapp-27-lillkyrka-veckholm.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-27-lillkyrka-parking",
+          "type": "parking",
+          "name": "Parkering, Lillkyrka skola/idrottsplats",
+          "coords": [
+            59.557494364,
+            17.247552516
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp27"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 27,
+          "file": "upplandsleden-etapp-27-lillkyrka-veckholm.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-27-lillkyrka-bus",
+          "type": "transit",
+          "name": "Busshållplats Lillkyrka Trögdshemmet",
+          "coords": [
+            59.557494364,
+            17.247552516
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp27"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 27,
+          "file": "upplandsleden-etapp-27-lillkyrka-veckholm.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-27-etapp26-leakage",
+          "type": "water",
+          "name": "Etapp 26 Boglösa/Lillkyrka metadata",
+          "coords": [
+            59.557494364,
+            17.247552516
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp27"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-041-veckholms-kyrka-och-runsten",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Veckholms kyrka och runsten",
+      "canonicalCoords": [
+        59.521635658,
+        17.322363563
+      ],
+      "sectionRefs": [
+        27,
+        28
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 27,
+          "file": "upplandsleden-etapp-27-lillkyrka-veckholm.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-27-veckholm-kyrka-heritage",
+          "type": "heritage",
+          "name": "Veckholms kyrka och runsten",
+          "coords": [
+            59.521635658,
+            17.3223635630001
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp27"
+          ],
+          "decision": "normalPois"
+        },
+        {
+          "etapp": 27,
+          "file": "upplandsleden-etapp-27-lillkyrka-veckholm.research.json",
+          "bucket": "pending",
+          "id": "upplandsleden-etapp-27-veckholm-kyrka-toilet",
+          "type": "toilet",
+          "name": "Toalett, Veckholms kyrka",
+          "coords": [
+            59.521635658,
+            17.3223635630001
+          ],
+          "confidence": "medium",
+          "sources": [
+            "enkoping_toilets"
+          ],
+          "decision": "pendingOnly"
+        },
+        {
+          "etapp": 27,
+          "file": "upplandsleden-etapp-27-lillkyrka-veckholm.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-27-veckholm-parking",
+          "type": "parking",
+          "name": "Parkering, Veckholms kyrka",
+          "coords": [
+            59.521635658,
+            17.3223635630001
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp27"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 27,
+          "file": "upplandsleden-etapp-27-lillkyrka-veckholm.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-27-veckholm-bus",
+          "type": "transit",
+          "name": "Busshållplats Veckholms kyrka",
+          "coords": [
+            59.521635658,
+            17.3223635630001
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp27"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 27,
+          "file": "upplandsleden-etapp-27-lillkyrka-veckholm.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-27-etapp28-leakage",
+          "type": "rest-area",
+          "name": "Etapp 28 Veckholm-Härjarö facilities",
+          "coords": [
+            59.521635658,
+            17.3223635630001
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp27"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 28,
+          "file": "upplandsleden-etapp-28-veckholm-harjaro.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-28-veckholm-kyrka-heritage",
+          "type": "heritage",
+          "name": "Veckholms kyrka och runsten",
+          "coords": [
+            59.521635658,
+            17.3223635630001
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp28",
+            "naturkartan_etapp27"
+          ],
+          "decision": "normalPois"
+        },
+        {
+          "etapp": 28,
+          "file": "upplandsleden-etapp-28-veckholm-harjaro.research.json",
+          "bucket": "pending",
+          "id": "upplandsleden-etapp-28-lifvs-veckholm",
+          "type": "food",
+          "name": "Lifvs-butik vid Veckholm",
+          "coords": [
+            59.521635658,
+            17.3223635630001
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp28"
+          ],
+          "decision": "pendingOnly"
+        },
+        {
+          "etapp": 28,
+          "file": "upplandsleden-etapp-28-veckholm-harjaro.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-28-veckholm-water-warning",
+          "type": "water",
+          "name": "Veckholms kyrka vatten ej tjänligt",
+          "coords": [
+            59.521635658,
+            17.3223635630001
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp28"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 28,
+          "file": "upplandsleden-etapp-28-veckholm-harjaro.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-28-veckholm-parking",
+          "type": "parking",
+          "name": "Parkering, Veckholms kyrka",
+          "coords": [
+            59.521635658,
+            17.3223635630001
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp28"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 28,
+          "file": "upplandsleden-etapp-28-veckholm-harjaro.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-28-veckholm-bus",
+          "type": "transit",
+          "name": "Busshållplats Veckholms kyrka",
+          "coords": [
+            59.521635658,
+            17.3223635630001
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp28"
+          ],
+          "decision": "transportMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-042-dricksvatten-haggeby-kyrka",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Dricksvatten, Häggeby kyrka",
+      "canonicalCoords": [
+        59.658302507,
+        17.547026637
+      ],
+      "sectionRefs": [
+        29,
+        30
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 29,
+          "file": "upplandsleden-etapp-29-balsta-haggeby.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-29-haggeby-parking",
+          "type": "parking",
+          "name": "Parkering, Häggeby kyrka",
+          "coords": [
+            59.6582516470719,
+            17.547016817742
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp29"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 29,
+          "file": "upplandsleden-etapp-29-balsta-haggeby.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-29-haggeby-bus",
+          "type": "transit",
+          "name": "Busshållplats Häggeby kyrka",
+          "coords": [
+            59.6582516470719,
+            17.547016817742
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp29"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 29,
+          "file": "upplandsleden-etapp-29-balsta-haggeby.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-29-etapp30-leakage",
+          "type": "water",
+          "name": "Etapp 30 Häggeby-Skokloster services",
+          "coords": [
+            59.6582516470719,
+            17.547016817742
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp30"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 30,
+          "file": "upplandsleden-etapp-30-haggeby-skokloster.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-30-haggeby-kyrka-water",
+          "type": "water",
+          "name": "Dricksvatten, Häggeby kyrka",
+          "coords": [
+            59.65835336737054,
+            17.54703645539246
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp30"
+          ],
+          "decision": "normalFacilities"
+        },
+        {
+          "etapp": 30,
+          "file": "upplandsleden-etapp-30-haggeby-skokloster.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-30-haggeby-parking",
+          "type": "parking",
+          "name": "Parkering, Häggeby kyrka",
+          "coords": [
+            59.65835336737054,
+            17.54703645539246
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp30",
+            "naturkartan_etapp29"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 30,
+          "file": "upplandsleden-etapp-30-haggeby-skokloster.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-30-haggeby-bus",
+          "type": "transit",
+          "name": "Busshållplats Häggeby kyrka",
+          "coords": [
+            59.65835336737054,
+            17.54703645539246
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp30"
+          ],
+          "decision": "transportMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-043-skokloster-slott",
+      "kind": "mixed-facility-access-cluster",
+      "canonicalName": "Skokloster slott",
+      "canonicalCoords": [
+        59.702641844,
+        17.621193057
+      ],
+      "sectionRefs": [
+        30,
+        31
+      ],
+      "policy": "Import only normal facility/POI rows by type; keep parking/transit/rule-warning rows metadata-only. Link all rows to the same place cluster.",
+      "items": [
+        {
+          "etapp": 30,
+          "file": "upplandsleden-etapp-30-haggeby-skokloster.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-30-skokloster-slott-heritage",
+          "type": "heritage",
+          "name": "Skokloster slott",
+          "coords": [
+            59.70263036812754,
+            17.62112979721986
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp30",
+            "naturkartan_skokloster",
+            "skoklostersslott_visit"
+          ],
+          "decision": "normalPois"
+        },
+        {
+          "etapp": 30,
+          "file": "upplandsleden-etapp-30-haggeby-skokloster.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-30-skokloster-naturreservat",
+          "type": "attraction",
+          "name": "Skokloster naturreservat",
+          "coords": [
+            59.70263036812754,
+            17.62112979721986
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_skokloster",
+            "naturkartan_etapp30"
+          ],
+          "decision": "normalPois"
+        },
+        {
+          "etapp": 30,
+          "file": "upplandsleden-etapp-30-haggeby-skokloster.research.json",
+          "bucket": "pending",
+          "id": "upplandsleden-etapp-30-skokloster-castle-toilet",
+          "type": "toilet",
+          "name": "Toalett, Skokloster slott",
+          "coords": [
+            59.70263036812754,
+            17.62112979721986
+          ],
+          "confidence": "medium",
+          "sources": [
+            "skoklostersslott_plan"
+          ],
+          "decision": "pendingOnly"
+        },
+        {
+          "etapp": 30,
+          "file": "upplandsleden-etapp-30-haggeby-skokloster.research.json",
+          "bucket": "pending",
+          "id": "upplandsleden-etapp-30-skokloster-food",
+          "type": "food",
+          "name": "Café/shop services, Skokloster",
+          "coords": [
+            59.70263036812754,
+            17.62112979721986
+          ],
+          "confidence": "medium",
+          "sources": [
+            "naturkartan_etapp30",
+            "skoklostersslott_visit",
+            "skoklostersslott_plan"
+          ],
+          "decision": "pendingOnly"
+        },
+        {
+          "etapp": 30,
+          "file": "upplandsleden-etapp-30-haggeby-skokloster.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-30-skokloster-transit-boat-bus",
+          "type": "transit",
+          "name": "Skokloster bus and Uppsala boat connections",
+          "coords": [
+            59.70263036812754,
+            17.62112979721986
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp30",
+            "naturkartan_skokloster",
+            "naturkartan_etapp31"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 30,
+          "file": "upplandsleden-etapp-30-haggeby-skokloster.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-30-skokloster-reserve-rules",
+          "type": "rule-warning",
+          "name": "Skokloster naturreservat föreskrifter",
+          "coords": [
+            59.70263036812754,
+            17.62112979721986
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_skokloster"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 30,
+          "file": "upplandsleden-etapp-30-haggeby-skokloster.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-30-slinga311-leakage",
+          "type": "rest-area",
+          "name": "Skoklosterslingan 31:1 shared features",
+          "coords": [
+            59.70263036812754,
+            17.62112979721986
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_slinga311"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 30,
+          "file": "upplandsleden-etapp-30-haggeby-skokloster.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-30-slinga301-leakage",
+          "type": "heritage",
+          "name": "Stenhuggarslingan 30:1 castle-park features",
+          "coords": [
+            59.70263036812754,
+            17.62112979721986
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_slinga301"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 30,
+          "file": "upplandsleden-etapp-30-haggeby-skokloster.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-30-etapp31-leakage",
+          "type": "campsite",
+          "name": "Etapp 31 Sånka services",
+          "coords": [
+            59.70263036812754,
+            17.62112979721986
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp31"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 31,
+          "file": "upplandsleden-etapp-31-skokloster-sanka.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-31-skokloster-slott-heritage",
+          "type": "heritage",
+          "name": "Skokloster slott",
+          "coords": [
+            59.70265905900004,
+            17.62128794700004
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp31",
+            "naturkartan_skokloster",
+            "skoklostersslott_visit"
+          ],
+          "decision": "normalPois"
+        },
+        {
+          "etapp": 31,
+          "file": "upplandsleden-etapp-31-skokloster-sanka.research.json",
+          "bucket": "importRows",
+          "id": "upplandsleden-etapp-31-skokloster-naturreservat",
+          "type": "attraction",
+          "name": "Skokloster naturreservat",
+          "coords": [
+            59.70265905900004,
+            17.62128794700004
+          ],
+          "confidence": "high",
+          "sources": [
+            "naturkartan_etapp31",
+            "naturkartan_skokloster"
+          ],
+          "decision": "normalPois"
+        },
+        {
+          "etapp": 31,
+          "file": "upplandsleden-etapp-31-skokloster-sanka.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-31-skokloster-transit-boat-bus",
+          "type": "transit",
+          "name": "Skokloster bus and boat access",
+          "coords": [
+            59.70265905900004,
+            17.62128794700004
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp31",
+            "naturkartan_skokloster"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 31,
+          "file": "upplandsleden-etapp-31-skokloster-sanka.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-31-skokloster-reserve-rules",
+          "type": "rule-warning",
+          "name": "Skokloster naturreservat föreskrifter",
+          "coords": [
+            59.70265905900004,
+            17.62128794700004
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_skokloster"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 31,
+          "file": "upplandsleden-etapp-31-skokloster-sanka.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-31-current-nature-management",
+          "type": "rule-warning",
+          "name": "Naturvårdshuggning i Skoklosterskogen",
+          "coords": [
+            59.70265905900004,
+            17.62128794700004
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_etapp31"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        },
+        {
+          "etapp": 31,
+          "file": "upplandsleden-etapp-31-skokloster-sanka.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-31-slinga311-leakage",
+          "type": "rest-area",
+          "name": "Skoklosterslingan 31:1 shared/loop-only features",
+          "coords": [
+            59.70265905900004,
+            17.62128794700004
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_slinga311",
+            "naturkartan_etapp30"
+          ],
+          "decision": "suppressedOrMetadataOnly"
+        }
+      ]
+    },
+    {
+      "id": "upplandsleden-dedupe-044-parkering-skokloster-slott",
+      "kind": "access-metadata",
+      "canonicalName": "Parkering, Skokloster slott",
+      "canonicalCoords": [
+        59.705689458,
+        17.623186134
+      ],
+      "sectionRefs": [
+        30,
+        31
+      ],
+      "policy": "Do not import as normal public trail facilities. Keep as access-layer metadata or collapse by coordinate/name if an access layer is added.",
+      "items": [
+        {
+          "etapp": 30,
+          "file": "upplandsleden-etapp-30-haggeby-skokloster.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-30-skokloster-parking",
+          "type": "parking",
+          "name": "Parkering, Skokloster slott",
+          "coords": [
+            59.705689458257325,
+            17.623186133529657
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_skokloster_parking",
+            "naturkartan_etapp30",
+            "naturkartan_etapp31"
+          ],
+          "decision": "transportMetadataOnly"
+        },
+        {
+          "etapp": 31,
+          "file": "upplandsleden-etapp-31-skokloster-sanka.research.json",
+          "bucket": "suppressions",
+          "id": "upplandsleden-etapp-31-skokloster-parking",
+          "type": "parking",
+          "name": "Parkering, Skokloster slott",
+          "coords": [
+            59.705689458257325,
+            17.623186133529657
+          ],
+          "confidence": null,
+          "sources": [
+            "naturkartan_skokloster_parking",
+            "naturkartan_etapp31"
+          ],
+          "decision": "transportMetadataOnly"
+        }
+      ]
+    }
+  ]
+}

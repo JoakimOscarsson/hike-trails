@@ -1,0 +1,250 @@
+{
+  "id": "vikingaleden-etapp-3-havero-kyrka-haverodal",
+  "trailId": "vikingaleden",
+  "status": "research-complete-source-pass-5-of-5",
+  "researchedAt": "2026-04-27",
+  "section": {
+    "name": "Vikingaleden, etapp 3, Häverö kyrka-Häverödal",
+    "from": "Häverö kyrka",
+    "to": "Häverödal",
+    "officialDistanceKm": 9.1,
+    "difficulty": "Lätt",
+    "estimatedTime": "2:18",
+    "ascentMeters": 88,
+    "descentMeters": 96,
+    "overlapRouteRef": null
+  },
+  "mapdata": {
+    "officialPageUrl": "https://www.naturkartan.se/sv/stockholms-lan/vikingleden-etapp-3-havero-kyrka-till-haverodal",
+    "visitRoslagenPageUrl": "https://www.visitroslagen.se/vikingaleden-etapp-3",
+    "outdooractivePageUrl": "https://www.outdooractive.com/en/route/pilgrim-walk/uppland/viking-trail-stage-3-haeveroe-church-to-haeveroedal/25541995/",
+    "gpxUrl": "https://www.naturkartan.se/sv/stockholms-lan/vikingleden-etapp-3-havero-kyrka-till-haverodal.gpx",
+    "geometrySource": "naturkartan_section_gpx",
+    "canDraw": true,
+    "officialDistanceKm": 9.1,
+    "pointCount": 183,
+    "computedDistanceKm": 9.049,
+    "start": [
+      60.041252,
+      18.680045
+    ],
+    "end": [
+      60.026234,
+      18.605296
+    ],
+    "bounds": {
+      "minLat": 60.02621,
+      "maxLat": 60.059597,
+      "minLon": 18.605047,
+      "maxLon": 18.680045
+    },
+    "maxGapMeters": 326.8,
+    "stepsOver500Meters": 0,
+    "largeGaps": [],
+    "drawPolicy": [
+      "Use Naturkartan per-section GPX as canonical geometry for sections 1-6.",
+      "Use Outdooractive JSON-LD/GPX as cross-check for endpoint and POI continuity.",
+      "Densify or preserve reviewed >500 m simplification steps according to importer requirements."
+    ],
+    "qa": [
+      "Naturkartan GPX fetched HTTP 200 application/gpx+xml on 2026-04-27 for Etapp 3.",
+      "Visit Roslagen page fetched HTTP 200 on 2026-04-27.",
+      "No section file imports app data directly; this is a route-contribution handoff file."
+    ]
+  },
+  "importRows": [
+    {
+      "id": "vikingaleden-etapp-3-havero-kyrka",
+      "type": "poi",
+      "name": "Häverö kyrka",
+      "coords": [
+        60.0412093,
+        18.6800385
+      ],
+      "confidence": "high",
+      "notes": "Etapp start, heritage church and pilgrim-stamp point; also water/toilet endpoint from Etapp 2.",
+      "sources": [
+        "visit_etapp_3",
+        "naturkartan_havero_kyrka",
+        "outdooractive_etapp_3"
+      ],
+      "clusterId": "havero-kyrka-cluster"
+    },
+    {
+      "id": "vikingaleden-etapp-3-old-kimmine",
+      "type": "poi",
+      "name": "Gamla Kimmine",
+      "coords": [
+        60.044197,
+        18.680162
+      ],
+      "confidence": "medium",
+      "notes": "Historic site near the stage start. Coordinate from Outdooractive object.",
+      "sources": [
+        "outdooractive_etapp_3"
+      ],
+      "clusterId": "havero-kyrka-cluster"
+    },
+    {
+      "id": "vikingaleden-etapp-3-havero-edebo-hembygdsgard",
+      "type": "poi",
+      "name": "Häverö-Edebo hembygdsgård",
+      "coords": [
+        60.0277215,
+        18.6093844
+      ],
+      "confidence": "high",
+      "notes": "Officially recommended stop; Norrtälje confirms address and museum/heritage function. Seasonal cafe/snacks should remain metadata/pending.",
+      "sources": [
+        "visit_etapp_3",
+        "norrtalje_havero_edebo",
+        "outdooractive_etapp_3",
+        "naturkartan_havero_edebo"
+      ],
+      "clusterId": "haverodal-cluster"
+    },
+    {
+      "id": "vikingaleden-etapp-3-haverodal-station-parking",
+      "type": "access",
+      "name": "Häverödals station / parkering",
+      "coords": [
+        60.026234,
+        18.605296
+      ],
+      "confidence": "high",
+      "notes": "Etapp endpoint; Visit Roslagen says 5 parking spaces at Häverödals station and 24-hour parking, plus parking at the church.",
+      "sources": [
+        "visit_etapp_3",
+        "outdooractive_etapp_3"
+      ],
+      "clusterId": "haverodal-cluster"
+    },
+    {
+      "id": "vikingaleden-etapp-3-haverodal-services-pending",
+      "type": "food",
+      "name": "Häverödal services / stock-up point",
+      "coords": [
+        60.026234,
+        18.605296
+      ],
+      "confidence": "medium",
+      "notes": "Outdooractive says to stock up in Häverödal before continuing; exact shop/water objects need current business verification.",
+      "sources": [
+        "outdooractive_etapp_3",
+        "visit_etapp_4"
+      ],
+      "clusterId": "haverodal-cluster"
+    }
+  ],
+  "pending": [],
+  "suppressions": [
+    {
+      "id": "vikingaleden-etapp-3-commercial-currentness",
+      "reason": "Commercial services and opening-hour-dependent utilities are useful but should be currentness-checked at integration time."
+    }
+  ],
+  "decisions": {
+    "normalFacilities": [
+      "vikingaleden-etapp-3-haverodal-services-pending"
+    ],
+    "normalPois": [
+      "vikingaleden-etapp-3-havero-kyrka",
+      "vikingaleden-etapp-3-old-kimmine",
+      "vikingaleden-etapp-3-havero-edebo-hembygdsgard"
+    ],
+    "accessMetadataOnly": [
+      "vikingaleden-etapp-3-haverodal-station-parking"
+    ],
+    "pendingOnly": [],
+    "suppressedOrMetadataOnly": [
+      "vikingaleden-etapp-3-commercial-currentness"
+    ]
+  },
+  "sources": {
+    "visit_overview": {
+      "url": "https://www.visitroslagen.se/vikingaleden",
+      "title": "Visit Roslagen: Vikingaleden"
+    },
+    "visit_etapp_3": {
+      "url": "https://www.visitroslagen.se/vikingaleden-etapp-3",
+      "title": "Visit Roslagen: Vikingaleden etapp 3"
+    },
+    "naturkartan_etapp_3": {
+      "url": "https://www.naturkartan.se/sv/stockholms-lan/vikingleden-etapp-3-havero-kyrka-till-haverodal",
+      "title": "Naturkartan: Vikingaleden etapp 3"
+    },
+    "naturkartan_gpx_3": {
+      "url": "https://www.naturkartan.se/sv/stockholms-lan/vikingleden-etapp-3-havero-kyrka-till-haverodal.gpx",
+      "title": "Naturkartan GPX: etapp 3"
+    },
+    "outdooractive_etapp_3": {
+      "url": "https://www.outdooractive.com/en/route/pilgrim-walk/uppland/viking-trail-stage-3-haeveroe-church-to-haeveroedal/25541995/",
+      "title": "Outdooractive route id 25541995"
+    },
+    "outdooractive_whole": {
+      "url": "https://www.outdooractive.com/en/route/long-distance-hiking/sweden/the-viking-trail-sweden-a-part-of-the-st-olav-waterway/53694445/",
+      "title": "Outdooractive: The Viking Trail (Sweden)"
+    },
+    "stolav_maps": {
+      "url": "https://stolavwaterway.com/en/maps/",
+      "title": "St Olav Waterway maps"
+    },
+    "norrtalje_havero_edebo": {
+      "url": "https://www.norrtalje.se/info/kultur-och-fritid/kultur-och-konst/norrtalje-museerkulturarv-och-stadsarkiv/museer-hembygds--och-kulturforeningar/havero-edebo-hembygdsgard-och-hembygdsforening/",
+      "title": "Norrtälje kommun: Häverö-Edebo hembygdsgård"
+    },
+    "naturkartan_havero_kyrka": {
+      "url": "https://www.naturkartan.se/sv/stockholms-lan/havero-kyrka",
+      "title": "Naturkartan: Häverö kyrka"
+    },
+    "naturkartan_havero_edebo": {
+      "url": "https://www.naturkartan.se/sv/uppsala-lan/havero-edebo-hembygdsgard",
+      "title": "Naturkartan: Häverö-Edebo hembygdsgård"
+    },
+    "visit_etapp_4": {
+      "url": "https://www.visitroslagen.se/vikingaleden-etapp-4",
+      "title": "Visit Roslagen: Vikingaleden etapp 4"
+    }
+  },
+  "validation": {
+    "sourcePasses": [
+      "official Visit Roslagen route text",
+      "Naturkartan route/object/GPX check",
+      "Outdooractive/Paxwalk JSON-LD and POI check",
+      "multi-agent cross-check",
+      "integration/dedupe pass against existing Upplandsleden rows"
+    ],
+    "mapdataCanDraw": true,
+    "facilityRows": 5,
+    "pendingRows": 0,
+    "suppressionRows": 1,
+    "overlapDedupeApplied": false
+  },
+  "iterationLog": [
+    {
+      "iteration": 1,
+      "focus": "official route inventory and section facts",
+      "status": "complete"
+    },
+    {
+      "iteration": 2,
+      "focus": "mapdata/GPX extraction and geometry QA",
+      "status": "complete"
+    },
+    {
+      "iteration": 3,
+      "focus": "official object/facility sources and Outdooractive POIs",
+      "status": "complete"
+    },
+    {
+      "iteration": 4,
+      "focus": "agent review and source conflict checks",
+      "status": "complete"
+    },
+    {
+      "iteration": 5,
+      "focus": "integration/dedupe with existing Upplandsleden contribution files",
+      "status": "complete"
+    }
+  ]
+}

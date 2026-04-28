@@ -1,0 +1,693 @@
+{
+  "id": "upplandsleden-etapp-13-rison-lovstabruk",
+  "trailId": "upplandsleden",
+  "status": "iteration-5-of-5-complete",
+  "section": {
+    "name": "Upplandsleden, etapp 13, Risön-Lövstabruk",
+    "alternateName": "Vikingaleden, etapp 9",
+    "from": "Risön",
+    "to": "Lövstabruk",
+    "officialDistanceKm": 16.5,
+    "notes": "Naturkartan and Upplandsstiftelsen give 16.5 km. Downloaded GPX computes to about 16.211 km and is stored in the reverse direction, Lövstabruk-to-Risön."
+  },
+  "mapdata": {
+    "officialPageUrl": "https://www.naturkartan.se/sv/uppsala-lan/upplandsleden-etapp-13",
+    "upplandsstiftelsenPageUrl": "https://www.upplandsstiftelsen.se/hitta-ut/vandra/upplandsleden/etapp-13-rison-lovstabruk/",
+    "visitRoslagenPageUrl": "https://www.visitroslagen.se/vikingaleden-etapp-9",
+    "gpxUrl": "https://www.naturkartan.se/sv/uppsala-lan/upplandsleden-etapp-13.gpx",
+    "apiSiteId": 9536,
+    "canDraw": true,
+    "officialDistanceKm": 16.5,
+    "computedDistanceKm": 16.211,
+    "mainTrackDistanceKm": 16.211,
+    "trackCount": 1,
+    "segmentCount": 1,
+    "pointCount": 185,
+    "storedDirection": "lovstabruk-to-rison",
+    "writtenDirection": "rison-to-lovstabruk",
+    "maxGapMeters": 566.8,
+    "stepsOver500Meters": 1,
+    "largeGaps": [
+      {
+        "fromIndex": 0,
+        "toIndex": 1,
+        "distanceMeters": 566.8,
+        "from": [
+          60.40812505100007,
+          17.87924463800005
+        ],
+        "to": [
+          60.40316757500005,
+          17.8816478440001
+        ],
+        "note": "The only >500 m raw step is the first stored-GPX step just south of Lövstabruk. Treat as generalized official geometry, not a route break; densify during integration if max-step rendering requires it."
+      }
+    ],
+    "start": [
+      60.30794255700005,
+      17.86422586599997
+    ],
+    "end": [
+      60.40812505100007,
+      17.87924463800005
+    ],
+    "rawGpxStart": [
+      60.40812505100007,
+      17.87924463800005
+    ],
+    "rawGpxEnd": [
+      60.30794255700005,
+      17.86422586599997
+    ],
+    "bounds": {
+      "minLat": 60.307942557,
+      "maxLat": 60.408125051,
+      "minLon": 17.862815239,
+      "maxLon": 17.904726614
+    },
+    "handoffFromPreviousMeters": 0,
+    "handoffToNextMeters": 0,
+    "drawPolicy": [
+      "Use the Naturkartan Etapp 13 GPX as primary geometry.",
+      "Reverse the raw GPX point order for written walking direction, since the file is stored Lövstabruk-to-Risön while official prose says Risön-to-Lövstabruk.",
+      "Keep the single official track/segment intact; the one >500 m first stored step near Lövstabruk is a generalized geometry step, not evidence of a missing section.",
+      "Dedupe Risön endpoint services with Etapp 12/Floranslingan and Lövstabruk endpoint services with Etapp 14."
+    ],
+    "qa": [
+      "Official Etapp 13 page and Upplandsstiftelsen page both state Start: Risön, Slut: Lövstabruk, length 16.5 km.",
+      "Downloaded GPX has one track, one segment and 185 points. Computed length is about 16.211 km.",
+      "Etapp 12 endpoint to Etapp 13 written start is 0 m; Etapp 13 written end to Etapp 14 start is 0 m.",
+      "Route text describes wet sections before Finnsjön during high water; this is condition context rather than a facility row."
+    ]
+  },
+  "importRows": [
+    {
+      "id": "upplandsleden-etapp-13-rison-open-cabin",
+      "type": "shelter",
+      "name": "Öppen raststuga, Risön",
+      "coords": [
+        60.30825426850566,
+        17.86389910609977
+      ],
+      "confidence": "high",
+      "chainageKmApprox": 0.17,
+      "proximityMetersApprox": 21,
+      "clusterId": "upplandsleden-etapp-13-rison-endpoint-cluster",
+      "notes": "Open rest/overnight cabin with two beds, electric heat and no cooking. Shared endpoint service with Etapp 12 and Floranslingan; dedupe by source URL/coordinate.",
+      "sources": [
+        "naturkartan_open_cabin_rison",
+        "naturkartan_rison",
+        "naturkartan_etapp13",
+        "upplandsstiftelsen_etapp13"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-rison-water",
+      "type": "water",
+      "name": "Vatten, Risön",
+      "coords": [
+        60.30828398583383,
+        17.864692233230585
+      ],
+      "confidence": "high",
+      "chainageKmApprox": 0.17,
+      "proximityMetersApprox": 19,
+      "clusterId": "upplandsleden-etapp-13-rison-endpoint-cluster",
+      "notes": "Seasonal tap on the wall of one building at Risön; water is on from 1 May to 31 October / May-October. Shared endpoint service with Etapp 12 and Floranslingan.",
+      "sources": [
+        "naturkartan_rison_water",
+        "naturkartan_etapp13",
+        "upplandsstiftelsen_etapp13",
+        "lansstyrelsen_florarna"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-rison-toilet",
+      "type": "toilet",
+      "name": "Torrtoalett, Risön",
+      "coords": [
+        60.30800476983704,
+        17.8656792640686
+      ],
+      "confidence": "high",
+      "chainageKmApprox": 0.04,
+      "proximityMetersApprox": 78,
+      "clusterId": "upplandsleden-etapp-13-rison-endpoint-cluster",
+      "notes": "Public dry toilet at Risön. Keep separate from bookable indoor WC/showers in the rental accommodation context. Shared endpoint service with Etapp 12 and Floranslingan.",
+      "sources": [
+        "naturkartan_rison",
+        "lansstyrelsen_florarna"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-rison-rest-area",
+      "type": "rest-area",
+      "name": "Rastplats, Risön",
+      "coords": [
+        60.30800476983704,
+        17.8656792640686
+      ],
+      "confidence": "high",
+      "chainageKmApprox": 0.04,
+      "proximityMetersApprox": 78,
+      "clusterId": "upplandsleden-etapp-13-rison-endpoint-cluster",
+      "notes": "Risön is the start farm/rest spot for Etapp 13 with outdoor visitor services. Indoor lodging/kitchen/showers are bookable amenities and are not public trail facilities.",
+      "sources": [
+        "naturkartan_rison",
+        "naturkartan_etapp13",
+        "lansstyrelsen_florarna",
+        "visit_roslagen_vikingaleden9"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-rison-fireplace",
+      "type": "fireplace",
+      "name": "Grillplats, Risön",
+      "coords": [
+        60.30800476983704,
+        17.8656792640686
+      ],
+      "confidence": "high",
+      "chainageKmApprox": 0.04,
+      "proximityMetersApprox": 78,
+      "clusterId": "upplandsleden-etapp-13-rison-endpoint-cluster",
+      "notes": "Outdoor grill/fireplace at Risön. Florarna reserve rules allow fires only at prepared places and current fire-risk rules still apply.",
+      "sources": [
+        "naturkartan_rison",
+        "lansstyrelsen_florarna",
+        "roslagen_florarna"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-rison-campsite",
+      "type": "campsite",
+      "name": "Tältplats, Risön",
+      "coords": [
+        60.30800476983704,
+        17.8656792640686
+      ],
+      "confidence": "high",
+      "chainageKmApprox": 0.04,
+      "proximityMetersApprox": 78,
+      "clusterId": "upplandsleden-etapp-13-rison-endpoint-cluster",
+      "notes": "Public tenting possibility at Risön, distinct from bookable indoor lodging. Shared endpoint service with Etapp 12 and Floranslingan.",
+      "sources": [
+        "naturkartan_rison",
+        "naturkartan_etapp13",
+        "lansstyrelsen_florarna"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-finnsjon-fireplace",
+      "type": "fireplace",
+      "name": "Grillplats, Finnsjön",
+      "coords": [
+        60.34704762980169,
+        17.88453756234154
+      ],
+      "confidence": "high",
+      "chainageKmApprox": 7.1,
+      "proximityMetersApprox": 9,
+      "clusterId": "upplandsleden-etapp-13-finnsjon-cluster",
+      "notes": "Prepared fireplace at the Finnsjön rest area. Naturkartan's current June 2025 notice says firewood is in a wood box 600 m west along the trail, away from the lake, and signs are planned.",
+      "sources": [
+        "naturkartan_finnsjon_fireplace",
+        "naturkartan_etapp13",
+        "upplandsstiftelsen_etapp13",
+        "florarna_kojor"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-finnsjon-rest-area",
+      "type": "rest-area",
+      "name": "Rastplats, Finnsjön",
+      "coords": [
+        60.34704762980169,
+        17.88453756234154
+      ],
+      "confidence": "high",
+      "chainageKmApprox": 7.1,
+      "proximityMetersApprox": 9,
+      "clusterId": "upplandsleden-etapp-13-finnsjon-cluster",
+      "notes": "Rest area with bench and lake view in the northern part of Finnsjön, where the trail leaves the lakeside path.",
+      "sources": [
+        "naturkartan_finnsjon_fireplace",
+        "naturkartan_etapp13",
+        "upplandsstiftelsen_etapp13"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-lovstabruk-toilet",
+      "type": "toilet",
+      "name": "Toalett, Lövstabruk",
+      "coords": [
+        60.4089584495311,
+        17.8773231928594
+      ],
+      "confidence": "high",
+      "chainageKmApprox": 16.21,
+      "proximityMetersApprox": 140,
+      "clusterId": "upplandsleden-etapp-13-lovstabruk-endpoint-cluster",
+      "notes": "Shared Lövstabruk endpoint service from the Etapp 14 object page; relevant to Etapp 13 finish and must be deduplicated with Etapp 14. Listed as available May-October with opening-hour variation.",
+      "sources": [
+        "naturkartan_lovstabruk_toilet_water",
+        "naturkartan_etapp13",
+        "naturkartan_etapp14"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-lovstabruk-water",
+      "type": "water",
+      "name": "Vatten, Lövstabruk",
+      "coords": [
+        60.4089584495311,
+        17.8773231928594
+      ],
+      "confidence": "high",
+      "chainageKmApprox": 16.21,
+      "proximityMetersApprox": 140,
+      "clusterId": "upplandsleden-etapp-13-lovstabruk-endpoint-cluster",
+      "notes": "Shared Lövstabruk endpoint drinking-water service from the Etapp 14 object page. Seasonal May-October with opening-hour variation; dedupe with Etapp 14.",
+      "sources": [
+        "naturkartan_lovstabruk_toilet_water",
+        "naturkartan_etapp13",
+        "naturkartan_etapp14"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-lovstabruk-sodra-bruksdammen-swimming",
+      "type": "swimming",
+      "name": "Badplats, Södra Bruksdammen",
+      "coords": [
+        60.403564,
+        17.883001
+      ],
+      "confidence": "medium",
+      "chainageKmApprox": 16.21,
+      "proximityMetersApprox": 83,
+      "clusterId": "upplandsleden-etapp-13-lovstabruk-endpoint-cluster",
+      "notes": "Endpoint bathing place near road 76/Lövstabruk, supported by Tierp municipality with jetty, diving tower, grill, tables/benches and safety equipment. Coordinate is municipal bathing-place coordinate rather than a Naturkartan object.",
+      "sources": [
+        "tierp_lovstabruk_sodra_bruksdammen",
+        "naturkartan_etapp13"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-lovstabruk-bruksmiljo",
+      "type": "heritage",
+      "name": "Lövstabruk bruksmiljö",
+      "coords": [
+        60.408125051,
+        17.879244638
+      ],
+      "confidence": "high",
+      "chainageKmApprox": 16.21,
+      "proximityMetersApprox": 0,
+      "notes": "Stage endpoint in the historic Lövstabruk ironworks environment with manor, workers' houses, church, offices, dams and preserved 1700s mill setting. Use one heritage POI rather than importing each visitor attraction separately.",
+      "sources": [
+        "naturkartan_etapp13",
+        "tierp_lovstabruk",
+        "vallonbruken_lovstabruk",
+        "nationalmuseum_lovstabruk"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-nybron-railway-embankment",
+      "type": "heritage",
+      "name": "Nybron och gamla banvallen mot Lövstabruk",
+      "coords": [
+        60.360248836,
+        17.876300042
+      ],
+      "confidence": "medium",
+      "chainageKmApprox": 10.05,
+      "proximityMetersApprox": 0,
+      "notes": "Route-feature POI at the old railway embankment turn described in official prose. Coordinate is snapped to the GPX around the route-text location near Nybron, not to a separately verified heritage marker.",
+      "sources": [
+        "naturkartan_etapp13",
+        "upplandsstiftelsen_etapp13",
+        "visit_roslagen_vikingaleden9"
+      ]
+    }
+  ],
+  "pending": [
+    {
+      "id": "upplandsleden-etapp-13-finnsjon-informal-swimming",
+      "type": "swimming",
+      "name": "Informella badplatser längs Finnsjön",
+      "coords": [
+        60.34704762980169,
+        17.88453756234154
+      ],
+      "confidence": "medium",
+      "decision": "pending",
+      "reason": "Official route prose says there are several good places to swim along Finnsjön, but no discrete official bathing-place marker was found. Keep as context unless the app supports narrative swim areas or a precise source is found.",
+      "sources": [
+        "naturkartan_etapp13",
+        "upplandsstiftelsen_etapp13"
+      ]
+    }
+  ],
+  "suppressions": [
+    {
+      "id": "upplandsleden-etapp-13-rison-parking",
+      "type": "parking",
+      "name": "Parkering, Risön",
+      "coords": [
+        60.30797022626583,
+        17.86429524421692
+      ],
+      "confidence": "high",
+      "metadataRole": "access_transport_metadata",
+      "notes": "Parking for about 10 cars, plowed in winter. Access metadata only; do not import as a normal trail facility.",
+      "sources": [
+        "naturkartan_rison_parking",
+        "naturkartan_etapp13"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-lovstabruk-parking",
+      "type": "parking",
+      "name": "Parkering, norra Lövstabruk",
+      "coords": [
+        60.4113536060103,
+        17.8795516711731
+      ],
+      "confidence": "high",
+      "metadataRole": "access_transport_metadata",
+      "notes": "Barnens Bruk/north Lövstabruk parking on private land for day visitors and passenger cars. Adjacent toilets belong to the visitor operation; do not infer a general public trail toilet from this row.",
+      "sources": [
+        "naturkartan_lovstabruk_parking",
+        "naturkartan_etapp13"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-lovstabruk-herrgarden-bus",
+      "type": "transit",
+      "name": "Busshållplats, Lövstabruk Herrgården",
+      "coords": [
+        60.40828687739532,
+        17.879123333354528
+      ],
+      "confidence": "high",
+      "metadataRole": "access_transport_metadata",
+      "notes": "Transport metadata only. Official route page says buses run from Lövstabruk to Tierp, with onward Upptåget connection.",
+      "sources": [
+        "naturkartan_lovstabruk_bus",
+        "naturkartan_etapp13",
+        "ul"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-rison-booked-amenities",
+      "type": "attraction",
+      "name": "Risön booked indoor amenities",
+      "coords": [
+        60.30800476983704,
+        17.8656792640686
+      ],
+      "confidence": "high",
+      "metadataRole": "suppressed_context",
+      "notes": "Risön indoor beds, kitchen, hot/cold water, showers and WC belong to bookable accommodation/rental context. Public trail services are represented separately as open cabin, dry toilet, seasonal water, tenting, fireplace and rest area.",
+      "sources": [
+        "naturkartan_rison",
+        "lansstyrelsen_florarna"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-vastergarde-rental-context",
+      "type": "attraction",
+      "name": "Torpet Västergärde rental context",
+      "coords": [
+        60.30624,
+        17.83927
+      ],
+      "confidence": "medium",
+      "metadataRole": "suppressed_context",
+      "notes": "Bookable/rental accommodation context in Florarna. It is not an Etapp 13 public shelter/campsite/service point and should not be normal-imported.",
+      "sources": [
+        "naturkartan_etapp13",
+        "lansstyrelsen_florarna"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-florarna-reserve-rules",
+      "type": "rule-warning",
+      "name": "Florarna reserve rules",
+      "coords": [
+        60.325554,
+        17.892251
+      ],
+      "confidence": "high",
+      "metadataRole": "suppressed_context",
+      "notes": "Reserve-wide rules/context only: fire only at prepared places, dogs leashed, no disturbing wildlife, no off-road motor vehicles/camping vehicles except roads/parking, and other local restrictions. Apply current fire-risk rules before using fireplaces.",
+      "sources": [
+        "lansstyrelsen_florarna",
+        "naturkartan_florarna"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-florarna-area-context",
+      "type": "attraction",
+      "name": "Florarna nature reserve area context",
+      "coords": [
+        60.325554,
+        17.892251
+      ],
+      "confidence": "high",
+      "metadataRole": "suppressed_context",
+      "notes": "Broad reserve context for the start area, not a stage-specific POI. Keep route-specific public services as separate Risön rows.",
+      "sources": [
+        "naturkartan_florarna",
+        "lansstyrelsen_florarna",
+        "naturkartan_etapp13"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-lovstabruk-commercial-services",
+      "type": "food",
+      "name": "Lövstabruk seasonal visitor services",
+      "coords": [
+        60.408125051,
+        17.879244638
+      ],
+      "confidence": "medium",
+      "metadataRole": "suppressed_context",
+      "notes": "Official route prose says Lövstabruk has summer inn/accommodation. Keep as context unless the integration later maintains seasonal commercial food/lodging rows with opening data.",
+      "sources": [
+        "naturkartan_etapp13",
+        "tierp_lovstabruk",
+        "vallonbruken_lovstabruk"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-etapp12-leakage",
+      "type": "attraction",
+      "name": "Etapp 12 leakage",
+      "coords": [
+        60.307942557,
+        17.864225866
+      ],
+      "confidence": "high",
+      "metadataRole": "suppressed_context",
+      "notes": "Suppress Etapp 12-specific rows except shared Risön endpoint services. Do not import Vika, Staffansholmen, Stormon, Grillholmen, Kungaspången, Film or Österbybruk into Etapp 13.",
+      "sources": [
+        "naturkartan_etapp12",
+        "naturkartan_etapp13"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-etapp14-leakage",
+      "type": "attraction",
+      "name": "Etapp 14 leakage",
+      "coords": [
+        60.408125051,
+        17.879244638
+      ],
+      "confidence": "high",
+      "metadataRole": "suppressed_context",
+      "notes": "Suppress Etapp 14-specific rows except shared Lövstabruk endpoint services. Do not import Knuters, Österlövsta, Svenbo shelter, Västland, Tämnarån or Barsjön into Etapp 13.",
+      "sources": [
+        "naturkartan_etapp13",
+        "naturkartan_etapp14"
+      ]
+    },
+    {
+      "id": "upplandsleden-etapp-13-gpx-direction-metadata",
+      "type": "rule-warning",
+      "name": "Etapp 13 GPX stored in reverse direction",
+      "coords": [
+        60.408125051,
+        17.879244638
+      ],
+      "confidence": "high",
+      "metadataRole": "mapdata_metadata",
+      "notes": "The downloadable GPX is stored Lövstabruk-to-Risön, while official prose says Risön-to-Lövstabruk. Reverse point order for written-direction drawing and chainage calculations.",
+      "sources": [
+        "upplandsleden_etapp13_gpx",
+        "naturkartan_etapp13"
+      ]
+    }
+  ],
+  "decisions": {
+    "normalFacilities": [
+      "upplandsleden-etapp-13-rison-open-cabin",
+      "upplandsleden-etapp-13-rison-water",
+      "upplandsleden-etapp-13-rison-toilet",
+      "upplandsleden-etapp-13-rison-rest-area",
+      "upplandsleden-etapp-13-rison-fireplace",
+      "upplandsleden-etapp-13-rison-campsite",
+      "upplandsleden-etapp-13-finnsjon-fireplace",
+      "upplandsleden-etapp-13-finnsjon-rest-area",
+      "upplandsleden-etapp-13-lovstabruk-toilet",
+      "upplandsleden-etapp-13-lovstabruk-water",
+      "upplandsleden-etapp-13-lovstabruk-sodra-bruksdammen-swimming"
+    ],
+    "normalPois": [
+      "upplandsleden-etapp-13-lovstabruk-bruksmiljo",
+      "upplandsleden-etapp-13-nybron-railway-embankment"
+    ],
+    "pendingOnly": [
+      "upplandsleden-etapp-13-finnsjon-informal-swimming"
+    ],
+    "suppressedOrMetadataOnly": [
+      "upplandsleden-etapp-13-rison-booked-amenities",
+      "upplandsleden-etapp-13-vastergarde-rental-context",
+      "upplandsleden-etapp-13-florarna-reserve-rules",
+      "upplandsleden-etapp-13-florarna-area-context",
+      "upplandsleden-etapp-13-lovstabruk-commercial-services",
+      "upplandsleden-etapp-13-etapp12-leakage",
+      "upplandsleden-etapp-13-etapp14-leakage",
+      "upplandsleden-etapp-13-gpx-direction-metadata"
+    ],
+    "transportMetadataOnly": [
+      "upplandsleden-etapp-13-rison-parking",
+      "upplandsleden-etapp-13-lovstabruk-parking",
+      "upplandsleden-etapp-13-lovstabruk-herrgarden-bus"
+    ],
+    "dedupePolicy": "Dedupe all Risön endpoint services with Etapp 12 and Floranslingan by Naturkartan source URL/coordinate. Dedupe Lövstabruk toilet/water, bus and parking with Etapp 14. Keep transport/parking rows metadata-only."
+  },
+  "sources": {
+    "naturkartan_etapp13": "https://www.naturkartan.se/sv/uppsala-lan/upplandsleden-etapp-13",
+    "upplandsleden_etapp13_gpx": "https://www.naturkartan.se/sv/uppsala-lan/upplandsleden-etapp-13.gpx",
+    "upplandsstiftelsen_etapp13": "https://www.upplandsstiftelsen.se/hitta-ut/vandra/upplandsleden/etapp-13-rison-lovstabruk/",
+    "visit_roslagen_vikingaleden9": "https://www.visitroslagen.se/vikingaleden-etapp-9",
+    "naturkartan_etapp12": "https://www.naturkartan.se/sv/uppsala-lan/upplandsleden-etapp-12",
+    "naturkartan_etapp14": "https://www.naturkartan.se/sv/uppsala-lan/upplandsleden-etapp-14",
+    "naturkartan_rison": "https://www.naturkartan.se/sv/uppsala-lan/rison",
+    "naturkartan_open_cabin_rison": "https://www.naturkartan.se/sv/uppsala-lan/oppen-raststuga-rison-florarna",
+    "naturkartan_rison_water": "https://www.naturkartan.se/sv/uppsala-lan/vatten-etapp-13-rison-2",
+    "naturkartan_rison_parking": "https://www.naturkartan.se/sv/uppsala-lan/parkering-rison",
+    "naturkartan_finnsjon_fireplace": "https://www.naturkartan.se/sv/uppsala-lan/rastplats-finnsjon",
+    "naturkartan_lovstabruk_toilet_water": "https://www.naturkartan.se/sv/uppsala-lan/toalett-etapp-14-lovstabruk",
+    "naturkartan_lovstabruk_parking": "https://www.naturkartan.se/sv/uppsala-lan/parkering-lovstabruk",
+    "naturkartan_lovstabruk_bus": "https://www.naturkartan.se/sv/uppsala-lan/busshallplats-lovstabruk-herrgarden",
+    "naturkartan_florarna": "https://www.naturkartan.se/sv/uppsala-lan/florarna",
+    "lansstyrelsen_florarna": "https://www.lansstyrelsen.se/uppsala/besoksmal/naturreservat/florarna.html",
+    "roslagen_florarna": "https://roslagen.se/natur-friluftsliv/florarna/",
+    "florarna_kojor": "https://www.florarna.se/styled-9/index.html",
+    "tierp_lovstabruk_sodra_bruksdammen": "https://www.tierp.se/underwebbar/badhus-och-utebad/naturbad/lovstabruk-sodra-bruksdammen.html",
+    "tierp_lovstabruk": "https://www.tierp.se/turism/gora/slott-och-vackra-bruksmiljoer/lovstabruk---ett-nast-intill-orort-1700-talssamhalle.html",
+    "vallonbruken_lovstabruk": "https://www.vallonbruken.se/lvstabruk",
+    "nationalmuseum_lovstabruk": "https://www.nationalmuseum.se/utforska-konst-och-design/v%C3%A5ra-samlingar/l%C3%B6vstabruksamlingen",
+    "ul": "https://www.ul.se/"
+  },
+  "iterationLog": [
+    {
+      "iteration": 1,
+      "completedAt": "2026-04-27",
+      "agentCount": 5,
+      "focus": "First batch pass for Etapp 13 using official Naturkartan/Upplandsstiftelsen pages, GPX checks, Naturkartan object pages, Visit Roslagen/Vikingaleden, municipal/source support and cautious context suppression.",
+      "result": "Created standalone Etapp 13 research file. Normal imports cover public Risön endpoint services, Finnsjön fireplace/rest area, shared Lövstabruk toilet/water, Södra Bruksdammen swimming, Lövstabruk heritage and the Nybron/old-railway route feature. Parking/transit, booked Risön/Västergärde amenities, broad Florarna rules/context, commercial Lövstabruk services and Etapp 12/14 leakage are metadata-only or suppressed."
+    },
+    {
+      "iteration": 2,
+      "agentCount": 0,
+      "summary": "Quality pass for Etapp 13: rechecked JSON structure, source references, GPX/mapdata drawability, declared counts and unsupported type risk against the full numbered Upplandsleden set.",
+      "sourceReview": "Primary evidence remains the official Naturkartan/Upplandsstiftelsen route material already cited in this file; no new row was promoted solely from unsourced inference.",
+      "nextIterationNeeds": [
+        "Replace any GPX-snapped coordinates named in validation limitations with exact Naturkartan/object or municipal coordinates.",
+        "Re-check seasonal/commercial/pending services before final import."
+      ]
+    },
+    {
+      "iteration": 3,
+      "agentCount": 0,
+      "summary": "Integration/dedupe pass for Etapp 13: compared rows against adjacent and same-coordinate etapper to flag shared endpoints, repeated access metadata and route/loop leakage for later import consolidation.",
+      "sourceReview": "Rows remain section-scoped for traceability; actual app import should use the separate dedupe registry generated in this pass to collapse canonical shared facilities.",
+      "nextIterationNeeds": [
+        "Apply canonical dedupe groups during import rather than importing each section-scoped duplicate as a separate public facility.",
+        "Keep access-only parking/transit suppressions out of normal facility imports unless the app gains an access layer."
+      ]
+    },
+    {
+      "iteration": 4,
+      "agentCount": 5,
+      "summary": "Reviewed existing deep-source coverage for Etapp 13; retained object-confirmed high-confidence rows and kept 1 pending/context rows out of normal import.",
+      "sourceReview": "Object-level Naturkartan/official sources were preferred; rows without strong current import evidence remain pending or medium-confidence where appropriate.",
+      "nextIterationNeeds": [
+        "Use dedupe registry during app integration to collapse shared endpoint facilities."
+      ]
+    },
+    {
+      "iteration": 5,
+      "agentCount": 5,
+      "summary": "Final quality pass for Etapp 13: checked source keys, import/pending/suppression counts, decision coverage, adjacent-section duplicates and mapdata drawability.",
+      "sourceReview": "The section is now at the same integration-readiness standard as the strengthened Etapp 1-9 set, with remaining caveats carried explicitly in validation limitations.",
+      "nextIterationNeeds": [
+        "No further section-level enrichment needed before integration beyond global dedupe/import policy."
+      ]
+    }
+  ],
+  "validation": {
+    "jsonParses": true,
+    "idsUnique": true,
+    "decisionCoverageComplete": true,
+    "noPendingOrSuppressedLeakage": true,
+    "sourcesCovered": true,
+    "mapCanDraw": true,
+    "facilityReviewComplete": false,
+    "blockers": [],
+    "lastQaIteration": 5,
+    "caveats": [
+      "raw_gpx_direction_reversed_relative_to_written_route",
+      "single_566_8m_gpx_step_near_lovstabruk_should_be_densified_if_renderer_requires_max_step_under_500m",
+      "rison_endpoint_services_must_dedupe_with_etapp12_and_floranslingan",
+      "lovstabruk_endpoint_services_must_dedupe_with_etapp14",
+      "rison_water_seasonal_may_1_october_31",
+      "lovstabruk_toilet_water_seasonal_may_october_with_opening_variation",
+      "finnsjon_firewood_box_is_600m_west_along_trail_from_fireplace",
+      "same_coordinate_service_clustering_policy",
+      "nybron_coordinate_is_route_snapped_not_independent_marker",
+      "sodra_bruksdammen_swimming_coordinate_from_municipal_source_not_naturkartan_object"
+    ],
+    "openPendingItems": [
+      "upplandsleden-etapp-13-finnsjon-informal-swimming"
+    ],
+    "currentWarnings": [
+      "upplandsleden-etapp-13-finnsjon-fireplace",
+      "upplandsleden-etapp-13-florarna-reserve-rules"
+    ],
+    "transportMetadataPolicy": "Rows in decisions.transportMetadataOnly are retained in suppressions with metadataRole access_transport_metadata; they are planning/deduplication records and should not become normal facility imports unless the integration policy changes.",
+    "unsupportedTypes": [],
+    "normalRowsUseAppSupportedTypesOnly": true,
+    "metadataOnlyRowsExcludedFromNormalImport": true,
+    "integrationReady": false,
+    "finalImportRowsCount": 13,
+    "finalPendingCount": 1,
+    "finalSuppressionCount": 11,
+    "unusedSources": [],
+    "mapCanDrawCondition": "Draw the Naturkartan Etapp 13 GPX reversed for written direction. Preserve its one-track, one-segment geometry; densify the first stored step near Lövstabruk if the map renderer needs all adjacent steps below 500 m.",
+    "previewNotGenerated": "Standalone research file only; import preview will be generated during later integration.",
+    "qualityPassUpdatedAt": "2026-04-27",
+    "checks": [
+      "Iteration 2 quality pass: source keys, declared counts, supported import types, decision coverage and mapdata drawability revalidated across all numbered Upplandsleden etapper.",
+      "Iteration 3 integration pass: cross-etapp coordinate/name clusters audited and duplicate-prone shared endpoint rows classified for later import dedupe.",
+      "Iteration 4 deepening pass: object-level sources, coordinates and section relevance rechecked against official/Naturkartan material.",
+      "Iteration 5 final pass: dedupe-aware integration readiness, source coverage, counts and decision buckets revalidated."
+    ],
+    "limitations": [
+      "2 import row(s) intentionally remain medium-confidence because exact/current object evidence is weaker or the item is contextual rather than an ordinary facility."
+    ]
+  }
+}
