@@ -491,84 +491,6 @@ function auditRouteDistances(scope, sections, routeGeojsonBySectionId) {
   }
 }
 
-async function validatePublicIndex() {
-  const indexPath = path.join(publicRoot, "data", "hikes-index.json");
-  const index = await readJson(indexPath);
-  if (!Array.isArray(index)) {
-    addError(displayPath(indexPath), "Public index must be an array");
-    return;
-  }
-
-  validateUnique("public/data/hikes-index.json", "index item IDs", index.map((item) => item.id));
-
-  for (const item of index) {
-    const scope = `public index item ${item.id ?? "(missing id)"}`;
-    if (!item.detailPath) {
-      addError(scope, "detailPath is required");
-      continue;
-    }
-    const detailPath = publicPath(item.detailPath);
-    if (!detailPath) {
-      addError(scope, `detailPath "${item.detailPath}" does not resolve inside public/`);
-      continue;
-    }
-    if (!(await pathExists(detailPath))) {
-      addError(scope, `detailPath does not exist: ${item.detailPath}`);
-      continue;
-    }
-    const detail = await readJson(detailPath, `${scope} ${item.detailPath}`);
-    if (detail?.id && item.id && detail.id !== item.id) {
-      addError(scope, `detail ID "${detail.id}" does not match index ID "${item.id}"`);
-    }
-    if (!item.overviewFeatureId) addError(scope, "overviewFeatureId is required for hiking overview mapping");
-    if (item.itemType === "trail-system") {
-      indexedTrailSystemIds.add(item.id);
-      await validateTrailSystem(detail, `${scope} detail`, { runRouteAudits: false });
-    } else if (item.itemType === "hike") validateHike(detail, `${scope} detail`);
-
-    const shardPathFields = ["manifestPath", "sectionsIndexPath", "routeGroupsPath", "presetsPath"];
-    const presentShardPathFields = shardPathFields.filter((field) => item[field]);
-    if (presentShardPathFields.length) {
-      const expectedShardPaths = {
-        manifestPath: `/data/trail-systems/${item.id}/manifest.json`,
-        sectionsIndexPath: `/data/trail-systems/${item.id}/sections-index.json`,
-        routeGroupsPath: `/data/trail-systems/${item.id}/route-groups.json`,
-        presetsPath: `/data/trail-systems/${item.id}/presets.json`
-      };
-      for (const field of shardPathFields) {
-        if (!item[field]) {
-          addError(scope, `${field} is required when trail-system shard paths are present`);
-          continue;
-        }
-        if (item[field] !== expectedShardPaths[field]) {
-          addError(scope, `${field} must be "${expectedShardPaths[field]}"`);
-        }
-        const shardPath = publicPath(item[field]);
-        if (!shardPath || !(await pathExists(shardPath))) addError(scope, `${field} does not exist: ${item[field]}`);
-      }
-      const manifestPath = publicPath(item.manifestPath);
-      if (manifestPath) {
-        const manifest = await readJson(manifestPath, `${scope} manifest`);
-        if (manifest?.id !== item.id) addError(scope, `manifest ID "${manifest?.id}" does not match index ID "${item.id}"`);
-      }
-      const sectionsIndexPath = publicPath(item.sectionsIndexPath);
-      if (sectionsIndexPath) {
-        const sectionsIndex = await readJson(sectionsIndexPath, `${scope} sections-index`);
-        if (!Array.isArray(sectionsIndex)) addError(scope, "sectionsIndexPath must point to an array");
-        else {
-          for (const section of sectionsIndex) {
-            if (typeof section.detailPath !== "string" || !section.detailPath.startsWith(`/data/trail-systems/${item.id}/sections/`)) {
-              addError(scope, `section ${section.id ?? "(missing id)"} detailPath must live under /data/trail-systems/${item.id}/sections/`);
-            }
-          }
-        }
-      }
-    }
-  }
-
-  await validateHikingOverview(index);
-}
-
 async function validateHikingOverview(index) {
   const overviewPath = path.join(publicRoot, "data", "overviews", "hiking.geojson");
   const overviewScope = "public/data/overviews/hiking.geojson";
@@ -587,7 +509,7 @@ async function validateHikingOverview(index) {
 
   const hikingIndexItems = index.filter((item) => (item.activity ?? "hiking") === "hiking");
   const overviewFeatureIds = hikingIndexItems.map((item) => item.overviewFeatureId ?? item.id);
-  validateUnique("public/data/hikes-index.json", "overview feature IDs", overviewFeatureIds);
+  validateUnique("public/data/library-index.json hiking items", "overview feature IDs", overviewFeatureIds);
   const expectedItems = new Map(hikingIndexItems.map((item) => [item.overviewFeatureId ?? item.id, item]));
   if (expectedItems.size !== hikingIndexItems.length) {
     addError(overviewScope, "Each hiking index item must map to one unique overview feature");
@@ -635,6 +557,19 @@ async function validateHikingOverview(index) {
   }
 }
 
+async function validateLegacyCompatibilityOutputsRemoved() {
+  const hikesIndexPath = path.join(publicRoot, "data", "hikes-index.json");
+  if (await pathExists(hikesIndexPath)) {
+    addError("public/data/hikes-index.json", "legacy compatibility index must not be generated");
+  }
+
+  const trailSystemsDir = path.join(publicRoot, "data", "trail-systems");
+  const files = await readdir(trailSystemsDir).catch(() => []);
+  for (const file of files.filter((entry) => entry.endsWith(".json"))) {
+    addError(`public/data/trail-systems/${file}`, "legacy all-in-one trail-system JSON must not be generated");
+  }
+}
+
 async function validateActivityLibraryIndexFragments(index) {
   const fragments = [
     ["hiking", await readJson(path.join(publicRoot, "data", "library-index.hiking.json"), "public/data/library-index.hiking.json")],
@@ -666,7 +601,6 @@ async function validateLibraryIndex() {
   const indexPath = path.join(publicRoot, "data", "library-index.json");
   const scope = "public/data/library-index.json";
   const index = await readJson(indexPath, scope);
-  const compatibilityIndex = await readJson(path.join(publicRoot, "data", "hikes-index.json"), "public/data/hikes-index.json");
   if (!Array.isArray(index)) {
     addError(scope, "Generic library index must be an array");
     return;
@@ -675,48 +609,6 @@ async function validateLibraryIndex() {
   validateUnique(scope, "library index item IDs", index.map((item) => item.id));
   validateUnique(scope, "overview feature IDs", index.map((item) => item.overviewFeatureId ?? item.id));
   await validateActivityLibraryIndexFragments(index);
-
-  if (Array.isArray(compatibilityIndex)) {
-    const compatibilityItems = new Map(compatibilityIndex.map((item) => [item.id, item]));
-    const genericHikingItems = new Map(index.filter((item) => (item.activity ?? "hiking") === "hiking").map((item) => [item.id, item]));
-    for (const compatibilityItem of compatibilityIndex) {
-      const itemScope = `${scope} item ${compatibilityItem.id ?? "(missing id)"}`;
-      const item = genericHikingItems.get(compatibilityItem.id);
-      if (!item) {
-        addError(itemScope, "missing item from generic index");
-        continue;
-      }
-      for (const field of [
-        "activity",
-        "itemType",
-        "name",
-        "region",
-        "country",
-        "recommendedTime",
-        "difficulty",
-        "distanceKm",
-        "estimatedTime",
-        "routeType",
-        "overviewFeatureId",
-        "searchText"
-      ]) {
-        validateMatches(itemScope, field, item[field], compatibilityItem[field]);
-      }
-      if (item.location?.label !== compatibilityItem.location?.label) {
-        addError(itemScope, `location.label "${item.location?.label}" does not match compatibility index value "${compatibilityItem.location?.label}"`);
-      }
-      if (item.itemType === "hike") validateMatches(itemScope, "detailPath", item.detailPath, compatibilityItem.detailPath);
-      if (item.itemType === "trail-system") {
-        for (const field of ["manifestPath", "sectionsIndexPath", "routeGroupsPath", "presetsPath"]) {
-          validateMatches(itemScope, field, item[field], compatibilityItem[field]);
-        }
-      }
-    }
-
-    for (const id of genericHikingItems.keys()) {
-      if (!compatibilityItems.has(id)) addError(`${scope} item ${id}`, "generic index item is not present in compatibility index");
-    }
-  }
 
   for (const item of index) {
     const itemScope = `${scope} item ${item.id ?? "(missing id)"}`;
@@ -795,6 +687,7 @@ async function validateLibraryIndex() {
     if (item.detailPath) {
       addError(itemScope, "trail-system library-index records must not point at legacy all-in-one detailPath");
     }
+    indexedTrailSystemIds.add(item.id);
 
     const expectedShardPaths = {
       manifestPath: `/data/trail-systems/${item.id}/manifest.json`,
@@ -861,6 +754,8 @@ async function validateLibraryIndex() {
       }
     }
   }
+
+  await validateHikingOverview(index);
 }
 
 async function readHikingSourceTrailSystems() {
@@ -1013,7 +908,7 @@ async function validateTrailSystemShards() {
     const systemDir = path.join(trailSystemsDir, entry.name);
     const scope = `public data shard ${entry.name}`;
     if (indexedTrailSystemIds.size && !indexedTrailSystemIds.has(entry.name)) {
-      addError(scope, "orphan shard directory is not referenced by public/data/hikes-index.json");
+      addError(scope, "orphan shard directory is not referenced by public/data/library-index.json");
     }
     const manifestPath = path.join(systemDir, "manifest.json");
     const sectionsIndexPath = path.join(systemDir, "sections-index.json");
@@ -1453,7 +1348,7 @@ function printResults() {
 }
 
 await validateSourceData();
-await validatePublicIndex();
+await validateLegacyCompatibilityOutputsRemoved();
 await validateLibraryIndex();
 await validateCommuteCache();
 await validateResearchProgress();

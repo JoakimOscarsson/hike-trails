@@ -8,7 +8,7 @@ This document tracks the data-contract refactor in small implementation slices. 
 
 Runtime data is now in a transitional hiking-plus-kayak public contract. The visible app loads hiking and kayaking records from the shared index. Kayaking has a typed overview/detail branch, compact kayak-specific filters, water/exposure/research-confidence filtering, linked facility rendering on kayak detail maps, and a live browser runtime-path/interaction/accessibility/print probe; richer overview facility layers and caveat-severity workflows remain future work.
 
-As of Slice 22, overview maps still initialize immediately because they are primary navigation surfaces. Non-overview route/detail maps defer on small screens until their reserved map area is near the viewport, reducing below-fold route-geometry and tile work without changing the desktop behavior or public data contract. As of Slice 23, trail-system detail maps render selected/context route geometry only; the hiking overview map remains the full-network orientation surface. As of Slices 24-28, map extraction has moved `DeferredMapMount`, standalone hike `RouteMap`, kayak `KayakTripMap`, and `TrailSystemMap` into `src/map/**`; route-builder orchestration and top-level library load/filter state still live in `src/main.tsx`. As of Slice 31, trail-system route loading/drawing helpers live in `src/map/trailSystemRouteLayers.ts`; as of Slice 32, hiking facility marker rendering lives in `src/map/hikingFacilityMarkers.tsx`; as of Slice 33, hiking commute marker rendering lives in `src/map/hikingCommuteMarkers.tsx`; as of Slice 34, selected-route-first bounds fitting lives in `src/map/fitMapBounds.ts`; as of Slice 40, hiking detail maps and facility lists hide facilities marked off-route by the existing proximity metadata, and same-coordinate hiking facilities render as expandable map clusters. As of Slice 41, sidebar/detail view shells and filter contracts live outside `src/main.tsx`. As of Slice 42, overview routes use a generated deterministic color scale instead of a six-color palette. As of Slice 43, kayak validation derives source/runtime counts from `source-manifest.json` and source shards rather than first-import constants. As of Slice 44, route geometry caching is bounded by an LRU entry limit. As of Slice 45, the generated shared library index is composed from hiking and kayaking activity-owned fragments so scoped activity builds do not regenerate the other activity.
+As of Slice 22, overview maps still initialize immediately because they are primary navigation surfaces. Non-overview route/detail maps defer on small screens until their reserved map area is near the viewport, reducing below-fold route-geometry and tile work without changing the desktop behavior or public data contract. As of Slice 23, trail-system detail maps render selected/context route geometry only; the hiking overview map remains the full-network orientation surface. As of Slices 24-28, map extraction has moved `DeferredMapMount`, standalone hike `RouteMap`, kayak `KayakTripMap`, and `TrailSystemMap` into `src/map/**`; route-builder orchestration and top-level library load/filter state still live in `src/main.tsx`. As of Slice 31, trail-system route loading/drawing helpers live in `src/map/trailSystemRouteLayers.ts`; as of Slice 32, hiking facility marker rendering lives in `src/map/hikingFacilityMarkers.tsx`; as of Slice 33, hiking commute marker rendering lives in `src/map/hikingCommuteMarkers.tsx`; as of Slice 34, selected-route-first bounds fitting lives in `src/map/fitMapBounds.ts`; as of Slice 40, hiking detail maps and facility lists hide facilities marked off-route by the existing proximity metadata, and same-coordinate hiking facilities render as expandable map clusters. As of Slice 41, sidebar/detail view shells and filter contracts live outside `src/main.tsx`. As of Slice 42, overview routes use a generated deterministic color scale instead of a six-color palette. As of Slice 43, kayak validation derives source/runtime counts from `source-manifest.json` and source shards rather than first-import constants. As of Slice 44, route geometry caching is bounded by an LRU entry limit. As of Slice 45, the generated shared library index is composed from hiking and kayaking activity-owned fragments so scoped activity builds do not regenerate the other activity. As of Slice 46, legacy hiking compatibility index and all-in-one trail-system JSON outputs are no longer generated.
 
 Kayak `hasFollowup` is intentionally an internal audit/detail signal as of Slice 19. It stays in the compact public contract for validation and future editorial workflows, but it is not exposed as a sidebar filter because every current kayak route has follow-up/research notes and a visible filter would not narrow the list.
 
@@ -46,8 +46,7 @@ Completed and stable enough to build on:
 
 Still transitional:
 
-- Legacy compatibility files still exist: `public/data/hikes-index.json` and `public/data/trail-systems/<trail-system-id>.json`.
-- Runtime code now requires `library-index.json` and trail-system shard paths. Legacy hiking files remain compatibility outputs, not runtime fallbacks.
+- Runtime code now requires `library-index.json` and trail-system shard paths. Legacy hiking compatibility outputs are removed and validation rejects `public/data/hikes-index.json` plus root-level `public/data/trail-systems/<trail-system-id>.json` files.
 - Hiking trail-system source now lives in `data/source/hiking/**`; `data/trail-systems.json` is no longer a source input.
 - `npm run data:build:hiking` rewrites hiking runtime data plus the hiking index fragment and recomposes `library-index.json`; it no longer imports or rewrites kayak runtime files.
 - `npm run data:kayak:import` rewrites kayak runtime data plus the kayak index fragment and recomposes `library-index.json`; it no longer reads existing `library-index.json` to preserve hiking records.
@@ -59,9 +58,8 @@ Recommended next safe milestones:
 
 1. Reassess whether `src/map/TrailSystemMap.tsx` is small enough to pause map extraction.
 2. Continue route-builder/data-loading cleanup only in small behavior-preserving slices with browser probes after each change; the next app-shell cleanup candidate is extracting library loading and filter orchestration from `src/main.tsx`.
-3. Decide when legacy compatibility hiking JSON can stop being generated, after hosting/deploy needs are clear.
-4. Add deploy/cache-header validation only after the static hosting target is known.
-5. Decide whether the UI smoke artifact should later include screenshots or be split into a separate optional workflow if runtime becomes too slow.
+3. Add deploy/cache-header validation only after the static hosting target is known.
+4. Decide whether the UI smoke artifact should later include screenshots or be split into a separate optional workflow if runtime becomes too slow.
 
 Current runtime output paths covered by validation:
 
@@ -79,11 +77,6 @@ Current runtime output paths covered by validation:
 - `public/data/kayak-facilities.json`
 - `public/routes/*.geojson`
 - `public/routes/kayaking/<kayak-trip-id>.geojson`
-
-Compatibility outputs still exist:
-
-- `public/data/hikes-index.json`
-- `public/data/trail-systems/<trail-system-id>.json`
 
 The app requires `library-index.json` and trail-system shards. If the generic index or shard paths are unavailable, runtime loading fails visibly instead of falling back to legacy all-in-one trail-system JSON.
 
@@ -1581,6 +1574,36 @@ Recommended next work:
 1. Remove legacy hiking compatibility outputs once hosting/deploy compatibility is confirmed.
 2. Extract shared trail import/build primitives from the trail-specific scripts.
 3. Type the remaining kayak detail fields that still use generic/unknown shapes.
+
+## Slice 46: Remove Legacy Hiking Compatibility Outputs
+
+Status: implemented in the `codex/data-validation-foundation` worktree after Slice 45.
+
+Done:
+
+- Stopped generating `public/data/hikes-index.json`.
+- Stopped generating root-level all-in-one trail-system JSON files at `public/data/trail-systems/<trail-system-id>.json`.
+- Updated the hiking writer to remove those legacy files during `npm run data:build`.
+- Updated validation so legacy compatibility files are hard failures if they reappear.
+- Updated runtime contract probes so they no longer require the old compatibility index.
+- Updated maintenance/audit scripts that still read Sormlandsleden or commute-access trail systems from the old all-in-one public JSON; they now read the app-owned hiking source shards.
+
+Not done:
+
+- Historical planning notes earlier in this document still describe the migration window in their original slice context.
+- Runtime shard paths and activity-owned index fragments were preserved unchanged.
+- The app runtime still reads only `public/data/library-index.json`, not the activity fragments or source shards directly.
+
+Known warnings and follow-up:
+
+- Any external consumer that still fetched `public/data/hikes-index.json` or `public/data/trail-systems/<trail-system-id>.json` must migrate to `public/data/library-index.json` plus trail-system shards.
+- If static hosting has cache rules for the deleted legacy files, remove or expire those rules alongside deployment.
+
+Recommended next work:
+
+1. Extract shared trail import/build primitives from the trail-specific scripts.
+2. Type the remaining kayak detail fields that still use generic/unknown shapes.
+3. Add deploy/cache-header validation once the static hosting target is known.
 
 ## Verification Checklist
 

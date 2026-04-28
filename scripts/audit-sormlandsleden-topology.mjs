@@ -1,6 +1,8 @@
 import { readFile } from "node:fs/promises";
+import { readHikingSourceData } from "./lib/hiking-source-shards.mjs";
 
-const trailSystem = JSON.parse(await readFile("public/data/trail-systems/sormlandsleden.json", "utf8"));
+const trailSystem = (await readHikingSourceData()).find((system) => system.id === "sormlandsleden");
+if (!trailSystem) throw new Error("Could not find sormlandsleden in data/source/hiking");
 
 const sections = trailSystem.sections ?? [];
 const routeGroups = trailSystem.routeGroups ?? [];

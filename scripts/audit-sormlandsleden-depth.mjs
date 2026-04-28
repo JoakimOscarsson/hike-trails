@@ -1,6 +1,7 @@
-import { readFile } from "node:fs/promises";
+import { readHikingSourceData } from "./lib/hiking-source-shards.mjs";
 
-const trailSystem = JSON.parse(await readFile("public/data/trail-systems/sormlandsleden.json", "utf8"));
+const trailSystem = (await readHikingSourceData()).find((system) => system.id === "sormlandsleden");
+if (!trailSystem) throw new Error("Could not find sormlandsleden in data/source/hiking");
 
 const sparsePattern =
   /(no verified|no reliable|carry water|low-service|access connector|short connector|services are sparse|no trail water|no official water)/i;

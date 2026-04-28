@@ -1,4 +1,4 @@
-import { readFile } from "node:fs/promises";
+import { readHikingSourceData } from "./lib/hiking-source-shards.mjs";
 
 const trailIds = ["roslagsleden", "sormlandsleden"];
 
@@ -98,9 +98,8 @@ async function fetchUsedOsmElements(rows) {
   throw new Error(`Overpass failed: ${errors.join("; ")}`);
 }
 
-const systems = await Promise.all(
-  trailIds.map(async (id) => JSON.parse(await readFile(`public/data/trail-systems/${id}.json`, "utf8")))
-);
+const sourceSystems = await readHikingSourceData();
+const systems = trailIds.map((id) => sourceSystems.find((system) => system.id === id)).filter(Boolean);
 const rows = systems.flatMap(stopRows);
 const osmElements = await fetchUsedOsmElements(rows);
 

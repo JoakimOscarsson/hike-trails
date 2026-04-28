@@ -88,7 +88,7 @@ function assertNoForbiddenRuntimePath(scope, field, value) {
   }
 }
 
-async function probeTrailSystem(item, compatibilityById) {
+async function probeTrailSystem(item) {
   const scope = `library-index trail-system ${item.id}`;
   if (item.detailPath) {
     addError(scope, "Trail-system runtime records must not include legacy detailPath");
@@ -188,26 +188,6 @@ async function probeTrailSystem(item, compatibilityById) {
       }
       if (!sectionIds.has(preset?.endSectionId)) {
         addError(presetScope, `endSectionId references unknown section "${preset?.endSectionId}"`);
-      }
-    }
-  }
-
-  const compatibilityItem = compatibilityById.get(item.id);
-  if (!compatibilityItem) {
-    addError(scope, "compatibility hikes-index record is missing");
-  } else if (compatibilityItem.detailPath !== `/data/trail-systems/${item.id}.json`) {
-    addError(scope, "compatibility record must keep the legacy all-in-one detailPath during migration");
-  }
-  if (compatibilityItem) {
-    const expectedPaths = {
-      manifestPath: `/data/trail-systems/${item.id}/manifest.json`,
-      sectionsIndexPath: `/data/trail-systems/${item.id}/sections-index.json`,
-      routeGroupsPath: `/data/trail-systems/${item.id}/route-groups.json`,
-      presetsPath: `/data/trail-systems/${item.id}/presets.json`
-    };
-    for (const [field, expectedPath] of Object.entries(expectedPaths)) {
-      if (compatibilityItem[field] !== expectedPath) {
-        addError(scope, `compatibility record ${field} must be "${expectedPath}" while compatibility output remains published`);
       }
     }
   }
@@ -520,11 +500,8 @@ async function validateKayakingOverviewContract(kayaks) {
 
 async function main() {
   const libraryIndex = await readPublicJson("/data/library-index.json", "library-index");
-  const compatibilityIndex = await readPublicJson("/data/hikes-index.json", "compatibility hikes-index");
   if (!Array.isArray(libraryIndex)) addError("library-index", "Expected an array");
-  if (!Array.isArray(compatibilityIndex)) addError("compatibility hikes-index", "Expected an array");
 
-  const compatibilityById = new Map(Array.isArray(compatibilityIndex) ? compatibilityIndex.map((item) => [item.id, item]) : []);
   const items = Array.isArray(libraryIndex) ? libraryIndex : [];
   const trailSystems = items.filter((item) => item.itemType === "trail-system");
   const hikes = items.filter((item) => item.itemType === "hike");
@@ -540,7 +517,7 @@ async function main() {
   }
 
   const trailSystemStats = [];
-  for (const item of trailSystems) trailSystemStats.push(await probeTrailSystem(item, compatibilityById));
+  for (const item of trailSystems) trailSystemStats.push(await probeTrailSystem(item));
   await validateHikingOverviewContract(items);
   const kayakingOverviewStats = await validateKayakingOverviewContract(kayaks);
 

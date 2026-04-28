@@ -116,17 +116,10 @@ function toTrailSystemIndexItem(trailSystem) {
     ),
     estimatedTime: trailSystem.estimatedTime,
     routeType: trailSystem.routeType,
-    detailPath: `/data/trail-systems/${trailSystem.id}.json`,
     overviewFeatureId: trailSystem.id,
     ...trailSystemShardIndexPaths(trailSystem.id),
     searchText: normalizeSearchText(searchText)
   };
-}
-
-function toLibraryIndexItem(item) {
-  if (item.itemType !== "trail-system") return item;
-  const { detailPath, ...runtimeItem } = item;
-  return runtimeItem;
 }
 
 export async function writeHikeData(hikes, trailSystems, { composeIndex = true } = {}) {
@@ -139,7 +132,7 @@ export async function writeHikeData(hikes, trailSystems, { composeIndex = true }
   await Promise.all(
     [
       [publicHikesDir, new Set(hikes.map((hike) => `${hike.id}.json`))],
-      [publicTrailSystemsDir, new Set(systems.map((system) => `${system.id}.json`))]
+      [publicTrailSystemsDir, new Set()]
     ].map(async ([directory, expectedFiles]) => {
       const files = await readdir(directory).catch(() => []);
       await Promise.all(
@@ -156,22 +149,13 @@ export async function writeHikeData(hikes, trailSystems, { composeIndex = true }
       .map((entry) => rm(path.join(publicTrailSystemsDir, entry.name), { recursive: true, force: true }))
   );
 
-  const compatibilityIndex = [...systems.map(toTrailSystemIndexItem), ...hikes.map(toIndexItem)];
-  const libraryIndex = compatibilityIndex.map(toLibraryIndexItem);
+  const libraryIndex = [...systems.map(toTrailSystemIndexItem), ...hikes.map(toIndexItem)];
 
-  await writeFile(path.join(publicDataDir, "hikes-index.json"), `${JSON.stringify(compatibilityIndex, null, 2)}\n`);
+  await rm(path.join(publicDataDir, "hikes-index.json"), { force: true });
   await writeActivityLibraryIndex("hiking", libraryIndex, { projectRoot });
 
   await Promise.all(
     hikes.map((hike) => writeFile(path.join(publicHikesDir, `${hike.id}.json`), `${JSON.stringify(hike, null, 2)}\n`))
-  );
-  await Promise.all(
-    systems.map((trailSystem) =>
-      writeFile(
-        path.join(publicTrailSystemsDir, `${trailSystem.id}.json`),
-        `${JSON.stringify(trailSystem, null, 2)}\n`
-      )
-    )
   );
   await Promise.all(systems.map((trailSystem) => writeTrailSystemShards(trailSystem, publicTrailSystemsDir)));
   const hikingOverview = await buildHikingOverviewGeoJSON({ hikes, trailSystems: systems, publicRoot });
@@ -184,6 +168,6 @@ if (process.argv[1] && import.meta.url === new URL(process.argv[1], "file://").h
   const trailSystems = await readHikingSourceData({ projectRoot });
   await writeHikeData(hikes, trailSystems);
   console.log(
-    `Wrote ${hikes.length} hike detail files, ${trailSystems.length} trail systems, trail-system shards, hiking overview, compatibility index, and library index`
+    `Wrote ${hikes.length} hike detail files, ${trailSystems.length} trail systems, trail-system shards, hiking overview, hiking index fragment, and library index`
   );
 }
