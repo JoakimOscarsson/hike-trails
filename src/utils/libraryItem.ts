@@ -4,6 +4,7 @@ import type {
   KayakTripIndexItem,
   LibraryDetail,
   LibraryIndexItem,
+  TrailSystem,
   TripDuration
 } from "../types";
 
@@ -25,6 +26,10 @@ export function isHikingLibraryIndexItem(item: LibraryIndexItem): item is Hiking
 
 export function isKayakTrip(detail: LibraryDetail): detail is KayakTrip {
   return "activity" in detail && detail.activity === "kayaking" && detail.itemType === "kayak-trip";
+}
+
+export function isTrailSystem(detail: LibraryDetail): detail is TrailSystem {
+  return "itemType" in detail && detail.itemType === "trail-system";
 }
 
 export function itemLocationLabel(item: LibraryIndexItem) {
