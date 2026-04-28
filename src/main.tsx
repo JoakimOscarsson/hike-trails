@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "leaflet/dist/leaflet.css";
-import type { ActivityKind } from "./types";
 import { ActivityOverview } from "./components/ActivityOverview";
 import { HikeDetails } from "./components/HikeDetails";
 import { KayakTripDetails } from "./components/KayakTripDetails";
@@ -23,7 +22,6 @@ function App() {
     setHoveredItemId,
     selectItem,
     backToOverview,
-    changeActivity: selectActivity,
     replaceSelectedItem,
     clearSelectedItem
   } = useLibrarySelection();
@@ -75,19 +73,10 @@ function App() {
 
   useVisibleItemSelectionGuard({ selectedItem, visibleItems, replaceSelectedItem, clearSelectedItem });
 
-  const changeActivity = React.useCallback(
-    (activity: ActivityKind) => {
-      selectActivity(activity);
-      resetFilters();
-    },
-    [resetFilters, selectActivity]
-  );
-
   return (
     <div className="app-shell">
       <Sidebar
         activeActivity={activeActivity}
-        onActivityChange={changeActivity}
         selectedItem={selectedItem}
         onSelect={selectItem}
         visibleItems={visibleItems}

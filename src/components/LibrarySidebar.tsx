@@ -1,7 +1,6 @@
 import React from "react";
 import { AlertTriangle, CalendarDays, Filter, Info, Layers, Mountain, Search, Star, Waves } from "lucide-react";
 import type { ActivityKind, LibraryIndexItem } from "../types";
-import { ActivitySwitcher } from "./ActivitySwitcher";
 import type { LoadState } from "../data/loadState";
 import {
   distanceFilters,
@@ -23,7 +22,6 @@ import { itemDistanceLabel, itemDurationLabel, itemLocationLabel } from "../util
 
 export function Sidebar({
   activeActivity,
-  onActivityChange,
   selectedItem,
   onSelect,
   visibleItems,
@@ -55,7 +53,6 @@ export function Sidebar({
   onToggleStar
 }: {
   activeActivity: ActivityKind;
-  onActivityChange: (activity: ActivityKind) => void;
   selectedItem: LibraryIndexItem | null;
   onSelect: (item: LibraryIndexItem) => void;
   visibleItems: LibraryIndexItem[];
@@ -97,8 +94,6 @@ export function Sidebar({
           </span>
         </div>
       </div>
-
-      <ActivitySwitcher activeActivity={activeActivity} onChange={onActivityChange} />
 
       {activeActivity === "hiking" ? (
         <div className="filters" aria-label="Filter routes">
