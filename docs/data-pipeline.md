@@ -8,7 +8,7 @@ This document tracks the data-contract refactor in small implementation slices. 
 
 Runtime data is now in a transitional hiking-plus-kayak public contract. The visible app loads hiking and kayaking records from the shared index. Kayaking has a typed overview/detail branch, compact kayak-specific filters, water/exposure/research-confidence filtering, linked facility rendering on kayak detail maps, and a live browser runtime-path/interaction/accessibility/print probe; richer overview facility layers and caveat-severity workflows remain future work.
 
-As of Slice 22, overview maps still initialize immediately because they are primary navigation surfaces. Non-overview route/detail maps defer on small screens until their reserved map area is near the viewport, reducing below-fold route-geometry and tile work without changing the desktop behavior or public data contract. As of Slice 23, trail-system detail maps render selected/context route geometry only; the hiking overview map remains the full-network orientation surface. As of Slices 24-28, map extraction has moved `DeferredMapMount`, standalone hike `RouteMap`, kayak `KayakTripMap`, and `TrailSystemMap` into `src/map/**`; route-builder orchestration and top-level library load/filter state still live in `src/main.tsx`. As of Slice 31, trail-system route loading/drawing helpers live in `src/map/trailSystemRouteLayers.ts`; as of Slice 32, hiking facility marker rendering lives in `src/map/hikingFacilityMarkers.tsx`; as of Slice 33, hiking commute marker rendering lives in `src/map/hikingCommuteMarkers.tsx`; as of Slice 34, selected-route-first bounds fitting lives in `src/map/fitMapBounds.ts`; as of Slice 40, hiking detail maps and facility lists hide facilities marked off-route by the existing proximity metadata, and same-coordinate hiking facilities render as expandable map clusters. As of Slice 41, sidebar/detail view shells and filter contracts live outside `src/main.tsx`. As of Slice 42, overview routes use a generated deterministic color scale instead of a six-color palette. As of Slice 43, kayak validation derives source/runtime counts from `source-manifest.json` and source shards rather than first-import constants. As of Slice 44, route geometry caching is bounded by an LRU entry limit.
+As of Slice 22, overview maps still initialize immediately because they are primary navigation surfaces. Non-overview route/detail maps defer on small screens until their reserved map area is near the viewport, reducing below-fold route-geometry and tile work without changing the desktop behavior or public data contract. As of Slice 23, trail-system detail maps render selected/context route geometry only; the hiking overview map remains the full-network orientation surface. As of Slices 24-28, map extraction has moved `DeferredMapMount`, standalone hike `RouteMap`, kayak `KayakTripMap`, and `TrailSystemMap` into `src/map/**`; route-builder orchestration and top-level library load/filter state still live in `src/main.tsx`. As of Slice 31, trail-system route loading/drawing helpers live in `src/map/trailSystemRouteLayers.ts`; as of Slice 32, hiking facility marker rendering lives in `src/map/hikingFacilityMarkers.tsx`; as of Slice 33, hiking commute marker rendering lives in `src/map/hikingCommuteMarkers.tsx`; as of Slice 34, selected-route-first bounds fitting lives in `src/map/fitMapBounds.ts`; as of Slice 40, hiking detail maps and facility lists hide facilities marked off-route by the existing proximity metadata, and same-coordinate hiking facilities render as expandable map clusters. As of Slice 41, sidebar/detail view shells and filter contracts live outside `src/main.tsx`. As of Slice 42, overview routes use a generated deterministic color scale instead of a six-color palette. As of Slice 43, kayak validation derives source/runtime counts from `source-manifest.json` and source shards rather than first-import constants. As of Slice 44, route geometry caching is bounded by an LRU entry limit. As of Slice 45, the generated shared library index is composed from hiking and kayaking activity-owned fragments so scoped activity builds do not regenerate the other activity.
 
 Kayak `hasFollowup` is intentionally an internal audit/detail signal as of Slice 19. It stays in the compact public contract for validation and future editorial workflows, but it is not exposed as a sidebar filter because every current kayak route has follow-up/research notes and a visible filter would not narrow the list.
 
@@ -33,6 +33,7 @@ Completed and stable enough to build on:
 - Hiking trail-system runtime shards and app runtime loading from `library-index.json` plus sharded trail-system data.
 - Bounded route geometry cache, per-route load resilience, and Leaflet lifecycle fixes.
 - Hiking and kayaking overview/detail runtime paths, kayak source import, kayak detail facility rendering, and compact kayak filters.
+- Activity-scoped generated index fragments: `library-index.hiking.json` and `library-index.kayaking.json` compose into the runtime `library-index.json`.
 - Mobile below-fold map deferral for non-overview maps.
 - Trail-system selected/context route loading; detail maps no longer fetch every background route.
 - Browser runtime probe and UI smoke report covering runtime paths, selected/context request budgets, overview color variety, filter behavior, accessibility, print polish, and mobile deferral, with CI artifact upload for the smoke report.
@@ -48,6 +49,8 @@ Still transitional:
 - Legacy compatibility files still exist: `public/data/hikes-index.json` and `public/data/trail-systems/<trail-system-id>.json`.
 - Runtime code now requires `library-index.json` and trail-system shard paths. Legacy hiking files remain compatibility outputs, not runtime fallbacks.
 - Hiking trail-system source now lives in `data/source/hiking/**`; `data/trail-systems.json` is no longer a source input.
+- `npm run data:build:hiking` rewrites hiking runtime data plus the hiking index fragment and recomposes `library-index.json`; it no longer imports or rewrites kayak runtime files.
+- `npm run data:kayak:import` rewrites kayak runtime data plus the kayak index fragment and recomposes `library-index.json`; it no longer reads existing `library-index.json` to preserve hiking records.
 - `npm run data:build` is still a local/manual gate for source data, generator, or public contract changes; `ci:check` validates current outputs but does not regenerate them.
 - `npm run ui:smoke` still rewrites `docs/test-reports/hike-ui-smoke-report-2026-04-28.md` locally; hosted CI uses `npm run ui:smoke:artifact` instead.
 - Candidate trail research and kayak research seed files remain import inputs only, not runtime dependencies.
@@ -63,6 +66,8 @@ Recommended next safe milestones:
 Current runtime output paths covered by validation:
 
 - `public/data/library-index.json`
+- `public/data/library-index.hiking.json`
+- `public/data/library-index.kayaking.json`
 - `public/data/overviews/hiking.geojson`
 - `public/data/overviews/kayaking.geojson`
 - `public/data/trail-systems/<trail-system-id>/manifest.json`
@@ -1544,6 +1549,38 @@ Recommended next work:
 1. Extract library loading, activity filter state, and derived visible-item computation from `src/main.tsx` into focused hooks if continuing app-shell cleanup.
 2. Decide when legacy compatibility hiking JSON can stop being generated after deploy compatibility is clear.
 3. Add deploy/cache-header validation only after the static hosting target is known.
+
+## Slice 45: Activity-Owned Library Index Fragments
+
+Status: implemented in the `codex/data-validation-foundation` worktree after Slice 44.
+
+Done:
+
+- Added `scripts/lib/library-index-fragments.mjs` with helpers for writing activity-owned index fragments and composing the shared runtime index.
+- Added `scripts/compose-library-index.mjs` and `npm run data:index:compose`.
+- Changed hiking generation to write `public/data/library-index.hiking.json`.
+- Changed kayaking generation to write `public/data/library-index.kayaking.json`.
+- Changed `npm run data:build` to rebuild both activity fragments and compose `public/data/library-index.json` once at the end.
+- Changed `npm run data:build:hiking` so it only rewrites hiking runtime data and recomposes the shared index from the existing kayak fragment; it no longer imports or rewrites kayak runtime data.
+- Changed `npm run data:kayak:import` so it writes the kayak fragment and recomposes the shared index without reading existing `library-index.json` to preserve hiking records.
+- Extended validation to require that `public/data/library-index.json` exactly matches the hiking and kayaking fragments.
+
+Not done:
+
+- Legacy hiking compatibility outputs still exist in this slice.
+- No source records, route geometry, map behavior, or runtime loader code changed.
+- The shared runtime app still reads only `public/data/library-index.json`; the activity fragments are generator/validation artifacts, not app runtime fetches.
+
+Known warnings and follow-up:
+
+- Activity-specific commands now depend on the other activity fragment already existing in the repo. If a fragment is missing, composition fails instead of silently dropping that activity from the runtime index.
+- If a future third activity is added, update the fragment activity list and validation together rather than returning to read/modify/write of the composed index.
+
+Recommended next work:
+
+1. Remove legacy hiking compatibility outputs once hosting/deploy compatibility is confirmed.
+2. Extract shared trail import/build primitives from the trail-specific scripts.
+3. Type the remaining kayak detail fields that still use generic/unknown shapes.
 
 ## Verification Checklist
 

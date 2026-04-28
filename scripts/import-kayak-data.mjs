@@ -1,6 +1,7 @@
 import { copyFile, mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { composeLibraryIndex, writeActivityLibraryIndex } from "./lib/library-index-fragments.mjs";
 import { buildKayakOverview, normalizeKayakFacility, normalizeKayakRoute } from "./lib/normalize-kayak.mjs";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
@@ -255,7 +256,7 @@ function mergeFacilities(dataset, routeIds) {
   return [...byId.values()].sort((a, b) => a.id.localeCompare(b.id));
 }
 
-export async function importKayakData({ projectRoot = defaultProjectRoot, refreshSourceSnapshot = false } = {}) {
+export async function importKayakData({ projectRoot = defaultProjectRoot, refreshSourceSnapshot = false, composeIndex = true } = {}) {
   const { kayakSourceDir } = await snapshotSource({ projectRoot, refreshSourceSnapshot });
   const publicDataDir = path.join(projectRoot, "public", "data");
   const publicKayakTripsDir = path.join(publicDataDir, "kayak-trips");
@@ -295,11 +296,9 @@ export async function importKayakData({ projectRoot = defaultProjectRoot, refres
     )}\n`
   );
 
-  const libraryIndexPath = path.join(publicDataDir, "library-index.json");
-  const existingIndex = (await pathExists(libraryIndexPath)) ? await readJson(libraryIndexPath) : [];
-  const withoutKayaks = Array.isArray(existingIndex) ? existingIndex.filter((item) => item.activity !== "kayaking") : [];
   const kayakIndexItems = normalizedRoutes.map(({ indexItem }) => indexItem);
-  await writeFile(libraryIndexPath, `${JSON.stringify([...withoutKayaks, ...kayakIndexItems], null, 2)}\n`);
+  await writeActivityLibraryIndex("kayaking", kayakIndexItems, { projectRoot });
+  if (composeIndex) await composeLibraryIndex({ projectRoot });
 
   console.log(
     `Imported ${normalizedRoutes.length} kayak trips, ${facilities.length} kayak facilities, kayak routes, kayaking overview, and library-index records`

@@ -2,6 +2,7 @@ import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { buildHikingOverviewGeoJSON } from "./lib/build-overview-geojson.mjs";
 import { readHikingSourceData } from "./lib/hiking-source-shards.mjs";
+import { composeLibraryIndex, writeActivityLibraryIndex } from "./lib/library-index-fragments.mjs";
 import { normalizeSearchText } from "./lib/search-text.mjs";
 import { trailSystemShardIndexPaths, writeTrailSystemShards } from "./lib/write-trail-system-shards.mjs";
 
@@ -128,7 +129,7 @@ function toLibraryIndexItem(item) {
   return runtimeItem;
 }
 
-export async function writeHikeData(hikes, trailSystems) {
+export async function writeHikeData(hikes, trailSystems, { composeIndex = true } = {}) {
   const systems = trailSystems ?? (await readHikingSourceData({ projectRoot }));
   const systemIds = new Set(systems.map((system) => system.id));
   await mkdir(publicHikesDir, { recursive: true });
@@ -159,7 +160,7 @@ export async function writeHikeData(hikes, trailSystems) {
   const libraryIndex = compatibilityIndex.map(toLibraryIndexItem);
 
   await writeFile(path.join(publicDataDir, "hikes-index.json"), `${JSON.stringify(compatibilityIndex, null, 2)}\n`);
-  await writeFile(path.join(publicDataDir, "library-index.json"), `${JSON.stringify(libraryIndex, null, 2)}\n`);
+  await writeActivityLibraryIndex("hiking", libraryIndex, { projectRoot });
 
   await Promise.all(
     hikes.map((hike) => writeFile(path.join(publicHikesDir, `${hike.id}.json`), `${JSON.stringify(hike, null, 2)}\n`))
@@ -175,6 +176,7 @@ export async function writeHikeData(hikes, trailSystems) {
   await Promise.all(systems.map((trailSystem) => writeTrailSystemShards(trailSystem, publicTrailSystemsDir)));
   const hikingOverview = await buildHikingOverviewGeoJSON({ hikes, trailSystems: systems, publicRoot });
   await writeFile(path.join(publicOverviewsDir, "hiking.geojson"), `${JSON.stringify(hikingOverview, null, 2)}\n`);
+  if (composeIndex) await composeLibraryIndex({ projectRoot });
 }
 
 if (process.argv[1] && import.meta.url === new URL(process.argv[1], "file://").href) {

@@ -635,6 +635,33 @@ async function validateHikingOverview(index) {
   }
 }
 
+async function validateActivityLibraryIndexFragments(index) {
+  const fragments = [
+    ["hiking", await readJson(path.join(publicRoot, "data", "library-index.hiking.json"), "public/data/library-index.hiking.json")],
+    ["kayaking", await readJson(path.join(publicRoot, "data", "library-index.kayaking.json"), "public/data/library-index.kayaking.json")]
+  ];
+  const composed = [];
+
+  for (const [activity, fragment] of fragments) {
+    const scope = `public/data/library-index.${activity}.json`;
+    if (!Array.isArray(fragment)) {
+      addError(scope, "Activity library-index fragment must be an array");
+      continue;
+    }
+    validateUnique(scope, "fragment item IDs", fragment.map((item) => item.id));
+    for (const item of fragment) {
+      if ((item.activity ?? "hiking") !== activity) {
+        addError(`${scope} item ${item.id ?? "(missing id)"}`, `activity must be "${activity}"`);
+      }
+    }
+    composed.push(...fragment);
+  }
+
+  if (JSON.stringify(composed) !== JSON.stringify(index)) {
+    addError("public/data/library-index.json", "Composed library index must exactly match the hiking and kayaking activity fragments");
+  }
+}
+
 async function validateLibraryIndex() {
   const indexPath = path.join(publicRoot, "data", "library-index.json");
   const scope = "public/data/library-index.json";
@@ -647,6 +674,7 @@ async function validateLibraryIndex() {
 
   validateUnique(scope, "library index item IDs", index.map((item) => item.id));
   validateUnique(scope, "overview feature IDs", index.map((item) => item.overviewFeatureId ?? item.id));
+  await validateActivityLibraryIndexFragments(index);
 
   if (Array.isArray(compatibilityIndex)) {
     const compatibilityItems = new Map(compatibilityIndex.map((item) => [item.id, item]));
