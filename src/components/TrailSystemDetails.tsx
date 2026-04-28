@@ -17,7 +17,7 @@ import {
   type DistanceFilter
 } from "../data/filters";
 import { DeferredMapMount } from "../map/DeferredMapMount";
-import { TrailSystemMap } from "../map/TrailSystemMap";
+import { TrailSystemMap, type TrailMapFocusTarget } from "../map/TrailSystemMap";
 import {
   defaultFacilityTypes,
   facilityCategoryGroups,
@@ -123,7 +123,13 @@ function selectedRouteCampingRuleItems(sections: TrailSection[]) {
   return [...items.slice(0, 8), `${items.length - 8} more camping, fire, or rule notes are attached to the selected sections below.`];
 }
 
-export function FacilityList({ facilities }: { facilities: TrailFacility[] }) {
+export function FacilityList({
+  facilities,
+  onFocusFacility
+}: {
+  facilities: TrailFacility[];
+  onFocusFacility: (facility: TrailFacility) => void;
+}) {
   const [openGroups, setOpenGroups] = React.useState<Set<string>>(() => new Set());
   const facilityCounts = React.useMemo(
     () =>
@@ -175,7 +181,12 @@ export function FacilityList({ facilities }: { facilities: TrailFacility[] }) {
                     <div className="facility-list">
                       {group.facilities.map((facility) => (
                         <article className="facility-item" key={facility.id}>
-                          <div>
+                          <button
+                            className="facility-focus-button"
+                            disabled={!facility.coordinates}
+                            onClick={() => onFocusFacility(facility)}
+                            type="button"
+                          >
                             <span>
                               {facilityTypeLabels[facility.type]}
                               {isOffRouteFacility(facility) ? (
@@ -189,7 +200,7 @@ export function FacilityList({ facilities }: { facilities: TrailFacility[] }) {
                             {isOffRouteFacility(facility) ? (
                               <p className="facility-distance-note">{facilityProximityText(facility)}</p>
                             ) : null}
-                          </div>
+                          </button>
                           <a href={facility.source.url} target="_blank" rel="noreferrer">
                             Source
                             <ExternalLink size={14} aria-hidden="true" />
@@ -366,6 +377,7 @@ export function TrailSystemDetails({
     () => new Set(defaultFacilityTypes)
   );
   const [selectedContextGroupIds, setSelectedContextGroupIds] = React.useState<Set<string>>(() => new Set());
+  const [mapFocusTarget, setMapFocusTarget] = React.useState<TrailMapFocusTarget | null>(null);
 
   const routeGroup = mainRouteGroups.find((group) => group.id === routeGroupId) ?? mainRouteGroups[0];
   const routeSections = sectionsForIds(routeGroup.sectionIds, sectionLookup);
@@ -484,6 +496,20 @@ export function TrailSystemDetails({
     });
   }
 
+  function focusFacilityOnMap(facility: TrailFacility) {
+    if (!facility.coordinates) return;
+    setSelectedFacilityTypes((current) => {
+      if (current.has(facility.type)) return current;
+      return new Set([...current, facility.type]);
+    });
+    setMapFocusTarget((current) => ({
+      id: facility.id,
+      coordinates: facility.coordinates!,
+      requestId: (current?.requestId ?? 0) + 1,
+      zoom: 15
+    }));
+  }
+
   const sectionDetailWarning = sectionDetailsState.failedCount ? (
     <p className="inline-warning" role="status">
       <AlertTriangle size={15} aria-hidden="true" />
@@ -550,6 +576,7 @@ export function TrailSystemDetails({
                 primarySections={detailedPrimaryRouteSections}
                 facilities={selectedFacilities}
                 visibleFacilityTypes={selectedFacilityTypes}
+                focusTarget={mapFocusTarget}
               />
             </DeferredMapMount>
             <div className="map-status">Selected sections highlighted</div>
@@ -576,7 +603,7 @@ export function TrailSystemDetails({
 
           <InfoList title="Camping Rules" icon={<Tent size={18} />} items={campingRuleItems} />
 
-          <FacilityList facilities={selectedFacilities} />
+          <FacilityList facilities={selectedFacilities} onFocusFacility={focusFacilityOnMap} />
           <TransitAccessList accessPoints={accessPoints} />
           <InfoList
             title="Selected Sections"
@@ -759,6 +786,7 @@ export function TrailSystemDetails({
                 primarySections={detailedPrimaryRouteSections}
                 facilities={selectedFacilities}
                 visibleFacilityTypes={selectedFacilityTypes}
+                focusTarget={mapFocusTarget}
               />
             </DeferredMapMount>
             <div className="map-status">Route + facilities</div>

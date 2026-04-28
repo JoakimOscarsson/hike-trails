@@ -53,11 +53,13 @@ function facilityIcon(facility: TrailFacility, offset: [number, number] = [0, 0]
 function addFacilityMarker({
   facility,
   markerLayerGroup,
-  offset = [0, 0]
+  offset = [0, 0],
+  shouldOpen = false
 }: {
   facility: TrailFacility;
   markerLayerGroup: L.LayerGroup;
   offset?: [number, number];
+  shouldOpen?: boolean;
 }) {
   if (!facility.coordinates) return null;
   const proximity = facilityProximityText(facility);
@@ -70,6 +72,7 @@ function addFacilityMarker({
     .addTo(markerLayerGroup);
 
   if (proximity) marker.bindTooltip(proximity, { direction: "top", offset: [0, -12] });
+  if (shouldOpen) marker.openPopup();
   return marker;
 }
 
@@ -85,10 +88,12 @@ function clusteredFacilityPopup(facilities: TrailFacility[]) {
 
 function addClusteredFacilityMarker({
   facilities,
-  markerLayerGroup
+  markerLayerGroup,
+  focusedFacilityId
 }: {
   facilities: TrailFacility[];
   markerLayerGroup: L.LayerGroup;
+  focusedFacilityId?: string;
 }) {
   const coordinates = facilities[0]?.coordinates;
   if (!coordinates) return null;
@@ -106,6 +111,9 @@ function addClusteredFacilityMarker({
     .bindPopup(clusteredFacilityPopup(facilities))
     .bindTooltip(`${facilities.length} facilities here. Click to expand.`, { direction: "top", offset: [0, -14] })
     .addTo(markerLayerGroup);
+  if (focusedFacilityId && facilities.some((facility) => facility.id === focusedFacilityId)) {
+    marker.openPopup();
+  }
 
   const expandedMarkers: L.Layer[] = [];
   const toggleExpandedFacilities = () => {
@@ -134,10 +142,12 @@ function addClusteredFacilityMarker({
 
 export function addHikingFacilityMarkers({
   facilities,
-  markerLayerGroup
+  markerLayerGroup,
+  focusedFacilityId
 }: {
   facilities: TrailFacility[];
   markerLayerGroup: L.LayerGroup;
+  focusedFacilityId?: string;
 }) {
   const markers: L.Layer[] = [];
   const facilityGroups = new Map<string, TrailFacility[]>();
@@ -152,12 +162,16 @@ export function addHikingFacilityMarkers({
 
   for (const group of facilityGroups.values()) {
     if (group.length === 1) {
-      const marker = addFacilityMarker({ facility: group[0], markerLayerGroup });
+      const marker = addFacilityMarker({
+        facility: group[0],
+        markerLayerGroup,
+        shouldOpen: group[0].id === focusedFacilityId
+      });
       if (marker) markers.push(marker);
       continue;
     }
 
-    const marker = addClusteredFacilityMarker({ facilities: group, markerLayerGroup });
+    const marker = addClusteredFacilityMarker({ facilities: group, markerLayerGroup, focusedFacilityId });
     if (marker) markers.push(marker);
   }
 

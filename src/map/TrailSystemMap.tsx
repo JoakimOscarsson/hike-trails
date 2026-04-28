@@ -14,18 +14,27 @@ import {
 } from "./trailSystemRouteLayers";
 import { useLeafletMap } from "./useLeafletMap";
 
+export type TrailMapFocusTarget = {
+  id: string;
+  coordinates: [number, number];
+  requestId: number;
+  zoom?: number;
+};
+
 export function TrailSystemMap({
   trailSystem,
   selectedSections,
   primarySections = selectedSections,
   facilities,
-  visibleFacilityTypes
+  visibleFacilityTypes,
+  focusTarget
 }: {
   trailSystem: TrailSystem;
   selectedSections: TrailSection[];
   primarySections?: TrailSection[];
   facilities?: TrailFacility[];
   visibleFacilityTypes?: Set<FacilityType>;
+  focusTarget?: TrailMapFocusTarget | null;
 }) {
   const { containerRef, mapRef } = useLeafletMap(trailSystem.map.center, trailSystem.map.zoom);
   const [routeLoadWarning, setRouteLoadWarning] = React.useState("");
@@ -41,6 +50,12 @@ export function TrailSystemMap({
     .filter((facility) => facility.coordinates && (visibleFacilityTypes?.has(facility.type) ?? true))
     .map((facility) => `${facility.id}:${facility.type}`)
     .join("|");
+
+  React.useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !focusTarget) return;
+    map.setView(focusTarget.coordinates, Math.max(map.getZoom(), focusTarget.zoom ?? 15), { animate: true });
+  }, [focusTarget, mapRef]);
 
   React.useEffect(() => {
     const currentMap = mapRef.current;
@@ -97,10 +112,19 @@ export function TrailSystemMap({
         markerLayerRefs.push(marker);
       }
 
-      markerLayerRefs.push(...addHikingFacilityMarkers({ facilities: markerFacilities, markerLayerGroup }));
+      markerLayerRefs.push(
+        ...addHikingFacilityMarkers({
+          facilities: markerFacilities,
+          markerLayerGroup,
+          focusedFacilityId: focusTarget?.id
+        })
+      );
       markerLayerRefs.push(...addHikingCommuteMarkers({ accessPoints, markerLayerGroup }));
 
       fitSelectedLayersOrMarkers({ map, selectedLayers, markerLayers: markerLayerRefs });
+      if (focusTarget) {
+        map.setView(focusTarget.coordinates, Math.max(map.getZoom(), focusTarget.zoom ?? 15), { animate: true });
+      }
     }
 
     drawSections().catch(() => {
@@ -114,7 +138,7 @@ export function TrailSystemMap({
       routeLayers.remove();
       markerLayerGroup.remove();
     };
-  }, [accessPoints, commuteKey, facilities, facilityKey, primaryKey, selectedKey, trailSystem, visibleFacilityTypes]);
+  }, [accessPoints, commuteKey, facilities, facilityKey, focusTarget, primaryKey, selectedKey, trailSystem, visibleFacilityTypes]);
 
   return (
     <>
