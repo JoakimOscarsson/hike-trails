@@ -11,18 +11,14 @@ import {
   type FacilityType
 } from "./hikingFacilities";
 
-const clusterCoordinatePrecision = 5;
 const facilityMarkerSize = 26;
 const facilityMarkerAnchor = facilityMarkerSize / 2;
+const markerOverlapPixels = 30;
 
 export function visibleHikingMapFacilities(facilities: TrailFacility[] | undefined, visibleFacilityTypes?: Set<FacilityType>) {
   return (facilities ?? []).filter(
     (facility) => facility.coordinates && isCloseTrailFacility(facility) && (visibleFacilityTypes?.has(facility.type) ?? true)
   );
-}
-
-function facilityCoordinateKey(facility: TrailFacility) {
-  return facility.coordinates?.map((coordinate) => coordinate.toFixed(clusterCoordinatePrecision)).join(":") ?? facility.id;
 }
 
 function facilityPopup(facility: TrailFacility) {
@@ -32,11 +28,11 @@ function facilityPopup(facility: TrailFacility) {
   }<br>${escapeHtml(facility.description)}`;
 }
 
-function facilityIcon(facility: TrailFacility, offset: [number, number] = [0, 0]) {
+function facilityIcon(facility: TrailFacility, spidered = false) {
   const offRoute = isOffRouteFacility(facility);
   return L.divIcon({
     className: `facility-marker facility-marker-${facility.type}${offRoute ? " facility-marker-off-route" : ""}${
-      offset[0] || offset[1] ? " facility-spider-marker" : ""
+      spidered ? " facility-spider-marker" : ""
     }`,
     html: renderToStaticMarkup(
       <>
@@ -45,28 +41,30 @@ function facilityIcon(facility: TrailFacility, offset: [number, number] = [0, 0]
       </>
     ),
     iconSize: [facilityMarkerSize, facilityMarkerSize],
-    iconAnchor: [facilityMarkerAnchor - offset[0], facilityMarkerAnchor - offset[1]],
-    popupAnchor: [offset[0], offset[1] - facilityMarkerAnchor]
+    iconAnchor: [facilityMarkerAnchor, facilityMarkerAnchor],
+    popupAnchor: [0, -facilityMarkerAnchor]
   });
 }
 
 function addFacilityMarker({
   facility,
   markerLayerGroup,
-  offset = [0, 0],
+  coordinates = facility.coordinates,
+  spidered = false,
   shouldOpen = false
 }: {
   facility: TrailFacility;
   markerLayerGroup: L.LayerGroup;
-  offset?: [number, number];
+  coordinates?: [number, number];
+  spidered?: boolean;
   shouldOpen?: boolean;
 }) {
-  if (!facility.coordinates) return null;
+  if (!coordinates) return null;
   const proximity = facilityProximityText(facility);
-  const marker = L.marker(facility.coordinates, {
-    icon: facilityIcon(facility, offset),
+  const marker = L.marker(coordinates, {
+    icon: facilityIcon(facility, spidered),
     title: proximity ? `${facility.name}: ${proximity}` : facility.name,
-    zIndexOffset: offset[0] || offset[1] ? 1000 : 0
+    zIndexOffset: spidered ? 1000 : 0
   })
     .bindPopup(facilityPopup(facility))
     .addTo(markerLayerGroup);
@@ -75,6 +73,12 @@ function addFacilityMarker({
   if (shouldOpen) marker.openPopup();
   return marker;
 }
+
+type FacilityMarkerGroup = {
+  facilities: TrailFacility[];
+  center: [number, number];
+  centerPoint: L.Point;
+};
 
 function clusteredFacilityPopup(facilities: TrailFacility[]) {
   const items = facilities
@@ -89,14 +93,16 @@ function clusteredFacilityPopup(facilities: TrailFacility[]) {
 function addClusteredFacilityMarker({
   facilities,
   markerLayerGroup,
+  map,
+  center,
   focusedFacilityId
 }: {
   facilities: TrailFacility[];
   markerLayerGroup: L.LayerGroup;
+  map: L.Map;
+  center: [number, number];
   focusedFacilityId?: string;
 }) {
-  const coordinates = facilities[0]?.coordinates;
-  if (!coordinates) return null;
   const icon = L.divIcon({
     className: "facility-marker facility-cluster-marker",
     html: renderToStaticMarkup(<span>{facilities.length}</span>),
@@ -104,7 +110,7 @@ function addClusteredFacilityMarker({
     iconAnchor: [16, 16],
     popupAnchor: [0, -16]
   });
-  const marker = L.marker(coordinates, {
+  const marker = L.marker(center, {
     icon,
     title: `${facilities.length} facilities here. Click to expand.`
   })
@@ -123,55 +129,92 @@ function addClusteredFacilityMarker({
       return;
     }
 
-    const radius = Math.max(32, 12 + facilities.length * 4);
+    const radius = Math.max(34, 14 + facilities.length * 5);
+    const centerPoint = map.latLngToLayerPoint(center);
     facilities.forEach((facility, index) => {
       const angle = (Math.PI * 2 * index) / facilities.length - Math.PI / 2;
+      const spiderPoint = centerPoint.add(L.point(Math.cos(angle) * radius, Math.sin(angle) * radius));
+      const spiderCoordinates = map.layerPointToLatLng(spiderPoint);
+      const spiderLeg = L.polyline([center, spiderCoordinates], {
+        className: "facility-spider-leg",
+        color: "#20321f",
+        opacity: 0.55,
+        weight: 2
+      }).addTo(markerLayerGroup);
       const expandedMarker = addFacilityMarker({
         facility,
         markerLayerGroup,
-        offset: [Math.cos(angle) * radius, Math.sin(angle) * radius]
+        coordinates: [spiderCoordinates.lat, spiderCoordinates.lng],
+        spidered: true,
+        shouldOpen: facility.id === focusedFacilityId
       });
+      expandedMarkers.push(spiderLeg);
       if (expandedMarker) expandedMarkers.push(expandedMarker);
     });
     marker.openPopup();
   };
-  marker.getElement()?.addEventListener("click", toggleExpandedFacilities);
+  marker.on("click", toggleExpandedFacilities);
 
   return marker;
+}
+
+function createFacilityMarkerGroups(facilities: TrailFacility[], map: L.Map) {
+  const groups: FacilityMarkerGroup[] = [];
+
+  for (const facility of facilities) {
+    if (!facility.coordinates) continue;
+    const point = map.latLngToLayerPoint(facility.coordinates);
+    const group = groups.find((candidate) => candidate.centerPoint.distanceTo(point) < markerOverlapPixels);
+    if (!group) {
+      groups.push({ facilities: [facility], center: facility.coordinates, centerPoint: point });
+      continue;
+    }
+
+    group.facilities.push(facility);
+    const averageLat =
+      group.facilities.reduce((sum, groupedFacility) => sum + (groupedFacility.coordinates?.[0] ?? 0), 0) /
+      group.facilities.length;
+    const averageLng =
+      group.facilities.reduce((sum, groupedFacility) => sum + (groupedFacility.coordinates?.[1] ?? 0), 0) /
+      group.facilities.length;
+    group.center = [averageLat, averageLng];
+    group.centerPoint = map.latLngToLayerPoint(group.center);
+  }
+
+  return groups;
 }
 
 export function addHikingFacilityMarkers({
   facilities,
   markerLayerGroup,
+  map,
   focusedFacilityId
 }: {
   facilities: TrailFacility[];
   markerLayerGroup: L.LayerGroup;
+  map: L.Map;
   focusedFacilityId?: string;
 }) {
   const markers: L.Layer[] = [];
-  const facilityGroups = new Map<string, TrailFacility[]>();
 
-  for (const facility of facilities) {
-    if (!facility.coordinates) continue;
-    const key = facilityCoordinateKey(facility);
-    const group = facilityGroups.get(key) ?? [];
-    group.push(facility);
-    facilityGroups.set(key, group);
-  }
-
-  for (const group of facilityGroups.values()) {
-    if (group.length === 1) {
+  for (const group of createFacilityMarkerGroups(facilities, map)) {
+    if (group.facilities.length === 1) {
       const marker = addFacilityMarker({
-        facility: group[0],
+        facility: group.facilities[0],
         markerLayerGroup,
-        shouldOpen: group[0].id === focusedFacilityId
+        shouldOpen: group.facilities[0].id === focusedFacilityId
       });
       if (marker) markers.push(marker);
       continue;
     }
 
-    const marker = addClusteredFacilityMarker({ facilities: group, markerLayerGroup, focusedFacilityId });
+    const marker = addClusteredFacilityMarker({
+      facilities: group.facilities,
+      markerLayerGroup,
+      map,
+      center: group.center,
+      focusedFacilityId
+    });
     if (marker) markers.push(marker);
   }
 

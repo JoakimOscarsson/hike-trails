@@ -70,6 +70,7 @@ export function TrailSystemMap({
     const markerFacilities = visibleHikingMapFacilities(facilities, visibleFacilityTypes);
     const routeLayers = L.layerGroup().addTo(map);
     const markerLayerGroup = L.layerGroup().addTo(map);
+    const poiLayerGroup = L.layerGroup().addTo(map);
 
     const startIcon = L.divIcon({
       className: "route-marker route-marker-start",
@@ -115,20 +116,25 @@ export function TrailSystemMap({
         markerLayerRefs.push(marker);
       }
 
-      markerLayerRefs.push(
-        ...addHikingFacilityMarkers({
-          facilities: markerFacilities,
-          markerLayerGroup,
-          focusedFacilityId: focusTarget?.id
-        })
-      );
-      markerLayerRefs.push(...addHikingCommuteMarkers({ accessPoints, markerLayerGroup, visibleTypes: visibleCommuteTypes }));
-
       fitSelectedLayersOrMarkers({ map, selectedLayers, markerLayers: markerLayerRefs });
+      drawPointsOfInterest();
       if (focusTarget) {
         map.setView(focusTarget.coordinates, Math.max(map.getZoom(), focusTarget.zoom ?? 15), { animate: true });
       }
     }
+
+    function drawPointsOfInterest() {
+      poiLayerGroup.clearLayers();
+      addHikingFacilityMarkers({
+        facilities: markerFacilities,
+        markerLayerGroup: poiLayerGroup,
+        map,
+        focusedFacilityId: focusTarget?.id
+      });
+      addHikingCommuteMarkers({ accessPoints, markerLayerGroup: poiLayerGroup, visibleTypes: visibleCommuteTypes });
+    }
+
+    map.on("zoomend", drawPointsOfInterest);
 
     drawSections().catch(() => {
       if (cancelled) return;
@@ -138,8 +144,10 @@ export function TrailSystemMap({
 
     return () => {
       cancelled = true;
+      map.off("zoomend", drawPointsOfInterest);
       routeLayers.remove();
       markerLayerGroup.remove();
+      poiLayerGroup.remove();
     };
   }, [
     accessPoints,
