@@ -117,10 +117,10 @@ function addClusteredFacilityMarker({
     .bindPopup(clusteredFacilityPopup(facilities))
     .bindTooltip(`${facilities.length} facilities here. Click to expand.`, { direction: "top", offset: [0, -14] })
     .addTo(markerLayerGroup);
-  if (focusedFacilityId && facilities.some((facility) => facility.id === focusedFacilityId)) {
-    marker.openPopup();
-  }
 
+  const shouldExpandFocusedFacility = focusedFacilityId
+    ? facilities.some((facility) => facility.id === focusedFacilityId)
+    : false;
   const expandedMarkers: L.Layer[] = [];
   const toggleExpandedFacilities = () => {
     if (expandedMarkers.length) {
@@ -154,6 +154,7 @@ function addClusteredFacilityMarker({
     marker.openPopup();
   };
   marker.on("click", toggleExpandedFacilities);
+  if (shouldExpandFocusedFacility) toggleExpandedFacilities();
 
   return marker;
 }
