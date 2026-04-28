@@ -49,13 +49,13 @@ Agents do not need to read every raw kayak agent finding before starting. They m
 Current workspace note from a read-only recheck on 2026-04-28:
 
 - Sormlandsleden has grown to about 69,700 lines in the current public all-in-one detail JSON. This makes Phase 1A source/runtime sharding more urgent, but it does not change the recommended architecture.
-- `data/route-contributions/` now contains research-only candidate inputs for Upplandsleden, Vikingaleden, and Stockholm Archipelago Trail. Agents should not auto-import those files into app runtime data. If a future task scopes them for integration, first convert them into the sharded source/runtime contract and run validation.
+- `data/research/candidate-trails/` now contains research-only candidate inputs for Upplandsleden, Vikingaleden, and Stockholm Archipelago Trail. Agents should not auto-import those files into app runtime data. If a future task scopes them for integration, first convert them into the sharded source/runtime contract and run validation.
 - The current workspace still has no `data/source/`, `public/data/overviews/`, or sharded `public/data/trail-systems/<id>/...` runtime files. Do not assume the refactor has already started.
 
 ## Non-Negotiable Constraints
 
 - Do not make the runtime app depend on `research/stockholm-kayak-archipelago-research/...`.
-- Do not make the runtime app depend directly on `data/route-contributions/...`; those are research/candidate inputs until explicitly normalized.
+- Do not make the runtime app depend directly on `data/research/candidate-trails/...`; those are research/candidate inputs until explicitly normalized.
 - Do not import kayak corridors as navigable tracks. They are approximate and `not-for-navigation`.
 - Do not add kayak UI before route caching and Leaflet lifecycle fixes are in place.
 - Do not edit generated public data by hand once generator ownership exists.

@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "lastUpdated": "2026-04-28",
+  "purpose": "Inventory of research-only candidate trail data that must be normalized before app integration.",
+  "statusDefinitions": {
+    "research-only": "Useful research packet, but not app-ready and not consumed by current scripts.",
+    "normalization-ready": "Ready for a scoped importer to convert into normalized source data.",
+    "app-source-ready": "Normalized source data exists under the app source-data contract."
+  },
+  "trails": [
+    {
+      "id": "stockholm-archipelago-trail",
+      "name": "Stockholm Archipelago Trail",
+      "readiness": "research-only",
+      "currentAppInput": false,
+      "path": "data/research/candidate-trails/stockholm-archipelago-trail",
+      "files": {
+        "trailSummary": "trail.research.json",
+        "sectionFiles": 0,
+        "integrationDedupe": null
+      },
+      "notes": [
+        "This is still a whole-trail research file.",
+        "Split and normalize before adding to app source data."
+      ]
+    },
+    {
+      "id": "upplandsleden",
+      "name": "Upplandsleden",
+      "aliases": [
+        "uppsalaleden"
+      ],
+      "readiness": "research-only",
+      "currentAppInput": false,
+      "path": "data/research/candidate-trails/upplandsleden",
+      "files": {
+        "trailSummary": "trail.research.json",
+        "sectionFiles": 44,
+        "integrationDedupe": "integration-dedupe.research.json"
+      },
+      "notes": [
+        "The files use the trail ID upplandsleden.",
+        "Contains numbered etapper and slinga/loop packets.",
+        "Run dedupe and normalization before adding to app source data."
+      ]
+    },
+    {
+      "id": "vikingaleden",
+      "name": "Vikingaleden",
+      "readiness": "research-only",
+      "currentAppInput": false,
+      "path": "data/research/candidate-trails/vikingaleden",
+      "files": {
+        "trailSummary": null,
+        "sectionFiles": 12,
+        "integrationDedupe": null
+      },
+      "notes": [
+        "Contains per-section packets only.",
+        "Several sections overlap or reuse Upplandsleden context; dedupe during import."
+      ]
+    }
+  ]
+}
