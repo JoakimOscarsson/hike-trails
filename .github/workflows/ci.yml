@@ -1,0 +1,89 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Portable checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run portable checks
+        run: npm run ci:check
+
+  browser-check:
+    name: Browser checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Locate Chrome or Chromium
+        shell: bash
+        run: |
+          candidates=()
+          if [ -n "${CHROME_BIN:-}" ]; then
+            candidates+=("$CHROME_BIN")
+          fi
+          if [ -n "${BROWSER_BIN:-}" ]; then
+            candidates+=("$BROWSER_BIN")
+          fi
+          candidates+=( \
+            /usr/bin/google-chrome \
+            /usr/bin/google-chrome-stable \
+            /usr/bin/chromium \
+            /usr/bin/chromium-browser
+          )
+
+          for candidate in "${candidates[@]}"; do
+            if [ -x "$candidate" ]; then
+              echo "CHROME_BIN=$candidate" >> "$GITHUB_ENV"
+              "$candidate" --version
+              exit 0
+            fi
+          done
+
+          echo "::error::Could not find Chrome/Chromium at a known runner path."
+          exit 1
+
+      - name: Run browser-capable checks
+        run: npm run ci:check:browser
+
+      - name: Run UI smoke report
+        run: npm run ui:smoke:artifact
+
+      - name: Upload UI smoke report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-smoke-report
+          path: artifacts/ui-smoke/hike-ui-smoke-report.md
+          if-no-files-found: error

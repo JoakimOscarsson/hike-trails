@@ -24,6 +24,13 @@ a {
   font: inherit;
 }
 
+button:focus-visible,
+a:focus-visible,
+select:focus-visible {
+  outline: 3px solid #3f5b36;
+  outline-offset: 2px;
+}
+
 .app-shell {
   display: grid;
   grid-template-columns: 280px minmax(0, 1fr);
@@ -59,6 +66,45 @@ a {
   margin-top: 2px;
   color: #697064;
   font-size: 0.8rem;
+}
+
+.activity-switcher {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  margin: -8px 0 16px;
+  padding: 3px;
+  border: 1px solid #d7d9d1;
+  border-radius: 8px;
+  background: #f0f0ea;
+}
+
+.activity-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 0;
+  min-height: 32px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: transparent;
+  color: #596355;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 760;
+}
+
+.activity-switch:hover {
+  background: #fbfaf6;
+  color: #243025;
+}
+
+.activity-switch.active {
+  border-color: #c8cdc0;
+  background: #fbfaf6;
+  color: #20321f;
+  box-shadow: 0 2px 8px rgba(32, 35, 31, 0.08);
 }
 
 .filters {
@@ -149,6 +195,11 @@ a {
   background: #f0f0ea;
 }
 
+.hike-item.hovered:not(.active) {
+  border-color: #d6b47b;
+  background: #fff6df;
+}
+
 .hike-item.active {
   border-color: #aeb8a4;
   background: #e8ece2;
@@ -161,20 +212,25 @@ a {
   border: 0;
   background: transparent;
   color: inherit;
+  overflow-wrap: anywhere;
   text-align: left;
   cursor: pointer;
 }
 
 .hike-name {
+  min-width: 0;
   font-weight: 720;
   line-height: 1.25;
   font-size: 0.9rem;
+  overflow-wrap: anywhere;
 }
 
 .hike-meta {
+  min-width: 0;
   color: #687264;
   font-size: 0.78rem;
   line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .star-button,
@@ -230,6 +286,11 @@ a {
 .title-group p,
 .title-group span {
   color: #687264;
+  overflow-wrap: anywhere;
+}
+
+.title-group {
+  min-width: 0;
 }
 
 .title-group p {
@@ -241,17 +302,20 @@ a {
 }
 
 .title-group h1 {
+  min-width: 0;
   margin: 0;
   color: #182017;
   font-size: clamp(1.75rem, 4.4vw, 3.5rem);
   line-height: 1;
   letter-spacing: 0;
+  overflow-wrap: anywhere;
 }
 
 .title-line {
   display: flex;
   gap: 10px;
   align-items: flex-start;
+  min-width: 0;
 }
 
 .hero-star {
@@ -286,6 +350,10 @@ a {
   background: #fbfaf6;
 }
 
+.detail-row > div:not(.detail-icon) {
+  min-width: 0;
+}
+
 .detail-icon {
   display: grid;
   place-items: center;
@@ -310,6 +378,7 @@ dd {
   font-size: 0.88rem;
   font-weight: 680;
   line-height: 1.25;
+  overflow-wrap: anywhere;
 }
 
 .map-panel {
@@ -324,6 +393,90 @@ dd {
   display: block;
   width: 100%;
   height: clamp(320px, 46vh, 520px);
+}
+
+.route-map-deferred {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0) 38%),
+    #dfe4da;
+}
+
+.activity-overview-content {
+  width: min(1180px, 100%);
+}
+
+.activity-overview-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 0.9fr);
+  gap: 20px;
+  align-items: end;
+}
+
+.overview-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.overview-stat {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 9px;
+  align-items: center;
+  min-height: 58px;
+  padding: 9px;
+  border: 1px solid #ddded7;
+  border-radius: 8px;
+  background: #fbfaf6;
+}
+
+.overview-stat-icon {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #e8ece2;
+  color: #3f5b36;
+}
+
+.overview-stat strong,
+.overview-stat small {
+  display: block;
+}
+
+.overview-stat strong {
+  color: #20231f;
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+.overview-stat small {
+  color: #697064;
+  font-size: 0.68rem;
+  font-weight: 740;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.overview-map-panel .route-map {
+  height: clamp(440px, 64vh, 720px);
+}
+
+.overview-route-map .leaflet-interactive {
+  cursor: pointer;
+}
+
+.overview-map-state {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 12px;
+  min-height: clamp(440px, 64vh, 720px);
+  padding: 24px;
+  color: #4f584c;
+  font-weight: 700;
+  text-align: center;
 }
 
 .map-with-controls {
@@ -393,14 +546,62 @@ dd {
 }
 
 .facility-marker {
-  position: relative;
+  position: absolute;
   display: grid;
   place-items: center;
+  box-sizing: border-box;
   border: 2px solid #ffffff;
   border-radius: 999px;
   background: #20321f;
   color: #ffffff;
   box-shadow: 0 7px 16px rgba(32, 35, 31, 0.24);
+}
+
+.facility-cluster-marker {
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  background: #20321f;
+  color: #ffffff;
+  box-shadow: 0 8px 18px rgba(32, 35, 31, 0.26);
+  cursor: pointer;
+}
+
+.facility-cluster-marker span {
+  display: grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #f5c84b;
+  color: #342403;
+  font-size: 0.72rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.facility-spider-marker {
+  box-shadow: 0 9px 20px rgba(32, 35, 31, 0.32);
+}
+
+.facility-cluster-popup {
+  display: grid;
+  gap: 6px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.facility-cluster-popup li {
+  display: grid;
+  gap: 2px;
+}
+
+.facility-cluster-popup span {
+  color: #687264;
+  font-size: 0.72rem;
 }
 
 .facility-marker svg {
@@ -462,9 +663,30 @@ dd {
   background: #a24c2f;
 }
 
+.kayak-facility-marker-kayak-rental,
+.kayak-facility-marker-canoe-rental,
+.kayak-facility-marker-self-service-rental {
+  background: #2f6f8f;
+}
+
+.kayak-facility-marker-launch {
+  background: #46623b;
+}
+
+.kayak-facility-marker-parking,
+.kayak-facility-marker-transport {
+  background: #5c5f8f;
+}
+
+.kayak-facility-marker-campsite,
+.kayak-facility-marker-guest-harbor-natural-harbor {
+  background: #7a5d34;
+}
+
 .commute-marker {
   display: grid;
   place-items: center;
+  box-sizing: border-box;
   border: 2px solid #ffffff;
   border-radius: 999px;
   background: #1f4864;
@@ -515,6 +737,43 @@ dd {
   color: #20321f;
   font-size: 0.78rem;
   font-weight: 700;
+}
+
+.map-warning {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  z-index: 500;
+  max-width: min(420px, calc(100% - 28px));
+  padding: 7px 9px;
+  border: 1px solid #d8a535;
+  border-radius: 8px;
+  background: rgba(255, 249, 230, 0.96);
+  color: #50370a;
+  font-size: 0.78rem;
+  font-weight: 720;
+  line-height: 1.3;
+}
+
+p.inline-warning,
+.inline-warning {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin-top: 10px;
+  padding: 8px 10px;
+  border: 1px solid #d8a535;
+  border-radius: 8px;
+  background: #fff9e6;
+  color: #50370a;
+  font-size: 0.86rem;
+  font-weight: 720;
+  line-height: 1.35;
+}
+
+.inline-warning svg {
+  flex: 0 0 auto;
+  margin-top: 1px;
 }
 
 .map-panel > a {
@@ -598,9 +857,10 @@ dd {
   right: -5px;
   display: grid;
   place-items: center;
-  min-width: 16px;
-  height: 16px;
-  padding: 0 4px;
+  box-sizing: border-box;
+  min-width: 1.7em;
+  height: 1.4em;
+  padding: 0 0.35em;
   border: 1px solid currentColor;
   border-radius: 999px;
   background: inherit;
@@ -608,6 +868,7 @@ dd {
   font-size: 0.6rem;
   font-weight: 820;
   line-height: 1;
+  white-space: nowrap;
 }
 
 .description,
@@ -661,9 +922,13 @@ dd {
 
 .builder-toolbar {
   display: grid;
-  grid-template-columns: minmax(190px, 0.45fr) minmax(0, 1fr);
+  grid-template-columns: auto minmax(190px, 0.45fr) minmax(0, 1fr);
   gap: 12px;
   align-items: end;
+}
+
+.overview-back {
+  width: fit-content;
 }
 
 .compact-title p {
@@ -798,7 +1063,7 @@ dd {
 
 .context-route {
   display: grid;
-  grid-template-columns: 64px minmax(0, 1fr) auto;
+  grid-template-columns: minmax(64px, max-content) minmax(0, 1fr) auto;
   gap: 7px;
   align-items: center;
   min-height: 34px;
@@ -837,7 +1102,6 @@ dd {
 .context-route small {
   color: #687264;
   font-size: 0.68rem;
-  white-space: nowrap;
 }
 
 .builder-workspace .section-controls {
@@ -1039,6 +1303,11 @@ dd {
   gap: 8px;
 }
 
+.transit-panel.collapsed,
+.facility-panel.collapsed {
+  display: none;
+}
+
 .transit-item {
   display: grid;
   gap: 8px;
@@ -1179,6 +1448,8 @@ dd {
 
 .facility-item span {
   display: inline-flex;
+  align-items: center;
+  gap: 5px;
   margin-bottom: 6px;
   color: #697064;
   font-size: 0.68rem;
@@ -1251,6 +1522,12 @@ dd {
   text-decoration: none;
 }
 
+.state-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
 @media (max-width: 900px) {
   .app-shell {
     grid-template-columns: 1fr;
@@ -1281,6 +1558,10 @@ dd {
     grid-template-columns: 1fr;
   }
 
+  .activity-overview-head {
+    grid-template-columns: 1fr;
+  }
+
   .builder-toolbar {
     grid-template-columns: 1fr;
   }
@@ -1291,6 +1572,17 @@ dd {
 
   .facility-list {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1120px) {
+  .builder-toolbar,
+  .builder-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .builder-map-panel .route-map {
+    height: clamp(360px, 52vh, 500px);
   }
 }
 
@@ -1318,6 +1610,8 @@ dd {
   }
 
   .facts,
+  .compact-facts,
+  .overview-stats,
   .info-grid,
   .builder-workspace,
   .section-controls,
@@ -1330,8 +1624,13 @@ dd {
   }
 
   .selected-route-bar,
-  .facility-item {
+  .facility-item,
+  .context-route {
     display: grid;
+  }
+
+  .context-route {
+    grid-template-columns: 1fr;
   }
 
   .selected-route-bar div {
@@ -1358,5 +1657,122 @@ dd {
 
   .map-filter-panel {
     overflow-x: auto;
+  }
+}
+
+@media (pointer: coarse), (max-width: 620px) {
+  .activity-switch,
+  .search-field,
+  .select-field select,
+  .primary-action,
+  .secondary-action,
+  .facility-group-toggle,
+  .context-route,
+  .section-row {
+    min-height: 44px;
+  }
+
+  .star-button,
+  .hero-star,
+  .map-filter-chip {
+    width: 44px;
+    height: 44px;
+  }
+
+  .leaflet-control-zoom a {
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+
+@media print {
+  @page {
+    margin: 16mm;
+  }
+
+  :root,
+  body {
+    background: #ffffff;
+    color: #20231f;
+  }
+
+  body {
+    min-width: 0;
+  }
+
+  .app-shell,
+  .content,
+  .overview,
+  .activity-overview-head,
+  .builder-workspace,
+  .info-grid {
+    display: block;
+  }
+
+  .app-shell {
+    min-height: auto;
+  }
+
+  .sidebar,
+  .map-with-controls,
+  .map-panel,
+  .overview-back,
+  .primary-action,
+  .map-filter-panel {
+    display: none !important;
+  }
+
+  .content,
+  .trail-builder-content {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .description,
+  .info-block,
+  .trail-builder {
+    break-inside: avoid;
+    padding-top: 12px;
+  }
+
+  .facts,
+  .compact-facts,
+  .overview-stats,
+  .transit-list,
+  .facility-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .builder-toolbar,
+  .section-controls {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .section-list,
+  .builder-workspace .section-list {
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+
+  .transit-panel.collapsed,
+  .facility-panel.collapsed {
+    display: block;
+  }
+
+  .section-row,
+  .context-route,
+  .facility-item,
+  .transit-item,
+  .detail-row {
+    break-inside: avoid;
+  }
+
+  .source-block a::after,
+  .map-panel > a::after,
+  .facility-item a::after {
+    content: " (" attr(href) ")";
+    font-weight: 400;
   }
 }

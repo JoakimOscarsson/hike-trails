@@ -1,22 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { renderToStaticMarkup } from "react-dom/server";
 import {
   ArrowLeft,
   AlertTriangle,
-  BusFront,
   CalendarDays,
   Check,
   ChevronDown,
-  CircleParking,
   Droplets,
   ExternalLink,
   Filter,
-  Flame,
-  House,
   Info,
   Layers,
-  Landmark,
   MapPin,
   Mountain,
   Search,
@@ -24,211 +18,150 @@ import {
   Tent,
   Toilet,
   Train,
-  Utensils,
   Waves
 } from "lucide-react";
-import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import type {
+  ActivityKind,
   Hike,
+  KayakExposureLevel,
+  KayakFacility,
+  KayakFacilityType,
+  KayakRouteConfidence,
+  KayakTrip,
+  KayakWaterZone,
   LibraryDetail,
   LibraryIndexItem,
+  LibraryOverviewFeatureCollection,
   RecommendedTime,
-  TrailAccessPoint,
   TrailCommuteStop,
   TrailFacility,
-  TrailSection,
-  TrailSystem
+  TrailSystem,
+  TripDuration
 } from "./types";
+import { ActivitySwitcher } from "./components/ActivitySwitcher";
+import { ActivityOverview } from "./components/ActivityOverview";
+import { loadKayakFacilities, loadLibraryDetail, loadLibraryIndex } from "./data/library";
+import {
+  hasTrailSystemRouteInRange,
+  hasTrailSystemRouteOver,
+  matchingRouteGroupRange,
+  primaryRouteGroups,
+  routeGroupsForTrailSystem,
+  sectionLookupForTrailSystem,
+  sectionsForIds,
+  trailDistanceFilterRanges,
+  type TrailDistanceFilter as DistanceFilter
+} from "./data/trailRouteSelection";
+import { useTrailSectionDetails } from "./data/useTrailSectionDetails";
+import { DeferredMapMount } from "./map/DeferredMapMount";
+import {
+  commuteStopLabel,
+  defaultFacilityTypes,
+  escapeHtml,
+  facilityCategoryGroups,
+  facilityProximityText,
+  facilityTypeIcon,
+  facilityTypeLabels,
+  isCloseTrailFacility,
+  isOffRouteFacility,
+  selectedAccessPoints,
+  type FacilityType,
+  type SelectedTrailAccessPoint
+} from "./map/hikingFacilities";
+import {
+  hasKayakFacilityCoordinates,
+  kayakFacilityTypeIcon,
+  kayakFacilityTypeLabels,
+  kayakFacilityTypeOrder
+} from "./map/kayakFacilities";
+import { KayakTripMap } from "./map/KayakTripMap";
+import { RouteMap } from "./map/RouteMap";
+import type { HikeMapStatus } from "./map/types";
+import { TrailSystemMap } from "./map/TrailSystemMap";
+import {
+  durationLabel,
+  isHikingLibraryIndexItem,
+  isKayakTripIndexItem,
+  isKayakTrip,
+  itemDistanceLabel,
+  itemDurationLabel,
+  itemLocationLabel,
+  itemSearchText
+} from "./utils/libraryItem";
+import { normalizeSearchText } from "./utils/search";
 import "./styles.css";
 
 const starredStorageKey = "hike-library-starred";
 
-type DistanceFilter = "all" | "short" | "half-day" | "full-day" | "long";
 type RecommendedTimeFilter = "all" | RecommendedTime;
-type FacilityType = TrailFacility["type"];
-type DistanceRange = { minKm: number; maxKm: number };
+type KayakDurationFilter = "all" | "half-day" | "dayhike" | "weekend" | "multi-day";
+type KayakServiceFilter = "all" | "rental" | "launch" | "parking" | "overnight";
+type KayakWaterZoneFilter = "all" | KayakWaterZone;
+type KayakExposureFilter = "all" | KayakExposureLevel;
+type KayakConfidenceFilter = "all" | KayakRouteConfidence;
+type LoadState = { status: "idle" | "loading" | "ready" | "error"; message?: string };
 
-function escapeHtml(value: string) {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
-
-function isOffRouteFacility(facility: TrailFacility) {
-  return facility.routeProximity?.status === "off-route";
-}
-
-function facilityProximityText(facility: TrailFacility) {
-  if (!isOffRouteFacility(facility)) return "";
-  const distance = facility.routeProximity?.distanceKm;
-  return distance ? `About ${distance} km from this section's mapped trail line.` : "More than 2 km from this section's mapped trail line.";
-}
-
-function selectedAccessPoints(sections: TrailSection[]) {
-  return sections.flatMap((section) =>
-    (section.accessPoints ?? []).map((accessPoint) => ({
-      ...accessPoint,
-      sectionId: section.id,
-      sectionName: section.name,
-      stageNumber: section.stageNumber
-    }))
-  );
-}
-
-function commuteStopLabel(stop: TrailCommuteStop) {
-  const type = stop.type === "bus" ? "Bus" : "Train";
-  const network = stop.network ? ` · ${stop.network}` : "";
-  return `${type}: ${stop.name}${network}`;
-}
-
-function hasTrailSystemRouteInRange(item: LibraryIndexItem, minKm: number, maxKm: number) {
-  if (item.itemType !== "trail-system") return false;
-  const routeDistanceGroups = item.routeGroupDistances?.length ? item.routeGroupDistances : [item.sectionDistances ?? []];
-  for (const sectionDistances of routeDistanceGroups) {
-    for (let start = 0; start < sectionDistances.length; start += 1) {
-      let total = 0;
-      for (let end = start; end < sectionDistances.length; end += 1) {
-        total += sectionDistances[end];
-        if (total > minKm && total <= maxKm) return true;
-        if (total > maxKm) break;
-      }
-    }
-  }
-  return false;
-}
-
-function hasTrailSystemRouteOver(item: LibraryIndexItem, minKm: number) {
-  if (item.itemType !== "trail-system") return false;
-  const routeDistanceGroups = item.routeGroupDistances?.length ? item.routeGroupDistances : [item.sectionDistances ?? []];
-  for (const sectionDistances of routeDistanceGroups) {
-    for (let start = 0; start < sectionDistances.length; start += 1) {
-      let total = 0;
-      for (let end = start; end < sectionDistances.length; end += 1) {
-        total += sectionDistances[end];
-        if (total > minKm) return true;
-      }
-    }
-  }
-  return false;
-}
-
-const distanceFilterRanges: Partial<Record<DistanceFilter, DistanceRange>> = {
-  short: { minKm: 0, maxKm: 5 },
-  "half-day": { minKm: 5, maxKm: 10 },
-  "full-day": { minKm: 10, maxKm: 20 }
+const overviewPaths: Record<ActivityKind, string> = {
+  hiking: "/data/overviews/hiking.geojson",
+  kayaking: "/data/overviews/kayaking.geojson"
 };
+
+const distanceFilterRanges = trailDistanceFilterRanges;
 
 const distanceFilters: Array<{ id: DistanceFilter; label: string; matches: (item: LibraryIndexItem) => boolean }> = [
   { id: "all", label: "Any", matches: () => true },
   {
     id: "short",
     label: "0-5 km",
-    matches: (item) =>
-      (item.distanceKm > distanceFilterRanges.short!.minKm && item.distanceKm <= distanceFilterRanges.short!.maxKm) ||
-      hasTrailSystemRouteInRange(item, distanceFilterRanges.short!.minKm, distanceFilterRanges.short!.maxKm)
+    matches: (item) => {
+      const distanceKm = typeof item.distanceKm === "number" && Number.isFinite(item.distanceKm) ? item.distanceKm : 0;
+      return (
+        (distanceKm > distanceFilterRanges.short!.minKm && distanceKm <= distanceFilterRanges.short!.maxKm) ||
+        hasTrailSystemRouteInRange(item, distanceFilterRanges.short!.minKm, distanceFilterRanges.short!.maxKm)
+      );
+    }
   },
   {
     id: "half-day",
     label: "5-10 km",
-    matches: (item) =>
-      (item.distanceKm > distanceFilterRanges["half-day"]!.minKm &&
-        item.distanceKm <= distanceFilterRanges["half-day"]!.maxKm) ||
-      hasTrailSystemRouteInRange(
-        item,
-        distanceFilterRanges["half-day"]!.minKm,
-        distanceFilterRanges["half-day"]!.maxKm
-      )
+    matches: (item) => {
+      const distanceKm = typeof item.distanceKm === "number" && Number.isFinite(item.distanceKm) ? item.distanceKm : 0;
+      return (
+        (distanceKm > distanceFilterRanges["half-day"]!.minKm &&
+          distanceKm <= distanceFilterRanges["half-day"]!.maxKm) ||
+        hasTrailSystemRouteInRange(
+          item,
+          distanceFilterRanges["half-day"]!.minKm,
+          distanceFilterRanges["half-day"]!.maxKm
+        )
+      );
+    }
   },
   {
     id: "full-day",
     label: "10-20 km",
-    matches: (item) =>
-      (item.distanceKm > distanceFilterRanges["full-day"]!.minKm &&
-        item.distanceKm <= distanceFilterRanges["full-day"]!.maxKm) ||
-      hasTrailSystemRouteInRange(
-        item,
-        distanceFilterRanges["full-day"]!.minKm,
-        distanceFilterRanges["full-day"]!.maxKm
-      )
+    matches: (item) => {
+      const distanceKm = typeof item.distanceKm === "number" && Number.isFinite(item.distanceKm) ? item.distanceKm : 0;
+      return (
+        (distanceKm > distanceFilterRanges["full-day"]!.minKm &&
+          distanceKm <= distanceFilterRanges["full-day"]!.maxKm) ||
+        hasTrailSystemRouteInRange(
+          item,
+          distanceFilterRanges["full-day"]!.minKm,
+          distanceFilterRanges["full-day"]!.maxKm
+        )
+      );
+    }
   },
   {
     id: "long",
     label: "20+ km",
-    matches: (item) => item.distanceKm > 20 || hasTrailSystemRouteOver(item, 20)
+    matches: (item) =>
+      (typeof item.distanceKm === "number" && Number.isFinite(item.distanceKm) ? item.distanceKm > 20 : false) ||
+      hasTrailSystemRouteOver(item, 20)
   }
 ];
-
-function matchingSectionRange(sections: TrailSection[], distanceFilter: DistanceFilter) {
-  const range = distanceFilterRanges[distanceFilter];
-  if (!range) return null;
-
-  let best: { startSectionId: string; endSectionId: string; distanceKm: number } | null = null;
-
-  for (let start = 0; start < sections.length; start += 1) {
-    let total = 0;
-    for (let end = start; end < sections.length; end += 1) {
-      total += sections[end].distanceKm;
-      if (total > range.minKm && total <= range.maxKm && (!best || total < best.distanceKm)) {
-        best = {
-          startSectionId: sections[start].id,
-          endSectionId: sections[end].id,
-          distanceKm: total
-        };
-      }
-      if (total > range.maxKm) break;
-    }
-  }
-
-  return best;
-}
-
-function fallbackRouteGroups(trailSystem: TrailSystem) {
-  return [
-    {
-      id: "catalog-order",
-      name: "Catalog order",
-      kind: "mainline" as const,
-      sectionIds: trailSystem.sections.map((section) => section.id),
-      connectsToSectionIds: [],
-      notice: "This trail does not have explicit branch topology yet; sections are shown in catalog order."
-    }
-  ];
-}
-
-function sectionsForRouteGroup(trailSystem: TrailSystem, routeGroupId: string) {
-  const sectionLookup = new Map(trailSystem.sections.map((section) => [section.id, section]));
-  const groups = trailSystem.routeGroups?.length ? trailSystem.routeGroups : fallbackRouteGroups(trailSystem);
-  const group = groups.find((candidate) => candidate.id === routeGroupId) ?? groups[0];
-  return {
-    group,
-    sections: group.sectionIds.map((sectionId) => sectionLookup.get(sectionId)).filter(Boolean) as TrailSection[]
-  };
-}
-
-function primaryRouteGroups(trailSystem: TrailSystem) {
-  const groups = trailSystem.routeGroups?.length ? trailSystem.routeGroups : fallbackRouteGroups(trailSystem);
-  const mainlineGroups = groups.filter((group) => group.kind === "mainline");
-  return mainlineGroups.length ? mainlineGroups : groups;
-}
-
-function matchingRouteGroupRange(trailSystem: TrailSystem, distanceFilter: DistanceFilter) {
-  const groups = primaryRouteGroups(trailSystem);
-  let best: { routeGroupId: string; startSectionId: string; endSectionId: string; distanceKm: number } | null = null;
-
-  for (const group of groups) {
-    const { sections } = sectionsForRouteGroup(trailSystem, group.id);
-    const range = matchingSectionRange(sections, distanceFilter);
-    if (range && (!best || range.distanceKm < best.distanceKm)) {
-      best = { routeGroupId: group.id, ...range };
-    }
-  }
-
-  return best;
-}
 
 const routeGroupKindLabels = {
   mainline: "Main route",
@@ -257,6 +190,45 @@ const recommendedTimeFilters: Array<{
   }))
 ];
 
+const kayakDurationFilters: Array<{ id: KayakDurationFilter; label: string }> = [
+  { id: "all", label: "Any" },
+  { id: "half-day", label: "Half day" },
+  { id: "dayhike", label: "Day hike" },
+  { id: "weekend", label: "Weekend" },
+  { id: "multi-day", label: "Multi-day" }
+];
+
+const kayakServiceFilters: Array<{ id: KayakServiceFilter; label: string }> = [
+  { id: "all", label: "Any" },
+  { id: "rental", label: "Rental" },
+  { id: "launch", label: "Launch" },
+  { id: "parking", label: "Parking" },
+  { id: "overnight", label: "Overnight" }
+];
+
+const kayakWaterZoneFilters: Array<{ id: KayakWaterZoneFilter; label: string }> = [
+  { id: "all", label: "Any" },
+  { id: "inner", label: "Inner" },
+  { id: "middle", label: "Middle" },
+  { id: "outer", label: "Outer" },
+  { id: "unknown", label: "Unknown" }
+];
+
+const kayakExposureFilters: Array<{ id: KayakExposureFilter; label: string }> = [
+  { id: "all", label: "Any" },
+  { id: "sheltered", label: "Sheltered" },
+  { id: "mixed", label: "Mixed" },
+  { id: "exposed", label: "Exposed" }
+];
+
+const kayakConfidenceFilters: Array<{ id: KayakConfidenceFilter; label: string }> = [
+  { id: "all", label: "Any" },
+  { id: "high", label: "High" },
+  { id: "medium-high", label: "Medium-high" },
+  { id: "medium", label: "Medium" },
+  { id: "low", label: "Low" }
+];
+
 function isTrailSystem(detail: LibraryDetail): detail is TrailSystem {
   return "itemType" in detail && detail.itemType === "trail-system";
 }
@@ -274,7 +246,9 @@ function formatDistance(distanceKm: number) {
 
 function loadStarredHikes() {
   try {
-    return new Set(JSON.parse(window.localStorage.getItem(starredStorageKey) ?? "[]") as string[]);
+    const stored = JSON.parse(window.localStorage.getItem(starredStorageKey) ?? "[]");
+    if (!Array.isArray(stored)) return new Set<string>();
+    return new Set(stored.filter((id): id is string => typeof id === "string"));
   } catch {
     return new Set<string>();
   }
@@ -327,10 +301,13 @@ function InfoList({
 }
 
 function Sidebar({
+  activeActivity,
+  onActivityChange,
   selectedItem,
   onSelect,
   visibleItems,
   totalItems,
+  indexState,
   locationOptions,
   searchQuery,
   onSearchQueryChange,
@@ -340,13 +317,29 @@ function Sidebar({
   onDistanceFilterChange,
   recommendedTimeFilter,
   onRecommendedTimeFilterChange,
+  kayakDurationFilter,
+  onKayakDurationFilterChange,
+  kayakServiceFilter,
+  onKayakServiceFilterChange,
+  kayakWaterZoneFilter,
+  onKayakWaterZoneFilterChange,
+  kayakExposureFilter,
+  onKayakExposureFilterChange,
+  kayakConfidenceFilter,
+  onKayakConfidenceFilterChange,
+  kayakFacilityState,
+  hoveredItemId,
+  onHoverItemId,
   starredHikeIds,
   onToggleStar
 }: {
+  activeActivity: ActivityKind;
+  onActivityChange: (activity: ActivityKind) => void;
   selectedItem: LibraryIndexItem | null;
   onSelect: (item: LibraryIndexItem) => void;
   visibleItems: LibraryIndexItem[];
   totalItems: number;
+  indexState: LoadState;
   locationOptions: string[];
   searchQuery: string;
   onSearchQueryChange: (value: string) => void;
@@ -356,94 +349,243 @@ function Sidebar({
   onDistanceFilterChange: (value: DistanceFilter) => void;
   recommendedTimeFilter: RecommendedTimeFilter;
   onRecommendedTimeFilterChange: (value: RecommendedTimeFilter) => void;
+  kayakDurationFilter: KayakDurationFilter;
+  onKayakDurationFilterChange: (value: KayakDurationFilter) => void;
+  kayakServiceFilter: KayakServiceFilter;
+  onKayakServiceFilterChange: (value: KayakServiceFilter) => void;
+  kayakWaterZoneFilter: KayakWaterZoneFilter;
+  onKayakWaterZoneFilterChange: (value: KayakWaterZoneFilter) => void;
+  kayakExposureFilter: KayakExposureFilter;
+  onKayakExposureFilterChange: (value: KayakExposureFilter) => void;
+  kayakConfidenceFilter: KayakConfidenceFilter;
+  onKayakConfidenceFilterChange: (value: KayakConfidenceFilter) => void;
+  kayakFacilityState: LoadState;
+  hoveredItemId: string | null;
+  onHoverItemId: (id: string | null) => void;
   starredHikeIds: Set<string>;
   onToggleStar: (id: string) => void;
 }) {
   return (
-    <aside className="sidebar" aria-label="Hikes">
+    <aside className="sidebar" aria-label="Routes">
       <div className="brand">
         <Mountain size={26} strokeWidth={1.8} aria-hidden="true" />
         <div>
           <p>Hike Library</p>
           <span>
-            {visibleItems.length} of {totalItems} routes
+            {indexState.status === "loading" ? "Loading routes" : `${visibleItems.length} of ${totalItems} routes`}
           </span>
         </div>
       </div>
 
-      <div className="filters" aria-label="Filter hikes">
-        <label className="search-field">
-          <Search size={17} aria-hidden="true" />
-          <input
-            type="search"
-            placeholder="Search hikes"
-            value={searchQuery}
-            onChange={(event) => onSearchQueryChange(event.target.value)}
-          />
-        </label>
+      <ActivitySwitcher activeActivity={activeActivity} onChange={onActivityChange} />
 
-        <label className="select-field">
-          <span>
-            <Filter size={15} aria-hidden="true" />
-            Location
-          </span>
-          <select value={locationFilter} onChange={(event) => onLocationFilterChange(event.target.value)}>
-            <option value="all">All locations</option>
-            {locationOptions.map((location) => (
-              <option key={location} value={location}>
-                {location}
-              </option>
-            ))}
-          </select>
-        </label>
+      {activeActivity === "hiking" ? (
+        <div className="filters" aria-label="Filter routes">
+          <label className="search-field">
+            <Search size={17} aria-hidden="true" />
+            <input
+              type="search"
+              aria-label="Search routes"
+              placeholder="Search routes"
+              value={searchQuery}
+              onChange={(event) => onSearchQueryChange(event.target.value)}
+            />
+          </label>
 
-        <label className="select-field">
-          <span>
-            <Filter size={15} aria-hidden="true" />
-            Distance
-          </span>
-          <select
-            value={distanceFilter}
-            onChange={(event) => onDistanceFilterChange(event.target.value as DistanceFilter)}
-          >
-            {distanceFilters.map((filter) => (
-              <option key={filter.id} value={filter.id}>
-                {filter.label}
-              </option>
-            ))}
-          </select>
-        </label>
+          <label className="select-field">
+            <span>
+              <Filter size={15} aria-hidden="true" />
+              Location
+            </span>
+            <select value={locationFilter} onChange={(event) => onLocationFilterChange(event.target.value)}>
+              <option value="all">All locations</option>
+              {locationOptions.map((location) => (
+                <option key={location} value={location}>
+                  {location}
+                </option>
+              ))}
+            </select>
+          </label>
 
-        <label className="select-field">
-          <span>
-            <CalendarDays size={15} aria-hidden="true" />
-            Time
-          </span>
-          <select
-            value={recommendedTimeFilter}
-            onChange={(event) => onRecommendedTimeFilterChange(event.target.value as RecommendedTimeFilter)}
-          >
-            {recommendedTimeFilters.map((filter) => (
-              <option key={filter.id} value={filter.id}>
-                {filter.label}
-              </option>
-            ))}
-          </select>
-        </label>
-      </div>
+          <label className="select-field">
+            <span>
+              <Filter size={15} aria-hidden="true" />
+              Distance
+            </span>
+            <select
+              value={distanceFilter}
+              onChange={(event) => onDistanceFilterChange(event.target.value as DistanceFilter)}
+            >
+              {distanceFilters.map((filter) => (
+                <option key={filter.id} value={filter.id}>
+                  {filter.label}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label className="select-field">
+            <span>
+              <CalendarDays size={15} aria-hidden="true" />
+              Time
+            </span>
+            <select
+              value={recommendedTimeFilter}
+              onChange={(event) => onRecommendedTimeFilterChange(event.target.value as RecommendedTimeFilter)}
+            >
+              {recommendedTimeFilters.map((filter) => (
+                <option key={filter.id} value={filter.id}>
+                  {filter.label}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+      ) : (
+        <div className="filters kayak-sidebar-filters" aria-label="Filter kayak routes">
+          <label className="search-field">
+            <Search size={17} aria-hidden="true" />
+            <input
+              type="search"
+              aria-label="Search kayak routes"
+              placeholder="Search routes"
+              value={searchQuery}
+              onChange={(event) => onSearchQueryChange(event.target.value)}
+            />
+          </label>
+
+          <label className="select-field">
+            <span>
+              <Filter size={15} aria-hidden="true" />
+              Area
+            </span>
+            <select value={locationFilter} onChange={(event) => onLocationFilterChange(event.target.value)}>
+              <option value="all">All areas</option>
+              {locationOptions.map((location) => (
+                <option key={location} value={location}>
+                  {location}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label className="select-field">
+            <span>
+              <CalendarDays size={15} aria-hidden="true" />
+              Duration
+            </span>
+            <select
+              value={kayakDurationFilter}
+              onChange={(event) => onKayakDurationFilterChange(event.target.value as KayakDurationFilter)}
+            >
+              {kayakDurationFilters.map((filter) => (
+                <option key={filter.id} value={filter.id}>
+                  {filter.label}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label className="select-field">
+            <span>
+              <Layers size={15} aria-hidden="true" />
+              Services
+            </span>
+            <select
+              value={kayakServiceFilter}
+              onChange={(event) => onKayakServiceFilterChange(event.target.value as KayakServiceFilter)}
+              disabled={kayakFacilityState.status !== "ready"}
+            >
+              {kayakServiceFilters.map((filter) => (
+                <option key={filter.id} value={filter.id}>
+                  {filter.label}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label className="select-field">
+            <span>
+              <Waves size={15} aria-hidden="true" />
+              Water
+            </span>
+            <select
+              value={kayakWaterZoneFilter}
+              onChange={(event) => onKayakWaterZoneFilterChange(event.target.value as KayakWaterZoneFilter)}
+            >
+              {kayakWaterZoneFilters.map((filter) => (
+                <option key={filter.id} value={filter.id}>
+                  {filter.label}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label className="select-field">
+            <span>
+              <AlertTriangle size={15} aria-hidden="true" />
+              Exposure
+            </span>
+            <select
+              value={kayakExposureFilter}
+              onChange={(event) => onKayakExposureFilterChange(event.target.value as KayakExposureFilter)}
+            >
+              {kayakExposureFilters.map((filter) => (
+                <option key={filter.id} value={filter.id}>
+                  {filter.label}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label className="select-field">
+            <span>
+              <Info size={15} aria-hidden="true" />
+              Confidence
+            </span>
+            <select
+              value={kayakConfidenceFilter}
+              onChange={(event) => onKayakConfidenceFilterChange(event.target.value as KayakConfidenceFilter)}
+            >
+              {kayakConfidenceFilters.map((filter) => (
+                <option key={filter.id} value={filter.id}>
+                  {filter.label}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+      )}
 
       <nav className="hike-list">
-        {visibleItems.length ? (
+        {indexState.status === "loading" ? (
+          <p className="empty-list">Loading route index...</p>
+        ) : indexState.status === "error" ? (
+          <p className="empty-list">Route index could not be loaded.</p>
+        ) : visibleItems.length ? (
           visibleItems.map((item) => {
             const isStarred = starredHikeIds.has(item.id);
-            const typeLabel = item.itemType === "trail-system" ? "Trail system" : recommendedTimeLabels[item.recommendedTime];
+            const typeLabel = itemDurationLabel(item);
 
             return (
-              <div className={item.id === selectedItem?.id ? "hike-item active" : "hike-item"} key={item.id}>
+              <div
+                className={[
+                  "hike-item",
+                  item.id === selectedItem?.id ? "active" : "",
+                  item.id === hoveredItemId ? "hovered" : ""
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
+                key={item.id}
+                onBlur={() => onHoverItemId(null)}
+                onFocus={() => onHoverItemId(item.id)}
+                onMouseEnter={() => onHoverItemId(item.id)}
+                onMouseLeave={() => onHoverItemId(null)}
+              >
                 <button className="hike-select" onClick={() => onSelect(item)} type="button">
                   <span className="hike-name">{item.name}</span>
                   <span className="hike-meta">
-                    {item.location.label} · {typeLabel} · {item.distanceKm || "?"} km
+                    {itemLocationLabel(item)} · {typeLabel} · {itemDistanceLabel(item)}
                   </span>
                 </button>
                 <button
@@ -451,7 +593,7 @@ function Sidebar({
                   onClick={() => onToggleStar(item.id)}
                   type="button"
                   aria-label={isStarred ? `Unstar ${item.name}` : `Star ${item.name}`}
-                  title={isStarred ? "Unstar hike" : "Star hike"}
+                  title={isStarred ? "Unstar route" : "Star route"}
                 >
                   <Star size={18} fill={isStarred ? "currentColor" : "none"} aria-hidden="true" />
                 </button>
@@ -459,377 +601,134 @@ function Sidebar({
             );
           })
         ) : (
-          <p className="empty-list">No hikes match these filters.</p>
+          <p className="empty-list">No routes match these filters.</p>
         )}
       </nav>
     </aside>
   );
 }
 
-function LoadingDetails() {
+function StatePanel({
+  title,
+  message,
+  actionLabel,
+  onAction,
+  secondaryActionLabel,
+  onSecondaryAction
+}: {
+  title: string;
+  message: string;
+  actionLabel?: string;
+  onAction?: () => void;
+  secondaryActionLabel?: string;
+  onSecondaryAction?: () => void;
+}) {
   return (
     <main className="content">
-      <section className="description">
-        <h2>Loading</h2>
-        <p>Fetching hike details...</p>
+      <section className="description state-panel">
+        <h2>{title}</h2>
+        <p>{message}</p>
+        {actionLabel && onAction ? (
+          <div className="state-actions">
+            <button className="secondary-action" type="button" onClick={onAction}>
+              {actionLabel}
+            </button>
+            {secondaryActionLabel && onSecondaryAction ? (
+              <button className="secondary-action" type="button" onClick={onSecondaryAction}>
+                {secondaryActionLabel}
+              </button>
+            ) : null}
+          </div>
+        ) : null}
       </section>
     </main>
   );
 }
 
-function RouteMap({ hike }: { hike: Hike }) {
-  const mapRef = React.useRef<HTMLDivElement | null>(null);
-
-  React.useEffect(() => {
-    if (!mapRef.current) return;
-
-    const map = L.map(mapRef.current, {
-      zoomControl: false,
-      scrollWheelZoom: false
-    }).setView(hike.map.center, hike.map.zoom);
-    L.control.zoom({ position: "topright" }).addTo(map);
-
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-    const invalidateTimer = window.setTimeout(() => map.invalidateSize(), 0);
-
-    const startIcon = L.divIcon({
-      className: "route-marker route-marker-start",
-      html: "Start",
-      iconSize: [52, 26],
-      iconAnchor: [26, 13]
-    });
-
-    const finishIcon = L.divIcon({
-      className: "route-marker route-marker-finish",
-      html: "End",
-      iconSize: [44, 26],
-      iconAnchor: [22, 13]
-    });
-
-    let cancelled = false;
-
-    async function drawRoute() {
-      if (!hike.route.geojsonPath) {
-        L.marker(hike.map.center).addTo(map);
-        return;
-      }
-
-      const response = await fetch(hike.route.geojsonPath);
-      if (!response.ok) throw new Error(`Could not load ${hike.route.geojsonPath}`);
-      const geojson = await response.json();
-      if (cancelled) return;
-
-      const layer = L.geoJSON(geojson, {
-        style: {
-          color: "#d85b36",
-          weight: 5,
-          opacity: 0.92
-        }
-      }).addTo(map);
-
-      const firstLine = geojson.features?.find(
-        (feature: GeoJSON.Feature) => feature.geometry?.type === "LineString"
-      ) as GeoJSON.Feature<GeoJSON.LineString> | undefined;
-
-      const coordinates = firstLine?.geometry.coordinates ?? [];
-      const first = coordinates[0];
-      const last = coordinates[coordinates.length - 1];
-
-      if (first) L.marker([first[1], first[0]], { icon: startIcon }).addTo(map);
-      if (last) L.marker([last[1], last[0]], { icon: finishIcon }).addTo(map);
-
-      const bounds = layer.getBounds();
-      if (bounds.isValid()) {
-        map.fitBounds(bounds, { padding: [28, 28] });
-      }
-    }
-
-    drawRoute().catch(() => {
-      L.marker(hike.map.center).addTo(map);
-    });
-
-    return () => {
-      cancelled = true;
-      window.clearTimeout(invalidateTimer);
-      map.remove();
-    };
-  }, [hike]);
-
-  return <div ref={mapRef} className="route-map" />;
+function LoadingDetails() {
+  return <StatePanel title="Loading" message="Fetching route details..." />;
 }
 
-function TrailSystemMap({
-  trailSystem,
-  selectedSections,
-  facilities,
-  visibleFacilityTypes
-}: {
-  trailSystem: TrailSystem;
-  selectedSections: TrailSection[];
-  facilities?: TrailFacility[];
-  visibleFacilityTypes?: Set<FacilityType>;
-}) {
-  const mapRef = React.useRef<HTMLDivElement | null>(null);
-  const selectedKey = selectedSections.map((section) => section.id).join(":");
-  const accessPoints = React.useMemo(() => selectedAccessPoints(selectedSections), [selectedSections]);
-  const commuteKey = accessPoints
-    .flatMap((accessPoint) => [accessPoint.busStop, accessPoint.trainStop])
-    .filter(Boolean)
-    .map((stop) => `${stop?.id}:${stop?.distanceKm}`)
-    .join("|");
-  const facilityKey = (facilities ?? [])
-    .filter((facility) => facility.coordinates && (visibleFacilityTypes?.has(facility.type) ?? true))
-    .map((facility) => `${facility.id}:${facility.type}`)
-    .join("|");
+function BackToOverviewButton({ onClick }: { onClick: () => void }) {
+  return (
+    <button className="secondary-action overview-back" type="button" onClick={onClick}>
+      <ArrowLeft size={17} aria-hidden="true" />
+      Back to overview
+    </button>
+  );
+}
 
-  React.useEffect(() => {
-    if (!mapRef.current) return;
-    const selectedIds = new Set(selectedKey.split(":").filter(Boolean));
-    const markerFacilities = (facilities ?? []).filter(
-      (facility) => facility.coordinates && (visibleFacilityTypes?.has(facility.type) ?? true)
-    );
+function kayakFacilityTypeSortValue(type: KayakFacilityType) {
+  const index = kayakFacilityTypeOrder.indexOf(type);
+  return index === -1 ? kayakFacilityTypeOrder.length : index;
+}
 
-    const map = L.map(mapRef.current, {
-      zoomControl: false,
-      scrollWheelZoom: false
-    }).setView(trailSystem.map.center, trailSystem.map.zoom);
-    L.control.zoom({ position: "topright" }).addTo(map);
+function linkedKayakFacilities(trip: KayakTrip, facilities: KayakFacility[]) {
+  const explicitFacilityIds = new Set([...trip.facilityRefs, ...trip.rentalRefs]);
+  return facilities
+    .filter((facility) => explicitFacilityIds.has(facility.id) || facility.routeIds.includes(trip.id))
+    .sort((a, b) => kayakFacilityTypeSortValue(a.type) - kayakFacilityTypeSortValue(b.type) || a.name.localeCompare(b.name));
+}
 
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
-    const invalidateTimer = window.setTimeout(() => map.invalidateSize(), 0);
-
-    const startIcon = L.divIcon({
-      className: "route-marker route-marker-start",
-      html: "Start",
-      iconSize: [52, 26],
-      iconAnchor: [26, 13]
-    });
-
-    const finishIcon = L.divIcon({
-      className: "route-marker route-marker-finish",
-      html: "End",
-      iconSize: [44, 26],
-      iconAnchor: [22, 13]
-    });
-
-    let cancelled = false;
-
-    async function drawSections() {
-      const routeResults = await Promise.all(
-        trailSystem.sections.map(async (section) => {
-          if (!section.route.geojsonPath) return null;
-          const response = await fetch(section.route.geojsonPath);
-          if (!response.ok) throw new Error(`Could not load ${section.route.geojsonPath}`);
-          return { section, geojson: await response.json() };
-        })
+function kayakFacilityServiceMatches(facility: KayakFacility, filter: KayakServiceFilter) {
+  const signals = new Set([facility.type, facility.primaryCategory, ...facility.categories, ...facility.serviceTags]);
+  switch (filter) {
+    case "all":
+      return true;
+    case "rental":
+      return (
+        signals.has("kayak-rental") ||
+        signals.has("canoe-rental") ||
+        signals.has("self-service-rental") ||
+        signals.has("rental") ||
+        signals.has("staffed-rental")
       );
-      if (cancelled) return;
-
-      const selectedLayers: L.Layer[] = [];
-      const selectedCoordinates: GeoJSON.Position[] = [];
-      const markerLayers: L.Layer[] = [];
-
-      for (const result of routeResults) {
-        if (!result) continue;
-        const isSelected = selectedIds.has(result.section.id);
-        const layer = L.geoJSON(result.geojson, {
-          style: {
-            color: isSelected ? "#d85b36" : "#768172",
-            weight: isSelected ? 6 : 3,
-            opacity: isSelected ? 0.95 : 0.34
-          }
-        }).addTo(map);
-
-        if (isSelected) {
-          selectedLayers.push(layer);
-          for (const feature of result.geojson.features ?? []) {
-            if (feature.geometry?.type === "LineString") {
-              selectedCoordinates.push(...feature.geometry.coordinates);
-            }
-          }
-        }
-      }
-
-      const first = selectedCoordinates[0];
-      const last = selectedCoordinates[selectedCoordinates.length - 1];
-      if (first) L.marker([first[1], first[0]], { icon: startIcon }).addTo(map);
-      if (last) L.marker([last[1], last[0]], { icon: finishIcon }).addTo(map);
-
-      for (const facility of markerFacilities) {
-        if (!facility.coordinates) continue;
-        const offRoute = isOffRouteFacility(facility);
-        const icon = L.divIcon({
-          className: `facility-marker facility-marker-${facility.type}${offRoute ? " facility-marker-off-route" : ""}`,
-          html: renderToStaticMarkup(
-            <>
-              {facilityTypeIcon(facility.type, 14)}
-              {offRoute ? <span className="facility-distance-alert">!</span> : null}
-            </>
-          ),
-          iconSize: [26, 26],
-          iconAnchor: [13, 13]
-        });
-        const proximity = facilityProximityText(facility);
-        const marker = L.marker(facility.coordinates, {
-          icon,
-          title: proximity ? `${facility.name}: ${proximity}` : facility.name
-        })
-          .bindPopup(
-            `<strong>${escapeHtml(facility.name)}</strong><br><span>${facilityTypeLabels[facility.type]}</span>${
-              proximity ? `<br><em>${escapeHtml(proximity)}</em>` : ""
-            }<br>${escapeHtml(facility.description)}`
-          )
-          .addTo(map);
-        if (proximity) marker.bindTooltip(proximity, { direction: "top", offset: [0, -12] });
-        markerLayers.push(marker);
-      }
-
-      const commuteStops = new Map<string, TrailCommuteStop & { accessNames: string[] }>();
-      for (const accessPoint of accessPoints) {
-        for (const stop of [accessPoint.busStop, accessPoint.trainStop]) {
-          if (!stop) continue;
-          const existing = commuteStops.get(stop.id);
-          const accessName = `${accessPoint.placeName} ${accessPoint.endpoint}`;
-          if (existing) {
-            if (!existing.accessNames.includes(accessName)) existing.accessNames.push(accessName);
-          } else {
-            commuteStops.set(stop.id, { ...stop, accessNames: [accessName] });
-          }
-        }
-      }
-
-      for (const stop of commuteStops.values()) {
-        const icon = L.divIcon({
-          className: `commute-marker commute-marker-${stop.type}`,
-          html: renderToStaticMarkup(stop.type === "bus" ? <BusFront size={14} /> : <Train size={14} />),
-          iconSize: [25, 25],
-          iconAnchor: [12, 12]
-        });
-        const marker = L.marker(stop.coordinates, {
-          icon,
-          title: commuteStopLabel(stop)
-        })
-          .bindPopup(
-            `<strong>${escapeHtml(stop.name)}</strong><br><span>${stop.type === "bus" ? "Bus stop" : "Train stop"}</span><br>${escapeHtml(
-              stop.accessNames.join(", ")
-            )}<br>${formatDistance(stop.distanceKm)} from nearest listed route endpoint.`
-          )
-          .addTo(map);
-        markerLayers.push(marker);
-      }
-
-      const bounds = L.featureGroup(selectedLayers).getBounds();
-      if (bounds.isValid()) {
-        map.fitBounds(bounds, { padding: [28, 28] });
-      } else {
-        const markerBounds = L.featureGroup(markerLayers).getBounds();
-        if (markerBounds.isValid()) {
-          map.fitBounds(markerBounds, { padding: [28, 28] });
-        }
-      }
-    }
-
-    drawSections().catch(() => {
-      L.marker(trailSystem.map.center).addTo(map);
-    });
-
-    return () => {
-      cancelled = true;
-      window.clearTimeout(invalidateTimer);
-      map.remove();
-    };
-  }, [accessPoints, commuteKey, facilities, facilityKey, selectedKey, trailSystem, visibleFacilityTypes]);
-
-  return <div ref={mapRef} className="route-map" />;
-}
-
-const facilityTypeLabels: Record<TrailFacility["type"], string> = {
-  campsite: "Camping",
-  shelter: "Shelter",
-  fireplace: "Fireplace",
-  toilet: "Toilet",
-  water: "Water",
-  "natural-water": "Natural water",
-  food: "Food",
-  swimming: "Swimming",
-  parking: "Parking",
-  transit: "Transit",
-  "rest-area": "Rest area",
-  attraction: "Attraction",
-  heritage: "Heritage",
-  "rule-warning": "Rule warning",
-  "unofficial-shelter": "Unofficial shelter"
-};
-
-function facilityTypeIcon(type: FacilityType, size = 15) {
-  switch (type) {
-    case "campsite":
-      return <Tent size={size} aria-hidden="true" />;
-    case "shelter":
-      return <House size={size} aria-hidden="true" />;
-    case "fireplace":
-      return <Flame size={size} aria-hidden="true" />;
-    case "toilet":
-      return <Toilet size={size} aria-hidden="true" />;
-    case "water":
-      return <Droplets size={size} aria-hidden="true" />;
-    case "natural-water":
-      return <Droplets size={size} aria-hidden="true" />;
-    case "food":
-      return <Utensils size={size} aria-hidden="true" />;
-    case "swimming":
-      return <Waves size={size} aria-hidden="true" />;
+    case "launch":
+      return signals.has("launch") || signals.has("launch-access");
     case "parking":
-      return <CircleParking size={size} aria-hidden="true" />;
-    case "transit":
-      return <Train size={size} aria-hidden="true" />;
-    case "rest-area":
-      return <MapPin size={size} aria-hidden="true" />;
-    case "attraction":
-      return <Mountain size={size} aria-hidden="true" />;
-    case "heritage":
-      return <Landmark size={size} aria-hidden="true" />;
-    case "rule-warning":
-      return <AlertTriangle size={size} aria-hidden="true" />;
-    case "unofficial-shelter":
-      return <House size={size} aria-hidden="true" />;
+      return signals.has("parking");
+    case "overnight":
+      return (
+        signals.has("campsite") ||
+        signals.has("camping") ||
+        signals.has("guest-harbor-natural-harbor") ||
+        signals.has("natural-harbor") ||
+        signals.has("harbor")
+      );
   }
 }
 
-const facilityCategoryGroups: Array<{
-  id: string;
-  title: string;
-  icon: React.ReactNode;
-  types: FacilityType[];
-}> = [
-  { id: "overnight", title: "Camping And Shelters", icon: <Tent size={18} />, types: ["campsite", "shelter", "unofficial-shelter"] },
-  { id: "fire-rest", title: "Fireplaces And Rest Areas", icon: <Flame size={18} />, types: ["fireplace", "rest-area"] },
-  { id: "water-toilet", title: "Water And Toilets", icon: <Droplets size={18} />, types: ["water", "natural-water", "toilet"] },
-  { id: "services", title: "Food, Swimming, Parking, Transit", icon: <Utensils size={18} />, types: ["food", "swimming", "parking", "transit"] },
-  { id: "poi-warning", title: "Attractions, Heritage, Warnings", icon: <Landmark size={18} />, types: ["attraction", "heritage", "rule-warning"] }
-];
+function kayakDurationMatches(item: LibraryIndexItem, filter: KayakDurationFilter) {
+  if (filter === "all") return true;
+  if (filter === "multi-day") return item.recommendedTimes.includes("3-5-days") || item.recommendedTimes.includes("6-plus-days");
+  return item.recommendedTimes.some((duration) => duration === filter);
+}
 
-const defaultFacilityTypes: FacilityType[] = [
-  "campsite",
-  "shelter",
-  "unofficial-shelter",
-  "fireplace",
-  "rest-area",
-  "water",
-  "natural-water",
-  "toilet",
-  "food",
-  "swimming",
-  "parking",
-  "transit",
-  "attraction",
-  "heritage",
-  "rule-warning"
-];
+function kayakServiceMatches(item: LibraryIndexItem, facilities: KayakFacility[], filter: KayakServiceFilter) {
+  if (filter === "all") return true;
+  if (!isKayakTripIndexItem(item)) return false;
+  return facilities.some((facility) => facility.routeIds.includes(item.id) && kayakFacilityServiceMatches(facility, filter));
+}
+
+function kayakMetadataMatches(
+  item: LibraryIndexItem,
+  {
+    waterZone,
+    exposure,
+    confidence
+  }: {
+    waterZone: KayakWaterZoneFilter;
+    exposure: KayakExposureFilter;
+    confidence: KayakConfidenceFilter;
+  }
+) {
+  if (!isKayakTripIndexItem(item)) return false;
+  return (
+    (waterZone === "all" || item.waterZone === waterZone) &&
+    (exposure === "all" || item.exposureLevel === exposure) &&
+    (confidence === "all" || item.routeConfidence === confidence)
+  );
+}
 
 function FacilityList({ facilities }: { facilities: TrailFacility[] }) {
   const [openGroups, setOpenGroups] = React.useState<Set<string>>(() => new Set());
@@ -864,7 +763,12 @@ function FacilityList({ facilities }: { facilities: TrailFacility[] }) {
 
             return (
               <div className="facility-group" key={group.id}>
-                <button className="facility-group-toggle" type="button" onClick={() => toggleGroup(group.id)}>
+                <button
+                  aria-expanded={isOpen}
+                  className="facility-group-toggle"
+                  type="button"
+                  onClick={() => toggleGroup(group.id)}
+                >
                   <span>
                     {group.icon}
                     {group.title}
@@ -873,8 +777,8 @@ function FacilityList({ facilities }: { facilities: TrailFacility[] }) {
                   <ChevronDown className={isOpen ? "chevron open" : "chevron"} size={16} aria-hidden="true" />
                 </button>
 
-                {isOpen ? (
-                  group.facilities.length ? (
+                {group.facilities.length ? (
+                  <div className={isOpen ? "facility-panel" : "facility-panel collapsed"}>
                     <div className="facility-list">
                       {group.facilities.map((facility) => (
                         <article className="facility-item" key={facility.id}>
@@ -900,10 +804,12 @@ function FacilityList({ facilities }: { facilities: TrailFacility[] }) {
                         </article>
                       ))}
                     </div>
-                  ) : (
-                    <p className="empty-group">No researched entries in this category for the selected route.</p>
-                  )
-                ) : null}
+                  </div>
+                ) : (
+                  <p className={isOpen ? "empty-group facility-panel" : "empty-group facility-panel collapsed"}>
+                    No researched entries in this category for the selected route.
+                  </p>
+                )}
               </div>
             );
           })}
@@ -934,13 +840,18 @@ function CommuteStopLine({ label, stop }: { label: string; stop?: TrailCommuteSt
 function TransitAccessList({
   accessPoints
 }: {
-  accessPoints: Array<TrailAccessPoint & { sectionId: string; sectionName: string; stageNumber: string | number }>;
+  accessPoints: SelectedTrailAccessPoint[];
 }) {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <section className="info-block transit-block">
-      <button className="facility-group-toggle transit-toggle" type="button" onClick={() => setIsOpen((current) => !current)}>
+      <button
+        aria-expanded={isOpen}
+        className="facility-group-toggle transit-toggle"
+        type="button"
+        onClick={() => setIsOpen((current) => !current)}
+      >
         <span>
           <Train size={18} aria-hidden="true" />
           Transit Access
@@ -949,8 +860,8 @@ function TransitAccessList({
         <ChevronDown className={isOpen ? "chevron open" : "chevron"} size={16} aria-hidden="true" />
       </button>
 
-      {isOpen ? (
-        accessPoints.length ? (
+      <div className={isOpen ? "transit-panel" : "transit-panel collapsed"}>
+        {accessPoints.length ? (
           <div className="transit-list">
             {accessPoints.map((accessPoint) => (
               <article className="transit-item" key={accessPoint.id}>
@@ -970,8 +881,8 @@ function TransitAccessList({
           </div>
         ) : (
           <p>No transit access points are attached to this route yet.</p>
-        )
-      ) : null}
+        )}
+      </div>
     </section>
   );
 }
@@ -1010,14 +921,69 @@ function FacilityMapFilters({
         {counts.map(({ type, count }) => (
           <button
             key={type}
+            aria-pressed={selectedTypes.has(type)}
             className={selectedTypes.has(type) ? "map-filter-chip active" : "map-filter-chip"}
             type="button"
             onClick={() => toggle(type)}
             disabled={!count}
             title={`${selectedTypes.has(type) ? "Hide" : "Show"} ${facilityTypeLabels[type]} (${count})`}
-            aria-label={`${selectedTypes.has(type) ? "Hide" : "Show"} ${facilityTypeLabels[type]} (${count})`}
+            aria-label={`${facilityTypeLabels[type]} (${count})`}
           >
             {facilityTypeIcon(type)}
+            <span>{count}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function KayakFacilityMapFilters({
+  selectedTypes,
+  onChange,
+  facilities
+}: {
+  selectedTypes: Set<KayakFacilityType>;
+  onChange: (types: Set<KayakFacilityType>) => void;
+  facilities: KayakFacility[];
+}) {
+  const counts = React.useMemo(
+    () =>
+      kayakFacilityTypeOrder
+        .map((type) => ({
+          type,
+          count: facilities.filter((facility) => facility.type === type && hasKayakFacilityCoordinates(facility)).length
+        }))
+        .filter(({ count }) => count > 0),
+    [facilities]
+  );
+
+  function toggle(type: KayakFacilityType) {
+    const next = new Set(selectedTypes);
+    if (next.has(type)) next.delete(type);
+    else next.add(type);
+    onChange(next);
+  }
+
+  if (!counts.length) return null;
+
+  return (
+    <div className="map-filter-panel" aria-label="Kayak facility map filters">
+      <div className="map-filter-title" title="Map filters" aria-label="Map filters">
+        <Layers size={14} aria-hidden="true" />
+      </div>
+      <div className="map-filter-options">
+        {counts.map(({ type, count }) => (
+          <button
+            key={type}
+            aria-pressed={selectedTypes.has(type)}
+            className={selectedTypes.has(type) ? "map-filter-chip active" : "map-filter-chip"}
+            type="button"
+            onClick={() => toggle(type)}
+            title={`${selectedTypes.has(type) ? "Hide" : "Show"} ${kayakFacilityTypeLabels[type]} (${count})`}
+            aria-label={`${kayakFacilityTypeLabels[type]} (${count})`}
+          >
+            {kayakFacilityTypeIcon(type)}
             <span>{count}</span>
           </button>
         ))}
@@ -1030,23 +996,23 @@ function TrailSystemDetails({
   trailSystem,
   isStarred,
   onToggleStar,
-  distanceFilter
+  distanceFilter,
+  onBackToOverview
 }: {
   trailSystem: TrailSystem;
   isStarred: boolean;
   onToggleStar: (id: string) => void;
   distanceFilter: DistanceFilter;
+  onBackToOverview: () => void;
 }) {
   const [viewMode, setViewMode] = React.useState<"builder" | "info">("builder");
-  const routeGroups = trailSystem.routeGroups?.length ? trailSystem.routeGroups : fallbackRouteGroups(trailSystem);
+  const routeGroups = routeGroupsForTrailSystem(trailSystem);
   const mainRouteGroups = primaryRouteGroups(trailSystem);
   const contextualRouteGroups = routeGroups.filter((group) => group.kind !== "mainline");
-  const sectionLookup = React.useMemo(() => new Map(trailSystem.sections.map((section) => [section.id, section])), [trailSystem.sections]);
+  const sectionLookup = React.useMemo(() => sectionLookupForTrailSystem(trailSystem), [trailSystem]);
   const initialRouteMatch = matchingRouteGroupRange(trailSystem, distanceFilter);
   const initialRouteGroup = mainRouteGroups.find((group) => group.id === initialRouteMatch?.routeGroupId) ?? mainRouteGroups[0];
-  const initialRouteSections = initialRouteGroup.sectionIds
-    .map((sectionId) => sectionLookup.get(sectionId))
-    .filter(Boolean) as TrailSection[];
+  const initialRouteSections = sectionsForIds(initialRouteGroup.sectionIds, sectionLookup);
   const [routeGroupId, setRouteGroupId] = React.useState(initialRouteGroup.id);
   const [startSectionId, setStartSectionId] = React.useState(
     initialRouteMatch?.startSectionId ?? trailSystem.presets[0]?.startSectionId ?? initialRouteSections[0]?.id ?? trailSystem.sections[0].id
@@ -1063,9 +1029,7 @@ function TrailSystemDetails({
   const [selectedContextGroupIds, setSelectedContextGroupIds] = React.useState<Set<string>>(() => new Set());
 
   const routeGroup = mainRouteGroups.find((group) => group.id === routeGroupId) ?? mainRouteGroups[0];
-  const routeSections = routeGroup.sectionIds
-    .map((sectionId) => sectionLookup.get(sectionId))
-    .filter(Boolean) as TrailSection[];
+  const routeSections = sectionsForIds(routeGroup.sectionIds, sectionLookup);
   const startIndex = Math.max(
     0,
     routeSections.findIndex((section) => section.id === startSectionId)
@@ -1078,24 +1042,26 @@ function TrailSystemDetails({
     group.connectsToSectionIds.some((sectionId) => selectedSectionIds.has(sectionId))
   );
   const selectedContextGroups = availableContextGroups.filter((group) => selectedContextGroupIds.has(group.id));
-  const contextSections = selectedContextGroups.flatMap((group) =>
-    group.sectionIds.map((sectionId) => sectionLookup.get(sectionId)).filter(Boolean) as TrailSection[]
-  );
+  const contextSections = selectedContextGroups.flatMap((group) => sectionsForIds(group.sectionIds, sectionLookup));
   const selectedRouteSections = [...selectedSections, ...contextSections].filter(
     (section, index, sections) => sections.findIndex((candidate) => candidate.id === section.id) === index
   );
+  const sectionDetailsState = useTrailSectionDetails(trailSystem.id, selectedRouteSections);
+  const detailedPrimaryRouteSections = selectedSections.map((section) => sectionDetailsState.details[section.id] ?? section);
+  const detailedSelectedRouteSections = selectedRouteSections.map((section) => sectionDetailsState.details[section.id] ?? section);
   const distanceKm = selectedRouteSections.reduce((total, section) => total + section.distanceKm, 0);
   const recommendation = recommendedTimeForDistance(distanceKm);
   const firstSection = selectedSections[0];
   const lastSection = selectedSections[selectedSections.length - 1];
-  const selectedFacilities = selectedRouteSections.flatMap((section) => section.facilities ?? []);
-  const accessPoints = selectedAccessPoints(selectedRouteSections);
+  const selectedFacilities = detailedSelectedRouteSections
+    .flatMap((section) => section.facilities ?? [])
+    .filter(isCloseTrailFacility)
+    .filter((facility, index, facilities) => facilities.findIndex((candidate) => candidate.id === facility.id) === index);
+  const accessPoints = selectedAccessPoints(detailedSelectedRouteSections);
   const selectedPresetId =
     trailSystem.presets.find((preset) => preset.startSectionId === startSectionId && preset.endSectionId === endSectionId)?.id ??
     "";
-  const connectedSections = routeGroup.connectsToSectionIds
-    .map((sectionId) => sectionLookup.get(sectionId))
-    .filter(Boolean) as TrailSection[];
+  const connectedSections = sectionsForIds(routeGroup.connectsToSectionIds, sectionLookup);
   const groupedSectionIds = new Set(routeGroups.flatMap((group) => group.sectionIds));
   const coveredSections = trailSystem.sections.filter((section) => groupedSectionIds.has(section.id)).length;
   const routeGroupLabel = routeGroupKindLabels[routeGroup.kind];
@@ -1153,9 +1119,7 @@ function TrailSystemDetails({
   function applyRouteGroupId(nextRouteGroupId: string) {
     const nextGroup = mainRouteGroups.find((candidate) => candidate.id === nextRouteGroupId);
     if (!nextGroup) return;
-    const nextSections = nextGroup.sectionIds
-      .map((sectionId) => sectionLookup.get(sectionId))
-      .filter(Boolean) as TrailSection[];
+    const nextSections = sectionsForIds(nextGroup.sectionIds, sectionLookup);
     setRouteGroupId(nextGroup.id);
     setStartSectionId(nextSections[0]?.id ?? trailSystem.sections[0].id);
     setEndSectionId(nextSections[0]?.id ?? trailSystem.sections[0].id);
@@ -1172,6 +1136,14 @@ function TrailSystemDetails({
     });
   }
 
+  const sectionDetailWarning = sectionDetailsState.failedCount ? (
+    <p className="inline-warning" role="status">
+      <AlertTriangle size={15} aria-hidden="true" />
+      {sectionDetailsState.failedCount} selected section detail file
+      {sectionDetailsState.failedCount === 1 ? "" : "s"} could not load; showing available summary data.
+    </p>
+  ) : null;
+
   const overview = (
     <section className="overview">
       <div className="title-group">
@@ -1183,7 +1155,7 @@ function TrailSystemDetails({
             onClick={() => onToggleStar(trailSystem.id)}
             type="button"
             aria-label={isStarred ? `Unstar ${trailSystem.name}` : `Star ${trailSystem.name}`}
-            title={isStarred ? "Unstar hike" : "Star hike"}
+            title={isStarred ? "Unstar route" : "Star route"}
           >
             <Star size={23} fill={isStarred ? "currentColor" : "none"} aria-hidden="true" />
           </button>
@@ -1205,6 +1177,7 @@ function TrailSystemDetails({
   if (viewMode === "info") {
     return (
       <main className="content">
+        <BackToOverviewButton onClick={onBackToOverview} />
         {overview}
 
         <section className="selected-route-bar">
@@ -1223,12 +1196,15 @@ function TrailSystemDetails({
 
         <div className="map-with-controls">
           <section className="map-panel" aria-label={`${trailSystem.name} map`}>
-            <TrailSystemMap
-              trailSystem={trailSystem}
-              selectedSections={selectedRouteSections}
-              facilities={selectedFacilities}
-              visibleFacilityTypes={selectedFacilityTypes}
-            />
+            <DeferredMapMount>
+              <TrailSystemMap
+                trailSystem={trailSystem}
+                selectedSections={detailedSelectedRouteSections}
+                primarySections={detailedPrimaryRouteSections}
+                facilities={selectedFacilities}
+                visibleFacilityTypes={selectedFacilityTypes}
+              />
+            </DeferredMapMount>
             <div className="map-status">Selected sections highlighted</div>
             <a href={trailSystem.map.externalUrl} target="_blank" rel="noreferrer">
               Open source
@@ -1245,6 +1221,7 @@ function TrailSystemDetails({
         <section className="description">
           <h2>Description</h2>
           <p>{trailSystem.description}</p>
+          {sectionDetailWarning}
         </section>
 
         <div className="info-grid">
@@ -1269,7 +1246,7 @@ function TrailSystemDetails({
           <InfoList
             title="Selected Sections"
             icon={<Info size={18} />}
-            items={selectedRouteSections.map((section) => `${section.name}: ${section.description}`)}
+            items={detailedSelectedRouteSections.map((section) => `${section.name}: ${section.description || "Section detail is loading."}`)}
           />
 
           <section className="info-block source-block">
@@ -1294,6 +1271,7 @@ function TrailSystemDetails({
   return (
     <main className="content trail-builder-content">
       <section className="builder-toolbar">
+        <BackToOverviewButton onClick={onBackToOverview} />
         <div className="compact-title">
           <p>{trailSystem.location.label}</p>
           <h1>{trailSystem.name}</h1>
@@ -1311,6 +1289,7 @@ function TrailSystemDetails({
             <div>
               <h2>Build Route</h2>
               <p>Choose a main-route range. Related branches and access routes appear when they connect to it.</p>
+              {sectionDetailWarning}
             </div>
             <div className="selected-summary">
               {selectedSections.length} main
@@ -1323,16 +1302,14 @@ function TrailSystemDetails({
               <span>Main route</span>
               <select value={routeGroupId} onChange={(event) => applyRouteGroupId(event.target.value)}>
                 {mainRouteGroups.map((group) => {
-                const groupSections = group.sectionIds
-                  .map((sectionId) => sectionLookup.get(sectionId))
-                  .filter(Boolean) as TrailSection[];
-                const groupDistance = groupSections.reduce((total, section) => total + section.distanceKm, 0);
-                return (
-                  <option key={group.id} value={group.id}>
-                    {routeGroupKindLabels[group.kind]} - {group.name} ({groupSections.length}, {formatDistance(groupDistance)})
-                  </option>
-                );
-              })}
+                  const groupSections = sectionsForIds(group.sectionIds, sectionLookup);
+                  const groupDistance = groupSections.reduce((total, section) => total + section.distanceKm, 0);
+                  return (
+                    <option key={group.id} value={group.id}>
+                      {routeGroupKindLabels[group.kind]} - {group.name} ({groupSections.length}, {formatDistance(groupDistance)})
+                    </option>
+                  );
+                })}
               </select>
             </label>
           ) : null}
@@ -1345,15 +1322,14 @@ function TrailSystemDetails({
               </div>
               <div className="context-route-list">
                 {availableContextGroups.map((group) => {
-                  const groupSections = group.sectionIds
-                    .map((sectionId) => sectionLookup.get(sectionId))
-                    .filter(Boolean) as TrailSection[];
+                  const groupSections = sectionsForIds(group.sectionIds, sectionLookup);
                   const groupDistance = groupSections.reduce((total, section) => total + section.distanceKm, 0);
                   const isSelected = selectedContextGroupIds.has(group.id);
 
                   return (
                     <button
                       key={group.id}
+                      aria-pressed={isSelected}
                       className={isSelected ? "context-route selected" : "context-route"}
                       type="button"
                       onClick={() => toggleContextGroup(group.id)}
@@ -1411,6 +1387,7 @@ function TrailSystemDetails({
               return (
                 <button
                   key={section.id}
+                  aria-pressed={isSelected}
                   className={isSelected ? "section-row selected" : "section-row"}
                   type="button"
                   onClick={() => {
@@ -1440,12 +1417,15 @@ function TrailSystemDetails({
 
         <div className="map-with-controls">
           <section className="map-panel builder-map-panel" aria-label={`${trailSystem.name} map`}>
-            <TrailSystemMap
-              trailSystem={trailSystem}
-              selectedSections={selectedRouteSections}
-              facilities={selectedFacilities}
-              visibleFacilityTypes={selectedFacilityTypes}
-            />
+            <DeferredMapMount>
+              <TrailSystemMap
+                trailSystem={trailSystem}
+                selectedSections={detailedSelectedRouteSections}
+                primarySections={detailedPrimaryRouteSections}
+                facilities={selectedFacilities}
+                visibleFacilityTypes={selectedFacilityTypes}
+              />
+            </DeferredMapMount>
             <div className="map-status">Route + facilities</div>
           </section>
           <FacilityMapFilters
@@ -1463,14 +1443,35 @@ function TrailSystemDetails({
 function HikeDetails({
   hike,
   isStarred,
-  onToggleStar
+  onToggleStar,
+  onBackToOverview
 }: {
   hike: Hike;
   isStarred: boolean;
   onToggleStar: (id: string) => void;
+  onBackToOverview: () => void;
 }) {
+  const [routeMapStatus, setRouteMapStatus] = React.useState<HikeMapStatus>(
+    hike.route.geojsonPath ? "loading" : "marker-only"
+  );
+  const handleRouteLoadStateChange = React.useCallback((status: HikeMapStatus) => {
+    setRouteMapStatus(status);
+  }, []);
+
+  React.useEffect(() => {
+    setRouteMapStatus(hike.route.geojsonPath ? "loading" : "marker-only");
+  }, [hike.id, hike.route.geojsonPath]);
+
+  const routeMapStatusLabel: Record<HikeMapStatus, string> = {
+    loading: "Loading route",
+    ready: "GPX route drawn",
+    "marker-only": "Marker only",
+    error: "Route unavailable"
+  };
+
   return (
     <main className="content">
+      <BackToOverviewButton onClick={onBackToOverview} />
       <section className="overview">
         <div className="title-group">
           <p>{hike.location.label}</p>
@@ -1481,7 +1482,7 @@ function HikeDetails({
               onClick={() => onToggleStar(hike.id)}
               type="button"
               aria-label={isStarred ? `Unstar ${hike.name}` : `Star ${hike.name}`}
-              title={isStarred ? "Unstar hike" : "Star hike"}
+              title={isStarred ? "Unstar route" : "Star route"}
             >
               <Star size={23} fill={isStarred ? "currentColor" : "none"} aria-hidden="true" />
             </button>
@@ -1500,10 +1501,10 @@ function HikeDetails({
       </section>
 
       <section className="map-panel" aria-label={`${hike.name} map`}>
-        <RouteMap hike={hike} />
-        <div className="map-status">
-          {hike.route.status === "ready" ? "GPX route drawn" : "Marker only"}
-        </div>
+        <DeferredMapMount>
+          <RouteMap hike={hike} onLoadStateChange={handleRouteLoadStateChange} />
+        </DeferredMapMount>
+        <div className="map-status">{routeMapStatusLabel[routeMapStatus]}</div>
         <a href={hike.map.externalUrl} target="_blank" rel="noreferrer">
           Open source
           <ExternalLink size={15} aria-hidden="true" />
@@ -1561,102 +1562,507 @@ function HikeDetails({
   );
 }
 
+function listFromUnknown(value: unknown): string[] {
+  if (!value) return [];
+  if (Array.isArray(value)) return value.filter((item): item is string => typeof item === "string" && item.trim().length > 0);
+  if (typeof value === "string") return value.trim() ? [value] : [];
+  if (typeof value !== "object") return [];
+
+  return Object.values(value)
+    .flatMap((entry) => (Array.isArray(entry) ? entry : [entry]))
+    .filter((item): item is string => typeof item === "string" && item.trim().length > 0);
+}
+
+function kayakSafetyItems(trip: KayakTrip) {
+  return [
+    trip.safety?.exposure,
+    ...(trip.safety?.crossings ?? []),
+    ...(trip.safety?.windWeatherNotes ?? []),
+    ...(trip.safety?.navigationNotes ?? []),
+    ...(trip.safety?.seasonalNotes ?? [])
+  ].filter((item): item is string => typeof item === "string" && item.trim().length > 0);
+}
+
+function kayakCampingText(trip: KayakTrip) {
+  if (Array.isArray(trip.campingRules)) return trip.campingRules.join(" ");
+  return trip.campingRules ?? trip.protectionRules?.summary ?? "";
+}
+
+function formatDurations(durations: TripDuration[]) {
+  return durations.map(durationLabel).join(", ");
+}
+
+function formatMetadataValue(value: string) {
+  return value
+    .split("-")
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
+function KayakFacilityBlock({
+  facilities,
+  facilityNotes,
+  facilityState
+}: {
+  facilities: KayakFacility[];
+  facilityNotes: string[];
+  facilityState: LoadState;
+}) {
+  const hasFacilityContent = facilities.length > 0 || facilityNotes.length > 0;
+
+  return (
+    <section className="info-block facility-block kayak-facility-block">
+      <h2>
+        <Layers size={18} aria-hidden="true" />
+        Facilities
+      </h2>
+      {facilityState.status === "loading" ? <p>Loading linked facility records.</p> : null}
+      {facilityState.status === "error" ? <p>{facilityState.message ?? "Linked kayak facilities could not load."}</p> : null}
+      {facilities.length ? (
+        <div className="facility-list kayak-facility-list">
+          {facilities.map((facility) => {
+            const source = facility.sources.find((candidate) => candidate.url);
+
+            return (
+              <article className="facility-item kayak-facility-item" key={facility.id}>
+                <div>
+                  <span>
+                    {kayakFacilityTypeIcon(facility.type, 13)}
+                    {kayakFacilityTypeLabels[facility.type]}
+                  </span>
+                  <h3>{facility.name}</h3>
+                  <p>{facility.description}</p>
+                  {facility.access.length ? <p className="facility-distance-note">{facility.access.slice(0, 2).join(" ")}</p> : null}
+                  {facility.needsFollowup.length ? (
+                    <p className="facility-distance-note">{facility.needsFollowup.slice(0, 2).join(" ")}</p>
+                  ) : null}
+                </div>
+                {source ? (
+                  <a href={source.url} target="_blank" rel="noreferrer">
+                    Source
+                    <ExternalLink size={14} aria-hidden="true" />
+                  </a>
+                ) : null}
+              </article>
+            );
+          })}
+        </div>
+      ) : null}
+      {facilityNotes.length ? (
+        <ul className="kayak-facility-notes">
+          {facilityNotes.map((note) => (
+            <li key={note}>{note}</li>
+          ))}
+        </ul>
+      ) : null}
+      {!hasFacilityContent && facilityState.status === "ready" ? <p>No linked facility records are attached to this kayak trip yet.</p> : null}
+    </section>
+  );
+}
+
+function KayakTripDetails({
+  trip,
+  kayakFacilities,
+  kayakFacilityState,
+  isStarred,
+  onToggleStar,
+  onBackToOverview
+}: {
+  trip: KayakTrip;
+  kayakFacilities: KayakFacility[];
+  kayakFacilityState: LoadState;
+  isStarred: boolean;
+  onToggleStar: (id: string) => void;
+  onBackToOverview: () => void;
+}) {
+  const [routeMapStatus, setRouteMapStatus] = React.useState<HikeMapStatus>("loading");
+  const [selectedKayakFacilityTypes, setSelectedKayakFacilityTypes] = React.useState<Set<KayakFacilityType>>(() => new Set());
+  const accessItems = listFromUnknown(trip.access);
+  const safetyItems = kayakSafetyItems(trip);
+  const linkedFacilities = React.useMemo(() => linkedKayakFacilities(trip, kayakFacilities), [kayakFacilities, trip]);
+  const linkedFacilityTypesKey = React.useMemo(
+    () => [...new Set(linkedFacilities.map((facility) => facility.type))].sort().join("|"),
+    [linkedFacilities]
+  );
+  const mappedFacilityCount = linkedFacilities.filter(
+    (facility) => hasKayakFacilityCoordinates(facility) && selectedKayakFacilityTypes.has(facility.type)
+  ).length;
+  const followUpItems = [
+    ...(trip.research.needsFollowup ?? []),
+    ...(trip.research.contradictions ?? []),
+    ...(trip.research.corrections ?? [])
+  ];
+  const sourceLinks = trip.sources.filter((source) => source.url);
+  const routeMapStatusLabel: Record<HikeMapStatus, string> = {
+    loading: "Loading corridor",
+    ready: "Approximate corridor",
+    "marker-only": "Marker only",
+    error: "Corridor unavailable"
+  };
+
+  React.useEffect(() => {
+    setRouteMapStatus("loading");
+  }, [trip.id]);
+
+  React.useEffect(() => {
+    setSelectedKayakFacilityTypes(new Set(linkedFacilities.map((facility) => facility.type)));
+  }, [linkedFacilities, linkedFacilityTypesKey, trip.id]);
+
+  return (
+    <main className="content">
+      <BackToOverviewButton onClick={onBackToOverview} />
+      <section className="overview">
+        <div className="title-group">
+          <p>{trip.area}</p>
+          <div className="title-line">
+            <h1>{trip.name}</h1>
+            <button
+              className={isStarred ? "hero-star active" : "hero-star"}
+              onClick={() => onToggleStar(trip.id)}
+              type="button"
+              aria-label={isStarred ? `Unstar ${trip.name}` : `Star ${trip.name}`}
+              title={isStarred ? "Unstar route" : "Star route"}
+            >
+              <Star size={23} fill={isStarred ? "currentColor" : "none"} aria-hidden="true" />
+            </button>
+          </div>
+          <span>
+            {trip.region} · {trip.routeType}
+          </span>
+        </div>
+
+        <dl className="facts">
+          <DetailRow icon={<MapPin size={18} />} label="Distance" value={itemDistanceLabel(trip)} />
+          <DetailRow icon={<CalendarDays size={18} />} label="Time" value={formatDurations(trip.recommendedTimes)} />
+          <DetailRow icon={<Mountain size={18} />} label="Difficulty" value={trip.difficulty} />
+          <DetailRow icon={<Waves size={18} />} label="Water" value={formatMetadataValue(trip.waterZone)} />
+          <DetailRow icon={<AlertTriangle size={18} />} label="Exposure" value={formatMetadataValue(trip.exposureLevel)} />
+          <DetailRow icon={<Info size={18} />} label="Research" value={formatMetadataValue(trip.research.routeConfidence)} />
+          <DetailRow icon={<Info size={18} />} label="Map Confidence" value={formatMetadataValue(trip.route.mapConfidence)} />
+        </dl>
+      </section>
+
+      <div className="map-with-controls">
+        <section className="map-panel" aria-label={`${trip.name} map`}>
+          <div className="map-warning">
+            <AlertTriangle size={15} aria-hidden="true" />
+            {trip.route.warning}
+          </div>
+          <DeferredMapMount>
+            <KayakTripMap
+              trip={trip}
+              facilities={linkedFacilities}
+              visibleFacilityTypes={selectedKayakFacilityTypes}
+              onLoadStateChange={setRouteMapStatus}
+            />
+          </DeferredMapMount>
+          <div className="map-status">
+            {routeMapStatusLabel[routeMapStatus]}
+            {mappedFacilityCount ? ` · ${mappedFacilityCount} facilities` : ""}
+          </div>
+        </section>
+        <KayakFacilityMapFilters
+          facilities={linkedFacilities}
+          selectedTypes={selectedKayakFacilityTypes}
+          onChange={setSelectedKayakFacilityTypes}
+        />
+      </div>
+
+      <section className="description">
+        <h2>Description</h2>
+        <p>{trip.description}</p>
+      </section>
+
+      <div className="info-grid">
+        {safetyItems.length ? <InfoList title="Safety" icon={<AlertTriangle size={18} />} items={safetyItems} /> : null}
+        {accessItems.length ? <InfoList title="Access" icon={<Train size={18} />} items={accessItems} /> : null}
+        <KayakFacilityBlock facilities={linkedFacilities} facilityNotes={trip.facilityNotes} facilityState={kayakFacilityState} />
+        {kayakCampingText(trip) ? (
+          <section className="info-block">
+            <h2>
+              <Tent size={18} aria-hidden="true" />
+              Rules
+            </h2>
+            <p>{kayakCampingText(trip)}</p>
+          </section>
+        ) : null}
+        {followUpItems.length ? <InfoList title="Research Notes" icon={<Info size={18} />} items={followUpItems} /> : null}
+        {sourceLinks.length ? (
+          <section className="info-block source-block">
+            <h2>
+              <ExternalLink size={18} aria-hidden="true" />
+              Sources
+            </h2>
+            {sourceLinks.slice(0, 4).map((source) => (
+              <a href={source.url} key={`${source.provider}-${source.url}`} target="_blank" rel="noreferrer">
+                {source.title ?? source.provider}
+                <ExternalLink size={15} aria-hidden="true" />
+              </a>
+            ))}
+          </section>
+        ) : null}
+      </div>
+    </main>
+  );
+}
+
 function App() {
   const [libraryIndex, setLibraryIndex] = React.useState<LibraryIndexItem[]>([]);
+  const [indexState, setIndexState] = React.useState<LoadState>({ status: "idle" });
+  const [indexLoadAttempt, setIndexLoadAttempt] = React.useState(0);
+  const [activeActivity, setActiveActivity] = React.useState<ActivityKind>("hiking");
+  const [activityOverviews, setActivityOverviews] = React.useState<
+    Partial<Record<ActivityKind, LibraryOverviewFeatureCollection>>
+  >({});
+  const [overviewStates, setOverviewStates] = React.useState<Record<ActivityKind, LoadState>>({
+    hiking: { status: "idle" },
+    kayaking: { status: "idle" }
+  });
+  const [overviewLoadAttempts, setOverviewLoadAttempts] = React.useState<Record<ActivityKind, number>>({
+    hiking: 0,
+    kayaking: 0
+  });
+  const [kayakFacilities, setKayakFacilities] = React.useState<KayakFacility[]>([]);
+  const [kayakFacilityState, setKayakFacilityState] = React.useState<LoadState>({ status: "idle" });
   const [selectedItem, setSelectedItem] = React.useState<LibraryIndexItem | null>(null);
   const [selectedDetail, setSelectedDetail] = React.useState<LibraryDetail | null>(null);
+  const [detailState, setDetailState] = React.useState<LoadState>({ status: "idle" });
+  const [detailLoadAttempt, setDetailLoadAttempt] = React.useState(0);
   const [detailsCache, setDetailsCache] = React.useState<Record<string, LibraryDetail>>({});
   const [searchQuery, setSearchQuery] = React.useState("");
   const [locationFilter, setLocationFilter] = React.useState("all");
   const [distanceFilter, setDistanceFilter] = React.useState<DistanceFilter>("all");
   const [recommendedTimeFilter, setRecommendedTimeFilter] = React.useState<RecommendedTimeFilter>("all");
+  const [kayakDurationFilter, setKayakDurationFilter] = React.useState<KayakDurationFilter>("all");
+  const [kayakServiceFilter, setKayakServiceFilter] = React.useState<KayakServiceFilter>("all");
+  const [kayakWaterZoneFilter, setKayakWaterZoneFilter] = React.useState<KayakWaterZoneFilter>("all");
+  const [kayakExposureFilter, setKayakExposureFilter] = React.useState<KayakExposureFilter>("all");
+  const [kayakConfidenceFilter, setKayakConfidenceFilter] = React.useState<KayakConfidenceFilter>("all");
   const [starredHikeIds, setStarredHikeIds] = React.useState<Set<string>>(() => loadStarredHikes());
+  const [hoveredItemId, setHoveredItemId] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     let cancelled = false;
+    setIndexState({ status: "loading" });
 
-    fetch("/data/hikes-index.json")
-      .then((response) => {
-        if (!response.ok) throw new Error("Could not load hikes index");
-        return response.json() as Promise<LibraryIndexItem[]>;
-      })
+    loadLibraryIndex()
       .then((items) => {
         if (cancelled) return;
+        if (!Array.isArray(items)) throw new Error("Library index is not an array");
         setLibraryIndex(items);
-        setSelectedItem((current) => current ?? items[0] ?? null);
+        setIndexState({ status: "ready" });
+        setSelectedItem((current) => (current ? items.find((item) => item.id === current.id) ?? null : null));
       })
-      .catch(() => {
-        if (!cancelled) setLibraryIndex([]);
+      .catch((error: unknown) => {
+        if (!cancelled) {
+          setLibraryIndex([]);
+          setSelectedItem(null);
+          setSelectedDetail(null);
+          setIndexState({ status: "error", message: error instanceof Error ? error.message : "Could not load routes." });
+        }
       });
 
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [indexLoadAttempt]);
 
   React.useEffect(() => {
-    if (!selectedItem) return;
+    if (indexState.status !== "ready") {
+      setActivityOverviews({});
+      setOverviewStates({ hiking: { status: "idle" }, kayaking: { status: "idle" } });
+      return;
+    }
+
+    let cancelled = false;
+    const activity = activeActivity;
+    setOverviewStates((current) => ({ ...current, [activity]: { status: "loading" } }));
+
+    fetch(overviewPaths[activity])
+      .then((response) => {
+        if (!response.ok) throw new Error(`Could not load ${activity} overview`);
+        return response.json() as Promise<LibraryOverviewFeatureCollection>;
+      })
+      .then((overview) => {
+        if (cancelled) return;
+        setActivityOverviews((current) => ({ ...current, [activity]: overview }));
+        setOverviewStates((current) => ({ ...current, [activity]: { status: "ready" } }));
+      })
+      .catch((error: unknown) => {
+        if (!cancelled) {
+          setActivityOverviews((current) => {
+            const next = { ...current };
+            delete next[activity];
+            return next;
+          });
+          setOverviewStates((current) => ({
+            ...current,
+            [activity]: {
+              status: "error",
+              message: error instanceof Error ? error.message : `Could not load the ${activity} overview.`
+            }
+          }));
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [activeActivity, indexState.status, overviewLoadAttempts]);
+
+  React.useEffect(() => {
+    if (indexState.status !== "ready" || activeActivity !== "kayaking" || kayakFacilityState.status !== "idle") return;
+
+    let cancelled = false;
+    setKayakFacilityState({ status: "loading" });
+
+    loadKayakFacilities()
+      .then((facilities) => {
+        if (cancelled) return;
+        if (!Array.isArray(facilities)) throw new Error("Kayak facilities are not an array");
+        setKayakFacilities(facilities);
+        setKayakFacilityState({ status: "ready" });
+      })
+      .catch((error: unknown) => {
+        if (!cancelled) {
+          setKayakFacilities([]);
+          setKayakFacilityState({
+            status: "error",
+            message: error instanceof Error ? error.message : "Could not load kayak facilities."
+          });
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [activeActivity, indexState.status]);
+
+  React.useEffect(() => {
+    if (!selectedItem) {
+      setSelectedDetail(null);
+      setDetailState({ status: "idle" });
+      return;
+    }
 
     const cached = detailsCache[selectedItem.id];
     if (cached) {
       setSelectedDetail(cached);
+      setDetailState({ status: "ready" });
       return;
     }
 
     let cancelled = false;
     setSelectedDetail(null);
+    setDetailState({ status: "loading" });
 
-    fetch(selectedItem.detailPath)
-      .then((response) => {
-        if (!response.ok) throw new Error(`Could not load ${selectedItem.detailPath}`);
-        return response.json() as Promise<LibraryDetail>;
-      })
+    loadLibraryDetail(selectedItem)
       .then((detail) => {
         if (cancelled) return;
-        setDetailsCache((current) => ({ ...current, [detail.id]: detail }));
+        setDetailsCache((current) => ({ ...current, [selectedItem.id]: detail }));
         setSelectedDetail(detail);
+        setDetailState({ status: "ready" });
       })
-      .catch(() => {
-        if (!cancelled) setSelectedDetail(null);
+      .catch((error: unknown) => {
+        if (!cancelled) {
+          setSelectedDetail(null);
+          setDetailState({
+            status: "error",
+            message: error instanceof Error ? error.message : `Could not load ${selectedItem.name}.`
+          });
+        }
       });
 
     return () => {
       cancelled = true;
     };
-  }, [detailsCache, selectedItem]);
+  }, [detailLoadAttempt, detailsCache, selectedItem]);
+
+  const activityItems = React.useMemo(
+    () => libraryIndex.filter((item) => (item.activity ?? "hiking") === activeActivity),
+    [activeActivity, libraryIndex]
+  );
 
   const locationOptions = React.useMemo(
-    () => Array.from(new Set(libraryIndex.map((item) => item.location.label))).sort(),
-    [libraryIndex]
+    () => Array.from(new Set(activityItems.map(itemLocationLabel))).sort(),
+    [activityItems]
   );
 
   const visibleItems = React.useMemo(() => {
-    const query = searchQuery.trim().toLowerCase();
+    const query = normalizeSearchText(searchQuery);
     const distance = distanceFilters.find((filter) => filter.id === distanceFilter) ?? distanceFilters[0];
     const recommendedTime =
       recommendedTimeFilters.find((filter) => filter.id === recommendedTimeFilter) ?? recommendedTimeFilters[0];
 
-    return libraryIndex
+    return activityItems
       .filter((item) => {
-        const matchesSearch = !query || item.searchText.includes(query);
-        const matchesLocation = locationFilter === "all" || item.location.label === locationFilter;
+        if (activeActivity === "kayaking") {
+          const searchableText = itemSearchText(item);
+          const matchesSearch = !query || searchableText.includes(query);
+          const matchesLocation = locationFilter === "all" || itemLocationLabel(item) === locationFilter;
+          const matchesDuration = kayakDurationMatches(item, kayakDurationFilter);
+          const matchesService =
+            kayakServiceFilter === "all" ||
+            kayakFacilityState.status !== "ready" ||
+            kayakServiceMatches(item, kayakFacilities, kayakServiceFilter);
+          const matchesMetadata = kayakMetadataMatches(item, {
+            waterZone: kayakWaterZoneFilter,
+            exposure: kayakExposureFilter,
+            confidence: kayakConfidenceFilter
+          });
+
+          return matchesSearch && matchesLocation && matchesDuration && matchesService && matchesMetadata;
+        }
+        if (!isHikingLibraryIndexItem(item)) return false;
+        const searchableText = itemSearchText(item);
+        const matchesSearch = !query || searchableText.includes(query);
+        const matchesLocation = locationFilter === "all" || itemLocationLabel(item) === locationFilter;
         const matchesDistance = distance.matches(item);
         const matchesRecommendedTime = recommendedTime.matches(item);
 
         return matchesSearch && matchesLocation && matchesDistance && matchesRecommendedTime;
       })
       .sort((a, b) => Number(starredHikeIds.has(b.id)) - Number(starredHikeIds.has(a.id)));
-  }, [distanceFilter, libraryIndex, locationFilter, recommendedTimeFilter, searchQuery, starredHikeIds]);
+  }, [
+    activeActivity,
+    activityItems,
+    distanceFilter,
+    kayakDurationFilter,
+    kayakExposureFilter,
+    kayakFacilities,
+    kayakFacilityState.status,
+    kayakConfidenceFilter,
+    kayakServiceFilter,
+    kayakWaterZoneFilter,
+    locationFilter,
+    recommendedTimeFilter,
+    searchQuery,
+    starredHikeIds
+  ]);
 
   React.useEffect(() => {
-    if (!selectedItem || (!visibleItems.some((item) => item.id === selectedItem.id) && visibleItems[0])) {
-      setSelectedItem(visibleItems[0] ?? null);
+    if (!visibleItems.length) {
+      if (selectedItem) setSelectedItem(null);
+      return;
+    }
+    if (selectedItem && !visibleItems.some((item) => item.id === selectedItem.id)) {
+      setSelectedItem(null);
     }
   }, [selectedItem, visibleItems]);
 
   React.useEffect(() => {
     window.localStorage.setItem(starredStorageKey, JSON.stringify(Array.from(starredHikeIds)));
   }, [starredHikeIds]);
+
+  React.useEffect(() => {
+    if (!libraryIndex.length) return;
+    const knownIds = new Set(libraryIndex.map((item) => item.id));
+    setStarredHikeIds((current) => {
+      const filtered = new Set([...current].filter((id) => knownIds.has(id)));
+      return filtered.size === current.size ? current : filtered;
+    });
+  }, [libraryIndex]);
 
   function toggleStar(id: string) {
     setStarredHikeIds((current) => {
@@ -1671,13 +2077,46 @@ function App() {
     });
   }
 
+  const selectItem = React.useCallback((item: LibraryIndexItem) => {
+    setSelectedItem(item);
+    setSelectedDetail(null);
+    setDetailState({ status: "loading" });
+    setHoveredItemId(null);
+  }, []);
+
+  const backToOverview = React.useCallback(() => {
+    setSelectedItem(null);
+    setSelectedDetail(null);
+    setDetailState({ status: "idle" });
+  }, []);
+
+  const changeActivity = React.useCallback((activity: ActivityKind) => {
+    setActiveActivity(activity);
+    setSelectedItem(null);
+    setSelectedDetail(null);
+    setDetailState({ status: "idle" });
+    setSearchQuery("");
+    setLocationFilter("all");
+    setDistanceFilter("all");
+    setRecommendedTimeFilter("all");
+    setKayakDurationFilter("all");
+    setKayakServiceFilter("all");
+    setKayakWaterZoneFilter("all");
+    setKayakExposureFilter("all");
+    setKayakConfidenceFilter("all");
+    setHoveredItemId(null);
+  }, []);
+
   return (
     <div className="app-shell">
       <Sidebar
+        activeActivity={activeActivity}
+        onActivityChange={changeActivity}
         selectedItem={selectedItem}
-        onSelect={setSelectedItem}
+        onSelect={selectItem}
         visibleItems={visibleItems}
-        totalItems={libraryIndex.length}
+        totalItems={activityItems.length}
+        indexState={indexState}
         locationOptions={locationOptions}
         searchQuery={searchQuery}
         onSearchQueryChange={setSearchQuery}
@@ -1687,22 +2126,98 @@ function App() {
         onDistanceFilterChange={setDistanceFilter}
         recommendedTimeFilter={recommendedTimeFilter}
         onRecommendedTimeFilterChange={setRecommendedTimeFilter}
+        kayakDurationFilter={kayakDurationFilter}
+        onKayakDurationFilterChange={setKayakDurationFilter}
+        kayakServiceFilter={kayakServiceFilter}
+        onKayakServiceFilterChange={setKayakServiceFilter}
+        kayakWaterZoneFilter={kayakWaterZoneFilter}
+        onKayakWaterZoneFilterChange={setKayakWaterZoneFilter}
+        kayakExposureFilter={kayakExposureFilter}
+        onKayakExposureFilterChange={setKayakExposureFilter}
+        kayakConfidenceFilter={kayakConfidenceFilter}
+        onKayakConfidenceFilterChange={setKayakConfidenceFilter}
+        kayakFacilityState={kayakFacilityState}
+        hoveredItemId={hoveredItemId}
+        onHoverItemId={setHoveredItemId}
         starredHikeIds={starredHikeIds}
         onToggleStar={toggleStar}
       />
-      {selectedDetail ? (
+      {indexState.status === "loading" || indexState.status === "idle" ? (
+        <StatePanel title="Loading" message="Fetching route library..." />
+      ) : indexState.status === "error" ? (
+        <StatePanel
+          title="Could not load routes"
+          message={indexState.message ?? "The route library could not be loaded."}
+          actionLabel="Retry"
+          onAction={() => setIndexLoadAttempt((attempt) => attempt + 1)}
+        />
+      ) : !visibleItems.length ? (
+        <StatePanel
+          title="No routes found"
+          message="No routes match the active search and filters."
+          actionLabel="Clear filters"
+          onAction={() => {
+            setSearchQuery("");
+            setLocationFilter("all");
+            setDistanceFilter("all");
+            setRecommendedTimeFilter("all");
+            setKayakDurationFilter("all");
+            setKayakServiceFilter("all");
+            setKayakWaterZoneFilter("all");
+            setKayakExposureFilter("all");
+            setKayakConfidenceFilter("all");
+          }}
+        />
+      ) : !selectedItem ? (
+        <ActivityOverview
+          activity={activeActivity}
+          items={visibleItems}
+          totalItems={activityItems.length}
+          overview={activityOverviews[activeActivity] ?? null}
+          overviewState={overviewStates[activeActivity]}
+          hoveredItemId={hoveredItemId}
+          onHoverItemId={setHoveredItemId}
+          onSelect={selectItem}
+          onRetryOverview={() =>
+            setOverviewLoadAttempts((current) => ({ ...current, [activeActivity]: current[activeActivity] + 1 }))
+          }
+        />
+      ) : detailState.status === "error" ? (
+        <StatePanel
+          title="Could not load route details"
+          message={detailState.message ?? "The selected route details could not be loaded."}
+          actionLabel="Retry"
+          onAction={() => setDetailLoadAttempt((attempt) => attempt + 1)}
+          secondaryActionLabel="Back to overview"
+          onSecondaryAction={backToOverview}
+        />
+      ) : selectedDetail ? (
         isTrailSystem(selectedDetail) ? (
           <TrailSystemDetails
+            key={selectedDetail.id}
             trailSystem={selectedDetail}
             isStarred={starredHikeIds.has(selectedDetail.id)}
             onToggleStar={toggleStar}
             distanceFilter={distanceFilter}
+            onBackToOverview={backToOverview}
           />
+	        ) : isKayakTrip(selectedDetail) ? (
+	          <KayakTripDetails
+	            key={selectedDetail.id}
+	            trip={selectedDetail}
+	            kayakFacilities={kayakFacilities}
+	            kayakFacilityState={kayakFacilityState}
+	            isStarred={starredHikeIds.has(selectedDetail.id)}
+	            onToggleStar={toggleStar}
+	            onBackToOverview={backToOverview}
+	          />
         ) : (
           <HikeDetails
+            key={selectedDetail.id}
             hike={selectedDetail}
             isStarred={starredHikeIds.has(selectedDetail.id)}
             onToggleStar={toggleStar}
+            onBackToOverview={backToOverview}
           />
         )
       ) : (
