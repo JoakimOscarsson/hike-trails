@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local/stockholm-kayak-archipelago-research/kayak-route.schema.json",
+  "title": "KayakRoute",
+  "type": "object",
+  "required": [
+    "id",
+    "itemType",
+    "name",
+    "region",
+    "country",
+    "waterArea",
+    "recommendedTimes",
+    "difficulty",
+    "distanceKm",
+    "estimatedTime",
+    "routeType",
+    "season",
+    "description",
+    "access",
+    "safety",
+    "campingRules",
+    "facilities",
+    "sources",
+    "researchStatus"
+  ],
+  "properties": {
+    "id": { "type": "string" },
+    "itemType": { "const": "kayak-route" },
+    "name": { "type": "string" },
+    "region": { "type": "string" },
+    "country": { "type": "string" },
+    "waterArea": { "type": "string" },
+    "recommendedTimes": {
+      "type": "array",
+      "items": {
+        "enum": ["half-day", "day", "weekend", "3-5-days", "6-plus-days"]
+      }
+    },
+    "difficulty": {
+      "enum": ["Beginner", "Easy", "Moderate", "Hard", "Expert", "Unknown"]
+    },
+    "distanceKm": { "type": ["number", "null"] },
+    "estimatedTime": { "type": "string" },
+    "routeType": {
+      "enum": ["Loop", "Out and back", "Point to point", "Open itinerary", "Unknown"]
+    },
+    "season": { "type": "string" },
+    "description": { "type": "string" },
+    "start": { "$ref": "#/$defs/place" },
+    "end": { "$ref": "#/$defs/place" },
+    "waypoints": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/place" }
+    },
+    "access": {
+      "type": "object",
+      "properties": {
+        "publicTransport": { "type": "array", "items": { "type": "string" } },
+        "ferry": { "type": "array", "items": { "type": "string" } },
+        "parking": { "type": "array", "items": { "type": "string" } },
+        "launchNotes": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "safety": {
+      "type": "object",
+      "properties": {
+        "exposure": { "type": "string" },
+        "crossings": { "type": "array", "items": { "type": "string" } },
+        "windWeatherNotes": { "type": "array", "items": { "type": "string" } },
+        "navigationNotes": { "type": "array", "items": { "type": "string" } },
+        "seasonalNotes": { "type": "array", "items": { "type": "string" } },
+        "confidence": { "enum": ["low", "medium", "high"] }
+      },
+      "additionalProperties": false
+    },
+    "campingRules": { "type": "string" },
+    "facilities": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/facility" }
+    },
+    "rentals": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/facility" }
+    },
+    "sources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/source" }
+    },
+    "researchStatus": {
+      "type": "object",
+      "required": ["routeConfidence", "facilityConfidence", "needsFollowup"],
+      "properties": {
+        "routeConfidence": { "enum": ["low", "medium", "high"] },
+        "facilityConfidence": { "enum": ["low", "medium", "high"] },
+        "needsFollowup": { "type": "array", "items": { "type": "string" } },
+        "contradictions": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "place": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "coordinates": {
+          "type": ["array", "null"],
+          "prefixItems": [{ "type": "number" }, { "type": "number" }],
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "facility": {
+      "type": "object",
+      "required": ["id", "name", "type", "description", "source"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "type": {
+          "enum": [
+            "campsite",
+            "shelter",
+            "fireplace",
+            "toilet",
+            "water",
+            "food",
+            "swimming",
+            "parking",
+            "transit",
+            "rest-area",
+            "launch",
+            "landing",
+            "guest-harbor",
+            "kayak-rental",
+            "self-service-rental",
+            "guide-operator",
+            "sauna",
+            "shop"
+          ]
+        },
+        "coordinates": {
+          "type": ["array", "null"],
+          "prefixItems": [{ "type": "number" }, { "type": "number" }],
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "description": { "type": "string" },
+        "source": { "$ref": "#/$defs/source" },
+        "routeProximity": {
+          "type": "object",
+          "properties": {
+            "status": { "enum": ["on-route", "near-route", "off-route", "unknown"] },
+            "distanceKm": { "type": ["number", "null"] },
+            "note": { "type": "string" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "source": {
+      "type": "object",
+      "required": ["provider", "url", "lastAccessedAt"],
+      "properties": {
+        "provider": { "type": "string" },
+        "url": { "type": "string" },
+        "title": { "type": "string" },
+        "lastAccessedAt": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
