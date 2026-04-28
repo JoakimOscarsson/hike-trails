@@ -226,11 +226,26 @@ select:focus-visible {
 }
 
 .hike-meta {
+  display: flex;
+  flex-wrap: wrap;
   min-width: 0;
   color: #687264;
   font-size: 0.78rem;
   line-height: 1.35;
+}
+
+.hike-meta-part {
+  min-width: 0;
   overflow-wrap: anywhere;
+}
+
+.hike-meta-part:not(:last-child)::after {
+  content: " · ";
+  white-space: pre;
+}
+
+.hike-distance {
+  white-space: nowrap;
 }
 
 .star-button,
@@ -1296,10 +1311,36 @@ p.inline-warning,
 }
 
 .transit-toggle {
+  margin-top: 8px;
   margin-bottom: 8px;
   border: 1px solid #d7d9d1;
   border-radius: 8px;
   background: #fbfaf6;
+}
+
+.transit-block-head {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.transit-block-head h2 {
+  margin-bottom: 0;
+}
+
+.transit-block-head > span {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  min-width: 28px;
+  height: 26px;
+  border-radius: 999px;
+  background: #e8ece2;
+  color: #3f5b36;
+  font-size: 0.78rem;
+  font-weight: 820;
 }
 
 .transit-list {
@@ -1506,16 +1547,27 @@ p.inline-warning,
   border-radius: 6px;
 }
 
-.facility-item span {
+.facility-kind,
+.facility-focus-action {
   display: inline-flex;
   align-items: center;
   gap: 5px;
+}
+
+.facility-kind {
   margin-bottom: 6px;
   color: #697064;
   font-size: 0.68rem;
   font-weight: 750;
   text-transform: uppercase;
   letter-spacing: 0;
+}
+
+.facility-focus-action {
+  margin-top: 8px;
+  color: #3f5b36;
+  font-size: 0.76rem;
+  font-weight: 760;
 }
 
 .facility-item h3 {
@@ -1597,6 +1649,16 @@ p.inline-warning,
     position: static;
     height: auto;
     padding: 14px;
+  }
+
+  .has-selection .sidebar {
+    order: 2;
+    border-top: 1px solid #ddded7;
+    border-right: 0;
+  }
+
+  .has-selection .content {
+    order: 1;
   }
 
   .hike-list {
@@ -1693,6 +1755,15 @@ p.inline-warning,
     grid-template-columns: 1fr;
   }
 
+  .context-routes-head {
+    display: grid;
+    gap: 2px;
+  }
+
+  .context-routes-head small {
+    text-align: left;
+  }
+
   .selected-route-bar div {
     text-align: left;
   }
@@ -1726,7 +1797,10 @@ p.inline-warning,
   .select-field select,
   .primary-action,
   .secondary-action,
+  .hike-select,
   .facility-group-toggle,
+  .facility-item a,
+  .map-panel > a,
   .context-route,
   .section-row {
     min-height: 44px;
@@ -1740,8 +1814,8 @@ p.inline-warning,
   }
 
   .leaflet-control-zoom a {
-    width: 36px !important;
-    height: 36px !important;
+    width: 44px !important;
+    height: 44px !important;
   }
 }
 

@@ -185,12 +185,13 @@ export function FacilityList({
                       {group.facilities.map((facility) => (
                         <article className="facility-item" key={facility.id}>
                           <button
+                            aria-label={facility.coordinates ? `Show ${facility.name} on map` : undefined}
                             className="facility-focus-button"
                             disabled={!facility.coordinates}
                             onClick={() => onFocusFacility(facility)}
                             type="button"
                           >
-                            <span>
+                            <span className="facility-kind">
                               {facilityTypeLabels[facility.type]}
                               {isOffRouteFacility(facility) ? (
                                 <strong className="facility-distance-inline" title={facilityProximityText(facility)}>
@@ -202,6 +203,12 @@ export function FacilityList({
                             <p>{facility.description}</p>
                             {isOffRouteFacility(facility) ? (
                               <p className="facility-distance-note">{facilityProximityText(facility)}</p>
+                            ) : null}
+                            {facility.coordinates ? (
+                              <span className="facility-focus-action">
+                                <MapPin size={14} aria-hidden="true" />
+                                Show on map
+                              </span>
                             ) : null}
                           </button>
                           <a href={facility.source.url} target="_blank" rel="noreferrer">
@@ -289,34 +296,39 @@ function TransitAccessList({ sections }: { sections: TrailSection[] }) {
 
   return (
     <section className="info-block transit-block">
-      <button
-        aria-controls="transit-access-panel"
-        aria-expanded={isOpen}
-        className="facility-group-toggle transit-toggle"
-        type="button"
-        onClick={() => setIsOpen((current) => !current)}
-      >
-        <span>
+      <div className="transit-block-head">
+        <h2>
           <Train size={18} aria-hidden="true" />
           Transit Access
-        </span>
-        <small>{accessPoints.length}</small>
-        <ChevronDown className={isOpen ? "chevron open" : "chevron"} size={16} aria-hidden="true" />
-      </button>
+        </h2>
+        <span>{accessPoints.length}</span>
+      </div>
 
-      <div id="transit-access-panel" className={isOpen ? "transit-panel" : "transit-panel collapsed"}>
-        {accessPoints.length ? (
-          <>
+      {accessPoints.length ? (
+        <>
+          {selectedStart || selectedEnd ? (
             <div className="transit-list selected-transit-list">
               {selectedStart ? (
                 <TransitAccessCard accessPoint={selectedStart} label="Selected start" emphasis />
               ) : null}
               {selectedEnd ? <TransitAccessCard accessPoint={selectedEnd} label="Selected end" emphasis /> : null}
             </div>
+          ) : null}
 
-            {intermediateAccessPoints.length ? (
-              <>
-                <h3 className="transit-subhead">Intermediate stage access</h3>
+          {intermediateAccessPoints.length ? (
+            <>
+              <button
+                aria-controls="transit-access-panel"
+                aria-expanded={isOpen}
+                className="facility-group-toggle transit-toggle"
+                type="button"
+                onClick={() => setIsOpen((current) => !current)}
+              >
+                <span>Intermediate stage access</span>
+                <small>{intermediateAccessPoints.length}</small>
+                <ChevronDown className={isOpen ? "chevron open" : "chevron"} size={16} aria-hidden="true" />
+              </button>
+              <div id="transit-access-panel" className={isOpen ? "transit-panel" : "transit-panel collapsed"}>
                 <div className="transit-list">
                   {intermediateAccessPoints.map((accessPoint) => (
                     <TransitAccessCard
@@ -326,13 +338,13 @@ function TransitAccessList({ sections }: { sections: TrailSection[] }) {
                     />
                   ))}
                 </div>
-              </>
-            ) : null}
-          </>
-        ) : (
-          <p>No transit access points are attached to this route yet.</p>
-        )}
-      </div>
+              </div>
+            </>
+          ) : null}
+        </>
+      ) : (
+        <p>No transit access points are attached to this route yet.</p>
+      )}
     </section>
   );
 }
@@ -473,6 +485,8 @@ export function TrailSystemDetails({
   );
   const [selectedContextGroupIds, setSelectedContextGroupIds] = React.useState<Set<string>>(() => new Set());
   const [mapFocusTarget, setMapFocusTarget] = React.useState<TrailMapFocusTarget | null>(null);
+  const contentTopRef = React.useRef<HTMLElement | null>(null);
+  const mapRegionRef = React.useRef<HTMLDivElement | null>(null);
 
   const routeGroup = mainRouteGroups.find((group) => group.id === routeGroupId) ?? mainRouteGroups[0];
   const routeSections = sectionsForIds(routeGroup.sectionIds, sectionLookup);
@@ -557,6 +571,14 @@ export function TrailSystemDetails({
     setViewMode("builder");
   }, [routeSeedFilter, trailSystem]);
 
+  React.useEffect(() => {
+    if (viewMode !== "info" || typeof window === "undefined") return;
+    if (!window.matchMedia("(max-width: 900px)").matches) return;
+    window.requestAnimationFrame(() => {
+      contentTopRef.current?.scrollIntoView({ block: "start", behavior: "smooth" });
+    });
+  }, [viewMode]);
+
   function applyPreset(start: string, end: string) {
     const presetGroup = mainRouteGroups.find((group) => group.sectionIds.includes(start) && group.sectionIds.includes(end));
     if (presetGroup) setRouteGroupId(presetGroup.id);
@@ -593,6 +615,7 @@ export function TrailSystemDetails({
 
   function focusFacilityOnMap(facility: TrailFacility) {
     if (!facility.coordinates) return;
+    const shouldScrollMap = typeof window !== "undefined" && window.matchMedia("(max-width: 900px)").matches;
     setSelectedFacilityTypes((current) => {
       if (current.has(facility.type)) return current;
       return new Set([...current, facility.type]);
@@ -603,6 +626,11 @@ export function TrailSystemDetails({
       requestId: (current?.requestId ?? 0) + 1,
       zoom: 15
     }));
+    if (shouldScrollMap) {
+      window.requestAnimationFrame(() => {
+        mapRegionRef.current?.scrollIntoView({ block: "start", behavior: "smooth" });
+      });
+    }
   }
 
   const sectionDetailWarning = sectionDetailsState.failedCount ? (
@@ -644,7 +672,7 @@ export function TrailSystemDetails({
 
   if (viewMode === "info") {
     return (
-      <main className="content">
+      <main className="content" ref={contentTopRef}>
         <BackToOverviewButton onClick={onBackToOverview} />
         {overview}
 
@@ -662,7 +690,7 @@ export function TrailSystemDetails({
           </div>
         </section>
 
-        <div className="map-with-controls">
+        <div className="map-with-controls" ref={mapRegionRef}>
           <section className="map-panel" aria-label={`${trailSystem.name} map`}>
             <DeferredMapMount>
               <TrailSystemMap
@@ -702,8 +730,8 @@ export function TrailSystemDetails({
 
           <InfoList title="Camping Rules" icon={<Tent size={18} />} items={campingRuleItems} />
 
-          <FacilityList facilities={selectedFacilities} onFocusFacility={focusFacilityOnMap} />
           <TransitAccessList sections={detailedPrimaryRouteSections} />
+          <FacilityList facilities={selectedFacilities} onFocusFacility={focusFacilityOnMap} />
           <InfoList
             title="Selected Sections"
             icon={<Info size={18} />}
@@ -778,8 +806,8 @@ export function TrailSystemDetails({
           {availableContextGroups.length ? (
             <section className="context-routes">
               <div className="context-routes-head">
-                <span>Related access and branch options</span>
-                <small>Shown for the selected main-route range</small>
+                <span>Related route options</span>
+                <small>Connected to this range</small>
               </div>
               <div className="context-route-list">
                 {availableContextGroups.map((group) => {
@@ -876,7 +904,7 @@ export function TrailSystemDetails({
           </button>
         </div>
 
-        <div className="map-with-controls">
+        <div className="map-with-controls" ref={mapRegionRef}>
           <section className="map-panel builder-map-panel" aria-label={`${trailSystem.name} map`}>
             <DeferredMapMount>
               <TrailSystemMap

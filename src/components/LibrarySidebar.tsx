@@ -301,7 +301,9 @@ export function Sidebar({
                 <button className="hike-select" onClick={() => onSelect(item)} type="button">
                   <span className="hike-name">{item.name}</span>
                   <span className="hike-meta">
-                    {itemLocationLabel(item)} · {typeLabel} · {itemDistanceLabel(item)}
+                    <span className="hike-meta-part">{itemLocationLabel(item)}</span>
+                    <span className="hike-meta-part">{typeLabel}</span>
+                    <span className="hike-meta-part hike-distance">{itemDistanceLabel(item)}</span>
                   </span>
                 </button>
                 <button

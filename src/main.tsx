@@ -74,7 +74,7 @@ function App() {
   useVisibleItemSelectionGuard({ selectedItem, visibleItems, replaceSelectedItem, clearSelectedItem });
 
   return (
-    <div className="app-shell">
+    <div className={selectedItem ? "app-shell has-selection" : "app-shell"}>
       <Sidebar
         activeActivity={activeActivity}
         selectedItem={selectedItem}
