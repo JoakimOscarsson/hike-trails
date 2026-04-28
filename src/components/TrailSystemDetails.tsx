@@ -1,6 +1,6 @@
 import React from "react";
 import { AlertTriangle, ArrowLeft, CalendarDays, Check, ChevronDown, ExternalLink, Info, Layers, MapPin, Star, Tent, Train } from "lucide-react";
-import type { TrailCommuteStop, TrailFacility, TrailSystem } from "../types";
+import type { TrailAccessPoint, TrailCommuteStop, TrailFacility, TrailSection, TrailSystem } from "../types";
 import { useTrailSectionDetails } from "../data/useTrailSectionDetails";
 import {
   matchingRouteGroupRange,
@@ -31,6 +31,97 @@ import {
   type SelectedTrailAccessPoint
 } from "../map/hikingFacilities";
 import { BackToOverviewButton, DetailRow, InfoList } from "./DetailBlocks";
+
+const campingRulePattern = /camp|tent|fire|grill|overnight|leash|dog|reserve|national park|designated/i;
+
+function uniqueStrings(items: string[]) {
+  return [...new Set(items.map((item) => item.trim()).filter(Boolean))];
+}
+
+function sectionLabel(section: TrailSection) {
+  return `Stage ${section.stageNumber}`;
+}
+
+function selectedRouteDescription({
+  sections,
+  distanceKm,
+  routeGroupLabel,
+  firstSection,
+  lastSection
+}: {
+  sections: TrailSection[];
+  distanceKm: number;
+  routeGroupLabel: string;
+  firstSection: TrailSection;
+  lastSection: TrailSection;
+}) {
+  const sectionSummaries = sections
+    .map((section) => `${sectionLabel(section)}: ${section.description}`)
+    .filter((summary) => !summary.endsWith(": "))
+    .slice(0, 5);
+  const remainingCount = Math.max(0, sections.length - sectionSummaries.length);
+  const remainingText = remainingCount ? ` ${remainingCount} more selected section${remainingCount === 1 ? "" : "s"} are listed below.` : "";
+
+  return [
+    `${firstSection.from} to ${lastSection.to} is a ${formatDistance(distanceKm)} ${routeGroupLabel.toLowerCase()} selection across ${sections.length} main section${sections.length === 1 ? "" : "s"}.`,
+    sectionSummaries.join(" "),
+    remainingText
+  ]
+    .filter(Boolean)
+    .join(" ");
+}
+
+function accessPointForEndpoint(section: TrailSection, endpoint: TrailAccessPoint["endpoint"]) {
+  return section.accessPoints?.find((accessPoint) => accessPoint.endpoint === endpoint);
+}
+
+function commuteStopText(label: string, stop?: TrailCommuteStop) {
+  return stop ? `${label} ${stop.name} (${formatDistance(stop.distanceKm)})` : `${label} not researched`;
+}
+
+function accessPointText(label: string, accessPoint?: TrailAccessPoint) {
+  if (!accessPoint) return `${label}: no section-specific transit data is attached yet.`;
+  const approximation = accessPoint.coordinateSource === "route-geometry" ? "" : " Approximate endpoint coordinate.";
+  return `${label}: ${accessPoint.placeName}. ${commuteStopText("Bus", accessPoint.busStop)}; ${commuteStopText(
+    "train",
+    accessPoint.trainStop
+  )}.${approximation}`;
+}
+
+function selectedRouteGettingThereItems(sections: TrailSection[]) {
+  const firstSection = sections[0];
+  const lastSection = sections[sections.length - 1];
+  if (!firstSection || !lastSection) return ["No selected section access data is attached yet."];
+
+  const items = [
+    accessPointText("Selected start", accessPointForEndpoint(firstSection, "start")),
+    accessPointText("Selected end", accessPointForEndpoint(lastSection, "end"))
+  ];
+
+  if (sections.length > 1) {
+    items.push("Intermediate stage access points remain available in the Transit Access section below.");
+  }
+
+  return items;
+}
+
+function selectedRouteCampingRuleItems(sections: TrailSection[]) {
+  const noteItems = sections.flatMap((section) =>
+    uniqueStrings(section.notes ?? [])
+      .filter((note) => campingRulePattern.test(note))
+      .map((note) => `${sectionLabel(section)}: ${note}`)
+  );
+  const facilityItems = sections.flatMap((section) =>
+    (section.facilities ?? [])
+      .filter((facility) => ["campsite", "camping", "shelter", "unofficial-shelter", "fireplace", "rule-warning"].includes(facility.type))
+      .map((facility) => `${facilityTypeLabels[facility.type]} - ${facility.name}: ${facility.description}`)
+  );
+  const items = uniqueStrings([...noteItems, ...facilityItems]);
+
+  if (!items.length) return ["No selected-section camping or fire-rule notes are attached yet; check posted local rules before overnight plans."];
+  if (items.length <= 8) return items;
+  return [...items.slice(0, 8), `${items.length - 8} more camping, fire, or rule notes are attached to the selected sections below.`];
+}
 
 export function FacilityList({ facilities }: { facilities: TrailFacility[] }) {
   const [openGroups, setOpenGroups] = React.useState<Set<string>>(() => new Set());
@@ -313,6 +404,15 @@ export function TrailSystemDetails({
   const groupedSectionIds = new Set(routeGroups.flatMap((group) => group.sectionIds));
   const coveredSections = trailSystem.sections.filter((section) => groupedSectionIds.has(section.id)).length;
   const routeGroupLabel = routeGroupKindLabels[routeGroup.kind];
+  const selectedDescription = selectedRouteDescription({
+    sections: detailedPrimaryRouteSections,
+    distanceKm,
+    routeGroupLabel,
+    firstSection,
+    lastSection
+  });
+  const gettingThereItems = selectedRouteGettingThereItems(detailedPrimaryRouteSections);
+  const campingRuleItems = selectedRouteCampingRuleItems(detailedPrimaryRouteSections);
 
   React.useEffect(() => {
     if (rawEndIndex >= 0 && rawEndIndex < startIndex) {
@@ -467,26 +567,14 @@ export function TrailSystemDetails({
 
         <section className="description">
           <h2>Description</h2>
-          <p>{trailSystem.description}</p>
+          <p>{selectedDescription}</p>
           {sectionDetailWarning}
         </section>
 
         <div className="info-grid">
-          <section className="info-block">
-            <h2>
-              <Train size={18} aria-hidden="true" />
-              Getting There
-            </h2>
-            <p>{trailSystem.gettingThere}</p>
-          </section>
+          <InfoList title="Getting There" icon={<Train size={18} />} items={gettingThereItems} />
 
-          <section className="info-block">
-            <h2>
-              <Tent size={18} aria-hidden="true" />
-              Camping Rules
-            </h2>
-            <p>{trailSystem.campingRules}</p>
-          </section>
+          <InfoList title="Camping Rules" icon={<Tent size={18} />} items={campingRuleItems} />
 
           <FacilityList facilities={selectedFacilities} />
           <TransitAccessList accessPoints={accessPoints} />
