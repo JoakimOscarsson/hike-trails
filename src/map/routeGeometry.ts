@@ -4,6 +4,7 @@ export type RouteGeometry = {
 };
 
 const routeGeometryCache = new Map<string, Promise<RouteGeometry>>();
+export const maxRouteGeometryCacheEntries = 96;
 
 function normalizeGeoJSON(value: GeoJSON.GeoJSON): GeoJSON.FeatureCollection {
   if (value.type === "FeatureCollection") return value;
@@ -28,7 +29,11 @@ function normalizeGeoJSON(value: GeoJSON.GeoJSON): GeoJSON.FeatureCollection {
 
 export function loadRouteGeometry(path: string): Promise<RouteGeometry> {
   const cached = routeGeometryCache.get(path);
-  if (cached) return cached;
+  if (cached) {
+    routeGeometryCache.delete(path);
+    routeGeometryCache.set(path, cached);
+    return cached;
+  }
 
   const request = fetch(path)
     .then((response) => {
@@ -40,14 +45,27 @@ export function loadRouteGeometry(path: string): Promise<RouteGeometry> {
       geojson: normalizeGeoJSON(geojson)
     }))
     .catch((error) => {
-      routeGeometryCache.delete(path);
+      if (routeGeometryCache.get(path) === request) routeGeometryCache.delete(path);
       throw error;
     });
 
   routeGeometryCache.set(path, request);
+  while (routeGeometryCache.size > maxRouteGeometryCacheEntries) {
+    const oldestPath = routeGeometryCache.keys().next().value;
+    if (!oldestPath) break;
+    routeGeometryCache.delete(oldestPath);
+  }
   return request;
 }
 
 export function clearRouteGeometryCache() {
   routeGeometryCache.clear();
+}
+
+export function getRouteGeometryCacheDiagnostics() {
+  return {
+    size: routeGeometryCache.size,
+    limit: maxRouteGeometryCacheEntries,
+    paths: [...routeGeometryCache.keys()]
+  };
 }

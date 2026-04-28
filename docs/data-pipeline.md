@@ -8,13 +8,13 @@ This document tracks the data-contract refactor in small implementation slices. 
 
 Runtime data is now in a transitional hiking-plus-kayak public contract. The visible app loads hiking and kayaking records from the shared index. Kayaking has a typed overview/detail branch, compact kayak-specific filters, water/exposure/research-confidence filtering, linked facility rendering on kayak detail maps, and a live browser runtime-path/interaction/accessibility/print probe; richer overview facility layers and caveat-severity workflows remain future work.
 
-As of Slice 22, overview maps still initialize immediately because they are primary navigation surfaces. Non-overview route/detail maps defer on small screens until their reserved map area is near the viewport, reducing below-fold route-geometry and tile work without changing the desktop behavior or public data contract. As of Slice 23, trail-system detail maps render selected/context route geometry only; the hiking overview map remains the full-network orientation surface. As of Slices 24-28, map extraction has moved `DeferredMapMount`, standalone hike `RouteMap`, kayak `KayakTripMap`, and `TrailSystemMap` into `src/map/**`; route-builder orchestration and top-level library load/filter state still live in `src/main.tsx`. As of Slice 31, trail-system route loading/drawing helpers live in `src/map/trailSystemRouteLayers.ts`; as of Slice 32, hiking facility marker rendering lives in `src/map/hikingFacilityMarkers.tsx`; as of Slice 33, hiking commute marker rendering lives in `src/map/hikingCommuteMarkers.tsx`; as of Slice 34, selected-route-first bounds fitting lives in `src/map/fitMapBounds.ts`; as of Slice 40, hiking detail maps and facility lists hide facilities marked off-route by the existing proximity metadata, and same-coordinate hiking facilities render as expandable map clusters. As of Slice 41, sidebar/detail view shells and filter contracts live outside `src/main.tsx`. As of Slice 42, overview routes use a generated deterministic color scale instead of a six-color palette. As of Slice 43, kayak validation derives source/runtime counts from `source-manifest.json` and source shards rather than first-import constants.
+As of Slice 22, overview maps still initialize immediately because they are primary navigation surfaces. Non-overview route/detail maps defer on small screens until their reserved map area is near the viewport, reducing below-fold route-geometry and tile work without changing the desktop behavior or public data contract. As of Slice 23, trail-system detail maps render selected/context route geometry only; the hiking overview map remains the full-network orientation surface. As of Slices 24-28, map extraction has moved `DeferredMapMount`, standalone hike `RouteMap`, kayak `KayakTripMap`, and `TrailSystemMap` into `src/map/**`; route-builder orchestration and top-level library load/filter state still live in `src/main.tsx`. As of Slice 31, trail-system route loading/drawing helpers live in `src/map/trailSystemRouteLayers.ts`; as of Slice 32, hiking facility marker rendering lives in `src/map/hikingFacilityMarkers.tsx`; as of Slice 33, hiking commute marker rendering lives in `src/map/hikingCommuteMarkers.tsx`; as of Slice 34, selected-route-first bounds fitting lives in `src/map/fitMapBounds.ts`; as of Slice 40, hiking detail maps and facility lists hide facilities marked off-route by the existing proximity metadata, and same-coordinate hiking facilities render as expandable map clusters. As of Slice 41, sidebar/detail view shells and filter contracts live outside `src/main.tsx`. As of Slice 42, overview routes use a generated deterministic color scale instead of a six-color palette. As of Slice 43, kayak validation derives source/runtime counts from `source-manifest.json` and source shards rather than first-import constants. As of Slice 44, route geometry caching is bounded by an LRU entry limit.
 
 Kayak `hasFollowup` is intentionally an internal audit/detail signal as of Slice 19. It stays in the compact public contract for validation and future editorial workflows, but it is not exposed as a sidebar filter because every current kayak route has follow-up/research notes and a visible filter would not narrow the list.
 
 CI gate split as of Slice 20:
 
-- `npm run ci:check` is the portable required gate for environments without a guaranteed browser. It runs data validation, the mocked runtime contract probe, TypeScript typecheck, and production build.
+- `npm run ci:check` is the portable required gate for environments without a guaranteed browser. It runs data validation, the mocked runtime contract probe, the route-geometry cache probe, TypeScript typecheck, and production build.
 - `npm run ci:check:browser` is the browser-enabled required gate. It runs `ci:check` plus `npm run runtime:browser-probe`.
 - `runtime:browser-probe` is intentionally strict: it fails if Chrome/Chromium is unavailable. Browser-enabled CI should install Chrome/Chromium or set `CHROME_BIN` / `BROWSER_BIN`.
 - `npm run ui:smoke` generates the current scripted UI smoke report at `docs/test-reports/hike-ui-smoke-report-2026-04-28.md`; it requires Chrome/Chromium like the browser runtime probe.
@@ -31,7 +31,7 @@ Completed and stable enough to build on:
 
 - Read-only hiking/kayak runtime validation, shared domain types, `data:validate`, `typecheck`, `ci:check`, `ci:check:browser`, and project-owned GitHub Actions checks.
 - Hiking trail-system runtime shards and app runtime loading from `library-index.json` plus sharded trail-system data.
-- Route geometry cache, per-route load resilience, and Leaflet lifecycle fixes.
+- Bounded route geometry cache, per-route load resilience, and Leaflet lifecycle fixes.
 - Hiking and kayaking overview/detail runtime paths, kayak source import, kayak detail facility rendering, and compact kayak filters.
 - Mobile below-fold map deferral for non-overview maps.
 - Trail-system selected/context route loading; detail maps no longer fetch every background route.
@@ -1517,6 +1517,34 @@ Recommended next work:
 2. Keep library loading/filter orchestration extraction as a later app-shell cleanup candidate.
 3. Add deploy/cache-header validation only after the static hosting target is known.
 
+## Slice 44: Bounded Route Geometry Cache
+
+Status: implemented in the `codex/data-validation-foundation` worktree after Slice 43.
+
+Done:
+
+- Changed `src/map/routeGeometry.ts` from an unbounded module-level promise cache to a 96-entry LRU cache.
+- Refreshes recency on cache hits so actively used route GeoJSON stays resident.
+- Keeps failed route requests out of the cache, while guarding against older rejected promises deleting a newer cache entry for the same path.
+- Added `scripts/probe-route-geometry-cache.mjs` to directly test cache limit, oldest-entry eviction, hit recency refresh, and failed-request cleanup.
+- Added `npm run runtime:cache-probe` and wired it into `npm run ci:check`.
+
+Not done:
+
+- No route geometry files, public data, source data, or map rendering behavior changed in this slice.
+- No per-activity cache partitions were added. The LRU keeps the simpler shared cache while bounding memory growth across hiking and kayaking.
+
+Known warnings and follow-up:
+
+- The 96-entry limit is intentionally conservative for the current selected/context loading model. If future features intentionally preload many more routes, adjust the limit with probe coverage rather than making the cache unbounded again.
+- The browser route request-budget probe still validates app-level fetch behavior; the new cache probe validates cache mechanics in isolation.
+
+Recommended next work:
+
+1. Extract library loading, activity filter state, and derived visible-item computation from `src/main.tsx` into focused hooks if continuing app-shell cleanup.
+2. Decide when legacy compatibility hiking JSON can stop being generated after deploy compatibility is clear.
+3. Add deploy/cache-header validation only after the static hosting target is known.
+
 ## Verification Checklist
 
 Run after each implementation slice:
@@ -1524,6 +1552,7 @@ Run after each implementation slice:
 ```bash
 npm run data:build   # when source data, generator code, or public data contracts changed
 npm run ci:check
+npm run runtime:cache-probe
 npm run runtime:browser-probe   # when Chrome/Chromium is available; equivalent to the extra check in ci:check:browser
 git diff --check
 ```
