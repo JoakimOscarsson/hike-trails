@@ -1,5 +1,5 @@
 import React from "react";
-import { AlertTriangle, ArrowLeft, CalendarDays, Check, ChevronDown, ExternalLink, Info, Layers, MapPin, Mountain, Star, Tent, Train } from "lucide-react";
+import { AlertTriangle, ArrowLeft, CalendarDays, Check, ChevronDown, ExternalLink, Info, Layers, MapPin, Star, Tent, Train } from "lucide-react";
 import type { TrailCommuteStop, TrailFacility, TrailSystem } from "../types";
 import { useTrailSectionDetails } from "../data/useTrailSectionDetails";
 import {
@@ -416,7 +416,6 @@ export function TrailSystemDetails({
       <dl className="facts">
         <DetailRow icon={<MapPin size={18} />} label="Selected" value={formatDistance(distanceKm)} />
         <DetailRow icon={<CalendarDays size={18} />} label="Recommended" value={recommendedTimeLabels[recommendation]} />
-        <DetailRow icon={<Mountain size={18} />} label="Difficulty" value={trailSystem.difficulty} />
         <DetailRow icon={<Info size={18} />} label="Range" value={`${firstSection.from} to ${lastSection.to}`} />
       </dl>
     </section>
