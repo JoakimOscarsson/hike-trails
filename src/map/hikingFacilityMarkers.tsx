@@ -103,8 +103,9 @@ function addClusteredFacilityMarker({
   center: [number, number];
   focusedFacilityId?: string;
 }) {
+  const clusterTypeClasses = [...new Set(facilities.map((facility) => `facility-cluster-has-${facility.type}`))].join(" ");
   const icon = L.divIcon({
-    className: "facility-marker facility-cluster-marker",
+    className: `facility-marker facility-cluster-marker ${clusterTypeClasses}`,
     html: renderToStaticMarkup(<span>{facilities.length}</span>),
     iconSize: [32, 32],
     iconAnchor: [16, 16],
@@ -151,7 +152,7 @@ function addClusteredFacilityMarker({
       expandedMarkers.push(spiderLeg);
       if (expandedMarker) expandedMarkers.push(expandedMarker);
     });
-    marker.openPopup();
+    if (!focusedFacilityId) marker.openPopup();
   };
   marker.on("click", toggleExpandedFacilities);
   if (shouldExpandFocusedFacility) toggleExpandedFacilities();

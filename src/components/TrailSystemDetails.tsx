@@ -395,6 +395,7 @@ function FacilityMapFilters({
             type="button"
             onClick={() => toggle(type)}
             disabled={!count}
+            data-facility-type={type}
             title={`${selectedTypes.has(type) ? "Hide" : "Show"} ${facilityTypeLabels[type]} (${count})`}
             aria-label={`${facilityTypeLabels[type]} (${count})`}
           >
@@ -412,6 +413,7 @@ function FacilityMapFilters({
               type="button"
               onClick={() => toggleCommute(type)}
               disabled={!count}
+              data-commute-type={type}
               title={`${selectedCommuteTypes.has(type) ? "Hide" : "Show"} ${label} (${count})`}
               aria-label={`${label} (${count})`}
             >
