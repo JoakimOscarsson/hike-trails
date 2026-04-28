@@ -537,7 +537,9 @@ async function collectAccessibility(client) {
   } else {
     addPass("Search inputs expose accessible names.");
   }
-  if (result.activityButtons.some((button) => button.pressed !== "true" && button.pressed !== "false")) {
+  if (!result.activityButtons.length) {
+    addPass("Activity switch is temporarily hidden while the app focuses on hiking.");
+  } else if (result.activityButtons.some((button) => button.pressed !== "true" && button.pressed !== "false")) {
     addFinding("accessibility", "Activity switch buttons are missing aria-pressed state.", "accessibility");
   } else {
     addPass("Activity switch buttons expose pressed state.");
@@ -683,16 +685,6 @@ async function exerciseUi(client, origin) {
 
   await clickButton(client, "Back to overview");
   await waitForText(client, "Hiking Routes");
-  await clickButton(client, "Kayaking");
-  await waitForText(client, "Kayak Trips");
-  await collectLayout(client, "1024x768 kayaking overview");
-  await clickButton(client, "Långholmen and Reimersholme loop");
-  await waitForText(client, "Do not use this line for navigation");
-  await collectLayout(client, "1024x768 kayak detail");
-  await collectAccessibility(client);
-
-  await setViewport(client, 320, 640);
-  await collectLayout(client, "320x640 kayak detail");
   await settleTrackedRequests();
 
   const finalRequests = requestSummary();
@@ -819,8 +811,7 @@ function renderReport({ chromePath, origin }) {
     "- Sörmlandsleden route builder with a range that exposes related route options.",
     "- 200% text zoom checks at mobile and desktop widths.",
     "- Print-media checks for route-builder and route-info states.",
-    "- Kayaking overview and a kayak detail route with the not-for-navigation warning.",
-    "- Basic accessibility state checks for search, activity switch, route buttons, disclosures, and Leaflet focus noise.",
+    "- Basic accessibility state checks for search, the temporary hiking-only activity state, route buttons, disclosures, and Leaflet focus noise.",
     "- Local hiking-route request budget for selected/context route geometry loading.",
     "",
     "## Findings",

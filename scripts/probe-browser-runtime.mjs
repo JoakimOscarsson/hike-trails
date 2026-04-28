@@ -35,11 +35,7 @@ const expectedRequests = [
   "/data/trail-systems/sormlandsleden/sections-index.json",
   "/data/trail-systems/sormlandsleden/route-groups.json",
   "/data/trail-systems/sormlandsleden/presets.json",
-  "/data/trail-systems/sormlandsleden/sections/sormlandsleden-stage-1.json",
-  "/data/overviews/kayaking.geojson",
-  "/data/kayak-facilities.json",
-  "/data/kayak-trips/langholmen-reimersholme-loop.json",
-  "/routes/kayaking/langholmen-reimersholme-loop.geojson"
+  "/data/trail-systems/sormlandsleden/sections/sormlandsleden-stage-1.json"
 ];
 
 const forbiddenRequestPatterns = [
@@ -877,7 +873,7 @@ async function assertOverviewRouteColorVariety(client, { scope, minimumUniqueCol
   }
 }
 
-async function exerciseApp(client, origin, expectations) {
+async function exerciseApp(client, origin) {
   await client.send("Network.enable");
   await client.send("Runtime.enable");
   await client.send("Page.enable");
@@ -921,31 +917,10 @@ async function exerciseApp(client, origin, expectations) {
   await assertInfoPrintPolish(client);
   await clickButton(client, "Back to overview");
   await waitForText(client, "Hiking Routes");
-
-  await clickButton(client, "Kayaking");
-  await waitForText(client, "Kayak Trips");
-  await waitForRequest("/data/overviews/kayaking.geojson");
-  await assertOverviewRouteColorVariety(client, {
-    scope: "kayaking overview colors",
-    minimumUniqueColors: Math.min(expectations.total, 24)
-  });
-  await waitForRequest("/data/kayak-facilities.json");
-  await exerciseKayakFilters(client, expectations);
-
-  await clickButton(client, "Långholmen and Reimersholme loop");
-  await waitForText(client, "Långholmen and Reimersholme loop");
-  await waitForText(client, "Do not use this line for navigation");
-  await waitForRequest("/data/kayak-trips/langholmen-reimersholme-loop.json");
-  await waitForRequest("/routes/kayaking/langholmen-reimersholme-loop.geojson");
-  await settleBrowserRequests();
 }
 
 async function main() {
   const chromePath = await findChromeExecutable();
-  const expectations = await kayakFilterExpectations().catch((error) => {
-    addError("kayak filter expectations", `Could not read generated kayak index data: ${error.message}`);
-    return null;
-  });
   if (!chromePath) {
     addError("browser executable", "Could not find Chrome/Chromium. Set CHROME_BIN or BROWSER_BIN to run the browser runtime probe.");
   }
@@ -954,11 +929,11 @@ async function main() {
   let browser;
   let client;
   try {
-    if (chromePath && expectations) {
+    if (chromePath) {
       vite = await startVite();
       browser = await launchBrowser(chromePath);
       client = await createPage(browser.debugPort);
-      await exerciseApp(client, vite.origin, expectations);
+      await exerciseApp(client, vite.origin);
       assertRequests();
       assertRouteRequestBudget();
     }
@@ -993,9 +968,7 @@ async function main() {
   console.log("Browser runtime probe passed.");
   console.log(`- local runtime requests observed: ${new Set(requestPaths()).size} unique paths, ${appRequests.length} total requests`);
   console.log("- trail-system selections used shard JSON and did not request legacy all-in-one trail-system JSON");
-  console.log("- kayak overview, facilities, detail, and route corridor loaded from public runtime paths");
   console.log("- overview maps expose a broad visible route-color scale");
-  console.log("- kayak water/exposure/confidence filters update from compact index metadata without detail/route fetches");
   console.log("- trail-system maps stayed within the selected/context route request budget");
   console.log("- route builder accessibility and print overflow checks passed");
 }
