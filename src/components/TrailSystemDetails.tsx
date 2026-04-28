@@ -160,10 +160,12 @@ export function FacilityList({
         <div className="facility-accordion">
           {facilityCounts.map((group) => {
             const isOpen = openGroups.has(group.id);
+            const panelId = `facility-panel-${group.id}`;
 
             return (
               <div className="facility-group" key={group.id}>
                 <button
+                  aria-controls={panelId}
                   aria-expanded={isOpen}
                   className="facility-group-toggle"
                   type="button"
@@ -178,7 +180,7 @@ export function FacilityList({
                 </button>
 
                 {group.facilities.length ? (
-                  <div className={isOpen ? "facility-panel" : "facility-panel collapsed"}>
+                  <div id={panelId} className={isOpen ? "facility-panel" : "facility-panel collapsed"}>
                     <div className="facility-list">
                       {group.facilities.map((facility) => (
                         <article className="facility-item" key={facility.id}>
@@ -211,7 +213,7 @@ export function FacilityList({
                     </div>
                   </div>
                 ) : (
-                  <p className={isOpen ? "empty-group facility-panel" : "empty-group facility-panel collapsed"}>
+                  <p id={panelId} className={isOpen ? "empty-group facility-panel" : "empty-group facility-panel collapsed"}>
                     No researched entries in this category for the selected route.
                   </p>
                 )}
@@ -288,6 +290,7 @@ function TransitAccessList({ sections }: { sections: TrailSection[] }) {
   return (
     <section className="info-block transit-block">
       <button
+        aria-controls="transit-access-panel"
         aria-expanded={isOpen}
         className="facility-group-toggle transit-toggle"
         type="button"
@@ -301,7 +304,7 @@ function TransitAccessList({ sections }: { sections: TrailSection[] }) {
         <ChevronDown className={isOpen ? "chevron open" : "chevron"} size={16} aria-hidden="true" />
       </button>
 
-      <div className={isOpen ? "transit-panel" : "transit-panel collapsed"}>
+      <div id="transit-access-panel" className={isOpen ? "transit-panel" : "transit-panel collapsed"}>
         {accessPoints.length ? (
           <>
             <div className="transit-list selected-transit-list">
