@@ -27,14 +27,17 @@ export function commuteStopsForAccessPoints(accessPoints: SelectedTrailAccessPoi
 
 export function addHikingCommuteMarkers({
   accessPoints,
-  markerLayerGroup
+  markerLayerGroup,
+  visibleTypes
 }: {
   accessPoints: SelectedTrailAccessPoint[];
   markerLayerGroup: L.LayerGroup;
+  visibleTypes?: Set<TrailCommuteStop["type"]>;
 }) {
   const markers: L.Layer[] = [];
 
   for (const stop of commuteStopsForAccessPoints(accessPoints)) {
+    if (visibleTypes && !visibleTypes.has(stop.type)) continue;
     const icon = L.divIcon({
       className: `commute-marker commute-marker-${stop.type}`,
       html: renderToStaticMarkup(stop.type === "bus" ? <BusFront size={14} /> : <Train size={14} />),

@@ -27,6 +27,7 @@ export function TrailSystemMap({
   primarySections = selectedSections,
   facilities,
   visibleFacilityTypes,
+  visibleCommuteTypes,
   focusTarget
 }: {
   trailSystem: TrailSystem;
@@ -34,6 +35,7 @@ export function TrailSystemMap({
   primarySections?: TrailSection[];
   facilities?: TrailFacility[];
   visibleFacilityTypes?: Set<FacilityType>;
+  visibleCommuteTypes?: Set<"bus" | "train">;
   focusTarget?: TrailMapFocusTarget | null;
 }) {
   const { containerRef, mapRef } = useLeafletMap(trailSystem.map.center, trailSystem.map.zoom);
@@ -44,6 +46,7 @@ export function TrailSystemMap({
   const commuteKey = accessPoints
     .flatMap((accessPoint) => [accessPoint.busStop, accessPoint.trainStop])
     .filter(Boolean)
+    .filter((stop) => !visibleCommuteTypes || visibleCommuteTypes.has(stop!.type))
     .map((stop) => `${stop?.id}:${stop?.distanceKm}`)
     .join("|");
   const facilityKey = (facilities ?? [])
@@ -119,7 +122,7 @@ export function TrailSystemMap({
           focusedFacilityId: focusTarget?.id
         })
       );
-      markerLayerRefs.push(...addHikingCommuteMarkers({ accessPoints, markerLayerGroup }));
+      markerLayerRefs.push(...addHikingCommuteMarkers({ accessPoints, markerLayerGroup, visibleTypes: visibleCommuteTypes }));
 
       fitSelectedLayersOrMarkers({ map, selectedLayers, markerLayers: markerLayerRefs });
       if (focusTarget) {
@@ -138,7 +141,18 @@ export function TrailSystemMap({
       routeLayers.remove();
       markerLayerGroup.remove();
     };
-  }, [accessPoints, commuteKey, facilities, facilityKey, focusTarget, primaryKey, selectedKey, trailSystem, visibleFacilityTypes]);
+  }, [
+    accessPoints,
+    commuteKey,
+    facilities,
+    facilityKey,
+    focusTarget,
+    primaryKey,
+    selectedKey,
+    trailSystem,
+    visibleCommuteTypes,
+    visibleFacilityTypes
+  ]);
 
   return (
     <>

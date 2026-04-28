@@ -1,5 +1,5 @@
 import React from "react";
-import { AlertTriangle, ArrowLeft, CalendarDays, Check, ChevronDown, ExternalLink, Info, Layers, MapPin, Star, Tent, Train } from "lucide-react";
+import { AlertTriangle, ArrowLeft, BusFront, CalendarDays, Check, ChevronDown, ExternalLink, Info, Layers, MapPin, Star, Tent, Train } from "lucide-react";
 import type { TrailAccessPoint, TrailCommuteStop, TrailFacility, TrailSection, TrailSystem } from "../types";
 import { useTrailSectionDetails } from "../data/useTrailSectionDetails";
 import {
@@ -336,11 +336,17 @@ function TransitAccessList({ sections }: { sections: TrailSection[] }) {
 function FacilityMapFilters({
   selectedTypes,
   onChange,
-  facilities
+  facilities,
+  accessPoints,
+  selectedCommuteTypes,
+  onCommuteChange
 }: {
   selectedTypes: Set<FacilityType>;
   onChange: (types: Set<FacilityType>) => void;
   facilities: TrailFacility[];
+  accessPoints: SelectedTrailAccessPoint[];
+  selectedCommuteTypes: Set<TrailCommuteStop["type"]>;
+  onCommuteChange: (types: Set<TrailCommuteStop["type"]>) => void;
 }) {
   const counts = React.useMemo(
     () =>
@@ -350,12 +356,29 @@ function FacilityMapFilters({
       })),
     [facilities]
   );
+  const commuteCounts = React.useMemo(
+    () =>
+      (["bus", "train"] as const).map((type) => {
+        const stopIds = new Set(
+          accessPoints.flatMap((accessPoint) => [accessPoint.busStop, accessPoint.trainStop]).filter((stop) => stop?.type === type).map((stop) => stop!.id)
+        );
+        return { type, count: stopIds.size };
+      }),
+    [accessPoints]
+  );
 
   function toggle(type: FacilityType) {
     const next = new Set(selectedTypes);
     if (next.has(type)) next.delete(type);
     else next.add(type);
     onChange(next);
+  }
+
+  function toggleCommute(type: TrailCommuteStop["type"]) {
+    const next = new Set(selectedCommuteTypes);
+    if (next.has(type)) next.delete(type);
+    else next.add(type);
+    onCommuteChange(next);
   }
 
   return (
@@ -379,6 +402,24 @@ function FacilityMapFilters({
             <span>{count}</span>
           </button>
         ))}
+        {commuteCounts.map(({ type, count }) => {
+          const label = type === "bus" ? "Bus stops" : "Train stations";
+          return (
+            <button
+              key={type}
+              aria-pressed={selectedCommuteTypes.has(type)}
+              className={selectedCommuteTypes.has(type) ? "map-filter-chip active commute-filter-chip" : "map-filter-chip commute-filter-chip"}
+              type="button"
+              onClick={() => toggleCommute(type)}
+              disabled={!count}
+              title={`${selectedCommuteTypes.has(type) ? "Hide" : "Show"} ${label} (${count})`}
+              aria-label={`${label} (${count})`}
+            >
+              {type === "bus" ? <BusFront size={15} aria-hidden="true" /> : <Train size={15} aria-hidden="true" />}
+              <span>{count}</span>
+            </button>
+          );
+        })}
       </div>
     </div>
   );
@@ -417,6 +458,9 @@ export function TrailSystemDetails({
   );
   const [selectedFacilityTypes, setSelectedFacilityTypes] = React.useState<Set<FacilityType>>(
     () => new Set(defaultFacilityTypes)
+  );
+  const [selectedCommuteTypes, setSelectedCommuteTypes] = React.useState<Set<TrailCommuteStop["type"]>>(
+    () => new Set(["bus", "train"])
   );
   const [selectedContextGroupIds, setSelectedContextGroupIds] = React.useState<Set<string>>(() => new Set());
   const [mapFocusTarget, setMapFocusTarget] = React.useState<TrailMapFocusTarget | null>(null);
@@ -618,6 +662,7 @@ export function TrailSystemDetails({
                 primarySections={detailedPrimaryRouteSections}
                 facilities={selectedFacilities}
                 visibleFacilityTypes={selectedFacilityTypes}
+                visibleCommuteTypes={selectedCommuteTypes}
                 focusTarget={mapFocusTarget}
               />
             </DeferredMapMount>
@@ -629,8 +674,11 @@ export function TrailSystemDetails({
           </section>
           <FacilityMapFilters
             facilities={selectedFacilities}
+            accessPoints={accessPoints}
             selectedTypes={selectedFacilityTypes}
             onChange={setSelectedFacilityTypes}
+            selectedCommuteTypes={selectedCommuteTypes}
+            onCommuteChange={setSelectedCommuteTypes}
           />
         </div>
 
@@ -828,6 +876,7 @@ export function TrailSystemDetails({
                 primarySections={detailedPrimaryRouteSections}
                 facilities={selectedFacilities}
                 visibleFacilityTypes={selectedFacilityTypes}
+                visibleCommuteTypes={selectedCommuteTypes}
                 focusTarget={mapFocusTarget}
               />
             </DeferredMapMount>
@@ -835,8 +884,11 @@ export function TrailSystemDetails({
           </section>
           <FacilityMapFilters
             facilities={selectedFacilities}
+            accessPoints={accessPoints}
             selectedTypes={selectedFacilityTypes}
             onChange={setSelectedFacilityTypes}
+            selectedCommuteTypes={selectedCommuteTypes}
+            onCommuteChange={setSelectedCommuteTypes}
           />
         </div>
       </section>
