@@ -148,11 +148,13 @@ export const facilityCategoryGroups: Array<{
   icon: ReactNode;
   types: FacilityType[];
 }> = [
-  { id: "overnight", title: "Camping And Shelters", icon: <Tent size={18} />, types: ["campsite", "camping", "shelter", "unofficial-shelter", "lodging"] },
-  { id: "fire-rest", title: "Fireplaces And Rest Areas", icon: <Flame size={18} />, types: ["fireplace", "rest-area"] },
-  { id: "water-toilet", title: "Water And Toilets", icon: <Droplets size={18} />, types: ["water", "natural-water", "toilet"] },
-  { id: "services", title: "Food, Swimming, Parking, Transit", icon: <Utensils size={18} />, types: ["food", "service", "swimming", "parking", "transit", "waste"] },
-  { id: "poi-warning", title: "Attractions, Heritage, Warnings", icon: <Landmark size={18} />, types: ["attraction", "heritage", "viewpoint", "trail-junction", "rule-warning", "hazard"] }
+  { id: "overnight", title: "Overnight", icon: <Tent size={18} />, types: ["campsite", "camping", "shelter", "unofficial-shelter", "lodging"] },
+  { id: "fire-rest", title: "Fire and rest", icon: <Flame size={18} />, types: ["fireplace", "rest-area"] },
+  { id: "water-toilet", title: "Water and toilets", icon: <Droplets size={18} />, types: ["water", "natural-water", "toilet"] },
+  { id: "food-service", title: "Food and services", icon: <Utensils size={18} />, types: ["food", "service", "waste"] },
+  { id: "swimming", title: "Swimming", icon: <Waves size={18} />, types: ["swimming"] },
+  { id: "access", title: "Access", icon: <Train size={18} />, types: ["parking", "transit", "trail-junction"] },
+  { id: "places-warnings", title: "Places and warnings", icon: <Landmark size={18} />, types: ["attraction", "heritage", "viewpoint", "rule-warning", "hazard"] }
 ];
 
 export const defaultFacilityTypes: FacilityType[] = [
