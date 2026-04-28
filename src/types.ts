@@ -50,7 +50,7 @@ export type HikeLocation = {
   start: [number, number];
 };
 
-export type RecommendedTime = "dayhike" | "weekend" | "3-5-days" | "6-plus-days";
+export type RecommendedTime = "dayhike" | "weekend" | "3-5-days" | "6-10-days" | "10-plus-days" | "6-plus-days";
 
 export type TripDuration = "half-day" | RecommendedTime;
 

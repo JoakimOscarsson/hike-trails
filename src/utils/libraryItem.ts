@@ -13,7 +13,9 @@ const durationLabels: Record<TripDuration, string> = {
   dayhike: "Day hike",
   weekend: "Weekend",
   "3-5-days": "3-5 days",
-  "6-plus-days": "6+ days"
+  "6-10-days": "6-10 days",
+  "10-plus-days": "10+ days",
+  "6-plus-days": "6-10 days"
 };
 
 export function isKayakTripIndexItem(item: LibraryIndexItem): item is KayakTripIndexItem {

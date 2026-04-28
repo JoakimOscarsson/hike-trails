@@ -108,6 +108,11 @@ try {
       endSectionId: "c",
       distanceKm: 11
     });
+    assert.deepEqual(routeSelection.matchingSectionRange(sections, "long"), {
+      startSectionId: "b",
+      endSectionId: "d",
+      distanceKm: 24
+    });
     assert.equal(routeSelection.matchingSectionRange(sections, "all"), null);
   });
 
@@ -152,13 +157,16 @@ try {
       itemType: "trail-system",
       distanceKm: 150,
       sectionDistances: [150],
-      routeGroupDistances: [[3, 4, 9], [25]]
+      routeGroupDistances: [[3, 4, 9], [25], [42]]
     };
 
     assert.equal(routeSelection.hasTrailSystemRouteInRange(trailSystemItem, 5, 10), true);
     assert.equal(routeSelection.hasTrailSystemRouteOver(trailSystemItem, 20), true);
     assert.equal(namedFilter(filters.distanceFilters, "short").matches(trailSystemItem), true);
     assert.equal(namedFilter(filters.distanceFilters, "half-day").matches(trailSystemItem), true);
+    assert.equal(namedFilter(filters.distanceFilters, "long").matches(trailSystemItem), true);
+    assert.equal(namedFilter(filters.distanceFilters, "very-long").matches(trailSystemItem), true);
+    assert.equal(namedFilter(filters.recommendedTimeFilters, "10-plus-days").matches(trailSystemItem), false);
   });
 
   test("matches kayak duration, service, and metadata filters", () => {

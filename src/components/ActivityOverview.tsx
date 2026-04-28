@@ -26,6 +26,8 @@ const durationWeight: Record<TripDuration, number> = {
   dayhike: 1,
   weekend: 2,
   "3-5-days": 3,
+  "6-10-days": 4,
+  "10-plus-days": 5,
   "6-plus-days": 4
 };
 
