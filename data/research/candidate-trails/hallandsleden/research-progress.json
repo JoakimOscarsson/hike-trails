@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-29T20:06:11Z",
-  "currentPhase": "Phase 2 complete through hallandsleden-akulla-astad; ready to start hallandsleden-varberg-akulla",
+  "lastUpdated": "2026-04-29T20:26:09Z",
+  "currentPhase": "Phase 2 complete through hallandsleden-varberg-akulla; ready to start hallandsleden-akulla-ullared",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -9,7 +9,8 @@
     "hallandsleden-stattared-veddige",
     "hallandsleden-veddige-nosslinge",
     "hallandsleden-nosslinge-akulla",
-    "hallandsleden-akulla-astad"
+    "hallandsleden-akulla-astad",
+    "hallandsleden-varberg-akulla"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -197,19 +198,25 @@
       "sectionNumber": "N8",
       "name": "Varberg - Åkulla",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-map-line-discovered-needs-gpx-cross-check",
-      "startEndCoordinateStatus": "official-map-line-endpoints-captured-needs-validation",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-initial-six-lane-synthesis",
+      "routeGeometryStatus": "complete-official-gpx-api-geo_json-verified-ignore-api-line_geometry-osm-as-canonical",
+      "startEndCoordinateStatus": "complete-high-confidence-official-gpx-api-with-akulla-junction-snap-caveat",
+      "commuteAccessStatus": "complete-with-seasonal-akulla-and-line-651-fallback-caveats",
+      "facilityResearchStatus": "complete-with-varberg-urban-overinclusion-and-akulla-dedupe-caveats",
+      "rulesSafetyStatus": "complete-with-akullaboket-nabben-grimeton-dynamic-fire-caveats",
+      "synthesisStatus": "complete",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
-        "Run six independent section research lanes and synthesize findings.",
-        "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
-        "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Before normalization, decide whether to preserve the official GPX endpoint exactly or snap/display the N8 end to the shared Åkulla junction used by N6/N7/M1.",
+        "Before navigation-grade use, inspect the 487.9 m GPX maximum segment and the roughly 300 m GPX-to-OSM local divergence near 57.117240,12.333424.",
+        "Ask Hallandsleden/Varberg why API line.geometry and GPX/API geo_json coexist with a 322 m different Varberg start; until resolved, suppress line.geometry for canonical import.",
+        "Verify Naturkartan API access/key and site 19216 geometry before using its endpoint as import evidence.",
+        "Run protected-area polygon overlay for Åkullaboket and Nabben/Bockstens mosse before attaching span-level reserve rules.",
+        "Verify whether the route enters Grimeton World Heritage core/buffer area or only passes within visual range.",
+        "Verify current Hallandstrafiken planner, Åkturen dates, Varberg bus bay and line 651 fallback stops close to publication/use.",
+        "Decide whether the app should model side-trip POIs more than 1 km off-route, especially Grimeton and Bockstens mosse.",
+        "Confirm whether Åkulla endpoint facilities should be a single clustered record or separate water/shelter/resort/fireplace records.",
+        "Do not infer potable water in the rural middle of N8 unless another source confirms coordinates/access."
       ]
     },
     "hallandsleden-akulla-ullared": {
@@ -1163,21 +1170,111 @@
       "completedAt": "2026-04-29T20:06:11Z",
       "synthesisFile": "sections/hallandsleden-akulla-astad.research.json",
       "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around canonical official GPX/API geo_json versus stale API line.geometry/OSM endpoints, Byasjön practical endpoint versus Ästad title/access, N6/N7/M7 junction continuity, 2024 Kalvsjön reroute, Åkulla/Byasjön facility dedupe, seasonal Yasjön island access, Långanskogen/Toppbjär/Åkullaboket/Skärbäck/Skogsbo/Valaklitt reserve overlay needs, Byasjön potable-water gap, and endpoint transit connector requirements."
+    },
+    {
+      "batchId": "hallandsleden-varberg-akulla-initial-6-lane-2026-04-29",
+      "sectionId": "hallandsleden-varberg-akulla",
+      "startedAt": "2026-04-29T20:09:28Z",
+      "status": "completed-and-synthesized",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddadc-3ced-7cc2-811c-00c9ae483a99",
+          "nickname": "Goodall"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddadc-3dbc-7212-a5a8-f054e8162772",
+          "nickname": "Kepler"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddadc-3e56-7da1-b7a7-3e83c4aa7a37",
+          "nickname": "Peirce"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddadc-3fd3-7fc2-b854-17d0633f7408",
+          "nickname": "Hilbert"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddadc-40cb-7703-b676-210240383d0f",
+          "nickname": "Kant"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddadc-41d7-7b73-a6bd-1d63b6204fc0",
+          "nickname": "Volta"
+        }
+      ],
+      "requestedOutputs": [
+        "official facts",
+        "geometry verification",
+        "facilities",
+        "transit/access",
+        "field reports",
+        "rules/safety/currentness"
+      ],
+      "notes": [
+        "Focus on Varberg urban start, Åkulla junction endpoint offsets/dedupe, N8 branch/spur topology, coastal/urban services, Grimeton/Bockstens/Åkulla currentness, and geometry conflicts."
+      ],
+      "receivedReports": [
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddadc-41d7-7b73-a6bd-1d63b6204fc0",
+          "receivedAt": "2026-04-29T20:13:55Z",
+          "summary": "Found no N8-specific closure or reroute in official sources. Main caveats are Åkullaboket endpoint/crossing rules, Åkulla bokskogar area-specific rule variability, adjacent Nabben/Bockstens side-trip restrictions, Grimeton visitor-site restrictions, dynamic fire-risk/current fire-ban volatility, Hunnestad private-property respect, and weakly evidenced rural water before Åkulla."
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddadc-40cb-7703-b676-210240383d0f",
+          "receivedAt": "2026-04-29T20:13:55Z",
+          "summary": "Found medium field evidence. Best full-stage report is En Vandringssaga 2020 reverse Åkulla-Varberg, describing long straight road/gravel/rail-embankment walking, exposure and few stops. Recent 2025 AllTrails reviews report great conditions but little detail. Route-app/commercial sources support easy but long walking, possible sparse marking and subjective low-scenery assessments."
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddadc-3fd3-7fc2-b854-17d0633f7408",
+          "receivedAt": "2026-04-29T20:14:20Z",
+          "summary": "Confirmed start commute point Varberg station, ResRobot extId 740000110, about 0.11 km from GPX start. Confirmed endpoint stop Åkulla, extId 740074382, about 0.28 km from GPX end, useful mainly in Åkturen season. Documented 2026 Åkturen dates/times, Haksered/Brännhult line 651 fallbacks, Varberg parking constraints and Åkulla parking/service context."
+        },
+        {
+          "lane": "official-sources",
+          "agentId": "019ddadc-3ced-7cc2-811c-00c9ae483a99",
+          "receivedAt": "2026-04-29T20:15:39Z",
+          "summary": "Confirmed official name Varberg - Åkulla, N8, Norra delleden, Varberg municipality/Halland, official 22 km and Green/easy grade. Captured official description, Varberg/Åkulla access, endpoint cluster and official facilities/POIs. Flagged distance/difficulty conflicts, GPX/API line start conflict, endpoint cluster, dense Varberg place over-inclusion and no N8-specific closure."
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddadc-3dbc-7212-a5a8-f054e8162772",
+          "receivedAt": "2026-04-29T20:18:23Z",
+          "summary": "Recommended official GPX/API geo_json as canonical planning-grade N8 geometry. Confirmed GPX/API geo_json is a 225-point 21.070 km LineString from Varberg station area to Åkulla, while API line.geometry is a 175-point 21.913 km conflicting line with a western Varberg start. Naturkartan mostly matches GPX but ends at the shared Åkulla junction; OSM relation 4174694 is secondary and locally divergent."
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddadc-3e56-7da1-b7a7-3e83c4aa7a37",
+          "receivedAt": "2026-04-29T20:18:50Z",
+          "summary": "Found no confirmed mid-stage shelter/campsite or potable water; facilities concentrate at Åkulla/Yasjön and Varberg start. Identified import-ready/pending records including Lägerplats Åkulla, Åkulla Outdoor Resort water/service cluster, Yasjön seasonal shelter, Obbhultsgård, Villa Stenhuset, Slumme sten, Broåsen, Hunnestad station house, Varberg start toilets/services, Grimeton and Bockstens side-trip records."
+        }
+      ],
+      "completedAt": "2026-04-29T20:26:09Z",
+      "synthesisFile": "sections/hallandsleden-varberg-akulla.research.json",
+      "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around canonical official GPX/API geo_json versus alternate API line.geometry/OSM harbor-side start, N8 as a Varberg branch/spur into Åkulla rather than a continuation from N7, Åkulla endpoint snap/connector decision, Varberg urban-service over-inclusion, Åkulla/Yasjön facility dedupe, seasonal Åkturen and fallback access, Grimeton/Bockstens side-trip handling, Åkullaboket/Nabben reserve overlays, dynamic fire-risk checks, and rural water gaps."
     }
   ],
   "sourceCoverage": {
     "officialOverview": "complete-initial-pass",
     "officialSectionInventory": "complete-initial-pass-35-sections",
-    "officialGeometry": "complete-for-first-seven-sections-with-api-line_geometry-caveats",
-    "municipalities": "overview-list-captured-from-official-footer-n1-n2-n3-n4-n5-n6-n7-section-specific-pages-reviewed",
-    "protectedAreas": "complete-for-first-seven-sections-with-n4-skoga-overlay-pending-n5-water-protection-note-n6-markedalen-akullaboket-caveats-and-n7-akullaboket-toppbjar-langanskogen-skarback-skogsbo-valaklitt-overlay-caveats",
-    "transitOperators": "complete-for-first-seven-sections",
-    "facilities": "complete-for-first-seven-sections",
-    "fieldReports": "complete-for-first-seven-sections",
-    "rulesSafety": "overview-pass-complete-n1-n2-n3-n4-n5-n6-n7-section-specific-complete"
+    "officialGeometry": "complete-for-first-eight-sections-with-api-line_geometry-caveats",
+    "municipalities": "overview-list-captured-from-official-footer-n1-n2-n3-n4-n5-n6-n7-n8-section-specific-pages-reviewed",
+    "protectedAreas": "complete-for-first-eight-sections-with-n4-skoga-overlay-pending-n5-water-protection-note-n6-markedalen-akullaboket-caveats-n7-akullaboket-toppbjar-langanskogen-skarback-skogsbo-valaklitt-overlay-caveats-and-n8-akullaboket-nabben-grimeton-overlay-caveats",
+    "transitOperators": "complete-for-first-eight-sections",
+    "facilities": "complete-for-first-eight-sections",
+    "fieldReports": "complete-for-first-eight-sections",
+    "rulesSafety": "overview-pass-complete-n1-n2-n3-n4-n5-n6-n7-n8-section-specific-complete"
   },
   "knownGaps": [
-    "Only the overview and first seven sections have been researched/synthesized; 28 later sections still need the six-lane workflow.",
+    "Only the overview and first eight sections have been researched/synthesized; 27 later sections still need the six-lane workflow.",
     "Coastal Hallandsleden is incomplete by official statement; future import must model gaps instead of stitching a continuous coast.",
     "Older sources may report 435 km / 26 stages / 3 parts; live official source reports 612 km / 35 sections / 4 subtrails.",
     "Paper maps printed June 2022 are stale for 2024 rerouted sections.",
@@ -1225,12 +1322,22 @@
     "N7: Byasjön shelter has toilet/fire/waste/recycling/wood but no confirmed potable water; do not import Byasjön as drinking water.",
     "N7: Yasjön island shelter is seasonal/access-limited: no access 1 March-30 June during bird nesting and cable raft normally 1 July-mid-October.",
     "N7: Åkullaboket, Toppbjär and Långanskogen are high-confidence protected-area contexts; Skärbäck, Skogsbo and Valaklitt need polygon overlay before being marked as crossed.",
-    "N7: no independent post-2024 field report confirming the Kalvsjön reroute was found; official 2024 reroute page and current digital GPX remain the source of truth."
+    "N7: no independent post-2024 field report confirming the Kalvsjön reroute was found; official 2024 reroute page and current digital GPX remain the source of truth.",
+    "N8: initial six-lane research started; unresolved topics include Varberg start, Åkulla endpoint offsets, branch/spur topology, geometry, urban services, Grimeton/Bockstens/Åkulla protected/currentness context.",
+    "N8: main-thread pass found official GPX and API geo_json are identical 225-point LineStrings from Varberg station area to Åkulla shelter area, computed 21.070 km, while the official API line.geometry is a 175-point 21.913 km line with a 322 m different Varberg start and 43.5 m Åkulla endpoint offset.",
+    "N8: OSM relation 4174694 was timestamped 2025-07-31 and has distance tag 22 km, 80 ways and about 22.050 km summed way length; its start is closer to API line.geometry than GPX, while its end is within about 5 m of the GPX endpoint.",
+    "N8: Naturkartan site 19216 reports 21.0 km and red/krävande, conflicting with Hallandsleden's 22 km and green/easy; do not use Naturkartan difficulty as canonical without synthesis.",
+    "N8: model as a western Varberg access branch/spur into Åkulla, not as a contiguous continuation after N7.",
+    "N8: official GPX endpoint is about 60-65 m from the shared Åkulla junction used by N6/N7/M1; decide later whether to preserve, snap, or model a connector.",
+    "N8: Varberg official places feed over-includes dense urban services; do not bulk-import all start-area restaurants/lodging as trail facilities.",
+    "N8: Åkulla endpoint public transport is seasonal via Åkturen; outside the 2026 15 June-16 August service period, Haksered/Brännhult/taxi are fallback planning notes.",
+    "N8: Grimeton and Bockstens mosse are important side-trip/visual contexts but more than 1 km from the official GPX line; do not treat as on-route facilities/rules without side-trip modeling.",
+    "N8: no confirmed potable water or shelter/camping in the rural middle of the section; Åkulla Outdoor Resort is the reliable official water point."
   ],
   "nextActions": [
-    "Continue Phase 2 with hallandsleden-varberg-akulla.",
+    "Continue Phase 2 with hallandsleden-akulla-ullared.",
     "For each remaining section, run the six-lane research workflow and update this progress file after each batch/synthesis.",
-    "When researching N8, pay special attention to Varberg urban start access, Åkulla multi-section junction dedupe, Åkulla endpoint offsets among N6/N7/N8/M1, coastal/urban service density, and any official geometry conflicts.",
+    "When researching M1, pay special attention to Åkulla multi-section junction dedupe, M1 start continuity with N6/N7/N8, Åkulla reserve rules/facility clustering, Ullared endpoint access/services, and any official geometry conflicts.",
     "Keep edits confined to data/research/candidate-trails/hallandsleden/ until explicitly asked otherwise."
   ],
   "handoffNotes": [
@@ -1238,9 +1345,10 @@
     "Only files under data/research/candidate-trails/hallandsleden/ were written.",
     "Do not edit source/runtime/generated app data. Do not run forbidden generated-data/import commands.",
     "Overview files are complete for Phase 1.",
-    "Completed section files: sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json, sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json, sections/hallandsleden-askhults-by-stattared.research.json, sections/hallandsleden-stattared-veddige.research.json, sections/hallandsleden-veddige-nosslinge.research.json, sections/hallandsleden-nosslinge-akulla.research.json, and sections/hallandsleden-akulla-astad.research.json.",
-    "Next section to research: hallandsleden-varberg-akulla.",
-    "N7 initial six-lane agent batch started 2026-04-29T19:50:16Z with agents Popper, Newton, Bernoulli, Euler, Pasteur, and Mencius, and was synthesized into sections/hallandsleden-akulla-astad.research.json at 2026-04-29T20:06:11Z."
+    "Completed section files: sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json, sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json, sections/hallandsleden-askhults-by-stattared.research.json, sections/hallandsleden-stattared-veddige.research.json, sections/hallandsleden-veddige-nosslinge.research.json, sections/hallandsleden-nosslinge-akulla.research.json, sections/hallandsleden-akulla-astad.research.json, and sections/hallandsleden-varberg-akulla.research.json.",
+    "Next section to research: hallandsleden-akulla-ullared.",
+    "N7 initial six-lane agent batch started 2026-04-29T19:50:16Z with agents Popper, Newton, Bernoulli, Euler, Pasteur, and Mencius, and was synthesized into sections/hallandsleden-akulla-astad.research.json at 2026-04-29T20:06:11Z.",
+    "N8 initial six-lane agent batch started 2026-04-29T20:09:28Z with agents Goodall, Kepler, Peirce, Hilbert, Kant, and Volta, and was synthesized into sections/hallandsleden-varberg-akulla.research.json at 2026-04-29T20:26:09Z."
   ],
   "filesWritten": [
     "README.md",
@@ -1252,7 +1360,8 @@
     "sections/hallandsleden-stattared-veddige.research.json",
     "sections/hallandsleden-veddige-nosslinge.research.json",
     "sections/hallandsleden-nosslinge-akulla.research.json",
-    "sections/hallandsleden-akulla-astad.research.json"
+    "sections/hallandsleden-akulla-astad.research.json",
+    "sections/hallandsleden-varberg-akulla.research.json"
   ],
   "meaningfulPasses": [
     {
@@ -1344,6 +1453,21 @@
       "id": "phase-2-n7-six-lane-synthesis-complete-2026-04-29",
       "completedAt": "2026-04-29T20:06:11Z",
       "summary": "Synthesized six lane reports and main-thread API/GPX/Naturkartan/OSM/ResRobot/Hallandstrafiken/protected-area checks for N7 into a section research JSON. Marked N7 research-ready with caveats around canonical official GPX/API geo_json versus stale API line.geometry/OSM endpoints, Byasjön practical endpoint versus Ästad title/access, N6/N7/M7 junction continuity, 2024 Kalvsjön reroute, Åkulla/Byasjön facility dedupe, seasonal Yasjön island access, Långanskogen/Toppbjär/Åkullaboket/Skärbäck/Skogsbo/Valaklitt reserve overlay needs, Byasjön potable-water gap, and endpoint transit connector requirements."
+    },
+    {
+      "id": "phase-2-n8-initial-agent-batch-started-2026-04-29",
+      "completedAt": "2026-04-29T20:09:28Z",
+      "summary": "Started Phase 2 six-lane research workflow for N8 Varberg - Åkulla. Main thread retains file-write ownership and flagged Varberg urban start access, Åkulla junction endpoint offsets/dedupe, N8 branch/spur topology, coastal/urban services, Grimeton/Bockstens/Åkulla currentness, and geometry conflicts for the agents."
+    },
+    {
+      "id": "phase-2-n8-main-thread-official-api-gpx-access-pass-2026-04-29",
+      "completedAt": "2026-04-29T20:15:09Z",
+      "summary": "Fetched N8 official page, English mirror, GPX, map API, places API, Naturkartan page/site id, OSM relation 4174694, ResRobot stop lookups, and adjacent Åkulla endpoint comparisons. Found official GPX/API geo_json is a 225-point LineString from Varberg station area to Åkulla, computes 21.070 km and starts/ends at 57.110104,12.249553 and 57.125222,12.562309. API line.geometry is a different 175-point 21.913 km line starting 322 m from the GPX start and ending 43.5 m from GPX end. OSM relation 4174694 has a 2025 timestamp, distance tag 22 km and about 22.050 km summed ways, with a start closer to API line.geometry than GPX. Places API returned 32 records including Varberg urban services, Grimeton/Slumme sten/Broåsen/Hunnestad sights, Åkulla shelter/water/resort/stop, Yasjön shelter, and Bockstensmosse side-trip context. Varberg station is about 154 m from the GPX start; Åkulla stop is about 281 m from the GPX end."
+    },
+    {
+      "id": "phase-2-n8-six-lane-synthesis-complete-2026-04-29",
+      "completedAt": "2026-04-29T20:26:09Z",
+      "summary": "Synthesized six lane reports and main-thread API/GPX/Naturkartan/OSM/ResRobot/Hallandstrafiken/protected-area checks for N8 into a section research JSON. Marked N8 research-ready with caveats around canonical official GPX/API geo_json versus alternate API line.geometry/OSM harbor-side start, N8 as a Varberg branch/spur into Åkulla rather than a continuation from N7, Åkulla endpoint snap/connector decision, dense Varberg urban-service over-inclusion, Åkulla/Yasjön facility dedupe, seasonal Åkturen and fallback access, Grimeton/Bockstens side-trip handling, Åkullaboket/Nabben reserve overlays, dynamic fire-risk checks, and rural water gaps."
     }
   ]
 }

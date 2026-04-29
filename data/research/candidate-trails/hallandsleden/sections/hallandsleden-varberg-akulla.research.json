@@ -1,0 +1,1487 @@
+{
+  "schemaVersion": "candidate-trail-section-research-v1",
+  "trailId": "hallandsleden",
+  "sectionId": "hallandsleden-varberg-akulla",
+  "sectionNumber": "N8",
+  "name": "Varberg - Åkulla",
+  "from": "Varberg",
+  "to": "Åkulla",
+  "distanceKm": 22,
+  "estimatedTime": {
+    "official": null,
+    "secondarySources": [
+      {
+        "source": "AllTrails",
+        "value": "5-5.5 hr",
+        "coverage": "route-app estimate for Hallandsleden Varberg - Åkulla",
+        "confidence": "medium-low"
+      },
+      {
+        "source": "Outdooractive",
+        "value": "5:15 h",
+        "coverage": "reverse/secondary route-app metadata",
+        "confidence": "low"
+      },
+      {
+        "source": "En Vandringssaga",
+        "value": "about 4 hours with few/no real stops",
+        "coverage": "reverse direction Åkulla - Varberg, walked 2020-08-15 in hot weather",
+        "confidence": "low"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Official Hallandsleden page/API had no time value. Secondary estimates vary and should not be treated as official."
+  },
+  "difficulty": {
+    "officialLabel": "Grön",
+    "officialApiValue": "easy",
+    "normalized": "easy",
+    "confidence": "high",
+    "notes": "Hallandsleden says the section is easy overall, mostly flat, and follows streets/cycleways plus the old railway embankment. The Swedish text notes the short Flähult passage, where hikers leave and regain the embankment, is more blue than green. Naturkartan says red/krävande and route apps say moderate or hard, likely because of distance rather than technical terrain."
+  },
+  "routeType": {
+    "type": "point-to-point branch/access section",
+    "notes": "Official order lists this as N8 after N7, but it is not a contiguous continuation from Ästad. It is best modeled as a western Varberg access branch/spur into the Åkulla junction, connecting near N6, N7 and M1 at Åkulla."
+  },
+  "officialSources": [
+    {
+      "title": "Hallandsleden section page",
+      "url": "https://www.hallandsleden.se/etapp/varberg-akulla",
+      "accessed": "2026-04-29",
+      "sourceType": "official trail page",
+      "note": "Primary official page for name, section text, difficulty, access and GPX download."
+    },
+    {
+      "title": "Hallandsleden English section page",
+      "url": "https://www.hallandsleden.se/en/etapp/varberg-akulla",
+      "accessed": "2026-04-29",
+      "sourceType": "official trail page mirror",
+      "note": "Useful English mirror; Swedish page has fuller public-transport and accommodation wording."
+    },
+    {
+      "title": "Official Hallandsleden GPX",
+      "url": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Norra_Varberg_Akulla.gpx",
+      "accessed": "2026-04-29",
+      "sourceType": "official GPX"
+    },
+    {
+      "title": "Hallandsleden section map API",
+      "url": "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=varberg-akulla&token=<public-page-token>",
+      "accessed": "2026-04-29",
+      "sourceType": "official trail API",
+      "note": "API geo_json matches the official GPX. API line.geometry is a conflicting official cartographic line with a different Varberg start and should not supersede the GPX/API geo_json."
+    },
+    {
+      "title": "Hallandsleden places API",
+      "url": "https://www.hallandsleden.se/api/v2/places?trackSegment=varberg-akulla&bigLimit=150&withImages=true&output=json&token=<public-page-token>",
+      "accessed": "2026-04-29",
+      "sourceType": "official places API",
+      "note": "Returned 32 official place records; many are Varberg urban services or off-route side-trip POIs that need import filtering."
+    },
+    {
+      "title": "Naturkartan Varberg - Åkulla, Hallandsleden",
+      "url": "https://www.naturkartan.se/sv/hallands-lan/varberg-akulla-hallandsleden",
+      "accessed": "2026-04-29",
+      "sourceType": "official-ish Varberg/Naturkartan trail page",
+      "note": "Site id 19216. Page marker matches official GPX start; metadata says 21.0 km and red/krävande, conflicting with Hallandsleden's 22 km and green/easy."
+    },
+    {
+      "title": "Naturkartan site API 19216",
+      "url": "https://api.naturkartan.se/v3.2/sites/19216",
+      "accessed": "2026-04-29",
+      "sourceType": "secondary geometry API",
+      "pageUpdated": "2026-04-27T13:11:49",
+      "note": "Agent route/official passes reported a 198-point MultiLineString that starts at the GPX start and ends at the shared Åkulla junction. Direct anonymous fetch later returned 401; retain as sourced agent finding and verify API key/access before import."
+    },
+    {
+      "title": "OpenStreetMap relation 4174694",
+      "url": "https://www.openstreetmap.org/relation/4174694",
+      "accessed": "2026-04-29",
+      "sourceType": "OSM route relation",
+      "note": "Secondary validation only. Relation is continuous and timestamped 2025-07-31 but begins near the harbor/API line.geometry start and diverges locally from official GPX."
+    },
+    {
+      "title": "Hallandsleden Important Information",
+      "url": "https://www.hallandsleden.se/item/viktig-information/i48rep1ncwkafz7wux50lp0dhxvboodp",
+      "accessed": "2026-04-29",
+      "sourceType": "official currentness/rules page",
+      "pageUpdated": "2025-04-15"
+    },
+    {
+      "title": "Hallandsleden New Trail Routes",
+      "url": "https://hallandsleden.se/item/nya-leddragningar-1/f22cgopgvzykg0snvt9jgr6lxgvdb1n5",
+      "accessed": "2026-04-29",
+      "sourceType": "official currentness/reroute page",
+      "pageUpdated": "2024-11-07",
+      "note": "No N8-specific reroute found; page warns that June 2022 paper maps can be stale."
+    },
+    {
+      "title": "Länsstyrelsen Åkullaboket",
+      "url": "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/akullaboket.html",
+      "accessed": "2026-04-29",
+      "sourceType": "official protected-area page"
+    },
+    {
+      "title": "Länsstyrelsen Åkulla bokskogar",
+      "url": "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/akulla-bokskogar.html",
+      "accessed": "2026-04-29",
+      "sourceType": "official protected-area umbrella page"
+    },
+    {
+      "title": "Länsstyrelsen Nabben",
+      "url": "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/nabben.html",
+      "accessed": "2026-04-29",
+      "sourceType": "official protected-area page",
+      "note": "Relevant to Bockstens mosse side-trip context, not confirmed as crossed by the N8 main line."
+    },
+    {
+      "title": "Länsstyrelsen Broåsen",
+      "url": "https://www.lansstyrelsen.se/halland/besoksmal/kulturmiljoer/broasen.html",
+      "accessed": "2026-04-29",
+      "sourceType": "official cultural-environment page"
+    },
+    {
+      "title": "Grimeton Radio Station",
+      "url": "https://grimeton.org/",
+      "accessed": "2026-04-29",
+      "sourceType": "official World Heritage visitor/operator site"
+    },
+    {
+      "title": "Hallandstrafiken Åkturen",
+      "url": "https://www.hallandstrafiken.se/akturen",
+      "accessed": "2026-04-29",
+      "sourceType": "official transit operator page"
+    },
+    {
+      "title": "ResRobot stop lookup: Varberg station",
+      "url": "https://reseplanerare.resrobot.se/bin/ajax-getstop.exe/en?REQ0JourneyStopsS0A=1&S=Varberg%20station&js=true&look_maxno=10&look_stopclass=1023",
+      "accessed": "2026-04-29",
+      "sourceType": "national transit stop data"
+    },
+    {
+      "title": "ResRobot stop lookup: Åkulla",
+      "url": "https://reseplanerare.resrobot.se/bin/ajax-getstop.exe/en?REQ0JourneyStopsS0A=1&S=%C3%85kulla&js=true&look_maxno=10&look_stopclass=1023",
+      "accessed": "2026-04-29",
+      "sourceType": "national transit stop data"
+    }
+  ],
+  "endpointCoordinates": {
+    "start": {
+      "label": "Varberg / Varberg station area",
+      "coordinates": {
+        "lat": 57.110104,
+        "lon": 12.249553
+      },
+      "source": "Official GPX first trackpoint and official API geo_json first coordinate",
+      "confidence": "high for route coordinate; medium for exact named trailhead label",
+      "nearbyOfficialPlaces": [
+        {
+          "name": "Varberg station och bussterminal",
+          "coordinates": {
+            "lat": 57.11148317,
+            "lon": 12.24931732
+          },
+          "approximateDistanceMeters": 154
+        },
+        {
+          "name": "Hotell Gästis",
+          "coordinates": {
+            "lat": 57.10724039,
+            "lon": 12.24915943
+          },
+          "approximateDistanceMeters": 319
+        },
+        {
+          "name": "Toalett Hamnpaviljongen Varberg",
+          "coordinates": {
+            "lat": 57.10742228,
+            "lon": 12.24518001
+          },
+          "approximateDistanceMeters": 398
+        },
+        {
+          "name": "Kallbadhuset i Varberg",
+          "coordinates": {
+            "lat": 57.10876,
+            "lon": 12.24112
+          },
+          "approximateDistanceMeters": 531
+        }
+      ],
+      "caveats": [
+        "Official GPX/API geo_json starts about 154 m south of Varberg station/bussterminal, while API line.geometry and OSM start 322-360 m farther west near the harbor/coastal approach.",
+        "For import, keep the GPX/API geo_json coordinate as the route start and model Varberg station/bussterminal as the primary access point."
+      ]
+    },
+    "end": {
+      "label": "Åkulla / Åkulla shelter and Outdoor Resort cluster",
+      "coordinates": {
+        "lat": 57.125222,
+        "lon": 12.562309
+      },
+      "source": "Official GPX last trackpoint and official API geo_json last coordinate",
+      "confidence": "high",
+      "nearbyOfficialPlaces": [
+        {
+          "name": "Lägerplats Åkulla",
+          "coordinates": {
+            "lat": 57.12525013,
+            "lon": 12.56173702
+          },
+          "approximateDistanceMeters": 35
+        },
+        {
+          "name": "Dricksvatten Åkulla Outdoor Resort",
+          "coordinates": {
+            "lat": 57.12492995,
+            "lon": 12.56329
+          },
+          "approximateDistanceMeters": 68
+        },
+        {
+          "name": "Åkulla Outdoor Resort",
+          "coordinates": {
+            "lat": 57.12491377,
+            "lon": 12.56376195
+          },
+          "approximateDistanceMeters": 94
+        },
+        {
+          "name": "Lägerplats Yasjön",
+          "coordinates": {
+            "lat": 57.12715122,
+            "lon": 12.5627808
+          },
+          "approximateDistanceMeters": 216
+        },
+        {
+          "name": "Hållplats Åkulla",
+          "coordinates": {
+            "lat": 57.12403959,
+            "lon": 12.56642837
+          },
+          "approximateDistanceMeters": 281
+        }
+      ],
+      "caveats": [
+        "Official GPX endpoint is about 65 m from the N6/N7 shared Åkulla coordinate and about 60 m from the M1 start; Naturkartan endpoint reportedly matches the shared Åkulla junction within about 1 m.",
+        "Later import must decide whether to preserve the official GPX endpoint exactly or snap/display this endpoint to the shared Åkulla junction for topology."
+      ]
+    },
+    "alternateEndpointCoordinates": [
+      {
+        "label": "Hallandsleden API line.geometry Varberg-side start",
+        "coordinates": {
+          "lat": 57.109547490254045,
+          "lon": 12.244312483817339
+        },
+        "source": "Hallandsleden API line.geometry",
+        "confidence": "medium-low",
+        "caveat": "Starts 322.4 m west of the GPX/API geo_json start and aligns more closely with OSM's harbor-side start. Keep as alternate/access-line evidence, not canonical route start."
+      },
+      {
+        "label": "OSM relation harbor-side start",
+        "coordinates": {
+          "lat": 57.1093154,
+          "lon": 12.2437769
+        },
+        "source": "OpenStreetMap relation 4174694 assembled first coordinate",
+        "confidence": "low-medium",
+        "caveat": "OSM relation is secondary and locally diverges from official GPX; it may preserve a harbor/city approach variant."
+      },
+      {
+        "label": "Naturkartan/shared Åkulla junction endpoint",
+        "coordinates": {
+          "lat": 57.124910811,
+          "lon": 12.563222833
+        },
+        "source": "Naturkartan site 19216 per agent route/official passes; also matches established N6/N7 Åkulla junction cluster",
+        "confidence": "medium-high",
+        "caveat": "Useful topology clue for snapping/display, but direct anonymous Naturkartan API fetch returned 401 during main-thread pass and should be verified before import."
+      }
+    ]
+  },
+  "routeGeometry": {
+    "officialGpx": {
+      "url": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Norra_Varberg_Akulla.gpx",
+      "accessed": "2026-04-29",
+      "trackName": "Varberg - Åkulla",
+      "gpxDescription": "Total: 21.1 km",
+      "metadataTime": "2025-06-23T09:28:33+02:00",
+      "pointCount": 225,
+      "trackSegmentCount": 1,
+      "computedDistanceKm": 21.07,
+      "declaredDistanceKm": 22,
+      "firstCoordinate": {
+        "lat": 57.110104,
+        "lon": 12.249553
+      },
+      "lastCoordinate": {
+        "lat": 57.125222,
+        "lon": 12.562309
+      },
+      "bounds": {
+        "minLat": 57.10947,
+        "maxLat": 57.134463,
+        "minLon": 12.249553,
+        "maxLon": 12.562309
+      },
+      "maxSegmentMeters": 487.9,
+      "maxSegmentIndex": 72,
+      "directionRelativeToOfficialOrder": "matches official order from Varberg toward Åkulla",
+      "grade": "planning-grade-current-official",
+      "importRecommendation": "use as canonical candidate geometry, with endpoint snap/display decision at Åkulla",
+      "notes": "Official GPX and official API geo_json match exactly. Point spacing is too sparse for turn-by-turn navigation without QA, but this is the strongest current official source."
+    },
+    "officialApiGeoJson": {
+      "url": "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=varberg-akulla&token=<public-page-token>",
+      "accessed": "2026-04-29",
+      "geometryType": "Feature/LineString",
+      "pointCount": 225,
+      "computedDistanceKm": 21.07,
+      "firstCoordinate": {
+        "lat": 57.110104,
+        "lon": 12.249553
+      },
+      "lastCoordinate": {
+        "lat": 57.125222,
+        "lon": 12.562309
+      },
+      "matchesOfficialGpx": true,
+      "directionRelativeToOfficialOrder": "matches official GPX and official order",
+      "grade": "planning-grade-current-official",
+      "importRecommendation": "equivalent to official GPX for candidate import"
+    },
+    "officialApiLineGeometry": {
+      "url": "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=varberg-akulla&token=<public-page-token>",
+      "accessed": "2026-04-29",
+      "geometryType": "Feature/LineString",
+      "pointCount": 175,
+      "computedDistanceKm": 21.913,
+      "firstCoordinate": {
+        "lat": 57.109547490254045,
+        "lon": 12.244312483817339
+      },
+      "lastCoordinate": {
+        "lat": 57.12502718903124,
+        "lon": 12.562934271991253
+      },
+      "endpointGapsMeters": {
+        "startVsOfficialGpx": 322.4,
+        "endVsOfficialGpx": 43.5
+      },
+      "grade": "conflicting official cartographic linework",
+      "importRecommendation": "suppress for canonical route; retain as alternate Varberg harbor/access clue",
+      "notes": "This official API field appears to use a western harbor-side start more consistent with OSM, unlike the GPX/API geo_json start by Varberg station area."
+    },
+    "naturkartan": {
+      "pageUrl": "https://www.naturkartan.se/sv/hallands-lan/varberg-akulla-hallandsleden",
+      "apiUrl": "https://api.naturkartan.se/v3.2/sites/19216",
+      "siteId": 19216,
+      "updatedAt": "2026-04-27T13:11:49",
+      "displayDistanceKm": 21,
+      "difficulty": "red / krävande",
+      "shapeType": "MultiLineString",
+      "pointCount": 198,
+      "computedDistanceKm": 21.136,
+      "startCoordinate": {
+        "lat": 57.110104082,
+        "lon": 12.249553395
+      },
+      "endCoordinate": {
+        "lat": 57.124910811,
+        "lon": 12.563222833
+      },
+      "relationToOfficialN8": "Route/official agents report Naturkartan starts at the GPX start and ends at the shared Åkulla junction; page metadata conflicts on distance and difficulty.",
+      "importRecommendation": "use as corroboration and endpoint-snapping evidence; do not prefer its difficulty metadata over Hallandsleden"
+    },
+    "osm": {
+      "parentRelationUrl": "https://www.openstreetmap.org/relation/1673983",
+      "relationUrl": "https://www.openstreetmap.org/relation/4174694",
+      "relationId": 4174694,
+      "name": "Hallandsleden Etappen Varberg - Åkulla",
+      "relationTimestamp": "2025-07-31T10:08:01Z",
+      "from": "Varberg",
+      "to": "Åkulla",
+      "taggedDistanceKm": 22,
+      "memberWays": 80,
+      "assembledPointCount": 613,
+      "summedWayDistanceKmApprox": 22.05,
+      "startCoordinate": {
+        "lat": 57.1093154,
+        "lon": 12.2437769
+      },
+      "endCoordinate": {
+        "lat": 57.1252034,
+        "lon": 12.5623924
+      },
+      "relationToOfficialN8": "Secondary validation. OSM is continuous and endpoint-near at Åkulla, but its start is about 360 m west of the official GPX start and local divergence from GPX is up to about 300 m.",
+      "importRecommendation": "do not use as canonical current N8 geometry"
+    },
+    "adjacentContinuity": {
+      "n8EndToN6EndMeters": 65.3,
+      "n8EndToN7StartMeters": 65.4,
+      "n8EndToM1StartMeters": 59.9,
+      "n8ApiLineEndToSharedAkullaClusterMetersApprox": 22,
+      "naturkartanEndToSharedAkullaClusterMetersApprox": 1,
+      "confidence": "high for GPX/API/OSM distances; medium-high for Naturkartan agent-reported endpoint",
+      "notes": "N8 is a branch/spur into Åkulla rather than a through continuation from N7. For topological import, add an endpoint connector or snap/display decision around the Åkulla shelter/resort cluster."
+    },
+    "geometryDecision": "Use official GPX/API geo_json as canonical research geometry. Treat API line.geometry and OSM as alternate/stale or access-line clues. Keep Åkulla endpoint ambiguity explicit for a later import-time topology decision."
+  },
+  "commuteAccess": {
+    "start": [
+      {
+        "stopName": "Varberg station",
+        "type": "train/bus",
+        "coordinates": {
+          "lat": 57.111086,
+          "lon": 12.249762
+        },
+        "resrobotExtId": "740000110",
+        "coordinateSource": "ResRobot stop lookup",
+        "distanceFromEndpointMeters": 110,
+        "distanceType": "straight-line to official GPX start",
+        "operatorNetwork": "ResRobot / Hallandstrafiken; regional rail and bus services",
+        "sourceUrls": [
+          "https://reseplanerare.resrobot.se/bin/ajax-getstop.exe/en?REQ0JourneyStopsS0A=1&S=Varberg%20station&js=true&look_maxno=10&look_stopclass=1023",
+          "https://www.hallandsleden.se/etapp/varberg-akulla",
+          "https://www.hallandstrafiken.se/"
+        ],
+        "confidence": "high",
+        "caveats": [
+          "Official Hallandsleden text says Varberg station and Varberg bus terminal have daily train and bus service.",
+          "Varberg station/bussterminal area has temporary traffic arrangements during 2026; confirm platforms and bus bays in Hallandstrafiken app before publication or travel."
+        ]
+      },
+      {
+        "stopName": "Varberg station och bussterminal",
+        "type": "train/bus",
+        "coordinates": {
+          "lat": 57.11148317,
+          "lon": 12.24931732
+        },
+        "coordinateSource": "Hallandsleden places API",
+        "distanceFromEndpointMeters": 154,
+        "distanceType": "straight-line to official GPX start",
+        "operatorNetwork": "Hallandstrafiken / regional rail and bus access",
+        "sourceUrls": [
+          "https://www.hallandsleden.se/plats/varberg-station-och-bussterminal",
+          "https://www.hallandsleden.se/etapp/varberg-akulla"
+        ],
+        "confidence": "high",
+        "caveats": [
+          "Use ResRobot coordinate for normalized stop import; Hallandsleden place coordinate is useful as official access-page context."
+        ]
+      }
+    ],
+    "end": [
+      {
+        "stopName": "Åkulla (Varberg kn)",
+        "type": "seasonal bus stop",
+        "coordinates": {
+          "lat": 57.124012,
+          "lon": 12.566353
+        },
+        "resrobotExtId": "740074382",
+        "coordinateSource": "ResRobot stop lookup; Hallandsleden places API has Hållplats Åkulla nearby at 57.12403959,12.56642837",
+        "distanceFromEndpointMeters": 281,
+        "distanceType": "straight-line to official GPX end",
+        "operatorNetwork": "Hallandstrafiken / Åkturen seasonal Varberg-Åkulla loop",
+        "sourceUrls": [
+          "https://reseplanerare.resrobot.se/bin/ajax-getstop.exe/en?REQ0JourneyStopsS0A=1&S=%C3%85kulla&js=true&look_maxno=10&look_stopclass=1023",
+          "https://www.hallandsleden.se/plats/hallplats-akulla",
+          "https://www.hallandstrafiken.se/akturen",
+          "https://visitvarberg.se/akturen/om-akturen"
+        ],
+        "confidence": "high for stop coordinate; medium for year-round usefulness",
+        "caveats": [
+          "Åkulla stop is the best endpoint stop during Åkturen season only.",
+          "Åkturen 2026 is reported by Hallandstrafiken/Visit Varberg as 2026-06-15 through 2026-08-16 with daily departures from Varberg and stops at Åkulla.",
+          "Bus bay information conflicts in 2026 sources: current pages say Varberg bus terminal bay M, while one timetable/PDF row still says bay E. Do not hard-code bay without planner verification."
+        ]
+      },
+      {
+        "stopName": "Haksered (Varberg kn)",
+        "type": "bus stop fallback",
+        "coordinates": {
+          "lat": 57.150369,
+          "lon": 12.580745
+        },
+        "resrobotExtId": "740017066",
+        "coordinateSource": "ResRobot stop lookup",
+        "distanceFromEndpointMeters": 3010,
+        "distanceType": "straight-line from official GPX end; official Hallandsleden text says about 5 km north from Åkulla Outdoor Resort via Hallandsleden/road 153",
+        "operatorNetwork": "Hallandstrafiken line 651 area access",
+        "sourceUrls": [
+          "https://reseplanerare.resrobot.se/bin/ajax-getstop.exe/en?REQ0JourneyStopsS0A=1&S=Haksered&js=true&look_maxno=10&look_stopclass=1023",
+          "https://www.hallandsleden.se/etapp/varberg-akulla",
+          "https://www.hallandstrafiken.se/akulla"
+        ],
+        "confidence": "medium",
+        "caveats": [
+          "Fallback only outside Åkturen season; walking distance is materially longer than straight-line distance.",
+          "Exact timetable and service period need Hallandstrafiken planner verification for the intended date."
+        ]
+      },
+      {
+        "stopName": "Brännhult Varberg",
+        "type": "bus stop fallback",
+        "coordinates": {
+          "lat": 57.150333,
+          "lon": 12.544294
+        },
+        "resrobotExtId": "740034180",
+        "coordinateSource": "ResRobot stop lookup",
+        "distanceFromEndpointMeters": 3000,
+        "distanceType": "straight-line from official GPX end",
+        "operatorNetwork": "Hallandstrafiken line 651 area access",
+        "sourceUrls": [
+          "https://reseplanerare.resrobot.se/bin/ajax-getstop.exe/en?REQ0JourneyStopsS0A=1&S=Br%C3%A4nnhult&js=true&look_maxno=10&look_stopclass=1023",
+          "https://www.hallandstrafiken.se/akulla"
+        ],
+        "confidence": "medium",
+        "caveats": [
+          "Hallandstrafiken's Åkulla destination page appears to refer broadly to Åkulla bokskogar access rather than the N8 GPX endpoint at Åkulla Outdoor Resort; use as fallback metadata, not as the closest endpoint stop."
+        ]
+      }
+    ],
+    "parkingAndTrailheadAccess": [
+      {
+        "name": "Varberg station / urban start",
+        "type": "urban public-transport trailhead",
+        "coordinates": {
+          "lat": 57.111086,
+          "lon": 12.249762
+        },
+        "coordinateSource": "ResRobot stop coordinate",
+        "distanceFromEndpointMeters": 110,
+        "sourceUrls": [
+          "https://www.jernhusen.se/hitta-din-station/varberg-station/parkering/",
+          "https://varberg.se/varbergvaxer/ny-station-i-centrum/trafikering-vid-nya-stationen",
+          "https://varberg.se/trafik-och-gator/parkering/parkeringsplatser"
+        ],
+        "confidence": "high",
+        "caveats": [
+          "Best accessed by train/bus. Station parking is limited by major central works; municipal parking time limits vary and should be checked before any multi-day parking recommendation."
+        ]
+      },
+      {
+        "name": "Åkulla Outdoor Resort / Åkullaboket parking",
+        "type": "parking / endpoint trailhead",
+        "coordinates": {
+          "lat": 57.1244,
+          "lon": 12.5653
+        },
+        "coordinateSource": "Approximate from Åkulla access context; exact parking point needs verification",
+        "distanceFromEndpointMeters": 190,
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/akullaboket.html",
+          "https://www.hallandsleden.se/plats/akulla-outdoor-resort"
+        ],
+        "confidence": "medium",
+        "caveats": [
+          "Länsstyrelsen directs drivers to Åkulla Outdoor Resort and the large parking area for Åkullaboket.",
+          "Verify exact parking coordinates, fee and local signage before importing parking metadata."
+        ]
+      }
+    ],
+    "accessSummary": "Varberg start access is strong by train and bus. Åkulla endpoint access is good in summer via Åkturen but weak outside the 2026-06-15 to 2026-08-16 season; Haksered/Brännhult are fallback bus stops requiring a several-kilometre walk, and official text suggests taxi-sharing from Åkulla Outdoor Resort to Varberg as another fallback."
+  },
+  "facilities": [
+    {
+      "name": "Lägerplats Åkulla",
+      "candidateTypes": [
+        "shelter",
+        "campsite",
+        "fireplace",
+        "rest_area",
+        "bathing_site",
+        "drinking_water_nearby",
+        "toilet_nearby",
+        "shower_nearby",
+        "food_nearby"
+      ],
+      "coordinates": {
+        "lat": 57.12525013,
+        "lon": 12.56173702
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Main endpoint shelter/campsite beside Åkulla. Official text says shelter/fireplace are here; drinking water, toilet, shower, food and firewood are at nearby Åkulla Outdoor Resort.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/lagerplats-akulla",
+        "https://www.naturkartan.se/sv/hallands-lan/vindskydd-akulla"
+      ],
+      "routeProximityMeters": 19,
+      "routeKmApprox": 21,
+      "confidence": "high",
+      "importDecision": "import with dedupe against N6/N7/M1 and Åkulla Outdoor Resort service cluster"
+    },
+    {
+      "name": "Dricksvatten Åkulla Outdoor Resort",
+      "candidateTypes": [
+        "drinking_water"
+      ],
+      "coordinates": {
+        "lat": 57.12492995,
+        "lon": 12.56329
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Official tap/fill point at Åkulla Outdoor Resort.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/dricksvatten-akulla-outdoor-resort",
+        "https://www.akullaresort.se/cafe"
+      ],
+      "routeProximityMeters": 68,
+      "routeKmApprox": 21,
+      "confidence": "high",
+      "importDecision": "import as drinking water or merge into Åkulla Outdoor Resort service cluster"
+    },
+    {
+      "name": "Åkulla Outdoor Resort",
+      "candidateTypes": [
+        "lodging",
+        "food",
+        "toilet",
+        "shower",
+        "paid_camping",
+        "campervan_pitch",
+        "shop",
+        "parking",
+        "waste",
+        "rv_dump",
+        "fresh_water"
+      ],
+      "coordinates": {
+        "lat": 57.12491377,
+        "lon": 12.56376195
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Endpoint resort with lodging, cafe/restaurant, toilets/showers, water refill, paid tent/campervan/caravan places, environmental station, dump station and fresh water for pitches.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/akulla-outdoor-resort",
+        "https://www.akullaresort.se/boende",
+        "https://www.akullaresort.se/stallplatser",
+        "https://www.akullaresort.se/cafe"
+      ],
+      "routeProximityMeters": 94,
+      "routeKmApprox": 21,
+      "confidence": "high",
+      "importDecision": "import as endpoint service/lodging/food; paid camping/campervan services should be metadata, not a free trail campsite"
+    },
+    {
+      "name": "Lägerplats Yasjön",
+      "candidateTypes": [
+        "shelter",
+        "campsite",
+        "fireplace",
+        "seasonal_access"
+      ],
+      "coordinates": {
+        "lat": 57.12715122,
+        "lon": 12.5627808
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Island shelter/campsite with fireplace near the Åkulla endpoint. Access by cable raft 1 July to mid-October; island access prohibited 1 March to 30 June for nesting birds; bring or buy firewood from Åkulla Outdoor Resort.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/lagerplats-yasjon",
+        "https://www.naturkartan.se/sv/hallands-lan/varberg-akulla-hallandsleden"
+      ],
+      "routeProximityMeters": 185,
+      "routeKmApprox": 20.9,
+      "confidence": "high",
+      "importDecision": "import with strong seasonal caveats and dedupe against adjacent Åkulla sections"
+    },
+    {
+      "name": "Grillplats Åkulla",
+      "candidateTypes": [
+        "fireplace",
+        "grill"
+      ],
+      "coordinates": {
+        "lat": 57.1244884676941,
+        "lon": 12.564040966482
+      },
+      "coordinateSource": "Naturkartan page direction coordinate",
+      "description": "Grill/fireplace near Åkulla Friluftsgård, with near-parking and near-toilet accessibility tags; dynamic fire-risk caveat applies.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/en/hallands-lan/grillplats-akulla"
+      ],
+      "routeProximityMeters": 133,
+      "routeKmApprox": 21,
+      "confidence": "high",
+      "importDecision": "merge into Åkulla endpoint cluster or import only if discrete fireplace records are modeled"
+    },
+    {
+      "name": "Obbhultsgård",
+      "candidateTypes": [
+        "food",
+        "cafe",
+        "shop"
+      ],
+      "coordinates": {
+        "lat": 57.127203,
+        "lon": 12.5101332
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Rural cafe/shop. Operator page says 2026 opening will be limited to some summer weekends from late June, with exact opening and offering posted on social channels.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/obbhultsgard",
+        "https://www.obbhultsgard.com/"
+      ],
+      "routeProximityMeters": 255,
+      "routeKmApprox": 17.6,
+      "confidence": "medium-high",
+      "importDecision": "pending or import as seasonal nearby food service only with hours caveat"
+    },
+    {
+      "name": "Villa Stenhuset",
+      "candidateTypes": [
+        "lodging"
+      ],
+      "coordinates": {
+        "lat": 57.12656043,
+        "lon": 12.50853623
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Official place record describes lodging/event use for up to 6 people, booking by email; independent current operator source was not found in this pass.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/villa-stenhuset"
+      ],
+      "routeProximityMeters": 271,
+      "routeKmApprox": 17.4,
+      "confidence": "medium",
+      "importDecision": "pending coordinate OK; verify current booking/source before import"
+    },
+    {
+      "name": "Slumme sten",
+      "candidateTypes": [
+        "poi",
+        "cultural_site"
+      ],
+      "coordinates": {
+        "lat": 57.12359766,
+        "lon": 12.39163342
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Large standing stone/monument directly near the trail.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/slumme-sten"
+      ],
+      "routeProximityMeters": 53,
+      "routeKmApprox": 10.1,
+      "confidence": "high",
+      "importDecision": "import only if POIs are supported; not a service facility"
+    },
+    {
+      "name": "Broåsens gravfält",
+      "candidateTypes": [
+        "poi",
+        "cultural_site"
+      ],
+      "coordinates": {
+        "lat": 57.12233207,
+        "lon": 12.39430053
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Iron Age grave field a short side visit south of Hallandsleden; protected ancient monument context applies.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/broasens-gravfalt",
+        "https://www.lansstyrelsen.se/halland/besoksmal/kulturmiljoer/broasen.html"
+      ],
+      "routeProximityMeters": 197,
+      "routeKmApprox": 10.1,
+      "confidence": "high",
+      "importDecision": "import as nearby POI if supported; not a service facility"
+    },
+    {
+      "name": "Hunnestads f.d stationshus",
+      "candidateTypes": [
+        "poi",
+        "private_property"
+      ],
+      "coordinates": {
+        "lat": 57.11550418,
+        "lon": 12.34606079
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Former railway station house. Official text says it is now a private residence and asks visitors to respect that.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/hunnestads-fd-stationshushunnestads-old-station-house"
+      ],
+      "routeProximityMeters": 130,
+      "routeKmApprox": 7.1,
+      "confidence": "high",
+      "importDecision": "suppress as facility; optional historical POI with private-property caveat"
+    },
+    {
+      "name": "Varberg station och bussterminal",
+      "candidateTypes": [
+        "public_transport",
+        "access"
+      ],
+      "coordinates": {
+        "lat": 57.11148317,
+        "lon": 12.24931732
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Train/bus start access for the section.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/varberg-station-och-bussterminal",
+        "https://www.hallandstrafiken.se/"
+      ],
+      "routeProximityMeters": 154,
+      "routeKmApprox": 0,
+      "confidence": "high",
+      "importDecision": "model as access metadata, not trail facility"
+    },
+    {
+      "name": "Toalett Hamnpaviljongen Varberg",
+      "candidateTypes": [
+        "toilet"
+      ],
+      "coordinates": {
+        "lat": 57.10742228,
+        "lon": 12.24518001
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Year-round public toilet by Hamnplan/Hamnpaviljongen.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/toalett-hamnpaviljongen-varberg"
+      ],
+      "routeProximityMeters": 398,
+      "routeKmApprox": 0,
+      "confidence": "high",
+      "importDecision": "import as start-area toilet/access facility if urban access facilities are modeled"
+    },
+    {
+      "name": "Toalett barnens badstrand Varberg",
+      "candidateTypes": [
+        "toilet"
+      ],
+      "coordinates": {
+        "lat": 57.10864981,
+        "lon": 12.24215978
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Year-round public toilet at Barnens badstrand.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/toalett-barnens-badstrand-varberg"
+      ],
+      "routeProximityMeters": 475,
+      "routeKmApprox": 0,
+      "confidence": "high",
+      "importDecision": "import as start-area toilet/access facility if urban access facilities are modeled"
+    },
+    {
+      "name": "Kallbadhuset i Varberg",
+      "candidateTypes": [
+        "bathing_site",
+        "sauna",
+        "cafe_poi"
+      ],
+      "coordinates": {
+        "lat": 57.10876,
+        "lon": 12.24112
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Start-area sea bath/sauna and cafe context; useful for Varberg access cluster but not on the inland route.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/kallbadhuset-i-varberg",
+        "https://kallbadhuset.se/"
+      ],
+      "routeProximityMeters": 531,
+      "routeKmApprox": 0,
+      "confidence": "high",
+      "importDecision": "optional start-area POI/service; suppress if avoiding dense urban POIs"
+    },
+    {
+      "name": "Världsarvet Grimeton Radiostation",
+      "candidateTypes": [
+        "poi",
+        "visitor_center",
+        "food",
+        "toilet",
+        "parking",
+        "ev_charging"
+      ],
+      "coordinates": {
+        "lat": 57.11318556,
+        "lon": 12.4051874
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "UNESCO World Heritage side visit. Official N8 text says the six masts are visible from the trail; Grimeton operator confirms visitor centre, exhibitions, shop/reception, Matsalen/cafe, parking, toilets and EV charging, with facilities dependent on opening/entry.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/varldsarvet-grimeton-radiostation",
+        "https://grimeton.org/upplev-varldsarvet/",
+        "https://grimeton.org/tillganglighet/",
+        "https://grimeton.org/oppettider/"
+      ],
+      "routeProximityMeters": 1353,
+      "routeKmApprox": 10.5,
+      "confidence": "high",
+      "importDecision": "side-trip metadata, not on-route facility"
+    },
+    {
+      "name": "Stig mot Bockstens mosse och Bockstensmannen",
+      "candidateTypes": [
+        "poi",
+        "side_trail"
+      ],
+      "coordinates": {
+        "lat": 57.11589825,
+        "lon": 12.58461646
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Side trail to Bockstensmannen find place; useful Åkulla-area cultural side trip, not on the N8 main GPX.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/stig-mot-bockstens-mosse-och-bockstensmannen",
+        "https://visitvarberg.se/uppleva/bockstens-mosse"
+      ],
+      "routeProximityMeters": 1699,
+      "routeKmApprox": 21,
+      "confidence": "high for POI, medium for N8 relevance",
+      "importDecision": "suppress as on-route facility; keep as nearby side-trip metadata"
+    },
+    {
+      "name": "Parkering Bockstens mosse",
+      "candidateTypes": [
+        "parking",
+        "side_trip_access"
+      ],
+      "coordinates": {
+        "lat": 57.1169941229653,
+        "lon": 12.5758113419098
+      },
+      "coordinateSource": "Naturkartan page direction coordinate",
+      "description": "Gravel parking for about 5 cars outside Nabben/Bockstens mosse reserve; start point for Bockstensstigen and Bockstens mosse side trip.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/en/hallands-lan/parkering-bockstens-mosse",
+        "https://museumhalland.se/events/i-bockstensmannens-spar-3/"
+      ],
+      "routeProximityMeters": 1226,
+      "routeKmApprox": 21,
+      "confidence": "high",
+      "importDecision": "side-trip/access metadata, not N8 trailhead facility"
+    },
+    {
+      "name": "Två grillplatser med bänkar och vedförråd, Åkullaboket",
+      "candidateTypes": [
+        "fireplace",
+        "grill",
+        "rest_area"
+      ],
+      "coordinates": {
+        "lat": 57.12557867,
+        "lon": 12.5772154
+      },
+      "coordinateSource": "Naturkartan page direction coordinate",
+      "description": "Two fireplaces with grill grates, benches and wood store in Åkullaboket reserve; not on the official N8 GPX endpoint line.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/hallands-lan/tva-grillplatser-med-bankar-och-vedforrad-akullaboket",
+        "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/akullaboket.html"
+      ],
+      "routeProximityMeters": 901,
+      "routeKmApprox": 21,
+      "confidence": "high",
+      "importDecision": "pending/side-trip fireplace; do not import as N8 on-route until geometry model supports nearby reserve facilities"
+    },
+    {
+      "name": "Åkulla Skidspår",
+      "candidateTypes": [
+        "seasonal_recreation",
+        "access_context"
+      ],
+      "coordinates": {
+        "lat": 57.12432,
+        "lon": 12.5650099
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Winter/ski recreation near Åkulla endpoint.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/akulla-skidspar",
+        "http://www.akulla.se"
+      ],
+      "routeProximityMeters": 191,
+      "routeKmApprox": 21,
+      "confidence": "medium-high",
+      "importDecision": "suppress for hiking-facility import; keep as seasonal nearby context only"
+    },
+    {
+      "name": "Varbergs tourist and urban service cluster",
+      "candidateTypes": [
+        "lodging",
+        "food",
+        "tourist_information",
+        "poi"
+      ],
+      "coordinates": null,
+      "coordinateSource": "Hallandsleden places API clustered around 57.105-57.108, 12.239-12.249",
+      "description": "Official places include Fästningens rum vid havet, Fästningens Våffelcafé, Fästningsterrassen, Hallands kulturhistoriska museum, Hamnpaviljongen, Home Hotel Fregatten, Hotell Gästis, Rolands Kök & Bar, Societén, Varbergs fästning, Varbergs Stadshotell och Asia Spa, Varbergs turistinformation, Varbergs vandrarhem, Västerports kök and Kustbageriet.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/etapp/varberg-akulla"
+      ],
+      "routeProximityMeters": "about 300-813 m from GPX start for most listed records",
+      "routeKmApprox": 0,
+      "confidence": "high for existence/coordinates, medium for import relevance",
+      "importDecision": "keep as Varberg start access/service metadata; do not bulk-import all restaurants/lodging unless dense urban service POIs are desired"
+    }
+  ],
+  "waterSources": [
+    {
+      "name": "Dricksvatten Åkulla Outdoor Resort",
+      "coordinates": {
+        "lat": 57.12492995,
+        "lon": 12.56329
+      },
+      "source": "Hallandsleden places API and N8 official page",
+      "reliability": "high for normal resort/service availability, but still verify current opening/access before publication",
+      "importDecision": "import or merge into Åkulla Outdoor Resort cluster"
+    },
+    {
+      "name": "Varberg urban services",
+      "coordinates": null,
+      "source": "Official places API and urban access context",
+      "reliability": "medium",
+      "importDecision": "model as start-area access/services, not as a single on-route water source"
+    },
+    {
+      "name": "Rural middle of N8",
+      "coordinates": null,
+      "source": "Six-lane synthesis",
+      "reliability": "unconfirmed",
+      "importDecision": "do not infer potable water at Grimeton, Hunnestad, Broåsen or farmland points without facility-specific verification"
+    }
+  ],
+  "campingAndFire": {
+    "officialCamping": [
+      {
+        "name": "Lägerplats Åkulla",
+        "status": "confirmed endpoint shelter/campsite/fireplace",
+        "coordinates": {
+          "lat": 57.12525013,
+          "lon": 12.56173702
+        },
+        "notes": "Core free trail shelter/campfire candidate at the endpoint; dedupe with adjacent sections."
+      },
+      {
+        "name": "Lägerplats Yasjön",
+        "status": "confirmed nearby seasonal island shelter/campsite/fireplace",
+        "coordinates": {
+          "lat": 57.12715122,
+          "lon": 12.5627808
+        },
+        "notes": "Access by cable raft normally 1 July to mid-October; island access prohibited 1 March to 30 June during bird nesting."
+      },
+      {
+        "name": "Åkulla Outdoor Resort",
+        "status": "confirmed paid lodging/camping/campervan service",
+        "coordinates": {
+          "lat": 57.12491377,
+          "lon": 12.56376195
+        },
+        "notes": "Use as paid service metadata, not as a free Hallandsleden shelter."
+      }
+    ],
+    "fireRules": [
+      "Hallandsleden says to use prepared fireplaces and not light fires during fire bans.",
+      "Åkullaboket reserve allows fire only at designated places.",
+      "Nabben/Bockstens mosse side-trip reserve prohibits fires; do not attach this to the N8 main line unless overlay shows the main route enters Nabben.",
+      "Räddningstjänsten Väst displayed brandrisk level 3, 'Olämpligt att elda i kommunen', when accessed 2026-04-29; fire-risk status is dynamic and must not be frozen."
+    ],
+    "gaps": [
+      "No confirmed mid-stage shelter/campsite or potable water between Varberg and Åkulla.",
+      "Exact import treatment of Åkulla paid campground waste/dump/fresh-water services needs app taxonomy decision."
+    ]
+  },
+  "rulesAndSafety": {
+    "protectedAreasAndCulturalContexts": [
+      {
+        "name": "Åkullaboket nature reserve",
+        "relationshipToSection": "endpoint area/crossed near Åkulla; Länsstyrelsen states Hallandsleden goes through the reserve",
+        "rules": [
+          "Dogs must not be off leash.",
+          "Fires only at designated places.",
+          "Motor vehicles only on roads; parking only in designated places.",
+          "Caravans/campervans may not be set up in the reserve.",
+          "Cycling only on marked cycle trail and existing road.",
+          "Organized camps/events require permission."
+        ],
+        "seasonalNotes": [
+          "Southern part can have limited passability in winter when ski tracks have snow; northern paths are stated as passable year-round."
+        ],
+        "currentness": "Åkullaboket page showed no current news for the site when accessed 2026-04-29.",
+        "confidence": "high",
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/akullaboket.html"
+        ]
+      },
+      {
+        "name": "Åkulla bokskogar reserve area",
+        "relationshipToSection": "endpoint/area context around Åkulla; umbrella area containing multiple reserves",
+        "rules": [
+          "Rules vary by individual reserve.",
+          "Länsstyrelsen warns that tenting, campervan/caravan setup, off-road motor vehicles, terrain cycling, or riding may be forbidden in individual reserves."
+        ],
+        "currentness": "Area page says no current news; rules/safety lane found it states Åkturen seasonal bus runs 2026-06-15 to 2026-08-16.",
+        "confidence": "high",
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/akulla-bokskogar.html"
+        ]
+      },
+      {
+        "name": "Nabben nature reserve / Bockstens mosse",
+        "relationshipToSection": "adjacent/side-trip context; Länsstyrelsen states Hallandsleden passes north of Nabben while Bockstensstigen passes through Nabben and Bockstensmannen findspot is near the reserve",
+        "rules": [
+          "No tenting or campervan/caravan setup.",
+          "No fires.",
+          "Dogs must be leashed except hunting/track-search exception.",
+          "Motor vehicles only on roads; parking only designated places."
+        ],
+        "importImpact": "Do not mark Nabben rules as applying to the N8 main line unless route geometry confirms entry into the reserve. Safe to attach as nearby side-trip/protected-area caveat for Bockstensstigen/Bockstens mosse.",
+        "confidence": "high",
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/nabben.html"
+        ]
+      },
+      {
+        "name": "Grimeton Radio Station World Heritage area",
+        "relationshipToSection": "cultural context/side trip; official N8 page says the six masts are visible from the trail",
+        "rulesAndSafety": [
+          "No drones on the visitor site.",
+          "No grilling or open fire on the world-heritage area; electric grill requires ticket.",
+          "Respect signage/boundaries because active radio equipment, antennas, and cables remain in use.",
+          "People with medical implants and pregnant people should avoid being present during Alexanderson transmitter startup.",
+          "Pets are restricted in exhibition areas; service/guide dogs excepted."
+        ],
+        "currentness": "Varberg municipal area-regulation proposal was in consultation 2026-02-12 to 2026-04-23; page last published 2026-04-24.",
+        "confidence": "medium-high",
+        "sourceUrls": [
+          "https://grimeton.org/en/before-visiting/",
+          "https://grimeton.org/tillganglighet/",
+          "https://varberg.se/bygga-bo-och-miljo/samhallsutveckling/oversiktsplan-och-detaljplaner/detaljplaner-och-omradesbestammelser/detaljplaner-varit-pa-samrad/2024-07-03-omradesbestammelser-for-varldsarvet-grimetons-radiostation"
+        ]
+      },
+      {
+        "name": "Broåsens gravfält",
+        "relationshipToSection": "nearby/on-route cultural POI around route km 10",
+        "rulesAndSafety": [
+          "Protected ancient monument under Kulturmiljölagen; do not disturb or damage remains."
+        ],
+        "confidence": "high",
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/halland/besoksmal/kulturmiljoer/broasen.html"
+        ]
+      }
+    ],
+    "closuresReroutesCurrentness": {
+      "n8SpecificClosureFound": false,
+      "n8SpecificRerouteFound": false,
+      "notes": [
+        "Official 2024 New Trail Routes page, updated 2024-11-07, lists reroutes on several Hallandsleden sections but not Varberg - Åkulla.",
+        "Official N8 page had no visible N8 disruption in the crawled page text.",
+        "Åkullaboket, Nabben and Åkulla bokskogar pages showed no site-specific current news when accessed."
+      ],
+      "sourceUrls": [
+        "https://hallandsleden.se/item/nya-leddragningar-1/f22cgopgvzykg0snvt9jgr6lxgvdb1n5",
+        "https://www.hallandsleden.se/etapp/varberg-akulla"
+      ],
+      "confidence": "medium-high"
+    },
+    "generalTrailRules": [
+      "Short-period camping is generally possible under allemansrätten, but not on grazing land, agricultural land, plantations, near residences, or where it disturbs or damages.",
+      "Overnight stays are often prohibited in nature reserves; check the specific reserve.",
+      "Shelters cannot be reserved; bring a tent in peak season.",
+      "Dogs should be kept on lead; 1 March-20 August requires leash/strict supervision in nature, and special care is needed in pastures.",
+      "Hunting may occur August-January, with the most intense period in the first weeks of elk hunting around early October."
+    ],
+    "routeSafetyNotes": [
+      {
+        "topic": "Urban/peri-urban access",
+        "notes": "Official page says the section leaves Varberg through streets/cycleways, crosses the E6, then enters open farmland. Treat as mixed urban/cycleway/road-adjacent walking rather than remote forest at the start."
+      },
+      {
+        "topic": "Old railway embankment and Flähult",
+        "notes": "Official Swedish page says most of the section follows the old Varberg-Ätran railway embankment, but at Flähult hikers must go down to the road and back up to the embankment; that short passage is more blue than green."
+      },
+      {
+        "topic": "Exposure and shade",
+        "notes": "The 2020 full-stage field report and route character both support long exposed stretches across roads/open farmland; useful hot-weather caveat."
+      },
+      {
+        "topic": "Private property",
+        "notes": "Hunnestad former station house is now a private residence; official page asks visitors to respect this."
+      },
+      {
+        "topic": "Wetness near Åkulla/Bockstens side trails",
+        "notes": "Direct N8 reports did not identify wet problem sections, but adjacent Åkulla/Bockstens trails can be wet or muddy after rain. Do not overstate this for the main line."
+      }
+    ]
+  },
+  "conditionReports": [
+    {
+      "source": "En Vandringssaga",
+      "url": "https://www.bejegard.se/vandring/halland/hallandsleden/hallandsleden-akulla-varberg-21-km/",
+      "reportDate": "2020-08-15",
+      "direction": "Åkulla to Varberg",
+      "distanceReportedKm": 21,
+      "findings": [
+        "Used bus from Varberg to Åkulla and started at Åkulla friluftsgård.",
+        "Describes the stage as dominated by long straight stretches on country roads and gravel roads.",
+        "In hot sunny weather, several kilometers had little or no shade.",
+        "Completed to Varberg central station in about 4 hours with few/no real stops.",
+        "Photos/labels corroborate open landscape, Grimeton radio station visibility, wayfinding, and Varberg end."
+      ],
+      "conditionNotes": "Dry, hot, exposed. No closure, mud, or marking problem reported on this stage.",
+      "confidence": "medium-high for route character; medium-low for current condition because report is from 2020"
+    },
+    {
+      "source": "AllTrails: Hallandsleden Varberg - Åkulla",
+      "url": "https://www.alltrails.com/en-gb/trail/sweden/halland/hallandsleden-varberg-akulla",
+      "latestVisibleUpdate": "2026-04-12",
+      "routeAppStats": {
+        "rating": "4.4",
+        "reviewCount": 9,
+        "activityCount": 21,
+        "distanceKm": 21.9,
+        "elevationGainM": 333,
+        "estimatedTime": "5-5.5 hr",
+        "difficulty": "moderate"
+      },
+      "findings": [
+        "2025-08-17 hiking review tags: dog-friendly, great conditions.",
+        "2025-07-02 hiking review tags: not crowded, dog-friendly, great conditions.",
+        "2023-05-10 first text review calls the stage boring with no nice views.",
+        "AllTrails tags the route as partially paved and open year-round."
+      ],
+      "conditionNotes": "Recent app reviews suggest good maintained condition in summer 2025, but text detail is thin.",
+      "confidence": "medium for recent condition; low-medium for qualitative route assessment"
+    },
+    {
+      "source": "E1 Hiking Europe: 11.07a Åkulla - Varberg",
+      "url": "https://e1.hiking-europe.eu/en/e1/stages/norway-finland-sweden/hallands-laen/akulla-varberg",
+      "sourceDate": "GPX last update listed 2020-08-19",
+      "direction": "Åkulla to Varberg",
+      "distanceReportedKm": 22.1,
+      "findings": [
+        "Describes the stage as a good warm-up for hikers starting northbound from Varberg.",
+        "Says it offers mostly straight asphalt or gravel paths without major standout features.",
+        "Mentions Åkulla Friluftsgård as a good overnight option.",
+        "Mentions shortening by bus, but specific line/times should be treated as stale."
+      ],
+      "staleRisks": [
+        "Ferry logistics are historical; Varberg-Grenå ferry stopped in early 2020 and shifted to Halmstad.",
+        "Bus line/times are not current enough for import."
+      ],
+      "confidence": "medium for surface/route character; low for logistics"
+    },
+    {
+      "source": "Vandra.se Varberg-Ästad package",
+      "url": "https://vandra.se/vandringsresor/sverige/hallandsleden/varberg-astad-4-natter/",
+      "sourceDate": "2026 commercial page",
+      "findings": [
+        "Day 2 Varberg-Åkulla is listed as 21 km, medium, +193 m.",
+        "Describes leaving Varberg through allotments/residential areas, then wide fields, then old railway embankment most of the way to Åkulla.",
+        "Says the first 10 km can be skipped by transfer to Grimeton bus stop because many hikers choose to shorten that rail-embankment part.",
+        "Notes marking from Varberg to Åkulla is by signs and partly orange, with some sparse-marking sections."
+      ],
+      "confidence": "medium-high for practical hiking experience; commercial/package source, not independent trip report"
+    },
+    {
+      "source": "Adjacent Åkulla/Bockstens trail reports",
+      "url": "https://www.alltrails.com/trail/sweden/halland/akulla-bokskogar-bockstensstigen--2",
+      "reportDate": "2024-2025 visible reviews",
+      "findings": [
+        "Many 2025 reviews around Bockstensstigen report easy parking and generally good conditions.",
+        "2024-10-20 review says wet but not very muddy.",
+        "Older reviews mention muddy conditions, so wetness is plausible after rain in the Åkulla/Bockstens mosse area."
+      ],
+      "relevance": "Endpoint/side-trip context only; do not transfer exact conditions to N8 without geometry overlap.",
+      "confidence": "medium"
+    }
+  ],
+  "sourceContradictions": [
+    {
+      "topic": "Canonical route geometry and Varberg start",
+      "sources": [
+        "Official GPX/API geo_json",
+        "Official API line.geometry",
+        "OpenStreetMap relation 4174694",
+        "Naturkartan"
+      ],
+      "details": "Official GPX/API geo_json is a 225-point 21.070 km LineString starting at 57.110104,12.249553. Official API line.geometry starts 322.4 m west at 57.109547,12.244312 and computes 21.913 km. OSM starts about 360 m west and computes about 22.050 km. Naturkartan reportedly starts at the GPX start but ends at the shared Åkulla junction.",
+      "importImpact": "Use official GPX/API geo_json as canonical. Keep API line.geometry/OSM western start as alternate harbor/access-line evidence only."
+    },
+    {
+      "topic": "Åkulla endpoint topology",
+      "sources": [
+        "Official GPX/API geo_json",
+        "Naturkartan",
+        "Adjacent N6/N7/M1 GPX endpoints"
+      ],
+      "details": "Official N8 GPX ends about 60-65 m from the shared Åkulla junction used by N6/N7/M1. Naturkartan reportedly ends within about 1 m of the shared junction.",
+      "importImpact": "Later import must decide whether to preserve exact official GPX endpoint or add a short connector/snap to the shared Åkulla junction."
+    },
+    {
+      "topic": "Distance",
+      "sources": [
+        "Hallandsleden official page/API",
+        "Official GPX",
+        "Naturkartan",
+        "OSM",
+        "AllTrails",
+        "Pacer",
+        "Outdooractive",
+        "En Vandringssaga"
+      ],
+      "details": "Official page/API says 22 km; official GPX description says 21.1 km and computes 21.070 km; Naturkartan says 21.0 km; OSM relation sums about 22.050 km; AllTrails says 21.9 km; Pacer says 13.7 mi; Outdooractive says 22.3 km; En Vandringssaga says 21 km.",
+      "importImpact": "Keep official display distance 22 km and computed geometry QA distance 21.070 km. Treat other values as metadata differences."
+    },
+    {
+      "topic": "Difficulty",
+      "sources": [
+        "Hallandsleden",
+        "Naturkartan",
+        "AllTrails",
+        "Pacer",
+        "Outdooractive"
+      ],
+      "details": "Hallandsleden says green/easy; Naturkartan says red/krävande; AllTrails/Outdooractive say moderate; Pacer says hard.",
+      "importImpact": "Use official green/easy, with note that distance and the short Flähult passage may make it feel harder than the official technical grade."
+    },
+    {
+      "topic": "Route identity / branch wording",
+      "sources": [
+        "Hallandsleden",
+        "Vandra.se",
+        "route topology"
+      ],
+      "details": "Official Hallandsleden includes Varberg - Åkulla as N8 in Norra delleden/E1. Vandra.se calls the Varberg-Åkulla day an anslutningsled to Hallandsleden, and topology shows it is a western branch into the Åkulla junction rather than a continuation from N7.",
+      "importImpact": "Model as official Hallandsleden section N8 but preserve branch/spur topology and do not stitch after N7 as a through continuation."
+    },
+    {
+      "topic": "Transit currentness",
+      "sources": [
+        "Hallandstrafiken Åkturen",
+        "Visit Varberg Åkturen",
+        "Hallandsleden official page",
+        "ResRobot"
+      ],
+      "details": "Åkturen is seasonal and 2026 bus bay details conflict between current text and timetable/PDF row. Haksered/Brännhult fallback distances are described differently by destination pages, official N8 text and coordinate-derived distances.",
+      "importImpact": "Use Varberg station and Åkulla stop as primary commute points with seasonal caveats; model Haksered/Brännhult as fallback only and verify exact schedules close to use."
+    },
+    {
+      "topic": "Urban service over-inclusion",
+      "sources": [
+        "Hallandsleden places API",
+        "official page"
+      ],
+      "details": "Places API includes a dense Varberg service cluster and side-trip POIs well away from the GPX line.",
+      "importImpact": "Do not bulk-import all Varberg restaurants/lodging or >1 km side-trip POIs as trail facilities. Use access/service metadata and import decisions per facility."
+    }
+  ],
+  "researchIterations": [
+    {
+      "iterationId": "n8-initial-six-lane-2026-04-29",
+      "startedAt": "2026-04-29T20:09:28Z",
+      "completedAt": "2026-04-29T20:15:09Z",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddadc-3ced-7cc2-811c-00c9ae483a99",
+          "nickname": "Goodall"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddadc-3dbc-7212-a5a8-f054e8162772",
+          "nickname": "Kepler"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddadc-3e56-7da1-b7a7-3e83c4aa7a37",
+          "nickname": "Peirce"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddadc-3fd3-7fc2-b854-17d0633f7408",
+          "nickname": "Hilbert"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddadc-40cb-7703-b676-210240383d0f",
+          "nickname": "Kant"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddadc-41d7-7b73-a6bd-1d63b6204fc0",
+          "nickname": "Volta"
+        }
+      ],
+      "mainThreadChecks": [
+        "Fetched official N8 page and English mirror; extracted official description, difficulty, points of interest, accommodation and public-transport text.",
+        "Fetched official GPX, map API and places API; computed GPX/API geo_json distance/endpoints and compared API line.geometry.",
+        "Fetched ResRobot stop lookups for Varberg station, Åkulla, Haksered, Brännhult, Rolfstorp, Grimeton and Hunnestad.",
+        "Checked Naturkartan page/site id 19216 and OSM relation 4174694 via Overpass.",
+        "Compared N8 endpoint offsets to N6/N7/M1 Åkulla coordinates.",
+        "Reviewed agent reports for official sources, route geometry, facilities, transit/access, field reports and rules/safety/currentness."
+      ],
+      "receivedReports": [
+        {
+          "lane": "official-sources",
+          "summary": "Confirmed official name Varberg - Åkulla, N8/Norra delleden, Varberg municipality/Halland, official 22 km and green/easy grade; captured official description, Varberg/Åkulla access, endpoint cluster and official facilities/POIs. Flagged distance/difficulty conflicts, GPX/API line start conflict, endpoint cluster, dense Varberg place over-inclusion and no N8-specific closure."
+        },
+        {
+          "lane": "route-geometry",
+          "summary": "Confirmed official GPX and API geo_json are identical 225-point 21.070 km lines from Varberg station area to Åkulla. API line.geometry is a 175-point 21.913 km conflicting line with a western Varberg start. Naturkartan mostly matches GPX but ends at the shared Åkulla junction; OSM relation 4174694 is secondary and locally divergent. Recommended official GPX/API geo_json as canonical planning-grade geometry."
+        },
+        {
+          "lane": "facilities",
+          "summary": "Found no confirmed mid-stage shelter/campsite or potable water; facilities concentrate at Åkulla/Yasjön and Varberg start. Identified import-ready/pending facility records including Lägerplats Åkulla, Åkulla Outdoor Resort water/service cluster, Yasjön seasonal shelter, Obbhultsgård, Villa Stenhuset, Slumme sten, Broåsen, Hunnestad station house, Varberg start toilets/services, Grimeton and Bockstens side-trip records."
+        },
+        {
+          "lane": "transit-access",
+          "summary": "Confirmed start commute point Varberg station, ResRobot extId 740000110, about 0.11 km from GPX start. Confirmed endpoint stop Åkulla, extId 740074382, about 0.28 km from GPX end, useful mainly in Åkturen season. Documented 2026 Åkturen dates/times, Haksered/Brännhult line 651 fallbacks, Varberg parking constraints and Åkulla parking/service context."
+        },
+        {
+          "lane": "field-reports",
+          "summary": "Found medium field evidence. Best full-stage report is 2020 reverse Åkulla-Varberg, describing long straight road/gravel/rail-embankment walking, exposure and few stops. Recent 2025 AllTrails reviews report great conditions but little detail. Commercial/route-app sources support mostly easy but long walking, possible sparse marking and subjective low-scenery assessments."
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "summary": "No N8-specific closure/reroute found. Main caveats are Åkullaboket endpoint rules, adjacent Nabben/Bockstens side-trip rules, Grimeton visitor-site restrictions, dynamic fire-risk status, private-property respect at Hunnestad, water unreliability between Varberg and Åkulla, and general dog/hunting/camping rules."
+        }
+      ],
+      "synthesisDecision": "Strong enough for research-ready section file with explicit caveats. No second agent batch needed because the six lanes and main-thread pass agree on canonical GPX/API geo_json geometry, branch/spur topology, primary commute points, facility clustering/dedupe, and remaining questions are import-time overlay/currentness/taxonomy decisions."
+    }
+  ],
+  "openQuestions": [
+    "Before normalization, decide whether to preserve the official GPX endpoint exactly or snap/display the N8 end to the shared Åkulla junction used by N6/N7/M1.",
+    "Before navigation-grade use, inspect the 487.9 m GPX maximum segment and the roughly 300 m GPX-to-OSM local divergence near 57.117240,12.333424.",
+    "Ask Hallandsleden/Varberg why API line.geometry and GPX/API geo_json coexist with a 322 m different Varberg start; until resolved, suppress line.geometry for canonical import.",
+    "Verify Naturkartan API access/key and site 19216 geometry before using its endpoint as import evidence.",
+    "Run protected-area polygon overlay for Åkullaboket and Nabben/Bockstens mosse before attaching span-level reserve rules.",
+    "Verify whether the route enters Grimeton World Heritage core/buffer area or only passes within visual range.",
+    "Verify current Hallandstrafiken planner, Åkturen dates, Varberg bus bay and line 651 fallback stops close to publication/use.",
+    "Decide whether the app should model side-trip POIs more than 1 km off-route, especially Grimeton and Bockstens mosse.",
+    "Confirm whether Åkulla endpoint facilities should be a single clustered record or separate water/shelter/resort/fireplace records.",
+    "Do not infer potable water in the rural middle of N8 unless another source confirms coordinates/access."
+  ],
+  "importReadiness": {
+    "status": "research-ready-with-caveats",
+    "readyForNormalization": true,
+    "geometry": "ready with caveats: official GPX/API geo_json is canonical planning-grade geometry; API line.geometry and OSM should be suppressed as canonical but retained as alternate/access-line clues; Åkulla endpoint snapping/connector decision remains.",
+    "commuteAccess": "ready with caveats: Varberg station and Åkulla stop are ready primary points; Åkulla is seasonal via Åkturen and Haksered/Brännhult are fallback access only.",
+    "facilities": "core endpoint/start facilities are ready with dedupe decisions; Varberg dense urban services, Grimeton, Bockstens mosse and several side-service records should remain metadata or pending unless app policy supports them.",
+    "rulesAndSafety": "ready with runtime fire-ban/currentness checks, Åkullaboket endpoint reserve rules, Nabben/Grimeton side-trip caveats, Hunnestad private-property note, dog/hunting/camping caveats and water reliability caveat.",
+    "doNotImportYet": [
+      "Do not integrate into runtime app data until a later import phase.",
+      "Do not use Hallandsleden API line.geometry or OSM relation 4174694 as canonical current N8 geometry.",
+      "Do not stitch N8 as a through continuation after N7; model as a Varberg branch/spur into Åkulla.",
+      "Do not bulk-import all Varberg urban restaurants/lodging from the places feed as trail facilities.",
+      "Do not attach Nabben/Bockstens or Grimeton rules to the main line unless overlay confirms route relationship.",
+      "Do not treat Åkulla public transport as year-round without current planner validation.",
+      "Do not model Yasjön island shelter as always accessible."
+    ],
+    "recommendedNextStep": "Continue Phase 2 with M1 hallandsleden-akulla-ullared using the same six-lane workflow, paying close attention to Åkulla junction dedupe/topology, M1 start continuity with N6/N7/N8, Åkulla reserve rules, and GPX/API line conflicts."
+  }
+}
