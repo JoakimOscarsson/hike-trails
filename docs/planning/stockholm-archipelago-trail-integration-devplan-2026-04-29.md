@@ -4,7 +4,7 @@ Date: 2026-04-29
 
 Workspace target: `/Users/joakim/Documents/codex/hike-trails`
 
-Status: Slice 3 completed; Slice 4 not started.
+Status: Slice 4 completed; Slice 5 not started.
 
 This is a living development plan for bringing Stockholm Archipelago Trail into the app. It is intentionally concrete: every slice has a scope, likely files, a definition of done, and validation notes. The trail is ferry-dependent, so ferry transfers are first-class route connections, not just text notes.
 
@@ -33,7 +33,7 @@ Important rule: the candidate research file is an input only. Runtime code must 
 - [x] Slice 1: Add ferry-capable transfer and connection data types.
 - [x] Slice 2: Map ferry and rowboat transfers between sections.
 - [x] Slice 3: Render connection routes on the map.
-- [ ] Slice 4: Create Stockholm Archipelago Trail hiking source shards.
+- [x] Slice 4: Create Stockholm Archipelago Trail hiking source shards.
 - [ ] Slice 5: Normalize and import facilities.
 - [ ] Slice 6: Update access, detail, and route-builder UX for ferry-dependent sections.
 - [ ] Slice 7: Add build scripts and generated runtime outputs.
@@ -312,6 +312,20 @@ Validation:
 - If screenshots are produced, save them under `artifacts/` or `docs/test-reports/` according to the existing workflow.
 
 ## Slice 4: Stockholm Archipelago Trail Source Shards
+
+Status: completed 2026-04-29.
+
+Completion notes:
+
+- Added `scripts/build-stockholm-archipelago-trail-source-shards.mjs`.
+- Added `npm run data:sat:source-shards` and `npm run data:sat:source-shards:check`.
+- Added app-owned source shards under `data/source/hiking/stockholm-archipelago-trail/`.
+- Added 22 section shards, 1 mainline route group, 4 presets, and 21 source connection records copied from the Slice 2 plan with plan-only `via` points stripped.
+- Generated public runtime shards under `public/data/trail-systems/stockholm-archipelago-trail/`.
+- Generated public hiking indexes and overview data now include Stockholm Archipelago Trail as a marker-only trail-system entry.
+- Walking section geometry is intentionally `marker-only` in this slice; transfer connection route geometry is available and displayed as planning-reference lines.
+- Browser QA confirmed SAT appears in the app, opens the route builder, uses clean section labels, and shows northern ferry connection lines.
+- Validation passed: `npm run data:sat:source-shards:check`, `node --check scripts/build-stockholm-archipelago-trail-source-shards.mjs`, `npm run data:build`, `npm run data:validate`, `npm run data:check`, `npm run runtime:probe`, `npm run typecheck`, `npm run test:unit`, `npm run build`, and `git diff --check`.
 
 Scope:
 

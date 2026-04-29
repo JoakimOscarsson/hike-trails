@@ -33,3 +33,15 @@ Check the committed connection plan output with:
 ```sh
 npm run data:sat:connection-plan:check
 ```
+
+Build the app-owned source shards from this research packet and the connection plan with:
+
+```sh
+npm run data:sat:source-shards
+```
+
+Check the committed source shards with:
+
+```sh
+npm run data:sat:source-shards:check
+```
