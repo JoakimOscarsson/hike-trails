@@ -1,8 +1,8 @@
 {
   "schemaVersion": "trail-overview-research-v1",
   "trailId": "sjuharadsleden",
-  "lastUpdated": "2026-04-29T20:26:00Z",
-  "status": "overview-complete-sections-1-8-complete-sections-9-10-pending",
+  "lastUpdated": "2026-04-29T20:58:00Z",
+  "status": "overview-complete-sections-1-9-complete-section-10-pending",
   "researchOnly": true,
   "doNotImportDirectly": true,
   "trail": {
@@ -409,7 +409,7 @@
       "to": "Årås säteri",
       "alternativeToLabel": "Årås kvarn",
       "officialDistanceKm": 12,
-      "naturkartanDistanceKm": null,
+      "naturkartanDistanceKm": 11.5,
       "computedGpxDistanceKm": 11.438,
       "estimatedTime": "3 hours",
       "difficulty": "Lätt",
@@ -736,9 +736,15 @@
     },
     {
       "topic": "Årås label",
-      "detail": "Borås uses Årås säteri; OSM uses Årås kvarn; tourism source describes Årås Säteri & Trädgårdar and old mill context.",
+      "detail": "Borås uses Årås säteri; OSM/E1/PDF and local Årås sources use Årås kvarn; tourism source describes Årås Säteri & Trädgårdar and old mill context. Section 9 synthesis recommends Årås säteri as official section label with Årås kvarn and Årås Säteri & Trädgårdar as endpoint aliases.",
       "severity": "low",
-      "nextAction": "Use an import label/alias decision in sections 9 and 10."
+      "nextAction": "Use the same alias/deduplication policy in section 10 so the Årås endpoint cluster is not duplicated."
+    },
+    {
+      "topic": "Stage 9 Årås protected-area, service and access caveats",
+      "detail": "Section 9 synthesis found strong Naturkartan/OSM geometry and official source coverage, but fixed-route transit is weak at both Böne and Årås, public potable water is not confirmed, Årås cafe/lodging are seasonal/customer-dependent, and Struntfiskeboa firepit/overnight use needs reserve-boundary and rules verification because Årås reserve prohibits fires.",
+      "severity": "medium",
+      "nextAction": "Model Böne and Årås route endpoints separately from access/service clusters, use Närtrafik only as pre-booked weekday access metadata, suppress public potable water, and clip Struntfiskeboa/Årås facilities against protected-area rules before import."
     },
     {
       "topic": "Older source risk",
@@ -749,7 +755,7 @@
   ],
   "importReadiness": {
     "overview": "not-ready-for-runtime-import",
-    "reason": "Whole-trail overview is established and sections 1-8 have section research files, but sections 9-10 still need section research, commute access, facilities, protected-area rules and field/currentness reports.",
-    "safeNextStep": "Run the section 9 six-agent research batch and synthesize one section research JSON at a time under this candidate directory."
+    "reason": "Whole-trail overview is established and sections 1-9 have section research files, but section 10 still needs section research, commute access, facilities, protected-area rules and field/currentness reports.",
+    "safeNextStep": "Run the section 10 six-agent research batch and synthesize the final section research JSON under this candidate directory."
   }
 }
