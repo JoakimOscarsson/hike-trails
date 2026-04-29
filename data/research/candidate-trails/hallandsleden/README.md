@@ -4,7 +4,7 @@ Status: research-only candidate trail packet. Do not import these files automati
 
 Trail ID: `hallandsleden`
 
-Phase 1 overview is complete from the live official Hallandsleden site/API as accessed 2026-04-29. Phase 2 has completed section files for N1, N2, N3, N4, N5, N6, N7, N8, M1, and M2. Work should resume with M3.
+Phase 1 overview is complete from the live official Hallandsleden site/API as accessed 2026-04-29. Phase 2 has completed section files for N1, N2, N3, N4, N5, N6, N7, N8, M1, M2, and M3. Work should resume with M4.
 
 ## Files
 
@@ -20,6 +20,7 @@ Phase 1 overview is complete from the live official Hallandsleden site/API as ac
 - `sections/hallandsleden-varberg-akulla.research.json`: N8 section research synthesized from the required six-lane agent batch.
 - `sections/hallandsleden-akulla-ullared.research.json`: M1 section research synthesized from the required six-lane agent batch.
 - `sections/hallandsleden-ullared-karnebygd.research.json`: M2 section research synthesized from the required six-lane agent batch, with a replacement route-geometry lane after the first geometry agent stalled.
+- `sections/hallandsleden-karnebygd-atran.research.json`: M3 section research synthesized from the required six-lane agent batch.
 - `sections/*.research.json`: remaining section files, to be written after future section research batches.
 
 ## Official Overview
@@ -51,7 +52,8 @@ The inland route is branched rather than a single line. It meets Bohusleden at �
 - N8 `hallandsleden-varberg-akulla`: research-ready with caveats. Main caveats are official GPX/API `geo_json` being canonical while API `line.geometry` and OSM preserve a different harbor-side Varberg start, N8 being a western Varberg branch/spur into Åkulla rather than a continuation after N7, the official GPX endpoint sitting about 60-65 m from the shared Åkulla junction, dense Varberg urban service over-inclusion, seasonal Åkturen endpoint access, Åkulla/Yasjön facility dedupe, Grimeton and Bockstens mosse side-trip handling, and dynamic fire/reserve/currentness checks.
 - M1 `hallandsleden-akulla-ullared`: research-ready with caveats. Main caveats are official GPX/API `geo_json`/Naturkartan shape being canonical while API `line.geometry`, OSM and many route apps preserve the old Åkulla-Kogstorp/Kogstorp-Kärnebygd split, Naturkartan visible metadata saying 11.0 km/red despite current 17 km/blue official data, Åkulla multi-section service/facility dedupe, seasonal Åkturen start access, strong Ullared bus-terminal access but dense Gekås/Ullared service over-inclusion, Yasjön island access seasonality, Kogstorp lacking verified water, Åkullaboket/Nedre Ätran rules context, and sparse current full-stage field reports.
 - M2 `hallandsleden-ullared-karnebygd`: research-ready with caveats. Main caveats are official GPX/API `geo_json`/Naturkartan shape being canonical while API `line.geometry` and OSM preserve old Kogstorp-Kärnebygd segmentation, the English Hallandsleden page still using stale Ullared-Kvarnlyckan naming, Ullared service over-inclusion, weak Kärnebygd transit access, Kogstorp shelter/linbasta leakage to suppress, no reliable mid-stage potable water, Högvadsån Natura 2000 and water-protection contexts, and dynamic fire-risk/currentness checks.
+- M3 `hallandsleden-karnebygd-atran`: research-ready with caveats. Main caveats are official GPX/API `geo_json` being canonical while API `line.geometry` and OSM preserve old Kärnebygd-Eseredssjön geometry, the English Hallandsleden page still using stale Kvarnlyckan-Ätran naming, Naturkartan/Pacer/local sources preserving Eseredssjön naming, weak Kärnebygd transit access, strong Ätran endpoint access, side-distance Kärnebygd/Eseredssjön shelters, no campsite or mid-stage potable water, Ätran endpoint water-protection overlap, and dynamic fire/currentness checks.
 
 ## Next Safe Step
 
-Resume Phase 2 with `hallandsleden-karnebygd-atran` (M3): spawn the six required research/report agents, synthesize their findings, write the section JSON, then update `research-progress.json`. Pay attention to Kärnebygd endpoint continuity from M2, stale Kvarnlyckan naming, Ätran access/service clustering, official GPX/API/Naturkartan/OSM geometry conflicts, and water/shelter handoff at both endpoints.
+Resume Phase 2 with `hallandsleden-atran-langesjon` (M4): spawn the six required research/report agents, synthesize their findings, write the section JSON, then update `research-progress.json`. Pay attention to Ätran/Eseredssjön handoff from M3, old Eseredssjön-Långesjön segmentation, official GPX/API/Naturkartan/OSM geometry conflicts, Ätran endpoint access/service dedupe, Långesjön endpoint access, and water/shelter/campsite status.

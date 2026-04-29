@@ -1,0 +1,1542 @@
+{
+  "schemaVersion": "candidate-trail-section-research-v1",
+  "trailId": "hallandsleden",
+  "sectionId": "hallandsleden-karnebygd-atran",
+  "sectionNumber": "M3",
+  "name": "Kärnebygd - Ätran",
+  "from": "Kärnebygd",
+  "to": "Ätran",
+  "distanceKm": 11,
+  "estimatedTime": {
+    "official": null,
+    "secondarySources": [
+      {
+        "source": "Wikiloc user track Krogstorp/Kärnebygd/Ätran",
+        "value": "6 h 58 min total for 30.18 km / 18.75 mi",
+        "coverage": "old combined Kogstorp/Kärnebygd/Ätran route, not current M3 only",
+        "confidence": "low"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Hallandsleden page/API did not state an estimated time. Do not import a section time as official."
+  },
+  "difficulty": {
+    "officialLabel": "Blå",
+    "officialApiValue": "medium",
+    "normalized": "medium",
+    "confidence": "high",
+    "notes": "The Swedish official page says blue difficulty. It describes large paved/easy parts, a hilly road section between Kärnebygd and Gunnarp, flatter walking after Gunnarp, and a high stile near Ätran. The English page heading says Blue/Red while the visible stats and Swedish page support Blue/medium."
+  },
+  "routeType": {
+    "type": "point-to-point inland section",
+    "notes": "Third researched section of Mellersta delleden/Central inland branch in the local M numbering. The current official GPX starts near Viktors/Kärnebygds kvarn och såg and ends in central Ätran, not at the older Eseredssjön endpoint implied by some stale sources."
+  },
+  "officialSources": [
+    {
+      "title": "Hallandsleden section page",
+      "url": "https://www.hallandsleden.se/etapp/karnebygd-atran",
+      "accessed": "2026-04-29",
+      "sourceType": "official trail page",
+      "note": "Primary current Swedish page. It reports Kärnebygd - Ätran, 11 km, blue difficulty, official route description, sights, shelters at Kärnebygd and Eseredssjön, no water at campsites, and service in Ätran."
+    },
+    {
+      "title": "Hallandsleden English section page",
+      "url": "https://www.hallandsleden.se/en/etapp/karnebygd-atran",
+      "accessed": "2026-04-29",
+      "sourceType": "official trail page mirror",
+      "note": "English mirror still titles the section Kvarnlyckan - Ätran and previous section Ullared - Kvarnlyckan. Its body text uses Kärnebygd and the GPX link is current. Treat the Kvarnlyckan title/menu as stale naming evidence, not canonical identity."
+    },
+    {
+      "title": "Official Hallandsleden GPX",
+      "url": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Karnebygd_Atran.gpx",
+      "accessed": "2026-04-29",
+      "sourceType": "official GPX",
+      "note": "Canonical route geometry. GPX metadata name Mellersta_Karnebygd_Atran, track name Kärnebygd - Ätran, generated/time 2025-06-23T09:29:25+02:00, desc Total: 11 km."
+    },
+    {
+      "title": "Hallandsleden section map API",
+      "url": "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=karnebygd-atran&token=<public-page-token>",
+      "accessed": "2026-04-29",
+      "sourceType": "official trail API",
+      "note": "API meta reports name Kärnebygd - Ätran, slug karnebygd-atran, track MELLERSTA DELLEDEN, length_in_meters 11000 and degree_of_difficulty medium. API geo_json matches the official GPX. API line.geometry preserves old Kärnebygd-Eseredssjön linework and should not be used as canonical."
+    },
+    {
+      "title": "Hallandsleden places API",
+      "url": "https://www.hallandsleden.se/api/v2/places?bigLimit=150&offset=0&output=json&output-template=trails.placeItem&withImages=true&trackSegment=karnebygd-atran&token=<public-page-token>",
+      "accessed": "2026-04-29",
+      "sourceType": "official places API",
+      "note": "Returned 20 official place records when using the page form parameters. Simpler output=json calls without the page output-template returned zero; preserve this working API pattern in future tooling."
+    },
+    {
+      "title": "Hallandsleden places API, drinking water filter",
+      "url": "https://www.hallandsleden.se/api/v2/places?bigLimit=150&offset=0&output=json&output-template=trails.placeItem&withImages=true&trackSegment=karnebygd-atran&place_categories=dricksvatten&token=<public-page-token>",
+      "accessed": "2026-04-29",
+      "sourceType": "official places API category query",
+      "note": "Returned Dricksvatten Ätran only. Official text says to fill water in Ätran because there is no water at the campsites."
+    },
+    {
+      "title": "Hallandsleden places API, shelter filter",
+      "url": "https://www.hallandsleden.se/api/v2/places?bigLimit=150&offset=0&output=json&output-template=trails.placeItem&withImages=true&trackSegment=karnebygd-atran&place_categories=lagerplats-med-vindskydd&token=<public-page-token>",
+      "accessed": "2026-04-29",
+      "sourceType": "official places API category query",
+      "note": "Returned Lägerplats Eseredssjön and Lägerplats Kärnebygd."
+    },
+    {
+      "title": "Hallandsleden places API, public transport filter",
+      "url": "https://www.hallandsleden.se/api/v2/places?bigLimit=150&offset=0&output=json&output-template=trails.placeItem&withImages=true&trackSegment=karnebygd-atran&place_categories=kollektivtrafik-hitta-tag-och-busshallplats-till-leden&token=<public-page-token>",
+      "accessed": "2026-04-29",
+      "sourceType": "official places API category query",
+      "note": "Returned Hållplats Ätran only. No direct Kärnebygd public-transport place was found."
+    },
+    {
+      "title": "Hallandsleden Central Section / Mellersta delleden",
+      "url": "https://www.hallandsleden.se/delled/mellersta-delleden",
+      "accessed": "2026-04-29",
+      "sourceType": "official subtrail page",
+      "note": "Subtrail context for the inland central route."
+    },
+    {
+      "title": "Naturkartan Kärnebygd - Ätran, Hallandsleden",
+      "url": "https://www.naturkartan.se/sv/hallands-lan/karnebygd-eseredssjon-hallandsleden",
+      "accessed": "2026-04-29",
+      "sourceType": "official-ish Naturkartan page",
+      "note": "Page title says Kärnebygd - Ätran, Hallandsleden and site id 22041, but slug still says karnebygd-eseredssjon and visible length is 12.0 km. Geometry corroborates the current GPX endpoints/shape."
+    },
+    {
+      "title": "Naturkartan site API 22041",
+      "url": "https://api.naturkartan.se/v2/sites/22041",
+      "accessed": "2026-04-29",
+      "sourceType": "secondary geometry API",
+      "note": "Coordinator v2 check returned 181 vertices coordinate-identical to the official GPX. Geometry lane's v3 check reported 180 vertices, one omitted intermediate point and the same endpoints/computed length. Both support current GPX geometry despite stale slug/length metadata."
+    },
+    {
+      "title": "OpenStreetMap relation 5604178",
+      "url": "https://www.openstreetmap.org/relation/5604178",
+      "accessed": "2026-04-29",
+      "sourceType": "OSM route relation",
+      "note": "OSM relation name Hallandsleden Etappen Kärnebygd - Eseredssjön, distance tag 12, website old karnebygd-eseredssjon slug, version 12 timestamp 2025-08-05T21:05:01Z. Useful stale-source clue only; do not use as canonical current M3 geometry."
+    },
+    {
+      "title": "Hallandsleden Public Transport and Planning Your Hike",
+      "url": "https://www.hallandsleden.se/item/ta-dig-till-hallandsleden/fwa7jth9dwbpczinom1jwalgifsmvkmg",
+      "accessed": "2026-04-29",
+      "sourceType": "official access guidance",
+      "note": "General guidance to use the official map and Hallandstrafiken planner."
+    },
+    {
+      "title": "Hallandsleden Important Information",
+      "url": "https://www.hallandsleden.se/item/viktig-information/i48rep1ncwkafz7wux50lp0dhxvboodp",
+      "accessed": "2026-04-29",
+      "sourceType": "official currentness/rules page",
+      "pageUpdated": "2025-04-15",
+      "note": "General currentness page with fire, allemansrätten, African swine fever, Nösslinge water note and 2024 reroute reminder. No M3-specific closure found."
+    },
+    {
+      "title": "Hallandsleden fire-risk guidance",
+      "url": "https://hallandsleden.se/item/kolla-brandrisken-4/h1orikco24kzjjuuyczmerpw6s8fe3it",
+      "accessed": "2026-04-29",
+      "sourceType": "official fire guidance",
+      "pageUpdated": "2025-08-28",
+      "note": "Says no firewood is placed at campsites during fire bans and hikers must check current fire rules before lighting fires."
+    },
+    {
+      "title": "Hallandsleden dog guidance",
+      "url": "https://www.hallandsleden.se/item/vandra-med-hund/gkvddie3ttmazifzlnqae9q4phuhj32b",
+      "accessed": "2026-04-29",
+      "sourceType": "official rules guidance",
+      "note": "Dogs must be leashed or under strict supervision in nature 1 March-20 August and in grazing-livestock areas."
+    },
+    {
+      "title": "Hallandsleden hunting-season guidance",
+      "url": "https://www.hallandsleden.se/item/vandra-under-jaktsasongen/fxm1j3j5ltmdkd65aqrztndfqhr3txnq",
+      "accessed": "2026-04-29",
+      "sourceType": "official safety guidance",
+      "note": "General hunting-season guidance for hiking on Hallandsleden."
+    },
+    {
+      "title": "Falkenberg municipality: Vindskydd längs Hallandsleden",
+      "url": "https://falkenberg.se/se-gora/aktiviteter/vandra/vindskydd-langs-hallandsleden/",
+      "accessed": "2026-04-29",
+      "sourceType": "municipal shelter page",
+      "note": "Confirms Kärnebygd and Eseredssjön shelters for 4-5 people with fireplace and dry toilet. Kärnebygd shelter sits in open/grazing landscape with livestock often nearby."
+    },
+    {
+      "title": "Naturkartan Kärnebygds vindskydd",
+      "url": "https://www.naturkartan.se/sv/hallands-lan/karnebygd",
+      "accessed": "2026-04-29",
+      "sourceType": "shelter/facility page",
+      "note": "Confirms Kärnebygds vindskydd site id 24263, shelter for 4-5, fireplace, dry toilet and view."
+    },
+    {
+      "title": "Naturkartan Eseredssjöns vindskydd",
+      "url": "https://api.naturkartan.se/v2/sites/24264",
+      "accessed": "2026-04-29",
+      "sourceType": "shelter/facility API",
+      "note": "Facilities lane used this as Eseredssjön shelter corroboration."
+    },
+    {
+      "title": "Ätrans Turist & Fritid",
+      "url": "https://atransturist.se/",
+      "accessed": "2026-04-29",
+      "sourceType": "local lodging/activity/service site",
+      "note": "Confirms endpoint lodging/activity context at Ätran/Sjöviken/Eseredssjön."
+    },
+    {
+      "title": "Viktors affärshus",
+      "url": "https://viktorsaffarshus.se/",
+      "accessed": "2026-04-29",
+      "sourceType": "local endpoint service page",
+      "note": "Confirms Viktors affärshus at Kärnebygd with farm-shop/food/service context. Verify B&B/room operation before lodging import."
+    },
+    {
+      "title": "Skogssällskapet Kärnebygd i Falkenberg",
+      "url": "https://www.skogssallskapet.se/om-oss/vara-egna-skogar/vastra-sverige/karnebygd-i-falkenberg.html",
+      "accessed": "2026-04-29",
+      "sourceType": "landowner/cultural site page",
+      "note": "Describes Kärnebygds kvarn och såg visitor/cultural context."
+    },
+    {
+      "title": "ResRobot stop lookup: Ätran",
+      "url": "https://reseplanerare.resrobot.se/bin/ajax-getstop.exe/en?REQ0JourneyStopsS0A=1&S=%C3%84tran&js=true&look_maxno=10&look_stopclass=1023",
+      "accessed": "2026-04-29",
+      "sourceType": "national transit stop data",
+      "note": "Returned Ätran (Falkenberg kn) extId 740001399 at 57.121810,12.948754, plus nearby secondary Ätran stops."
+    },
+    {
+      "title": "Länsstyrelsen Halland fire bans",
+      "url": "https://www.lansstyrelsen.se/halland/samhalle/sakerhet-och-beredskap/brandrisk-och-eldningsforbud.html",
+      "accessed": "2026-04-29",
+      "sourceType": "official fire-ban policy page"
+    },
+    {
+      "title": "Räddningstjänsten Väst brandrisk",
+      "url": "https://www.rvast.se/4.6467b870182d89339633ae.html",
+      "accessed": "2026-04-29",
+      "sourceType": "rescue-service fire-risk page",
+      "pagePublished": "2026-04-29",
+      "note": "Rules lane notes daily May-September forecasts based on SMHI inputs. Treat fire status as dynamic."
+    },
+    {
+      "title": "Naturvårdsverket INSPIRE ProtectedSite WFS",
+      "url": "https://geodata.naturvardsverket.se/inspire/ps/wfs",
+      "accessed": "2026-04-29",
+      "sourceType": "official protected-area geodata",
+      "note": "Rules lane used this to screen current M3 GPX for protected-site overlap."
+    },
+    {
+      "title": "Naturvårdsregistret VSO open data",
+      "url": "https://geodata.naturvardsverket.se/nedladdning/naturvardsregistret/VSO.zip",
+      "accessed": "2026-04-29",
+      "sourceType": "official water-protection geodata",
+      "note": "Rules lane found Ätran vattenskyddsområde NVRID 2005025 at the Ätran endpoint and no M3 point inside Nedre Ätran VSO."
+    },
+    {
+      "title": "Länsstyrelsen Halland moose hunting",
+      "url": "https://www.lansstyrelsen.se/halland/djur/jakt-och-vilt/algjakt.html",
+      "accessed": "2026-04-29",
+      "sourceType": "official hunting page",
+      "note": "Rules lane used it for 2025-2026 moose-hunting dates."
+    }
+  ],
+  "endpointCoordinates": {
+    "start": {
+      "label": "Kärnebygd",
+      "coordinates": {
+        "lat": 57.170852,
+        "lon": 12.856579
+      },
+      "source": "Official GPX first trackpoint, Hallandsleden API geo_json first coordinate and Naturkartan current shape",
+      "confidence": "high",
+      "notes": [
+        "This is the current official M3 start near Viktors affärshus / Kärnebygds kvarn och såg, not the older shelter/Eseredssjön-style line start.",
+        "M2 official GPX end to M3 official GPX start is about 11.7 m.",
+        "Lägerplats Kärnebygd is an official shelter context but is about 783 m from the current M3 GPX line."
+      ]
+    },
+    "end": {
+      "label": "Ätran",
+      "coordinates": {
+        "lat": 57.121641,
+        "lon": 12.948804
+      },
+      "source": "Official GPX last trackpoint, Hallandsleden API geo_json last coordinate and Naturkartan current shape",
+      "confidence": "high",
+      "notes": [
+        "The endpoint is central Ätran by the bus stop / grocery / water-toilet cluster.",
+        "M3 official GPX end to M4 official GPX start is about 5.6 m.",
+        "Hållplats Ätran official POI is about 19 m from the GPX endpoint."
+      ]
+    },
+    "coordinateAudit": {
+      "m2EndToM3StartMeters": 11.7,
+      "m3EndToM4StartMeters": 5.6,
+      "staleApiLineStartDistanceFromCurrentStartMeters": 917.7,
+      "staleApiLineEndDistanceFromCurrentEndMeters": 202.2,
+      "confidence": "high"
+    }
+  },
+  "routeGeometry": {
+    "canonical": {
+      "source": "Official Hallandsleden GPX / Hallandsleden API geo_json",
+      "sourceUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Karnebygd_Atran.gpx",
+      "geometryType": "LineString",
+      "pointCount": 181,
+      "computedDistanceKm": 10.984,
+      "officialDistanceKm": 11,
+      "startCoordinate": {
+        "lat": 57.170852,
+        "lon": 12.856579
+      },
+      "endCoordinate": {
+        "lat": 57.121641,
+        "lon": 12.948804
+      },
+      "directionRelativeToOfficialOrder": "same direction, Kärnebygd to Ätran",
+      "maxSegmentMeters": 261.9,
+      "maxSegmentIndexNote": "Geometry lane reported zero-based index 144; coordinator pass reported the following point as index 145. This is a vertex-indexing convention difference, not a geometry conflict.",
+      "geometryGrade": "planning-grade",
+      "navigationGrade": false,
+      "confidence": "high",
+      "notes": "Suitable as canonical route line for import prep. Do not present as survey-grade turn-by-turn navigation without later QA/densification because point spacing reaches about 262 m."
+    },
+    "officialGpx": {
+      "url": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Karnebygd_Atran.gpx",
+      "metadataName": "Mellersta_Karnebygd_Atran",
+      "trackName": "Kärnebygd - Ätran",
+      "description": "Total: 11 km",
+      "time": "2025-06-23T09:29:25+02:00",
+      "pointCount": 181,
+      "computedDistanceKm": 10.984,
+      "confidence": "high"
+    },
+    "officialApiGeoJson": {
+      "url": "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=karnebygd-atran&token=<public-page-token>",
+      "matchToGpx": "exact according to route-geometry lane",
+      "pointCount": 181,
+      "computedDistanceKm": 10.984,
+      "confidence": "high"
+    },
+    "naturkartan": {
+      "url": "https://www.naturkartan.se/sv/hallands-lan/karnebygd-eseredssjon-hallandsleden",
+      "apiUrlsChecked": [
+        "https://api.naturkartan.se/v2/sites/22041",
+        "https://api.naturkartan.se/v3/sites/22041"
+      ],
+      "siteId": 22041,
+      "title": "Kärnebygd - Ätran, Hallandsleden",
+      "slug": "karnebygd-eseredssjon-hallandsleden",
+      "displayDistanceKm": 12,
+      "updatedAtFromCoordinatorV2": "2026-04-08T12:44:08.113",
+      "updatedAtFromGeometryLaneV3": "2026-04-27T13:11:59",
+      "geometryAssessment": "Current-shape corroboration. Coordinator v2 shape matched all 181 official GPX points; geometry lane v3 shape had 180 points and omitted one intermediate vertex, changing length by about 0.021 m. Both support the same current endpoints and approximately 10.984 km geometry.",
+      "confidence": "high for endpoints/shape, medium for metadata distance/currentness"
+    },
+    "suppressedOrSecondaryGeometries": [
+      {
+        "source": "Hallandsleden API line.geometry",
+        "url": "https://www.hallandsleden.se/api/v2/track-segments/map?track=mellersta-delleden&limit=100&cleaner=true&token=<public-page-token>",
+        "status": "suppress-as-canonical",
+        "reason": "Preserves old 12.3 km Kärnebygd-Eseredssjön linework and connects to stale M2/M4 overview linework.",
+        "pointCount": 567,
+        "computedDistanceKm": 12.3,
+        "startCoordinate": {
+          "lat": 57.17910471372306,
+          "lon": 12.856430215761065
+        },
+        "endCoordinate": {
+          "lat": 57.123409900814295,
+          "lon": 12.949582831934094
+        },
+        "startDistanceFromCurrentGpxStartMeters": 917.7,
+        "endDistanceFromCurrentGpxEndMeters": 202.2,
+        "confidence": "high"
+      },
+      {
+        "source": "OpenStreetMap relation 5604178",
+        "url": "https://www.openstreetmap.org/relation/5604178",
+        "status": "legacy-secondary-only",
+        "reason": "Relation is still named Hallandsleden Etappen Kärnebygd - Eseredssjön, has old website slug and aligns with stale API line.geometry rather than current GPX/API geo_json.",
+        "osmVersion": "12",
+        "timestamp": "2025-08-05T21:05:01Z",
+        "distanceTagKm": 12,
+        "computedDistanceKm": 12.347,
+        "assembledPointCount": 560,
+        "startCoordinate": {
+          "lat": 57.1789396,
+          "lon": 12.8570053
+        },
+        "endCoordinate": {
+          "lat": 57.1233755,
+          "lon": 12.9494864
+        },
+        "confidence": "high as stale-source clue"
+      }
+    ],
+    "endpointGapNotes": [
+      "M2 current GPX end to M3 current GPX start: about 11.7 m.",
+      "M3 current GPX end to M4 current GPX start: about 5.6 m.",
+      "Stale API line.geometry starts near the Kärnebygd shelter/old line and should not be snapped to current GPX without an explicit legacy connector model."
+    ],
+    "openGeometryQuestions": [
+      "Decide at normalization whether to import the 181-point official GPX/API line directly or later densify for display/navigation QA.",
+      "If app modeling supports side-access shelters, decide how to connect Kärnebygd and Eseredssjön shelters to the current GPX line without changing the canonical section geometry."
+    ]
+  },
+  "commuteAccess": {
+    "summary": "Ätran has strong endpoint access at the GPX end. Kärnebygd has no verified direct public transport and should be modeled with weak/fallback access only.",
+    "start": [
+      {
+        "endpoint": "start",
+        "stopName": "Horsared söder",
+        "type": "bus",
+        "coordinates": {
+          "lat": 57.172104,
+          "lon": 12.763127
+        },
+        "distanceFromEndpointMeters": 5635,
+        "operatorNetwork": "Hallandstrafiken / ResRobot, line 560 Ullared - Älvsered corridor",
+        "sourceUrl": "https://www.hallandsleden.se/etapp/ullared-karnebygd",
+        "additionalSourceUrls": [
+          "https://www.hallandstrafiken.se/rest-api/rh-timetables-backend/search-results?query=560",
+          "https://www.iphone.fskab.se/hlt/Regionbuss/251214_260614/Regionbuss_560_251214_260614.pdf",
+          "https://reseplanerare.resrobot.se/bin/ajax-getstop.exe/en?REQ0JourneyStopsS0A=1&S=Horsared%20S%C3%B6dra&js=true&look_maxno=10&look_stopclass=1023"
+        ],
+        "confidence": "medium-high",
+        "caveats": "Best official fallback for Kärnebygd from the adjacent official page, which says no buses from Kärnebygd and nearest stop Horsared Södra is about 6 km west. Requires significant road/access walk or arranged pickup."
+      },
+      {
+        "endpoint": "start",
+        "stopName": "Lia",
+        "type": "bus",
+        "coordinates": {
+          "lat": 57.19713,
+          "lon": 12.808073
+        },
+        "distanceFromEndpointMeters": 4133,
+        "operatorNetwork": "Hallandstrafiken / ResRobot, likely line 560 corridor",
+        "sourceUrl": "https://reseplanerare.resrobot.se/bin/ajax-getstop.exe/en?REQ0JourneyStopsS0A=1&S=Lia&js=true&look_maxno=10&look_stopclass=1023",
+        "confidence": "medium-low",
+        "caveats": "Closer straight-line than Horsared söder but not official Hallandsleden-recommended access. Walking route, safety and practical trailhead connection need verification."
+      },
+      {
+        "endpoint": "start",
+        "stopName": "Obbhult Ullared",
+        "type": "bus",
+        "coordinates": {
+          "lat": 57.19447,
+          "lon": 12.802392
+        },
+        "distanceFromEndpointMeters": 4191,
+        "operatorNetwork": "Hallandstrafiken / ResRobot",
+        "sourceUrl": "https://reseplanerare.resrobot.se/bin/ajax-getstop.exe/en?REQ0JourneyStopsS0A=1&S=Obbhult&js=true&look_maxno=10&look_stopclass=1023",
+        "confidence": "low-medium",
+        "caveats": "Possible fallback stop, but route/service fit and walkability to Kärnebygd were not verified."
+      },
+      {
+        "endpoint": "start",
+        "stopName": "No direct Kärnebygd stop verified",
+        "type": "none",
+        "coordinates": null,
+        "distanceFromEndpointMeters": null,
+        "operatorNetwork": null,
+        "sourceUrl": "https://www.hallandsleden.se/etapp/ullared-karnebygd",
+        "confidence": "high",
+        "caveats": "Model public transport at Kärnebygd as fallback access, not direct endpoint access."
+      }
+    ],
+    "end": [
+      {
+        "endpoint": "end",
+        "stopName": "Ätran",
+        "type": "bus",
+        "coordinates": {
+          "lat": 57.12181,
+          "lon": 12.948754
+        },
+        "distanceFromEndpointMeters": 19,
+        "operatorNetwork": "Hallandstrafiken / ResRobot, bus line 558 Ullared - Ätran - Fegen",
+        "sourceUrl": "https://www.hallandsleden.se/plats/hallplats-atran",
+        "additionalSourceUrls": [
+          "https://reseplanerare.resrobot.se/bin/ajax-getstop.exe/en?REQ0JourneyStopsS0A=1&S=%C3%84tran&js=true&look_maxno=10&look_stopclass=1023",
+          "https://www.hallandstrafiken.se/rest-api/rh-timetables-backend/search-results?query=558",
+          "https://www.iphone.fskab.se/hlt/Regionbuss/251214_260614/Regionbuss_558_251214_260614.pdf"
+        ],
+        "resRobotExtId": "740001399",
+        "confidence": "high",
+        "caveats": "Official Hallandsleden access point says the stop is central Ätran next to services and stage start/end. Verify live journey planner before travel."
+      },
+      {
+        "endpoint": "end",
+        "stopName": "Ätran Stationsvägen",
+        "type": "bus",
+        "coordinates": {
+          "lat": 57.120659,
+          "lon": 12.945258
+        },
+        "distanceFromEndpointMeters": 240,
+        "operatorNetwork": "Hallandstrafiken / ResRobot",
+        "sourceUrl": "https://reseplanerare.resrobot.se/bin/ajax-getstop.exe/en?REQ0JourneyStopsS0A=1&S=%C3%84tran&js=true&look_maxno=10&look_stopclass=1023",
+        "resRobotExtId": "740033764",
+        "confidence": "medium",
+        "caveats": "Nearby secondary Ätran stop; primary stop Ätran is much closer."
+      }
+    ],
+    "parkingAndTrailheadAccess": [
+      {
+        "endpoint": "start",
+        "name": "Kärnebygd / Viktors / Kärnebygds kvarn area",
+        "type": "parking-unverified",
+        "coordinates": null,
+        "sourceUrl": "https://viktorsaffarshus.se/",
+        "confidence": "low",
+        "caveats": "No official public parking verified at the Kärnebygd GPX endpoint. Do not assume parking or pickup/dropoff at Viktors or the mill area without local confirmation/permission."
+      },
+      {
+        "endpoint": "end",
+        "name": "Ätran central parking",
+        "type": "parking",
+        "coordinates": {
+          "lat": 57.1220182,
+          "lon": 12.9482128
+        },
+        "distanceFromEndpointMeters": 54,
+        "sourceUrl": "https://www.openstreetmap.org/node/2431000576",
+        "confidence": "medium",
+        "caveats": "OSM source; verify local signage/rules before import as formal parking."
+      },
+      {
+        "endpoint": "end",
+        "name": "Ätrans Turist & Fritid",
+        "type": "service/access point",
+        "coordinates": {
+          "lat": 57.124867,
+          "lon": 12.949684
+        },
+        "distanceFromEndpointMeters": 363,
+        "sourceUrl": "https://hallandsleden.se/plats/atrans-turist-fritid",
+        "confidence": "medium",
+        "caveats": "Useful nearby service/access facility. Parking availability not fully verified from extracted official text."
+      },
+      {
+        "endpoint": "end",
+        "name": "Ätrans skidcenter / Ätrans idrottsplats",
+        "type": "possible parking/access",
+        "coordinates": {
+          "lat": 57.121796,
+          "lon": 12.958733
+        },
+        "distanceFromEndpointMeters": 600,
+        "sourceUrl": "https://www.naturkartan.se/sv/hallands-lan/atrans-skidcenter",
+        "confidence": "medium-low",
+        "caveats": "Nearby access point east of central Ätran. Confirm parking rules and trail connection before import."
+      }
+    ],
+    "seasonalLimits": [
+      "No ferry or train access applies.",
+      "Bus timetables are period-based and should be checked live; transit lane saw line 558/560 PDFs valid to 2026-06-14 but operator guidance says timetables can change during a period."
+    ]
+  },
+  "facilities": [
+    {
+      "name": "Viktors affärshus",
+      "normalizedCandidateTypes": [
+        "grocery",
+        "cafe",
+        "food",
+        "lodging_pending",
+        "poi"
+      ],
+      "coordinates": {
+        "lat": 57.1707726,
+        "lon": 12.8563872
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Farm shop / seasonal cafe / endpoint service at Kärnebygd. Official section lists Viktors B&B; current site confirms address, farm shop, meals/events and room-rental wording.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/viktors-affarshus-gardsbutik-med-kaffeservering-sommartid",
+        "https://viktorsaffarshus.se/"
+      ],
+      "routeProximity": {
+        "distanceMeters": 14,
+        "routeKm": 0.01
+      },
+      "confidence": "medium-high",
+      "importDecision": "import food/resupply/POI; keep lodging pending currentness verification",
+      "caveats": "Verify active B&B/room booking before lodging import."
+    },
+    {
+      "name": "Kärnebygds kvarn och såg",
+      "normalizedCandidateTypes": [
+        "poi",
+        "cultural_history"
+      ],
+      "coordinates": {
+        "lat": 57.17161246,
+        "lon": 12.85570443
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Cultural site at Kärnebygd. Official text says the mill was built in the early 1700s and the saw around 1830; Skogssällskapet confirms visitor/cultural context.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/karnebygds-kvarn-och-sag",
+        "https://www.skogssallskapet.se/om-oss/vara-egna-skogar/vastra-sverige/karnebygd-i-falkenberg.html"
+      ],
+      "routeProximity": {
+        "distanceMeters": 100,
+        "routeKm": 0
+      },
+      "confidence": "high",
+      "importDecision": "import",
+      "caveats": "Could be merged/displayed with nearby Rastplats Kärnebygds såg depending POI granularity."
+    },
+    {
+      "name": "Rastplats Kärnebygds såg",
+      "normalizedCandidateTypes": [
+        "picnic_site",
+        "rest_area"
+      ],
+      "coordinates": {
+        "lat": 57.17178609,
+        "lon": 12.85586897
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Official rest-place point near Kärnebygds saw/mill.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/rastplats-karnebygds-sag"
+      ],
+      "routeProximity": {
+        "distanceMeters": 112,
+        "routeKm": 0
+      },
+      "confidence": "medium-high",
+      "importDecision": "import or merge with Kärnebygds kvarn och såg",
+      "caveats": "Nearby to the cultural POI; avoid duplicate clutter if app clusters rest/POI records."
+    },
+    {
+      "name": "Lägerplats Kärnebygd / Kärnebygds vindskydd",
+      "normalizedCandidateTypes": [
+        "shelter",
+        "campsite",
+        "fireplace",
+        "dry_toilet",
+        "rest_area"
+      ],
+      "coordinates": {
+        "lat": 57.17849328,
+        "lon": 12.85890988
+      },
+      "coordinateSource": "Hallandsleden places API / Naturkartan site 24263 / Falkenberg shelter page",
+      "description": "Official shelter/campsite at Kärnebygd. Shelter for 4-6 adults in Hallandsleden text and 4-5 people in Falkenberg/Naturkartan context; fireplace and dry toilet. Kärnebygd shelter is in open/grazing landscape with livestock often nearby.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/lagerplats-karnebygd",
+        "https://www.naturkartan.se/sv/hallands-lan/karnebygd",
+        "https://falkenberg.se/se-gora/aktiviteter/vandra/vindskydd-langs-hallandsleden/"
+      ],
+      "routeProximity": {
+        "distanceMeters": 783,
+        "routeKm": 0.26
+      },
+      "confidence": "high",
+      "importDecision": "import as endpoint/side-access shelter; dedupe with M2",
+      "caveats": "About 0.8 km from current M3 GPX line; likely served by old/stale line.geometry. OSM/Vindskyddskartan name Vindskydd Hagaberg is probably the same cluster, not a second shelter. No potable water verified."
+    },
+    {
+      "name": "Gunnarps marknad",
+      "normalizedCandidateTypes": [
+        "poi",
+        "cultural_history"
+      ],
+      "coordinates": {
+        "lat": 57.14902472,
+        "lon": 12.93599705
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Site of Halland's oldest rural market with medieval origins; official text says the last market was held in 1953.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/gunnarps-marknad-hallands-aldsta-landsbygdsmarknad",
+        "https://www.hallandsleden.se/etapp/karnebygd-atran"
+      ],
+      "routeProximity": {
+        "distanceMeters": 9,
+        "routeKm": 6.64
+      },
+      "confidence": "high",
+      "importDecision": "import"
+    },
+    {
+      "name": "Gunnarps kyrka",
+      "normalizedCandidateTypes": [
+        "poi",
+        "church",
+        "cultural_history"
+      ],
+      "coordinates": {
+        "lat": 57.14807923,
+        "lon": 12.93703437
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Gunnarp church, described by the official page as one of very few wooden churches in Halland.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/gunnarps-kyrka",
+        "https://www.hallandsleden.se/etapp/karnebygd-atran"
+      ],
+      "routeProximity": {
+        "distanceMeters": 71,
+        "routeKm": 6.81
+      },
+      "confidence": "high",
+      "importDecision": "import POI only",
+      "caveats": "No public toilet/water service verified for hikers."
+    },
+    {
+      "name": "Milsten vid Gunnarp",
+      "normalizedCandidateTypes": [
+        "poi",
+        "historic_marker"
+      ],
+      "coordinates": {
+        "lat": 57.13234134,
+        "lon": 12.93204144
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "1846 milestone along the old road between Gällared and Gunnarp.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/milsten-vid-gunnarp",
+        "https://www.hallandsleden.se/etapp/karnebygd-atran"
+      ],
+      "routeProximity": {
+        "distanceMeters": 5,
+        "routeKm": 8.65
+      },
+      "confidence": "high",
+      "importDecision": "import"
+    },
+    {
+      "name": "Ätrans Restaurang",
+      "normalizedCandidateTypes": [
+        "restaurant",
+        "food"
+      ],
+      "coordinates": {
+        "lat": 57.1203948,
+        "lon": 12.94283399
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Restaurant near the Ätran endpoint.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/atrans-restaurang",
+        "https://atransrestaurang.se/kontakt/"
+      ],
+      "routeProximity": {
+        "distanceMeters": 68,
+        "routeKm": 10.53
+      },
+      "confidence": "high",
+      "importDecision": "import; verify hours at normalization",
+      "caveats": "Commercial opening hours/currentness should be checked before public display."
+    },
+    {
+      "name": "Lanthandlaren i Ätran / Ätrans Lanthandel",
+      "normalizedCandidateTypes": [
+        "grocery",
+        "resupply"
+      ],
+      "coordinates": {
+        "lat": 57.1219993,
+        "lon": 12.9486205
+      },
+      "coordinateSource": "Hallandsleden places API; OSM centroid nearby",
+      "description": "Grocery/resupply at the Ätran endpoint.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/lanthandlaren-i-atran"
+      ],
+      "routeProximity": {
+        "distanceMeters": 41,
+        "routeKm": 10.98
+      },
+      "confidence": "high",
+      "importDecision": "import",
+      "caveats": "Verify opening hours/current operation before public display."
+    },
+    {
+      "name": "Dricksvatten Ätran / year-round toilet",
+      "normalizedCandidateTypes": [
+        "drinking_water",
+        "toilet"
+      ],
+      "coordinates": {
+        "lat": 57.12241984,
+        "lon": 12.94778734
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Official drinking-water and year-round toilet point in Ätran. Official section text says to fill water in Ätran because there is no water at the campsites.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/dricksvatten-atran",
+        "https://www.hallandsleden.se/etapp/karnebygd-atran"
+      ],
+      "routeProximity": {
+        "distanceMeters": 105,
+        "routeKm": 10.97
+      },
+      "confidence": "high",
+      "importDecision": "import",
+      "caveats": "Endpoint water source only; no mid-stage potable source found."
+    },
+    {
+      "name": "Hållplats Ätran",
+      "normalizedCandidateTypes": [
+        "bus_stop",
+        "access_metadata"
+      ],
+      "coordinates": {
+        "lat": 57.12180901,
+        "lon": 12.94876219
+      },
+      "coordinateSource": "Hallandsleden places API / ResRobot",
+      "description": "Official public-transport access point at Ätran, beside endpoint services.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/hallplats-atran",
+        "https://reseplanerare.resrobot.se/bin/ajax-getstop.exe/en?REQ0JourneyStopsS0A=1&S=%C3%84tran&js=true&look_maxno=10&look_stopclass=1023"
+      ],
+      "routeProximity": {
+        "distanceMeters": 19,
+        "routeKm": 10.98
+      },
+      "confidence": "high",
+      "importDecision": "model as commute/access metadata, not a facility POI"
+    },
+    {
+      "name": "Ätran central parking",
+      "normalizedCandidateTypes": [
+        "parking",
+        "access_metadata"
+      ],
+      "coordinates": {
+        "lat": 57.1220182,
+        "lon": 12.9482128
+      },
+      "coordinateSource": "OSM node 2431000576",
+      "description": "Possible central parking/access point near the Ätran endpoint.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/2431000576"
+      ],
+      "routeProximity": {
+        "distanceMeters": 54,
+        "routeKm": 10.97
+      },
+      "confidence": "medium",
+      "importDecision": "pending/import as access after verification",
+      "caveats": "Verify public parking rules/capacity from local signage or official municipal source."
+    },
+    {
+      "name": "Ätrans Turist & Fritid",
+      "normalizedCandidateTypes": [
+        "lodging",
+        "cabins",
+        "activity_center",
+        "services"
+      ],
+      "coordinates": {
+        "lat": 57.12486734,
+        "lon": 12.94968367
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Lodging/activity/service cluster at Ätran/Sjöviken. Facilities lane found direct site evidence for cabins and activity services.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/atrans-turist-fritid",
+        "https://atransturist.se/"
+      ],
+      "routeProximity": {
+        "distanceMeters": 363,
+        "routeKm": 10.98
+      },
+      "confidence": "high",
+      "importDecision": "import lodging/service cluster",
+      "caveats": "Commercial currentness and bookability should be verified before public display."
+    },
+    {
+      "name": "Sjövikens Badanläggning",
+      "normalizedCandidateTypes": [
+        "swimming_pool",
+        "seasonal_bathing",
+        "activity"
+      ],
+      "coordinates": {
+        "lat": 57.12490443,
+        "lon": 12.95062779
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Swimming/bathing facility in the Ätran/Sjöviken endpoint cluster.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/sjovikens-badanlaggning",
+        "https://atransturist.se/gora/bad/"
+      ],
+      "routeProximity": {
+        "distanceMeters": 379,
+        "routeKm": 10.98
+      },
+      "confidence": "medium-high",
+      "importDecision": "import as seasonal activity if taxonomy supports",
+      "caveats": "Verify 2026 opening/season."
+    },
+    {
+      "name": "Eseredssjöns badplats",
+      "normalizedCandidateTypes": [
+        "swimming",
+        "picnic_site",
+        "bbq"
+      ],
+      "coordinates": {
+        "lat": 57.12296407,
+        "lon": 12.95054124
+      },
+      "coordinateSource": "Hallandsleden places API; Ätrans Turist coordinate corroboration",
+      "description": "Bathing place near Ätran/Eseredssjön with picnic/barbecue context.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/eseredssjons-badplats",
+        "https://atransturist.se/gora/bad/"
+      ],
+      "routeProximity": {
+        "distanceMeters": 181,
+        "routeKm": 10.98
+      },
+      "confidence": "high",
+      "importDecision": "import",
+      "caveats": "Fire/barbecue use is subject to dynamic fire-risk/fire-ban rules."
+    },
+    {
+      "name": "Bastu vid Sjöviken / Bastu, Eseredssjön",
+      "normalizedCandidateTypes": [
+        "sauna",
+        "bathing",
+        "jetty"
+      ],
+      "coordinates": {
+        "lat": 57.12489847,
+        "lon": 12.95011674
+      },
+      "alternateCoordinates": [
+        {
+          "lat": 57.12347380510835,
+          "lon": 12.95007499734604,
+          "source": "Naturkartan lake sauna site 131758"
+        }
+      ],
+      "coordinateSource": "Hallandsleden places API, with Naturkartan alternate",
+      "description": "Sauna/bathing facility near Sjöviken/Eseredssjön. Official place and Naturkartan/direct site may represent related but not identical sauna facilities.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/bastu-vid-sjoviken",
+        "https://api.naturkartan.se/v2/sites/131758",
+        "https://atransturist.se/gora/sjobastu/"
+      ],
+      "routeProximity": {
+        "distanceMeters": "218-371",
+        "routeKm": 10.98
+      },
+      "confidence": "medium",
+      "importDecision": "pending dedupe; likely import if taxonomy supports sauna/activity",
+      "caveats": "Resolve whether the Hallandsleden and Naturkartan sauna coordinates are the same facility or two facilities before import."
+    },
+    {
+      "name": "Hyr båt eller kanot i Eseredssjön",
+      "normalizedCandidateTypes": [
+        "boat_rental",
+        "canoe_rental",
+        "activity"
+      ],
+      "coordinates": {
+        "lat": 57.12375603,
+        "lon": 12.95103272
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Boat/canoe rental activity in the Eseredssjön/Ätran endpoint cluster.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/hyr-bat-eller-kanot-i-eseredssjon",
+        "https://atransturist.se/aktiviteter/kanot-batuthyrning/"
+      ],
+      "routeProximity": {
+        "distanceMeters": 271,
+        "routeKm": 10.98
+      },
+      "confidence": "medium-high",
+      "importDecision": "import as activity/access metadata if supported",
+      "caveats": "Commercial/seasonal currentness should be verified."
+    },
+    {
+      "name": "Fiske i Eseredssjön",
+      "normalizedCandidateTypes": [
+        "fishing",
+        "activity"
+      ],
+      "coordinates": {
+        "lat": 57.12447176,
+        "lon": 12.94991855
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Fishing activity context at Eseredssjön.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/fiske-i-eseredssjon",
+        "https://atransturist.se/gora/fiske/"
+      ],
+      "routeProximity": {
+        "distanceMeters": 322,
+        "routeKm": 10.98
+      },
+      "confidence": "medium-high",
+      "importDecision": "pending/activity metadata",
+      "caveats": "Fishing rules/permits are outside normal trail facility taxonomy."
+    },
+    {
+      "name": "Lägerplats Eseredssjön / Eseredssjöns vindskydd",
+      "normalizedCandidateTypes": [
+        "shelter",
+        "campsite",
+        "fireplace",
+        "dry_toilet",
+        "rest_area"
+      ],
+      "coordinates": {
+        "lat": 57.12471825,
+        "lon": 12.96155555
+      },
+      "coordinateSource": "Hallandsleden places API / Naturkartan site 24264 / Ätrans Turist corroboration",
+      "description": "Official shelter/campsite at Eseredssjön. Hallandsleden page says shelters at Eseredssjön and Kärnebygd accommodate 4-6 adults and have fireplace and dry toilet. No water at campsite.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/lagerplats-eseredssjon",
+        "https://api.naturkartan.se/v2/sites/24264",
+        "https://falkenberg.se/se-gora/aktiviteter/vandra/vindskydd-langs-hallandsleden/"
+      ],
+      "routeProximity": {
+        "distanceMeters": 842,
+        "routeKm": 10.98
+      },
+      "confidence": "high",
+      "importDecision": "import as endpoint/next-section shelter; flag side distance",
+      "caveats": "About 0.8 km from current M3 GPX line and likely tied to older Eseredssjön endpoint/next M4 context. Do not import potable water. Waste/bin status and firewood availability need verification before detailed claims."
+    },
+    {
+      "name": "Morfars Glänta",
+      "normalizedCandidateTypes": [
+        "poi",
+        "art_installation",
+        "rest_area"
+      ],
+      "coordinates": {
+        "lat": 57.12315734,
+        "lon": 12.95760664
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Art/rest-place POI near Eseredssjön. Facilities lane found Destination Falkenberg/Mynewsdesk context for the art site along Hallandsleden between the bathing place and wind shelter.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/morfars-glanta",
+        "https://www.destinationfalkenberg.se/nyheter/konstprojekt-i-atran-tar-nu-form"
+      ],
+      "routeProximity": {
+        "distanceMeters": 557,
+        "routeKm": 10.98
+      },
+      "confidence": "medium-high",
+      "importDecision": "pending/import as POI if taxonomy supports art/rest places",
+      "caveats": "Side/endpoint cluster rather than on-line current M3 GPX point."
+    },
+    {
+      "name": "Ätrans idrottsplats / skidcenter / outdoor gym",
+      "normalizedCandidateTypes": [
+        "outdoor_gym",
+        "sports",
+        "parking_access",
+        "activity"
+      ],
+      "coordinates": {
+        "lat": 57.12117863,
+        "lon": 12.96085694
+      },
+      "alternateCoordinates": [
+        {
+          "lat": 57.121114,
+          "lon": 12.958034,
+          "source": "Falkenberg outdoor PDF"
+        },
+        {
+          "lat": 57.121083,
+          "lon": 12.959278,
+          "source": "Ätrans Turist skidcenter context"
+        }
+      ],
+      "coordinateSource": "Hallandsleden places API / Falkenberg PDF / Ätrans Turist",
+      "description": "Sports/activity/access cluster east of central Ätran.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/utomhus-gym-pa-atrans-idrottsplats",
+        "https://www.naturkartan.se/sv/hallands-lan/atrans-skidcenter"
+      ],
+      "routeProximity": {
+        "distanceMeters": "635-729",
+        "routeKm": 10.98
+      },
+      "confidence": "medium",
+      "importDecision": "access/activity metadata; not core trail facility",
+      "caveats": "Coordinate cluster needs dedupe and parking/access-rule verification before import."
+    },
+    {
+      "name": "OSM endpoint services in Ätran",
+      "normalizedCandidateTypes": [
+        "fuel",
+        "waste_basket",
+        "bank",
+        "library"
+      ],
+      "coordinates": null,
+      "coordinateSource": "OSM Overpass",
+      "description": "Facilities lane found OSM endpoint service nodes including Qstar fuel, waste basket, bank and library near Ätran.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/"
+      ],
+      "routeProximity": {
+        "distanceMeters": "37-171 near routeKm 10.53-10.97"
+      },
+      "confidence": "low-medium",
+      "importDecision": "pending/suppress unless app taxonomy supports endpoint services",
+      "caveats": "OSM-only and not core hiking infrastructure; verify before import."
+    },
+    {
+      "name": "Ätrans Rum & Frukost",
+      "normalizedCandidateTypes": [
+        "lodging_pending"
+      ],
+      "coordinates": null,
+      "coordinateSource": null,
+      "description": "Accommodation mentioned in the English official page/secondary context, but direct site returned no usable content and no coordinate was verified.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/en/etapp/karnebygd-atran"
+      ],
+      "routeProximity": null,
+      "confidence": "low",
+      "importDecision": "do not import until coordinate and operating status are verified",
+      "caveats": "English page may be stale; Swedish page does not list it."
+    }
+  ],
+  "waterSources": {
+    "summary": "Only Ätran endpoint water is verified. Official text explicitly says to fill water in Ätran because there is no water at the Kärnebygd or Eseredssjön campsites.",
+    "sources": [
+      {
+        "name": "Dricksvatten Ätran",
+        "type": "drinking_water",
+        "coordinates": {
+          "lat": 57.12241984,
+          "lon": 12.94778734
+        },
+        "coordinateSource": "Hallandsleden places API",
+        "sourceUrls": [
+          "https://www.hallandsleden.se/plats/dricksvatten-atran",
+          "https://www.hallandsleden.se/etapp/karnebygd-atran"
+        ],
+        "routeProximityMeters": 105,
+        "routeKm": 10.97,
+        "reliability": "high for endpoint service, verify current public access before publication",
+        "confidence": "high",
+        "notes": "Official category combines drinking water with year-round toilet."
+      }
+    ],
+    "negativeFindings": [
+      "No potable water was verified at Lägerplats Kärnebygd.",
+      "No potable water was verified at Lägerplats Eseredssjön.",
+      "No mid-stage public drinking-water source was found between Kärnebygd and Ätran."
+    ],
+    "importCaveats": [
+      "Do not import campsite water for Kärnebygd or Eseredssjön unless another current official source confirms a potable source.",
+      "Carry-water copy should mention filling in Ätran before continuing/overnighting."
+    ]
+  },
+  "campingAndFire": {
+    "campingShelterSummary": "Official overnight context is at Lägerplats Kärnebygd and Lägerplats Eseredssjön, both with shelter/fireplace/dry toilet, but both sit about 0.8 km from the current GPX line and need side-access/endpoint modeling. No water at either campsite.",
+    "shelters": [
+      {
+        "name": "Lägerplats Kärnebygd / Kärnebygds vindskydd",
+        "coordinates": {
+          "lat": 57.17849328,
+          "lon": 12.85890988
+        },
+        "capacity": "4-6 adults in Hallandsleden text; 4-5 people in Falkenberg/Naturkartan context",
+        "facilities": [
+          "shelter",
+          "fireplace",
+          "dry toilet",
+          "rest area"
+        ],
+        "water": "no potable water verified",
+        "routeProximityMeters": 783,
+        "sourceUrls": [
+          "https://www.hallandsleden.se/plats/lagerplats-karnebygd",
+          "https://www.naturkartan.se/sv/hallands-lan/karnebygd",
+          "https://falkenberg.se/se-gora/aktiviteter/vandra/vindskydd-langs-hallandsleden/"
+        ],
+        "confidence": "high",
+        "caveats": "Dedupe with M2; located in grazing/open landscape where livestock often occur nearby."
+      },
+      {
+        "name": "Lägerplats Eseredssjön / Eseredssjöns vindskydd",
+        "coordinates": {
+          "lat": 57.12471825,
+          "lon": 12.96155555
+        },
+        "capacity": "4-6 adults in Hallandsleden text; municipal context may say 4-5 people",
+        "facilities": [
+          "shelter",
+          "fireplace",
+          "dry toilet",
+          "rest area"
+        ],
+        "water": "no potable water verified",
+        "routeProximityMeters": 842,
+        "sourceUrls": [
+          "https://www.hallandsleden.se/plats/lagerplats-eseredssjon",
+          "https://api.naturkartan.se/v2/sites/24264",
+          "https://falkenberg.se/se-gora/aktiviteter/vandra/vindskydd-langs-hallandsleden/"
+        ],
+        "confidence": "high",
+        "caveats": "Side/endpoint/next-section facility around Eseredssjön, not on the current GPX line. Firewood/waste status needs verification because local Visit Fegen context says bring your own firewood while some facility context implies firewood."
+      }
+    ],
+    "fireRules": [
+      {
+        "source": "Hallandsleden / Länsstyrelsen / Räddningstjänsten Väst",
+        "rule": "Use prepared fireplaces, extinguish fully, and check current fire-risk/fire-ban status before lighting any fire.",
+        "confidence": "high",
+        "currentness": "Dynamic; do not store a static no-ban claim."
+      },
+      {
+        "source": "Hallandsleden fire-risk guidance",
+        "rule": "No firewood is placed at campsites during fire bans.",
+        "confidence": "high",
+        "currentness": "Page updated 2025-08-28; fire status must be rechecked at import/use time."
+      }
+    ],
+    "openQuestions": [
+      "Resolve Eseredssjön firewood/waste-bin status before detailed facility import.",
+      "Decide how to model shelters that are official M3 context but about 0.8 km off the current canonical GPX line."
+    ]
+  },
+  "rulesAndSafety": {
+    "protectedAreas": [
+      {
+        "name": "No direct Natura 2000/nature reserve/protected-site overlap found",
+        "relationshipToRoute": "rules lane checked official M3 GPX against Naturvårdsverket INSPIRE ProtectedSite WFS in an expanded corridor",
+        "confidence": "medium-high",
+        "notes": [
+          "Nearest ProtectedSite hits were Högvadsån Natura 2000 about 3.9 km from the Kärnebygd start, Fegen-Halland Natura 2000 about 4.8 km from Ätran end and Yttra Berg about 8.1 km from route.",
+          "Treat these as nearby landscape context, not M3 route restrictions unless a later polygon overlay proves direct overlap."
+        ],
+        "sourceUrls": [
+          "https://geodata.naturvardsverket.se/inspire/ps/wfs"
+        ]
+      }
+    ],
+    "waterProtectionAreas": [
+      {
+        "name": "Ätran vattenskyddsområde",
+        "nvrid": "2005025",
+        "relationshipToRoute": "endpoint overlap at/near Ätran",
+        "decisionDate": "1995-12-01",
+        "effectiveDate": "1995-12-01",
+        "validFrom": "1995-12-29",
+        "confidence": "high",
+        "notes": "Rules lane found 1 of 181 M3 GPX points inside Ätran water-protection area near lon/lat 12.94772,57.121338. Import impact is endpoint service/parking/waste/fire caution, not normal foot-access restriction.",
+        "sourceUrls": [
+          "https://geodata.naturvardsverket.se/nedladdning/naturvardsregistret/VSO.zip"
+        ]
+      },
+      {
+        "name": "Nedre Ätran vattenskyddsområde",
+        "nvrid": "2066202",
+        "relationshipToRoute": "nearby; no M3 route points inside in rules-lane check",
+        "decisionDate": "2025-09-10",
+        "rulesEffectiveDate": "2025-11-01",
+        "confidence": "high",
+        "notes": "Closest checked M3 route point was about 677 m away near the Kärnebygd side. Do not mark the whole route as inside Nedre Ätran VSO.",
+        "sourceUrls": [
+          "https://vivab.se/h%C3%A5llbar-framtid/h%C3%A5llbar-vattenanv%C3%A4ndning/vattenskydd/vattenskyddsomr%C3%A5de-nedre-%C3%A4tran"
+        ]
+      }
+    ],
+    "fire": {
+      "status": "dynamic-recheck-required",
+      "confidence": "high",
+      "notes": [
+        "Länsstyrelsen Halland says municipality, after consultation with rescue service, decides municipal fire bans; county-wide bans may be issued by Länsstyrelsen during very high county-wide risk.",
+        "Räddningstjänsten Väst brandrisk page was last published 2026-04-29 and says forecasts are daily during May-September based on SMHI inputs.",
+        "No durable M3-specific fire-ban fact should be encoded from the 2026-04-29 research pass."
+      ],
+      "sourceUrls": [
+        "https://www.lansstyrelsen.se/halland/samhalle/sakerhet-och-beredskap/brandrisk-och-eldningsforbud.html",
+        "https://www.rvast.se/4.6467b870182d89339633ae.html",
+        "https://hallandsleden.se/item/kolla-brandrisken-4/h1orikco24kzjjuuyczmerpw6s8fe3it"
+      ]
+    },
+    "dogsAndLivestock": {
+      "rules": [
+        "Dogs must be leashed or under strict supervision in nature from 1 March to 20 August.",
+        "The same caution applies around grazing livestock pastures.",
+        "M3 final approach to Ätran follows cultivated land edge and includes a relatively high stile."
+      ],
+      "confidence": "high",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/item/vandra-med-hund/gkvddie3ttmazifzlnqae9q4phuhj32b",
+        "https://www.hallandsleden.se/etapp/karnebygd-atran"
+      ]
+    },
+    "hunting": {
+      "seasonalRisk": "August-January general Hallandsleden hunting risk; 2025-2026 licensed/moose-management moose hunting in Halland listed from 8 October to 31 January.",
+      "advice": [
+        "Wear bright clothing.",
+        "Stay on marked trails.",
+        "Watch for hunting signs.",
+        "Keep dogs leashed.",
+        "Use arranged campsites for overnighting."
+      ],
+      "confidence": "high",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/item/vandra-under-jaktsasongen/fxm1j3j5ltmdkd65aqrztndfqhr3txnq",
+        "https://www.lansstyrelsen.se/halland/djur/jakt-och-vilt/algjakt.html"
+      ]
+    },
+    "roadAndFieldHazards": [
+      {
+        "hazard": "Paved road walking",
+        "description": "Official text says large parts of M3 go on asphalt.",
+        "confidence": "high"
+      },
+      {
+        "hazard": "Hilly road between Kärnebygd and Gunnarp",
+        "description": "Official text explicitly identifies the road between Kärnebygd and Gunnarp as hilly.",
+        "confidence": "high"
+      },
+      {
+        "hazard": "High stile and cultivated-land edge before Ätran",
+        "description": "Official text says final stretch to Ätran follows the edge of cultivated land and has a relatively high stile.",
+        "confidence": "high"
+      }
+    ],
+    "closuresAndReroutes": {
+      "status": "none found for M3 on 2026-04-29",
+      "confidence": "medium",
+      "notes": [
+        "Official M3 page has a report-deviation link and currentness/news area, but no visible M3-specific closure/reroute was found.",
+        "Recheck official page/news before normalization because temporary fire risk, forestry, road works and hunting signs are dynamic.",
+        "English official page still uses stale Kvarnlyckan - Ätran naming."
+      ],
+      "sourceUrls": [
+        "https://www.hallandsleden.se/etapp/karnebygd-atran",
+        "https://hallandsleden.se/kategori/aktuellt"
+      ]
+    }
+  },
+  "conditionReports": [
+    {
+      "source": "Wikiloc",
+      "url": "https://www.wikiloc.com/hiking-trails/krogstorp-karnebygd-atran-27160279",
+      "reportDate": "recorded August 2018; uploaded 2018-08-02",
+      "coverage": "old combined Krogstorp/Kärnebygd/Ätran route, likely old M2 plus M3 rather than current M3 only",
+      "summary": "Distance listed as 18.75 mi / about 30.18 km, one-way, moderate, moving time 5 h 34 min and total 6 h 58 min. Waypoints/photos include Pyttebanan, Ammås and Kvarnlyckan, making it useful stale-segmentation evidence. No written condition comments.",
+      "confidence": "medium for existence/date/segmentation clue; low for current conditions"
+    },
+    {
+      "source": "Pacer",
+      "url": "https://www.mypacer.com/routes/ohzdhk/hallandsleden-stage-k%C3%A4rnebygd-eseredssj%C3%B6n-hiking-trail-hallands-l%C3%A4n",
+      "reportDate": "page last updated 2025-10-01; one review shown without visible review text",
+      "coverage": "Kärnebygd-Eseredssjön listing, not current official endpoint naming",
+      "summary": "Route length listed as 7.6-7.7 mi with 200.1 ft elevation gain and medium rating. Useful as evidence that route-app ecosystems preserve Kärnebygd-Eseredssjön naming; not useful for current conditions.",
+      "confidence": "medium for route listing; low for conditions"
+    },
+    {
+      "source": "Naturkartan route page",
+      "url": "https://www.naturkartan.se/sv/hallands-lan/karnebygd-eseredssjon-hallandsleden",
+      "reportDate": "no user review date; accessed 2026-04-29",
+      "coverage": "current title/shape, stale slug",
+      "summary": "Shows 0 of 5 stars and no visible reviews. Description matches official terrain and length displays 12.0 km.",
+      "confidence": "high for no visible reviews; medium for segmentation/currentness clue"
+    },
+    {
+      "source": "Ätrans Turist & Fritid",
+      "url": "https://atransturist.se/gora/vandra/",
+      "reportDate": "no field-report date; accessed 2026-04-29",
+      "coverage": "local route/context, not a hiker condition report",
+      "summary": "Uses Kärnebygd - Eseredssjön in local listing but text describes ending in Ätran. Mentions Gällaredsturen/Ätranrundan route through Gällared - Kärnebygd - Gunnarp - Ätran.",
+      "confidence": "medium for local context; not condition evidence"
+    },
+    {
+      "source": "Visit Fegen Eseredssjön",
+      "url": "https://www.visitfegen.se/upptack/badplatser/eseredssjon.html",
+      "reportDate": "no trip date; accessed 2026-04-29",
+      "coverage": "Eseredssjön/Ätran endpoint facility context",
+      "summary": "Confirms Hallandsleden runs along Eseredssjön near Ätran and reports shelter, barbecue area and toilet by the water. Says firewood is not available there and visitors should bring their own for grilling.",
+      "confidence": "medium for endpoint facility context; low for route condition"
+    },
+    {
+      "source": "Utsidan Hallandsleden review",
+      "url": "https://www.utsidan.se/friluftsguiden/naturobjekt/vandringsled/hallandsleden_1970",
+      "reportDate": "approximately 21 years old",
+      "coverage": "general Hallandsleden, not M3-specific",
+      "summary": "Older general review mentions much gravel/asphalt road walking and variable marking quality. It loosely aligns with M3's official road-walking description but is too old/general for current hazard claims.",
+      "confidence": "low"
+    }
+  ],
+  "sourceContradictions": [
+    {
+      "topic": "Official Swedish identity versus English stale naming",
+      "sources": [
+        "Swedish Hallandsleden page/API/GPX/Naturkartan title",
+        "English Hallandsleden page/menu"
+      ],
+      "details": "Swedish official page/API/GPX and Naturkartan title use Kärnebygd - Ätran. English page still titles the section Kvarnlyckan - Ätran and menu says previous section Ullared - Kvarnlyckan.",
+      "resolution": "Use Kärnebygd - Ätran as canonical; record Kvarnlyckan as stale alias/history only.",
+      "importImpact": "Do not create a Kvarnlyckan endpoint from current evidence."
+    },
+    {
+      "topic": "Kärnebygd-Eseredssjön naming persists",
+      "sources": [
+        "Naturkartan slug",
+        "OSM relation 5604178",
+        "Pacer",
+        "Ätrans Turist & Fritid local context"
+      ],
+      "details": "Multiple secondary/current platforms still use Kärnebygd - Eseredssjön while the official Swedish page now uses Kärnebygd - Ätran.",
+      "resolution": "Treat Eseredssjön as endpoint-area/side/next-section context near Ätran, not current official endpoint label.",
+      "importImpact": "Suppress old Eseredssjön endpoint geometry as canonical M3 route geometry."
+    },
+    {
+      "topic": "Distance and geometry conflict",
+      "sources": [
+        "Official GPX/API geo_json",
+        "Hallandsleden API line.geometry",
+        "Naturkartan visible metadata",
+        "OSM relation 5604178"
+      ],
+      "details": "Official GPX/API geo_json computes 10.984 km and official display is 11 km. Naturkartan displays 12.0 km; API line.geometry computes 12.3 km; OSM relation computes about 12.347 km.",
+      "resolution": "Use official GPX/API geo_json as canonical current M3 geometry. Record Naturkartan as current-shape evidence only and suppress API line.geometry/OSM as old linework.",
+      "importImpact": "Importer must avoid the API line.geometry field for M3."
+    },
+    {
+      "topic": "Official places API query behavior",
+      "sources": [
+        "Hallandsleden page form",
+        "direct API calls"
+      ],
+      "details": "The places API returned 20 records only when queried with the page form parameters including output-template=trails.placeItem and offset. Simpler output=json calls used by the coordinator initially returned zero.",
+      "resolution": "Store the working page-form API pattern in officialSources and source notes.",
+      "importImpact": "Future automated collection must mimic page API parameters or risk missing all M3 facilities."
+    },
+    {
+      "topic": "Difficulty label",
+      "sources": [
+        "Swedish Hallandsleden page/API",
+        "English Hallandsleden page"
+      ],
+      "details": "Swedish page says Svårighetsgradering Blå and API value is medium. English heading says Degree of difficulty Blue/Red.",
+      "resolution": "Use Swedish page/API blue/medium as canonical and record English Blue/Red as stale/translation inconsistency.",
+      "importImpact": "Do not import red/hard difficulty for M3."
+    },
+    {
+      "topic": "Eseredssjön firewood/waste detail",
+      "sources": [
+        "facility lane official/local sources",
+        "Visit Fegen Eseredssjön"
+      ],
+      "details": "Some facility context suggests shelter/fireplace/firewood; Visit Fegen says firewood is not available at Eseredssjön and visitors should bring their own. Waste-bin status was only indirectly suggested from adjacent context.",
+      "resolution": "Import shelter/fireplace/dry toilet, but keep firewood and waste pending until verified.",
+      "importImpact": "Do not promise firewood or waste disposal at Eseredssjön in normalized app copy yet."
+    },
+    {
+      "topic": "Ätrans Rum & Frukost",
+      "sources": [
+        "English official page",
+        "facilities lane web search"
+      ],
+      "details": "English page lists Ätrans Rum & Frukost, while Swedish page does not and no usable coordinate/current operation could be verified.",
+      "resolution": "Keep pending/suppressed until coordinate and operating status are verified.",
+      "importImpact": "Do not import as lodging for M3 now."
+    }
+  ],
+  "researchIterations": [
+    {
+      "iteration": 1,
+      "startedAt": "2026-04-29T21:14:33Z",
+      "completedAt": "2026-04-29T21:31:18Z",
+      "approach": "Six parallel research/report lanes plus main-thread official/API/GPX/Naturkartan/OSM/ResRobot cross-checks. All lanes returned; no targeted second batch was needed.",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb17-c281-7470-b22a-300a53a532bb",
+          "nickname": "Descartes",
+          "summary": "Confirmed canonical Swedish official identity Kärnebygd - Ätran, 11 km, blue/medium, no time, official description/sights, shelter/water notes, 20 official places and stale English Kvarnlyckan/Naturkartan distance/API line.geometry caveats."
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb17-c327-72a1-b6ba-34124bc8939e",
+          "nickname": "Singer",
+          "summary": "Confirmed official GPX/API geo_json as canonical 181-point 10.984 km planning-grade geometry with good M2/M4 continuity. Recommended suppressing API line.geometry and OSM relation 5604178 as old Kärnebygd-Eseredssjön linework."
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb17-c3f6-7de2-9a55-b192a45cc551",
+          "nickname": "Godel",
+          "summary": "Collected official/local/OSM facility records for Kärnebygd, Gunnarp, Ätran and Eseredssjön, including import decisions, side-distance caveats, water findings and pending/suppressed records."
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb17-c4a1-7581-86cb-6d6fbbffa556",
+          "nickname": "Carver",
+          "summary": "Confirmed high-confidence Ätran bus access and weak/no-direct Kärnebygd access, with Horsared söder as official fallback and Lia/Obbhult as weaker closer straight-line alternatives."
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb17-c546-73e1-a3d4-2cd52db9529e",
+          "nickname": "Franklin",
+          "summary": "Found thin field coverage and no recent exact-section condition report. Useful evidence was mainly stale segmentation clues from Wikiloc/Pacer/Naturkartan/local tourism and Eseredssjön facility context."
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb17-e529-7612-84e3-8fc000bb9596",
+          "nickname": "Aristotle",
+          "summary": "Found no direct protected-area overlap, Ätran endpoint water-protection overlap, no M3-specific closure/reroute, dynamic fire status, dog/livestock, hunting, road/farmland/high-stile and no-water-at-campsites caveats."
+        }
+      ],
+      "mainThreadChecks": [
+        "Fetched Swedish and English official pages and extracted official prose, distance, difficulty and stale English naming.",
+        "Fetched official GPX and computed 181 points, 10.984 km, endpoints and continuity with M2/M4.",
+        "Fetched Hallandsleden map API and confirmed current metadata plus stale line.geometry conflict.",
+        "Fetched Naturkartan page/site id 22041 and checked shape metadata.",
+        "Queried Hallandsleden places API with correct page form parameters and category filters.",
+        "Queried ResRobot stop lookup for Ätran and compared endpoint access.",
+        "Queried Overpass for nearby Hallandsleden relations and confirmed OSM relation 5604178 preserves old Eseredssjön endpoint."
+      ],
+      "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around stale Kvarnlyckan/Eseredssjön naming, official GPX/API geo_json versus stale line.geometry/OSM geometry, weak Kärnebygd transit, side-access shelters, Ätran-only potable water, Ätran water-protection endpoint overlap, dynamic fire/currentness checks and thin field reports."
+    }
+  ],
+  "openQuestions": [
+    "Before normalization, decide whether side-access official shelters 0.8 km from the current GPX line should be linked by connectors, included as endpoint/nearby facilities, or treated as next-section/context records.",
+    "Before import, verify current opening/operation for Viktors, Ätrans Restaurang, Lanthandlaren i Ätran, Ätrans Turist & Fritid, Sjöviken/Sauna/boat rental and any lodging claims.",
+    "Resolve Eseredssjön firewood and waste-bin status before detailed shelter copy; do not promise firewood or waste disposal yet.",
+    "Do not import Ätrans Rum & Frukost until coordinate and current operation are verified.",
+    "Run a final currentness check before normalization for fire bans, route closures/reroutes, forestry/road works and hunting signs.",
+    "Run a precise protected-area/water-protection overlay at normalization to quantify the exact Ätran vattenskyddsområde endpoint span.",
+    "If app rendering/navigation requires denser linework, densify or QA the 181-point official GPX later without replacing its official provenance.",
+    "Preserve the working Hallandsleden places API page-form query parameters in any future collector so M3 facilities are not missed."
+  ],
+  "importReadiness": {
+    "overall": "research-ready-with-caveats",
+    "identity": "ready: canonical Swedish/API/GPX identity is Kärnebygd - Ätran; Kvarnlyckan and Kärnebygd-Eseredssjön are stale aliases/history only.",
+    "geometry": "ready with caveats: official GPX/API geo_json is canonical planning-grade geometry; API line.geometry and OSM relation 5604178 must be suppressed as canonical.",
+    "endpoints": "ready: current GPX endpoints have high confidence and good continuity with M2/M4.",
+    "commuteAccess": "partially ready: Ätran access is strong; Kärnebygd access is weak and should be modeled as fallback-only with Horsared söder/Lia/Obbhult caveats.",
+    "facilities": "mostly ready: core official facilities have coordinates/import decisions; side-distance shelters, Eseredssjön firewood/waste, sauna dedupe and Ätrans Rum & Frukost need verification.",
+    "water": "ready with strong caveat: only Ätran endpoint water is verified; no campsite or mid-stage water.",
+    "rulesSafety": "ready with dynamic caveats: no direct protected-area overlap, Ätran endpoint VSO, dog/livestock/hunting/road/high-stile/fire-currentness advisories.",
+    "fieldReports": "thin: no recent exact-section condition report; use field reports mainly for stale segmentation and endpoint facility context.",
+    "doNotImportYet": [
+      "Do not integrate into runtime app data.",
+      "Do not use Hallandsleden API line.geometry or OSM relation 5604178 as current M3 geometry.",
+      "Do not create a Kvarnlyckan endpoint from stale English text.",
+      "Do not import potable water at Kärnebygd or Eseredssjön shelters.",
+      "Do not import Ätrans Rum & Frukost without coordinate/currentness verification."
+    ]
+  }
+}
