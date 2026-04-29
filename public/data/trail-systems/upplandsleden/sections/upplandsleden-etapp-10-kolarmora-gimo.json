@@ -11,17 +11,12 @@
     "short": "Upplandsleden, etapp 10, Kolarmora-Gimo"
   },
   "utilities": [
-    "Mapped facilities on this section include shelter, toilet, fireplace, rest area, water, heritage, camping, rule warning, parking."
+    "Mapped facilities on this section include shelter, toilet, fireplace, rest area, water, heritage, camping, parking."
   ],
   "waterSources": [
     "Use listed water rows as planning-grade refill information; seasonal access, non-potable warnings, and local signage override static data."
   ],
-  "notes": [
-    "Do not merge Etapp 9, Etapp 11, removed Risingeslingan geometry, access offsets or side facilities into Etapp 10.",
-    "Official August 2025 Naturkartan warning remains active: neglected maintenance, fallen trees/brush, recommendation to choose another stage and partial reroute planned along Kolarmoraån.",
-    "Iteration 3: official August 2025 condition warning is still active on Naturkartan; no separate updated reroute/GPX replacement found.",
-    "Iteration 3: >500 m gaps are internal to track 5, not segment boundaries, so renderer must split on gap threshold or insert explicit breaks."
-  ],
+  "notes": [],
   "facilities": [
     {
       "id": "upplandsleden-etapp-10-kolarmoraan-shelters",
@@ -32,7 +27,7 @@
         60.037871,
         18.348122
       ],
-      "description": "Start shelter cluster shared with Etapp 9. Two shelters by Kolarmoraån.",
+      "description": "Two shelters by Kolarmoraån.",
       "routeProximity": {
         "status": "on-route",
         "distanceKm": 0.047,
@@ -53,7 +48,7 @@
         60.037933,
         18.34781
       ],
-      "description": "Dry toilet at the start shelter cluster.",
+      "description": "Torrtoalett, Kolarmoraån.",
       "routeProximity": {
         "status": "on-route",
         "distanceKm": 0.066,
@@ -66,7 +61,7 @@
       }
     },
     {
-      "id": "upplandsleden-etapp-9-kolarmoraan-fireplace",
+      "id": "upplandsleden-etapp-10-kolarmoraan-fireplace",
       "name": "Eldstad, Kolarmoraån",
       "type": "fireplace",
       "sectionId": "upplandsleden-etapp-10-kolarmora-gimo",
@@ -74,7 +69,7 @@
         60.037871,
         18.348122
       ],
-      "description": "Official fireplace category at start shelter cluster; firewood supply not guaranteed.",
+      "description": "Eldstad, Kolarmoraån.",
       "routeProximity": {
         "status": "on-route",
         "distanceKm": 0.047,
@@ -87,7 +82,7 @@
       }
     },
     {
-      "id": "upplandsleden-etapp-9-kolarmoraan-rest-area",
+      "id": "upplandsleden-etapp-10-kolarmoraan-rest-area",
       "name": "Rastplats, Kolarmoraån",
       "type": "rest-area",
       "sectionId": "upplandsleden-etapp-10-kolarmora-gimo",
@@ -95,7 +90,7 @@
         60.037871,
         18.348122
       ],
-      "description": "Same-place rest-area row. Keep normal only if importer clusters same-coordinate services.",
+      "description": "Rastplats, Kolarmoraån.",
       "routeProximity": {
         "status": "on-route",
         "distanceKm": 0.047,
@@ -116,7 +111,7 @@
         60.139496,
         18.357516
       ],
-      "description": "Mid-stage shelter/rest cluster at the north end of Gisslaren.",
+      "description": "Vindskydd, Gisslaren.",
       "routeProximity": {
         "status": "on-route",
         "distanceKm": 0.002,
@@ -137,7 +132,7 @@
         60.139496,
         18.357516
       ],
-      "description": "Same official Gisslaren shelter/rest cluster.",
+      "description": "Eldstad, Gisslaren.",
       "routeProximity": {
         "status": "on-route",
         "distanceKm": 0.002,
@@ -158,7 +153,7 @@
         60.139496,
         18.357516
       ],
-      "description": "Same-place rest-area row. Keep normal only if importer clusters same-coordinate services.",
+      "description": "Rastplats, Gisslaren.",
       "routeProximity": {
         "status": "on-route",
         "distanceKm": 0.002,
@@ -221,7 +216,7 @@
         60.179134,
         18.173344
       ],
-      "description": "Official endpoint context and cultural landmark. Naturkartan category is lodging, but route endpoint and cultural context support heritage import.",
+      "description": "Official endpoint context and cultural landmark.",
       "routeProximity": {
         "status": "on-route",
         "distanceKm": 0.09,
@@ -284,7 +279,7 @@
         60.037871,
         18.348122
       ],
-      "description": "Official shelter text says tenting is possible nearby, but there is no dedicated campsite/tent-site category. Promoted during Upplandsleden normalization from a pending row under the current app policy. Informal/tolerated tenting, not a managed campsite.",
+      "description": "Official shelter text says tenting is possible nearby, but there is no dedicated campsite/tent-site category. Informal/tolerated tenting, not a managed campsite.",
       "routeProximity": {
         "status": "unknown",
         "thresholdKm": 2
@@ -304,7 +299,7 @@
         60.139496,
         18.357516
       ],
-      "description": "Official text notes it can be hard to find an even tent spot; no dedicated campsite marker. Promoted during Upplandsleden normalization from a pending row under the current app policy. Informal/tolerated tenting, not a managed campsite.",
+      "description": "Official text notes it can be hard to find an even tent spot; no dedicated campsite marker. Informal/tolerated tenting, not a managed campsite.",
       "routeProximity": {
         "status": "unknown",
         "thresholdKm": 2
@@ -316,31 +311,7 @@
       }
     },
     {
-      "id": "upplandsleden-etapp-10-maintenance-warning",
-      "name": "Official Etapp 10 maintenance/reroute warning",
-      "type": "rule-warning",
-      "sectionId": "upplandsleden-etapp-10-kolarmora-gimo",
-      "description": "Published August 2025: maintenance is neglected, fallen trees/brush may affect passability, another stage is recommended for now, and the route along Kolarmoraån will partly be redrawn. Promoted during Upplandsleden normalization from a suppression row under the current app policy.",
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/upplandsleden-etapp-10",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-etapp-10-gpx-internal-gaps-warning",
-      "name": "Official GPX internal gaps",
-      "type": "rule-warning",
-      "sectionId": "upplandsleden-etapp-10-kolarmora-gimo",
-      "description": "Official GPX is drawable but has 5 tracks/segments and 2 point jumps over 500 m; recheck in later iterations. Promoted during Upplandsleden normalization from a suppression row under the current app policy.",
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/upplandsleden-etapp-10.gpx",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-etapp-11-gimo-herrgard-parking",
+      "id": "upplandsleden-slinga-11-1-gimo-herrgard-parking",
       "name": "Parkering, Gimo herrgård",
       "type": "parking",
       "sectionId": "upplandsleden-etapp-10-kolarmora-gimo",
@@ -348,7 +319,7 @@
         60.178457,
         18.172087
       ],
-      "description": "Dedicated Naturkartan parking marker for about 5 cars, explicitly serving Etapp 10, Etapp 11 and Dammledenslingan. Keep metadata unless endpoint parking becomes supported. Promoted during Upplandsleden normalization from a suppression row under the current app policy.",
+      "description": "Dedicated Naturkartan parking marker for about 5 cars, explicitly serving Etapp 10, Etapp 11 and Dammledenslingan.",
       "routeProximity": {
         "status": "unknown",
         "thresholdKm": 2
@@ -356,18 +327,6 @@
       "source": {
         "provider": "Naturkartan",
         "url": "https://www.naturkartan.se/sv/uppsala-lan/parkering-gimo-herrgard",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-etapp-10-risingeslingan-removed-warning",
-      "name": "Removed Risingeslingan branch",
-      "type": "rule-warning",
-      "sectionId": "upplandsleden-etapp-10-kolarmora-gimo",
-      "description": "Former eastern/northern Risingeslingan branch at Fäboda was removed in summer 2023. Do not merge old branch geometry or facilities. Promoted during Upplandsleden normalization from a suppression row under the current app policy.",
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/upplandsleden-etapp-10",
         "lastFetchedAt": "2026-04-29"
       }
     }

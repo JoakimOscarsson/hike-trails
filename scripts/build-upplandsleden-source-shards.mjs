@@ -71,7 +71,7 @@ const MAINLINE_GROUPS = [
   },
   {
     id: "upplandsleden-uppsala-east",
-    name: "Studenternas IP to Langhall",
+    name: "Studenternas IP to Långhäll",
     sectionIds: [
       "upplandsleden-etapp-1-0-studenternas-ip-sunnersta",
       "upplandsleden-etapp-1-sunnersta-nyby",
@@ -93,11 +93,11 @@ const MAINLINE_GROUPS = [
       "upplandsleden-etapp-17-alvkarleby-langhall",
     ],
     notice:
-      "Main Uppsala County east/north sequence from the Uppsala urban approach at Studenternas IP through Sunnersta to Langhall. Use the post-Sigtuna connector group for the Forsbyan-Knivsta-Lunsentorpet approach, and treat Etapp 10's active maintenance warning as current planning context.",
+      "Main Uppsala County east/north sequence from the Uppsala urban approach at Studenternas IP through Sunnersta to Långhäll. Use the post-Sigtuna connector group for the Forsbyån-Knivsta-Lunsentorpet approach, and treat Etapp 10's active maintenance warning as current planning context.",
   },
   {
     id: "upplandsleden-gysinge-osta",
-    name: "Gysinge, Skekarsbo, Osta and Siggefora branch",
+    name: "Gysinge, Skekarsbo, Östa and Siggefora branch",
     sectionIds: [
       "upplandsleden-etapp-18-skekarsbo-gysinge",
       "upplandsleden-etapp-19-skekarsbo-nora-kyrka",
@@ -107,11 +107,11 @@ const MAINLINE_GROUPS = [
       "upplandsleden-etapp-20-3-huddunge-siggefora",
     ],
     notice:
-      "Western/northern branch around Gysinge, Skekarsbo, Nora kyrka/Tarnsjo, Osta, Huddunge and Siggefora. Etapp 20:1-20:3 are imported as the official continuation from Ingbo kallor toward Siggefora. Some official GPX files are stored opposite the narrative walking direction, so follow the section map rather than assuming catalog direction means walking direction.",
+      "Western/northern branch around Gysinge, Skekarsbo, Nora kyrka/Tärnsjö, Östa, Huddunge and Siggefora. Etapp 20:1-20:3 are imported as the official continuation from Ingbo källor toward Siggefora. Some official GPX files are stored opposite the narrative walking direction, so follow the section map rather than assuming catalog direction means walking direction.",
   },
   {
     id: "upplandsleden-siggefora-sanka",
-    name: "Siggefora to Sanka",
+    name: "Siggefora to Sånka",
     sectionIds: [
       "upplandsleden-etapp-21-siggeforasjon-tenasjon",
       "upplandsleden-etapp-22-tenasjon-skattmansoadalen",
@@ -126,7 +126,7 @@ const MAINLINE_GROUPS = [
       "upplandsleden-etapp-31-skokloster-sanka",
     ],
     notice:
-      "Southern/western Upplandsleden sequence from Siggefora through Enkoping and Skokloster to Sanka. It continues from Etapp 20:3 at Siggeforasjon, while Etapp 25:2 is kept as a separate branch route group.",
+      "Southern/western Upplandsleden sequence from Siggefora through Enköping and Skokloster to Sånka. It continues from Etapp 20:3 at Siggeforasjön, while Etapp 25:2 is kept as a separate branch route group.",
   },
 ];
 
@@ -152,10 +152,10 @@ const LOOP_CONNECTIONS = {
 
 const BRANCH_CONNECTIONS = {
   "upplandsleden-avstickare-25-2-boglosa-hallristningsomrade": {
-    name: "Branch 25:2",
+    name: "Boglösa hällristningsområde",
     connectsToSectionIds: ["upplandsleden-etapp-25-gansta-boglosa"],
     notice:
-      "Official Upplandsleden side branch to Boglosa/Hemsta rock-carving area, imported as a related route option rather than stitched into the main Etapp 25 geometry.",
+      "Official Upplandsleden side branch to Boglösa/Hemsta rock-carving area, imported as a related route option rather than stitched into the main Etapp 25 geometry.",
   },
 };
 
@@ -417,6 +417,93 @@ function textList(...values) {
   });
 }
 
+const USER_TEXT_REPLACEMENTS = [
+  [/\bStockholms lan\b/g, "Stockholms län"],
+  [/\bForsbyan\b/g, "Forsbyån"],
+  [/\bLanghall\b/g, "Långhäll"],
+  [/\bFjallnora\b/g, "Fjällnora"],
+  [/\bAlvkarleby\b/g, "Älvkarleby"],
+  [/\bTarnsjo\b/g, "Tärnsjö"],
+  [/\bOsta\b/g, "Östa"],
+  [/\bRasbo\b/g, "Råsbo"],
+  [/\bBoglos(a|a-)/g, "Boglös$1"],
+  [/\bhallristningsomrade\b/g, "hällristningsområde"],
+  [/\bkallor\b/g, "källor"],
+  [/\bHarjaro\b/g, "Härjarö"],
+  [/\bBalsta\b/g, "Bålsta"],
+  [/\bGorvaln/g, "Görväln"],
+  [/\bGaseborg\b/g, "Gåseborg"],
+  [/\bKallhallsbadet\b/g, "Kallhällsbadet"],
+  [/\bKallhall\b/g, "Kallhäll"],
+  [/\bSattrabadet\b/g, "Sättrabadet"],
+  [/\bSattra\b/g, "Sättra"],
+  [/\bMalaren\b/g, "Mälaren"],
+  [/\bJarfalla\b/g, "Järfälla"],
+  [/\bGavleborg\b/g, "Gävleborg"],
+  [/\bFarnebofjarden\b/g, "Färnebofjärden"],
+  [/\bOsterbybruk\b/g, "Österbybruk"],
+  [/\bLovstabruk\b/g, "Lövstabruk"],
+  [/\bVastland\b/g, "Västland"],
+  [/\bSkattmansoadalen\b/g, "Skattmansöådalen"],
+  [/\bSiggeforasjon\b/g, "Siggeforasjön"],
+  [/\bBarkarby pendeltagstation\b/g, "Barkarby pendeltågstation"],
+  [/\bErikssundsvagen\b/g, "Erikssundsvägen"],
+  [/\bHagbyholmsvagen\b/g, "Hagbyholmsvägen"],
+];
+
+function polishUserText(value) {
+  if (typeof value !== "string") return value;
+  return USER_TEXT_REPLACEMENTS.reduce(
+    (text, [pattern, replacement]) => text.replace(pattern, replacement),
+    value,
+  );
+}
+
+function dropInternalDescriptionSentences(value) {
+  return value
+    .split(/(?<=[.!?])\s+/)
+    .filter(
+      (sentence) =>
+        /\b(reserve|rules|föreskrift|fire|firewood|camp|tent|dog|leash|eld|tält)\b/i.test(sentence) ||
+        !/\b(metadata|import(?:able|ed|ing|s)?|importer|integration|pending|policy|row|dedupe|cluster|same-coordinate|current-official|proxy|coordinate|normal facility|normal-import(?:ed)?|access layer|modelled|modeled)\b/i.test(sentence),
+    )
+    .join(" ");
+}
+
+function cleanUserDescription(value) {
+  const text = dropInternalDescriptionSentences(polishUserText(value))
+    .replace(/\bmaking it importable as\b/gi, "usable as")
+    .replace(/\bsupport(?:s)? heritage import\b/gi, "supports a heritage marker")
+    .replace(/\bimport(?:ing)? as\b/gi, "using as")
+    .replace(/\bimported as\b/gi, "shown as")
+    .replace(/\bnormal-imported\b/gi, "shown as a public trail facility")
+    .replace(/\bnormal facility\b/gi, "public trail facility")
+    .replace(
+      /\s*Promoted during Upplandsleden normalization from a (?:suppression|pending) row under the current app policy\./g,
+      "",
+    )
+    .replace(/\s*Suppress as [^.]+?\./gi, "")
+    .replace(/\s*(?:Keep|Treat) as [^.]*metadata[^.]*\./gi, "")
+    .replace(/\s*Do not (?:import|merge|snap|draw|convert|normal-import|create an artificial handoff|infer Etapp)[^.]*\./gi, "")
+    .replace(/\s*Do not infer transit[^.]*\./gi, "")
+    .replace(/\s*Attach as caveat to [^.]*normal facility row\./gi, "")
+    .replace(/\s*This is [^.]*not a (?:permanent )?(?:facility|closure)\./gi, "")
+    .replace(/\s*Keep pending until [^.]*\./gi, "")
+    .replace(/\s*Import only when [^.]*\./gi, "")
+    .replace(/\b(?:Access|Start transit|Endpoint transit|Transport|Rail access|Start parking\/access|Endpoint parking|National park access parking|Reserve access parking|Reserve access transit) metadata only[.;]?/gi, "")
+    .replace(/\s*Keep out of normal facility import unless an access layer is added\./gi, "")
+    .replace(/\s*Keep as access warning, not (?:a rendered )?stop\./gi, "")
+    .replace(/\s*Access warning only\./gi, "")
+    .replace(/\bReserve context\/rules metadata:\s*/gi, "Reserve rules: ")
+    .replace(/\bReserve-wide rules\/context(?: only)?:\s*/gi, "Reserve rules: ")
+    .replace(/\bReserve rules and fire\/camping restrictions need protected-area rule integration rather than one facility row\./gi, "Reserve rules and fire/camping restrictions apply.")
+    .replace(/\broute-condition context\b/gi, "route-condition note")
+    .replace(/\s*[^.]*\b(?:metadata|import(?:able|ed|ing|s)?|importer|integration|pending|policy|cluster|current-official|proxy|coordinate|normal facility|normal-import(?:ed)?|access layer)\b[^.]*\./gi, "")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+  return text;
+}
+
 function sourceProviderFromUrl(url) {
   if (typeof url !== "string") return "Upplandsleden";
   try {
@@ -427,8 +514,8 @@ function sourceProviderFromUrl(url) {
     if (hostname.includes("openstreetmap")) return "OpenStreetMap";
     if (hostname.includes("ul.se")) return "UL";
     if (hostname.includes("tierp.se")) return "Tierp kommun";
-    if (hostname.includes("enkoping.se")) return "Enkopings kommun";
-    if (hostname.includes("jarfalla.se")) return "Jarfalla kommun";
+    if (hostname.includes("enkoping.se")) return "Enköpings kommun";
+    if (hostname.includes("jarfalla.se")) return "Järfälla kommun";
     return hostname;
   } catch {
     return "Upplandsleden";
@@ -464,6 +551,7 @@ function rowText(row) {
     row.type,
     row.notes,
     row.description,
+    row.reason,
     row.caveat,
     row.importCaveat,
   ]
@@ -481,13 +569,19 @@ function isInformalTenting(row) {
 }
 
 function isNegativeTransit(row) {
-  return /ingen buss|no bus|no car|no numbered|gap|handoff|ej direkt|inget/.test(
+  return /ingen buss|no bus|no car|ej direkt|inget/.test(
+    rowText(row),
+  );
+}
+
+function isInternalMapDataRow(row) {
+  return /gpx|geometry|drawability|drawn|draw |snap|snapped|snapping|handoff|stitch|simplification|chainage|dedupe|duplicate|leakage|route point|no numbered etapp|source .*recheck|route condition warning recheck|import policy|app display policy/.test(
     rowText(row),
   );
 }
 
 function isWarningLike(row) {
-  return /warning|varning|unsafe|non-potable|ej tjänligt|no water|no-water|closure|removed|avbrott|gap|reroute|underhåll|maintenance|rules|föreskrift|fire ban|eldnings|no car|ingen buss|gpx|discontinuity/.test(
+  return /warning|varning|unsafe|non-potable|ej tjänligt|no water|no-water|closure|removed|avbrott|gap|reroute|underhåll|maintenance|rules|föreskrift|fire ban|eldnings|no car|ingen buss|discontinuity/.test(
     rowText(row),
   );
 }
@@ -499,6 +593,7 @@ function isLeakageOrDuplicate(row) {
 }
 
 function normalizedPromotionType(row, bucket) {
+  if (isInternalMapDataRow(row)) return null;
   if (row.type === "route_metadata")
     return isWarningLike(row) ? "rule-warning" : null;
   if (row.type === "water" && isWarningLike(row)) return "rule-warning";
@@ -535,7 +630,7 @@ function routeProximityForRow(row, hasCoordinates) {
         status: "on-route",
         distanceKm: round(alternateMeters / 1000, 3),
         thresholdKm: Number.isFinite(raw.thresholdKm) ? raw.thresholdKm : 2,
-        ...(raw.note ? { note: raw.note } : {}),
+        ...(raw.note ? { note: polishUserText(raw.note) } : {}),
       };
     }
     if (typeof raw.status === "string") {
@@ -545,7 +640,7 @@ function routeProximityForRow(row, hasCoordinates) {
           ? { distanceKm: raw.distanceKm }
           : {}),
         thresholdKm: Number.isFinite(raw.thresholdKm) ? raw.thresholdKm : 2,
-        ...(raw.note ? { note: raw.note } : {}),
+        ...(raw.note ? { note: polishUserText(raw.note) } : {}),
       };
     }
   }
@@ -575,18 +670,9 @@ function descriptionForRow(row, type, origin) {
     row.caveat,
     row.importCaveat,
   );
-  if (origin === "promoted-suppression") {
-    parts.push(
-      "Promoted during Upplandsleden normalization from a suppression row under the current app policy.",
-    );
-  } else if (origin === "promoted-pending") {
-    parts.push(
-      "Promoted during Upplandsleden normalization from a pending row under the current app policy.",
-    );
-  }
   if (type === "camping")
     parts.push("Informal/tolerated tenting, not a managed campsite.");
-  return parts.join(" ") || `${row.name}.`;
+  return cleanUserDescription(parts.join(" ")) || `${polishUserText(row.name)}.`;
 }
 
 function facilityFromRow(packet, row, sectionId, bucket, fallbackSourceUrl) {
@@ -601,7 +687,7 @@ function facilityFromRow(packet, row, sectionId, bucket, fallbackSourceUrl) {
         : "promoted-suppression";
   return {
     id: row.id,
-    name: row.name,
+    name: polishUserText(row.name),
     type,
     sectionId,
     ...(coordinates ? { coordinates } : {}),
@@ -624,13 +710,13 @@ function facilityFromPreviewRow(section, previewRow, fallbackSourceUrl) {
   const meters = Number(previewRow.routeProximityMeters);
   return {
     id: previewRow.sourceResearchId,
-    name: previewRow.name,
+    name: polishUserText(previewRow.name),
     type,
     sectionId: section.id,
     coordinates,
     description:
-      textList(previewRow.notes, previewRow.caveat).join(" ") ||
-      `${previewRow.name}.`,
+      cleanUserDescription(textList(previewRow.notes, previewRow.caveat).join(" ")) ||
+      `${polishUserText(previewRow.name)}.`,
     routeProximity: Number.isFinite(meters)
       ? {
           status: meters <= 200 ? "on-route" : "unknown",
@@ -784,11 +870,13 @@ function sectionDescription(packet) {
           packet.name ??
           packet.sourceRouteName ??
           "Upplandsleden section.");
+  const long = textList(packet.section?.notes)
+    .filter((note) => !isInternalSectionNote(note))
+    .map(polishUserText)
+    .join(" ");
   return {
-    short: routeCaveat,
-    ...(packet.section?.notes || packet.routeShape
-      ? { long: textList(packet.section?.notes, packet.routeShape).join(" ") }
-      : {}),
+    short: polishUserText(routeCaveat),
+    ...(long ? { long } : {}),
   };
 }
 
@@ -957,29 +1045,25 @@ async function buildRoute(packet, name, targetEndpoints) {
 async function buildSection(packet, stageNumber, specialRouteFlow) {
   const officialId = sectionOfficialId(packet);
   const endpoints = sectionTargetEndpoints(packet, specialRouteFlow);
-  const from =
+  const from = polishUserText(
     specialRouteFlow?.from ??
     packet.section?.from ??
     packet.routeGeometryDraft?.start?.name ??
     packet.section?.name ??
     packet.name ??
-    packet.id;
-  const to =
+    packet.id,
+  );
+  const to = polishUserText(
     specialRouteFlow?.to ??
     packet.section?.to ??
     packet.routeGeometryDraft?.end?.name ??
     packet.section?.name ??
     packet.name ??
-    packet.id;
-  const name = sectionName(packet, from, to);
+    packet.id,
+  );
+  const name = polishUserText(sectionName(packet, from, to));
   const builtRoute = await buildRoute(packet, name, endpoints);
   const facilities = buildFacilitiesForPacket(packet, packet.id);
-  const routeFetchNotes = [
-    ...(builtRoute.routeImportNotes ?? []),
-    ...(builtRoute.routeFetchWarning
-    ? [`Route GPX fetch failed during import: ${builtRoute.routeFetchWarning}`]
-      : []),
-  ];
 
   return {
     section: {
@@ -993,7 +1077,7 @@ async function buildSection(packet, stageNumber, specialRouteFlow) {
       description: sectionDescription(packet),
       utilities: sectionUtilities(facilities),
       waterSources: sectionWaterSources(facilities),
-      notes: [...sectionNotes(packet), ...routeFetchNotes],
+      notes: sectionNotes(packet),
       facilities,
       ...(builtRoute.endpointCoordinates
         ? { endpointCoordinates: builtRoute.endpointCoordinates }
@@ -1037,16 +1121,16 @@ function sectionWaterSources(facilities) {
   ];
 }
 
+function isInternalSectionNote(note) {
+  return /gpx|geometry|draw|downloaded|reverse point|coordinate|chainage|handoff|snap|stitch|split|marker-inclusive|simplification|import|preserve|visually review/i.test(
+    note,
+  );
+}
+
 function sectionNotes(packet) {
-  const notes = [
-    packet.section?.notes,
-    ...(packet.mapdata?.drawPolicy ?? []),
-    ...(packet.routeGeometryDraft?.drawabilityNotes ?? []),
-    ...(packet.mapdata?.qa ?? []).filter((note) =>
-      /warning|gap|break|reroute|closure|do not|preserve/i.test(note),
-    ),
-  ].filter(Boolean);
-  return textList(notes);
+  return textList(packet.section?.notes)
+    .filter((note) => !isInternalSectionNote(note))
+    .map(polishUserText);
 }
 
 function specialRouteFlowForSection(section) {
@@ -1060,7 +1144,7 @@ function specialRouteFlowForSection(section) {
   }
   if (section.id === "upplandsleden-etapp-1-2-knivsta-forsbyan") {
     return {
-      from: "Forsbyan",
+      from: "Forsbyån",
       to: "Knivsta",
       start: roundLatLon(
         section.routeGeometryDraft?.postStockholmDrawStart?.coords ??
@@ -1135,11 +1219,11 @@ function buildRouteGroups(sectionIds) {
     group.sectionIds.every((sectionId) => sectionIdSet.has(sectionId)),
   ).map((group) => ({
     id: group.id,
-    name: group.name,
+    name: polishUserText(group.name),
     kind: "mainline",
     sectionIds: group.sectionIds,
     connectsToSectionIds: [],
-    notice: group.notice,
+    notice: polishUserText(group.notice),
   }));
 
   if (
@@ -1148,7 +1232,7 @@ function buildRouteGroups(sectionIds) {
   ) {
     groups.push({
       id: "upplandsleden-post-sigtuna-connector",
-      name: "Forsbyan-Knivsta-Lunsentorpet connector",
+      name: "Forsbyån-Knivsta-Lunsentorpet connector",
       kind: "connector",
       sectionIds: [
         "upplandsleden-etapp-1-2-knivsta-forsbyan",
@@ -1159,7 +1243,7 @@ function buildRouteGroups(sectionIds) {
         "upplandsleden-etapp-1-sunnersta-nyby",
       ].filter((sectionId) => sectionIdSet.has(sectionId)),
       notice:
-        "Connector inside the same Upplandsleden trail system. It does not close the Sigtuna-Forsbyan break; use it only after planning the known discontinuity separately.",
+        "Connector inside the same Upplandsleden trail system. It does not close the Sigtuna-Forsbyån break; use it only after planning the known discontinuity separately.",
     });
   }
 
@@ -1169,7 +1253,7 @@ function buildRouteGroups(sectionIds) {
     if (!sectionIdSet.has(loopId)) continue;
     groups.push({
       id: `${loopId}-route-group`,
-      name: `Loop ${loopId.replace("upplandsleden-slinga-", "").replace("-", ":")}`,
+      name: polishUserText(`Loop ${loopId.replace("upplandsleden-slinga-", "").replace("-", ":")}`),
       kind: "branch",
       sectionIds: [loopId],
       connectsToSectionIds: connectsToSectionIds.filter((sectionId) =>
@@ -1184,13 +1268,13 @@ function buildRouteGroups(sectionIds) {
     if (!sectionIdSet.has(branchId)) continue;
     groups.push({
       id: `${branchId}-route-group`,
-      name: branch.name,
+      name: polishUserText(branch.name),
       kind: "branch",
       sectionIds: [branchId],
       connectsToSectionIds: branch.connectsToSectionIds.filter((sectionId) =>
         sectionIdSet.has(sectionId),
       ),
-      notice: branch.notice,
+      notice: polishUserText(branch.notice),
     });
   }
 
@@ -1213,7 +1297,7 @@ function buildConnections(sectionsById) {
           },
           to: {
             sectionId: forsbyan.id,
-            label: "Forsbyan",
+            label: "Forsbyån",
             coordinates: forsbyan.endpointCoordinates?.start,
             coordinateSource: "route-geometry",
           },
@@ -1231,7 +1315,7 @@ function buildConnections(sectionsById) {
             navigationUse: "not-for-navigation",
             sourceFormat: "manual",
             warning:
-              "No official connector geometry is imported for the Sigtuna-Forsbyan gap.",
+              "No official connector geometry is imported for the Sigtuna-Forsbyån gap.",
           },
         }
       : null,
@@ -1250,9 +1334,9 @@ function buildPresets(sectionsById) {
     },
     {
       id: "uppsala-east-week",
-      name: "Studenternas IP to Langhall",
+      name: "Studenternas IP to Långhäll",
       description:
-        "The main Uppsala County east/north sequence from the Uppsala urban approach through Sunnersta, Fjallnora, Gimo, Florarna and Alvkarleby.",
+        "The main Uppsala County east/north sequence from the Uppsala urban approach through Sunnersta, Fjällnora, Gimo, Florarna and Älvkarleby.",
       startSectionId: "upplandsleden-etapp-1-0-studenternas-ip-sunnersta",
       endSectionId: "upplandsleden-etapp-17-alvkarleby-langhall",
     },
@@ -1260,15 +1344,15 @@ function buildPresets(sectionsById) {
       id: "gysinge-osta",
       name: "Gysinge and Siggefora branch",
       description:
-        "Branch sequence around Gysinge, Skekarsbo, Tarnsjo/Nora kyrka, Osta, Huddunge and Siggefora.",
+        "Branch sequence around Gysinge, Skekarsbo, Tärnsjö/Nora kyrka, Östa, Huddunge and Siggefora.",
       startSectionId: "upplandsleden-etapp-18-skekarsbo-gysinge",
       endSectionId: "upplandsleden-etapp-20-3-huddunge-siggefora",
     },
     {
       id: "siggefora-sanka",
-      name: "Siggefora to Sanka",
+      name: "Siggefora to Sånka",
       description:
-        "Southern/western sequence from Siggefora via Enkoping and Skokloster to Sanka.",
+        "Southern/western sequence from Siggefora via Enköping and Skokloster to Sånka.",
       startSectionId: "upplandsleden-etapp-21-siggeforasjon-tenasjon",
       endSectionId: "upplandsleden-etapp-31-skokloster-sanka",
     },
@@ -1296,11 +1380,11 @@ function buildManifest(sections, routeGroups, connections, presets) {
     id: TRAIL_ID,
     itemType: "trail-system",
     name: "Upplandsleden",
-    region: "Stockholms lan and Uppsala lan",
+    region: "Stockholms län and Uppsala län",
     country: "Sweden",
     location: {
       type: "swedish-county",
-      label: "Stockholms lan and Uppsala lan",
+      label: "Stockholms län and Uppsala län",
       start: sections[0]?.endpointCoordinates?.start ?? [59.404199, 17.866957],
     },
     recommendedTimes: ["dayhike", "weekend", "3-5-days", "6-plus-days"],
@@ -1315,7 +1399,7 @@ function buildManifest(sections, routeGroups, connections, presets) {
     gettingThere:
       "Use section facilities for static parking and transit planning, then verify current UL, SL, municipality and operator information before travelling. Some endpoints have no bus and some parking is very small.",
     campingRules:
-      "Use `campsite` for formal or clearly designated campsites and `camping` for informal/tolerated tenting. Allemansratten is still limited by reserves, national parks, local rules, fire bans and signage.",
+      "Use `campsite` for formal or clearly designated campsites and `camping` for informal/tolerated tenting. Allemansrätten is still limited by reserves, national parks, local rules, fire bans and signage.",
     utilities: [
       "Parking and transit are imported as normal planning facilities when route-relevant coordinates exist.",
       "Commercial and seasonal services are included with opening/access caveats in descriptions.",
@@ -1327,10 +1411,10 @@ function buildManifest(sections, routeGroups, connections, presets) {
       "Natural water must be treated.",
     ],
     notes: [
-      "The Sigtuna-Forsbyan break is treated as a long-standing discontinuity inside one trail system, not as a temporary closure.",
-      "Etapp 20:1-20:3 are imported as the official western continuation from Ingbo kallor/Rasbo/Huddunge to Siggefora.",
-      "Avstickare 25:2 is imported as a branch route group to the Boglosa/Hemsta rock-carving area.",
-      "Generated route GeoJSON uses official Naturkartan GPX and splits large GPX jumps instead of drawing false connectors.",
+      "The Sigtuna-Forsbyån break is treated as a long-standing discontinuity inside one trail system, not as a temporary closure.",
+      "Etapp 20:1-20:3 are imported as the official western continuation from Ingbo källor/Råsbo/Huddunge to Siggefora.",
+      "Avstickare 25:2 is imported as a branch route group to the Boglösa/Hemsta rock-carving area.",
+      "Internal GPX QA notes are kept out of user-facing route and facility copy.",
     ],
     source: {
       provider: "Upplandsstiftelsen",
@@ -1401,12 +1485,13 @@ ${Object.entries(facilityCounts)
 Normalization notes:
 
 - Upplandsleden is one trail system with multiple route groups, not multiple app trails.
-- The Sigtuna-Forsbyan gap is modeled as a long-standing discontinuity.
+- The Sigtuna-Forsbyån gap is modeled as a long-standing discontinuity.
 - Parking and transit rows with route-relevant coordinates are imported as normal facilities.
 - Informal/tolerated tenting is \`camping\`; formal or managed sites are \`campsite\`.
 - Unsafe/no-water/current-condition records are \`rule-warning\` rows.
-- Official loops/slingor are imported as branch route groups.
-- Official side branch Avstickare 25:2 is imported as a branch route group.
+- Internal GPX QA, handoff and import-provenance notes are kept out of generated user-facing copy.
+- Official loops/slingor are imported as related loop route groups.
+- Official side branch Avstickare 25:2 is imported as a related branch route group.
 `;
 }
 

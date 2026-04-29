@@ -77,19 +77,40 @@ try {
     routeSelection,
     trailConnections,
     filters,
-    library
+    library,
+    libraryItem
   ] = await Promise.all([
     vite.ssrLoadModule("/src/utils/search.ts"),
     vite.ssrLoadModule("/src/map/overviewColors.ts"),
     vite.ssrLoadModule("/src/data/trailRouteSelection.ts"),
     vite.ssrLoadModule("/src/map/trailSystemConnections.ts"),
     vite.ssrLoadModule("/src/data/filters.ts"),
-    vite.ssrLoadModule("/src/data/library.ts")
+    vite.ssrLoadModule("/src/data/library.ts"),
+    vite.ssrLoadModule("/src/utils/libraryItem.ts")
   ]);
 
   test("normalizes search text for diacritics, casing, and whitespace", () => {
     assert.equal(normalizeSearchText("  Sormlandsleden   Nynashamn  "), "sormlandsleden nynashamn");
     assert.equal(normalizeSearchText("  Sörmlandsleden   Nynäshamn ÅÄÖ  "), "sormlandsleden nynashamn aao");
+  });
+
+  test("splits combined county labels for location filtering", () => {
+    assert.deepEqual(
+      libraryItem.itemLocationFilterLabels({
+        activity: "hiking",
+        itemType: "trail-system",
+        location: { label: "Stockholms län and Uppsala län" }
+      }),
+      ["Stockholms län", "Uppsala län"]
+    );
+    assert.deepEqual(
+      libraryItem.itemLocationFilterLabels({
+        activity: "kayaking",
+        itemType: "kayak-trip",
+        locationLabel: "Dalarö / Gålö"
+      }),
+      ["Dalarö / Gålö"]
+    );
   });
 
   test("builds deterministic overview colors without duplicate IDs", () => {

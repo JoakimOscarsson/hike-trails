@@ -38,6 +38,13 @@ export function itemLocationLabel(item: LibraryIndexItem) {
   return isKayakTripIndexItem(item) ? item.locationLabel : item.location.label;
 }
 
+export function itemLocationFilterLabels(item: LibraryIndexItem) {
+  const label = itemLocationLabel(item);
+  if (!/\blän\b/i.test(label)) return [label];
+  const labels = label.split(/\s+and\s+/i).map((part) => part.trim()).filter(Boolean);
+  return labels.length > 1 ? labels : [label];
+}
+
 export function itemDistanceLabel(item: LibraryIndexItem | KayakTrip) {
   return Number.isFinite(item.distanceKm) ? `${item.distanceKm} km` : "Distance unknown";
 }

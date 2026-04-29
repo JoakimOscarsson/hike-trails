@@ -1,6 +1,6 @@
 import React from "react";
 import { AlertTriangle, ArrowLeft, CalendarDays, Check, ChevronDown, ExternalLink, Info, Layers, MapPin, Route, Star, Tent, Train } from "lucide-react";
-import type { TrailAccessPoint, TrailCommuteStop, TrailFacility, TrailSection, TrailSectionConnection, TrailSystem, TrailTransitStop } from "../types";
+import type { TrailAccessPoint, TrailCommuteStop, TrailFacility, TrailRouteGroup, TrailSection, TrailSectionConnection, TrailSystem, TrailTransitStop } from "../types";
 import { useTrailSectionDetails } from "../data/useTrailSectionDetails";
 import {
   matchingRouteGroupRange,
@@ -33,20 +33,49 @@ import {
 } from "../map/hikingFacilities";
 import { BackToOverviewButton, DetailRow, InfoList } from "./DetailBlocks";
 
-const campingRulePattern = /camp|tent|fire|grill|overnight|leash|dog|reserve|national park|designated/i;
+const campingRulePattern = /\b(camp|camping|tent|tenting|tält|fire|firewood|grill|overnight|leash|dog|dogs|reserve|naturreservat|national park|designated|eld|eldning)\b/i;
+const internalPlanningPattern = /\b(gpx|geometry|draw|drawn|import|normalization|metadata|handoff|snap|snapping|stitch|dedupe|duplicate|leakage|simplification|chainage|route point|visually review|preserve)\b/i;
 type FacilityCategoryGroup = (typeof facilityCategoryGroups)[number];
 
 function uniqueStrings(items: string[]) {
   return [...new Set(items.map((item) => item.trim()).filter(Boolean))];
 }
 
-function sectionLabel(section: Pick<TrailSection, "stageNumber">) {
+function sectionLabel(section: Pick<TrailSection, "stageNumber"> & { name?: string; sectionName?: string }) {
+  const name = section.name ?? section.sectionName ?? "";
+  if (section.stageNumber === "Stockholm") return "Stockholm County";
+  if (name.startsWith("Slinga")) return `Loop ${section.stageNumber}`;
+  if (name.startsWith("Avstickare")) return `Branch ${section.stageNumber}`;
   return `Stage ${section.stageNumber}`;
 }
 
-function routePickerSectionLabel(section: Pick<TrailSection, "stageNumber" | "from" | "to">) {
+function routePickerSectionLabel(section: Pick<TrailSection, "name" | "stageNumber" | "from" | "to">) {
   const endpointLabel = section.from === section.to ? section.from : `${section.from} -> ${section.to}`;
-  return `${section.stageNumber}. ${endpointLabel}`;
+  return `${sectionLabel(section)}. ${endpointLabel}`;
+}
+
+function routeGroupKindLabel(group: Pick<TrailRouteGroup, "kind" | "name">) {
+  if (group.kind === "branch" && group.name.startsWith("Loop ")) return "Loop";
+  return routeGroupKindLabels[group.kind];
+}
+
+function routeGroupDisplayName(group: Pick<TrailRouteGroup, "kind" | "name">) {
+  if (group.kind === "branch") return group.name.replace(/^(Loop|Branch)\s+/, "");
+  return group.name;
+}
+
+function relatedRouteLabel(group: Pick<TrailRouteGroup, "kind" | "name">) {
+  return `${routeGroupKindLabel(group)} ${routeGroupDisplayName(group)}`;
+}
+
+function summarizedRelatedRoutes(groups: TrailRouteGroup[]) {
+  const labels = groups.map(relatedRouteLabel);
+  if (labels.length <= 2) return labels.join(", ");
+  return `${labels.slice(0, 2).join(", ")} + ${labels.length - 2} more`;
+}
+
+function isUserFacingCampingRule(text: string) {
+  return campingRulePattern.test(text) && !internalPlanningPattern.test(text);
 }
 
 function sectionDescriptionText(description: TrailSection["description"]) {
@@ -59,25 +88,38 @@ function selectedRouteDescription({
   distanceKm,
   routeGroupLabel,
   firstSection,
-  lastSection
+  lastSection,
+  relatedGroups
 }: {
   sections: TrailSection[];
   distanceKm: number;
   routeGroupLabel: string;
   firstSection: TrailSection;
   lastSection: TrailSection;
+  relatedGroups: TrailRouteGroup[];
 }) {
   const sectionSummaries = sections
     .map((section) => `${sectionLabel(section)}: ${sectionDescriptionText(section.description)}`)
     .filter((summary) => !summary.endsWith(": "))
     .slice(0, 5);
+  const primaryDistanceKm = sections.reduce((total, section) => total + section.distanceKm, 0);
+  const relatedDistanceKm = Math.max(0, distanceKm - primaryDistanceKm);
   const remainingCount = Math.max(0, sections.length - sectionSummaries.length);
   const remainingText = remainingCount ? ` ${remainingCount} more selected section${remainingCount === 1 ? "" : "s"} are listed below.` : "";
+  const relatedDistanceText = relatedDistanceKm ? ` Related route options add ${formatDistance(relatedDistanceKm)}, for ${formatDistance(distanceKm)} selected total.` : "";
+  const relatedText = relatedGroups.length ? ` Related route options selected: ${summarizedRelatedRoutes(relatedGroups)}.` : "";
+  const relatedNotices = relatedGroups
+    .map((group) => group.notice ? `${relatedRouteLabel(group)}: ${group.notice}` : "")
+    .filter(Boolean)
+    .join(" ");
 
   return [
-    `${firstSection.from} to ${lastSection.to} is a ${formatDistance(distanceKm)} ${routeGroupLabel.toLowerCase()} selection across ${sections.length} main section${sections.length === 1 ? "" : "s"}.`,
+    `${firstSection.from} to ${lastSection.to} is a ${formatDistance(primaryDistanceKm)} ${routeGroupLabel.toLowerCase()} selection across ${sections.length} main section${sections.length === 1 ? "" : "s"}.`,
     sectionSummaries.join(" "),
-    remainingText
+    remainingText,
+    relatedDistanceText,
+    relatedText,
+    relatedNotices
   ]
     .filter(Boolean)
     .join(" ");
@@ -120,17 +162,24 @@ function accessPointText(label: string, accessPoint?: TrailAccessPoint) {
   return `${label}: ${accessPoint.placeName}. ${stopItems.join("; ")}.${approximation}`;
 }
 
-function selectedRouteGettingThereItems(sections: TrailSection[]) {
+function selectedRouteGettingThereItems(
+  sections: TrailSection[],
+  options: { accessPointCount: number; hasParkingTransitFacilities: boolean }
+) {
   const firstSection = sections[0];
   const lastSection = sections[sections.length - 1];
   if (!firstSection || !lastSection) return ["No selected section access data is attached yet."];
+
+  if (!options.accessPointCount && options.hasParkingTransitFacilities) {
+    return ["Parking and transit markers for this selection are listed under Facilities. Check live departures, parking rules, and seasonal access before departure."];
+  }
 
   const items = [
     accessPointText("Selected start", accessPointForEndpoint(firstSection, "start")),
     accessPointText("Selected end", accessPointForEndpoint(lastSection, "end"))
   ];
 
-  if (sections.length > 1) {
+  if (sections.length > 1 && options.accessPointCount) {
     items.push("Intermediate stage access points remain available in the Transit Access section below.");
   }
 
@@ -140,12 +189,15 @@ function selectedRouteGettingThereItems(sections: TrailSection[]) {
 function selectedRouteCampingRuleItems(sections: TrailSection[]) {
   const noteItems = sections.flatMap((section) =>
     uniqueStrings(section.notes ?? [])
-      .filter((note) => campingRulePattern.test(note))
+      .filter(isUserFacingCampingRule)
       .map((note) => `${sectionLabel(section)}: ${note}`)
   );
   const facilityItems = sections.flatMap((section) =>
     (section.facilities ?? [])
-      .filter((facility) => ["campsite", "camping", "shelter", "unofficial-shelter", "fireplace", "rule-warning"].includes(facility.type))
+      .filter((facility) =>
+        ["campsite", "camping", "shelter", "unofficial-shelter", "fireplace"].includes(facility.type) ||
+        (facility.type === "rule-warning" && isUserFacingCampingRule(`${facility.name} ${facility.description}`))
+      )
       .map((facility) => `${facilityTypeLabels[facility.type]} - ${facility.name}: ${facility.description}`)
   );
   const items = uniqueStrings([...noteItems, ...facilityItems]);
@@ -405,6 +457,8 @@ function TransitAccessCard({
 function TransitAccessList({ sections }: { sections: TrailSection[] }) {
   const [isOpen, setIsOpen] = React.useState(false);
   const accessPoints = selectedAccessPoints(sections);
+  if (!accessPoints.length) return null;
+
   const firstSection = sections[0];
   const lastSection = sections[sections.length - 1];
   const selectedStart = firstSection
@@ -429,47 +483,41 @@ function TransitAccessList({ sections }: { sections: TrailSection[] }) {
         <span>{accessPoints.length}</span>
       </div>
 
-      {accessPoints.length ? (
-        <>
-          {selectedStart || selectedEnd ? (
-            <div className="transit-list selected-transit-list">
-              {selectedStart ? (
-                <TransitAccessCard accessPoint={selectedStart} label="Selected start" emphasis />
-              ) : null}
-              {selectedEnd ? <TransitAccessCard accessPoint={selectedEnd} label="Selected end" emphasis /> : null}
-            </div>
+      {selectedStart || selectedEnd ? (
+        <div className="transit-list selected-transit-list">
+          {selectedStart ? (
+            <TransitAccessCard accessPoint={selectedStart} label="Selected start" emphasis />
           ) : null}
+          {selectedEnd ? <TransitAccessCard accessPoint={selectedEnd} label="Selected end" emphasis /> : null}
+        </div>
+      ) : null}
 
-          {intermediateAccessPoints.length ? (
-            <>
-              <button
-                aria-controls="transit-access-panel"
-                aria-expanded={isOpen}
-                className="facility-group-toggle transit-toggle"
-                type="button"
-                onClick={() => setIsOpen((current) => !current)}
-              >
-                <span>Intermediate stage access</span>
-                <small>{intermediateAccessPoints.length}</small>
-                <ChevronDown className={isOpen ? "chevron open" : "chevron"} size={16} aria-hidden="true" />
-              </button>
-              <div id="transit-access-panel" className={isOpen ? "transit-panel" : "transit-panel collapsed"}>
-                <div className="transit-list">
-                  {intermediateAccessPoints.map((accessPoint) => (
-                    <TransitAccessCard
-                      accessPoint={accessPoint}
-                      key={accessPoint.id}
-                      label={`${sectionLabel(accessPoint)} · ${accessPoint.endpoint}`}
-                    />
-                  ))}
-                </div>
-              </div>
-            </>
-          ) : null}
+      {intermediateAccessPoints.length ? (
+        <>
+          <button
+            aria-controls="transit-access-panel"
+            aria-expanded={isOpen}
+            className="facility-group-toggle transit-toggle"
+            type="button"
+            onClick={() => setIsOpen((current) => !current)}
+          >
+            <span>Intermediate stage access</span>
+            <small>{intermediateAccessPoints.length}</small>
+            <ChevronDown className={isOpen ? "chevron open" : "chevron"} size={16} aria-hidden="true" />
+          </button>
+          <div id="transit-access-panel" className={isOpen ? "transit-panel" : "transit-panel collapsed"}>
+            <div className="transit-list">
+              {intermediateAccessPoints.map((accessPoint) => (
+                <TransitAccessCard
+                  accessPoint={accessPoint}
+                  key={accessPoint.id}
+                  label={`${sectionLabel(accessPoint)} · ${accessPoint.endpoint}`}
+                />
+              ))}
+            </div>
+          </div>
         </>
-      ) : (
-        <p>No transit access points are attached to this route yet.</p>
-      )}
+      ) : null}
     </section>
   );
 }
@@ -653,6 +701,7 @@ export function TrailSystemDetails({
     .filter(isCloseTrailFacility)
     .filter((facility, index, facilities) => facilities.findIndex((candidate) => candidate.id === facility.id) === index);
   const accessPoints = selectedAccessPoints(detailedSelectedRouteSections);
+  const hasParkingTransitFacilities = selectedFacilities.some((facility) => facility.type === "parking" || facility.type === "transit");
   const selectedPresetId =
     trailSystem.presets.find((preset) => preset.startSectionId === startSectionId && preset.endSectionId === endSectionId)?.id ??
     "";
@@ -665,9 +714,13 @@ export function TrailSystemDetails({
     distanceKm,
     routeGroupLabel,
     firstSection,
-    lastSection
+    lastSection,
+    relatedGroups: selectedContextGroups
   });
-  const gettingThereItems = selectedRouteGettingThereItems(detailedPrimaryRouteSections);
+  const gettingThereItems = selectedRouteGettingThereItems(detailedPrimaryRouteSections, {
+    accessPointCount: accessPoints.length,
+    hasParkingTransitFacilities
+  });
   const campingRuleItems = selectedRouteCampingRuleItems(detailedPrimaryRouteSections);
   const selectedTransferConnections = selectedTrailTransferConnections(trailSystem.connections, detailedPrimaryRouteSections);
 
@@ -821,7 +874,7 @@ export function TrailSystemDetails({
             <strong>{firstSection.from} to {lastSection.to}</strong>
             <span>
               {routeGroupLabel} · {selectedSections.length} main sections
-              {selectedContextGroups.length ? ` · ${selectedContextGroups.length} related option${selectedContextGroups.length === 1 ? "" : "s"}` : ""}
+              {selectedContextGroups.length ? ` · ${summarizedRelatedRoutes(selectedContextGroups)}` : ""}
               {selectedTransferConnections.length ? ` · ${selectedTransferConnections.length} transfer${selectedTransferConnections.length === 1 ? "" : "s"}` : ""} · {formatDistance(distanceKm)}
             </span>
           </div>
@@ -949,7 +1002,7 @@ export function TrailSystemDetails({
             <section className="context-routes">
               <div className="context-routes-head">
                 <span>Related route options</span>
-                <small>Connected to this range</small>
+                <small>Available for this range</small>
               </div>
               <div className="context-route-list">
                 {availableContextGroups.map((group) => {
@@ -965,8 +1018,8 @@ export function TrailSystemDetails({
                       type="button"
                       onClick={() => toggleContextGroup(group.id)}
                     >
-                      <span>{routeGroupKindLabels[group.kind]}</span>
-                      <strong>{group.name}</strong>
+                      <span>{routeGroupKindLabel(group)}</span>
+                      <strong>{routeGroupDisplayName(group)}</strong>
                       <small>{groupSections.length} section{groupSections.length === 1 ? "" : "s"} · {formatDistance(groupDistance)}</small>
                     </button>
                   );

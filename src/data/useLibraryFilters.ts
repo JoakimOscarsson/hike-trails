@@ -1,6 +1,6 @@
 import React from "react";
 import type { ActivityKind, KayakFacility, LibraryIndexItem } from "../types";
-import { isHikingLibraryIndexItem, itemLocationLabel, itemSearchText } from "../utils/libraryItem";
+import { isHikingLibraryIndexItem, itemLocationFilterLabels, itemSearchText } from "../utils/libraryItem";
 import { normalizeSearchText } from "../utils/search";
 import {
   distanceFilters,
@@ -59,7 +59,7 @@ export function useLibraryFilters({
   );
 
   const locationOptions = React.useMemo(
-    () => Array.from(new Set(activityItems.map(itemLocationLabel))).sort(),
+    () => Array.from(new Set(activityItems.flatMap(itemLocationFilterLabels))).sort(),
     [activityItems]
   );
 
@@ -74,7 +74,7 @@ export function useLibraryFilters({
         if (activeActivity === "kayaking") {
           const searchableText = itemSearchText(item);
           const matchesSearch = !query || searchableText.includes(query);
-          const matchesLocation = locationFilter === "all" || itemLocationLabel(item) === locationFilter;
+          const matchesLocation = locationFilter === "all" || itemLocationFilterLabels(item).includes(locationFilter);
           const matchesDuration = kayakDurationMatches(item, kayakDurationFilter);
           const matchesService =
             kayakServiceFilter === "all" ||
@@ -91,7 +91,7 @@ export function useLibraryFilters({
         if (!isHikingLibraryIndexItem(item)) return false;
         const searchableText = itemSearchText(item);
         const matchesSearch = !query || searchableText.includes(query);
-        const matchesLocation = locationFilter === "all" || itemLocationLabel(item) === locationFilter;
+        const matchesLocation = locationFilter === "all" || itemLocationFilterLabels(item).includes(locationFilter);
         const matchesDistance = distance.matches(item);
         const matchesRecommendedTime = recommendedTime.matches(item);
 

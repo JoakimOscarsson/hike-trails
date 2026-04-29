@@ -11,83 +11,15 @@
     "long": "Roslagen rounds to ca 20 km; keep 19 km from Naturkartan/Upplandsstiftelsen."
   },
   "utilities": [
-    "Mapped facilities on this section include toilet, water, rest area, fireplace, shelter, heritage, attraction, campsite, transit, parking, rule warning."
+    "Mapped facilities on this section include toilet, water, heritage, parking, rule warning, attraction."
   ],
   "waterSources": [
     "Use listed water rows as planning-grade refill information; seasonal access, non-potable warnings, and local signage override static data."
   ],
   "notes": [
-    "Roslagen rounds to ca 20 km; keep 19 km from Naturkartan/Upplandsstiftelsen.",
-    "Use Etapp 12 GPX as the official downloadable geometry for the section.",
-    "One GPX track and one segment; no large internal gaps found in iteration 1.",
-    "Do not blindly join adjacent raw GPX endpoints: Etapp 11 has an auxiliary segment and Etapp 13 GPX is stored Lövstabruk-to-Risön, reversed relative to the written walking direction.",
-    "Current Etapp 12 GPX is eastern-branch geometry after Vika. Official prose still treats western Stormon/Grillholmen as a valid branch, but that branch is absent from the primary GPX and should not be normal-imported until alternate branch geometry is supported.",
-    "Facility/safety warnings found in iteration 1: Vika pump has non-potable water; Risön water is seasonal May-October. Access metadata separately records that Risön has no bus access."
+    "Roslagen rounds to ca 20 km; keep 19 km from Naturkartan/Upplandsstiftelsen."
   ],
   "facilities": [
-    {
-      "id": "upplandsleden-etapp-12-osterbybruk-toilet",
-      "name": "Toalett, Österbybruk torget",
-      "type": "toilet",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.195491,
-        17.89592
-      ],
-      "description": "Shared start endpoint service. Public toilet at torget, open year-round 07-21. Deduplicate with Etapp 11 endpoint records. Dedupe with Etapp 11 and Österbybruksslingan.",
-      "routeProximity": {
-        "status": "unknown",
-        "distanceKm": 0.274,
-        "thresholdKm": 2
-      },
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/toalett-osterbybruk",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-etapp-11-osterbybruk-water",
-      "name": "Vatten, Österbybruk",
-      "type": "water",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.196923,
-        17.901065
-      ],
-      "description": "Shared start endpoint service. Municipal tap outside laundry, on year-round. Deduplicate with Etapp 11 endpoint records. Dedupe with Etapp 11 and Österbybruksslingan.",
-      "routeProximity": {
-        "status": "on-route",
-        "distanceKm": 0.18,
-        "thresholdKm": 2
-      },
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/vatten-osterbybruk",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-etapp-12-osterbybruk-busstation-rwc",
-      "name": "RWC, Österbybruk busstation",
-      "type": "toilet",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.197002,
-        17.898235
-      ],
-      "description": "Shared start endpoint service. Östhammar municipality lists Österbybruk Bussväntsalen as 1 RWC open 24h. No separate RWC map point was found; coordinate is rechecked against the Naturkartan Österbybruk busstation anchor, so confidence remains medium. Dedupe with Etapp 11 and Österbybruksslingan using fuzzy/source-name matching because Etapp 11 used a coordinate about 18 m away.",
-      "routeProximity": {
-        "status": "on-route",
-        "distanceKm": 0.077,
-        "thresholdKm": 2
-      },
-      "source": {
-        "provider": "osthammar.se",
-        "url": "https://www.osthammar.se/sv/uppleva-och-gora-old/natur-och-friluftsliv/offentliga-toaletter/",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
     {
       "id": "upplandsleden-etapp-12-films-kyrka-toilet",
       "name": "Toalett, Films kyrka",
@@ -131,195 +63,6 @@
       }
     },
     {
-      "id": "upplandsleden-etapp-12-vika-rest-area",
-      "name": "Rastplats, Vika",
-      "type": "rest-area",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.283206,
-        17.87577
-      ],
-      "description": "Several picnic tables in pasture near Vika; current warning says the Vika water pump has unfit water and must not be used for drinking or cooking. Dedupe/coordinate-check against Floranslingan overlap.",
-      "routeProximity": {
-        "status": "on-route",
-        "distanceKm": 0.012,
-        "thresholdKm": 2
-      },
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/rastplats-vika",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-etapp-12-vika-toilet",
-      "name": "Toalett, Vika",
-      "type": "toilet",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.28319,
-        17.876741
-      ],
-      "description": "Dry toilet near Vika rest area. Dedupe/coordinate-check against Floranslingan overlap.",
-      "routeProximity": {
-        "status": "on-route",
-        "distanceKm": 0.004,
-        "thresholdKm": 2
-      },
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/toalett-vika",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-etapp-12-staffansholmen-fireplace",
-      "name": "Eldplats, Staffansholmen",
-      "type": "fireplace",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.285542,
-        17.854798
-      ],
-      "description": "Official fireplace/rest area near Vikasjön on the current GPX/eastern branch. Do not import as shelter unless a later pass confirms official shelter status. Dedupe/coordinate-check against Floranslingan overlap.",
-      "routeProximity": {
-        "status": "on-route",
-        "distanceKm": 0.027,
-        "thresholdKm": 2
-      },
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/eldplats-staffansholmen",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-etapp-12-staffansholmen-rest-area",
-      "name": "Rastplats, Staffansholmen",
-      "type": "rest-area",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.285542,
-        17.854798
-      ],
-      "description": "Rest area with benches associated with the Staffansholmen fireplace. Import only if same-coordinate clustering is respected. Dedupe/coordinate-check against Floranslingan overlap.",
-      "routeProximity": {
-        "status": "on-route",
-        "distanceKm": 0.027,
-        "thresholdKm": 2
-      },
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/eldplats-staffansholmen",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-etapp-12-rison-open-cabin",
-      "name": "Öppen raststuga, Risön",
-      "type": "shelter",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.308254,
-        17.863899
-      ],
-      "description": "Open rest/overnight cabin with two beds and electric heat; no cooking. Shared endpoint service with Etapp 13 and Floranslingan. Länsstyrelsen distinguishes these public visitor services from bookable indoor Risön amenities; dedupe with Etapp 13 and Floranslingan.",
-      "routeProximity": {
-        "status": "on-route",
-        "distanceKm": 0.039,
-        "thresholdKm": 2
-      },
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/oppen-raststuga-rison-florarna",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-etapp-12-rison-water",
-      "name": "Vatten, Risön",
-      "type": "water",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.308284,
-        17.864692
-      ],
-      "description": "Seasonal tap on building at Risön, available May-October / May 1-October 31 only. Shared endpoint service with Etapp 13 and Floranslingan. Länsstyrelsen distinguishes these public visitor services from bookable indoor Risön amenities; dedupe with Etapp 13 and Floranslingan. Länsstyrelsen is used as contextual support for public-vs-bookable Risön services; the seasonal public tap itself is directly sourced from Naturkartan/Upplandsstiftelsen.",
-      "routeProximity": {
-        "status": "on-route",
-        "distanceKm": 0.045,
-        "thresholdKm": 2
-      },
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/vatten-etapp-13-rison-2",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-etapp-12-rison-toilet",
-      "name": "Toalett, Risön",
-      "type": "toilet",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.308005,
-        17.865679
-      ],
-      "description": "Dry toilet/public endpoint toilet at Risön. Exact service should be deduplicated with Risön object and Etapp 13/Floranslingan imports. Länsstyrelsen distinguishes these public visitor services from bookable indoor Risön amenities; dedupe with Etapp 13 and Floranslingan.",
-      "routeProximity": {
-        "status": "on-route",
-        "distanceKm": 0.055,
-        "thresholdKm": 2
-      },
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/rison",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-etapp-12-rison-rest-area",
-      "name": "Rastplats, Risön",
-      "type": "rest-area",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.308005,
-        17.865679
-      ],
-      "description": "Risön trail endpoint/lägergård context with public outdoor rest and grill area. Indoor lodging, showers and kitchen are bookable amenities, not public trail facilities. Länsstyrelsen distinguishes these public visitor services from bookable indoor Risön amenities; dedupe with Etapp 13 and Floranslingan.",
-      "routeProximity": {
-        "status": "on-route",
-        "distanceKm": 0.055,
-        "thresholdKm": 2
-      },
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/rison",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-etapp-12-rison-fireplace",
-      "name": "Eldplats, Risön",
-      "type": "fireplace",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.308005,
-        17.865679
-      ],
-      "description": "Outdoor grill/fireplace at Risön, with wood according to Naturkartan/Roslagen context. Shared endpoint service. Länsstyrelsen distinguishes these public visitor services from bookable indoor Risön amenities; dedupe with Etapp 13 and Floranslingan.",
-      "routeProximity": {
-        "status": "on-route",
-        "distanceKm": 0.055,
-        "thresholdKm": 2
-      },
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/rison",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
       "id": "upplandsleden-etapp-12-films-kyrka",
       "name": "Films kyrka",
       "type": "heritage",
@@ -349,7 +92,7 @@
         60.222275,
         17.908163
       ],
-      "description": "Cluster interpretation: official route text says the route passes a larger grave field with about 50 Iron Age graves after road 290. Fornsök confirms route-adjacent RAÄ Film 9:1/L1943:3137 and Film 34:1/L1943:3351 as grave fields, with nearby off-route Film 10:1/L1943:3269 making the count plausible. Coordinate is an approximate cluster marker, not a single RAÄ object centroid; keep medium confidence.",
+      "description": "Fornsök confirms route-adjacent RAÄ Film 9:1/L1943:3137 and Film 34:1/L1943:3351 as grave fields, with nearby off-route Film 10:1/L1943:3269 making the count plausible.",
       "routeProximity": {
         "status": "on-route",
         "distanceKm": 0.05,
@@ -362,177 +105,6 @@
       }
     },
     {
-      "id": "upplandsleden-etapp-12-kungaspangen",
-      "name": "Kungaspången",
-      "type": "attraction",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.300976,
-        17.86812
-      ],
-      "description": "Named 500 m boardwalk over mire between Stenstamon and Risön; coordinate is on the official Etapp 12 GPX/current eastern branch. Route-feature POI, not a facility.",
-      "routeProximity": {
-        "status": "on-route",
-        "distanceKm": 0,
-        "thresholdKm": 2
-      },
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/upplandsleden-etapp-12",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-etapp-12-rison-campsite",
-      "name": "Tältplats, Risön",
-      "type": "campsite",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.308005,
-        17.865679
-      ],
-      "description": "Public tent spots at Risön. Supported by Naturkartan Risön, Etapp 13 endpoint context and Länsstyrelsen Florarna public visitor-service guidance. Dedupe with Etapp 13 and Floranslingan.",
-      "routeProximity": {
-        "status": "on-route",
-        "distanceKm": 0.055,
-        "thresholdKm": 2
-      },
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/rison",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-etapp-12-filmspangen",
-      "name": "Filmspången",
-      "type": "attraction",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.225211,
-        17.906632
-      ],
-      "description": "Named on-route foot bridge after road 290. Coordinate is the midpoint of the OSM bridge way on Upplandsleden and falls on the official Etapp 12 GPX. Nearby bird tower is mapped at 60.2254768, 17.9056429, about 9 m from the official GPX, and is treated as supporting context rather than a separate import.",
-      "routeProximity": {
-        "status": "on-route",
-        "distanceKm": 0,
-        "thresholdKm": 2
-      },
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/en/uppsala-lan/upplandsleden-etapp-12",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-slinga-12-2-stormon-shelter",
-      "name": "Vindskydd, Stormon",
-      "type": "shelter",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.284366,
-        17.839479
-      ],
-      "description": "Official Etapp 12 prose/Upplandsstiftelsen lists this as western-branch service; current Etapp 12 GPX follows eastern branch and is about 700 m away. Floranslingan GPX supplies alternate geometry. Import only when alternate branch geometry is supported. Promoted during Upplandsleden normalization from a pending row under the current app policy.",
-      "routeProximity": {
-        "status": "on-route",
-        "distanceKm": 0.01,
-        "thresholdKm": 0.2,
-        "note": "Off the primary Etapp 12 GPX, but on the official western alternate branch supported by Etapp 12 prose and Floranslingan geometry."
-      },
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/vindskydd-stormon",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-slinga-12-2-stormon-toilet",
-      "name": "Toalett, Stormon",
-      "type": "toilet",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.283807,
-        17.839522
-      ],
-      "description": "Official Etapp 12 prose/Upplandsstiftelsen lists this as western-branch service; current Etapp 12 GPX follows eastern branch and is about 700 m away. Floranslingan GPX supplies alternate geometry. Import only when alternate branch geometry is supported. Promoted during Upplandsleden normalization from a pending row under the current app policy.",
-      "routeProximity": {
-        "status": "on-route",
-        "distanceKm": 0.037,
-        "thresholdKm": 0.2,
-        "note": "Off the primary Etapp 12 GPX, but on the official western alternate branch supported by Etapp 12 prose and Floranslingan geometry."
-      },
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/toalett-stormon",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-slinga-12-2-grillholmen-fireplace",
-      "name": "Eldplats, Grillholmen",
-      "type": "fireplace",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.293916,
-        17.833385
-      ],
-      "description": "Official Etapp 12 prose/Upplandsstiftelsen lists this as western-branch service; current Etapp 12 GPX follows eastern branch and is about 700 m away. Floranslingan GPX supplies alternate geometry. Import only when alternate branch geometry is supported. Promoted during Upplandsleden normalization from a pending row under the current app policy.",
-      "routeProximity": {
-        "status": "on-route",
-        "distanceKm": 0.033,
-        "thresholdKm": 0.2,
-        "note": "Off the primary Etapp 12 GPX, but on the official western alternate branch supported by Etapp 12 prose and Floranslingan geometry."
-      },
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/eldplats-grillholmen",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-slinga-12-2-grillholmen-rest-area",
-      "name": "Rastplats, Grillholmen",
-      "type": "rest-area",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.293916,
-        17.833385
-      ],
-      "description": "Official Etapp 12 prose/Upplandsstiftelsen lists this as western-branch service; current Etapp 12 GPX follows eastern branch and is about 700 m away. Floranslingan GPX supplies alternate geometry. Import only when alternate branch geometry is supported. Same-coordinate with Grillholmen fireplace; cluster if imported later. Promoted during Upplandsleden normalization from a pending row under the current app policy.",
-      "routeProximity": {
-        "status": "on-route",
-        "distanceKm": 0.033,
-        "thresholdKm": 0.2,
-        "note": "Off the primary Etapp 12 GPX, but on the official western alternate branch supported by Etapp 12 prose and Floranslingan geometry."
-      },
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/eldplats-grillholmen",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-etapp-12-osterbybruk-busstation",
-      "name": "Österbybruk busstation",
-      "type": "transit",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.197002,
-        17.898235
-      ],
-      "description": "Shared start transit metadata. Etapp 12 starts at bus terminal; dedupe with Etapp 11 and Österbybruksslingan. Keep out of normal facility imports. Promoted during Upplandsleden normalization from a suppression row under the current app policy.",
-      "routeProximity": {
-        "status": "unknown",
-        "thresholdKm": 2
-      },
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/osterbybruk-busstation",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
       "id": "upplandsleden-etapp-12-osterbybruk-parking",
       "name": "Parkering, Österbybruk",
       "type": "parking",
@@ -541,7 +113,7 @@
         60.197488,
         17.897783
       ],
-      "description": "Shared start parking metadata. Large asphalt parking by busstation serving Etapp 11, Etapp 12 and Österbybruksslingan. Keep out of normal facility imports. Promoted during Upplandsleden normalization from a suppression row under the current app policy.",
+      "description": "Large asphalt parking by busstation serving Etapp 11, Etapp 12 and Österbybruksslingan.",
       "routeProximity": {
         "status": "unknown",
         "thresholdKm": 2
@@ -561,7 +133,7 @@
         60.279737,
         17.877747
       ],
-      "description": "Small parking for 3-4 cars; do not drive past the gate; plowed in winter. Access metadata only. Promoted during Upplandsleden normalization from a suppression row under the current app policy.",
+      "description": "Small parking for 3-4 cars; do not drive past the gate; plowed in winter.",
       "routeProximity": {
         "status": "unknown",
         "thresholdKm": 2
@@ -581,7 +153,7 @@
         60.30797,
         17.864295
       ],
-      "description": "Parking at Risön for about 10 cars; plowed in winter. Shared endpoint access metadata with Etapp 13 and Floranslingan. Promoted during Upplandsleden normalization from a suppression row under the current app policy.",
+      "description": "Parking at Risön for about 10 cars; plowed in winter.",
       "routeProximity": {
         "status": "unknown",
         "thresholdKm": 2
@@ -597,7 +169,7 @@
       "name": "No bus access to Risön",
       "type": "rule-warning",
       "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "description": "Official Etapp 12 source says Risön cannot be reached by bus. Do not infer transit at Risön. Promoted during Upplandsleden normalization from a suppression row under the current app policy.",
+      "description": "Official Etapp 12 source says Risön cannot be reached by bus.",
       "source": {
         "provider": "Naturkartan",
         "url": "https://www.naturkartan.se/sv/uppsala-lan/upplandsleden-etapp-12",
@@ -609,7 +181,7 @@
       "name": "Vattenpump, Vika",
       "type": "rule-warning",
       "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "description": "Suppress as drinkable water. Official current warning says the Vika pump has unfit water and must not be used for drinking or cooking. Promoted during Upplandsleden normalization from a suppression row under the current app policy.",
+      "description": "Official current warning says the Vika pump has unfit water and must not be used for drinking or cooking.",
       "source": {
         "provider": "Naturkartan",
         "url": "https://www.naturkartan.se/sv/uppsala-lan/upplandsleden-etapp-12",
@@ -621,30 +193,10 @@
       "name": "Florarna reserve rules",
       "type": "rule-warning",
       "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "description": "Reserve context/rules metadata: fire only at prepared places; dogs leashed; vehicles/camping governed by reserve rules. Do not import as a normal point facility. Promoted during Upplandsleden normalization from a suppression row under the current app policy.",
+      "description": "Reserve rules: fire only at prepared places; dogs leashed; vehicles/camping governed by reserve rules.",
       "source": {
         "provider": "Lansstyrelsen",
         "url": "https://www.lansstyrelsen.se/uppsala/besoksmal/naturreservat/florarna.html",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-slinga-12-1-hembygdsgarden-heritage",
-      "name": "Hembygdsgården, Österbybruk",
-      "type": "heritage",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.190643,
-        17.895004
-      ],
-      "description": "Local heritage object near Österbybruk, but off the core Etapp 12 start corridor and better handled as Österbybruk local-loop context unless later import policy wants start-area POIs. Promoted during Upplandsleden normalization from a suppression row under the current app policy.",
-      "routeProximity": {
-        "status": "unknown",
-        "thresholdKm": 2
-      },
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/hembygdsgarden-osterbybruk",
         "lastFetchedAt": "2026-04-29"
       }
     },
@@ -657,7 +209,7 @@
         60.308005,
         17.865679
       ],
-      "description": "Treat Risön indoor WC/showers/kitchen/hot-cold water as booked accommodation amenities. Public trail services are dry toilet, seasonal water tap, tent spots/outdoor rest area and open hut. Do not convert this metadata row into a public shelter/campsite/service import. Promoted during Upplandsleden normalization from a suppression row under the current app policy.",
+      "description": "Treat Risön indoor WC/showers/kitchen/hot-cold water as booked accommodation amenities. Public trail services are dry toilet, seasonal water tap, tent spots/outdoor rest area and open hut.",
       "routeProximity": {
         "status": "unknown",
         "thresholdKm": 2
@@ -665,26 +217,6 @@
       "source": {
         "provider": "Naturkartan",
         "url": "https://www.naturkartan.se/sv/uppsala-lan/rison",
-        "lastFetchedAt": "2026-04-29"
-      }
-    },
-    {
-      "id": "upplandsleden-etapp-12-stormon-parking",
-      "name": "Parkering, Stormon",
-      "type": "parking",
-      "sectionId": "upplandsleden-etapp-12-osterbybruk-rison",
-      "coordinates": [
-        60.284072,
-        17.839364
-      ],
-      "description": "Western-branch/Floranslingan access metadata only. Official marker says Upplandsleden passes the parking and it is plowed in winter; current Etapp 12 GPX/import policy keeps Stormon/Grillholmen pending, so do not normal-import. Promoted during Upplandsleden normalization from a suppression row under the current app policy.",
-      "routeProximity": {
-        "status": "unknown",
-        "thresholdKm": 2
-      },
-      "source": {
-        "provider": "Naturkartan",
-        "url": "https://www.naturkartan.se/sv/uppsala-lan/parkering-stormon",
         "lastFetchedAt": "2026-04-29"
       }
     }
