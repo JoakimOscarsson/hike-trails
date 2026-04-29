@@ -1,7 +1,7 @@
 {
   "trailId": "sjuharadsleden",
-  "lastUpdated": "2026-04-29T20:08:00Z",
-  "currentPhase": "section-7-complete-ready-for-section-8",
+  "lastUpdated": "2026-04-29T20:26:00Z",
+  "currentPhase": "section-8-complete-ready-for-section-9",
   "completedSections": [
     "sjuharadsleden-etapp-1-hindas-station-hestrafors-if",
     "sjuharadsleden-etapp-2-hestrafors-if-ik-omega",
@@ -9,7 +9,8 @@
     "sjuharadsleden-etapp-4-sok-stugan-rya-asar",
     "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna",
     "sjuharadsleden-etapp-6-karlsaflogarna-blackered",
-    "sjuharadsleden-etapp-7-blackered-prangens-camping"
+    "sjuharadsleden-etapp-7-blackered-prangens-camping",
+    "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -152,17 +153,23 @@
     },
     "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka": {
       "overviewStatus": "complete",
-      "officialSourceStatus": "overview-only",
-      "routeGeometryStatus": "overview-gpx-audited",
-      "startEndCoordinateStatus": "overview-gpx-and-boras-sweref-converted-with-bone-typo-caveat",
-      "commuteAccessStatus": "pending",
-      "facilityResearchStatus": "pending",
-      "rulesSafetyStatus": "overview-only",
-      "synthesisStatus": "pending",
-      "importReadiness": "not-ready",
+      "officialSourceStatus": "complete",
+      "routeGeometryStatus": "complete-with-three-part-gpx-and-osm-reversal-caveats",
+      "startEndCoordinateStatus": "complete-with-bone-coordinate-typo-and-endpoint-access-caveats",
+      "commuteAccessStatus": "complete-with-weak-bone-transit-and-brunnsnas-stop-caveat",
+      "facilityResearchStatus": "complete-with-jordkulan-water/overnight-and-prangens-deduplication-caveats",
+      "rulesSafetyStatus": "complete-with-local-ordinance-fire-water-churchyard-caveats",
+      "synthesisStatus": "complete",
+      "importReadiness": "ready-for-normalization-with-caveats",
       "remainingQuestions": [
-        "Verify Böne kyrka coordinate typo and official endpoint label.",
-        "Clarify overlap with Åsundenleden and Redvägsleden."
+        "Use corrected Böne easting 412026 for Borås-derived endpoint/access metadata and preserve the stage 8 printed 4120226 as typo.",
+        "Decide whether import endpoint should use Naturkartan route-line endpoint, Böne church building coordinate or Böne parking coordinate.",
+        "Confirm whether Jordkulan vindskydd should be marked overnight shelter or rest shelter only.",
+        "Verify current maintenance/seasonality of Jordkulan toilet, waste basket and shelter.",
+        "Do not import Jordkulan spring or Böne kyrka as potable water without current confirmation.",
+        "Verify Brunnsnäs stop currentness; current active start stops appear to be Karlsnäs/Bronäs/Ågatan.",
+        "Verify whether Böne kyrka has any current public toilet/open church hours before showing services.",
+        "Refresh Västtrafik line 201/209/262/265 schedules and SÄRF/Krisinformation fire status before import."
       ]
     },
     "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri": {
@@ -763,20 +770,108 @@
       "outputs": [
         "sections/sjuharadsleden-etapp-7-blackered-prangens-camping.research.json"
       ]
+    },
+    {
+      "id": "section-8-batch-1",
+      "sectionId": "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka",
+      "startedAt": "2026-04-29T20:12:00Z",
+      "completedAt": "2026-04-29T20:26:00Z",
+      "lanes": [
+        "official-sources",
+        "route-geometry",
+        "facilities",
+        "transit-access",
+        "field-reports",
+        "rules-safety-currentness"
+      ],
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddadb-6775-75c0-99fe-57cb00937b46",
+          "nickname": "Mencius"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddadb-67db-7013-aa2e-a06f33a8a72e",
+          "nickname": "Kierkegaard"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddadb-6812-7ba3-8e9d-acca22037704",
+          "nickname": "Ohm"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddadb-6874-79d0-8f3e-7564d2b364a7",
+          "nickname": "Curie"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddadb-68c2-7800-bb3f-8a89e53e38c6",
+          "nickname": "Pasteur"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddadb-68fa-7830-800a-0f46a3512361",
+          "nickname": "Boole"
+        }
+      ],
+      "laneStatuses": [
+        {
+          "lane": "official-sources",
+          "status": "completed",
+          "completedAt": "2026-04-29T20:16:00Z",
+          "summary": "Confirmed official label Prångens Camping - Böne kyrka, 15 km/15.1 km, 4.5 hours, Lätt/Easy, surface split, official POIs, Åsundenleden/Redvägsleden overlaps, and the Böne coordinate typo."
+        },
+        {
+          "lane": "route-geometry",
+          "status": "completed",
+          "completedAt": "2026-04-29T20:23:00Z",
+          "summary": "Audited Naturkartan GPX/API and OSM relation 5607243. Naturkartan has three parts and 15.115 km segment-sum; OSM is connected but reversed. Confirmed exact section 8/9 continuity and overlap lengths for Åsundenleden and Redvägsleden."
+        },
+        {
+          "lane": "facilities",
+          "status": "completed",
+          "completedAt": "2026-04-29T20:21:00Z",
+          "summary": "Found Prångens Camping/start facilities, early Ulricehamn services, Fornåkrar, Varggrop, Jordkulan heritage/shelter/fire/toilet/water/waste cluster, Redvägsleden split, Böne kyrka and Böne parking."
+        },
+        {
+          "lane": "transit-access",
+          "status": "completed",
+          "completedAt": "2026-04-29T20:18:00Z",
+          "summary": "Verified strong start access via Karlsnäs/Bronäs/Ågatan/Ulricehamn busstation, treated Brunnsnäs as older stop reference, and found weak Böne transit via Dalum/Tingvallen/Vedåslavägen plus parking at Böne kyrka."
+        },
+        {
+          "lane": "field-reports",
+          "status": "completed",
+          "completedAt": "2026-04-29T20:14:00Z",
+          "summary": "Found direct 2025 E1 report noting rain, wet/slippery path toward Böne, unreliable/empty water at Rabbaberget/Jordkulan, Böne church locked and water not drinkable; no current section-specific closure found."
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "status": "completed",
+          "completedAt": "2026-04-29T20:24:00Z",
+          "summary": "Confirmed no protected-area overlap from WFS checks, dynamic fire-ban status, local leash/no-camping/churchyard rules, road safety, water reliability caveats and no stage-specific closure."
+        }
+      ],
+      "summary": "Six parallel research/report agents completed for section 8 Prångens Camping to Böne kyrka. Main thread synthesized official sources, Naturkartan/OSM geometry, facilities, commute/access, field reports and rules/safety into the section research JSON.",
+      "outputs": [
+        "sections/sjuharadsleden-etapp-8-prangens-camping-bone-kyrka.research.json"
+      ]
     }
   ],
   "sourceCoverage": {
     "officialTrailOverview": "good",
     "officialSectionInventory": "good",
-    "routeGeometry": "sections-1-through-7-complete-plus-good-overview-gpx-for-all-stages; section-6-needs-rolle-normalization-before-import; section-7-needs-long-chord-densification-before-import",
-    "osmRelations": "sections-1-through-7-cross-checked-plus-good-overview",
-    "facilities": "sections-1-through-7-complete-with-pending-verification-items; overview-only-for-sections-8-10",
-    "commuteAccess": "sections-1-through-7-complete-with-weak/limited-transit-caveats; pending-for-sections-8-10",
-    "fieldReports": "sections-1-through-7-complete; pending-for-sections-8-10",
-    "rulesSafety": "sections-1-through-7-complete-with-trailwide-qa/fire/water/protected-area-caveats; overview-only-for-sections-8-10"
+    "routeGeometry": "sections-1-through-8-complete-plus-good-overview-gpx-for-all-stages; section-6-needs-rolle-normalization; section-7-needs-long-chord-densification; section-8-gpx-three-part-and-osm-reversal-caveats",
+    "osmRelations": "sections-1-through-8-cross-checked-plus-good-overview; section-8-overlaps-checked-against-asundenleden/redvagsleden",
+    "facilities": "sections-1-through-8-complete-with-pending-verification-items; overview-only-for-sections-9-10",
+    "commuteAccess": "sections-1-through-8-complete-with-weak/limited-transit-caveats; pending-for-sections-9-10",
+    "fieldReports": "sections-1-through-8-complete; pending-for-sections-9-10",
+    "rulesSafety": "sections-1-through-8-complete-with-trailwide-qa/fire/water/protected-area-caveats; overview-only-for-sections-9-10"
   },
   "knownGaps": [
-    "Sections 1 through 7 have synthesized section JSON packets; sections 8 through 10 still need six-agent section research and synthesis.",
+    "Sections 1 through 8 have synthesized section JSON packets; sections 9 through 10 still need six-agent section research and synthesis.",
     "Section 1 end access remains weak: closest transit is Holmens bro, about 2 km away, served by limited/preordered Västtrafik line 122.",
     "Section 1 route endpoint and Hestrafors IF/Bollevi official access coordinate differ by about 350-400 m; model separately unless confirmed by trail manager.",
     "Section 1 Klippan naturreservat overlap and winter ski-track access near Hindås/Hindåsgården remain unresolved.",
@@ -792,25 +887,29 @@
     "Section 5 endpoint/access semantics remain important: Rya åsar access coordinate differs about 186 m from Naturkartan start, and Karlsaflogarna official/OSM points differ about 54-160 m from Naturkartan end.",
     "Section 5 Kypesjön/Kypegården facilities need deduplication; Ymergården services and Karlsaflogarna overnight status remain conditional/pending.",
     "Section 5 pending POIs/facilities needing coordinate verification include Åland/Sjöbo grill, Sjöbovallen/Rydastrand grill, Gullkällan/Mariakällan, Femstenarör and other official heritage points.",
-    "Commute/access endpoints for sections 8 through 10 need current stop/operator coordinates and confidence.",
+    "Commute/access endpoints for sections 9 through 10 need current stop/operator coordinates and confidence.",
     "Section 6 Magsjön shelter/fireplace needs currentness and overnight/day-use verification.",
     "Section 6 Raska-Minas källa, grillplats and cup-mark stones need exact-coordinate verification; the spring must not be imported as potable without current confirmation.",
     "Section 6 Blackered public transport is weak; current stop candidates are roughly 4 km away by straight line, and the municipal Komskälet stop reference may be stale.",
     "Section 6 geometry needs normalization around Rölle: Naturkartan GPX/API and Västsverige KML have duplicate/parallel/spur linework despite correct endpoints and distance.",
-    "Facilities for sections 8 through 10 need coordinate verification and import/suppress/pending decisions.",
-    "Protected-area rules and fire/dog/hunting/current-condition details need section-level research for sections 8 through 10.",
+    "Facilities for sections 9 through 10 need coordinate verification and import/suppress/pending decisions.",
+    "Protected-area rules and fire/dog/hunting/current-condition details need section-level research for sections 9 through 10.",
     "Section 7 geometry needs densification/resampling: Naturkartan GPX/API and Västsverige KML have an 838.6 m simplified chord near Prången/Ulricehamn.",
     "Section 7 endpoint semantics remain important: Naturkartan route-line endpoint at Prången differs about 255 m from the Borås/KML Prångens Camping access/POI coordinate.",
     "Section 7 Blackered public transport is weak; best scheduled option is Bredaslätt with about 4.9 km rural-road walk, and Komskälet/Kommskälet appears stale in current transit data.",
     "Section 7 endpoint facilities need deduplication among Prångens Camping, Prångens badplats, endpoint information/parking/toilet and nearby Ulricehamn service metadata.",
     "Section 7 Brunns kyrkoruin access/safety signage and Brunns kyrka stop currentness need verification before detailed POI/transit import.",
-    "Stage 8 Böne coordinate typo still needs verification."
+    "Section 8 Böne kyrka coordinate typo resolved for research: stage 8 printed easting 4120226 should be treated as typo; use 412026 from stage 9/GPX/church context.",
+    "Section 8 endpoint semantics remain important: model Prångens Camping and Böne kyrka/parking as access clusters separate from route-line vertices where needed.",
+    "Section 8 Jordkulan shelter overnight status and spring/water reliability need verification; do not import Jordkulan or Böne as potable water.",
+    "Section 8 Böne public transport is weak; current regular stops are several kilometres away in Dalum/Tingvallen/Vedåslavägen.",
+    "Section 8 Prångens start services need deduplication with section 7 Prångens Camping/badplats records."
   ],
   "nextActions": [
-    "Commit section 7 research, then start section 8 Prångens Camping - Böne kyrka with the required six parallel research/report agents.",
-    "For section 8, verify Prångens Camping/Böne kyrka endpoint semantics, the Böne coordinate typo, Åsundenleden/Redvägsleden overlap, facilities around Åsunden/Ulricehamn and Böne kyrka access.",
-    "Update README.md, trail.research.json and research-progress.json after section 8 synthesis, validate JSON, then commit section 8 before starting section 9.",
-    "Repeat the six-agent batch/synthesis cycle for sections 9 and 10."
+    "Commit section 8 research, then start section 9 Böne kyrka - Årås säteri with the required six parallel research/report agents.",
+    "For section 9, resolve Årås säteri versus Årås kvarn naming, Årås reserve/service/facility rules, Redvägsleden overlap and water/transit access.",
+    "Update README.md, trail.research.json and research-progress.json after section 9 synthesis, validate JSON, then commit section 9 before starting section 10.",
+    "Complete section 10 with the same six-agent batch/synthesis cycle."
   ],
   "handoffNotes": [
     "Write only under data/research/candidate-trails/sjuharadsleden/.",
@@ -823,6 +922,7 @@
     "Section 5 file is sections/sjuharadsleden-etapp-5-rya-asar-karlsaflogarna.research.json and is ready for normalization review with caveats, not runtime import.",
     "Section 6 file is sections/sjuharadsleden-etapp-6-karlsaflogarna-blackered.research.json and is ready for normalization review with caveats, not runtime import.",
     "Section 7 file is sections/sjuharadsleden-etapp-7-blackered-prangens-camping.research.json and is ready for normalization review with caveats, not runtime import.",
+    "Section 8 file is sections/sjuharadsleden-etapp-8-prangens-camping-bone-kyrka.research.json and is ready for normalization review with caveats, not runtime import.",
     "Use Naturkartan GPX URLs as primary geometry candidates, with OSM relations as cross-checks.",
     "Keep Naturkartan's Västkuststiftelsen quality-assurance warning visible unless a newer official source supersedes it."
   ]

@@ -14,10 +14,11 @@ Current scope:
 - `sections/sjuharadsleden-etapp-5-rya-asar-karlsaflogarna.research.json`: completed section 5 packet from the six-agent section research batch.
 - `sections/sjuharadsleden-etapp-6-karlsaflogarna-blackered.research.json`: completed section 6 packet from the six-agent section research batch.
 - `sections/sjuharadsleden-etapp-7-blackered-prangens-camping.research.json`: completed section 7 packet from the six-agent section research batch.
-- `sections/*.research.json`: later per-section packets for sections 8-10.
+- `sections/sjuharadsleden-etapp-8-prangens-camping-bone-kyrka.research.json`: completed section 8 packet from the six-agent section research batch.
+- `sections/*.research.json`: later per-section packets for sections 9-10.
 - `research-progress.json`: continuous handoff/progress ledger for this trail.
 
-Handoff status on 2026-04-29: overview plus sections 1-7 are complete enough for normalization review with caveats. Sections 8-10 remain pending and should be resumed from `research-progress.json`.
+Handoff status on 2026-04-29: overview plus sections 1-8 are complete enough for normalization review with caveats. Sections 9-10 remain pending and should be resumed from `research-progress.json`.
 
 ## Overview
 
@@ -58,6 +59,6 @@ Important currentness caveat: Naturkartan states that the whole Sjuhäradsleden 
 - Section 5 is ready for normalization review with caveats, not runtime import. Important unresolved items include Naturkartan endpoints versus Rya åsar/Karlsaflogarna access coordinates, Kypesjön/Kypegården facility deduplication, Ymergården public service/opening status, Karlsaflogarna shelter overnight status, unverified coordinates for Åland/Sjöbo and other official POIs, no confirmed potable water, limited Karlsaflogarna transit, and dynamic fire/transit refreshes.
 - Section 6 is ready for normalization review with caveats, not runtime import. Important unresolved items include Rölle duplicate/parallel/spur geometry in the Naturkartan/Västsverige linework, Naturkartan continuity endpoints versus Borås access coordinates, weak Blackered direct transit, stale/unresolved Komskälet stop reference, Raska-Minas spring/grill/cup-mark coordinate and potability verification, Magsjön shelter currentness, no confirmed potable water, and dynamic fire/transit refreshes.
 - Section 7 is ready for normalization review with caveats, not runtime import. Important unresolved items include an 838.6 m simplified geometry chord needing densification, Prångens route-line endpoint versus Prångens Camping access/POI coordinates, weak Blackered transit and stale Komskälet/Kommskälet stop reference, Prångens Camping/badplats/endpoint-facility deduplication, Brunns kyrkoruin safety/access verification, no on-stage shelter/fireplace/prepared rest area, no confirmed on-stage potable water, and dynamic fire/transit refreshes.
-- Stage 8 on the Borås page appears to have a likely typo for Böne kyrka (`4120226` instead of `412026`), while adjacent stage 9 and the GPX endpoint support `412026`.
+- Section 8 is ready for normalization review with caveats, not runtime import. Important unresolved items include corrected Böne kyrka easting (`412026`, not the stage 8 printed `4120226` typo), Naturkartan three-part GPX handling, Prångens/Böne endpoint access semantics, Jordkulan overnight-shelter status, Jordkulan and Böne water reliability, Böne churchyard conduct and locked/no-water caveats, weak Böne transit via Dalum/Tingvallen/Närtrafik, Prångens facility deduplication, and dynamic fire/transit refreshes.
 - OSM lists a parent relation plus 10 child relations and marks all 100 percent complete. Use OSM as a geometry cross-check, not the primary official source.
 - Do not integrate into `data/source/hiking/**`, `public/data/**`, or generated outputs from this research directory.
