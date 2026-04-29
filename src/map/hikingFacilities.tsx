@@ -70,7 +70,7 @@ export function commuteStopLabel(stop: TrailCommuteStop) {
 }
 
 export const facilityTypeLabels: Record<TrailFacility["type"], string> = {
-  campsite: "Camping",
+  campsite: "Campsite",
   shelter: "Shelter",
   fireplace: "Fireplace",
   toilet: "Toilet",
@@ -91,7 +91,7 @@ export const facilityTypeLabels: Record<TrailFacility["type"], string> = {
   waste: "Waste",
   hazard: "Hazard",
   viewpoint: "Viewpoint",
-  camping: "Camping",
+  camping: "Informal tenting",
   service: "Service"
 };
 

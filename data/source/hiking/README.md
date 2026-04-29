@@ -33,3 +33,19 @@ npm run data:sat:section-routes:check
 SAT ferry data is intentionally static and caveated. Keep exact departures, disruptions, request-stop handling, and same-day timetable decisions out of committed source shards; use `seasonality`, `currentness`, `note`, and source links to point users back to live SL, Waxholmsbolaget, Trafikverket, or operator planning.
 
 Research-only records such as `harbor_services`, rental/service metadata, access-only metadata, emergency metadata, pending facilities, suppressed facilities, and trail junctions should not be imported as normal runtime facilities unless a future product decision explicitly adds a supported facility type or view for them.
+
+## Upplandsleden Notes
+
+`upplandsleden/` is generated from `data/research/candidate-trails/upplandsleden/` with:
+
+```sh
+npm run data:upplandsleden
+```
+
+Check committed source shards and route GeoJSON with:
+
+```sh
+npm run data:upplandsleden:check
+```
+
+The import treats Upplandsleden as one trail system with explicit route groups. The Sigtuna-Forsbyån break is modeled as a long-standing discontinuity, not as a temporary closure. Parking/transit rows with usable route-relevant coordinates are imported as normal facilities, informal/tolerated tenting uses `camping`, and unsafe water/current-condition records become `rule-warning` rows.
