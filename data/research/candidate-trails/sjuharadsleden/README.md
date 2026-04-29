@@ -11,10 +11,11 @@ Current scope:
 - `sections/sjuharadsleden-etapp-2-hestrafors-if-ik-omega.research.json`: completed section 2 packet from the six-agent section research batch.
 - `sections/sjuharadsleden-etapp-3-ik-omega-sok-stugan.research.json`: completed section 3 packet from the six-agent section research batch.
 - `sections/sjuharadsleden-etapp-4-sok-stugan-rya-asar.research.json`: completed section 4 packet from the six-agent section research batch.
-- `sections/*.research.json`: later per-section packets for sections 5-10.
+- `sections/sjuharadsleden-etapp-5-rya-asar-karlsaflogarna.research.json`: completed section 5 packet from the six-agent section research batch.
+- `sections/*.research.json`: later per-section packets for sections 6-10.
 - `research-progress.json`: continuous handoff/progress ledger for this trail.
 
-Handoff status on 2026-04-29: overview plus sections 1-4 are complete enough for normalization review with caveats. Sections 5-10 remain pending and should be resumed from `research-progress.json`.
+Handoff status on 2026-04-29: overview plus sections 1-5 are complete enough for normalization review with caveats. Sections 6-10 remain pending and should be resumed from `research-progress.json`.
 
 ## Overview
 
@@ -52,6 +53,7 @@ Important currentness caveat: Naturkartan states that the whole Sjuhäradsleden 
 - Section 2 is ready for normalization review with caveats, not runtime import. Important unresolved items include the Hestrafors IF/Bollevi access cluster versus route-line start, IK Omega route endpoint versus lower Omegastugan/Start etapp 3 access cluster, Abborrsjön/Slätthult shelter and toilet currentness, no confirmed potable water, weak Hestrafors/Brandshed public transport, and dynamic fire-ban checks.
 - Section 3 is ready for normalization review with caveats, not runtime import. Important unresolved items include the IK Omega route endpoint versus lower Omegastugan/Olsfors access cluster, Naturkartan section-continuity endpoint versus SOK-stugan/Nordtorp access cluster, Hultafors old/new shelter modeling, SOK-stugan utility public-access verification, no confirmed potable water, weak SOK-stugan end transit, and the Naturkartan/STF QA warning versus Västsverige quality-assured statement.
 - Section 4 is ready for normalization review with caveats, not runtime import. Important unresolved items include Naturkartan section-continuity endpoints versus Borås/OSM SOK-stugan and Rya åsar access coordinates, Rya åsar reserve restrictions, SOK-stugan utility public-access verification, Ramshulan water potability, Högplatån/Björbobacken/Sjötorp facility deduplication, and dynamic fire/transit refreshes.
+- Section 5 is ready for normalization review with caveats, not runtime import. Important unresolved items include Naturkartan endpoints versus Rya åsar/Karlsaflogarna access coordinates, Kypesjön/Kypegården facility deduplication, Ymergården public service/opening status, Karlsaflogarna shelter overnight status, unverified coordinates for Åland/Sjöbo and other official POIs, no confirmed potable water, limited Karlsaflogarna transit, and dynamic fire/transit refreshes.
 - Stage 8 on the Borås page appears to have a likely typo for Böne kyrka (`4120226` instead of `412026`), while adjacent stage 9 and the GPX endpoint support `412026`.
 - OSM lists a parent relation plus 10 child relations and marks all 100 percent complete. Use OSM as a geometry cross-check, not the primary official source.
 - Do not integrate into `data/source/hiking/**`, `public/data/**`, or generated outputs from this research directory.

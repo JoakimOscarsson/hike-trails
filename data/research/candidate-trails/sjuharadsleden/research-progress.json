@@ -1,12 +1,13 @@
 {
   "trailId": "sjuharadsleden",
-  "lastUpdated": "2026-04-29T19:15:38Z",
-  "currentPhase": "section-4-complete-ready-for-section-5",
+  "lastUpdated": "2026-04-29T19:30:59Z",
+  "currentPhase": "section-5-complete-ready-for-section-6",
   "completedSections": [
     "sjuharadsleden-etapp-1-hindas-station-hestrafors-if",
     "sjuharadsleden-etapp-2-hestrafors-if-ik-omega",
     "sjuharadsleden-etapp-3-ik-omega-sok-stugan",
-    "sjuharadsleden-etapp-4-sok-stugan-rya-asar"
+    "sjuharadsleden-etapp-4-sok-stugan-rya-asar",
+    "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -88,17 +89,22 @@
     },
     "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna": {
       "overviewStatus": "complete",
-      "officialSourceStatus": "overview-only",
-      "routeGeometryStatus": "overview-gpx-audited",
-      "startEndCoordinateStatus": "overview-gpx-and-boras-sweref-converted",
-      "commuteAccessStatus": "pending",
-      "facilityResearchStatus": "pending",
-      "rulesSafetyStatus": "overview-only",
-      "synthesisStatus": "pending",
-      "importReadiness": "not-ready",
+      "officialSourceStatus": "complete",
+      "routeGeometryStatus": "complete-with-naturkartan-kml-primary-and-osm-caveats",
+      "startEndCoordinateStatus": "complete-with-rya-asar-and-karlsaflogarna-access-cluster-caveats",
+      "commuteAccessStatus": "complete-with-limited-end-transit-caveat",
+      "facilityResearchStatus": "complete-with-pending-poi-coordinate-and-kype-deduplication-caveats",
+      "rulesSafetyStatus": "complete-with-rya-asar-reserve-and-qa-caveats",
+      "synthesisStatus": "complete",
+      "importReadiness": "ready-for-normalization-with-caveats",
       "remainingQuestions": [
-        "Verify Borås Camping, Björbostugan, Åland, Femstenarör and Karlsaflogarna facility coordinates.",
-        "Clarify which facilities should import versus remain access/POI metadata."
+        "Decide whether import display should use Naturkartan continuity endpoints or Borås/OSM access/facility coordinates at Rya åsar and Karlsaflogarna.",
+        "Resolve Naturkartan/STF trail-wide QA and reroute warnings versus Västsverige's statement that stages 3-7 are quality-assured.",
+        "Verify exact coordinates for Åland/Sjöbo grill, Sjöbovallen/Rydastrand grill, Gullkällan/Mariakällan, Femstenarör and other official croft/mill/remains POIs.",
+        "Verify whether Karlsaflogarna / Toarps vindskydd is intended for overnight use or only day rest.",
+        "Deduplicate Kypesjön/Kypegården grill, shelter and service objects before normalization.",
+        "Verify whether Ymergården water/toilet/cafe services are public to hikers and their opening seasons.",
+        "Refresh Västtrafik line 19/157/200 stop names/timetables and SÄRF fire status immediately before import or publication."
       ]
     },
     "sjuharadsleden-etapp-6-karlsaflogarna-blackered": {
@@ -478,20 +484,108 @@
       "outputs": [
         "sections/sjuharadsleden-etapp-4-sok-stugan-rya-asar.research.json"
       ]
+    },
+    {
+      "id": "section-5-batch-1",
+      "sectionId": "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna",
+      "startedAt": "2026-04-29T19:17:19Z",
+      "completedAt": "2026-04-29T19:30:59Z",
+      "lanes": [
+        "official-sources",
+        "route-geometry",
+        "facilities",
+        "transit-access",
+        "field-reports",
+        "rules-safety-currentness"
+      ],
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddaac-93c0-7af1-b3d4-473cccf4f720",
+          "nickname": "Raman"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddaac-94b3-7b62-8978-1685729852ca",
+          "nickname": "Franklin"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddaac-950a-7920-ae07-6499d4b89cad",
+          "nickname": "Kuhn"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddaac-9573-7112-9af7-d79495b1cf07",
+          "nickname": "Singer"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddaac-959e-7353-80df-a72b766eb751",
+          "nickname": "Locke"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddaac-95c3-7323-b6bf-a9a8f86afc83",
+          "nickname": "Godel"
+        }
+      ],
+      "laneStatuses": [
+        {
+          "lane": "official-sources",
+          "status": "completed",
+          "completedAt": "2026-04-29T19:23:39Z",
+          "summary": "Confirmed official label Rya åsar - Karlsaflogarna, 19 km, 6 hours, Svår/Röd-krävande, 182 m height difference, 55% asphalt/gravel and 45% tractor road/path. Found Borås PDF/map, Naturkartan, Västsverige, Rya åsar reserve context, official facilities and currentness caveats."
+        },
+        {
+          "lane": "route-geometry",
+          "status": "completed",
+          "completedAt": "2026-04-29T19:28:54Z",
+          "summary": "Audited Naturkartan GPX/API, Västsverige Google My Maps KML and OSM relation 4177360. Naturkartan/KML are A- primary geometry at 18.947 km and continuous; OSM is connected but reversed, longer, and endpoint/divergence caveats remain."
+        },
+        {
+          "lane": "facilities",
+          "status": "completed",
+          "completedAt": "2026-04-29T19:26:32Z",
+          "summary": "Found strong facility clusters at Rya åsar start, Borås Camping, Björbostugan/Björbo hage, Kypesjön/Kypegården, Ymergården and Karlsaflogarna. Kept Åland/Sjöbo, Sjöbovallen/Rydastrand, Gullkällan, Femstenarör and several heritage POIs pending due missing coordinates."
+        },
+        {
+          "lane": "transit-access",
+          "status": "completed",
+          "completedAt": "2026-04-29T19:29:46Z",
+          "summary": "Identified Rya åsar/Björbostugan/Ekerydavägen start access and Karlsaflogarna Häljaredsvägen/Toarp kyrka/Dalsjöforsmotet end access, with Västtrafik line 19, 157 and 200 service caveats plus intermediate Knalleland/Kransmossen/Borås access."
+        },
+        {
+          "lane": "field-reports",
+          "status": "completed",
+          "completedAt": "2026-04-29T19:20:51Z",
+          "summary": "Found recent AllTrails use through 2026-04-25 with sparse text; older Wikiloc, Trailforks, Utsidan and blog reports confirm route use, signage, terrain mix, Kypesjön shelter condition and one older reroute/map mismatch note. No current closure/overgrown report found."
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "status": "completed",
+          "completedAt": "2026-04-29T19:21:43Z",
+          "summary": "Confirmed Rya åsar reserve rules near the start, no confirmed Karlsaflogarna reserve, SÄRF fire-ban authority/status, dogs/livestock/farmland/private-land rules, water caution, urban/road context and no section-specific closure found."
+        }
+      ],
+      "summary": "Six parallel research/report agents completed for section 5 Rya åsar to Karlsaflogarna. Main thread synthesized official sources, Naturkartan/Västsverige/OSM geometry, facilities, commute/access, field reports and rules/safety into the section research JSON.",
+      "outputs": [
+        "sections/sjuharadsleden-etapp-5-rya-asar-karlsaflogarna.research.json"
+      ]
     }
   ],
   "sourceCoverage": {
     "officialTrailOverview": "good",
     "officialSectionInventory": "good",
-    "routeGeometry": "sections-1-through-4-complete-plus-good-overview-gpx-for-all-stages",
-    "osmRelations": "sections-1-through-4-cross-checked-plus-good-overview",
-    "facilities": "sections-1-through-4-complete-with-pending-verification-items; overview-only-for-sections-5-10",
-    "commuteAccess": "sections-1-through-4-complete-with-weak-transit-caveats; pending-for-sections-5-10",
-    "fieldReports": "sections-1-through-4-complete; pending-for-sections-5-10",
-    "rulesSafety": "sections-1-through-4-complete-with-trailwide-qa-and-rya-asar-reserve-caveats; overview-only-for-sections-5-10"
+    "routeGeometry": "sections-1-through-5-complete-plus-good-overview-gpx-for-all-stages",
+    "osmRelations": "sections-1-through-5-cross-checked-plus-good-overview",
+    "facilities": "sections-1-through-5-complete-with-pending-verification-items; overview-only-for-sections-6-10",
+    "commuteAccess": "sections-1-through-5-complete-with-weak/limited-transit-caveats; pending-for-sections-6-10",
+    "fieldReports": "sections-1-through-5-complete; pending-for-sections-6-10",
+    "rulesSafety": "sections-1-through-5-complete-with-trailwide-qa-and-rya-asar-reserve-caveats; overview-only-for-sections-6-10"
   },
   "knownGaps": [
-    "Sections 1 through 4 have synthesized section JSON packets; sections 5 through 10 still need six-agent section research and synthesis.",
+    "Sections 1 through 5 have synthesized section JSON packets; sections 6 through 10 still need six-agent section research and synthesis.",
     "Section 1 end access remains weak: closest transit is Holmens bro, about 2 km away, served by limited/preordered Västtrafik line 122.",
     "Section 1 route endpoint and Hestrafors IF/Bollevi official access coordinate differ by about 350-400 m; model separately unless confirmed by trail manager.",
     "Section 1 Klippan naturreservat overlap and winter ski-track access near Hindås/Hindåsgården remain unresolved.",
@@ -504,16 +598,19 @@
     "Section 4 endpoint/access semantics remain important: Naturkartan continuity endpoints differ by about 186-200 m from Borås/OSM access coordinates at both SOK-stugan and Rya åsar.",
     "Section 4 SOK-stugan utilities and Ramshulan water remain pending/suppressed unless public access and potability are verified.",
     "Section 4 Högplatån/Björbobacken/Sjötorp/Rya åsar entrance facilities need deduplication before normalization.",
-    "Commute/access endpoints for sections 5 through 10 need current stop/operator coordinates and confidence.",
-    "Facilities for sections 5 through 10 need coordinate verification and import/suppress/pending decisions.",
-    "Protected-area rules and fire/dog/hunting/current-condition details need section-level research for sections 5 through 10.",
+    "Section 5 endpoint/access semantics remain important: Rya åsar access coordinate differs about 186 m from Naturkartan start, and Karlsaflogarna official/OSM points differ about 54-160 m from Naturkartan end.",
+    "Section 5 Kypesjön/Kypegården facilities need deduplication; Ymergården services and Karlsaflogarna overnight status remain conditional/pending.",
+    "Section 5 pending POIs/facilities needing coordinate verification include Åland/Sjöbo grill, Sjöbovallen/Rydastrand grill, Gullkällan/Mariakällan, Femstenarör and other official heritage points.",
+    "Commute/access endpoints for sections 6 through 10 need current stop/operator coordinates and confidence.",
+    "Facilities for sections 6 through 10 need coordinate verification and import/suppress/pending decisions.",
+    "Protected-area rules and fire/dog/hunting/current-condition details need section-level research for sections 6 through 10.",
     "Stage 8 Böne coordinate typo still needs verification.",
     "Stage 7 GPX has one >500 m simplification gap needing route-geometry review."
   ],
   "nextActions": [
-    "Commit section 4 research, then start section 5 Rya åsar - Karlsaflogarna with the required six parallel research/report agents.",
+    "Commit section 5 research, then start section 6 Karlsaflogarna - Blackered with the required six parallel research/report agents.",
     "Do not edit overview/shared files concurrently from multiple threads; use one coordinator or per-section files if parallelizing later sections.",
-    "Repeat the six-agent batch/synthesis cycle for sections 5 through 10."
+    "Repeat the six-agent batch/synthesis cycle for sections 6 through 10."
   ],
   "handoffNotes": [
     "Write only under data/research/candidate-trails/sjuharadsleden/.",
@@ -523,6 +620,7 @@
     "Section 2 file is sections/sjuharadsleden-etapp-2-hestrafors-if-ik-omega.research.json and is ready for normalization review with caveats, not runtime import.",
     "Section 3 file is sections/sjuharadsleden-etapp-3-ik-omega-sok-stugan.research.json and is ready for normalization review with caveats, not runtime import.",
     "Section 4 file is sections/sjuharadsleden-etapp-4-sok-stugan-rya-asar.research.json and is ready for normalization review with caveats, not runtime import.",
+    "Section 5 file is sections/sjuharadsleden-etapp-5-rya-asar-karlsaflogarna.research.json and is ready for normalization review with caveats, not runtime import.",
     "Use Naturkartan GPX URLs as primary geometry candidates, with OSM relations as cross-checks.",
     "Keep Naturkartan's Västkuststiftelsen quality-assurance warning visible unless a newer official source supersedes it."
   ]
