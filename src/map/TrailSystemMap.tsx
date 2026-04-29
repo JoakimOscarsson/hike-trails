@@ -5,8 +5,11 @@ import { fitSelectedLayersOrMarkers } from "./fitMapBounds";
 import { addHikingPoiMarkers, visibleHikingMapFacilities } from "./hikingFacilityMarkers";
 import { selectedAccessPoints, type FacilityType } from "./hikingFacilities";
 import { addRouteEndpointMarker } from "./routeEndpointMarkers";
+import { selectedTrailConnections } from "./trailSystemConnections";
 import {
+  drawTrailConnectionRoutes,
   drawTrailSectionRoutes,
+  loadTrailConnectionRoute,
   loadTrailSectionRoute,
   trailRouteLoadWarningText,
   trailSectionMarkerLatLng,
@@ -77,15 +80,26 @@ export function TrailSystemMap({
 
     async function drawSections() {
       const markerLayerRefs: L.Layer[] = [];
+      const routeConnectionsToLoad = selectedTrailConnections(trailSystem.connections, primaryRouteSections);
 
-      const selectedRouteResults = await Promise.all(routeSectionsToLoad.map(loadTrailSectionRoute));
+      const [selectedConnectionResults, selectedRouteResults] = await Promise.all([
+        Promise.all(routeConnectionsToLoad.map(loadTrailConnectionRoute)),
+        Promise.all(routeSectionsToLoad.map(loadTrailSectionRoute))
+      ]);
       if (cancelled) return;
+
+      const { connectionLayers, failedConnectionRoutes } = drawTrailConnectionRoutes({
+        routeResults: selectedConnectionResults,
+        routeLayers
+      });
       const { selectedLayers, routeCoordinatesBySection, failedRoutes } = drawTrailSectionRoutes({
         routeResults: selectedRouteResults,
         routeLayers,
         selectedIds
       });
-      if (failedRoutes.length) setRouteLoadWarning(trailRouteLoadWarningText(failedRoutes));
+      if (failedRoutes.length || failedConnectionRoutes.length) {
+        setRouteLoadWarning(trailRouteLoadWarningText(failedRoutes, failedConnectionRoutes));
+      }
 
       const first = trailSectionMarkerLatLng(primaryRouteSections[0], "start", routeCoordinatesBySection);
       const last = trailSectionMarkerLatLng(
@@ -102,7 +116,11 @@ export function TrailSystemMap({
         markerLayerRefs.push(marker);
       }
 
-      fitSelectedLayersOrMarkers({ map, selectedLayers, markerLayers: markerLayerRefs });
+      fitSelectedLayersOrMarkers({
+        map,
+        selectedLayers: [...connectionLayers, ...selectedLayers],
+        markerLayers: markerLayerRefs
+      });
       drawPointsOfInterest();
       if (focusTarget) {
         map.setView(focusTarget.coordinates, Math.max(map.getZoom(), focusTarget.zoom ?? 15), { animate: true });

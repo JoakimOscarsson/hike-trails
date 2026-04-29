@@ -4,7 +4,7 @@ Date: 2026-04-29
 
 Workspace target: `/Users/joakim/Documents/codex/hike-trails`
 
-Status: Slice 2 completed; Slice 3 not started.
+Status: Slice 3 completed; Slice 4 not started.
 
 This is a living development plan for bringing Stockholm Archipelago Trail into the app. It is intentionally concrete: every slice has a scope, likely files, a definition of done, and validation notes. The trail is ferry-dependent, so ferry transfers are first-class route connections, not just text notes.
 
@@ -32,7 +32,7 @@ Important rule: the candidate research file is an input only. Runtime code must 
 - [x] Slice 0: Lock the import contract and normalization policy.
 - [x] Slice 1: Add ferry-capable transfer and connection data types.
 - [x] Slice 2: Map ferry and rowboat transfers between sections.
-- [ ] Slice 3: Render connection routes on the map.
+- [x] Slice 3: Render connection routes on the map.
 - [ ] Slice 4: Create Stockholm Archipelago Trail hiking source shards.
 - [ ] Slice 5: Normalize and import facilities.
 - [ ] Slice 6: Update access, detail, and route-builder UX for ferry-dependent sections.
@@ -260,6 +260,19 @@ Validation:
 - Validation fails if a section adjacency has no connection decision.
 
 ## Slice 3: Map Rendering For Connection Routes
+
+Status: completed 2026-04-29.
+
+Completion notes:
+
+- Added `src/map/trailSystemConnections.ts` for selecting drawable adjacent transfer routes from the currently chosen section range.
+- Updated `TrailSystemMap` to load selected connection GeoJSON in parallel with section GeoJSON.
+- Updated trail-system route drawing to render connection routes as quiet dashed lines below walking route lines, with compact hover tooltips and no new marker-icon sprawl.
+- Kept start/end callouts and facility markers in separate upper layers.
+- Added unit coverage for adjacent connection selection, including reverse-order stored connections and skipped non-drawable records.
+- Fixed overview-map tooltip binding on grouped GeoJSON layers found during browser QA.
+- Validation passed: `npm run typecheck`, `npm run test:unit`, `npm run data:validate`, `npm run build`, `git diff --check`, plus browser smoke checks for overview and a non-SAT trail-system detail map.
+- SAT-specific browser proof remains for Slice 4/7, once SAT source/runtime shards exist in the app.
 
 Scope:
 

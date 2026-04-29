@@ -55,12 +55,14 @@ try {
     { normalizeSearchText },
     { buildOverviewColorMap, fallbackOverviewColor },
     routeSelection,
+    trailConnections,
     filters,
     library
   ] = await Promise.all([
     vite.ssrLoadModule("/src/utils/search.ts"),
     vite.ssrLoadModule("/src/map/overviewColors.ts"),
     vite.ssrLoadModule("/src/data/trailRouteSelection.ts"),
+    vite.ssrLoadModule("/src/map/trailSystemConnections.ts"),
     vite.ssrLoadModule("/src/data/filters.ts"),
     vite.ssrLoadModule("/src/data/library.ts")
   ]);
@@ -210,6 +212,63 @@ try {
       endSectionId: "f",
       distanceKm: 65
     });
+  });
+
+  test("selects drawable adjacent trail-system connections for the chosen section range", () => {
+    const sections = [{ id: "stage-1" }, { id: "stage-2" }, { id: "stage-3" }, { id: "stage-2" }];
+    const route = {
+      geojsonPath: "/routes/connection.geojson",
+      geometryStatus: "ready",
+      mapConfidence: "high",
+      navigationUse: "planning-reference",
+      sourceFormat: "manual"
+    };
+    const connections = [
+      {
+        id: "stage-1-stage-2",
+        mode: "ferry",
+        from: { sectionId: "stage-1", label: "Stage 1 quay" },
+        to: { sectionId: "stage-2", label: "Stage 2 quay" },
+        note: "Ferry connection.",
+        route
+      },
+      {
+        id: "stage-3-stage-2",
+        mode: "rowboat",
+        from: { sectionId: "stage-3", label: "Stage 3 boat" },
+        to: { sectionId: "stage-2", label: "Stage 2 boat" },
+        note: "Reverse-order rowboat connection.",
+        route
+      },
+      {
+        id: "stage-1-stage-3-direct",
+        mode: "ferry",
+        from: { sectionId: "stage-1", label: "Stage 1" },
+        to: { sectionId: "stage-3", label: "Stage 3" },
+        note: "Non-adjacent connection.",
+        route
+      },
+      {
+        id: "stage-2-stage-3-missing-route",
+        mode: "walk",
+        from: { sectionId: "stage-2", label: "Stage 2" },
+        to: { sectionId: "stage-3", label: "Stage 3" },
+        note: "Missing route."
+      },
+      {
+        id: "stage-1-stage-2-same-island",
+        mode: "same-island",
+        from: { sectionId: "stage-1", label: "Stage 1" },
+        to: { sectionId: "stage-2", label: "Stage 2" },
+        note: "No drawable transfer.",
+        route
+      }
+    ];
+
+    assert.deepEqual(
+      trailConnections.selectedTrailConnections(connections, sections).map((connection) => connection.id),
+      ["stage-1-stage-2", "stage-3-stage-2"]
+    );
   });
 
   test("matches trail-system distance filters against route-group distance windows", () => {

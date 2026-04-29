@@ -103,9 +103,10 @@ export function OverviewMap({
           });
         };
 
-        attachInteractions(featureLayer);
         if ("eachLayer" in featureLayer && typeof featureLayer.eachLayer === "function") {
           featureLayer.eachLayer(attachInteractions);
+        } else {
+          attachInteractions(featureLayer);
         }
       };
 
