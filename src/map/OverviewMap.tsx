@@ -4,6 +4,11 @@ import type { LibraryIndexItem, LibraryOverviewFeature, LibraryOverviewFeatureCo
 import { buildOverviewColorMap, fallbackOverviewColor } from "./overviewColors";
 import { useLeafletMap } from "./useLeafletMap";
 
+type OverviewLayerRefs = {
+  routeLayer: L.GeoJSON;
+  connectionLayers: L.GeoJSON[];
+};
+
 function routeColor(id: string, colorById: Map<string, string>) {
   return colorById.get(id) ?? fallbackOverviewColor(id);
 }
@@ -18,6 +23,22 @@ function overviewStyle(id: string, hoveredItemId: string | null, colorById: Map<
     fillOpacity: isHovered ? 0.82 : 0.52,
     opacity: hasHover && !isHovered ? 0.24 : 0.88,
     weight: isHovered ? 7 : 4
+  };
+}
+
+function overviewConnectionStyle(
+  id: string,
+  hoveredItemId: string | null,
+  colorById: Map<string, string>,
+  hoverId = id
+): L.PathOptions {
+  const style = overviewStyle(id, hoveredItemId, colorById, hoverId);
+  return {
+    ...style,
+    dashArray: "8 9",
+    lineCap: "round",
+    opacity: Math.min((style.opacity ?? 0.88) + 0.08, 0.96),
+    weight: hoveredItemId === hoverId ? 6 : 3.5
   };
 }
 
@@ -55,6 +76,19 @@ function tooltipText(properties: LibraryOverviewFeature["properties"]) {
   return `${properties.name} · ${distance} · ${properties.difficulty}`;
 }
 
+function connectionOverlayFeatures(feature: LibraryOverviewFeature) {
+  const overlays = "connectionOverlays" in feature.properties ? (feature.properties.connectionOverlays ?? []) : [];
+  return overlays.map((overlay, index) => ({
+    type: "Feature" as const,
+    id: `${feature.properties.id}-connection-${index}`,
+    properties: feature.properties,
+    geometry: {
+      type: overlay.coordinates.length === 1 ? ("LineString" as const) : ("MultiLineString" as const),
+      coordinates: overlay.coordinates.length === 1 ? overlay.coordinates[0] : overlay.coordinates
+    }
+  }));
+}
+
 export function OverviewMap({
   overview,
   items,
@@ -69,7 +103,7 @@ export function OverviewMap({
   onSelect: (item: LibraryIndexItem) => void;
 }) {
   const { containerRef, mapRef } = useLeafletMap([59.35, 17.1], 7);
-  const layersRef = React.useRef<Map<string, L.GeoJSON>>(new Map());
+  const layersRef = React.useRef<Map<string, OverviewLayerRefs>>(new Map());
   const hoverIdsRef = React.useRef<Map<string, string>>(new Map());
   const itemMap = React.useMemo(() => new Map(items.map((item) => [item.overviewFeatureId ?? item.id, item])), [items]);
   const colorById = React.useMemo(
@@ -115,15 +149,28 @@ export function OverviewMap({
         pointToLayer: (_feature, latlng) => L.circleMarker(latlng, overviewPointStyle(id, null, colorById, hoverId)),
         onEachFeature: (_feature, featureLayer) => attachFeatureInteractions(featureLayer)
       }).addTo(layerGroup);
+      const connectionLayers = connectionOverlayFeatures(feature).map((connectionFeature) =>
+        L.geoJSON(connectionFeature, {
+          style: () => overviewConnectionStyle(id, null, colorById, hoverId),
+          onEachFeature: (_feature, featureLayer) => attachFeatureInteractions(featureLayer)
+        }).addTo(layerGroup)
+      );
       L.geoJSON(feature, {
         style: overviewHitStyle,
         pointToLayer: (_feature, latlng) => L.circleMarker(latlng, overviewPointHitStyle()),
         onEachFeature: (_feature, featureLayer) => attachFeatureInteractions(featureLayer)
       }).addTo(layerGroup);
+      for (const connectionFeature of connectionOverlayFeatures(feature)) {
+        L.geoJSON(connectionFeature, {
+          style: overviewHitStyle,
+          onEachFeature: (_feature, featureLayer) => attachFeatureInteractions(featureLayer)
+        }).addTo(layerGroup);
+      }
 
-      layersRef.current.set(id, layer);
+      layersRef.current.set(id, { routeLayer: layer, connectionLayers });
       hoverIdsRef.current.set(id, hoverId);
       boundsLayers.push(layer);
+      boundsLayers.push(...connectionLayers);
     }
 
     if (boundsLayers.length) {
@@ -139,13 +186,19 @@ export function OverviewMap({
   }, [colorById, itemMap, mapRef, onHoverItemId, onSelect, overview]);
 
   React.useEffect(() => {
-    for (const [id, layer] of layersRef.current) {
+    for (const [id, { routeLayer, connectionLayers }] of layersRef.current) {
       const hoverId = hoverIdsRef.current.get(id) ?? id;
-      layer.setStyle(overviewStyle(id, hoveredItemId, colorById, hoverId));
-      layer.eachLayer((childLayer) => {
+      routeLayer.setStyle(overviewStyle(id, hoveredItemId, colorById, hoverId));
+      routeLayer.eachLayer((childLayer) => {
         if (childLayer instanceof L.CircleMarker) childLayer.setRadius(hoveredItemId === hoverId ? 7 : 5);
       });
-      if (hoveredItemId === hoverId) layer.bringToFront();
+      for (const connectionLayer of connectionLayers) {
+        connectionLayer.setStyle(overviewConnectionStyle(id, hoveredItemId, colorById, hoverId));
+      }
+      if (hoveredItemId === hoverId) {
+        routeLayer.bringToFront();
+        for (const connectionLayer of connectionLayers) connectionLayer.bringToFront();
+      }
     }
   }, [colorById, hoveredItemId]);
 

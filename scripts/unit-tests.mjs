@@ -185,9 +185,13 @@ try {
           [18.2, 59.2],
           [18.3, 59.3]
         ]),
-        writeRouteFixture(publicRoot, "/routes/connection.geojson", [
+        writeRouteFixture(publicRoot, "/routes/walk-connection.geojson", [
           [18.4, 59.4],
           [18.5, 59.5]
+        ]),
+        writeRouteFixture(publicRoot, "/routes/ferry-connection.geojson", [
+          [18.6, 59.6],
+          [18.7, 59.7]
         ])
       ]);
 
@@ -208,11 +212,18 @@ try {
             ],
             connections: [
               {
-                id: "main-branch-transfer",
+                id: "main-branch-walk",
+                mode: "walk",
+                from: { sectionId: "main" },
+                to: { sectionId: "branch" },
+                route: { geojsonPath: "/routes/walk-connection.geojson" }
+              },
+              {
+                id: "main-branch-ferry",
                 mode: "ferry",
                 from: { sectionId: "main" },
                 to: { sectionId: "branch" },
-                route: { geojsonPath: "/routes/connection.geojson" }
+                route: { geojsonPath: "/routes/ferry-connection.geojson" }
               }
             ]
           }
@@ -235,6 +246,17 @@ try {
           [18.4, 59.4],
           [18.5, 59.5]
         ]
+      ]);
+      assert.deepEqual(feature.properties.connectionOverlays, [
+        {
+          mode: "ferry",
+          coordinates: [
+            [
+              [18.6, 59.6],
+              [18.7, 59.7]
+            ]
+          ]
+        }
       ]);
     } finally {
       await rm(publicRoot, { recursive: true, force: true });

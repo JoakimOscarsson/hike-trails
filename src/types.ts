@@ -318,6 +318,12 @@ export type HikingOverviewFeatureProperties = {
   locationLabel: string;
   recommendedTime?: RecommendedTime;
   geometryStatus: GeometryStatus;
+  connectionOverlays?: HikingOverviewConnectionOverlay[];
+};
+
+export type HikingOverviewConnectionOverlay = {
+  mode: TrailConnectionMode;
+  coordinates: GeoJSON.Position[][];
 };
 
 export type HikingOverviewGeometry = GeoJSON.LineString | GeoJSON.MultiLineString | GeoJSON.Point;

@@ -157,6 +157,14 @@ function overviewProperties(item, itemType, geometryStatus, detailPath) {
   return properties;
 }
 
+function connectionOverlay(connection, lines) {
+  if (connection.mode === "walk" || !lines.length) return null;
+  return {
+    mode: connection.mode,
+    coordinates: lines
+  };
+}
+
 async function hikeFeature(hike, publicRoot) {
   const lines = hike.route?.geojsonPath ? await readRouteLines(publicRoot, hike.route.geojsonPath) : [];
   const geometry = featureGeometry(lines, hike);
@@ -177,20 +185,31 @@ async function trailSystemFeature(trailSystem, publicRoot) {
   const sectionLines = (
     await Promise.all(sections.map((section) => (section.route?.geojsonPath ? readRouteLines(publicRoot, section.route.geojsonPath) : [])))
   ).flat();
-  const connectionLines = (
+  const connectionResults = (
     await Promise.all(
-      (trailSystem.connections ?? []).map((connection) =>
-        connection.route?.geojsonPath ? readRouteLines(publicRoot, connection.route.geojsonPath) : []
-      )
+      (trailSystem.connections ?? []).map(async (connection) => ({
+        connection,
+        lines: connection.route?.geojsonPath ? await readRouteLines(publicRoot, connection.route.geojsonPath) : []
+      }))
     )
-  ).flat();
-  const lines = [...sectionLines, ...connectionLines];
+  ).filter((result) => result.lines.length);
+  const walkConnectionLines = connectionResults
+    .filter((result) => result.connection.mode === "walk")
+    .flatMap((result) => result.lines);
+  const connectionOverlays = connectionResults
+    .map((result) => connectionOverlay(result.connection, result.lines))
+    .filter(Boolean);
+  const lines = [...sectionLines, ...walkConnectionLines];
   const geometry = featureGeometry(lines, trailSystem);
   if (!geometry) return null;
+  const properties = overviewProperties(trailSystem, "trail-system", lines.length ? "ready" : "single-point-only");
+  if (connectionOverlays.length) {
+    properties.connectionOverlays = connectionOverlays;
+  }
   return {
     type: "Feature",
     id: trailSystem.id,
-    properties: overviewProperties(trailSystem, "trail-system", lines.length ? "ready" : "single-point-only"),
+    properties,
     geometry
   };
 }
@@ -206,7 +225,7 @@ export async function buildHikingOverviewGeoJSON({ hikes = [], trailSystems = []
   return {
     type: "FeatureCollection",
     name: "hiking-overview",
-    generatedFrom: "current hiking public route and connection geometry",
+    generatedFrom: "current hiking public route and classified connection geometry",
     features
   };
 }

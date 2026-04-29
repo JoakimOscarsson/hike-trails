@@ -82,7 +82,6 @@ const trailConnectionStyles: Record<TrailConnectionMode, L.PathOptions> = {
     color: "#796b56",
     weight: 3,
     opacity: 0.66,
-    dashArray: "4 7",
     lineCap: "round",
     className: "trail-connection-route trail-connection-route-walk"
   },
