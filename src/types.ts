@@ -41,6 +41,7 @@ export type HikeRoute = {
   status: "ready" | "missing-gpx" | "manual" | "marker-only";
   sourceFormat?: RouteGeometrySourceFormat;
   gpxUrl?: string;
+  sourceUrl?: string;
   geojsonPath?: string;
 };
 

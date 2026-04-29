@@ -20,7 +20,38 @@ Decision labels:
 - Use `camping` for informal/tolerated tenting. Reserve `campsite` for formal, managed, or clearly designated campsites.
 - Include seasonal/commercial services when route-relevant, and put opening conditions in `description`.
 - Promote route-story POIs as `heritage` or `attraction` when they have defensible coordinates.
-- Promote no-water, unsafe-water, access, and current-condition warnings as `rule-warning` instead of normal service facilities.
+- Promote no-water, unsafe-water, access, closure, maintenance, and rule warnings as `rule-warning` instead of normal service facilities.
+
+## Completeness Audit Addendum
+
+Checked: 2026-04-29
+
+Official inventory sources:
+
+- https://www.upplandsstiftelsen.se/hitta-ut/vandra/upplandsleden/
+- https://www.naturkartan.se/sv/upplandsleden
+
+Outcome:
+
+- The generated source was missing five official records that already existed in whole-trail research: Etapp 1:0, Etapp 20:1, Etapp 20:2, Etapp 20:3, and Avstickare 25:2.
+- Added section research packets for all five and generated app source shards plus route GeoJSON for each.
+- Removed the generated "Etapp 20 to Etapp 21 missing source shards" non-route gap because Etapp 20:1-20:3 now fill the official continuation to Siggefora.
+- Kept the Sigtuna-Forsbyån discontinuity as the only explicit non-route gap.
+- Kept Avstickare 25:2 separate from the main Etapp 25 geometry as a branch route group.
+
+Promotion decisions from the addendum:
+
+- `upplandsleden-etapp-1-0-studenternas-ip-sunnersta`: promoted route-relevant parking, transit, toilets, fireplaces, rest area, swimming, water/shelter and Sunnerstaåsen heritage/access rows as normal facilities.
+- `upplandsleden-etapp-20-1-osta-ingbo-kallor-rasbo`: promoted Ingbo källor, Masteråsen and Råsbo rows; left Östa camping/service context owned by Etapp 20 to avoid duplicate off-route clusters.
+- `upplandsleden-etapp-20-2-rasbo-huddunge`: promoted Råsbo/Huddunge parking/transit plus Huddunge school fire/rest rows, with school/local-use caveat.
+- `upplandsleden-etapp-20-3-huddunge-siggefora`: promoted Huddunge, Myranbadet, Ruthagsskogen, Järpenstorp and Siggefora endpoint/camping-service rows; seasonal/commercial availability stays in descriptions.
+- `upplandsleden-avstickare-25-2-boglosa-hallristningsomrade`: promoted the former Etapp 25 pending rock-carving item as branch-scoped `heritage`, added Hemsta access/rest/toilet rows, and imported the official no-water statement as `rule-warning`.
+
+Mapdata audit:
+
+- New Naturkartan GPX endpoints fetched successfully for Etapp 1:0, 20:1, 20:2, 20:3, and Avstickare 25:2.
+- Generated source now has 52 sections/loops/branches, 19 route groups, 760 normalized facilities, 52 route GeoJSON files, and one explicit non-route gap.
+- Remaining geometry caveat: `upplandsleden-stockholms-lan` still cannot fetch its Naturkartan GPX because the endpoint returns HTTP 500, so the generator uses the official Naturkartan site shape (`siteId` 16697) as a fallback and keeps a note on the generated section.
 
 ## Pending Batch 1
 

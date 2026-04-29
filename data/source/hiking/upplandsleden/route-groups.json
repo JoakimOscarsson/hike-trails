@@ -11,9 +11,10 @@
   },
   {
     "id": "upplandsleden-uppsala-east",
-    "name": "Sunnersta to Langhall",
+    "name": "Studenternas IP to Langhall",
     "kind": "mainline",
     "sectionIds": [
+      "upplandsleden-etapp-1-0-studenternas-ip-sunnersta",
       "upplandsleden-etapp-1-sunnersta-nyby",
       "upplandsleden-etapp-2-nyby-fjallnora",
       "upplandsleden-etapp-3-fjallnora-lanna",
@@ -33,19 +34,22 @@
       "upplandsleden-etapp-17-alvkarleby-langhall"
     ],
     "connectsToSectionIds": [],
-    "notice": "Main Uppsala County sequence from Sunnersta to Langhall. Use the post-Sigtuna connector group for the Forsbyan-Knivsta-Lunsentorpet approach, and treat Etapp 10's active maintenance warning as current planning context."
+    "notice": "Main Uppsala County east/north sequence from the Uppsala urban approach at Studenternas IP through Sunnersta to Langhall. Use the post-Sigtuna connector group for the Forsbyan-Knivsta-Lunsentorpet approach, and treat Etapp 10's active maintenance warning as current planning context."
   },
   {
     "id": "upplandsleden-gysinge-osta",
-    "name": "Gysinge, Skekarsbo and Osta branch",
+    "name": "Gysinge, Skekarsbo, Osta and Siggefora branch",
     "kind": "mainline",
     "sectionIds": [
       "upplandsleden-etapp-18-skekarsbo-gysinge",
       "upplandsleden-etapp-19-skekarsbo-nora-kyrka",
-      "upplandsleden-etapp-20-nora-kyrka-osta"
+      "upplandsleden-etapp-20-nora-kyrka-osta",
+      "upplandsleden-etapp-20-1-osta-ingbo-kallor-rasbo",
+      "upplandsleden-etapp-20-2-rasbo-huddunge",
+      "upplandsleden-etapp-20-3-huddunge-siggefora"
     ],
     "connectsToSectionIds": [],
-    "notice": "Western/northern branch around Gysinge, Skekarsbo, Nora kyrka/Tarnsjo and Osta. Some official GPX files are stored opposite the narrative walking direction, so follow the section map rather than assuming catalog direction means walking direction."
+    "notice": "Western/northern branch around Gysinge, Skekarsbo, Nora kyrka/Tarnsjo, Osta, Huddunge and Siggefora. Etapp 20:1-20:3 are imported as the official continuation from Ingbo kallor toward Siggefora. Some official GPX files are stored opposite the narrative walking direction, so follow the section map rather than assuming catalog direction means walking direction."
   },
   {
     "id": "upplandsleden-siggefora-sanka",
@@ -65,7 +69,7 @@
       "upplandsleden-etapp-31-skokloster-sanka"
     ],
     "connectsToSectionIds": [],
-    "notice": "Southern/western Upplandsleden sequence from Siggefora through Enkoping and Skokloster to Sanka. It is separated from Etapp 20 in this import because Etapp 20:1-20:3 are not yet normalized as source shards."
+    "notice": "Southern/western Upplandsleden sequence from Siggefora through Enkoping and Skokloster to Sanka. It continues from Etapp 20:3 at Siggeforasjon, while Etapp 25:2 is kept as a separate branch route group."
   },
   {
     "id": "upplandsleden-post-sigtuna-connector",
@@ -236,5 +240,17 @@
       "upplandsleden-etapp-31-skokloster-sanka"
     ],
     "notice": "Official Upplandsleden loop imported as a related route option, not stitched into the main section geometry."
+  },
+  {
+    "id": "upplandsleden-avstickare-25-2-boglosa-hallristningsomrade-route-group",
+    "name": "Branch 25:2",
+    "kind": "branch",
+    "sectionIds": [
+      "upplandsleden-avstickare-25-2-boglosa-hallristningsomrade"
+    ],
+    "connectsToSectionIds": [
+      "upplandsleden-etapp-25-gansta-boglosa"
+    ],
+    "notice": "Official Upplandsleden side branch to Boglosa/Hemsta rock-carving area, imported as a related route option rather than stitched into the main Etapp 25 geometry."
   }
 ]

@@ -18,7 +18,7 @@
     "Use listed water rows as planning-grade refill information; seasonal access, non-potable warnings, and local signage override static data."
   ],
   "notes": [
-    "Route GPX fetch failed during import: Failed to fetch https://www.naturkartan.se/sv/stockholms-lan/upplandsleden-upplands-vasby.gpx: 500 Internal Server Error; 500 Internal Server Error; 500 Internal Server Error; 500 Internal Server Error"
+    "Official GPX fetch failed during import (Failed to fetch https://www.naturkartan.se/sv/stockholms-lan/upplandsleden-upplands-vasby.gpx: 500 Internal Server Error; 500 Internal Server Error; 500 Internal Server Error; 500 Internal Server Error); used the official Naturkartan site shape instead."
   ],
   "facilities": [
     {
@@ -700,8 +700,10 @@
     "lastFetchedAt": "2026-04-29"
   },
   "route": {
-    "status": "missing-gpx",
-    "sourceFormat": "gpx",
-    "gpxUrl": "https://www.naturkartan.se/sv/stockholms-lan/upplandsleden-upplands-vasby.gpx"
+    "status": "ready",
+    "sourceFormat": "geojson",
+    "gpxUrl": "https://www.naturkartan.se/sv/stockholms-lan/upplandsleden-upplands-vasby.gpx",
+    "sourceUrl": "https://api.naturkartan.se/v3.2/sites/16697",
+    "geojsonPath": "/routes/hiking/upplandsleden/sections/upplandsleden-stockholms-lan.geojson"
   }
 }

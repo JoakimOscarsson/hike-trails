@@ -26,6 +26,8 @@ const PUBLIC_ROUTE_DIR = path.join(
 );
 const PUBLIC_ROUTE_PREFIX = `/routes/hiking/${TRAIL_ID}/sections`;
 const checkOnly = process.argv.includes("--check");
+const NATURKARTAN_API_KEY =
+  process.env.NATURKARTAN_API_KEY ?? "d6682e8c-eacb-4b79-bcb2-b0ea9686f7ae";
 
 const SUPPORTED_FACILITY_TYPES = new Set([
   "campsite",
@@ -69,8 +71,9 @@ const MAINLINE_GROUPS = [
   },
   {
     id: "upplandsleden-uppsala-east",
-    name: "Sunnersta to Langhall",
+    name: "Studenternas IP to Langhall",
     sectionIds: [
+      "upplandsleden-etapp-1-0-studenternas-ip-sunnersta",
       "upplandsleden-etapp-1-sunnersta-nyby",
       "upplandsleden-etapp-2-nyby-fjallnora",
       "upplandsleden-etapp-3-fjallnora-lanna",
@@ -90,18 +93,21 @@ const MAINLINE_GROUPS = [
       "upplandsleden-etapp-17-alvkarleby-langhall",
     ],
     notice:
-      "Main Uppsala County sequence from Sunnersta to Langhall. Use the post-Sigtuna connector group for the Forsbyan-Knivsta-Lunsentorpet approach, and treat Etapp 10's active maintenance warning as current planning context.",
+      "Main Uppsala County east/north sequence from the Uppsala urban approach at Studenternas IP through Sunnersta to Langhall. Use the post-Sigtuna connector group for the Forsbyan-Knivsta-Lunsentorpet approach, and treat Etapp 10's active maintenance warning as current planning context.",
   },
   {
     id: "upplandsleden-gysinge-osta",
-    name: "Gysinge, Skekarsbo and Osta branch",
+    name: "Gysinge, Skekarsbo, Osta and Siggefora branch",
     sectionIds: [
       "upplandsleden-etapp-18-skekarsbo-gysinge",
       "upplandsleden-etapp-19-skekarsbo-nora-kyrka",
       "upplandsleden-etapp-20-nora-kyrka-osta",
+      "upplandsleden-etapp-20-1-osta-ingbo-kallor-rasbo",
+      "upplandsleden-etapp-20-2-rasbo-huddunge",
+      "upplandsleden-etapp-20-3-huddunge-siggefora",
     ],
     notice:
-      "Western/northern branch around Gysinge, Skekarsbo, Nora kyrka/Tarnsjo and Osta. Some official GPX files are stored opposite the narrative walking direction, so follow the section map rather than assuming catalog direction means walking direction.",
+      "Western/northern branch around Gysinge, Skekarsbo, Nora kyrka/Tarnsjo, Osta, Huddunge and Siggefora. Etapp 20:1-20:3 are imported as the official continuation from Ingbo kallor toward Siggefora. Some official GPX files are stored opposite the narrative walking direction, so follow the section map rather than assuming catalog direction means walking direction.",
   },
   {
     id: "upplandsleden-siggefora-sanka",
@@ -120,7 +126,7 @@ const MAINLINE_GROUPS = [
       "upplandsleden-etapp-31-skokloster-sanka",
     ],
     notice:
-      "Southern/western Upplandsleden sequence from Siggefora through Enkoping and Skokloster to Sanka. It is separated from Etapp 20 in this import because Etapp 20:1-20:3 are not yet normalized as source shards.",
+      "Southern/western Upplandsleden sequence from Siggefora through Enkoping and Skokloster to Sanka. It continues from Etapp 20:3 at Siggeforasjon, while Etapp 25:2 is kept as a separate branch route group.",
   },
 ];
 
@@ -142,6 +148,15 @@ const LOOP_CONNECTIONS = {
   "upplandsleden-slinga-29-1": ["upplandsleden-etapp-29-balsta-haggeby"],
   "upplandsleden-slinga-30-1": ["upplandsleden-etapp-30-haggeby-skokloster"],
   "upplandsleden-slinga-31-1": ["upplandsleden-etapp-31-skokloster-sanka"],
+};
+
+const BRANCH_CONNECTIONS = {
+  "upplandsleden-avstickare-25-2-boglosa-hallristningsomrade": {
+    name: "Branch 25:2",
+    connectsToSectionIds: ["upplandsleden-etapp-25-gansta-boglosa"],
+    notice:
+      "Official Upplandsleden side branch to Boglosa/Hemsta rock-carving area, imported as a related route option rather than stitched into the main Etapp 25 geometry.",
+  },
 };
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -220,6 +235,24 @@ async function fetchTextWithRetry(url, retries = 4) {
   throw new Error(`Failed to fetch ${url}: ${errors.join("; ")}`);
 }
 
+async function fetchJsonWithRetry(url, options = {}, retries = 4) {
+  const errors = [];
+  for (let attempt = 1; attempt <= retries; attempt += 1) {
+    try {
+      const response = await fetch(url, {
+        ...options,
+        signal: AbortSignal.timeout(20000),
+      });
+      if (response.ok) return response.json();
+      errors.push(`${response.status} ${response.statusText}`.trim());
+    } catch (error) {
+      errors.push(error.message);
+    }
+    if (attempt < retries) await sleep(750 * attempt);
+  }
+  throw new Error(`Failed to fetch ${url}: ${errors.join("; ")}`);
+}
+
 function parseGpxLines(gpxText) {
   const parser = new XMLParser({ ignoreAttributes: false });
   const gpx = parser.parse(gpxText).gpx;
@@ -274,6 +307,52 @@ function featureCollectionFromGpx(
   { name, targetStart, targetEnd, splitGapMeters = 500 },
 ) {
   let lines = parseGpxLines(gpxText);
+  if (shouldReverseLines(lines, targetStart, targetEnd)) {
+    lines = lines
+      .slice()
+      .reverse()
+      .map((line) => ({
+        ...line,
+        coordinates: line.coordinates.slice().reverse(),
+      }));
+  }
+
+  const features = lines.flatMap((line, lineIndex) =>
+    splitLineOnGaps(line.coordinates, splitGapMeters).map(
+      (coordinates, splitIndex) => ({
+        type: "Feature",
+        properties: { name, segment: lineIndex + 1, split: splitIndex + 1 },
+        geometry: { type: "LineString", coordinates },
+      }),
+    ),
+  );
+
+  return {
+    type: "FeatureCollection",
+    features,
+  };
+}
+
+function linesFromGeojsonGeometry(geometry) {
+  if (geometry?.type === "LineString") {
+    return [{ name: undefined, coordinates: geometry.coordinates ?? [] }];
+  }
+  if (geometry?.type === "MultiLineString") {
+    return (geometry.coordinates ?? []).map((coordinates) => ({
+      name: undefined,
+      coordinates,
+    }));
+  }
+  return [];
+}
+
+function featureCollectionFromGeojsonGeometry(
+  geometry,
+  { name, targetStart, targetEnd, splitGapMeters = 500 },
+) {
+  let lines = linesFromGeojsonGeometry(geometry).filter(
+    (line) => line.coordinates.length >= 2,
+  );
   if (shouldReverseLines(lines, targetStart, targetEnd)) {
     lines = lines
       .slice()
@@ -408,7 +487,7 @@ function isNegativeTransit(row) {
 }
 
 function isWarningLike(row) {
-  return /warning|varning|unsafe|non-potable|ej tjänligt|no water|no-water|closure|removed|avbrott|gap|reroute|underhåll|maintenance|rules|föreskrift|fire ban|eldnings|no car|ingen buss|current|gpx|discontinuity/.test(
+  return /warning|varning|unsafe|non-potable|ej tjänligt|no water|no-water|closure|removed|avbrott|gap|reroute|underhåll|maintenance|rules|föreskrift|fire ban|eldnings|no car|ingen buss|gpx|discontinuity/.test(
     rowText(row),
   );
 }
@@ -492,6 +571,7 @@ function descriptionForRow(row, type, origin) {
   const parts = textList(
     row.description,
     row.notes,
+    row.reason,
     row.caveat,
     row.importCaveat,
   );
@@ -687,6 +767,8 @@ function sectionName(packet, from, to) {
     return "Stockholm County: Barkarby to Sigtuna";
   if (packet.section?.type === "loop")
     return `Slinga ${officialId}: ${packet.section.name}`;
+  if (packet.section?.type === "avstickare")
+    return `Avstickare ${officialId}: ${packet.section.name}`;
   if (String(officialId).includes(":"))
     return `Etapp ${officialId}: ${from} to ${to}`;
   return `Etapp ${officialId}: ${from} to ${to}`;
@@ -734,8 +816,52 @@ function packetRouteUrl(packet) {
   return packet.mapdata?.gpxUrl ?? packet.routeGeometryDraft?.gpxUrl;
 }
 
+function packetNaturkartanSiteId(packet) {
+  return (
+    packet.mapdata?.naturkartanSiteId ??
+    packet.mapdata?.naturkartanApiSiteId ??
+    packet.routeGeometryDraft?.naturkartanSiteId ??
+    packet.routeGeometryDraft?.naturkartanApiSiteId
+  );
+}
+
+async function buildRouteFromNaturkartanApi(packet, name, targetEndpoints) {
+  const siteId = packetNaturkartanSiteId(packet);
+  if (!siteId) return null;
+  const sourceUrl = `https://api.naturkartan.se/v3.2/sites/${siteId}`;
+  const site = await fetchJsonWithRetry(sourceUrl, {
+    headers: {
+      "X-Naturkartan-API-Key": NATURKARTAN_API_KEY,
+      Accept: "application/vnd.api+json",
+    },
+  });
+  const geometry = site?.data?.attributes?.shapes;
+  const splitGapMeters = Math.min(
+    500,
+    Number(
+      packet.mapdata?.finalQa?.maxGapMeters ??
+        packet.mapdata?.maxGapMeters ??
+        500,
+    ),
+  );
+  const routeFeatureCollection = featureCollectionFromGeojsonGeometry(
+    geometry,
+    {
+      name,
+      targetStart: targetEndpoints.start,
+      targetEnd: targetEndpoints.end,
+      splitGapMeters: Number.isFinite(splitGapMeters) ? splitGapMeters : 500,
+    },
+  );
+  if (!routeFeatureCollection.features.length) {
+    throw new Error(`${packet.id} Naturkartan API shape did not produce route features`);
+  }
+  return { sourceUrl, routeFeatureCollection };
+}
+
 async function buildRoute(packet, name, targetEndpoints) {
   const gpxUrl = packetRouteUrl(packet);
+  const routePath = `${PUBLIC_ROUTE_PREFIX}/${packet.id}.geojson`;
   if (!gpxUrl)
     return {
       route: { status: "marker-only" },
@@ -746,6 +872,38 @@ async function buildRoute(packet, name, targetEndpoints) {
   try {
     gpxText = await fetchTextWithRetry(gpxUrl);
   } catch (error) {
+    try {
+      const fallback = await buildRouteFromNaturkartanApi(
+        packet,
+        name,
+        targetEndpoints,
+      );
+      if (fallback) {
+        return {
+          endpointCoordinates: {
+            source:
+              targetEndpoints.start || targetEndpoints.end
+                ? "approximate"
+                : "route-geometry",
+            ...(targetEndpoints.start ? { start: targetEndpoints.start } : {}),
+            ...(targetEndpoints.end ? { end: targetEndpoints.end } : {}),
+          },
+          route: {
+            status: "ready",
+            sourceFormat: "geojson",
+            gpxUrl,
+            sourceUrl: fallback.sourceUrl,
+            geojsonPath: routePath,
+          },
+          routeFeatureCollection: fallback.routeFeatureCollection,
+          routeImportNotes: [
+            `Official GPX fetch failed during import (${error.message}); used the official Naturkartan site shape instead.`,
+          ],
+        };
+      }
+    } catch (fallbackError) {
+      error = new Error(`${error.message}; fallback failed: ${fallbackError.message}`);
+    }
     return {
       endpointCoordinates: {
         source:
@@ -780,7 +938,6 @@ async function buildRoute(packet, name, targetEndpoints) {
   });
   if (!routeFeatureCollection.features.length)
     throw new Error(`${packet.id} GPX did not produce route features`);
-  const routePath = `${PUBLIC_ROUTE_PREFIX}/${packet.id}.geojson`;
   return {
     endpointCoordinates: {
       source: "route-geometry",
@@ -816,9 +973,13 @@ async function buildSection(packet, stageNumber, specialRouteFlow) {
     packet.id;
   const name = sectionName(packet, from, to);
   const builtRoute = await buildRoute(packet, name, endpoints);
-  const routeFetchNotes = builtRoute.routeFetchWarning
+  const facilities = buildFacilitiesForPacket(packet, packet.id);
+  const routeFetchNotes = [
+    ...(builtRoute.routeImportNotes ?? []),
+    ...(builtRoute.routeFetchWarning
     ? [`Route GPX fetch failed during import: ${builtRoute.routeFetchWarning}`]
-    : [];
+      : []),
+  ];
 
   return {
     section: {
@@ -830,10 +991,10 @@ async function buildSection(packet, stageNumber, specialRouteFlow) {
       distanceKm: sectionDistance(packet),
       estimatedTime: packet.estimatedTime ?? "Varies by section",
       description: sectionDescription(packet),
-      utilities: sectionUtilities(packet),
-      waterSources: sectionWaterSources(packet),
+      utilities: sectionUtilities(facilities),
+      waterSources: sectionWaterSources(facilities),
       notes: [...sectionNotes(packet), ...routeFetchNotes],
-      facilities: buildFacilitiesForPacket(packet, packet.id),
+      facilities,
       ...(builtRoute.endpointCoordinates
         ? { endpointCoordinates: builtRoute.endpointCoordinates }
         : {}),
@@ -849,10 +1010,10 @@ async function buildSection(packet, stageNumber, specialRouteFlow) {
   };
 }
 
-function sectionUtilities(packet) {
+function sectionUtilities(facilities) {
   const counts = new Map();
-  for (const row of packet.importRows ?? packet.appImportPreviewDraft ?? [])
-    counts.set(row.type, (counts.get(row.type) ?? 0) + 1);
+  for (const facility of facilities)
+    counts.set(facility.type, (counts.get(facility.type) ?? 0) + 1);
   const types = [...counts.keys()].filter((type) =>
     SUPPORTED_FACILITY_TYPES.has(type),
   );
@@ -863,10 +1024,9 @@ function sectionUtilities(packet) {
     : [];
 }
 
-function sectionWaterSources(packet) {
-  const rows = packet.importRows ?? packet.appImportPreviewDraft ?? [];
-  const waterRows = rows.filter((row) =>
-    ["water", "natural-water"].includes(row.type),
+function sectionWaterSources(facilities) {
+  const waterRows = facilities.filter((facility) =>
+    ["water", "natural-water"].includes(facility.type),
   );
   if (!waterRows.length)
     return [
@@ -953,9 +1113,13 @@ function sortSections(sections) {
     "upplandsleden-etapp-1-2-knivsta-forsbyan",
     "upplandsleden-etapp-1-1-lunsentorpet-knivsta",
     ...MAINLINE_GROUPS.flatMap((group) => group.sectionIds),
+    ...Object.keys(BRANCH_CONNECTIONS),
     ...Object.keys(LOOP_CONNECTIONS),
   ];
-  const index = new Map(order.map((id, position) => [id, position]));
+  const index = new Map();
+  for (const [position, id] of order.entries()) {
+    if (!index.has(id)) index.set(id, position);
+  }
   return sections
     .slice()
     .sort(
@@ -1016,16 +1180,26 @@ function buildRouteGroups(sectionIds) {
     });
   }
 
+  for (const [branchId, branch] of Object.entries(BRANCH_CONNECTIONS)) {
+    if (!sectionIdSet.has(branchId)) continue;
+    groups.push({
+      id: `${branchId}-route-group`,
+      name: branch.name,
+      kind: "branch",
+      sectionIds: [branchId],
+      connectsToSectionIds: branch.connectsToSectionIds.filter((sectionId) =>
+        sectionIdSet.has(sectionId),
+      ),
+      notice: branch.notice,
+    });
+  }
+
   return groups;
 }
 
 function buildConnections(sectionsById) {
   const stockholm = sectionsById.get("upplandsleden-stockholms-lan");
   const forsbyan = sectionsById.get("upplandsleden-etapp-1-2-knivsta-forsbyan");
-  const etapp20 = sectionsById.get("upplandsleden-etapp-20-nora-kyrka-osta");
-  const etapp21 = sectionsById.get(
-    "upplandsleden-etapp-21-siggeforasjon-tenasjon",
-  );
   return [
     stockholm && forsbyan
       ? {
@@ -1061,38 +1235,6 @@ function buildConnections(sectionsById) {
           },
         }
       : null,
-    etapp20 && etapp21
-      ? {
-          id: "upplandsleden-etapp-20-to-21-missing-source-shards",
-          mode: "none",
-          from: {
-            sectionId: etapp20.id,
-            label: etapp20.to,
-            coordinates: etapp20.endpointCoordinates?.end,
-            coordinateSource: "route-geometry",
-          },
-          to: {
-            sectionId: etapp21.id,
-            label: etapp21.from,
-            coordinates: etapp21.endpointCoordinates?.start,
-            coordinateSource: "route-geometry",
-          },
-          currentness: "Import-scope caveat for this generated shard set.",
-          note: "Etapp 20:1-20:3 are noted in research as the western continuation but are not yet normalized into source shards, so Etapp 20 and Etapp 21 remain separate main route groups.",
-          source: {
-            provider: "Upplandsleden research",
-            url: "https://www.upplandsstiftelsen.se/hitta-ut/vandra/upplandsleden/",
-            lastFetchedAt: LAST_FETCHED_AT,
-          },
-          route: {
-            geometryStatus: "missing",
-            mapConfidence: "medium",
-            navigationUse: "not-for-navigation",
-            sourceFormat: "manual",
-            warning: "Missing normalized Etapp 20:1-20:3 source shards.",
-          },
-        }
-      : null,
   ].filter(Boolean);
 }
 
@@ -1108,19 +1250,19 @@ function buildPresets(sectionsById) {
     },
     {
       id: "uppsala-east-week",
-      name: "Sunnersta to Langhall",
+      name: "Studenternas IP to Langhall",
       description:
-        "The main Uppsala County east/north sequence through Fjallnora, Gimo, Florarna and Alvkarleby.",
-      startSectionId: "upplandsleden-etapp-1-sunnersta-nyby",
+        "The main Uppsala County east/north sequence from the Uppsala urban approach through Sunnersta, Fjallnora, Gimo, Florarna and Alvkarleby.",
+      startSectionId: "upplandsleden-etapp-1-0-studenternas-ip-sunnersta",
       endSectionId: "upplandsleden-etapp-17-alvkarleby-langhall",
     },
     {
       id: "gysinge-osta",
-      name: "Gysinge and Osta branch",
+      name: "Gysinge and Siggefora branch",
       description:
-        "Branch sequence around Gysinge, Skekarsbo, Tarnsjo/Nora kyrka and Osta.",
+        "Branch sequence around Gysinge, Skekarsbo, Tarnsjo/Nora kyrka, Osta, Huddunge and Siggefora.",
       startSectionId: "upplandsleden-etapp-18-skekarsbo-gysinge",
-      endSectionId: "upplandsleden-etapp-20-nora-kyrka-osta",
+      endSectionId: "upplandsleden-etapp-20-3-huddunge-siggefora",
     },
     {
       id: "siggefora-sanka",
@@ -1186,7 +1328,8 @@ function buildManifest(sections, routeGroups, connections, presets) {
     ],
     notes: [
       "The Sigtuna-Forsbyan break is treated as a long-standing discontinuity inside one trail system, not as a temporary closure.",
-      "Etapp 20:1-20:3 are not yet normalized as source shards, so Etapp 20 and Etapp 21 are separated into different route groups.",
+      "Etapp 20:1-20:3 are imported as the official western continuation from Ingbo kallor/Rasbo/Huddunge to Siggefora.",
+      "Avstickare 25:2 is imported as a branch route group to the Boglosa/Hemsta rock-carving area.",
       "Generated route GeoJSON uses official Naturkartan GPX and splits large GPX jumps instead of drawing false connectors.",
     ],
     source: {
@@ -1263,6 +1406,7 @@ Normalization notes:
 - Informal/tolerated tenting is \`camping\`; formal or managed sites are \`campsite\`.
 - Unsafe/no-water/current-condition records are \`rule-warning\` rows.
 - Official loops/slingor are imported as branch route groups.
+- Official side branch Avstickare 25:2 is imported as a branch route group.
 `;
 }
 
