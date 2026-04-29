@@ -1,7 +1,7 @@
 {
   "trailId": "sjuharadsleden",
-  "lastUpdated": "2026-04-29T21:02:00Z",
-  "currentPhase": "section-9-complete-ready-for-section-10",
+  "lastUpdated": "2026-04-29T21:35:00Z",
+  "currentPhase": "all-sections-researched-ready-for-normalization-review",
   "completedSections": [
     "sjuharadsleden-etapp-1-hindas-station-hestrafors-if",
     "sjuharadsleden-etapp-2-hestrafors-if-ik-omega",
@@ -11,7 +11,8 @@
     "sjuharadsleden-etapp-6-karlsaflogarna-blackered",
     "sjuharadsleden-etapp-7-blackered-prangens-camping",
     "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka",
-    "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri"
+    "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri",
+    "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -195,17 +196,22 @@
     },
     "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo": {
       "overviewStatus": "complete",
-      "officialSourceStatus": "overview-only",
-      "routeGeometryStatus": "overview-gpx-audited",
-      "startEndCoordinateStatus": "overview-gpx-and-boras-sweref-converted",
-      "commuteAccessStatus": "pending",
-      "facilityResearchStatus": "pending",
-      "rulesSafetyStatus": "overview-only",
-      "synthesisStatus": "pending",
-      "importReadiness": "not-ready",
+      "officialSourceStatus": "complete",
+      "routeGeometryStatus": "complete-with-osm-reversal-and-naturkartan/osm-deviation-caveats",
+      "startEndCoordinateStatus": "complete-with-aras-and-hotell-mullsjo-access-cluster-caveats",
+      "commuteAccessStatus": "complete-with-weak-aras-transit-and-strong-mullsjo-end-access",
+      "facilityResearchStatus": "complete-with-ryfors/straken/hotell-mullsjo-verification-caveats",
+      "rulesSafetyStatus": "complete-with-aras-ryfors-straken-reserve-and-fire-caveats",
+      "synthesisStatus": "complete",
+      "importReadiness": "ready-for-normalization-with-caveats",
       "remainingQuestions": [
-        "Verify Södra Vätterleden overlap and connection semantics.",
-        "Verify Ryfors/Trollsjön/Stråken/Hotell Mullsjö facilities and Mullsjö transit access."
+        "Use Årås säteri as official section label while storing Årås kvarn and Årås Säteri & Trädgårdar as endpoint aliases; deduplicate with section 9.",
+        "Use Hotell Mullsjö as official endpoint label while storing Hotel Mullsjö, Mullsjö Hotell & Konferens and Mullsjö Friluftshotellet as aliases/access/service objects.",
+        "Use Naturkartan Etapp 10 GPX/API as primary planning-grade geometry; reverse OSM relation 5607240 only as a cross-check if used.",
+        "Spatially clip route/facility candidates against Årås, Ryfors gammelskog and Stråkens strandskogar protected-area polygons before importing fire/camping/rule metadata.",
+        "Verify exact public status and coordinate for the drinking-water tap reported behind Mullsjö Hotell before importing as potable water.",
+        "Verify Ryfors Golfklubb water/toilet/cafe public access and seasonal opening before displaying as reliable hiker services.",
+        "Refresh Västtrafik Närtrafik Ulricehamn, JLT line 116/Mullsjö Resecentrum and fire-ban status before import or publication."
       ]
     }
   },
@@ -953,20 +959,109 @@
         "sections/sjuharadsleden-etapp-9-bone-kyrka-aras-sateri.research.json"
       ],
       "synthesisDecision": "Section 9 is strong enough for normalization review with caveats. No second agent batch needed; remaining gaps are endpoint alias/deduplication, Närtrafik/fixed-transit handling, Struntfiskeboa fire/overnight legality, Varpaledet exact facility-object coordinates, Årås seasonal services and no confirmed public potable water."
+    },
+    {
+      "id": "section-10-batch-1",
+      "sectionId": "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo",
+      "startedAt": "2026-04-29T21:08:00Z",
+      "completedAt": "2026-04-29T21:35:00Z",
+      "lanes": [
+        "official-sources",
+        "route-geometry",
+        "facilities",
+        "transit-access",
+        "field-reports",
+        "rules-safety-currentness"
+      ],
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb00-8479-7e41-8b90-e8a1bac2a99f",
+          "nickname": "Lorentz"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb00-84f4-7073-a742-ba58576b9950",
+          "nickname": "Feynman"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb00-855f-79f3-b82f-f42ee384b5e0",
+          "nickname": "Zeno"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb00-85c1-78c0-9534-3137b0486388",
+          "nickname": "Aquinas"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb00-865e-7d40-8b67-590dd22526f6",
+          "nickname": "Galileo"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb00-868c-7441-a5b0-9323c9f1a198",
+          "nickname": "Hume"
+        }
+      ],
+      "laneStatuses": [
+        {
+          "lane": "official-sources",
+          "status": "completed",
+          "completedAt": "2026-04-29T21:19:00Z",
+          "summary": "Confirmed official identity as Sjuhäradsleden etapp 10. Borås uses Årås säteri to Hotell Mullsjö with 22 km, 5.5 hours and Medium; Naturkartan uses 21.3 km and API 21.2 km. Mullsjö describes the same final/tenth stage in reverse from Hotel Mullsjö via Södra Vätterleden/Ryfors/Trollsjön to Årås kvarn. Confirmed official GPX/API, Borås PDF map, Södra/Västra Vätterleden connector context and protected-area source set for Årås/Ryfors/Stråken."
+        },
+        {
+          "lane": "route-geometry",
+          "status": "completed",
+          "completedAt": "2026-04-29T21:23:00Z",
+          "summary": "Audited Naturkartan API/GPX, OSM relation 5607240 and E1 Hiking Europe GPX. Naturkartan is continuous in official Årås-to-Hotell-Mullsjö order at about 21.24 km. OSM is topologically continuous but member order is Hotel-to-Årås despite from/to tags; endpoints agree within 3-12 m but local Naturkartan-vs-OSM deviations reach about 80-103 m. E1 publishes the stage in reverse. Confirmed overlaps with Änglaleden, Ryforsleden, Södra Vätterleden and Mullsjö Runt."
+        },
+        {
+          "lane": "facilities",
+          "status": "completed",
+          "completedAt": "2026-04-29T21:26:00Z",
+          "summary": "Found section 10 facility candidates: Årås trailhead/parking and STF Årås lodging/heritage, Struntfiskeboa shelter/firepit candidate, EJ Farm, Ryfors Golfklubb/ställplats, Ryfors Smedja, Ryfors reserve parking/toilet/waste, Ryfors Gammelskog, Stråkensbro, Trollsjön rastplats, Stråken naturbad, Gyljeryd heritage POIs, Grillplats nära Mullsjö, Mullsjö Camping, Hotell Mullsjö ledentré/bus, Mullsjö Hotell & Konferens and Mullsjö C access metadata."
+        },
+        {
+          "lane": "transit-access",
+          "status": "completed",
+          "completedAt": "2026-04-29T21:28:00Z",
+          "summary": "Confirmed Årås has no practical fixed-route public transport at the trailhead; best access is parking/drop-off or pre-booked Västtrafik Närtrafik if the Årås/Kölingared address is accepted. Dalum/Spångängen fixed stops are 10 km+ straight-line away. Hotell Mullsjö has strong endpoint public transport via JLT bus 116 at Mullsjö Friluftshotellet and rail/bus via Mullsjö Resecentrum plus an orange access trail."
+        },
+        {
+          "lane": "field-reports",
+          "status": "completed",
+          "completedAt": "2026-04-29T21:16:00Z",
+          "summary": "Found direct 2025 E1 field account and FKT/community reports confirming the section is mostly minor roads, gravel/clay roads, packed dirt and asphalt, with the final roughly 6 km on forest trail into Mullsjö. Wet/sleet weather made the route unpleasant and one hiker personally shortcut the final approach, but no formal closure/reroute was reported. Årås lodging was reported in use in 2025 but remains seasonal/booking-dependent."
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "status": "completed",
+          "completedAt": "2026-04-29T21:14:00Z",
+          "summary": "Confirmed Årås naturreservat rules, Ryfors gammelskog/Ryfors reserve rules and Stråkens strandskogar rules. Årås and Ryfors prohibit fires; Ryfors also prohibits tenting/caravans. Stråkens permits fire only at designated sites with brought firewood. Confirmed dynamic municipal fire-ban caveat, local camping/dog rules, no section-10 closure/reroute and nearby Ryforsleden/Stråkenleden notices that should not be treated as Sjuhäradsleden closures."
+        }
+      ],
+      "summary": "Six parallel research/report agents completed for section 10 Årås säteri/Årås kvarn to Hotell Mullsjö. Main thread synthesized official sources, Naturkartan/API/OSM/E1 geometry, facilities, commute/access, field reports and Årås/Ryfors/Stråkens rules/safety into the section research JSON.",
+      "outputs": [
+        "sections/sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo.research.json"
+      ],
+      "synthesisDecision": "Section 10 is strong enough for normalization review with caveats. No second agent batch needed; remaining gaps are endpoint alias/deduplication, Naturkartan-vs-OSM geometry review, OSM reverse-order handling, protected-area clipping for fire/shelter/camping objects, public-water/service access verification and live transit/fire refreshes."
     }
   ],
   "sourceCoverage": {
     "officialTrailOverview": "good",
     "officialSectionInventory": "good",
-    "routeGeometry": "sections-1-through-9-complete-plus-good-overview-gpx-for-all-stages; section-6-needs-rolle-normalization; section-7-needs-long-chord-densification; section-8-gpx-three-part-and-osm-reversal-caveats; section-9-has-distance/label-and-osm-way-orientation-caveats",
-    "osmRelations": "sections-1-through-9-cross-checked-plus-good-overview; section-8-overlaps-checked-against-asundenleden/redvagsleden; section-9-overlap-checked-and-only-short-anglaleden-share-found",
-    "facilities": "sections-1-through-9-complete-with-pending-verification-items; overview-only-for-section-10",
-    "commuteAccess": "sections-1-through-9-complete-with-weak/limited-transit-caveats; pending-for-section-10",
-    "fieldReports": "sections-1-through-9-complete; pending-for-section-10",
-    "rulesSafety": "sections-1-through-9-complete-with-trailwide-qa/fire/water/protected-area-caveats; overview-only-for-section-10"
+    "routeGeometry": "sections-1-through-10-complete; section-6-needs-rolle-normalization; section-7-needs-long-chord-densification; section-8-gpx-three-part-and-osm-reversal-caveats; section-9-has-distance/label-and-osm-way-orientation-caveats; section-10-has-osm-reverse-order-and-naturkartan/osm-deviation-caveats",
+    "osmRelations": "sections-1-through-10-cross-checked-plus-good-overview; section-8-overlaps-checked-against-asundenleden/redvagsleden; section-9-overlap-checked-and-only-short-anglaleden-share-found; section-10-overlaps-checked-against-anglaleden/ryforsleden/sodra-vatterleden/mullsjo-runt",
+    "facilities": "sections-1-through-10-complete-with-pending-verification-items",
+    "commuteAccess": "sections-1-through-10-complete-with-weak/limited-transit-caveats; section-10-has-strong-mullsjo-end-access-but-weak-aras-fixed-transit",
+    "fieldReports": "sections-1-through-10-complete",
+    "rulesSafety": "sections-1-through-10-complete-with-trailwide-qa/fire/water/protected-area-caveats"
   },
   "knownGaps": [
-    "Sections 1 through 9 have synthesized section JSON packets; section 10 still needs six-agent section research and synthesis.",
+    "Sections 1 through 10 have synthesized section JSON packets and are ready for normalization review with caveats, not runtime import.",
     "Section 1 end access remains weak: closest transit is Holmens bro, about 2 km away, served by limited/preordered Västtrafik line 122.",
     "Section 1 route endpoint and Hestrafors IF/Bollevi official access coordinate differ by about 350-400 m; model separately unless confirmed by trail manager.",
     "Section 1 Klippan naturreservat overlap and winter ski-track access near Hindås/Hindåsgården remain unresolved.",
@@ -987,8 +1082,12 @@
     "Section 6 Raska-Minas källa, grillplats and cup-mark stones need exact-coordinate verification; the spring must not be imported as potable without current confirmation.",
     "Section 6 Blackered public transport is weak; current stop candidates are roughly 4 km away by straight line, and the municipal Komskälet stop reference may be stale.",
     "Section 6 geometry needs normalization around Rölle: Naturkartan GPX/API and Västsverige KML have duplicate/parallel/spur linework despite correct endpoints and distance.",
-    "Facilities for section 10 need coordinate verification and import/suppress/pending decisions.",
-    "Protected-area rules and fire/dog/hunting/current-condition details need section-level research for section 10.",
+    "Section 10 endpoint semantics remain important: use Årås säteri as the official label with Årås kvarn/Årås Säteri aliases, and use Hotell Mullsjö as the official endpoint while keeping hotel, ledentré, bus stop, bathing place and Mullsjö C access as separate records.",
+    "Section 10 geometry is planning-grade: Naturkartan GPX/API is primary, while OSM relation 5607240 is continuous but stored in reverse order and differs locally from Naturkartan by up to about 100 m.",
+    "Section 10 Årås fixed-route transit is weak and depends on parking/drop-off or pre-booked Västtrafik Närtrafik if the address is accepted; Hotell Mullsjö/Mullsjö C access is good but JLT schedules still need live refresh.",
+    "Section 10 fire/camping/shelter candidates must be clipped against Årås, Ryfors gammelskog and Stråkens strandskogar rules before import; Årås and Ryfors prohibit fires, and Stråkens allows fire only at designated places with brought firewood.",
+    "Section 10 public potable water is not confirmed on the road section; Årås, Ryfors Golfklubb, Mullsjö Camping and Hotell Mullsjö water are guest/customer/seasonal or pending exact tap/access verification.",
+    "Section 10 pending facility/currentness items include Struntfiskeboa shelter/firepit legality, EJ Farm and VIP opening/currentness, Ryfors Golfklubb public hiker access, Trollsjön/Grillplats nära Mullsjö fire legality, and exact Mullsjö Hotell water tap coordinates.",
     "Section 9 Årås säteri/Årås kvarn/Årås Säteri & Trädgårdar endpoint aliases must be deduplicated before import.",
     "Section 9 Struntfiskeboa shelter/firepit must be clipped against Årås reserve boundaries and fire/camping rules before import; do not assume fire use is permitted.",
     "Section 9 Varpaledet badplats can be imported as a cluster, but exact toilet/grill/changing-room/jetties coordinates need verification before splitting into separate facilities.",
@@ -1006,10 +1105,8 @@
     "Section 8 Prångens start services need deduplication with section 7 Prångens Camping/badplats records."
   ],
   "nextActions": [
-    "Commit section 9 research before starting section 10.",
-    "Start section 10 Årås säteri / Årås kvarn - Hotell Mullsjö with the required six parallel research/report agents.",
-    "For section 10, verify Södra Vätterleden overlap/connection semantics, Ryfors/Trollsjön/Stråken/Hotell Mullsjö facilities, protected-area rules, Mullsjö transit access and Jönköpings län fire/currentness sources.",
-    "Update README.md, trail.research.json and research-progress.json after section 10 synthesis, validate JSON, then commit section 10."
+    "Run a normalization-readiness review inside data/research/candidate-trails/sjuharadsleden only; do not integrate runtime data.",
+    "Before any later import, resolve endpoint aliases, geometry caveats, protected-area clipping, public-water verification, facility import/suppress/pending decisions and live transit/fire status."
   ],
   "handoffNotes": [
     "Write only under data/research/candidate-trails/sjuharadsleden/.",
@@ -1024,6 +1121,7 @@
     "Section 7 file is sections/sjuharadsleden-etapp-7-blackered-prangens-camping.research.json and is ready for normalization review with caveats, not runtime import.",
     "Section 8 file is sections/sjuharadsleden-etapp-8-prangens-camping-bone-kyrka.research.json and is ready for normalization review with caveats, not runtime import.",
     "Section 9 file is sections/sjuharadsleden-etapp-9-bone-kyrka-aras-sateri.research.json and is ready for normalization review with caveats, not runtime import.",
+    "Section 10 file is sections/sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo.research.json and is ready for normalization review with caveats, not runtime import.",
     "Use Naturkartan GPX URLs as primary geometry candidates, with OSM relations as cross-checks.",
     "Keep Naturkartan's Västkuststiftelsen quality-assurance warning visible unless a newer official source supersedes it."
   ]

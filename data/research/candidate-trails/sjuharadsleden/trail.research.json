@@ -1,8 +1,8 @@
 {
   "schemaVersion": "trail-overview-research-v1",
   "trailId": "sjuharadsleden",
-  "lastUpdated": "2026-04-29T20:58:00Z",
-  "status": "overview-complete-sections-1-9-complete-section-10-pending",
+  "lastUpdated": "2026-04-29T21:35:00Z",
+  "status": "overview-complete-sections-1-10-complete",
   "researchOnly": true,
   "doNotImportDirectly": true,
   "trail": {
@@ -747,6 +747,12 @@
       "nextAction": "Model Böne and Årås route endpoints separately from access/service clusters, use Närtrafik only as pre-booked weekday access metadata, suppress public potable water, and clip Struntfiskeboa/Årås facilities against protected-area rules before import."
     },
     {
+      "topic": "Stage 10 Årås, Ryfors, Stråken and Hotell Mullsjö caveats",
+      "detail": "Section 10 synthesis found strong official/Naturkartan GPX/API coverage and good Mullsjö public transport, but Årås fixed-route transit is still weak, OSM relation 5607240 is continuous but stored in reverse member order, Naturkartan and OSM differ locally by up to about 100 m, reserve-specific fire/camping rules affect Årås/Ryfors/Stråkens facility candidates, and public potable water is not confirmed outside customer/guest/service contexts.",
+      "severity": "medium",
+      "nextAction": "Use Naturkartan as primary planning-grade geometry, reverse OSM only as a cross-check, deduplicate Årås/Hotell Mullsjö endpoint clusters, clip all fire/shelter candidates against protected-area rules, verify Mullsjö Hotell tap/Ryfors service access and refresh JLT/Västtrafik/fire status before import."
+    },
+    {
       "topic": "Older source risk",
       "detail": "The legacy vandraisjuharad.se link on OSM wiki and the Skaraborgsleder/Mullsjö page appear older. They should not override Borås/Naturkartan/Västsverige current data.",
       "severity": "medium",
@@ -755,7 +761,7 @@
   ],
   "importReadiness": {
     "overview": "not-ready-for-runtime-import",
-    "reason": "Whole-trail overview is established and sections 1-9 have section research files, but section 10 still needs section research, commute access, facilities, protected-area rules and field/currentness reports.",
-    "safeNextStep": "Run the section 10 six-agent research batch and synthesize the final section research JSON under this candidate directory."
+    "reason": "Whole-trail overview is established and sections 1-10 now have section research files. The candidate set is ready for normalization review, but not direct runtime import because endpoint/facility deduplication, protected-area clipping, geometry QA, public-water verification and live transit/fire refreshes remain.",
+    "safeNextStep": "Run a normalization-readiness pass over the candidate files under this directory, resolving endpoint aliases and facility import/suppress/pending decisions before any later app-data integration."
   }
 }
