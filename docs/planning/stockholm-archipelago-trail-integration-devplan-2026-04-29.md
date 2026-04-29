@@ -4,7 +4,7 @@ Date: 2026-04-29
 
 Workspace target: `/Users/joakim/Documents/codex/hike-trails`
 
-Status: Slice 0 completed; Slice 1 not started.
+Status: Slice 1 completed; Slice 2 not started.
 
 This is a living development plan for bringing Stockholm Archipelago Trail into the app. It is intentionally concrete: every slice has a scope, likely files, a definition of done, and validation notes. The trail is ferry-dependent, so ferry transfers are first-class route connections, not just text notes.
 
@@ -30,7 +30,7 @@ Important rule: the candidate research file is an input only. Runtime code must 
 - [x] Agreed to skip `harbor_services`.
 - [x] Agreed that ferries are central and need route-connection rendering on the map.
 - [x] Slice 0: Lock the import contract and normalization policy.
-- [ ] Slice 1: Add ferry-capable transfer and connection data types.
+- [x] Slice 1: Add ferry-capable transfer and connection data types.
 - [ ] Slice 2: Map ferry and rowboat transfers between sections.
 - [ ] Slice 3: Render connection routes on the map.
 - [ ] Slice 4: Create Stockholm Archipelago Trail hiking source shards.
@@ -164,6 +164,17 @@ Validation:
 - Confirm expected unsupported count goes to zero after applying normalization decisions, excluding intentionally suppressed metadata.
 
 ## Slice 1: Ferry-Capable Transfer And Connection Data Types
+
+Status: completed 2026-04-29.
+
+Completion notes:
+
+- Added `TrailSectionConnection`, `TrailConnectionEndpoint`, `TrailConnectionMode`, `TrailTransitStop`, and ferry-capable transit typing in `src/types.ts`.
+- Added optional `connections.json` support to hiking source shard reads/writes and public trail-system shard writes.
+- Added optional runtime loading for trail-system connections through `src/data/library.ts`.
+- Added validation for connection IDs, modes, section references, endpoint coordinates, ferry/rowboat navigation-use constraints, route metadata, and connection GeoJSON paths.
+- Added runtime probe and unit-test coverage for connection shard loading.
+- Existing Roslagsleden and Sörmlandsleden stay valid with no connection records.
 
 Scope:
 

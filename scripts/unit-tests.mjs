@@ -325,6 +325,7 @@ try {
       id: "trail-system",
       itemType: "trail-system",
       name: "Trail System",
+      connectionsPath: "/connections.json",
       source: { provider: "test-source", url: "https://example.com/source" }
     };
     const sectionsIndex = [
@@ -343,11 +344,21 @@ try {
     const routeGroups = [
       { id: "main", name: "Main", kind: "mainline", sectionIds: ["stage-1"], connectsToSectionIds: [] }
     ];
+    const connections = [
+      {
+        id: "stage-1-ferry",
+        mode: "ferry",
+        from: { sectionId: "stage-1", label: "Start quay", coordinates: [59, 18] },
+        to: { sectionId: "stage-1", label: "Finish quay", coordinates: [59.1, 18.1] },
+        note: "Test ferry connection."
+      }
+    ];
     const presets = [{ id: "stage-1", name: "Stage 1", startSectionId: "stage-1", endSectionId: "stage-1" }];
     const { calls, fetchImpl } = fakeFetch({
       "/manifest.json": manifest,
       "/sections-index.json": sectionsIndex,
       "/route-groups.json": routeGroups,
+      "/connections.json": connections,
       "/presets.json": presets
     });
 
@@ -363,9 +374,10 @@ try {
       fetchImpl
     );
 
-    assert.deepEqual(calls.sort(), ["/manifest.json", "/presets.json", "/route-groups.json", "/sections-index.json"]);
+    assert.deepEqual(calls.sort(), ["/connections.json", "/manifest.json", "/presets.json", "/route-groups.json", "/sections-index.json"]);
     assert.equal(trailSystem.id, "trail-system");
     assert.deepEqual(trailSystem.routeGroups, routeGroups);
+    assert.deepEqual(trailSystem.connections, connections);
     assert.deepEqual(trailSystem.presets, presets);
     assert.equal(trailSystem.sections[0].description, "");
     assert.deepEqual(trailSystem.sections[0].utilities, []);

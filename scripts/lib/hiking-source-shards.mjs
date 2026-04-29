@@ -36,15 +36,16 @@ async function removeUnexpectedJsonFiles(directory, expectedFiles) {
 }
 
 function toManifest(trailSystem) {
-  const { sections: _sections, routeGroups: _routeGroups, presets: _presets, ...manifest } = trailSystem;
+  const { sections: _sections, routeGroups: _routeGroups, connections: _connections, presets: _presets, ...manifest } = trailSystem;
   return manifest;
 }
 
-function assembleTrailSystem({ manifest, sections, routeGroups, presets }) {
+function assembleTrailSystem({ manifest, sections, routeGroups, connections, presets }) {
   return {
     ...manifest,
     sections,
     ...(routeGroups.length ? { routeGroups } : {}),
+    ...(connections.length ? { connections } : {}),
     presets
   };
 }
@@ -61,12 +62,14 @@ export async function readHikingSourceData({ projectRoot = process.cwd() } = {})
       const sectionsDir = path.join(systemDir, "sections");
       const sectionsIndexPath = path.join(systemDir, "sections-index.json");
       const routeGroupsPath = path.join(systemDir, "route-groups.json");
+      const connectionsPath = path.join(systemDir, "connections.json");
       const presetsPath = path.join(systemDir, "presets.json");
-      const [manifest, sectionFiles, sectionIds, routeGroups, presets] = await Promise.all([
+      const [manifest, sectionFiles, sectionIds, routeGroups, connections, presets] = await Promise.all([
         readJson(path.join(systemDir, "manifest.json")),
         readdir(sectionsDir).catch(() => []),
         pathExists(sectionsIndexPath).then((exists) => (exists ? readJson(sectionsIndexPath) : [])),
         pathExists(routeGroupsPath).then((exists) => (exists ? readJson(routeGroupsPath) : [])),
+        pathExists(connectionsPath).then((exists) => (exists ? readJson(connectionsPath) : [])),
         pathExists(presetsPath).then((exists) => (exists ? readJson(presetsPath) : []))
       ]);
       const indexedSectionFiles = Array.isArray(sectionIds) ? sectionIds.map((sectionId) => `${sectionId}.json`) : [];
@@ -82,6 +85,7 @@ export async function readHikingSourceData({ projectRoot = process.cwd() } = {})
         manifest,
         sections,
         routeGroups: Array.isArray(routeGroups) ? routeGroups : [],
+        connections: Array.isArray(connections) ? connections : [],
         presets: Array.isArray(presets) ? presets : []
       });
     })
@@ -99,6 +103,9 @@ export async function writeTrailSystemSourceShards(trailSystem, { projectRoot = 
     writeJson(path.join(systemDir, "sections-index.json"), sections.map((section) => section.id)),
     writeJson(path.join(systemDir, "route-groups.json"), trailSystem.routeGroups ?? []),
     writeJson(path.join(systemDir, "presets.json"), trailSystem.presets ?? []),
+    (trailSystem.connections ?? []).length
+      ? writeJson(path.join(systemDir, "connections.json"), trailSystem.connections)
+      : rm(path.join(systemDir, "connections.json"), { force: true }),
     ...sections.map((section) => writeJson(path.join(sectionsDir, `${section.id}.json`), section))
   ]);
 

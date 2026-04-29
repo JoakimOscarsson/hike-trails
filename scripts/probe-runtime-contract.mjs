@@ -101,6 +101,7 @@ async function probeTrailSystem(item) {
     presetsPath: `/data/trail-systems/${item.id}/presets.json`
   };
   for (const [field, expectedPath] of Object.entries(expectedPaths)) expectShardField(item, field, expectedPath);
+  if (item.connectionsPath) expectShardField(item, "connectionsPath", `/data/trail-systems/${item.id}/connections.json`);
 
   const [manifest, sectionsIndex, routeGroups, presets] = await Promise.all([
     readPublicJson(item.manifestPath, `${scope} manifest`),
@@ -110,15 +111,23 @@ async function probeTrailSystem(item) {
   ]);
 
   if (manifest?.id !== item.id) addError(scope, `Manifest id "${manifest?.id}" does not match index id`);
-  for (const aggregateField of ["sections", "routeGroups", "presets"]) {
+  for (const aggregateField of ["sections", "routeGroups", "connections", "presets"]) {
     if (aggregateField in (manifest ?? {})) {
       addError(scope, `manifest.json must not duplicate aggregate field "${aggregateField}"`);
     }
+  }
+  let connections = [];
+  const connectionsPath = item.connectionsPath ?? manifest?.connectionsPath;
+  if (connectionsPath) {
+    const expectedConnectionsPath = `/data/trail-systems/${item.id}/connections.json`;
+    if (connectionsPath !== expectedConnectionsPath) addError(scope, `connectionsPath must be ${expectedConnectionsPath}`);
+    connections = await readPublicJson(connectionsPath, `${scope} connections`);
   }
   if (!Array.isArray(sectionsIndex) || sectionsIndex.length === 0) {
     addError(scope, "sections-index must be a non-empty array");
   }
   if (!Array.isArray(routeGroups)) addError(scope, "route-groups must be an array");
+  if (!Array.isArray(connections)) addError(scope, "connections must be an array");
   if (!Array.isArray(presets)) addError(scope, "presets must be an array");
 
   let sectionShardCount = 0;
@@ -155,7 +164,7 @@ async function probeTrailSystem(item) {
         if (detail?.trailSystemId !== item.id) {
           addError(sectionScope, `detail shard trailSystemId "${detail?.trailSystemId}" does not match trail-system id`);
         }
-        for (const aggregateField of ["sections", "routeGroups", "presets"]) {
+        for (const aggregateField of ["sections", "routeGroups", "connections", "presets"]) {
           if (aggregateField in (detail ?? {})) addError(sectionScope, `detail shard must not duplicate "${aggregateField}"`);
         }
         sectionShardCount += 1;
@@ -192,11 +201,28 @@ async function probeTrailSystem(item) {
     }
   }
 
+  if (Array.isArray(connections)) {
+    for (const duplicateId of collectDuplicateIds(connections)) addError(scope, `connections has duplicate ID "${duplicateId}"`);
+    for (const connection of connections) {
+      const connectionScope = `${scope} connection ${connection?.id ?? "(missing id)"}`;
+      if (typeof connection?.id !== "string" || !connection.id.trim()) addError(connectionScope, "connection id is required");
+      for (const endpointKey of ["from", "to"]) {
+        const endpoint = connection?.[endpointKey];
+        if (!endpoint || typeof endpoint !== "object") {
+          addError(connectionScope, `${endpointKey} endpoint is required`);
+        } else if (!sectionIds.has(endpoint.sectionId)) {
+          addError(connectionScope, `${endpointKey}.sectionId references unknown section "${endpoint.sectionId}"`);
+        }
+      }
+    }
+  }
+
   return {
     id: item.id,
     sections: Array.isArray(sectionsIndex) ? sectionsIndex.length : 0,
     sectionShards: sectionShardCount,
     routeGroups: Array.isArray(routeGroups) ? routeGroups.length : 0,
+    connections: Array.isArray(connections) ? connections.length : 0,
     presets: Array.isArray(presets) ? presets.length : 0
   };
 }

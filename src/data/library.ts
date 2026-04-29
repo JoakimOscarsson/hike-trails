@@ -7,6 +7,7 @@ import type {
   TrailPreset,
   TrailRouteGroup,
   TrailSection,
+  TrailSectionConnection,
   TrailSectionIndexItem,
   TrailSystem,
   TrailSystemManifest
@@ -65,11 +66,14 @@ export async function loadTrailSystemFromShards(
     fetchJson<TrailRouteGroup[]>(item.routeGroupsPath!, fetchImpl),
     fetchJson<TrailPreset[]>(item.presetsPath!, fetchImpl)
   ]);
+  const connectionsPath = item.connectionsPath ?? manifest.connectionsPath;
+  const connections = connectionsPath ? await fetchJson<TrailSectionConnection[]>(connectionsPath, fetchImpl) : [];
 
   return {
     ...manifest,
     sections: sectionsIndex.map((section) => sectionIndexToRuntimeSection(section, manifest)),
     routeGroups,
+    ...(connections.length ? { connections } : {}),
     presets
   };
 }
