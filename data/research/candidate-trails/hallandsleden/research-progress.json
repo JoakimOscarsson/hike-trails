@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-29T22:27:57Z",
-  "currentPhase": "Phase 2 section research ready to start for hallandsleden-astad-vessigebro after M6 commit",
+  "lastUpdated": "2026-04-29T22:51:57Z",
+  "currentPhase": "Phase 2 section research ready to start for hallandsleden-vessigebro-frodeparken after M7 commit",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -16,7 +16,8 @@
     "hallandsleden-karnebygd-atran",
     "hallandsleden-atran-langesjon",
     "hallandsleden-langesjon-rydobruk",
-    "hallandsleden-rydobruk-kvarnforsen"
+    "hallandsleden-rydobruk-kvarnforsen",
+    "hallandsleden-astad-vessigebro"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -382,19 +383,28 @@
       "sectionNumber": "M7",
       "name": "Ästad - Vessigebro",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-map-line-discovered-needs-gpx-cross-check",
-      "startEndCoordinateStatus": "official-map-line-endpoints-captured-needs-validation",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-official-swedish-english-gpx-api-naturkartan-lansstyrelsen-visitvarberg-falkenberg-source-pass",
+      "routeGeometryStatus": "complete-official-gpx-api-geojson-canonical-214-point-21-157km-naturkartan-shape-match-stale-line-osm-suppressed",
+      "startEndCoordinateStatus": "complete-official-gpx-api-naturkartan-endpoints-high-confidence-n7-and-m8-continuity-m6-noncontinuous",
+      "commuteAccessStatus": "complete-strong-vessigebro-bus-end-offset-seasonal-astad-access-byasjon-no-driveup-parking-caveats",
+      "facilityResearchStatus": "complete-core-facilities-ready-skattagard-and-offroute-services-suppressed-midstage-water-gap",
+      "rulesSafetyStatus": "complete-langanskogen-natura2000-nedre-atran-vso-forestry-road154-dynamic-fire-dogs-hunting-currentness-caveats",
+      "synthesisStatus": "complete-six-lane-synthesis-complete",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
-        "Run six independent section research lanes and synthesize findings.",
-        "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
-        "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Before normalization, model Mellersta delleden branch topology explicitly: M7 should follow N7/Ästad and hand to M8/Vessigebro, not M6/Kvarnforsen.",
+        "Before import, ask Hallandsleden why API line.geometry and some place/page context still expose old Ästad-Skattagård/Skattagård data while GPX/API geo_json has current Ästad-Vessigebro geometry.",
+        "Before import, decide whether to densify or route-QA the 214-point official GPX for app rendering/navigation while preserving official provenance.",
+        "Before import, verify whether Vessigebro shelter cluster should be imported as shelter/fireplace/rest only or whether any toilet/water exists nearby that was not captured.",
+        "Before import, verify current operation/opening hours for Ästad Vingård, Ästad 4H, Camp Hakestad, ICA Nära Vessige, Ekholmen, Vessige Pizzeria and any other commercial endpoint services.",
+        "Before public access guidance, verify exact start-side parking strategy with Varberg/Långanskogen/Skogsbo/Holma ö local signage and do not promise parking at Byasjön shelter.",
+        "Before publication/use, recheck Hallandstrafiken line 660/556/557 timetables after 2026-06-14 and seasonal Åkturen dates.",
+        "Before publication/use, recheck official Hallandsleden deviation page and 2024/2025 digital route notes for Sörby/Skattagård/Vessigebro currentness.",
+        "Before publication/use, field-check or contact Hallandsleden/Skogsstyrelsen about felling notification A 17427-2025 around route km 6.49-6.68.",
+        "Before publication/use, recheck same-day fire status through Krisinformation/Länsstyrelsen/Räddningstjänsten Väst/Brandrisk Ute.",
+        "Before publication/use, check Trafikverket live road/incident data for road 154 crossing and any road walking into Vessigebro.",
+        "Before final rules copy, confirm Nedre Ätran water-protection sub-zone details from official PDF maps if app needs zone-specific restrictions.",
+        "Do not import Skattagård shelter/camp or old Ästad-Skattagård geometry into current M7 core unless a future nearby/legacy/side-route model is added."
       ]
     },
     "hallandsleden-vessigebro-frodeparken": {
@@ -2324,21 +2334,287 @@
       "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around official 10 km versus GPX/Naturkartan/Woods distance variants, canonical 161-point official GPX/API geometry versus stale API line.geometry/OSM Sandsjön-Kvarnforsen-Gyltige linework, M5-suppressed records assigned to M6, branch-end/physical Kvarnforsen-Gyltige handoff, no direct Kvarnforsen transit, no public official potable water, Kvarnforsen conditional/private water and parking/gate caveats, dynamic fire/hunting/currentness and old landfill/industrial-area caution.",
       "completedAt": "2026-04-29T22:27:57Z",
       "outputFile": "sections/hallandsleden-rydobruk-kvarnforsen.research.json"
+    },
+    {
+      "batchId": "hallandsleden-astad-vessigebro-initial-6-lane-2026-04-29",
+      "sectionId": "hallandsleden-astad-vessigebro",
+      "startedAt": "2026-04-29T22:29:47Z",
+      "status": "complete-six-lane-synthesis-complete",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb5c-c779-7b60-9a9d-ee073eeb0638",
+          "nickname": "Meitner"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb5c-c7d5-7f43-a00a-96ecf6b3e82f",
+          "nickname": "Curie"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb5c-c835-7e02-be82-c950bef1a84c",
+          "nickname": "Fermat"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb5c-ca34-7d43-b764-76e9952d78b5",
+          "nickname": "Pascal"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb5c-ca73-7e91-a6d0-d176b9c39e7d",
+          "nickname": "Boole"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb5c-ca90-7e70-a097-60258fbe04a1",
+          "nickname": "Kierkegaard"
+        }
+      ],
+      "requestedOutputs": [
+        "official facts",
+        "geometry verification",
+        "facilities",
+        "transit/access",
+        "field reports",
+        "rules/safety/currentness"
+      ],
+      "notes": [
+        "Focus on M7 Ästad - Vessigebro branch topology, likely continuity from N7 rather than M6, official GPX/API/Naturkartan/OSM geometry conflicts, endpoint access at Ästad/Byasjön and Vessigebro, facilities/water/camping/toilets, protected/currentness rules and stale-source risks."
+      ],
+      "receivedReports": [
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb5c-ca73-7e91-a6d0-d176b9c39e7d",
+          "receivedAt": "2026-04-29T22:34:28Z",
+          "summary": "Found no exact recent 2024-2026 full-current-M7 field condition report. Best exact evidence is stale predecessor/reverse Ästad-Skattagård reporting from 2019 and very stale 2012 partial Vessigebro-Askome-Ätrafors-Axtorna evidence. Route-app/Naturkartan evidence mostly preserves old Ästad-Skattagård/24 km context or adjacent local loops. Current official baseline and 2024 Sörby reroute should control; no exact current closure, bridge damage, forestry or hunting disruption report was found.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/astad-vessigebro",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Astad_Vessigebro.gpx",
+            "https://hallandsleden.se/en/item/nya-leddragningar-1/f22cgopgvzykg0snvt9jgr6lxgvdb1n5",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/langanskogen.html",
+            "https://www.naturkartan.se/sv/hallands-lan/astad-skattagard-hallandsleden",
+            "https://www.bejegard.se/vandring/halland/hallandsleden/hallandsleden-skattagard-astad-22-km/",
+            "https://hallandsleden.wordpress.com/",
+            "https://www.wikiloc.com/hiking-trails/vessigebro-sorby-skattagard-vaby-vessigebro-62081869",
+            "https://www.mypacer.com/routes/ohzdvp/hallandsleden-stage-%C3%A4stad-skattag%C3%A5rd-hiking-trail-h%C3%B6stena-hallands-l%C3%A4n",
+            "https://www.komoot.com/collection/2020853/-e1-schweden",
+            "https://www.alltrails.com/en-gb/trail/sweden/halland/akulla-bokskogar-alvasjostigen"
+          ],
+          "conditionSignals": [
+            "Official page: mostly easy roads and broad paths, hard/red mainly near road 154/Hakestad to Storeklitt/Myrekull, and extreme caution crossing road 154.",
+            "2019 report: long road/asphalt after Vessigebro and private-road/dog-warning signage near Ästad in old/pre-2024 reverse stage context.",
+            "2012 report: mostly asphalt until north of Axtorna, then forest and steep wet/slippery descent; very stale terrain evidence only.",
+            "No current exact public report found for signage faults, bridge/boardwalk damage, mud/flooding, shelter/toilet/firewood state, closures, forestry or hunting disruption."
+          ]
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb5c-c7d5-7f43-a00a-96ecf6b3e82f",
+          "receivedAt": "2026-04-29T22:35:29Z",
+          "summary": "Confirmed official GPX/API geo_json as authoritative M7 geometry: 214 points, 21.157 km, Ästad/Byasjön to Vessigebro, high-confidence endpoints and continuity from N7/to M8. Naturkartan site 22038 shape matches official route but visible metadata is stale 24.0 km/black/astad-skattagard. Hallandsleden API line.geometry and OSM relation 7398314 are stale old Ästad-Skattagård linework and should be suppressed as current M7 geometry.",
+          "keySources": [
+            "https://www.hallandsleden.se/en/etapp/astad-vessigebro",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Astad_Vessigebro.gpx",
+            "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=astad-vessigebro&token=<public-page-token>",
+            "https://www.hallandsleden.se/en/delled/mellersta-delleden",
+            "https://www.hallandsleden.se/en/delled/norra-delleden",
+            "https://www.naturkartan.se/en/hallands-lan/astad-skattagard-hallandsleden",
+            "https://api.naturkartan.se/v2/sites/22038",
+            "https://www.openstreetmap.org/relation/7398314",
+            "https://www.openstreetmap.org/relation/7398315",
+            "https://www.openstreetmap.org/relation/7398313",
+            "https://www.aventyrligare.se/vandringsled/AstadSkattagard-583",
+            "https://www.mypacer.com/routes/ohzdvp/hallandsleden-stage-%C3%A4stad-skattag%C3%A5rd-hiking-trail-h%C3%B6stena-hallands-l%C3%A4n"
+          ],
+          "canonicalGeometry": {
+            "points": 214,
+            "start": [
+              57.06259,
+              12.529645
+            ],
+            "end": [
+              56.977731,
+              12.650563
+            ],
+            "computedKm": 21.157,
+            "officialDistance": "21 km rounded on official page/API; GPX desc Total: 21.2 km",
+            "grade": "navigation/planning-grade A-",
+            "continuity": {
+              "n7EndToM7Start": "0.2 m",
+              "m6EndToM7Start": "44.097 km, not contiguous",
+              "m7EndToM8Start": "9.4 m"
+            }
+          },
+          "contradictions": [
+            "Naturkartan geometry matches current route but metadata says old astad-skattagard slug, 24.0 km and black difficulty.",
+            "Hallandsleden API line.geometry is 1070 points/25.185 km, starts 1.157 km east of official start and ends 2.810 km beyond official end.",
+            "OSM relation 7398314 is old Ästad-Skattagård, not current Ästad-Vessigebro."
+          ]
+        },
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb5c-c779-7b60-9a9d-ee073eeb0638",
+          "receivedAt": "2026-04-29T22:35:55Z",
+          "summary": "Confirmed canonical official identity Ästad - Vessigebro on Mellersta delleden, official 21 km/red-hard/no time, GPX timestamp and endpoints, route description, and branch/order conflict where page previous is Rydöbruk-Kvarnforsen but geographic continuity is from Åkulla-Ästad. Identified stale Naturkartan Ästad-Skattagård metadata and official places API over-inclusion/legacy Skattagård risk.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/astad-vessigebro",
+            "https://www.hallandsleden.se/en/etapp/astad-vessigebro",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Astad_Vessigebro.gpx",
+            "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=astad-vessigebro&token=<public-page-token>",
+            "https://www.hallandsleden.se/api/v2/places?trackSegment=astad-vessigebro&token=<public-page-token>",
+            "https://www.naturkartan.se/sv/hallands-lan/astad-skattagard-hallandsleden",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/langanskogen.html",
+            "https://www.lansstyrelsen.se/halland/besoksmal/kulturmiljoer/langanskogen---emmas-stuga.html",
+            "https://visitvarberg.se/uppleva/hallandsleden",
+            "https://falkenberg.se/wp-content/uploads/2026/04/friluftsliv_2023_webb-1.pdf"
+          ],
+          "contradictions": [
+            "Naturkartan title says Ästad-Vessigebro but URL/metadata preserve astad-skattagard, 24.0 km and black difficulty; official Hallandsleden is 21 km/red.",
+            "Official page previous widget lists Rydöbruk-Kvarnforsen despite a 44.1 km geometry gap; N7 Åkulla-Ästad is the actual physical inbound handoff.",
+            "Official places inventory includes Skattagård/current or legacy records that may be about 2.8 km from current Vessigebro endpoint and require filtering."
+          ],
+          "importImpacts": [
+            "Use Ästad - Vessigebro, 21 km, hard/red, no official time as canonical identity/metadata.",
+            "Use supplied M7 label/local schema order from inventory but note no public page M7 label found.",
+            "Do not bulk-import all 50 official places; filter for current M7 proximity and legacy Skattagård over-inclusion."
+          ]
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb5c-c835-7e02-be82-c950bef1a84c",
+          "receivedAt": "2026-04-29T22:36:18Z",
+          "summary": "Collected M7 facilities from Hallandsleden API, Naturkartan, OSM and local sources. Core import set is strong around Byasjön/Ästad start, Ästad commercial water/food/lodging, Ätraforsdammen bath/toilet/rest cluster, selected Axtorna/Askome/Ätrafors heritage, Vessigebro near-end shelters and endpoint services. Skattagård and off-route services should be suppressed for current M7 normal import; no mid-stage public drinking water or public camping was confirmed.",
+          "keySources": [
+            "https://www.hallandsleden.se/plats/lagerplats-byasjon",
+            "https://www.naturkartan.se/sv/hallands-lan/vindskydd-byasjon",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/langanskogen.html",
+            "https://www.hallandsleden.se/plats/astad-vingard",
+            "https://astadvingard.se/",
+            "https://www.hallandsleden.se/plats/dricksvatten-astad-vingard",
+            "https://www.matgladjeihalland.se/camp-hakestad",
+            "https://falkenberg.se/en/se-gora/sevardheter/historiska-spar/axtornastenen/",
+            "https://www.hallandsleden.se/plats/atrafors-badplats",
+            "https://www.hallandsleden.se/plats/toalett-atrafors-badplats-och-rastplats",
+            "https://www.naturkartan.se/sv/hallands-lan/badplats-atraforsdammen",
+            "https://www.havochvatten.se/badplatser-och-badvatten/kommuner/badplatser-i-falkenbergs-kommun/atraforsdammen.html",
+            "https://www.hallandsleden.se/plats/lagerplats-vessigebro",
+            "https://www.naturkartan.se/sv/hallands-lan/vindskydd-vessigebro",
+            "https://www.ica.se/butiker/nara/falkenberg/ica-nara-vessige-1004115/",
+            "https://www.hallandsleden.se/plats/dricksvatten-vessigebro",
+            "https://www.restaurangekholmen.se/",
+            "https://www.pensionatekholmen.se/"
+          ],
+          "facilityDecisions": {
+            "importCore": [
+              "Lägerplats Byasjön",
+              "Långanskogens naturreservat",
+              "Emmas stuga",
+              "Ästad 4H-gård",
+              "Ästad Vingård",
+              "Dricksvatten Ästad Vingård",
+              "Evas äng",
+              "Camp Hakestad",
+              "Axtornastenen",
+              "Skvaltkvarnen i Axtorna",
+              "Ätraforsdammen bath/rest/toilet cluster",
+              "Ätrafors/Ätrafors station/Luftvärnstornet heritage",
+              "Askome kyrka and standing stones",
+              "Lägerplats Vessigebro",
+              "Vessigebro endpoint services"
+            ],
+            "pending": [
+              "Byasjön swimming",
+              "Vessigebrobadet endpoint pool/bathing as off-route access metadata",
+              "some POI-density decisions for Ätrafors heritage cluster"
+            ],
+            "suppress": [
+              "Byasjön/start parking",
+              "Skattagård shelter/camp for current M7 normal import",
+              "OSM public-transport shelters as hiking shelters",
+              "off-route Joastorp/B&B i Okome/Gullis Skjul/Höstena källor/Skogsbo/Gunnagård/Abilds kyrka unless wider nearby layer"
+            ]
+          }
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb5c-ca34-7d43-b764-76e9952d78b5",
+          "receivedAt": "2026-04-29T22:40:57Z",
+          "summary": "Confirmed M7 start is Byasjön/Ästad shelter trail point with no suitable drive-up parking at the shelter. Closest practical start transit is Hållplats Ästad about 1.87 km away, served by line 660 and seasonal Åkturen; Byasjön/Holma ö parking is reserve/gate access with no-blocking caveats. Vessigebro endpoint has strong direct bus access at Stationsgatan 13-23 m from GPX end on lines 556/557; no train/ferry at endpoints.",
+          "keySources": [
+            "https://www.hallandsleden.se/plats/lagerplats-byasjon",
+            "https://www.naturkartan.se/en/hallands-lan/vindskydd-byasjon",
+            "https://samtrafiken.hafas.cloud/bin/ajax-getstop.exe/en?REQ0JourneyStopsS0A=1&REQ0JourneyStopsS0G=%C3%84stad&js=true",
+            "https://www.hallandstrafiken.se/res-med-oss/sok-resa/reseplaneraren",
+            "https://www.hallandstrafiken.se/akturen",
+            "https://www.naturkartan.se/sv/hallands-lan/badplats-i-byasjon-skogsbo",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/langanskogen.html",
+            "https://www.hallandsleden.se/plats/hallplats-vessigebro-stationsgatan",
+            "https://samtrafiken.hafas.cloud/bin/ajax-getstop.exe/en?REQ0JourneyStopsS0A=1&REQ0JourneyStopsS0G=Vessigebro%20Stationsgatan&js=true",
+            "https://www.hallandstrafiken.se/ladda-hem-tabell"
+          ],
+          "accessDecisions": {
+            "start": "Model Lägerplats Byasjön as trailhead/shelter start but not car access; Hållplats Ästad is nearest regular/seasonal bus access with 1.87 km approach; Holma ö/Skogsbo parking requires walking/gate/no-blocking caveats.",
+            "end": "Import Hållplats Vessigebro Stationsgatan as strong endpoint bus access; lines 556/557 from Falkenberg station. Keep nearby Vessigebro alternates and recreation parking as access metadata/caveated.",
+            "fallbacks": "Varberg station for Ästad/Åkturen side and Falkenberg station for Vessigebro side are rail transfer hubs, not endpoint stops."
+          }
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb5c-ca90-7e70-a097-60258fbe04a1",
+          "receivedAt": "2026-04-29T22:43:50Z",
+          "summary": "Found direct overlaps with Långanskogen nature reserve, Högvadsån and Ätran Natura 2000, and Nedre Ätran water-protection area; found dynamic fire caveats, dog/leash/gate/livestock and hunting advisories, road 154 crossing hazard, late-route road/water exposure, and one current Skogsstyrelsen felling notification intersecting the route as a currentness risk. No M7-specific closure/reroute item found beyond using current 2025 GPX/2024 digital-route updates over old maps.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/astad-vessigebro",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Astad_Vessigebro.gpx",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/langanskogen.html",
+            "https://geodata.naturvardsverket.se/sknat/rest/detail/2001997%23G%C3%A4llande%40NVR",
+            "https://geodata.naturvardsverket.se/sknat/rest/detail/SE0510115%40N2000",
+            "https://geodata.naturvardsverket.se/sknat/rest/detail/SE0510185%40N2000",
+            "https://geodata.naturvardsverket.se/sknat/rest/detail/2066202%23G%C3%A4llande%40NVR",
+            "https://www.lansstyrelsen.se/halland/om-oss/om-lansstyrelsen-i-hallands-lan/lanets-forfattningssamling/forfattningar-2025/forfattningar-2025/2025-09-19-13-fs-20258.html",
+            "https://www.krisinformation.se/forbered-dig/gras--och-skogsbrand/eldningsforbud/",
+            "https://www.rvast.se/",
+            "https://www.hallandsleden.se/item/viktig-information/i48rep1ncwkafz7wux50lp0dhxvboodp",
+            "https://www.lansstyrelsen.se/halland/samhalle/sakerhet-och-beredskap/brandrisk-och-eldningsforbud.html",
+            "https://hallandsleden.se/item/allemansratten/5fogqeoayrfqw4vcyz7lruickdh88ahe",
+            "https://www.lansstyrelsen.se/halland/djur/jakt-och-vilt/algjakt.html",
+            "https://geodpags.skogsstyrelsen.se/arcgis/rest/services/Geodataportal/GeodataportalVisaAvverkningsanmalan/MapServer/0",
+            "https://www.skogsstyrelsen.se/bruka-skog/avverkning/anmalan-om-avverkning/",
+            "https://www.trafikverket.se/trafikinformation/vag/"
+          ],
+          "importImpacts": [
+            "Add Långanskogen reserve rules for the start span, including no fires except designated places, no loose dogs and designated parking/no off-road driving.",
+            "Add Högvadsån/Ätran Natura 2000 and Nedre Ätran water-protection conservation/currentness caveats.",
+            "Add road 154 crossing and late-route road/water exposure safety notes.",
+            "Add forestry notification A 17427-2025 as near-route/intersecting currentness risk, not a closure.",
+            "Import dynamic fire warning only; do not store durable no-fire-ban status."
+          ]
+        }
+      ],
+      "mainThreadBaseline": {
+        "completedAt": "2026-04-29T22:32:42Z",
+        "summary": "Main thread checked M7 official Swedish/English page text, official GPX/API map, official places API, Naturkartan site 22038, OSM relation 7398314, and adjacent N7/M8 GPX continuity. Official GPX/API geo_json/Naturkartan shape likely canonical 214-point 21.157 km line from Byasjön/Ästad to Vessigebro. Hallandsleden API line.geometry, Naturkartan visible metadata/slug and OSM relation preserve stale/old Ästad-Skattagård 24-25 km evidence. Official places API returned 50 records, including Byasjön shelter, Ästad/Vessigebro stops, Hakestad, Ätrafors bath/rest/toilet, Vessigebro services, water points and many side/off-route services."
+      },
+      "completedAt": "2026-04-29T22:51:57Z",
+      "outputFile": "sections/hallandsleden-astad-vessigebro.research.json",
+      "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around current official 21 km/red/214-point geometry versus stale 24 km/black Ästad-Skattagård Naturkartan/API/OSM/route-app evidence, branch topology from N7 to M8 rather than M6, Byasjön no-drive-up access, Skattagård suppression, no confirmed mid-stage public drinking water, Långanskogen/Natura 2000/Nedre Ätran rules, felling-notification currentness risk, dynamic fire status and thin current field reports."
     }
   ],
   "sourceCoverage": {
     "officialOverview": "complete-initial-pass",
-    "officialSectionInventory": "complete-initial-pass-35-sections-with-m6-branch-handoff-contradiction-recorded",
-    "officialGeometry": "complete-for-first-fourteen-researched-sections-through-m6-with-m6-official-gpx-api-geojson-canonical-and-stale-line-osm-conflicts-recorded",
-    "municipalities": "complete-for-first-fourteen-researched-sections-through-m6-with-hylte-woods-and-local-service-sources-reviewed",
-    "protectedAreas": "complete-for-first-fourteen-researched-sections-through-m6-with-m6-no-protected-natura2000-or-water-protection-overlap-recorded",
-    "transitOperators": "complete-for-first-fourteen-researched-sections-through-m6-with-m6-strong-rydobruk-line-401-and-no-direct-kvarnforsen-transit-caveats",
-    "facilities": "complete-for-first-fourteen-researched-sections-through-m6-with-core-pending-suppress-decisions-and-no-public-official-water-caveat",
-    "fieldReports": "complete-for-first-fourteen-researched-sections-through-m6-with-m6-field-report-evidence-thin-historical-only-current-condition-evidence",
-    "rulesSafety": "overview-pass-complete-n1-n2-n3-n4-n5-n6-n7-n8-m1-m2-m3-m4-m5-m6-section-specific-complete"
+    "officialSectionInventory": "complete-initial-pass-35-sections-with-m6-and-m7-branch-handoff-contradictions-recorded",
+    "officialGeometry": "complete-for-first-fifteen-researched-sections-through-m7-with-m7-official-gpx-api-geojson-canonical-and-stale-astad-skattagard-line-osm-conflicts-recorded",
+    "municipalities": "complete-for-first-fifteen-researched-sections-through-m7-with-varberg-falkenberg-lansstyrelsen-naturkartan-local-service-sources-reviewed",
+    "protectedAreas": "complete-for-first-fifteen-researched-sections-through-m7-with-m7-langanskogen-natura2000-and-nedre-atran-vso-recorded",
+    "transitOperators": "complete-for-first-fifteen-researched-sections-through-m7-with-m7-offset-astad-access-and-strong-vessigebro-bus-caveats",
+    "facilities": "complete-for-first-fifteen-researched-sections-through-m7-with-core-pending-suppress-decisions-skattagard-suppression-and-midstage-water-gap",
+    "fieldReports": "complete-for-first-fifteen-researched-sections-through-m7-with-m7-field-report-evidence-thin-stale-legacy-only-current-condition-evidence",
+    "rulesSafety": "overview-pass-complete-n1-n2-n3-n4-n5-n6-n7-n8-m1-m2-m3-m4-m5-m6-m7-section-specific-complete"
   },
   "knownGaps": [
-    "Only the overview and first fourteen sections have been researched/synthesized; 21 later sections still need the six-lane workflow.",
+    "Only the overview and first fifteen sections have been researched/synthesized; 20 later sections still need the six-lane workflow.",
     "Coastal Hallandsleden is incomplete by official statement; future import must model gaps instead of stitching a continuous coast.",
     "Older sources may report 435 km / 26 stages / 3 parts; live official source reports 612 km / 35 sections / 4 subtrails.",
     "Paper maps printed June 2022 are stale for 2024 rerouted sections.",
@@ -2471,11 +2747,21 @@
     "M6: final synthesis marks the section research-ready with caveats; use official GPX/API geo_json as canonical and suppress API line.geometry/OSM relation 5599309 as stale current-section geometry.",
     "M6: no public official drinking-water point was found; Kvarnforsen landowner water/firewood/shower is conditional/private only and should remain pending unless a public source confirms it.",
     "M6: do not imply continuity from Kvarnforsen to Ästad - Vessigebro; model branch topology explicitly before import.",
-    "M7: next research target is Ästad - Vessigebro, a non-contiguous Mellersta east-branch section relative to M6; six-lane research must verify branch handoff, official GPX/API geometry, endpoint access and facilities."
+    "M7: next research target is Ästad - Vessigebro, a non-contiguous Mellersta east-branch section relative to M6; six-lane research must verify branch handoff, official GPX/API geometry, endpoint access and facilities.",
+    "M7: official GPX/API geo_json is likely canonical at 214 points and 21.157 km from Byasjön/Ästad to Vessigebro; validate with geometry lane before final synthesis.",
+    "M7: Hallandsleden API line.geometry computes about 25.185 km from Ästad/Vingård area to a point beyond Vessigebro, OSM relation 7398314 is old Ästad-Skattagård with distance tag 24, and Naturkartan slug/visible metadata says astad-skattagard/24 km/black despite a current-shape 214-point line.",
+    "M7: official GPX continuity is strong from N7 at Byasjön/Ästad (0.23 m) and to M8 at Vessigebro (9.42 m); do not connect it to M6 Kvarnforsen in a single linear chain.",
+    "M7: official places API returns 50 records and includes both core on-route facilities and many side/endpoint services; final synthesis must filter over-inclusion carefully.",
+    "M7: final synthesis marks the section research-ready with caveats; use official GPX/API geo_json as canonical and suppress API line.geometry/OSM relation 7398314 as stale Ästad-Skattagård geometry.",
+    "M7: Naturkartan shape matches current route, but visible metadata/slug say astad-skattagard/24.0 km/black; do not import as current metadata.",
+    "M7: branch topology must be explicit: N7 hands to M7 at Byasjön within 0.2 m, M7 hands to M8 within 9.4 m, and M6 is not geographically continuous.",
+    "M7: Byasjön start is a shelter/trail point, not drive-up parking; model Hållplats Ästad, seasonal Åkturen/Skogsbo and Holma ö access with caveats.",
+    "M7: suppress Skattagård shelter/camp from current M7 normal import and filter broad off-route official places/service records.",
+    "M7: rules/currentness include Långanskogen reserve, Högvadsån/Ätran Natura 2000, Nedre Ätran VSO, road 154 crossing and felling notification A 17427-2025."
   ],
   "nextActions": [
-    "Commit M6 research files before starting the next section.",
-    "Start Phase 2 six-lane research for hallandsleden-astad-vessigebro (M7) after the M6 commit, treating it as non-contiguous from M6 unless branch modeling proves otherwise.",
+    "Commit M7 research files before starting the next section.",
+    "Start Phase 2 six-lane research for hallandsleden-vessigebro-frodeparken (M8) after the M7 commit, paying close attention to old Skattagård-Frodeparken versus current Vessigebro-Frodeparken geometry and M7 handoff.",
     "For each remaining section, run the six-lane research workflow and update this progress file after each batch/synthesis.",
     "Keep edits confined to data/research/candidate-trails/hallandsleden/ until explicitly asked otherwise."
   ],
@@ -2525,7 +2811,22 @@
     "M6: use official GPX/API geo_json as canonical 161-point Rydöbruk-Kvarnforsen geometry; suppress API line.geometry and OSM relation 5599309 as stale Sandsjön-Kvarnforsen-Gyltige geometry.",
     "M6: import core facilities for Sandsjön/Kvarnforsen shelters and Lahult/Sandsjön heritage/service records, but keep Kvarnforsen water/parking/private-road access and Knystaforsen destination records pending.",
     "M6: no official public drinking water and no direct Kvarnforsen transit; preserve no-direct-transit, pickup/local-ride and dynamic fire/hunting/currentness caveats.",
-    "M7 next: hallandsleden-astad-vessigebro (Ästad - Vessigebro) is the next official Mellersta section in inventory, but it is not geographically continuous from M6 Kvarnforsen; six-lane research must handle branch topology explicitly."
+    "M7 next: hallandsleden-astad-vessigebro (Ästad - Vessigebro) is the next official Mellersta section in inventory, but it is not geographically continuous from M6 Kvarnforsen; six-lane research must handle branch topology explicitly.",
+    "M7 initial six-lane agent batch started 2026-04-29T22:29:47Z with agents Meitner, Curie, Fermat, Pascal, Boole and Kierkegaard. Main thread retains all file-write ownership.",
+    "M7 main-thread baseline: official GPX/API geo_json and Naturkartan shape are a 214-point 21.157 km Byasjön/Ästad-to-Vessigebro line; API line.geometry, OSM relation 7398314 and Naturkartan visible slug/metadata preserve old Ästad-Skattagård/24 km evidence and should be treated as stale unless geometry lane proves otherwise.",
+    "M7 field reports: no exact recent full-section condition report found; old Ästad-Skattagård reports and route apps are useful mainly as stale-source/terrain context, while official 2024 Sörby reroute and current GPX should control.",
+    "M7 geometry: official GPX/API geo_json is canonical 214-point 21.157 km line from Byasjön/Ästad to Vessigebro; N7 gap 0.2 m and M8 gap 9.4 m; suppress old Ästad-Skattagård API line.geometry/OSM relation 7398314.",
+    "M7 official sources: canonical identity is Ästad - Vessigebro, 21 km, red/hard, no official time; branch widget previous is non-geographic M6, actual handoff is N7; official places API includes current records plus legacy Skattagård over-inclusion.",
+    "M7 facilities: import Byasjön/Ästad/Ätraforsdammen/Vessigebro core records and selected heritage; suppress Skattagård for current M7 normal import and do not claim mid-stage public drinking water/camping.",
+    "M7 access: Byasjön start is not drive-up; use Hållplats Ästad/Åkturen/Skogsbo-Holma ö access with caveats. Vessigebro Stationsgatan is strong endpoint bus access on lines 556/557.",
+    "M7 rules/safety: Långanskogen reserve at start, Högvadsån/Ätran Natura 2000, Nedre Ätran VSO, road 154 crossing, dynamic fire/hunting/dog/gate caveats and felling notification A 17427-2025 need to be in final JSON.",
+    "M7 all six lanes received; synthesize as research-ready with caveats and no extra targeted batch unless final JSON validation exposes a missing required field.",
+    "M7: section research JSON written at sections/hallandsleden-astad-vessigebro.research.json and validated by jq. M7 is research-ready with caveats; no targeted follow-up batch needed before moving to M8.",
+    "M7: use official GPX/API geo_json as canonical 214-point 21.157 km Byasjön/Ästad-to-Vessigebro geometry; suppress API line.geometry and OSM relation 7398314 as stale Ästad-Skattagård geometry.",
+    "M7: import core Byasjön/Ästad/Ätraforsdammen/Vessigebro and selected heritage facilities; suppress Skattagård and broad off-route services from current M7 core.",
+    "M7: access is strong at Vessigebro Stationsgatan; Byasjön start has no drive-up parking and uses offset/seasonal Ästad/Skogsbo/Holma ö access caveats.",
+    "M7: rules include Långanskogen reserve at start, Högvadsån/Ätran Natura 2000, Nedre Ätran VSO, road 154 crossing, felling notification A 17427-2025, dynamic fire/hunting/dog/gate caveats.",
+    "M8 next: hallandsleden-vessigebro-frodeparken (Vessigebro - Frodeparken) should start from the current M7 Vessigebro endpoint, but overview/API line may preserve old Skattagård-Frodeparken context; six-lane research must verify geometry and facility reassignment."
   ],
   "filesWritten": [
     "README.md",
@@ -2544,7 +2845,8 @@
     "sections/hallandsleden-karnebygd-atran.research.json",
     "sections/hallandsleden-atran-langesjon.research.json",
     "sections/hallandsleden-langesjon-rydobruk.research.json",
-    "sections/hallandsleden-rydobruk-kvarnforsen.research.json"
+    "sections/hallandsleden-rydobruk-kvarnforsen.research.json",
+    "sections/hallandsleden-astad-vessigebro.research.json"
   ],
   "meaningfulPasses": [
     {
@@ -2876,6 +3178,56 @@
       "id": "phase-2-m6-six-lane-synthesis-complete-2026-04-29",
       "completedAt": "2026-04-29T22:27:57Z",
       "summary": "Synthesized six lane reports and main-thread checks for M6 Rydöbruk - Kvarnforsen into a section research JSON. Marked M6 research-ready with caveats around stale Sandsjön-Kvarnforsen-Gyltige geometry, branch-end/physical Kvarnforsen-Gyltige handoff, no direct Kvarnforsen transit, no public official potable water, conditional/private Kvarnforsen services, dynamic fire/hunting/currentness and old landfill/industrial-area caution."
+    },
+    {
+      "id": "phase-2-m7-initial-agent-batch-started-2026-04-29",
+      "completedAt": "2026-04-29T22:29:47Z",
+      "summary": "Started Phase 2 six-lane research workflow for M7 Ästad - Vessigebro. Main thread retains file-write ownership and flagged branch discontinuity from M6, likely N7/Ästad continuity, official GPX/API/Naturkartan/OSM geometry conflicts, endpoint access, facilities/water/camping/toilets and route-specific rules/currentness for agents."
+    },
+    {
+      "id": "phase-2-m7-main-thread-official-api-gpx-access-pass-2026-04-29",
+      "completedAt": "2026-04-29T22:32:42Z",
+      "summary": "Main thread checked M7 official page, GPX/API, Naturkartan site 22038, OSM relation 7398314, adjacent N7/M8 GPX continuity and official places API. Key unresolved issues are canonical official GPX/API geo_json versus stale line.geometry/Naturkartan/OSM Ästad-Skattagård evidence, branch topology, endpoint access and facility over-inclusion."
+    },
+    {
+      "id": "phase-2-m7-field-report-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T22:34:28Z",
+      "summary": "Received M7 field-report lane. Evidence is thin and mostly stale/legacy: old Ästad-Skattagård reports, route-app stale segmentation and adjacent Ästad/Långanskogen loops, with no recent exact full-M7 condition report; preserve the 2024 Sörby reroute/current official GPX as source of truth."
+    },
+    {
+      "id": "phase-2-m7-route-geometry-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T22:35:29Z",
+      "summary": "Received M7 route-geometry lane. It confirms official GPX/API geo_json as canonical 214-point 21.157 km geometry with N7 and M8 continuity, and recommends suppressing API line.geometry, OSM relation 7398314 and stale Naturkartan metadata as old Ästad-Skattagård evidence."
+    },
+    {
+      "id": "phase-2-m7-official-source-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T22:35:55Z",
+      "summary": "Received M7 official-source lane. It confirms canonical identity/distance/difficulty/no-time, branch/order conflict, official description, places API inventory and stale Naturkartan/Skattagård source risks."
+    },
+    {
+      "id": "phase-2-m7-facilities-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T22:36:18Z",
+      "summary": "Received M7 facilities lane. Core start, Ästad, Ätraforsdammen, heritage and Vessigebro endpoint records are mostly ready; Skattagård and broad off-route services should be suppressed for current M7; no mid-stage public water or public camping was found."
+    },
+    {
+      "id": "phase-2-m7-transit-access-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T22:40:57Z",
+      "summary": "Received M7 transit/access lane. Byasjön/Ästad start has offset/seasonal bus and parking/gate caveats; Vessigebro endpoint has strong direct bus access at Stationsgatan; no endpoint rail/ferry access."
+    },
+    {
+      "id": "phase-2-m7-rules-safety-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T22:43:50Z",
+      "summary": "Received M7 rules/safety/currentness lane. It found Långanskogen reserve, Högvadsån/Ätran Natura 2000, Nedre Ätran water-protection overlap, a forestry notification/currentness risk, road 154 hazard, dynamic fire/dog/hunting caveats and no section-specific closure/reroute item."
+    },
+    {
+      "id": "phase-2-m7-six-lane-reports-complete-synthesis-started-2026-04-29",
+      "completedAt": "2026-04-29T22:43:50Z",
+      "summary": "All six M7 lane reports are in. Main thread decided no targeted follow-up batch is needed because remaining issues are import/currentness caveats rather than research blockers; synthesis of the M7 section research JSON is underway."
+    },
+    {
+      "id": "phase-2-m7-six-lane-synthesis-complete-2026-04-29",
+      "completedAt": "2026-04-29T22:51:57Z",
+      "summary": "Synthesized six lane reports and main-thread checks for M7 Ästad - Vessigebro into a section research JSON. Marked M7 research-ready with caveats around canonical 21 km/214-point official GPX/API geometry versus stale Ästad-Skattagård Naturkartan/API/OSM/route-app evidence, branch topology from N7 to M8 rather than M6, Byasjön no-drive-up access, Skattagård suppression, no mid-stage public water, protected/water areas, forestry currentness, road 154 and dynamic fire/currentness checks."
     }
   ]
 }
