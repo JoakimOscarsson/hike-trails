@@ -1,0 +1,1666 @@
+{
+  "schemaVersion": "candidate-trail-section-research-v1",
+  "trailId": "hallandsleden",
+  "sectionId": "hallandsleden-rydobruk-kvarnforsen",
+  "sectionNumber": "M6",
+  "name": "Rydöbruk - Kvarnforsen",
+  "from": "Rydöbruk",
+  "to": "Kvarnforsen",
+  "distanceKm": 10,
+  "estimatedTime": {
+    "official": null,
+    "secondarySources": [],
+    "confidence": "low",
+    "notes": "Hallandsleden page/API did not state an estimated time. Do not import a section time as official."
+  },
+  "difficulty": {
+    "officialLabel": "Grön",
+    "officialApiValue": "easy",
+    "normalized": "easy",
+    "confidence": "high",
+    "notes": "Official Swedish/English pages say green difficulty. Official prose describes easy walking on paved and gravel roads plus a well-trodden path to Sandsjön shelter, with a slight uphill from Rydöbruk to Lahult."
+  },
+  "routeType": {
+    "type": "point-to-point inland section / western Mellersta branch end",
+    "notes": "Sixth researched section of Mellersta delleden/Central inland branch in the local M numbering. The current official GPX starts at Rydöbruk and ends at Kvarnforsen. It appears to close the western Mellersta branch: the physical onward Hallandsleden route from Kvarnforsen is Kvarnforsen - Gyltige on Södra delleden, while the Mellersta section list next-card points to non-contiguous Ästad - Vessigebro on the eastern branch.",
+    "descriptionForAppDraft": "From Rydöbruk the trail crosses Klubbån and a drained canal, then follows paths, forest roads and small roads past the traces of Högdal/Högadahl, Lahult mill pond and the Lahult burial ground. It reaches the shelter at Sandsjön, continues past Gammalsbo and through a varied landscape of gravel roads, farms, conifer forest, marshy ground and lakes around Nordsjön, then ends at the Kvarnforsen shelter. The section is easy by Hallandsleden standards, but has repeated watercourse crossings, road walking, farm gates and access/parking caveats at Kvarnforsen."
+  },
+  "officialSources": [
+    {
+      "title": "Hallandsleden section page",
+      "url": "https://www.hallandsleden.se/etapp/rydobruk-kvarnforsen",
+      "accessed": "2026-04-29",
+      "sourceType": "official trail page",
+      "note": "Primary current Swedish page. Reports Rydöbruk - Kvarnforsen, 10 km, green difficulty, route prose over Klubbån/canal/Lahult/Sandsjön/Gammalsbo/Nordsjön to Kvarnforsen, sights at Lahults kvarn, Flottningsrännan and Lahult grave-field, and shelters at Sandsjön and Kvarnforsen."
+    },
+    {
+      "title": "Hallandsleden English section page",
+      "url": "https://www.hallandsleden.se/en/etapp/rydobruk-kvarnforsen",
+      "accessed": "2026-04-29",
+      "sourceType": "official trail page mirror",
+      "note": "English mirror confirms title, 10 km, Green difficulty, official route prose and shelter/accommodation text."
+    },
+    {
+      "title": "Official Hallandsleden GPX",
+      "url": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Rydobruk_Kvarnforsen.gpx",
+      "accessed": "2026-04-29",
+      "sourceType": "official GPX",
+      "note": "Canonical route geometry. GPX metadata time 2025-06-23T09:29:25+02:00, track name Rydöbruk - Kvarnforsen, desc Total: 10.3 km."
+    },
+    {
+      "title": "Hallandsleden section map API",
+      "url": "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=rydobruk-kvarnforsen&token=<public-page-token>",
+      "accessed": "2026-04-29",
+      "sourceType": "official trail API",
+      "note": "API meta reports name Rydöbruk - Kvarnforsen, slug rydobruk-kvarnforsen, length_in_meters 10000, degree_of_difficulty easy and download link to the official GPX. API geo_json exactly matches the GPX; API line.geometry is stale old Sandsjön-Kvarnforsen-Gyltige linework and must not be used as current M6 geometry."
+    },
+    {
+      "title": "Hallandsleden places API",
+      "url": "https://www.hallandsleden.se/api/v2/places?trackSegment=rydobruk-kvarnforsen&bigLimit=150&withImages=true&output=json&token=<public-page-token>",
+      "accessed": "2026-04-29",
+      "sourceType": "official places API",
+      "note": "Returned 12 official place records. Category checks found shelters 2, toilets 2, rest areas 3, sights 6, bathing 1, lodging 1, transit 2, food 1 and drinking water 0."
+    },
+    {
+      "title": "Hallandsleden map planning tool",
+      "url": "https://www.hallandsleden.se/kartplaneringsverktyg/hallandsleden/rydobruk-kvarnforsen",
+      "accessed": "2026-04-29",
+      "sourceType": "official map/planning page",
+      "note": "Official map/planning context used for section verification."
+    },
+    {
+      "title": "Hallandsleden previous section Långesjön - Rydöbruk",
+      "url": "https://www.hallandsleden.se/en/etapp/langesjon-rydobruk",
+      "accessed": "2026-04-29",
+      "sourceType": "official adjacent section page",
+      "note": "Used for M5/M6 endpoint handoff and to confirm M5-suppressed records belong to M6 rather than M5 core."
+    },
+    {
+      "title": "Hallandsleden physical onward section Kvarnforsen - Gyltige",
+      "url": "https://www.hallandsleden.se/en/etapp/kvarnforsen-gyltige",
+      "accessed": "2026-04-29",
+      "sourceType": "official adjacent section page",
+      "note": "Physical onward route from Kvarnforsen on Södra delleden; official source-lane says page distance 24 km, API 24000 m, GPX desc Total: 23.5 km. Use for branch-handoff modeling, not as Mellersta M7."
+    },
+    {
+      "title": "Hallandsleden Mellersta next-card section Ästad - Vessigebro",
+      "url": "https://www.hallandsleden.se/en/etapp/astad-vessigebro",
+      "accessed": "2026-04-29",
+      "sourceType": "official adjacent/branch section page",
+      "note": "Mellersta page/API next card points here, but it is not geographically continuous from Kvarnforsen. Preserve as branch-order contradiction."
+    },
+    {
+      "title": "Naturkartan Rydöbruk - Kvarnforsen, Hallandsleden",
+      "url": "https://www.naturkartan.se/sv/hallands-lan/rydobruk-kvarnforsen-hallandsleden",
+      "accessed": "2026-04-29",
+      "sourceType": "official-ish Naturkartan page",
+      "note": "Site id 133005, title Rydöbruk - Kvarnforsen, Hallandsleden, visible length 10.4 km, 0 reviews in page text, description says lakes, conifer forests and mires."
+    },
+    {
+      "title": "Naturkartan English Rydöbruk - Kvarnforsen page",
+      "url": "https://www.naturkartan.se/en/hallands-lan/rydobruk-kvarnforsen-hallandsleden",
+      "accessed": "2026-04-29",
+      "sourceType": "official-ish Naturkartan page mirror",
+      "note": "Used by field-report lane and source checks for exact section page and no-review condition."
+    },
+    {
+      "title": "Naturkartan site API 133005",
+      "url": "https://api.naturkartan.se/v2/sites/133005",
+      "accessed": "2026-04-29",
+      "sourceType": "secondary geometry/facility API",
+      "note": "Name Rydöbruk - Kvarnforsen, Hallandsleden; slug rydobruk-kvarnforsen-hallandsleden; updated_at 2026-04-08T22:21:26.823; property length 10.4. Route-geometry lane found the shape is a simplified exact route match to official GPX/API."
+    },
+    {
+      "title": "Naturkartan Sandsjön shelter",
+      "url": "https://www.naturkartan.se/en/hallands-lan/sandsjons-vindskydd",
+      "accessed": "2026-04-29",
+      "sourceType": "facility page",
+      "note": "Corroborates Sandsjön shelter/toilet/fireplace/rest context. No potable water found."
+    },
+    {
+      "title": "Naturkartan Kvarnforsen shelter",
+      "url": "https://www.naturkartan.se/en/hallands-lan/kvarnforsens-vindskydd",
+      "accessed": "2026-04-29",
+      "sourceType": "facility page",
+      "note": "Corroborates Kvarnforsen shelter with gate/camp access caveat. Facilities lane notes conditional/private water/firewood/shower via nearby landowner, not an official public drinking-water point."
+    },
+    {
+      "title": "Hylte / Woods of Halland hiking trails",
+      "url": "https://www.hylte.se/visit-hylte/woods-of-halland/hiking-trails",
+      "accessed": "2026-04-29",
+      "sourceType": "municipal/tourism trail page",
+      "note": "Hylte municipal trail context; rounds/labels M6 as about 11 km in Woods of Halland family."
+    },
+    {
+      "title": "Woods of Halland: Rydöbruk - Kvarnforsen, Hallandsleden - 11 km",
+      "url": "https://www.woodsofhalland.se/object/rydobruk-kvarnforsen-hallandsleden-11-km/",
+      "accessed": "2026-04-29",
+      "sourceType": "municipal/tourism trail page",
+      "note": "Secondary municipal/tourism page. Confirms campsite/rest areas at Sandsjön and Kvarnforsen, parking caveat, and Knystaforsen/Hylte context. Carries stale whole-trail 400 km/27 sections text, so do not use for whole-trail metadata."
+    },
+    {
+      "title": "Hylte / Woods of Halland Vibe spaces",
+      "url": "https://www.hylte.se/visit-hylte/woods-of-halland/vibe-spaces",
+      "accessed": "2026-04-29",
+      "sourceType": "municipal/tourism shelter page",
+      "note": "Facilities/rules lanes used this for shelter context and water-safety caveats."
+    },
+    {
+      "title": "Hylte cultural heritage settings",
+      "url": "https://www.hylte.se/visit-hylte/woods-of-halland/go-on-an-excursion-in-scenic-heritage-settings",
+      "accessed": "2026-04-29",
+      "sourceType": "municipal/tourism heritage page",
+      "note": "Facilities lane used this to corroborate local heritage/POI context such as Knystahall/Rydöbruk/Lahult."
+    },
+    {
+      "title": "OpenStreetMap relation 5599309",
+      "url": "https://www.openstreetmap.org/relation/5599309",
+      "accessed": "2026-04-29",
+      "sourceType": "OSM route relation",
+      "note": "Legacy relation Hallandsleden Etappen Sandsjön - Kvarnforsen - Gyltige, 31 km combined route. Do not use as canonical M6 geometry."
+    },
+    {
+      "title": "OpenStreetMap relation 15401390",
+      "url": "https://www.openstreetmap.org/relation/15401390",
+      "accessed": "2026-04-29",
+      "sourceType": "OSM route relation",
+      "note": "Legacy Kollabo -> Sandsjön relation; not current M6 geometry."
+    },
+    {
+      "title": "Hallandstrafiken line 401 PDF",
+      "url": "https://www.iphone.fskab.se/hlt/Regionbuss/251214_260614/Regionbuss_401_251214_260614.pdf",
+      "accessed": "2026-04-29",
+      "sourceType": "transit operator timetable PDF",
+      "note": "Line 401 Halmstad - Oskarström - Torup - Rydöbruk - Hyltebruk. Timetable valid through 2026-06-14; recheck live before travel/publication."
+    },
+    {
+      "title": "Hallandstrafiken line 430 PDF",
+      "url": "https://www.iphone.fskab.se/hlt/Regionbuss/251214_260614/Regionbuss_430_251214_260614.pdf",
+      "accessed": "2026-04-29",
+      "sourceType": "transit operator timetable PDF",
+      "note": "Torup - Kinnared - Hyltebruk fallback corridor, not direct Kvarnforsen access."
+    },
+    {
+      "title": "Hallandstrafiken demand line 847 PDF",
+      "url": "https://www.iphone.fskab.se/hlt/Anropsstyrdtrafik/251214_260614/Anropsstyrdtrafik_847_251214_260614.pdf",
+      "accessed": "2026-04-29",
+      "sourceType": "demand-responsive transit timetable PDF",
+      "note": "Hyltebruk - Landeryd demand line. Useful distant fallback only; bookings by phone and advance notice required."
+    },
+    {
+      "title": "Hallandstrafiken downloadable timetables",
+      "url": "https://hallandstrafiken.se/ladda-hem-tabell",
+      "accessed": "2026-04-29",
+      "sourceType": "transit operator timetable index",
+      "note": "Transit lane used this for 401/430/847/Krösatågen timetable context."
+    },
+    {
+      "title": "Hallandstrafiken demand traffic",
+      "url": "https://hallandstrafiken.se/bestallningstrafik",
+      "accessed": "2026-04-29",
+      "sourceType": "transit operator demand-traffic guidance",
+      "note": "Demand traffic booking caveats for 847; not a reliable spontaneous trailhead solution."
+    },
+    {
+      "title": "Hallandstrafiken Närtrafik",
+      "url": "https://hallandstrafiken.se/nartrafik",
+      "accessed": "2026-04-29",
+      "sourceType": "transit operator demand-traffic guidance",
+      "note": "Närtrafik is framed as home-address service for residents far from stops, not a robust visitor trailhead access method."
+    },
+    {
+      "title": "Hylte public transport page",
+      "url": "https://www.hylte.se/bygga-bo-och-miljo/resor-och-transporter/kollektivtrafik",
+      "accessed": "2026-04-29",
+      "sourceType": "municipal transport context",
+      "note": "Confirms Hylte rail stops are Torup, Kinnared and Landeryd, supporting no regular train model for Rydöbruk."
+    },
+    {
+      "title": "Hyltebruk bus terminal map",
+      "url": "https://www.hallandstrafiken.se/download/18.1619b360195fff62650672b/1744046699455/1297095_Hyltebruk_bussterminal_3d-karta.pdf",
+      "accessed": "2026-04-29",
+      "sourceType": "transit operator terminal map",
+      "note": "Distant fallback hub context only."
+    },
+    {
+      "title": "Fika by Steph",
+      "url": "https://fikabysteph.se/",
+      "accessed": "2026-04-29",
+      "sourceType": "commercial service page",
+      "note": "Facilities lane used current local page for cafe/bakery and hours. Commercial water/service only when open."
+    },
+    {
+      "title": "Lahult / Lahults B&B / Lahultsboden",
+      "url": "https://www.lahult.se/",
+      "accessed": "2026-04-29",
+      "sourceType": "commercial lodging/service page",
+      "note": "Facilities lane used this for lodging/farm-shop currentness; no public drinking-water POI."
+    },
+    {
+      "title": "Rydö Bruksmuseum",
+      "url": "https://rydobruksmuseum.se/",
+      "accessed": "2026-04-29",
+      "sourceType": "local heritage/commercial page",
+      "note": "Facilities lane found booking/opening-hours caveat; no fixed winter 2025/2026 hours and visits can be booked."
+    },
+    {
+      "title": "Knystaforsen destination restaurant/lodging",
+      "url": "https://knystaforsen.se/the-knystaforsen-experience/",
+      "accessed": "2026-04-29",
+      "sourceType": "commercial destination page",
+      "note": "Active destination restaurant/rooms near Rydöbruk start, but exact import coordinate not verified; keep pending."
+    },
+    {
+      "title": "Knystaria",
+      "url": "https://knystaria.se/",
+      "accessed": "2026-04-29",
+      "sourceType": "commercial service page",
+      "note": "OSM/BokaBord may show it, but current official site says closed. Suppress as active service."
+    },
+    {
+      "title": "SPF Seniorerna Drängsered 2023 walk in Rydöbruk/Sandsjön area",
+      "url": "https://www.spfseniorerna.se/distrikt/hallandsdistriktet/foreningslista/drangsered/bildgalleri/bilder-2023/promenad-nr.-3-i-rydobruk",
+      "accessed": "2026-04-29",
+      "sourceType": "local walk report",
+      "note": "2023-03-16 local walk from Sandshult/Sandsjön to Gammalsbo and back; no issue notes."
+    },
+    {
+      "title": "En Vandringssaga: Hallandsleden Kvarnforsen - Sandsjön 7 km",
+      "url": "https://www.bejegard.se/vandring/halland/hallandsleden/hallandsleden-kvarnforsen-sandsjon-7-km/",
+      "accessed": "2026-04-29",
+      "sourceType": "field report/blog",
+      "note": "2016 historical report for old Kvarnforsen-Sandsjön substage; useful terrain/access context only."
+    },
+    {
+      "title": "En Vandringssaga: Hallandsleden Sandsjön - Långesjön 20 km",
+      "url": "https://www.bejegard.se/vandring/halland/hallandsleden/hallandsleden-sandsjon-langesjon-20-km/",
+      "accessed": "2026-04-29",
+      "sourceType": "field report/blog",
+      "note": "2016 historical old Sandsjön-Långesjön report; covers Sandsjön to Rydöbruk in reverse and adjacent M5 context."
+    },
+    {
+      "title": "Wikiloc Sandsjön - Kvarnforsen - Gyltige 2022",
+      "url": "https://www.wikiloc.com/hiking-trails/sandsjon-kvarnforsen-gyltige-107713749",
+      "accessed": "2026-04-29",
+      "sourceType": "route app user track",
+      "note": "2022 combined old-stage route; no condition text."
+    },
+    {
+      "title": "Wikiloc Sandsjön - Kvarnforsen - Gyltige 2019",
+      "url": "https://www.wikiloc.com/outdoor-trails/sandsjon-kvarnforsen-gyltige-41207043",
+      "accessed": "2026-04-29",
+      "sourceType": "route app user track",
+      "note": "2019 combined old-stage route; no condition text."
+    },
+    {
+      "title": "Pacer Sandsjön - Kvarnforsen - Gyltige",
+      "url": "https://www.mypacer.com/routes/ohzczl/hallandsleden-stage-sandsj%C3%B6n-kvarnforsen-gyltige-hiking-trail-hallands-l%C3%A4n",
+      "accessed": "2026-04-29",
+      "sourceType": "route app listing",
+      "note": "Updated 2026-04-01 old combined route, no exposed review text; hard rating should not be applied to M6 alone."
+    },
+    {
+      "title": "Flickr Gyltige to Sandsjön photo",
+      "url": "https://www.flickr.com/photos/72616463@N00/53340003025",
+      "accessed": "2026-04-29",
+      "sourceType": "field media",
+      "note": "2021 old combined route context, no condition issue."
+    },
+    {
+      "title": "AllTrails Rydöbruk local loop",
+      "url": "https://www.alltrails.com/trail/sweden/halland/rydobruk",
+      "accessed": "2026-04-29",
+      "sourceType": "route app local loop reviews",
+      "note": "Adjacent start-area context only, not transferable to full M6."
+    },
+    {
+      "title": "Hallandsleden Important Information",
+      "url": "https://www.hallandsleden.se/item/viktig-information/i48rep1ncwkafz7wux50lp0dhxvboodp",
+      "accessed": "2026-04-29",
+      "sourceType": "official currentness/rules page",
+      "note": "Rules lane found no M6 closure/reroute; currentness must be rechecked before publication."
+    },
+    {
+      "title": "Hallandsleden New Trail Routes",
+      "url": "https://hallandsleden.se/item/nya-leddragningar-1/f22cgopgvzykg0snvt9jgr6lxgvdb1n5",
+      "accessed": "2026-04-29",
+      "sourceType": "official currentness/reroute page",
+      "pageUpdated": "2024-11-07 per rules lane",
+      "note": "Lists reroutes elsewhere, not M6."
+    },
+    {
+      "title": "Hallandsleden allemansrätten guidance",
+      "url": "https://www.hallandsleden.se/item/bra-att-veta-om-allemansratten-1/oyauxhpvx1wmrtwfgz01ftvfkwounlag",
+      "accessed": "2026-04-29",
+      "sourceType": "official rules guidance",
+      "note": "Used for dogs/leash/gates/pasture and public-access rules."
+    },
+    {
+      "title": "Hallandsleden hunting-season guidance",
+      "url": "https://www.hallandsleden.se/item/vandra-under-jaktsasongen/fxm1j3j5ltmdkd65aqrztndfqhr3txnq",
+      "accessed": "2026-04-29",
+      "sourceType": "official safety guidance",
+      "note": "Hunting may occur August-January; use bright clothing/stay on trail/watch for signs/keep dogs leashed."
+    },
+    {
+      "title": "Hylte fire risk page",
+      "url": "https://www.hylte.se/bygga-bo-och-miljo/raddningstjansten/brandsakerhet/eldning-och-brandrisk",
+      "accessed": "2026-04-29",
+      "sourceType": "municipal fire-risk source",
+      "pageUpdated": "2026-03-12 per rules lane",
+      "note": "Fire-risk/fire-ban status is dynamic and can change quickly; import dynamic warning only."
+    },
+    {
+      "title": "Krisinformation fire bans",
+      "url": "https://www.krisinformation.se/forbered-dig/gras--och-skogsbrand/eldningsforbud/",
+      "accessed": "2026-04-29",
+      "sourceType": "national fire-ban source",
+      "note": "Used for dynamic fire-status/currentness caveat."
+    },
+    {
+      "title": "Länsstyrelsen fire-ban layer",
+      "url": "https://ext-geodata-nationella-visning.lansstyrelsen.se/arcgis/rest/services/LST/LST_eldningsforbud_EXT/MapServer/0",
+      "accessed": "2026-04-29",
+      "sourceType": "county/national fire-ban GIS source",
+      "note": "Rules lane recorded Hylte status Inget eldningsförbud queried 2026-04-29 with REVDATUM 2023-06-30T09:55:39Z. Dynamic only."
+    },
+    {
+      "title": "Naturvårdsverket NVR WFS",
+      "url": "https://geodata.naturvardsverket.se/naturvardsregistret/wfs",
+      "accessed": "2026-04-29",
+      "sourceType": "protected-area official WFS",
+      "note": "Rules lane route/buffer query returned numberMatched=0 at 2026-04-29T22:18:52Z."
+    },
+    {
+      "title": "Natura 2000 WFS",
+      "url": "https://geodata.naturvardsverket.se/n2000/wfs",
+      "accessed": "2026-04-29",
+      "sourceType": "Natura 2000 official WFS",
+      "note": "Rules lane route/buffer query returned numberMatched=0 at 2026-04-29T22:19:45Z."
+    },
+    {
+      "title": "Skogsstyrelsen felling notifications service",
+      "url": "https://geodpags.skogsstyrelsen.se/arcgis/rest/services/Geodataportal/GeodataportalVisaAvverkningsanmalan/MapServer",
+      "accessed": "2026-04-29",
+      "sourceType": "forestry/currentness GIS source",
+      "note": "Rules lane route/buffer query returned zero current felling notifications; latest service publication 2025-09-03 11:19:07."
+    },
+    {
+      "title": "Hylte contaminated land page",
+      "url": "https://www.hylte.se/bygga-bo-och-miljo/natur-djur-och-miljo/miljoskydd/fororenad-mark",
+      "accessed": "2026-04-29",
+      "sourceType": "municipal environmental safety page",
+      "pageUpdated": "2025-01-16 per rules lane",
+      "note": "Lists Gammalsbo AFA as risk class 1 and Rydöbruk AFA/industrial landfills as risk class 2. Use for off-trail/foraging caution, not normal-walking restriction."
+    },
+    {
+      "title": "Hylte water and ice safety",
+      "url": "https://www.hylte.se/bygga-bo-och-miljo/raddningstjansten/sakerhet-kring-vatten-och-is",
+      "accessed": "2026-04-29",
+      "sourceType": "municipal water-safety source",
+      "note": "Used for watercourse/lake safety context."
+    },
+    {
+      "title": "Trafikverket traffic information",
+      "url": "https://www.trafikverket.se/trafikinformation/vag/",
+      "accessed": "2026-04-29",
+      "sourceType": "road/currentness source",
+      "note": "Recheck live for car access/road-walking issues before publication/travel."
+    }
+  ],
+  "endpointCoordinates": {
+    "start": {
+      "label": "Rydöbruk",
+      "coordinates": {
+        "lat": 56.95739,
+        "lon": 13.142808
+      },
+      "source": "Official GPX first trackpoint, Hallandsleden API geo_json first coordinate and Naturkartan current shape",
+      "confidence": "high",
+      "notes": [
+        "M6 starts at the Rydöbruk/Knystaforsen endpoint area, effectively continuous with M5.",
+        "M5 official GPX end to M6 official GPX start is about 6.73 m.",
+        "Rydöbruk line 401 bus access is about 0.5 km from the GPX start; mapped parking near the start is OSM-only and needs verification."
+      ]
+    },
+    "end": {
+      "label": "Kvarnforsen",
+      "coordinates": {
+        "lat": 56.894596,
+        "lon": 13.188851
+      },
+      "source": "Official GPX last trackpoint, Hallandsleden API geo_json last coordinate and Naturkartan current shape",
+      "confidence": "high",
+      "notes": [
+        "Endpoint is at/near Kvarnforsen shelter/campsite area, with the official facility coordinate about 112 m from the GPX endpoint and Naturkartan shelter coordinate about 148 m from the route.",
+        "No direct regular public transport was verified at Kvarnforsen.",
+        "Physical onward route appears to be Kvarnforsen - Gyltige on Södra delleden. Geometry lane found raw next-GPX start gap 162.13 m but nearest next-route vertex 2.70 m from M6 endpoint."
+      ]
+    },
+    "coordinateAudit": {
+      "m5EndToM6StartMeters": 6.73,
+      "m6EndToNextPhysicalGpxStartMeters": 162.13,
+      "m6EndToNearestNextPhysicalGpxVertexMeters": 2.7,
+      "nearestNextPhysicalGpxVertexIndex": 3,
+      "apiLineStartDistanceFromCurrentStartMetersApprox": 2196,
+      "confidence": "high"
+    }
+  },
+  "routeGeometry": {
+    "canonical": {
+      "source": "Official Hallandsleden GPX / Hallandsleden API geo_json; corroborated by Naturkartan site 133005 simplified shape",
+      "sourceUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Rydobruk_Kvarnforsen.gpx",
+      "geometryType": "LineString",
+      "pointCount": 161,
+      "computedDistanceKm": 10.248,
+      "officialDistanceKm": 10,
+      "gpxDescriptionDistanceKm": 10.3,
+      "naturkartanVisibleDistanceKm": 10.4,
+      "woodsOfHallandDistanceKm": 11,
+      "startCoordinate": {
+        "lat": 56.95739,
+        "lon": 13.142808
+      },
+      "endCoordinate": {
+        "lat": 56.894596,
+        "lon": 13.188851
+      },
+      "directionRelativeToOfficialOrder": "same direction, Rydöbruk to Kvarnforsen",
+      "overallBearingDegreesApprox": 158.2,
+      "maxSegmentMeters": 272.1,
+      "maxSegmentIndexNote": "Route-geometry lane reported max segment from 56.953449,13.169508 to 56.951005,13.169737.",
+      "geometryGrade": "navigation/planning-grade A",
+      "navigationGrade": true,
+      "confidence": "high",
+      "notes": "Suitable as canonical route line for import prep. Do not use Hallandsleden API line.geometry or OSM relation 5599309 as current M6 geometry."
+    },
+    "officialGpx": {
+      "url": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Rydobruk_Kvarnforsen.gpx",
+      "metadata": {
+        "trackName": "Rydöbruk - Kvarnforsen",
+        "description": "Total: 10.3 km",
+        "time": "2025-06-23T09:29:25+02:00"
+      },
+      "pointCount": 161,
+      "computedDistanceKm": 10.248,
+      "start": {
+        "lat": 56.95739,
+        "lon": 13.142808
+      },
+      "end": {
+        "lat": 56.894596,
+        "lon": 13.188851
+      },
+      "maxSegmentMeters": 272.1,
+      "confidence": "high"
+    },
+    "officialApiGeoJson": {
+      "url": "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=rydobruk-kvarnforsen&token=<public-page-token>",
+      "equalsOfficialGpx": true,
+      "pointCount": 161,
+      "computedDistanceKm": 10.248,
+      "start": {
+        "lat": 56.95739,
+        "lon": 13.142808
+      },
+      "end": {
+        "lat": 56.894596,
+        "lon": 13.188851
+      },
+      "grade": "navigation/planning-grade A",
+      "confidence": "high"
+    },
+    "naturkartan": {
+      "pageUrl": "https://www.naturkartan.se/sv/hallands-lan/rydobruk-kvarnforsen-hallandsleden",
+      "apiUrl": "https://api.naturkartan.se/v2/sites/133005",
+      "siteId": 133005,
+      "title": "Rydöbruk - Kvarnforsen, Hallandsleden",
+      "slug": "rydobruk-kvarnforsen-hallandsleden",
+      "updatedAt": "2026-04-08T22:21:26.823",
+      "reportedLengthKm": 10.4,
+      "routeGeometryLaneParsedPointCount": 149,
+      "routeGeometryLaneComputedDistanceKm": 10.248,
+      "start": {
+        "lat": 56.95739,
+        "lon": 13.142808
+      },
+      "end": {
+        "lat": 56.894596,
+        "lon": 13.188851
+      },
+      "maxSegmentMeters": 272.1,
+      "grade": "simplified corroborating geometry",
+      "importDecision": "use as corroboration only; official GPX/API remains provenance",
+      "notes": "All Naturkartan vertices are present in official GPX; it omits 12 intermediate points but keeps the same endpoints and route extent."
+    },
+    "officialApiLineGeometry": {
+      "pointCount": 1479,
+      "computedDistanceKm": 31.553,
+      "start": {
+        "lat": 56.943648,
+        "lon": 13.168666
+      },
+      "end": {
+        "lat": 56.766765,
+        "lon": 13.183193
+      },
+      "maxSegmentMeters": 275.8,
+      "grade": "legacy-planning-grade",
+      "importDecision": "suppress as current M6 canonical geometry",
+      "risk": "Starts at old Sandsjön context about 3.43 km into current M6, omits Rydöbruk-Sandsjön, and continues beyond Kvarnforsen toward Gyltige."
+    },
+    "osm": {
+      "relationId": 5599309,
+      "url": "https://www.openstreetmap.org/relation/5599309",
+      "name": "Hallandsleden Etappen Sandsjön - Kvarnforsen - Gyltige",
+      "distanceTagKm": 31,
+      "from": "Sandsjön",
+      "via": "Kvarnforsen",
+      "to": "Gyltige",
+      "website": "https://hallandsleden.se/etapp/sandsjon-kvarnforsen-gyltige",
+      "assembledGeometry": {
+        "pointCount": 1044,
+        "computedDistanceKm": 30.417,
+        "start": {
+          "lat": 56.943648,
+          "lon": 13.168658
+        },
+        "end": {
+          "lat": 56.767144,
+          "lon": 13.183719
+        },
+        "maxSegmentMeters": 331.8,
+        "grade": "legacy-planning-grade"
+      },
+      "importDecision": "suppress as current M6 canonical geometry",
+      "notes": "Website tag points to an official old slug that now returns 404. Useful stale-source clue only."
+    },
+    "endpointGapNotes": [
+      "Current official M5 GPX end to M6 GPX start is about 6.73 m and effectively continuous.",
+      "M6 end to physical onward Kvarnforsen - Gyltige GPX start has a raw 162.13 m start gap, but the nearest next-route vertex is only 2.70 m away at index 3. Treat as handoff QA, not a blocker.",
+      "M6 does not geographically connect to Mellersta M7 Ästad - Vessigebro despite same-track next-card ordering."
+    ],
+    "suppressedOrSecondaryGeometries": [
+      "Hallandsleden API line.geometry: stale/legacy old Sandsjön-Kvarnforsen-Gyltige extent.",
+      "OSM relation 5599309: stale/legacy old combined section, not current M6.",
+      "OSM relation 15401390: old Kollabo -> Sandsjön segmentation, not M6."
+    ],
+    "openGeometryQuestions": [
+      "Ask Hallandsleden why API line.geometry still exposes stale old Sandsjön-Kvarnforsen-Gyltige linework for current M6.",
+      "During import, decide whether to normalize Kvarnforsen handoff to the shared Kvarnforsen junction/nearest next-route vertex or preserve GPX starts as-is.",
+      "Consider reporting OSM relation 5599309/15401390 after current official segmentation is fully modeled."
+    ]
+  },
+  "commuteAccess": {
+    "summary": "Rydöbruk start has strong direct bus access on Hallandstrafiken line 401. Kvarnforsen end has no practical regular public transport; use pickup, taxi, pre-arranged local ride or distant fallback hubs only, with parking/private-road caveats.",
+    "start": [
+      {
+        "endpoint": "start",
+        "stopName": "Hållplats Rydöbruk / Rydöbruk bus stop cluster",
+        "type": "bus",
+        "coordinates": {
+          "lat": 56.959435,
+          "lon": 13.13615
+        },
+        "distanceFromEndpointMeters": 500,
+        "operatorNetwork": "Hallandstrafiken / ResRobot, bus line 401 Halmstad - Oskarström - Torup - Rydöbruk - Hyltebruk",
+        "sourceUrl": "https://www.hallandsleden.se/plats/hallplats-rydobruk",
+        "additionalSourceUrls": [
+          "https://www.iphone.fskab.se/hlt/Regionbuss/251214_260614/Regionbuss_401_251214_260614.pdf",
+          "https://www.hallandstrafiken.se/rest-api/rh-timetables-backend/search-results?query=401"
+        ],
+        "confidence": "high for service, medium-high for exact stop/platform choice",
+        "caveats": "Line 401 timetable found valid through 2026-06-14. M5 used official Hållplats Rydöbruk coordinate 56.95950715,13.13619199 and OSM alternate 56.9594349,13.1361505. Recheck current stop/platform and departures before travel."
+      },
+      {
+        "endpoint": "start alternate",
+        "stopName": "Rydöbruk gamla stationen",
+        "type": "bus",
+        "coordinates": {
+          "lat": 56.962196,
+          "lon": 13.14344
+        },
+        "distanceFromEndpointMeters": 500,
+        "operatorNetwork": "Hallandstrafiken line 401 corridor",
+        "sourceUrl": "https://www.openstreetmap.org/node/12813145989",
+        "additionalSourceUrls": [
+          "https://www.iphone.fskab.se/hlt/Regionbuss/251214_260614/Regionbuss_401_251214_260614.pdf"
+        ],
+        "confidence": "medium-high",
+        "caveats": "Secondary Rydöbruk access only. Do not model as regular passenger rail service despite the stop name."
+      }
+    ],
+    "end": [
+      {
+        "endpoint": "end",
+        "stopName": "No direct Kvarnforsen public-transport stop verified",
+        "type": "none",
+        "coordinates": null,
+        "distanceFromEndpointMeters": null,
+        "operatorNetwork": null,
+        "sourceUrl": "https://www.naturkartan.se/sv/hallands-lan/kvarnforsens-vindskydd",
+        "additionalSourceUrls": [
+          "https://www.hallandsleden.se/en/etapp/rydobruk-kvarnforsen",
+          "https://hallandstrafiken.se/ladda-hem-tabell"
+        ],
+        "confidence": "high",
+        "caveats": "Transit lane found no nearby regular bus/train. Practical end access is pickup, taxi or pre-arranged local ride."
+      },
+      {
+        "endpoint": "end fallback",
+        "stopName": "Torup station",
+        "type": "train/bus fallback hub",
+        "coordinates": {
+          "lat": 56.9577,
+          "lon": 13.0796
+        },
+        "distanceFromEndpointMeters": 9600,
+        "operatorNetwork": "Krösatågen plus Hallandstrafiken lines 401/430",
+        "sourceUrl": "https://www.hylte.se/bygga-bo-och-miljo/resor-och-transporter/kollektivtrafik",
+        "additionalSourceUrls": [
+          "https://hallandstrafiken.se/ladda-hem-tabell"
+        ],
+        "confidence": "medium",
+        "caveats": "Distant fallback hub only; not endpoint walking access unless a separate route/pickup plan is made."
+      },
+      {
+        "endpoint": "end fallback",
+        "stopName": "Hyltebruk bussterminal",
+        "type": "bus/taxi fallback hub",
+        "coordinates": {
+          "lat": 56.9986,
+          "lon": 13.2374
+        },
+        "distanceFromEndpointMeters": 11900,
+        "operatorNetwork": "Hallandstrafiken lines 401, 430, 431, 432 and demand line 847; terminal has parking/cycle parking",
+        "sourceUrl": "https://www.hallandstrafiken.se/download/18.1619b360195fff62650672b/1744046699455/1297095_Hyltebruk_bussterminal_3d-karta.pdf",
+        "additionalSourceUrls": [
+          "https://hallandstrafiken.se/bestallningstrafik",
+          "https://hallandstrafiken.se/nartrafik"
+        ],
+        "confidence": "medium",
+        "caveats": "Distant logistics hub. Demand line 847 requires phone booking; Närtrafik is not a reliable visitor trailhead solution."
+      },
+      {
+        "endpoint": "end fallback",
+        "stopName": "Kinnared station",
+        "type": "train/bus fallback hub",
+        "coordinates": {
+          "lat": 57.02532,
+          "lon": 13.107269
+        },
+        "distanceFromEndpointMeters": 15300,
+        "operatorNetwork": "Krösatågen",
+        "sourceUrl": "https://www.hylte.se/bygga-bo-och-miljo/resor-och-transporter/kollektivtrafik",
+        "confidence": "medium",
+        "caveats": "Distant fallback only."
+      },
+      {
+        "endpoint": "end fallback",
+        "stopName": "Landeryd station",
+        "type": "train/demand-bus fallback hub",
+        "coordinates": {
+          "lat": 57.076789,
+          "lon": 13.265181
+        },
+        "distanceFromEndpointMeters": 20700,
+        "operatorNetwork": "Krösatågen / JLT 1086 plus Hallandstrafiken demand line 847 to Hyltebruk",
+        "sourceUrl": "https://hallandstrafiken.se/ladda-hem-tabell",
+        "confidence": "medium",
+        "caveats": "Very distant; useful only for planned multi-leg logistics."
+      }
+    ],
+    "parkingAndTrailheadAccess": [
+      {
+        "endpoint": "start",
+        "name": "Rydöbruk trailhead parking candidate 1191353620",
+        "type": "parking candidate",
+        "coordinates": {
+          "lat": 56.9574714,
+          "lon": 13.1425
+        },
+        "distanceFromEndpointMeters": 20,
+        "sourceUrl": "https://www.openstreetmap.org/way/1191353620",
+        "confidence": "medium-low",
+        "caveats": "Small mapped parking at/near GPX start, not found as official Hallandsleden parking. Verify public access, capacity and overnight/long-stay suitability."
+      },
+      {
+        "endpoint": "start",
+        "name": "Rydöbruk north parking candidate 1191353618",
+        "type": "parking candidate",
+        "coordinates": {
+          "lat": 56.9587795,
+          "lon": 13.1415935
+        },
+        "distanceFromEndpointMeters": 171,
+        "sourceUrl": "https://www.openstreetmap.org/way/1191353618",
+        "confidence": "medium-low",
+        "caveats": "OSM-only. Verify public access and local restrictions."
+      },
+      {
+        "endpoint": "end",
+        "name": "Kvarnforsen nearby mapped parking north candidate",
+        "type": "parking candidate",
+        "coordinates": {
+          "lat": 56.902113,
+          "lon": 13.199344
+        },
+        "distanceFromEndpointMeters": 1100,
+        "sourceUrl": "https://overpass-api.de/api/interpreter",
+        "confidence": "low-medium",
+        "caveats": "Mapped parking only; no official public parking source found. Direct distance only; walking route/access legality not verified."
+      },
+      {
+        "endpoint": "end",
+        "name": "Kvarnforsen nearby mapped parking south candidate",
+        "type": "parking candidate",
+        "coordinates": {
+          "lat": 56.886741,
+          "lon": 13.206657
+        },
+        "distanceFromEndpointMeters": 1400,
+        "sourceUrl": "https://overpass-api.de/api/interpreter",
+        "confidence": "low-medium",
+        "caveats": "Mapped surface parking only; no official public/overnight hiker parking confirmation."
+      },
+      {
+        "endpoint": "end",
+        "name": "Kvarnforsen shelter/gate access",
+        "type": "trailhead/private-road access caveat",
+        "coordinates": {
+          "lat": 56.8947278,
+          "lon": 13.18702122
+        },
+        "distanceFromEndpointMeters": 112,
+        "sourceUrl": "https://www.hallandsleden.se/plats/lagerplats-kvarnforsen",
+        "additionalSourceUrls": [
+          "https://www.naturkartan.se/en/hallands-lan/kvarnforsens-vindskydd"
+        ],
+        "confidence": "medium-high",
+        "caveats": "Official/Naturkartan sources say no parking at the campsite; access passes via/near Kvarnforsen camp/through a gate. Do not block gates, roads or camp access."
+      }
+    ],
+    "seasonalLimits": [
+      "No ferry or rowboat access applies to M6.",
+      "Hallandstrafiken bus timetables 401, 430 and 847 found by transit lane are valid through 2026-06-14; recheck live after that date.",
+      "Krösatågen timetable found valid through 2026-12-12, but train times can be affected by trackwork/disruptions.",
+      "Demand line 847 must be booked by phone 0771-750 700, usually at least 1 hour before departure, with early morning trips by 22:00 previous evening according to transit lane.",
+      "Kvarnforsen endpoint access is best treated as pickup/taxi/pre-arranged ride unless public parking/route access is locally verified."
+    ]
+  },
+  "facilities": [
+    {
+      "name": "Lägerplats Sandsjön",
+      "normalizedCandidateType": [
+        "shelter",
+        "campsite",
+        "fireplace",
+        "dry_toilet",
+        "waste_basket",
+        "rest_area",
+        "fishing_context"
+      ],
+      "coordinates": {
+        "lat": 56.9437216,
+        "lon": 13.16901412
+      },
+      "coordinateSource": "Hallandsleden places API; Naturkartan/OSM corroborate around 56.9436975,13.1689123",
+      "description": "Official M6 shelter/campsite by Sandsjön with wind shelter, fireplace, dry toilet, rubbish bin/rest-area context. Fishing may require permit. This record was suppressed from M5 and belongs to M6.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/lagerplats-sandsjon",
+        "https://www.naturkartan.se/en/hallands-lan/sandsjons-vindskydd",
+        "https://www.woodsofhalland.se/object/sandsjon-shelter/",
+        "https://overpass-api.de/api/interpreter"
+      ],
+      "routeProximity": {
+        "routeKmApprox": 3.43,
+        "distanceMeters": 16
+      },
+      "confidence": "high",
+      "importDecision": "import; do not import potable water or nearby parking; note no parking beside rest area"
+    },
+    {
+      "name": "Lägerplats Kvarnforsen",
+      "normalizedCandidateType": [
+        "shelter",
+        "campsite",
+        "fireplace",
+        "dry_toilet",
+        "waste_basket",
+        "rest_area",
+        "endpoint_facility"
+      ],
+      "coordinates": {
+        "lat": 56.8947278,
+        "lon": 13.18702122
+      },
+      "coordinateSource": "Hallandsleden places API; Naturkartan alternate 56.8948425,13.1864553",
+      "description": "Official endpoint shelter/campsite at Kvarnforsen. Short detour from trail through a gate toward Kvarnforsen camp; shelter is up left on a small hill. No parking at campsite.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/lagerplats-kvarnforsen",
+        "https://www.naturkartan.se/en/hallands-lan/kvarnforsens-vindskydd",
+        "https://www.woodsofhalland.se/object/kvarnforsen-shelter/"
+      ],
+      "routeProximity": {
+        "routeKmApprox": 10.25,
+        "distanceMeters": 112
+      },
+      "confidence": "high for facility, medium for water/service components",
+      "importDecision": "import shelter/campsite/toilet/fireplace/rest; keep water/firewood/shower as conditional/private pending; do not import parking at shelter"
+    },
+    {
+      "name": "Lahults kvarn och damm",
+      "normalizedCandidateType": [
+        "heritage",
+        "historic_mill",
+        "mill_pond",
+        "rest_area",
+        "bathing_site_context"
+      ],
+      "coordinates": {
+        "lat": 56.95812858,
+        "lon": 13.157233
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Official M6 sight/rest/bathing context at Lahult mill pond, after the route has left Rydöbruk and crossed Klubbån/canal context.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/lahults-kvarn-och-damm",
+        "https://www.hallandsleden.se/etapp/rydobruk-kvarnforsen"
+      ],
+      "routeProximity": {
+        "routeKmApprox": 1.13,
+        "distanceMeters": 12
+      },
+      "confidence": "high",
+      "importDecision": "import; no potable-water claim; use dam/millpond caution in safety text"
+    },
+    {
+      "name": "Flottningsrännan",
+      "normalizedCandidateType": [
+        "heritage",
+        "point_of_interest"
+      ],
+      "coordinates": {
+        "lat": 56.95731104,
+        "lon": 13.15908641
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Official M6 heritage sight near early section, formerly suppressed from M5.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/flottningsrannan",
+        "https://www.hallandsleden.se/etapp/rydobruk-kvarnforsen"
+      ],
+      "routeProximity": {
+        "routeKmApprox": 1.26,
+        "distanceMeters": 39
+      },
+      "confidence": "high",
+      "importDecision": "import"
+    },
+    {
+      "name": "Gravfält vid Lahult med treuddar och domarring",
+      "normalizedCandidateType": [
+        "heritage",
+        "burial_ground",
+        "point_of_interest"
+      ],
+      "coordinates": {
+        "lat": 56.95555306,
+        "lon": 13.16875577
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Official Lahult burial-ground sight with treuddar and domarring. Cultural-heritage sight; no RAÄ/Fornsök id exposed in checked trail sources.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/gravfalt-vid-lahult-med-treuddar-och-domarring",
+        "https://www.hallandsleden.se/etapp/rydobruk-kvarnforsen"
+      ],
+      "routeProximity": {
+        "routeKmApprox": 2.05,
+        "distanceMeters": 7
+      },
+      "confidence": "high",
+      "importDecision": "import; RAÄ/Fornsök verification optional before normalization"
+    },
+    {
+      "name": "Fika by Steph",
+      "normalizedCandidateType": [
+        "food",
+        "cafe",
+        "bakery",
+        "commercial_service"
+      ],
+      "coordinates": {
+        "lat": 56.95766185,
+        "lon": 13.1420283
+      },
+      "coordinateSource": "Hallandsleden places API / local commercial page",
+      "description": "Bakery/cafe service at Rydöbruk start. Facilities lane found current local hours Fri 08-15, Sat 08-16, Sun 08:30-10:30 on checked page.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/fika-by-steph",
+        "https://fikabysteph.se/"
+      ],
+      "routeProximity": {
+        "routeKmApprox": 0.01,
+        "distanceMeters": 54
+      },
+      "confidence": "high for existence, medium for future hours",
+      "importDecision": "import commercial service with opening-hours/currentness recheck; commercial water only when open"
+    },
+    {
+      "name": "Lahults Bed & Breakfast / Lahultsboden",
+      "normalizedCandidateType": [
+        "lodging",
+        "bed_and_breakfast",
+        "farm_shop_service"
+      ],
+      "coordinates": {
+        "lat": 56.9587201,
+        "lon": 13.1608344
+      },
+      "coordinateSource": "Hallandsleden places API / Lahult local site",
+      "description": "Lodging/booked accommodation and local farm-shop/service context in Lahult. No public drinking-water POI.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/lahults-bed-breakfast",
+        "https://www.lahult.se/"
+      ],
+      "routeProximity": {
+        "routeKmApprox": 1.38,
+        "distanceMeters": 110
+      },
+      "confidence": "medium-high",
+      "importDecision": "import lodging/service pending current operation/opening confirmation; do not model public water"
+    },
+    {
+      "name": "Rydö Bruksmuseum",
+      "normalizedCandidateType": [
+        "heritage",
+        "museum",
+        "industrial_history"
+      ],
+      "coordinates": {
+        "lat": 56.96060614,
+        "lon": 13.13980819
+      },
+      "coordinateSource": "Hallandsleden places API / local museum site nearby",
+      "description": "Rydöbruk industrial-history museum near the start. Local site says no fixed winter 2025/2026 hours and visits can be booked.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/rydo-bruksmuseum",
+        "https://rydobruksmuseum.se/"
+      ],
+      "routeProximity": {
+        "routeKmApprox": 0,
+        "distanceMeters": 401
+      },
+      "confidence": "medium-high",
+      "importDecision": "import heritage POI with opening-hours/booking caveat"
+    },
+    {
+      "name": "Knystahall",
+      "normalizedCandidateType": [
+        "heritage",
+        "historic_marker",
+        "point_of_interest"
+      ],
+      "coordinates": {
+        "lat": 56.95986596,
+        "lon": 13.13643247
+      },
+      "coordinateSource": "Hallandsleden places API; Hylte heritage page alternate 56.95991,13.13639",
+      "description": "Historic boulder/border marker and official start-area sight shared with M5/Rydöbruk context.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/knystahall",
+        "https://www.hylte.se/visit-hylte/woods-of-halland/go-on-an-excursion-in-scenic-heritage-settings"
+      ],
+      "routeProximity": {
+        "routeKmApprox": 0.01,
+        "distanceMeters": 473
+      },
+      "confidence": "medium-high",
+      "importDecision": "import as start-area heritage POI; dedupe/share with M5 if shared endpoint support exists"
+    },
+    {
+      "name": "Rydöbruk",
+      "normalizedCandidateType": [
+        "settlement",
+        "heritage",
+        "historic_industrial_area"
+      ],
+      "coordinates": {
+        "lat": 56.96037634,
+        "lon": 13.13884377
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Broad settlement/industrial heritage context at the start.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/rydobruk",
+        "https://www.hallandsleden.se/etapp/rydobruk-kvarnforsen"
+      ],
+      "routeProximity": {
+        "routeKmApprox": 0,
+        "distanceMeters": 410
+      },
+      "confidence": "medium",
+      "importDecision": "import if broad heritage/settlement POIs are accepted; otherwise low-priority contextual record"
+    },
+    {
+      "name": "Hållplats Rydöbruk",
+      "normalizedCandidateType": [
+        "bus_stop",
+        "primary_start_access"
+      ],
+      "coordinates": {
+        "lat": 56.95950715,
+        "lon": 13.13619199
+      },
+      "coordinateSource": "Hallandsleden places API; OSM/transit lane alternate around 56.959435,13.136150",
+      "description": "Primary public-transport access for Rydöbruk start, Hallandstrafiken line 401.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/hallplats-rydobruk",
+        "https://www.iphone.fskab.se/hlt/Regionbuss/251214_260614/Regionbuss_401_251214_260614.pdf"
+      ],
+      "routeProximity": {
+        "routeKmApprox": 0.01,
+        "distanceMeters": 463,
+        "distanceFromEndpointMeters": 500
+      },
+      "confidence": "high",
+      "importDecision": "model as access metadata/primary start transit; recheck timetable"
+    },
+    {
+      "name": "Hållplats Borgenvägen Rydöbruk",
+      "normalizedCandidateType": [
+        "bus_stop",
+        "alternate_start_access"
+      ],
+      "coordinates": {
+        "lat": 56.96502193,
+        "lon": 13.14757712
+      },
+      "coordinateSource": "Hallandsleden places API; actual platform may differ as in M5 transit lane",
+      "description": "Alternate Rydöbruk start access; official text says about 100 m to the trail connector at Glassbovägen/Femsjövägen.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/hallplats-borgenvagen-rydobruk",
+        "https://www.iphone.fskab.se/hlt/Regionbuss/251214_260614/Regionbuss_401_251214_260614.pdf"
+      ],
+      "routeProximity": {
+        "routeKmApprox": 0,
+        "distanceMeters": 897
+      },
+      "confidence": "medium-high",
+      "importDecision": "model as alternate/access metadata; verify platform coordinate"
+    },
+    {
+      "name": "Rydöbruk start parking candidates",
+      "normalizedCandidateType": [
+        "parking",
+        "access_metadata"
+      ],
+      "coordinates": {
+        "lat": 56.9574714,
+        "lon": 13.1425
+      },
+      "coordinateSource": "OSM way 1191353620 center; alternate OSM way 1191353618 center 56.9587795,13.1415935",
+      "description": "Small mapped parking near M6 start, not official Hallandsleden parking.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/way/1191353620",
+        "https://www.openstreetmap.org/way/1191353618"
+      ],
+      "routeProximity": {
+        "routeKmApprox": 0,
+        "distanceMeters": 19
+      },
+      "confidence": "medium-low",
+      "importDecision": "keep pending/access metadata; verify public access, capacity and overnight suitability"
+    },
+    {
+      "name": "Kvarnforsen parking/access candidates",
+      "normalizedCandidateType": [
+        "parking",
+        "access_metadata"
+      ],
+      "coordinates": {
+        "lat": 56.902113,
+        "lon": 13.199344
+      },
+      "coordinateSource": "OSM/Overpass mapped parking candidate; alternate 56.886741,13.206657",
+      "description": "Mapped parking candidates 1.1-1.4 km direct from Kvarnforsen endpoint; no official public parking source. Official shelter text says no parking at campsite and to park outside gate/along road before campsite where appropriate.",
+      "sourceUrls": [
+        "https://overpass-api.de/api/interpreter",
+        "https://www.hallandsleden.se/plats/lagerplats-kvarnforsen",
+        "https://www.naturkartan.se/en/hallands-lan/kvarnforsens-vindskydd"
+      ],
+      "routeProximity": {
+        "routeKmApprox": 10.25,
+        "distanceMeters": 1100
+      },
+      "confidence": "low-medium",
+      "importDecision": "keep pending/access caveat only; do not import as official parking without local verification"
+    },
+    {
+      "name": "Kvarnforsen conditional/private drinking water, firewood and shower",
+      "normalizedCandidateType": [
+        "drinking_water",
+        "private_conditional_service",
+        "firewood",
+        "shower"
+      ],
+      "coordinates": {
+        "lat": 56.8948425,
+        "lon": 13.1864553
+      },
+      "coordinateSource": "Naturkartan Kvarnforsen shelter coordinate",
+      "description": "Naturkartan says nearby landowner can provide drinking water, firewood and shower, but Hallandsleden drinking-water category is zero and service is conditional/private.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/en/hallands-lan/kvarnforsens-vindskydd"
+      ],
+      "routeProximity": {
+        "routeKmApprox": 10.25,
+        "distanceMeters": 148
+      },
+      "confidence": "medium",
+      "importDecision": "keep pending; do not import as guaranteed public water"
+    },
+    {
+      "name": "Knystaforsen destination restaurant/lodging",
+      "normalizedCandidateType": [
+        "food",
+        "restaurant",
+        "lodging",
+        "commercial_destination"
+      ],
+      "coordinates": null,
+      "coordinateSource": "address only: Rydöforsvägen 4; no precise import coordinate verified in facilities lane",
+      "description": "Active reservation-based destination restaurant/rooms near the Rydöbruk start. Needs precise geocoding/currentness before import.",
+      "sourceUrls": [
+        "https://knystaforsen.se/the-knystaforsen-experience/"
+      ],
+      "routeProximity": null,
+      "confidence": "medium",
+      "importDecision": "keep pending; require coordinate and current operation verification"
+    },
+    {
+      "name": "Knystaria",
+      "normalizedCandidateType": [
+        "food",
+        "restaurant"
+      ],
+      "coordinates": {
+        "lat": 56.9576135,
+        "lon": 13.1429675
+      },
+      "coordinateSource": "OSM node 11091171731",
+      "description": "OSM/BokaBord may still show this near M6 start, but current Knystaria site says closed.",
+      "sourceUrls": [
+        "https://knystaria.se/",
+        "https://overpass-api.de/api/interpreter"
+      ],
+      "routeProximity": {
+        "routeKmApprox": 0,
+        "distanceMeters": 27
+      },
+      "confidence": "medium",
+      "importDecision": "suppress as active food/service unless reopened/current source appears"
+    }
+  ],
+  "waterSources": [
+    {
+      "name": "No official M6 public drinking-water point",
+      "coordinates": null,
+      "coordinateSource": null,
+      "sourceUrls": [
+        "https://www.hallandsleden.se/etapp/rydobruk-kvarnforsen",
+        "https://www.hallandsleden.se/api/v2/places?trackSegment=rydobruk-kvarnforsen&token=<public-page-token>"
+      ],
+      "reliability": "Hallandsleden places/category checks returned drinking water 0. Do not import a public M6 potable-water point from current official evidence.",
+      "confidence": "high",
+      "importDecision": "do not import official/public water"
+    },
+    {
+      "name": "Kvarnforsen conditional/private landowner water",
+      "coordinates": {
+        "lat": 56.8948425,
+        "lon": 13.1864553
+      },
+      "coordinateSource": "Naturkartan Kvarnforsen shelter coordinate",
+      "sourceUrls": [
+        "https://www.naturkartan.se/en/hallands-lan/kvarnforsens-vindskydd"
+      ],
+      "reliability": "Conditional/private. Naturkartan says nearby landowner can provide drinking water, firewood and shower; this is not a guaranteed public self-service water point.",
+      "confidence": "medium",
+      "importDecision": "keep pending/conditional note only; do not import as guaranteed water"
+    },
+    {
+      "name": "Sandsjön / Klubbån / Nordsjön natural water",
+      "coordinates": null,
+      "coordinateSource": "natural water bodies crossed/passed by route",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/etapp/rydobruk-kvarnforsen",
+        "https://overpass-api.de/api/interpreter"
+      ],
+      "reliability": "Natural water only, untreated/unknown. No official potable-water status.",
+      "confidence": "high",
+      "importDecision": "suppress as drinking water"
+    },
+    {
+      "name": "Fika by Steph commercial service water",
+      "coordinates": {
+        "lat": 56.95766185,
+        "lon": 13.1420283
+      },
+      "coordinateSource": "Hallandsleden places API / commercial page",
+      "sourceUrls": [
+        "https://fikabysteph.se/"
+      ],
+      "reliability": "Commercial service only when open; not a public water point.",
+      "confidence": "medium",
+      "importDecision": "model as food/commercial service only"
+    }
+  ],
+  "campingAndFire": {
+    "summary": "M6 has official shelter/campsite clusters at Sandsjön and Kvarnforsen, both with fireplace, dry toilet and rubbish-bin/rest-area context. Fire status is dynamic; Kvarnforsen water/firewood/shower is conditional/private, not guaranteed public service.",
+    "camping": [
+      {
+        "name": "Lägerplats Sandsjön",
+        "status": "official shelter/campsite around route km 3.43",
+        "capacity": "4-6 adults in Hallandsleden section prose; 4-5 people in place/Woods-style sources",
+        "facilities": [
+          "shelter",
+          "fireplace",
+          "dry toilet",
+          "rubbish bin/rest area",
+          "lake/fishing context"
+        ],
+        "water": "no potable water verified; lake water untreated/unknown",
+        "confidence": "high",
+        "caveats": "No nearby public parking; official/Naturkartan/Woods warn parking next to rest areas is not suitable and expect walking from parking."
+      },
+      {
+        "name": "Lägerplats Kvarnforsen",
+        "status": "official endpoint shelter/campsite and physical handoff to Kvarnforsen - Gyltige",
+        "capacity": "4-6 adults in Hallandsleden section prose; source-specific capacity may vary",
+        "facilities": [
+          "shelter",
+          "fireplace",
+          "dry toilet",
+          "rubbish bin/rest area",
+          "gate/camp access context"
+        ],
+        "water": "conditional/private landowner water per Naturkartan; not official public water",
+        "confidence": "high for shelter/toilet/fireplace, medium for conditional services",
+        "caveats": "No parking at campsite; access through/near a gate and Kvarnforsen camp. Do not block roads/gates or assume overnight parking."
+      }
+    ],
+    "fireRules": [
+      "Use prepared fireplaces and fully extinguish fires according to general Hallandsleden/Hylte fire guidance.",
+      "Hylte fire page updated 2026-03-12 says rescue chief can impose fire bans, risk value may be checked mornings in summer, and bans can apply regardless of risk value.",
+      "Länsstyrelsen/Krisinformation fire-ban layer for Hylte said Inget eldningsförbud when queried on 2026-04-29, with REVDATUM 2023-06-30T09:55:39Z, but this is dynamic and must be rechecked before publication/use.",
+      "Import dynamic fire-warning rule only, not a permanent ban or durable no-ban claim."
+    ],
+    "wasteAndToilets": [
+      "Sandsjön and Kvarnforsen dry toilets are official/high confidence through shelter/toilet categories.",
+      "Both shelters have rubbish-bin/rest-area context in official prose/category checks, but local waste practices should be respected and verified if displaying waste disposal as a service.",
+      "No mid-route public drinking-water toilet/service beyond the shelter dry toilets and commercial/private records was confirmed."
+    ]
+  },
+  "rulesAndSafety": {
+    "protectedAreas": {
+      "status": "No direct protected-area or Natura 2000 overlap found for official M6 GPX route/buffer in 2026-04-29 rules-lane checks.",
+      "directOverlaps": [],
+      "sources": [
+        "https://geodata.naturvardsverket.se/naturvardsregistret/wfs",
+        "https://geodata.naturvardsverket.se/n2000/wfs"
+      ],
+      "evidence": [
+        "Naturvårdsverket NVR WFS SkyddadeOmraden query over route bbox plus approximate buffer returned numberMatched=0 at 2026-04-29T22:18:52Z.",
+        "Natura 2000 WFS returned numberMatched=0 at 2026-04-29T22:19:45Z."
+      ],
+      "confidence": "high"
+    },
+    "waterProtection": {
+      "status": "No water-protection overlap found in the rules-lane protected/water-protection route/buffer checks.",
+      "areas": [],
+      "sources": [
+        "https://geodata.naturvardsverket.se/naturvardsregistret/wfs"
+      ],
+      "confidence": "high",
+      "importImpact": "Do not tag this section as entering a protected area, Natura 2000 site, reserve or water-protection area."
+    },
+    "fire": {
+      "status": "dynamic recheck required",
+      "currentness": "Hylte fire page updated 2026-03-12; Länsstyrelsen/Krisinformation fire-ban layer for Hylte said Inget eldningsförbud when queried 2026-04-29, but this must not be encoded as durable status.",
+      "findings": [
+        "Rescue chief can impose fire bans; Hylte risk value can be checked mornings in summer; fire bans can apply regardless of risk value.",
+        "Shelters have fireplaces, but same-day fire status must be verified."
+      ],
+      "sources": [
+        "https://www.hylte.se/bygga-bo-och-miljo/raddningstjansten/brandsakerhet/eldning-och-brandrisk",
+        "https://www.krisinformation.se/forbered-dig/gras--och-skogsbrand/eldningsforbud/",
+        "https://ext-geodata-nationella-visning.lansstyrelsen.se/arcgis/rest/services/LST/LST_eldningsforbud_EXT/MapServer/0"
+      ],
+      "confidence": "medium-high for policy, medium for current status"
+    },
+    "dogsLivestock": {
+      "findings": [
+        "Hallandsleden says dogs must always be leashed.",
+        "Section passes farms; general allemansrätten guidance says close gates after passing pasture."
+      ],
+      "sources": [
+        "https://www.hallandsleden.se/item/bra-att-veta-om-allemansratten-1/oyauxhpvx1wmrtwfgz01ftvfkwounlag"
+      ],
+      "confidence": "high"
+    },
+    "huntingForestry": {
+      "findings": [
+        "Hallandsleden says hunting may occur August-January and recommends bright clothing, staying on marked trail, watching for hunting signs and keeping dogs leashed. 2026-04-29 is outside that stated main period.",
+        "Skogsstyrelsen Avverkningsanmälningar ArcGIS layer route/buffer query returned 0 current felling notifications on 2026-04-29. Latest service publication noted by lane: 2025-09-03 11:19:07.",
+        "No active forestry closure/works flag from Skogsstyrelsen; keep generic working-forest/local-sign note only."
+      ],
+      "sources": [
+        "https://www.hallandsleden.se/item/vandra-under-jaktsasongen/fxm1j3j5ltmdkd65aqrztndfqhr3txnq",
+        "https://geodpags.skogsstyrelsen.se/arcgis/rest/services/Geodataportal/GeodataportalVisaAvverkningsanmalan/MapServer"
+      ],
+      "confidence": "medium-high"
+    },
+    "routeSpecificHazards": [
+      "Official route crosses Klubbån multiple times and passes a drained canal, Lahult mill pond/dam and Kvarnforsen; add bridge/water crossing dependence, slippery wet structures/banks and dam/millpond caution.",
+      "Route includes paved/gravel roads and passes farms/properties; add road-walking/vehicle awareness and close-gates/livestock-respect notes.",
+      "Hylte contaminated-land page updated 2025-01-16 lists Gammalsbo AFA as risk class 1 and Rydöbruk AFA/industrial landfills as risk class 2. Add off-trail/foraging caution near old landfill/industrial areas; do not treat as a normal-walking restriction.",
+      "No official public potable water found; do not rely on natural waters without treatment."
+    ],
+    "closuresReroutesCurrentness": {
+      "status": "No M6-specific official closure/reroute or active forestry disruption found on 2026-04-29.",
+      "confidence": "medium-high",
+      "caveats": "Recheck official Hallandsleden/currentness pages, Trafikverket live map, local signage and fire status before normalization/publication or travel. Field-check hunting, forestry, closed gates, bridges and deviation signs."
+    }
+  },
+  "conditionReports": {
+    "overallConfidence": "medium-low",
+    "summary": "Exact current full-section field-report coverage is thin. The best exact/overlapping evidence is a 2023 local walk around Sandsjön-Gammalsbo and older 2016 reports for old Kvarnforsen-Sandsjön and Sandsjön-Långesjön segmentation. No recent detailed full-M6 condition report or closure/reroute report was found.",
+    "reports": [
+      {
+        "sourceType": "local_walk_report",
+        "sourceName": "SPF Seniorerna Drängsered local walk",
+        "url": "https://www.spfseniorerna.se/distrikt/hallandsdistriktet/foreningslista/drangsered/bildgalleri/bilder-2023/promenad-nr.-3-i-rydobruk",
+        "reportDate": "2023-03-16",
+        "matchedSegmentation": "Exact partial M6: Sandshult/Sandsjön to Gammalsbo and back along Hallandsleden.",
+        "findings": [
+          "28 walkers parked at Sandshult and followed Hallandsleden along Sandsjön to Gammalsbo before returning.",
+          "Report describes a good experience and mentions no issues with signage, mud, closures, bridges or access."
+        ],
+        "conditionValue": "Medium for Sandsjön-Gammalsbo partial corridor; not full M6."
+      },
+      {
+        "sourceType": "blog_trip_report",
+        "sourceName": "En Vandringssaga Kvarnforsen - Sandsjön",
+        "url": "https://www.bejegard.se/vandring/halland/hallandsleden/hallandsleden-kvarnforsen-sandsjon-7-km/",
+        "reportDate": "2016-02-07",
+        "matchedSegmentation": "Old/stale Kvarnforsen - Sandsjön substage, now part of M6.",
+        "findings": [
+          "Route described as very easy, mostly fine forest road, a fairly long hill after about 1 km and a few hundred meters on asphalt.",
+          "Passes properties and Nordsjön.",
+          "Access by car to Sandsjön was awkward; road toward Gammalsbo led to private/unauthorized-access signage and loose-dog warning, so the party parked about 1.5 km away.",
+          "One car passed fast on the road."
+        ],
+        "conditionValue": "Medium for historical terrain/access context; low for current 2026 condition."
+      },
+      {
+        "sourceType": "blog_trip_report",
+        "sourceName": "En Vandringssaga Sandsjön - Långesjön",
+        "url": "https://www.bejegard.se/vandring/halland/hallandsleden/hallandsleden-sandsjon-langesjon-20-km/",
+        "reportDate": "2016-06-12",
+        "matchedSegmentation": "Exact partial M6 in reverse: Sandsjön to Rydöbruk, then adjacent M5 corridor.",
+        "findings": [
+          "Starts from Sandsjön on gravel road, enters Rydöbruk by country road, passes houses/farms and no other hikers encountered.",
+          "Later notes about RV26, Karl XI spring and going wrong are on the adjacent Långesjön side, not M6."
+        ],
+        "conditionValue": "Medium-low historical partial context only."
+      },
+      {
+        "sourceType": "route_app_user_track",
+        "sourceName": "Wikiloc Sandsjön - Kvarnforsen - Gyltige 2022",
+        "url": "https://www.wikiloc.com/hiking-trails/sandsjon-kvarnforsen-gyltige-107713749",
+        "reportDate": "Recorded July 2022",
+        "matchedSegmentation": "Old combined Sandsjön-Kvarnforsen plus adjacent Gyltige, includes M6 middle/end but omits current Rydöbruk-Sandsjön start.",
+        "findings": [
+          "30.98 km one-way route, moderate, no comments or condition text."
+        ],
+        "conditionValue": "Low; confirms passage but no condition detail."
+      },
+      {
+        "sourceType": "route_app_user_track",
+        "sourceName": "Wikiloc Sandsjön - Kvarnforsen - Gyltige 2019",
+        "url": "https://www.wikiloc.com/outdoor-trails/sandsjon-kvarnforsen-gyltige-41207043",
+        "reportDate": "Recorded September 2019",
+        "matchedSegmentation": "Old combined route including part of M6.",
+        "findings": [
+          "31.28 km one-way route, moderate, no condition notes."
+        ],
+        "conditionValue": "Low."
+      },
+      {
+        "sourceType": "route_app_listing",
+        "sourceName": "Pacer Sandsjön - Kvarnforsen - Gyltige",
+        "url": "https://www.mypacer.com/routes/ohzczl/hallandsleden-stage-sandsj%C3%B6n-kvarnforsen-gyltige-hiking-trail-hallands-l%C3%A4n",
+        "reportDate": "Updated 2026-04-01",
+        "matchedSegmentation": "Old combined route including part of M6.",
+        "findings": [
+          "20.1 mi route, one review shown but no review text exposed. Rated hard because it combines multiple stages; not evidence that M6 alone is hard."
+        ],
+        "conditionValue": "Low."
+      },
+      {
+        "sourceType": "field_media",
+        "sourceName": "Flickr Gyltige to Sandsjön photo",
+        "url": "https://www.flickr.com/photos/72616463@N00/53340003025",
+        "reportDate": "Taken 2021-06-20",
+        "matchedSegmentation": "Adjacent/combined Gyltige-Sandsjön old route.",
+        "findings": [
+          "Confirms passage through the old combined section; no condition issue stated."
+        ],
+        "conditionValue": "Low."
+      },
+      {
+        "sourceType": "route_app_reviews_adjacent",
+        "sourceName": "AllTrails Rydöbruk loop",
+        "url": "https://www.alltrails.com/trail/sweden/halland/rydobruk",
+        "reportDate": "Reviews January-September 2025",
+        "matchedSegmentation": "Adjacent local Rydöbruk loop, not M6.",
+        "findings": [
+          "2025 reviews mention good/great conditions, free large parking, not crowded and some tarmac. Not transferable to M6 except near-start context."
+        ],
+        "conditionValue": "Low."
+      }
+    ],
+    "conditionSignals": {
+      "terrain": [
+        "Official page and old Kvarnforsen-Sandsjön report both support easy/green difficulty and forest/gravel/asphalt road character.",
+        "Route apps rate old combined Sandsjön-Kvarnforsen-Gyltige moderate/hard, but this should not be applied to M6 alone."
+      ],
+      "signageMaintenance": [
+        "No exact M6-specific current signage problem found.",
+        "2016 access-to-Sandsjön issue involved private/unauthorized-access and loose-dog signs on a car approach, not necessarily Hallandsleden signage."
+      ],
+      "sheltersToiletsFirewood": [
+        "Current official/Naturkartan evidence supports shelters/fireplaces/dry toilets/bins at Sandsjön and Kvarnforsen.",
+        "No recent exact field report on shelter/toilet/firewood state found."
+      ],
+      "waterMudFlooding": [
+        "No exact M6 mud/flood report found.",
+        "Adjacent old Gyltige-Kvarnforsen storm/high-water/slippery-bridge notes were outside M6 and stale."
+      ],
+      "roadTraffic": [
+        "2016 old-stage report noted one fast-passing car; route includes asphalt/gravel roads and farm/property access."
+      ],
+      "currentClosures": [
+        "No public indexed current closure/reroute note found for M6 in searched sources."
+      ]
+    }
+  },
+  "sourceContradictions": [
+    {
+      "issue": "distance mismatch",
+      "sources": [
+        "Hallandsleden official page/API",
+        "official GPX",
+        "Naturkartan",
+        "Hylte/Woods of Halland"
+      ],
+      "details": "Official page/API says 10 km/10000 m; GPX desc is Total: 10.3 km and computed geometry 10.248 km; Naturkartan displays 10.4 km; Woods/Hylte page title says 11 km.",
+      "resolution": "Use official displayed 10 km for rounded section metadata; preserve GPX computed 10.248 km and Naturkartan/Woods variants in research notes.",
+      "importImpact": "Do not force geometry length to 10 km or import 11 km as canonical."
+    },
+    {
+      "issue": "canonical geometry conflict",
+      "sources": [
+        "official GPX/API geo_json/Naturkartan",
+        "Hallandsleden API line.geometry",
+        "OSM relation 5599309"
+      ],
+      "details": "Current official GPX/API/Naturkartan starts at Rydöbruk 56.957390,13.142808 and ends at Kvarnforsen 56.894596,13.188851. API line.geometry and OSM relation preserve old Sandsjön-Kvarnforsen-Gyltige linework starting at Sandsjön and continuing beyond Kvarnforsen.",
+      "resolution": "Use official GPX/API geo_json as canonical. Treat API line.geometry and OSM relation 5599309 as stale/secondary source-risk records.",
+      "importImpact": "Do not import old Sandsjön-Kvarnforsen-Gyltige as current M6."
+    },
+    {
+      "issue": "branch/order handoff ambiguity",
+      "sources": [
+        "M6 Hallandsleden page/API next card",
+        "Kvarnforsen - Gyltige official page/GPX",
+        "Mellersta section inventory"
+      ],
+      "details": "M6 same-track next card points to Ästad - Vessigebro on Mellersta delleden, which is not geographically continuous. Physical onward route from Kvarnforsen is Kvarnforsen - Gyltige on Södra delleden.",
+      "resolution": "Model M6 as end of Mellersta western branch and physical handoff to Södra Kvarnforsen - Gyltige. Do not imply geographic continuity to Ästad - Vessigebro.",
+      "importImpact": "Requires branch-aware route ordering/navigation."
+    },
+    {
+      "issue": "M5 leaked places/images",
+      "sources": [
+        "M5 places API/image carousel",
+        "M6 prose/API/facilities lane"
+      ],
+      "details": "M5 sources include Lahult/Sandsjön/Kvarnforsen records/images, but M6 prose/API clearly assign them to M6.",
+      "resolution": "Suppress Lahult/Flottningsrännan/Sandsjön/Kvarnforsen from M5 core and import under M6; share only Rydöbruk endpoint records where appropriate.",
+      "importImpact": "Avoid duplicate or wrong-section facility imports."
+    },
+    {
+      "issue": "shelter capacity wording",
+      "sources": [
+        "Hallandsleden section prose",
+        "Sandsjön/Woods-style place text"
+      ],
+      "details": "Section prose says shelters can accommodate 4-6 adults, while Sandsjön place/Woods text says 4-5 people.",
+      "resolution": "Use cautious capacity text or omit exact capacity in normalized data unless facility-specific source is chosen.",
+      "importImpact": "Avoid over-specific shelter capacity claims."
+    },
+    {
+      "issue": "Kvarnforsen water status",
+      "sources": [
+        "Hallandsleden places API/category checks",
+        "Naturkartan Kvarnforsen shelter"
+      ],
+      "details": "Hallandsleden drinking-water category returns zero for M6. Naturkartan says nearby landowner can provide drinking water/firewood/shower.",
+      "resolution": "Treat Kvarnforsen water as conditional/private pending, not guaranteed public water.",
+      "importImpact": "Do not import as public drinking-water source."
+    },
+    {
+      "issue": "active food-service conflict near start",
+      "sources": [
+        "OSM/BokaBord-like traces",
+        "Knystaria website"
+      ],
+      "details": "Knystaria appears in OSM or booking traces near the start, but current Knystaria site says closed.",
+      "resolution": "Suppress Knystaria as active food/service unless a current reopening source appears.",
+      "importImpact": "Avoid stale commercial service."
+    }
+  ],
+  "researchIterations": [
+    {
+      "iteration": 1,
+      "startedAt": "2026-04-29T22:08:39Z",
+      "completedAt": "2026-04-29T22:20:32Z",
+      "approach": "Six parallel research/report lanes plus main-thread official/API/GPX/Naturkartan/OSM/places/transit cross-checks. All lanes returned; no targeted second batch was needed because remaining gaps are import/currentness caveats rather than section-research blockers.",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb49-7072-79a0-a62c-1c46d9ac8da9",
+          "nickname": "Chandrasekhar",
+          "summary": "Confirmed canonical M6 identity, 10 km/easy, official prose, Sandsjön/Kvarnforsen shelters, no official water record, reassignment of M5-suppressed records to M6, and branch-handoff contradiction."
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb49-70b7-7aa1-93f6-fb216f13bb94",
+          "nickname": "Kuhn",
+          "summary": "Confirmed official GPX/API geo_json as canonical 161-point 10.248 km route with Naturkartan simplified match, M5 continuity, Kvarnforsen handoff caveat and suppression of stale API line.geometry/OSM old combined route."
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb49-729e-76d2-a58e-4cb827bfcdda",
+          "nickname": "Nietzsche",
+          "summary": "Collected official/Naturkartan/Hylte/OSM/local facility records and core/pending/suppress decisions: Sandsjön/Kvarnforsen shelters, Lahult/Flottningsrännan heritage, Fika/Lahult services, access metadata, conditional Kvarnforsen water and closed Knystaria suppression."
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb49-72d5-7952-853d-d095b8febd43",
+          "nickname": "Epicurus",
+          "summary": "Confirmed strong Rydöbruk line 401 start access, no regular Rydöbruk train modeling, no direct Kvarnforsen public transport, weak/unverified parking/pickup options and distant fallback hubs."
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb49-72ff-7b32-80b9-76732ca52669",
+          "nickname": "Euclid",
+          "summary": "Found thin exact/current field coverage: 2023 Sandsjön-Gammalsbo local walk, older 2016 Kvarnforsen-Sandsjön and Sandsjön-Rydöbruk reports, route-app old combined sections, no current detailed closure/signage/shelter-condition report."
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb49-736b-7822-8b95-5a4b836f87e8",
+          "nickname": "Planck",
+          "summary": "Found no protected-area/Natura 2000/water-protection overlap, no active forestry notifications and no official closure/reroute; added dynamic fire, dogs/leash/gates/livestock, hunting, road/watercourse/dam and industrial-landfill caveats."
+        }
+      ],
+      "mainThreadChecks": [
+        "Checked official Swedish/English page crawler text for current title, 10 km, green difficulty, prose, sights and shelter text.",
+        "Fetched official GPX and computed 161 points, 10.248 km, endpoints, max segment and M5/Kvarnforsen handoff context.",
+        "Checked Hallandsleden map API and confirmed API geo_json exact GPX match plus stale line.geometry conflict.",
+        "Checked official places API and computed route proximity for 12 records.",
+        "Checked Naturkartan page/site id 133005 and API shape, title/slug/length/currentness.",
+        "Checked Woods of Halland 11 km page and identified stale whole-trail text plus parking/shelter caveat value.",
+        "Queried OSM relation 5599309 and confirmed stale old Sandsjön-Kvarnforsen-Gyltige segmentation.",
+        "Queried ResRobot/Hallandstrafiken/OSM for Rydöbruk and Kvarnforsen access clues and validated transit lane conclusions."
+      ],
+      "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around official 10 km versus GPX/Naturkartan/Woods distance variants, canonical 161-point official GPX/API geometry versus stale API line.geometry/OSM Sandsjön-Kvarnforsen-Gyltige linework, M5-suppressed records assigned to M6, branch-end/physical Kvarnforsen-Gyltige handoff, no direct Kvarnforsen transit, no public official potable water, Kvarnforsen conditional/private water and parking/gate caveats, dynamic fire/hunting/currentness and old landfill/industrial-area caution."
+    }
+  ],
+  "openQuestions": [
+    "Before normalization, decide branch modeling for M6: current recommendation is to model Kvarnforsen as the end of Mellersta western branch with physical onward handoff to Södra Kvarnforsen - Gyltige, not to non-contiguous Ästad - Vessigebro.",
+    "Before import, ask Hallandsleden why M6 API line.geometry still exposes old Sandsjön-Kvarnforsen-Gyltige linework and whether it will be corrected.",
+    "Before import, verify Kvarnforsen endpoint parking and gate/private-road access with local signage or landowner/Hylte source; do not promise parking at the shelter.",
+    "Before publication, recheck Hallandstrafiken line 401/430/847 timetables after 2026-06-14 and live trip planning.",
+    "Before import, verify current operation/opening hours for Fika by Steph, Lahults B&B/Lahultsboden, Rydö Bruksmuseum and Knystaforsen destination records if any commercial records are normalized.",
+    "Before import, geocode/verify precise coordinate for Knystaforsen destination restaurant/lodging if it is to be included.",
+    "Before publication/use, recheck same-day fire-ban status through Hylte/Länsstyrelsen/Krisinformation/Brandrisk Ute.",
+    "Before publication/use, check Trafikverket live road/incident map for access and road walking around Rydöbruk/Lahult/Kvarnforsen.",
+    "Field-check local signage for hunting, forestry work, closed gates, bridges, deviation signs, Kvarnforsen camp/gate access and old landfill/industrial-area cautions.",
+    "Do not import Kvarnforsen conditional/private landowner water as guaranteed public drinking water unless a public/current source confirms it."
+  ],
+  "importReadiness": {
+    "overall": "research-ready-with-caveats",
+    "identity": "ready: canonical official identity is Rydöbruk - Kvarnforsen, Mellersta delleden, M6 local label.",
+    "geometry": "ready with caveats: official GPX/API geo_json is canonical and Naturkartan corroborates; API line.geometry and OSM relation 5599309 must be suppressed as current M6 geometry.",
+    "endpoints": "ready with caveats: Rydöbruk start and Kvarnforsen end have high-confidence official GPX endpoints; Kvarnforsen onward handoff needs branch-aware modeling.",
+    "commuteAccess": "partially ready: Rydöbruk start bus access is strong; Kvarnforsen has no direct regular transit and parking/pickup/private-road access requires verification.",
+    "facilities": "mostly ready: core official facilities have coordinates/import decisions; commercial currentness, Kvarnforsen conditional water and parking/gate access need verification; Knystaria and natural-water potable claims should be suppressed.",
+    "water": "ready with strong caveat: no official public drinking-water point; Kvarnforsen landowner water is conditional/private pending only; natural waters are not potable.",
+    "rulesSafety": "ready with dynamic caveats: no protected-area/Natura 2000/water-protection/active forestry/closure overlap found, but add dynamic fire, dog/gate/livestock, hunting, watercourse/dam/road and industrial-landfill cautions.",
+    "fieldReports": "thin for current conditions: no recent detailed full-section condition report; use field reports mainly for historical terrain/access context and source-risk evidence.",
+    "doNotImportYet": [
+      "Do not integrate into runtime app data.",
+      "Do not use Hallandsleden API line.geometry or OSM relation 5599309 as current M6 geometry.",
+      "Do not attach old Sandsjön-Kvarnforsen-Gyltige segmentation to M6 except as stale-source evidence.",
+      "Do not imply geographic continuity from Kvarnforsen to Ästad - Vessigebro.",
+      "Do not import public potable water for M6 from current evidence.",
+      "Do not import Kvarnforsen water/firewood/shower as guaranteed public service.",
+      "Do not import parking at Kvarnforsen shelter as official/public parking without local verification.",
+      "Do not import Knystaria as active food/service while current site says closed.",
+      "Do not tag M6 as inside protected area, Natura 2000, water-protection area, active forestry area or closure without new evidence."
+    ]
+  }
+}
