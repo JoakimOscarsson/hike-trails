@@ -84,11 +84,13 @@ export async function writeTrailSystemShards(trailSystem, publicTrailSystemsDir)
   await removeUnexpectedJsonFiles(sectionsDir, new Set(sections.map((section) => `${section.id}.json`)));
 }
 
-export function trailSystemShardIndexPaths(trailSystemId) {
-  return {
+export function trailSystemShardIndexPaths(trailSystemId, { hasConnections = false } = {}) {
+  const paths = {
     manifestPath: runtimePath(trailSystemId, "manifest.json"),
     sectionsIndexPath: runtimePath(trailSystemId, "sections-index.json"),
     routeGroupsPath: runtimePath(trailSystemId, "route-groups.json"),
     presetsPath: runtimePath(trailSystemId, "presets.json")
   };
+  if (hasConnections) paths.connectionsPath = runtimePath(trailSystemId, "connections.json");
+  return paths;
 }

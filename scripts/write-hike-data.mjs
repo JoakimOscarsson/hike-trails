@@ -117,7 +117,7 @@ function toTrailSystemIndexItem(trailSystem) {
     estimatedTime: trailSystem.estimatedTime,
     routeType: trailSystem.routeType,
     overviewFeatureId: trailSystem.id,
-    ...trailSystemShardIndexPaths(trailSystem.id),
+    ...trailSystemShardIndexPaths(trailSystem.id, { hasConnections: Boolean((trailSystem.connections ?? []).length) }),
     searchText: normalizeSearchText(searchText)
   };
 }

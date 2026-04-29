@@ -4,7 +4,7 @@ Date: 2026-04-29
 
 Workspace target: `/Users/joakim/Documents/codex/hike-trails`
 
-Status: Slice 6 completed; Slice 7 not started.
+Status: Slice 7 completed; Slice 8 not started.
 
 This is a living development plan for bringing Stockholm Archipelago Trail into the app. It is intentionally concrete: every slice has a scope, likely files, a definition of done, and validation notes. The trail is ferry-dependent, so ferry transfers are first-class route connections, not just text notes.
 
@@ -36,7 +36,7 @@ Important rule: the candidate research file is an input only. Runtime code must 
 - [x] Slice 4: Create Stockholm Archipelago Trail hiking source shards.
 - [x] Slice 5: Normalize and import facilities.
 - [x] Slice 6: Update access, detail, and route-builder UX for ferry-dependent sections.
-- [ ] Slice 7: Add build scripts and generated runtime outputs.
+- [x] Slice 7: Add build scripts and generated runtime outputs.
 - [ ] Slice 8: Add validation and tests.
 - [ ] Slice 9: Complete browser/product QA.
 - [ ] Slice 10: Update documentation and release notes.
@@ -494,6 +494,13 @@ Work:
 - Ensure generated outputs are deterministic and stable under repeated `npm run data:build`.
 - Keep source shards as the authoring source; generated public JSON remains disposable.
 
+Completed:
+
+- Confirmed the main `npm run data:build` path reads app-owned hiking source shards, including SAT, and regenerates public trail-system shards from those sources.
+- Kept SAT-specific research import logic isolated in `scripts/build-stockholm-archipelago-trail-source-shards.mjs`; the normal public build does not read candidate research directly.
+- Added deterministic `connectionsPath` emission to generated trail-system index records when a trail system has connection shards, so SAT advertises `/data/trail-systems/stockholm-archipelago-trail/connections.json` from both the manifest and library index.
+- Regenerated the public library indexes; generated churn was limited to the expected SAT `connectionsPath` field.
+
 Definition of done:
 
 - `npm run data:build` includes SAT or calls a documented SAT build slice.
@@ -506,6 +513,19 @@ Validation:
 - `npm run data:build`
 - `npm run data:check`
 - Review `git diff` to confirm generated churn is limited and expected.
+
+Completed validation:
+
+- `npm run data:build`
+- `npm run data:check`
+- `npm run data:validate`
+- `npm run runtime:probe`
+- `npm run typecheck`
+- `npm run test:unit`
+- `npm run build`
+- `node --check scripts/lib/write-trail-system-shards.mjs`
+- `node --check scripts/write-hike-data.mjs`
+- `git diff` review: only `connectionsPath` was added to `public/data/library-index.hiking.json` and `public/data/library-index.json`; no unrelated generated data churn.
 
 ## Slice 8: Validation And Automated Tests
 
