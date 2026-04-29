@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-29T21:31:38Z",
-  "currentPhase": "Phase 2 section research complete for hallandsleden-karnebygd-atran; ready to start hallandsleden-atran-langesjon",
+  "lastUpdated": "2026-04-29T21:47:31Z",
+  "currentPhase": "Phase 2 ready to start section research for hallandsleden-langesjon-rydobruk",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -13,7 +13,8 @@
     "hallandsleden-varberg-akulla",
     "hallandsleden-akulla-ullared",
     "hallandsleden-ullared-karnebygd",
-    "hallandsleden-karnebygd-atran"
+    "hallandsleden-karnebygd-atran",
+    "hallandsleden-atran-langesjon"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -300,19 +301,23 @@
       "sectionNumber": "M4",
       "name": "Ätran - Långesjön",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-map-line-discovered-needs-gpx-cross-check",
-      "startEndCoordinateStatus": "official-map-line-endpoints-captured-needs-validation",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-six-lane-synthesis",
+      "routeGeometryStatus": "complete-official-gpx-api-geojson-naturkartan-canonical-api-line-and-osm-stale-secondary",
+      "startEndCoordinateStatus": "complete-official-gpx-api-naturkartan-with-m3-m5-continuity",
+      "commuteAccessStatus": "complete-strong-atran-no-direct-langesjon-transit-kinnared-fallbacks-with-caveats",
+      "facilityResearchStatus": "complete-core-facilities-ready-side-services-duplicates-and-krogsered-component-caveats",
+      "rulesSafetyStatus": "complete-no-direct-protected-area-overlap-lysegardsmossen-nearby-atran-vso-dynamic-fire-dog-hunting-closure-caveats",
+      "synthesisStatus": "complete-section-file-written",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
-        "Run six independent section research lanes and synthesize findings.",
-        "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
-        "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Before normalization, decide whether side services 400 m to 4.1 km from the current GPX should be imported, modeled as side-service metadata, or suppressed. Current recommendation: import/merge Wismhult/Wismens only if side-service policy supports 400 m off-route lodging/activity; suppress Fegens Vandrarhem from core M4.",
+        "Before import, verify current operation/opening hours for Ätrans Restaurang, Lanthandlaren i Ätran, Ätrans Turist & Fritid, Sjöviken/Sauna/boat rental, Wismhult/Wismens and Bergåsa if any commercial records are normalized.",
+        "Before import, rerun protected-area QA with final chosen/snapped geometry because Lysegårdsmossen reserve boundary is about 20.5 m from the official GPX near route km 11.47.",
+        "Before publication, recheck live fire-ban status, forestry/road works and temporary route closures/reroutes through Hallandsleden, Länsstyrelsen, municipal/rescue-service and Krisinformation sources.",
+        "Do not promise firewood availability at shelters; Hallandsleden says no firewood is placed during fire bans and field reports are stale.",
+        "Do not import Långesjön as directly served by public transport or as having verified public parking without further access verification.",
+        "If app rendering/navigation requires denser linework, densify or QA the 516-point official GPX later without replacing its official provenance.",
+        "Preserve the working Hallandsleden places API page-form query parameters in any future collector so M4 facilities are not missed."
       ]
     },
     "hallandsleden-langesjon-rydobruk": {
@@ -1561,18 +1566,246 @@
         }
       ],
       "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around stale Kvarnlyckan/Eseredssjön naming, official GPX/API geo_json canonical geometry versus stale API line.geometry/OSM 12.3 km linework, weak Kärnebygd access, strong Ätran access, side-distance shelters, Ätran-only potable water, Ätran water-protection endpoint overlap, dynamic fire/currentness checks and thin field reports."
+    },
+    {
+      "batchId": "hallandsleden-atran-langesjon-initial-6-lane-2026-04-29",
+      "sectionId": "hallandsleden-atran-langesjon",
+      "startedAt": "2026-04-29T21:33:14Z",
+      "status": "complete-six-lane-synthesis-complete",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb28-fa27-7f82-8d09-79db05df57a6",
+          "nickname": "Raman"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb28-fb04-75a1-9a84-4b08f5ceb010",
+          "nickname": "Beauvoir"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb28-fbc1-7ff3-b5f9-bad6b0efe031",
+          "nickname": "Hypatia"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb28-fc8b-7633-a34b-a2990570c5da",
+          "nickname": "Bacon"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb28-fd5c-72a1-813e-4b3f422fb500",
+          "nickname": "Helmholtz"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb28-fe52-7cc0-90ec-998e05d11449",
+          "nickname": "Faraday"
+        }
+      ],
+      "requestedOutputs": [
+        "official facts",
+        "geometry verification",
+        "facilities",
+        "transit/access",
+        "field reports",
+        "rules/safety/currentness"
+      ],
+      "notes": [
+        "Focus on Ätran/Eseredssjön handoff from M3, old Eseredssjön-Långesjön segmentation, official GPX/API/Naturkartan/OSM geometry conflicts, Ätran endpoint access/service dedupe, Långesjön endpoint access, and water/shelter/campsite status."
+      ],
+      "receivedReports": [
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb28-fd5c-72a1-813e-4b3f422fb500",
+          "receivedAt": "2026-04-29T21:36:06Z",
+          "summary": "Found moderate but uneven field-report coverage. One detailed 2016 En Vandringssaga report gives historical maintenance/signage, electric-fence and slippery-board cautions but is stale for current condition; 2024-2025 Wikiloc/Pacer/community records confirm use and distance variation but have little condition detail. No recent exact-section closure, bridge damage, missing signage or shelter failure report found. Stale Eseredssjön-Långesjön naming persists in Wikiloc/Pacer/Naturkartan slug/local tourism wording.",
+          "keySources": [
+            "https://www.bejegard.se/vandring/halland/hallandsleden/hallandsleden-eseredssjon-langesjon/",
+            "https://ca.wikiloc.com/rutes-outdoor/atran-langesjon-gpx-185281847",
+            "https://ca.wikiloc.com/rutes-senderisme/eseredssjon-langesjon-41169837",
+            "https://ca.wikiloc.com/rutes-correr/hallandsleden-0-atran-krogsered-sur-tracedetrail-fr-53417856",
+            "https://ca.wikiloc.com/rutes-senderisme/vandring-runt-eseredssjon-i-atran-halland-233570977",
+            "https://www.mypacer.com/routes/ohzc8c/hallandsleden-stage-eseredssj%C3%B6n-l%C3%A5ngesj%C3%B6n-hiking-trail-hallands-l%C3%A4n",
+            "https://www.naturkartan.se/en/hallands-lan/eseredssjon-langesjon-hallandsleden",
+            "https://www.flickr.com/photos/72616463%40N00/53698526845/",
+            "https://www.reddit.com/r/friluftslivSverige/comments/1kl0jwv/hallandsleden/",
+            "https://www.reddit.com/r/friluftslivSverige/comments/1s9p9kn/tips_s%C3%B6kes/"
+          ]
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb28-fb04-75a1-9a84-4b08f5ceb010",
+          "receivedAt": "2026-04-29T21:37:22Z",
+          "summary": "Confirmed official GPX, Hallandsleden API geo_json and Naturkartan site 22042 exactly match: 516 vertices, start 57.121682,12.948858, end 57.0368,13.011827, computed 21.293 km, max segment about 254.4 m. Recommended planning-grade canonical geometry from official GPX/API geo_json. API line.geometry and OSM relation 4219135 preserve old Eseredssjön-Långesjön semantics and should be secondary/stale only.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/atran-langesjon",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Atran_Langesjon.gpx",
+            "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=atran-langesjon&token=<public-page-token>",
+            "https://www.naturkartan.se/sv/hallands-lan/eseredssjon-langesjon-hallandsleden",
+            "https://api.naturkartan.se/v2/sites/22042",
+            "https://www.openstreetmap.org/relation/4219135"
+          ],
+          "canonicalGeometry": {
+            "points": 516,
+            "start": [
+              57.121682,
+              12.948858
+            ],
+            "end": [
+              57.0368,
+              13.011827
+            ],
+            "computedKm": 21.293,
+            "officialDistance": "22 km rounded on official page/API; GPX desc Total: 21.3 km",
+            "grade": "planning-grade",
+            "continuity": {
+              "m3GpxEndToM4GpxStart": "5.6 m",
+              "m4GpxEndToM5GpxStart": "5.3 m"
+            }
+          }
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb28-fc8b-7633-a34b-a2990570c5da",
+          "receivedAt": "2026-04-29T21:38:37Z",
+          "summary": "Confirmed Hållplats Ätran as high-confidence direct bus access about 16 m from the official GPX start, served by Hallandstrafiken/ResRobot line 558 corridor. No direct public-transport stop was verified at Långesjön; official places API exposes no Långesjön transit POI and ResRobot Långesjön search did not find a relevant stop. Closest identified fallbacks are Kinnared Kyrkebol bus stop about 5.4 km straight-line and Kinnared station about 5.8 km straight-line, with walking-route/private-road caveats.",
+          "keySources": [
+            "https://www.hallandsleden.se/plats/hallplats-atran",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Atran_Langesjon.gpx",
+            "https://www.hallandsleden.se/api/v2/places?trackSegment=atran-langesjon&bigLimit=150&withImages=true&output=json&token=<public-page-token>",
+            "https://samtrafiken.hafas.cloud/bin/ajax-getstop.exe/en?L=vs_resrobot&REQ0JourneyStopsS0A=1&REQ0JourneyStopsB=12&REQ0JourneyStopsF=excludeMetaStations&S=%C3%84tran",
+            "https://samtrafiken.hafas.cloud/bin/ajax-getstop.exe/en?L=vs_resrobot&REQ0JourneyStopsS0A=1&REQ0JourneyStopsB=12&REQ0JourneyStopsF=excludeMetaStations&S=Kinnared",
+            "https://www.hallandstrafiken.se/rest-api/rh-timetables-backend/search-results?query=558",
+            "https://www.hallandstrafiken.se/rest-api/rh-timetables-backend/search-results?query=430",
+            "https://www.krosatagen.se/english/"
+          ],
+          "accessDecisions": {
+            "directStart": "Hållplats Ätran, bus, 57.12181,12.948754, about 16 m from GPX start, high confidence.",
+            "directEnd": "No direct Långesjön stop verified; do not model direct transit.",
+            "fallbackEnd": "Kinnared Kyrkebol bus about 5.4 km straight-line, Kinnared station train/bus about 5.8 km straight-line; both need walking-route validation."
+          }
+        },
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb28-fa27-7f82-8d09-79db05df57a6",
+          "receivedAt": "2026-04-29T21:40:03Z",
+          "summary": "Confirmed canonical official identity Ätran - Långesjön, slug atran-langesjon, Mellersta delleden, distance 22 km rounded on page/API, GPX desc/computed 21.3 km/21.293 km, Naturkartan visible 20.0 km, blue/medium difficulty and no official estimated time. Swedish official page and places API list shelters at Eseredssjön, Krogsered/Lyngsjön and Långesjön; English accommodation text omits the new Krogsered shelter. Falkenberg confirms Lyngsjön bathing area/toilet/rubbish/grill and shelter since 2025; Hylte confirms Långesjön shelter/fireplace/dry toilet.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/atran-langesjon",
+            "https://www.hallandsleden.se/en/etapp/atran-langesjon",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Atran_Langesjon.gpx",
+            "https://www.hallandsleden.se/kartplaneringsverktyg/hallandsleden/atran-langesjon",
+            "https://www.naturkartan.se/sv/hallands-lan/eseredssjon-langesjon-hallandsleden",
+            "https://api.naturkartan.se/v2/sites/22042",
+            "https://falkenberg.se/se-gora/aktiviteter/vandra/vindskydd-langs-hallandsleden/",
+            "https://falkenberg.se/en/se-gora/aktiviteter/bada-simma/insjobad/",
+            "https://www.hylte.se/visit-hylte/woods-of-halland/vibe-spaces",
+            "https://www.hylte.se/visit-hylte/woods-of-halland/hiking-trails",
+            "https://www.hallandsleden.se/item/viktig-information/i48rep1ncwkafz7wux50lp0dhxvboodp",
+            "https://hallandsleden.se/item/nya-leddragningar-1/f22cgopgvzykg0snvt9jgr6lxgvdb1n5",
+            "https://geodata.naturvardsverket.se/naturvardsregistret/rest/v3/"
+          ],
+          "contradictions": [
+            "Official page/API says 22 km; GPX desc/computed geometry says about 21.3 km; Naturkartan displays 20.0 km.",
+            "GPX/API geo_json/Naturkartan current route starts at Ätran while API line.geometry starts near old Eseredssjön point.",
+            "Swedish page/places API/Falkenberg source include new Krogsered/Lyngsjön shelter; English accommodation text omits it."
+          ]
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb28-fbc1-7ff3-b5f9-bad6b0efe031",
+          "receivedAt": "2026-04-29T21:43:18Z",
+          "summary": "Found strong official/on-route facility coverage. Core import candidates include Ätran grocery/water/toilet/food/lodging/bath access, Eseredssjön bath/shelter, Morfars Glänta, Krogsered church/water, Krogsered shelter, Lyngsjön bath/toilet/bbq/waste, Brännvinsgölen, Wismhult/Wismens side lodging/activity, and Långesjön shelter/toilet/waste endpoint. Suppress or keep pending broad side/regional records such as Fegens Vandrarhem, Bergåsa B&B, Bockasten and Väghållningsstenar. Model Krogsered shelter and Lyngsjön bath/toilet cluster separately.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/atran-langesjon",
+            "https://www.hallandsleden.se/api/v2/places?trackSegment=atran-langesjon&bigLimit=150&withImages=true&output=json&token=<public-page-token>",
+            "https://www.naturkartan.se/sv/hallands-lan/eseredssjon-langesjon-hallandsleden",
+            "https://www.naturkartan.se/sv/hallands-lan/eseredssjon",
+            "https://www.naturkartan.se/sv/hallands-lan/vindskydd-krogsered",
+            "https://www.naturkartan.se/sv/hallands-lan/badplats-lyngsjon-krogsered",
+            "https://www.naturkartan.se/sv/hallands-lan/langesjon",
+            "https://www.falkenberg.se/se-gora/aktiviteter/bada-simma/insjobad/lyngsjon/",
+            "https://www.hylte.se/visit-hylte/woods-of-halland/hiking-trails",
+            "https://www.hylte.se/visit-hylte/woods-of-halland/vibe-spaces",
+            "https://overpass-api.de/api/interpreter"
+          ],
+          "facilityDecisions": {
+            "importCore": [
+              "Lanthandlaren i Ätran",
+              "Dricksvatten Ätran",
+              "Ätrans Restaurang",
+              "Ätrans Turist & Fritid",
+              "Eseredssjöns badplats",
+              "Lägerplats Eseredssjön",
+              "Krogsereds kyrka",
+              "Dricksvatten Krogsered kyrka",
+              "Lägerplats Krogsered",
+              "Lyngsjöns badplats i Krogsered",
+              "Brännvinsgölen",
+              "Lägerplats Långesjön"
+            ],
+            "pendingOrSide": [
+              "Ätran central parking",
+              "Sjövikens Badanläggning",
+              "Bastu vid Sjöviken",
+              "Fiske / båt- och kanotuthyrning i Eseredssjön",
+              "Naturzonen i Wismhult / Wismens Natur & Fiske",
+              "Bergåsa Bed & Breakfast",
+              "Bockasten",
+              "Väghållningsstenar"
+            ],
+            "suppressCore": [
+              "Fegens Vandrarhem"
+            ]
+          }
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb28-fe52-7cc0-90ec-998e05d11449",
+          "receivedAt": "2026-04-29T21:46:21Z",
+          "summary": "Found no direct protected-area/Natura 2000/reserve overlap for the official M4 GPX, but Lysegårdsmossen nature reserve lies about 20.5 m from the route near km 11.47 and needs final-geometry QA. Ätran vattenskyddsområde intersects route km 0.00-0.90; Nedre Ätran VSO does not overlap the GPX in this check. Fire-ban status is dynamic; do not encode a durable no-ban claim. Standard Hallandsleden dog/leash, livestock, hunting August-January, forestry, roots/boardwalk and limited-water caveats apply. No M4-specific current closure/reroute found on 2026-04-29.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/atran-langesjon",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Atran_Langesjon.gpx",
+            "https://geodata.naturvardsverket.se/inspire/ps/wfs",
+            "https://geodata.naturvardsverket.se/naturvardsregistret/rest/v3",
+            "https://www.lansstyrelsen.se/halland/samhalle/sakerhet-och-beredskap/brandrisk-och-eldningsforbud.html",
+            "https://www.rvast.se/4.6467b870182d89339633ae.html",
+            "https://www.hylte.se/bygga-bo-och-miljo/raddningstjansten/brandsakerhet/eldning-och-brandrisk",
+            "https://www.hylte.se/bygga-bo-och-miljo/raddningstjansten/brandsakerhet/brandsakerhet-for-markagare",
+            "https://www.krisinformation.se/forbered-dig/gras--och-skogsbrand/eldningsforbud/",
+            "https://ext-geodata-nationella-visning.lansstyrelsen.se/arcgis/rest/services/LST/LST_eldningsforbud_EXT/MapServer/0",
+            "https://hallandsleden.se/item/kolla-brandrisken-4/h1orikco24kzjjuuyczmerpw6s8fe3it",
+            "https://www.hallandsleden.se/item/vandra-med-hund/gkvddie3ttmazifzlnqae9q4phuhj32b",
+            "https://www.hallandsleden.se/item/vandra-under-jaktsasongen/fxm1j3j5ltmdkd65aqrztndfqhr3txnq",
+            "https://www.lansstyrelsen.se/halland/djur/jakt-och-vilt/algjakt.html",
+            "https://www.lansstyrelsen.se/halland/om-oss/nyheter-och-press/nyheter----halland/2025-09-19-beslut-om-inrattande-av-vattenskyddsomrade-for-ytvattentakten-nedre-atran-i-falkenbergs-hylte-och-varbergs-kommuner.html"
+          ],
+          "importImpacts": [
+            "Attach Ätran VSO only to start/first kilometre, not entire section.",
+            "Flag Lysegårdsmossen near-boundary protected-area QA for final geometry.",
+            "Use dynamic fire/currentness advisory only.",
+            "Add roots, wet boardwalks, limited potable water, dog/livestock and hunting-season caveats."
+          ]
+        }
+      ],
+      "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around stale Eseredssjön-Långesjön naming, official 22 km versus computed 21.293 km/Naturkartan 20.0 km distance conflict, canonical 516-point planning-grade GPX/API/Naturkartan geometry, no direct Långesjön transit, Krogsered shelter versus Lyngsjön bath/toilet component split, side-service over-inclusion, Ätran VSO first-kilometre overlap, Lysegårdsmossen near-boundary protected-area QA, dynamic fire/currentness and thin recent field condition evidence.",
+      "completedAt": "2026-04-29T21:47:31Z",
+      "outputFile": "sections/hallandsleden-atran-langesjon.research.json"
     }
   ],
   "sourceCoverage": {
     "officialOverview": "complete-initial-pass",
     "officialSectionInventory": "complete-initial-pass-35-sections",
-    "officialGeometry": "complete-for-first-eleven-sections-through-m3-with-api-line_geometry-caveats-and-m3-gpx-api-naturkartan-canonical-shape-confirmed",
-    "municipalities": "overview-list-captured-from-official-footer-n1-n2-n3-n4-n5-n6-n7-n8-m1-m2-m3-section-specific-pages-reviewed",
-    "protectedAreas": "complete-for-first-eleven-sections-with-n4-skoga-overlay-pending-n5-water-protection-note-n6-markedalen-akullaboket-caveats-n7-akullaboket-toppbjar-langanskogen-skarback-skogsbo-valaklitt-overlay-caveats-n8-akullaboket-nabben-grimeton-overlay-caveats-m1-akullaboket-nedre-atran-yasjon-caveats-m2-hogvadsan-natura-water-protection-caveats-and-m3-no-direct-protected-area-overlap-atran-vso-caveat",
-    "transitOperators": "complete-for-first-eleven-sections-with-m1-seasonal-akulla-and-strong-ullared-terminal-caveats-m2-strong-ullared-weak-karnebygd-access-caveats-and-m3-strong-atran-weak-karnebygd-access-caveats",
-    "facilities": "complete-for-first-eleven-sections-with-m1-gekas-ullared-overinclusion-and-akulla-dedupe-caveats-m2-kogstorp-leakage-ullared-overinclusion-karnebygd-water-caveats-and-m3-side-access-shelter-eseredssjon-atran-service-caveats",
-    "fieldReports": "complete-for-first-eleven-sections-with-m1-full-stage-field-report-thinness-caveat-m2-thin-but-useful-2017-2025-field-evidence-and-m3-thin-segmentation-focused-evidence",
-    "rulesSafety": "overview-pass-complete-n1-n2-n3-n4-n5-n6-n7-n8-m1-m2-m3-section-specific-complete"
+    "officialGeometry": "complete-for-first-twelve-sections-through-m4-with-m4-gpx-api-geojson-naturkartan-canonical-shape-confirmed-and-api-line-osm-stale-secondary",
+    "municipalities": "complete-for-first-twelve-sections-through-m4-with-falkenberg-and-hylte-m4-official-tourism-shelter-sources-reviewed",
+    "protectedAreas": "complete-for-first-twelve-sections-through-m4-with-m4-no-direct-protected-area-overlap-lysegardsmossen-near-boundary-and-atran-vso-first-km-caveats",
+    "transitOperators": "complete-for-first-twelve-sections-through-m4-with-m4-strong-atran-no-direct-langesjon-transit-kinnared-fallback-caveats",
+    "facilities": "complete-for-first-twelve-sections-through-m4-with-core-facilities-ready-side-service-and-component-caveats",
+    "fieldReports": "complete-for-first-twelve-sections-through-m4-with-thin-current-condition-evidence-and-stale-segmentation-signals",
+    "rulesSafety": "overview-pass-complete-n1-n2-n3-n4-n5-n6-n7-n8-m1-m2-m3-m4-section-specific-complete"
   },
   "knownGaps": [
     "Only the overview and first eleven sections have been researched/synthesized; 24 later sections still need the six-lane workflow.",
@@ -1656,12 +1889,28 @@
     "M3: Kärnebygd and Eseredssjön shelters are official accommodation contexts but sit roughly 0.8 km from the current GPX line; model as endpoint/side-access facilities and dedupe Kärnebygd with M2.",
     "M3: Ätrans Rum & Frukost appears in English/secondary accommodation context but lacks verified coordinate/current operation; keep pending/suppress until verified.",
     "M3: rules lane found no direct Natura 2000/nature-reserve overlap, but Ätran endpoint intersects Ätran vattenskyddsområde NVRID 2005025; do not mark whole route as protected-area restricted.",
-    "M3: no M3-specific closure/reroute was found, but fire risk, forestry/road works and hunting signs are dynamic and require import-time recheck."
+    "M3: no M3-specific closure/reroute was found, but fire risk, forestry/road works and hunting signs are dynamic and require import-time recheck.",
+    "M4: official GPX/API geo_json/Naturkartan 516-point line computes about 21.293 km and should be canonical unless later geometry evidence contradicts; official display is 22 km, GPX desc is 21.3 km, Naturkartan/route apps vary around 20.0-21.27 km, and API line.geometry starts about 193 m from current GPX start and ends about 68 m from current GPX end.",
+    "M4: current official section is Ätran-Långesjön, but Eseredssjön-Långesjön persists in OSM relation 4219135, Wikiloc/Pacer, Naturkartan slug and local wording; preserve as stale alias/source-risk, not canonical name.",
+    "M4: Swedish official page says there is now also a Krogsered/Lyngsjön shelter, while the English page only lists Eseredssjön and Långesjön; API includes Lägerplats Krogsered but without toilet category, with nearby Lyngsjön bath/toilet as a separate record.",
+    "M4: official places API found only Hållplats Ätran as a public-transport POI; Långesjön endpoint transit/access remains weak until the transit lane and main-thread searches resolve nearest stops/parking.",
+    "M4: field reports provide no recent exact-section closure/reroute/bridge-damage evidence; strongest negative maintenance/signage report is from 2016 and must be treated as historical caution only.",
+    "M4: official route geometry is planning-grade rather than navigation-grade because the canonical GPX/API/Naturkartan line has 516 points and a max segment around 254 m; later route QA/densification may be needed before turn-by-turn use.",
+    "M4: no direct public transport was verified at Långesjön; Kinnared Kyrkebol, Kinnared station, Brännögård, Fegen and Torup are fallback logistics only and need walking-route validation before user-facing access guidance.",
+    "M4: do not import Långesjön parking without further verification; Lägerplats Långesjön is high-confidence endpoint/campsite access but low-confidence vehicle access.",
+    "M4: distance sources conflict: official page/API 22 km/22000 m, official GPX desc/computed geometry about 21.3 km/21.293 km, and Naturkartan visible length 20.0 km. Use official rounded 22 km for metadata and preserve computed distance for geometry evidence.",
+    "M4: Krogsered shelter and Lyngsjön bath/toilet/waste/grill should be modeled as separate nearby facilities; do not attach all Lyngsjön bath components directly to the shelter.",
+    "M4: official places API includes side/regional records 1.3-4.1 km from GPX such as Fegens Vandrarhem, Bergåsa B&B, Bockasten and Väghållningsstenar; suppress or keep pending unless side-service policy supports them.",
+    "M4: Wismens Natur & Fiske and Naturzonen i Wismhult are duplicate/overlapping official side-service records around 400 m from the GPX and should be merged before import.",
+    "M4: no dedicated public parking was verified at Långesjön; OSM only corroborates shelter/toilet/waste components near the endpoint.",
+    "M4: Lysegårdsmossen nature reserve is about 20.5 m from the official GPX near route km 11.47; do not attach reserve rules as a direct overlap now, but rerun protected-area QA with final geometry/snapping before import.",
+    "M4: Ätran vattenskyddsområde intersects approximately route km 0.00-0.90; Nedre Ätran VSO does not overlap the M4 GPX in the 2026-04-29 check.",
+    "M4: current fire-ban and route-closure status is dynamic; 2026-04-29 checks found no M4-specific closure/reroute and no fire ban in queried Falkenberg/Hylte records, but this must not be stored as durable status."
   ],
   "nextActions": [
-    "Commit M3 hallandsleden-karnebygd-atran research before starting M4.",
-    "Start M4 hallandsleden-atran-langesjon with the required six parallel research/report lanes, then update this progress file before the main-thread source pass.",
-    "For M4, pay attention to Ätran/Eseredssjön handoff from M3, old Eseredssjön-Långesjön segmentation, official GPX/API/Naturkartan/OSM geometry conflicts, Ätran endpoint access/service dedupe, Långesjön endpoint access, water and shelter/campsite status.",
+    "Commit M4 research before starting M5.",
+    "Start Phase 2 six-lane research workflow for M5 hallandsleden-langesjon-rydobruk.",
+    "For M5, focus on Långesjön handoff from M4, endpoint access around Rydöbruk, any Nissan/industrial-community route constraints, Långesjön no-direct-transit handoff, official GPX/API/Naturkartan/OSM geometry, shelters/water/toilets and Hylte municipal rules/currentness.",
     "For each remaining section, run the six-lane research workflow and update this progress file after each batch/synthesis.",
     "Keep edits confined to data/research/candidate-trails/hallandsleden/ until explicitly asked otherwise."
   ],
@@ -1670,14 +1919,21 @@
     "Only files under data/research/candidate-trails/hallandsleden/ were written.",
     "Do not edit source/runtime/generated app data. Do not run forbidden generated-data/import commands.",
     "Overview files are complete for Phase 1.",
-    "Completed section files: sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json, sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json, sections/hallandsleden-askhults-by-stattared.research.json, sections/hallandsleden-stattared-veddige.research.json, sections/hallandsleden-veddige-nosslinge.research.json, sections/hallandsleden-nosslinge-akulla.research.json, sections/hallandsleden-akulla-astad.research.json, sections/hallandsleden-varberg-akulla.research.json, sections/hallandsleden-akulla-ullared.research.json, sections/hallandsleden-ullared-karnebygd.research.json, and sections/hallandsleden-karnebygd-atran.research.json.",
     "N7 initial six-lane agent batch started 2026-04-29T19:50:16Z with agents Popper, Newton, Bernoulli, Euler, Pasteur, and Mencius, and was synthesized into sections/hallandsleden-akulla-astad.research.json at 2026-04-29T20:06:11Z.",
     "N8 initial six-lane agent batch started 2026-04-29T20:09:28Z with agents Goodall, Kepler, Peirce, Hilbert, Kant, and Volta, and was synthesized into sections/hallandsleden-varberg-akulla.research.json at 2026-04-29T20:26:09Z.",
     "M1 initial six-lane agent batch started 2026-04-29T20:28:19Z with agents Einstein, Wegener, Ohm, Rawls, Hooke, and Arendt; Einstein errored from context exhaustion and was replaced by Turing for official-source research. M1 synthesized into sections/hallandsleden-akulla-ullared.research.json at 2026-04-29T20:45:45Z.",
     "M2 initial six-lane agent batch started 2026-04-29T20:47:57Z with agents Pauli, Russell, Herschel, Parfit, Maxwell, and Jason. Pauli, Herschel, Parfit, Maxwell and Jason returned; Russell route-geometry was closed after repeated timeouts and replacement geometry agent Copernicus completed the geometry lane. M2 synthesized into sections/hallandsleden-ullared-karnebygd.research.json at 2026-04-29T21:12:20Z.",
     "M3 initial six-lane agent batch started 2026-04-29T21:14:33Z with agents Descartes, Singer, Godel, Carver, Franklin, and Aristotle. Main thread retains all file-write ownership.",
     "M3 initial six-lane agent batch started 2026-04-29T21:14:33Z with agents Descartes, Singer, Godel, Carver, Franklin, and Aristotle. All six reports returned and M3 synthesized into sections/hallandsleden-karnebygd-atran.research.json at 2026-04-29T21:31:38Z.",
-    "Next section is M4 hallandsleden-atran-langesjon after committing M3."
+    "M4 initial six-lane agent batch started 2026-04-29T21:33:14Z with agents Raman, Beauvoir, Hypatia, Bacon, Helmholtz, and Faraday. Main thread retains all file-write ownership.",
+    "M4 field-report lane received: no recent exact-section closure/infrastructure-failure evidence found; preserve 2016 maintenance/signage report as historical caution and keep stale Eseredssjön-Långesjön naming as a source-risk note.",
+    "M4 route geometry is resolved for research: use official GPX/API geo_json/Naturkartan 516-point planning-grade line from Ätran to Långesjön; do not import API line.geometry or OSM relation 4219135 as current canonical geometry.",
+    "M4 access: use Hållplats Ätran as direct commuteAccess; do not model Långesjön as directly served by public transport; keep Kinnared/Kinnared station as fallback with caveats.",
+    "M4 official sources: canonical name is Ätran - Långesjön; use 22 km rounded official metadata plus 21.293 km computed geometry evidence; record Naturkartan 20.0 km and English Krogsered shelter omission as contradictions.",
+    "M4 facilities: import core on-route records; merge Wismhult/Wismens side-service duplicate; suppress Fegens Vandrarhem from core; keep Långesjön parking unverified.",
+    "M4 all six lanes received; synthesize as research-ready with caveats, no extra targeted batch needed unless final JSON reveals a gap.",
+    "Completed section files through M4: sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json, sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json, sections/hallandsleden-askhults-by-stattared.research.json, sections/hallandsleden-stattared-veddige.research.json, sections/hallandsleden-veddige-nosslinge.research.json, sections/hallandsleden-nosslinge-akulla.research.json, sections/hallandsleden-akulla-astad.research.json, sections/hallandsleden-varberg-akulla.research.json, sections/hallandsleden-akulla-ullared.research.json, sections/hallandsleden-ullared-karnebygd.research.json, sections/hallandsleden-karnebygd-atran.research.json, and sections/hallandsleden-atran-langesjon.research.json.",
+    "M4 synthesized into sections/hallandsleden-atran-langesjon.research.json at 2026-04-29T21:47:31Z and is research-ready with caveats. Next section is M5 hallandsleden-langesjon-rydobruk after committing M4."
   ],
   "filesWritten": [
     "README.md",
@@ -1693,7 +1949,8 @@
     "sections/hallandsleden-varberg-akulla.research.json",
     "sections/hallandsleden-akulla-ullared.research.json",
     "sections/hallandsleden-ullared-karnebygd.research.json",
-    "sections/hallandsleden-karnebygd-atran.research.json"
+    "sections/hallandsleden-karnebygd-atran.research.json",
+    "sections/hallandsleden-atran-langesjon.research.json"
   ],
   "meaningfulPasses": [
     {
@@ -1875,6 +2132,56 @@
       "id": "phase-2-m3-six-lane-synthesis-complete-2026-04-29",
       "completedAt": "2026-04-29T21:31:38Z",
       "summary": "Synthesized six lane reports and main-thread API/GPX/Naturkartan/OSM/ResRobot/protected-area/fire-risk checks for M3 into a section research JSON. Marked M3 research-ready with caveats around canonical official GPX/API geo_json versus stale API line.geometry/OSM old Kärnebygd-Eseredssjön geometry, stale English Kvarnlyckan naming, Naturkartan/Pacer/local Eseredssjön naming, weak Kärnebygd access, strong Ätran access, side-distance Kärnebygd/Eseredssjön shelters, no campsite or mid-stage water, Ätran endpoint water-protection overlap, dynamic fire/currentness checks and thin field reports."
+    },
+    {
+      "id": "phase-2-m4-initial-agent-batch-started-2026-04-29",
+      "completedAt": "2026-04-29T21:33:14Z",
+      "summary": "Started Phase 2 six-lane research workflow for M4 Ätran - Långesjön. Main thread retains file-write ownership and flagged Ätran/Eseredssjön handoff from M3, old Eseredssjön-Långesjön segmentation, official GPX/API/Naturkartan/OSM geometry conflicts, Ätran endpoint access/service dedupe, Långesjön endpoint access, water/shelter/campsite status and route-specific rules/currentness for agents."
+    },
+    {
+      "id": "phase-2-m4-main-thread-official-api-gpx-access-pass-2026-04-29",
+      "completedAt": "2026-04-29T21:36:06Z",
+      "summary": "Main thread checked M4 official Swedish/English pages, official GPX/API geo_json, Naturkartan site 22042, OSM nearby relations and official places API. Canonical line evidence points to the official 516-point GPX/API geo_json/Naturkartan route from Ätran to Långesjön; stale Eseredssjön-Långesjön naming and Långesjön access gaps remain."
+    },
+    {
+      "id": "phase-2-m4-field-report-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T21:36:06Z",
+      "summary": "Received M4 field-report lane. Coverage is moderate but current condition evidence is thin; record 2016 historical maintenance/signage caution, 2024-2025 route-app/community use signals, stale Eseredssjön-Långesjön naming and no found recent exact closure/infrastructure-failure report."
+    },
+    {
+      "id": "phase-2-m4-route-geometry-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T21:37:22Z",
+      "summary": "Received M4 route-geometry lane. It confirms official GPX/API geo_json/Naturkartan exact geometry agreement, current endpoints and M3/M5 continuity, and recommends treating API line.geometry and OSM relation 4219135 as stale Eseredssjön-Långesjön secondary evidence only."
+    },
+    {
+      "id": "phase-2-m4-transit-access-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T21:38:37Z",
+      "summary": "Received M4 transit/access lane. Ätran direct bus access is high-confidence; Långesjön has no verified direct stop, with Kinnared/Kinnared station and other stops only as fallback logistics requiring walking-route validation."
+    },
+    {
+      "id": "phase-2-m4-official-source-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T21:40:03Z",
+      "summary": "Received M4 official-source lane. It confirms canonical identity, official prose, GPX/API/Naturkartan evidence, official places API facility inventory, Falkenberg/Hylte facility corroboration, and contradictions around distance, stale geometry/naming, and Krogsered shelter language currentness."
+    },
+    {
+      "id": "phase-2-m4-facilities-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T21:43:18Z",
+      "summary": "Received M4 facilities lane. Core on-route facilities are strong, water is limited to Ätran and Krogsered church, Krogsered shelter/Lyngsjön bath components should be separate, Långesjön endpoint shelter/toilet/waste is high confidence with component caveats, and side/regional over-inclusion needs suppression or pending treatment."
+    },
+    {
+      "id": "phase-2-m4-rules-safety-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T21:46:21Z",
+      "summary": "Received M4 rules/safety/currentness lane. It found no direct protected-area overlap, but Lysegårdsmossen is a near-boundary QA item; Ätran VSO covers the start/first kilometre; fire/closure status is dynamic; dog, livestock, hunting, forestry, roots, wet boardwalk and limited-water caveats apply."
+    },
+    {
+      "id": "phase-2-m4-six-lane-reports-complete-synthesis-started-2026-04-29",
+      "completedAt": "2026-04-29T21:46:21Z",
+      "summary": "All six M4 lane reports are in. Main thread decided no targeted follow-up batch is needed because remaining issues are import caveats rather than research blockers; synthesis of the section research JSON is underway."
+    },
+    {
+      "id": "phase-2-m4-six-lane-synthesis-complete-2026-04-29",
+      "completedAt": "2026-04-29T21:47:31Z",
+      "summary": "Synthesized six lane reports and main-thread checks for M4 Ätran - Långesjön into a section research JSON. Marked M4 research-ready with caveats around stale Eseredssjön-Långesjön naming, official/geometry/Naturkartan distance disagreement, no direct Långesjön transit, Krogsered/Lyngsjön component modeling, side-service filtering, Ätran VSO, Lysegårdsmossen near-boundary QA and dynamic fire/currentness checks."
     }
   ]
 }
