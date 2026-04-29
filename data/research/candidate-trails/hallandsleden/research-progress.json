@@ -1,12 +1,13 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-29T19:10:12Z",
-  "currentPhase": "Phase 2 section research complete through hallandsleden-stattared-veddige; next section hallandsleden-veddige-nosslinge",
+  "lastUpdated": "2026-04-29T19:31:13Z",
+  "currentPhase": "Phase 2 complete through hallandsleden-veddige-nosslinge; ready to start hallandsleden-nosslinge-akulla",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
     "hallandsleden-askhults-by-stattared",
-    "hallandsleden-stattared-veddige"
+    "hallandsleden-stattared-veddige",
+    "hallandsleden-veddige-nosslinge"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -114,19 +115,25 @@
       "sectionNumber": "N5",
       "name": "Veddige - Nösslinge",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-map-line-discovered-needs-gpx-cross-check",
-      "startEndCoordinateStatus": "official-map-line-endpoints-captured-needs-validation",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-initial-six-lane-synthesis",
+      "routeGeometryStatus": "complete-official-gpx-api-geo_json-verified-suppress-overview-api-line_geometry-naturkartan-osm-subdivision-caveats",
+      "startEndCoordinateStatus": "complete-high-confidence-official-gpx-api-endpoints-stitch-to-n4-n6-with-gallarpsjon-nosslinge-label-caveat",
+      "commuteAccessStatus": "complete-with-strong-veddige-station-and-sparse-gallarp-line-661-caveats",
+      "facilityResearchStatus": "complete-with-dranstugan-gallarpsjon-nosslinge-water-and-offroute-service-caveats",
+      "rulesSafetyStatus": "complete-with-2024-reroute-dynamic-fire-ban-dog-hunting-stora-neden-masen-water-protection-and-nearby-reserve-caveats",
+      "synthesisStatus": "complete",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
-        "Run six independent section research lanes and synthesize findings.",
-        "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
-        "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Preserve official 351-point MultiLineString geometry as-is, or allow a later non-authoritative densification/QA process for the 1.9 km max coordinate gap and inter-segment gaps.",
+        "Flag the official GPX desc 'Total: 8.6 km' in any future importer so it is not confused with section distance.",
+        "Verify Dranstugan water tap seasonality/current operation before public guarantee.",
+        "Verify Nösslinge church water/service-building access before public guarantee.",
+        "Confirm Hallandstrafiken line 661 timetable for the intended hiking date, including any order-required markings and weekend/holiday exceptions.",
+        "Confirm Veddige station parking rules/capacity from Varberg municipality or on-site signage before importing formal parking metadata.",
+        "If importing endpoint services, verify exact public access route and opening/seasonal status for toilet/water at Nösslinge church and Gällarpesjön.",
+        "Do not import Derome pizzeria, ICA Derome or Matöppet Skällinge as normal N5 on-route services unless a side-service radius policy explicitly allows 2.8-3.8 km detours.",
+        "Do not attach Lapparetorpet, Stackenäs, Märkedalen, Åkulla or Ästad reserve restrictions to N5 unless side trips or continuation stages enter those areas.",
+        "Do not attach old 2019 routefinding/slippery-bridge reports as current N5 hazards without post-2024 confirmation."
       ]
     },
     "hallandsleden-nosslinge-akulla": {
@@ -862,7 +869,7 @@
       "batchId": "hallandsleden-askhults-by-stattared-initial-6-lane-2026-04-29",
       "sectionId": "hallandsleden-askhults-by-stattared",
       "startedAt": "2026-04-29T18:37:17Z",
-      "status": "in-progress",
+      "status": "completed-and-synthesized",
       "agents": [
         {
           "lane": "official-sources",
@@ -955,21 +962,70 @@
       "completedAt": "2026-04-29T19:10:12Z",
       "synthesisFile": "sections/hallandsleden-stattared-veddige.research.json",
       "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around the 2024 Veddige reroute, stale Stättared-Dranstugan geometry in Naturkartan/OSM/API line.geometry, remote Stättared bus access, Stättared water/toilet normalization, Dranstugan adjacent/legacy facilities, and dynamic fire/protected-area checks."
+    },
+    {
+      "batchId": "hallandsleden-veddige-nosslinge-initial-6-lane-2026-04-29",
+      "sectionId": "hallandsleden-veddige-nosslinge",
+      "startedAt": "2026-04-29T19:17:13Z",
+      "status": "completed-and-synthesized",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddaac-7d30-7cd0-8dd5-c70b470e9ee7",
+          "nickname": "Lovelace"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddaac-7d84-7bd0-a654-fd36fd63f51e",
+          "nickname": "Erdos"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddaac-7db2-7782-bf85-b293cbdd417d",
+          "nickname": "Linnaeus"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddaac-7def-78c2-9284-1d87bc1dee99",
+          "nickname": "Ptolemy"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddaac-7e1e-7f53-98c1-66686c89636a",
+          "nickname": "Leibniz"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddaac-7e7c-7453-9368-165ded63c893",
+          "nickname": "Banach"
+        }
+      ],
+      "requestedOutputs": [
+        "official facts",
+        "geometry verification",
+        "facilities",
+        "transit/access",
+        "field reports",
+        "rules/safety/currentness"
+      ],
+      "completedAt": "2026-04-29T19:31:13Z",
+      "synthesisFile": "sections/hallandsleden-veddige-nosslinge.research.json",
+      "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around official GPX bad desc metadata, MultiLineString gap handling, misleading overview API line.geometry, Gällarpesjön/Gällarp practical endpoint versus Nösslinge title, Dranstugan and Nösslinge water verification, sparse line 661 access, off-route services, Stora Neden-Mäsen water-protection context, and nearby protected areas that should not be attached unless a side trip or continuation stage enters them."
     }
   ],
   "sourceCoverage": {
     "officialOverview": "complete-initial-pass",
     "officialSectionInventory": "complete-initial-pass-35-sections",
-    "officialGeometry": "complete-for-first-four-sections-with-api-line_geometry-caveats",
-    "municipalities": "overview-list-captured-from-official-footer-n1-n2-n3-n4-section-specific-pages-reviewed",
-    "protectedAreas": "complete-for-first-four-sections-with-n4-skoga-overlay-pending",
-    "transitOperators": "complete-for-first-four-sections",
-    "facilities": "complete-for-first-four-sections",
-    "fieldReports": "complete-for-first-four-sections",
-    "rulesSafety": "overview-pass-complete-n1-n2-n3-n4-section-specific-complete"
+    "officialGeometry": "complete-for-first-five-sections-with-api-line_geometry-caveats",
+    "municipalities": "overview-list-captured-from-official-footer-n1-n2-n3-n4-n5-section-specific-pages-reviewed",
+    "protectedAreas": "complete-for-first-five-sections-with-n4-skoga-overlay-pending-and-n5-stora-neden-masen-water-protection-note",
+    "transitOperators": "complete-for-first-five-sections",
+    "facilities": "complete-for-first-five-sections",
+    "fieldReports": "complete-for-first-five-sections",
+    "rulesSafety": "overview-pass-complete-n1-n2-n3-n4-n5-section-specific-complete"
   },
   "knownGaps": [
-    "Only the overview and first four sections have been researched/synthesized; 31 remaining sections still need the six-lane workflow.",
+    "Only the overview and first five sections have been researched/synthesized; 30 remaining sections still need the six-lane workflow.",
     "Coastal Hallandsleden is incomplete by official statement; future import must model gaps instead of stitching a continuous coast.",
     "Older sources may report 435 km / 26 stages / 3 parts; live official source reports 612 km / 35 sections / 4 subtrails.",
     "Paper maps printed June 2022 are stale for 2024 rerouted sections.",
@@ -992,12 +1048,19 @@
     "N4: Dranstugan shelters/water/toilet are official facilities but over 2 km off current N4 GPX; keep as adjacent/legacy context pending N5/side-service modeling.",
     "N4: Stättared water is at Stättareds 4H-gård, not the shelter, and all-hours tap access remains unverified.",
     "N4: Stättared bus access is remote/sparse; Veddige Station is strong endpoint access.",
-    "N4: Skoga reserve was screened but not proven on-route; run protected-area polygon overlay before final normalization."
+    "N4: Skoga reserve was screened but not proven on-route; run protected-area polygon overlay before final normalization.",
+    "N5: official GPX/API geo_json is a four-part MultiLineString from Veddige toward Nösslinge/Gällarpesjön; segment sum is about 25.045 km, flattened with gaps is about 27.423 km, API distance is 28 km, and GPX description says 'Total: 8.6 km'.",
+    "N5: official API line.geometry starts near Dranstugan and computes about 20.105 km, omitting the Veddige-to-Dranstugan start; suppress it for current N5 import.",
+    "N5: practical endpoint access/facilities are at Gällarp/Gällarpesjön, while Nösslinge church and water are about 0.85-0.9 km from the GPX endpoint.",
+    "N5: Dranstugan water and Nösslinge church water/service-building access need verification before public guarantees.",
+    "N5: Hallandstrafiken line 661 at Gällarp is sparse rural access; confirm current timetable/order-required details for date-specific use.",
+    "N5: Derome/Skällinge services are 2.8-3.8 km off route and should be suppressed or kept as side-service metadata unless policy says otherwise.",
+    "N5: Stora Neden-Mäsen water-protection area intersects near the endpoint; nearby Lapparetorpet, Stackenäs, Märkedalen, Åkulla and Ästad restrictions should not be attached to N5 unless side trips or continuation stages enter those areas."
   ],
   "nextActions": [
-    "Continue Phase 2 with hallandsleden-veddige-nosslinge.",
+    "Continue Phase 2 with hallandsleden-nosslinge-akulla.",
     "For each remaining section, run the six-lane research workflow and update this progress file after each batch/synthesis.",
-    "When researching N5, pay special attention to the N4/N5 Veddige endpoint handoff and whether Dranstugan facilities belong to N5, adjacent side-service metadata, or only stale Stättared-Dranstugan context.",
+    "When researching N6, pay special attention to the Gällarpesjön/Nösslinge endpoint handoff, Märkedalen/Åkulla protected-area context, and Åkulla endpoint facilities/access.",
     "Keep edits confined to data/research/candidate-trails/hallandsleden/ until explicitly asked otherwise."
   ],
   "handoffNotes": [
@@ -1005,8 +1068,8 @@
     "Only files under data/research/candidate-trails/hallandsleden/ were written.",
     "Do not edit source/runtime/generated app data. Do not run forbidden generated-data/import commands.",
     "Overview files are complete for Phase 1.",
-    "Completed section files: sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json, sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json, sections/hallandsleden-askhults-by-stattared.research.json, and sections/hallandsleden-stattared-veddige.research.json.",
-    "Next section to research: hallandsleden-veddige-nosslinge."
+    "Completed section files: sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json, sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json, sections/hallandsleden-askhults-by-stattared.research.json, sections/hallandsleden-stattared-veddige.research.json, and sections/hallandsleden-veddige-nosslinge.research.json.",
+    "Next section to research: hallandsleden-nosslinge-akulla."
   ],
   "filesWritten": [
     "README.md",
@@ -1015,7 +1078,8 @@
     "sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json",
     "sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json",
     "sections/hallandsleden-askhults-by-stattared.research.json",
-    "sections/hallandsleden-stattared-veddige.research.json"
+    "sections/hallandsleden-stattared-veddige.research.json",
+    "sections/hallandsleden-veddige-nosslinge.research.json"
   ],
   "meaningfulPasses": [
     {
@@ -1062,6 +1126,21 @@
       "id": "phase-2-n4-six-lane-synthesis-complete-2026-04-29",
       "completedAt": "2026-04-29T19:10:12Z",
       "summary": "Synthesized six lane reports and main-thread API/GPX/Naturkartan/OSM/place checks for N4 into a section research JSON. Marked N4 research-ready with caveats around the 2024 Veddige reroute, stale Stättared-Dranstugan geometry in Naturkartan/OSM/API line.geometry, Dranstugan adjacent/legacy facilities, remote Stättared bus access, and dynamic fire/protected-area checks."
+    },
+    {
+      "id": "phase-2-n5-initial-agent-batch-started-2026-04-29",
+      "completedAt": "2026-04-29T19:17:13Z",
+      "summary": "Started Phase 2 six-lane research workflow for N5 Veddige - Nösslinge. Main thread retains file-write ownership and flagged the likely Dranstugan/Veddige geometry conflict for the route-geometry lane."
+    },
+    {
+      "id": "phase-2-n5-main-thread-official-api-gpx-pass-2026-04-29",
+      "completedAt": "2026-04-29T19:19:29Z",
+      "summary": "Fetched N5 official page, GPX, map API and places API. Found official GPX/API geo_json starts at Veddige and ends near Nösslinge/Gällarpesjön but is split into four track segments; segment sum is about 25.045 km, gap-including flattened distance about 27.423 km, API distance 28 km, and GPX description says 'Total: 8.6 km'. API line.geometry starts near Dranstugan and computes about 20.105 km, so it likely omits the Veddige-Dranstugan start. Places API returned 25 records including Veddige station services, Dranstugan facilities around route km 6, Gällarp/Gällarpesjön endpoint access/facilities, and Nösslinge church/water as an off-endpoint side context."
+    },
+    {
+      "id": "phase-2-n5-six-lane-synthesis-complete-2026-04-29",
+      "completedAt": "2026-04-29T19:31:13Z",
+      "summary": "Synthesized six lane reports and main-thread API/GPX/place/access checks for N5 into a section research JSON. Marked N5 research-ready with caveats around official GPX bad desc metadata, MultiLineString gap handling, misleading overview API line.geometry, Gällarpesjön/Gällarp practical endpoint versus Nösslinge title, Dranstugan and Nösslinge water verification, sparse line 661 access, off-route services, Stora Neden-Mäsen water-protection context, and nearby protected areas that should not be attached unless side trips or continuation stages enter them."
     }
   ]
 }
