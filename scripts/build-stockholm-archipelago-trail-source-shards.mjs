@@ -357,7 +357,8 @@ function buildRouteGroups(sectionIds) {
       kind: "mainline",
       sectionIds,
       connectsToSectionIds: [],
-      notice: "Official SAT section order. Ferry, rowboat, bus, and walking transfers are modeled as separate connection routes."
+      notice:
+        "Official SAT route sequence. Ferry, bus, and walking transfers are modeled as connection routes; the Finnhamn-Ingmarsö rowboat crossing is modeled as a route section."
     }
   ];
 }
@@ -374,7 +375,7 @@ function buildPresets(sectionIds) {
     {
       id: "middle-rowboat-hop",
       name: "Middle rowboat hop",
-      description: "Finnhamn to Svartsö, including the official Finnhamn-Ingmarsö rowboat crossing.",
+      description: "Finnhamn to Svartsö, with the official Finnhamn-Ingmarsö rowboat crossing as its own route section.",
       startSectionId: "sat-finnhamn",
       endSectionId: "sat-svartso"
     },
@@ -446,7 +447,7 @@ async function buildTrailSystem(research, connectionPlan, facilityAudit, routeSo
       "Camping and fires vary by island, reserve, and service operator. Use section notes and local signage, and treat fire bans as overriding all stored data.",
     utilities: [
       "Facilities are island-specific and often seasonal.",
-      "Ferries, rowboats, and walking connectors are modeled as route connections, not as ordinary facilities."
+      "Ferries and walking connectors are modeled as route connections. The official Finnhamn-Ingmarsö rowboat crossing is modeled as a route section, not a transfer line."
     ],
     waterSources: [
       "Carry water unless a current public refill point is confirmed for the chosen island and season.",

@@ -4,7 +4,7 @@
   "sourceCreatedAt": "2026-04-26",
   "generatedBy": "scripts/build-stockholm-archipelago-trail-connections.mjs",
   "sourcePath": "data/research/candidate-trails/stockholm-archipelago-trail/trail.research.json",
-  "purpose": "Slice 2 ferry/rowboat/transfer mapping for Stockholm Archipelago Trail. These are planning connection routes, not navigation tracks or timetable promises.",
+  "purpose": "Slice 2 ferry/transfer mapping for Stockholm Archipelago Trail. The official Finnhamn-Ingmarsö rowboat crossing is modeled as a route section; remaining transfer lines are planning connection routes, not navigation tracks or timetable promises.",
   "sourceUrls": [
     {
       "provider": "Stockholm Archipelago Trail",
@@ -57,17 +57,17 @@
     },
     {
       "order": 5,
-      "id": "sat-rowboats-finnhamn-ingmarso",
-      "name": "Rowboats Finnhamn - Ingmarsö",
-      "sectionType": "transfer",
-      "transferMode": "rowboat"
-    },
-    {
-      "order": 6,
       "id": "sat-finnhamn",
       "name": "Finnhamn",
       "sectionType": "hiking",
       "transferMode": null
+    },
+    {
+      "order": 6,
+      "id": "sat-rowboats-finnhamn-ingmarso",
+      "name": "Rowboats Finnhamn - Ingmarsö",
+      "sectionType": "transfer",
+      "transferMode": "rowboat"
     },
     {
       "order": 7,
@@ -187,7 +187,7 @@
     "adjacentConnectionCount": 21,
     "modes": {
       "ferry": 16,
-      "rowboat": 1,
+      "same-island": 1,
       "walk": 4
     },
     "allAdjacentOfficialPairsCovered": true
@@ -315,7 +315,7 @@
       }
     },
     {
-      "id": "sat-yxlan-to-rowboats",
+      "id": "sat-yxlan-to-finnhamn",
       "mode": "ferry",
       "from": {
         "sectionId": "sat-yxlan",
@@ -323,47 +323,6 @@
         "coordinates": [
           59.659867,
           18.932104
-        ],
-        "coordinateSource": "transit-stop"
-      },
-      "to": {
-        "sectionId": "sat-rowboats-finnhamn-ingmarso",
-        "label": "Finnhamn / Idholmen rowboat landing",
-        "coordinates": [
-          59.48211,
-          18.804459
-        ],
-        "coordinateSource": "transit-stop"
-      },
-      "operator": "Waxholmsbolaget",
-      "lineName": "Planner-verified ferry to Finnhamn/Idholmen; summer North-South Line may help",
-      "seasonality": "Exact ferry pattern is date-specific and may require request/booking at some stops.",
-      "currentness": "Planner/timetable-dependent. Do not store exact departures in this static connection plan.",
-      "note": "To reach the rowboat connector after Yxlan, plan a ferry transfer to Finnhamn/Idholmen. The official rowboat crossing itself starts between Finnhamn/Idholmen and Kålgårdsön/Ingmarsö.",
-      "source": {
-        "provider": "Stockholm Archipelago Trail",
-        "url": "https://stockholmarchipelagotrail.com/questions-and-aswers/",
-        "title": "Questions and answers",
-        "notes": "Official ferry departure-point and North-South Line caveats. The FAQ says the 2026 North-South Line runs June 22-August 16 and exact timetables should be checked."
-      },
-      "route": {
-        "geojsonPath": "/routes/hiking/stockholm-archipelago-trail/connections/sat-yxlan-to-rowboats.geojson",
-        "geometryStatus": "approximate-waypoint-corridor",
-        "mapConfidence": "medium",
-        "navigationUse": "planning-reference",
-        "sourceFormat": "manual",
-        "warning": "Approximate planning connection line only. Use current SL/Waxholmsbolaget/Trafikverket planning for exact ferry routes, stops, dates, request stops, and disruptions."
-      }
-    },
-    {
-      "id": "sat-rowboats-to-finnhamn",
-      "mode": "walk",
-      "from": {
-        "sectionId": "sat-rowboats-finnhamn-ingmarso",
-        "label": "Finnhamn / Idholmen rowboat landing",
-        "coordinates": [
-          59.48211,
-          18.804459
         ],
         "coordinateSource": "transit-stop"
       },
@@ -376,10 +335,51 @@
         ],
         "coordinateSource": "transit-stop"
       },
+      "operator": "Waxholmsbolaget",
+      "lineName": "Planner-verified ferry to Finnhamn; summer North-South Line may help",
+      "seasonality": "Exact ferry pattern is date-specific and may require request/booking at some stops.",
+      "currentness": "Planner/timetable-dependent. Do not store exact departures in this static connection plan.",
+      "note": "After Yxlan, plan a ferry transfer to Finnhamn. The official Finnhamn-Ingmarsö rowboat crossing is modeled as its own following route section, not as a transfer line.",
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/questions-and-aswers/",
+        "title": "Questions and answers",
+        "notes": "Official ferry departure-point and North-South Line caveats. The FAQ says the 2026 North-South Line runs June 22-August 16 and exact timetables should be checked."
+      },
+      "route": {
+        "geojsonPath": "/routes/hiking/stockholm-archipelago-trail/connections/sat-yxlan-to-finnhamn.geojson",
+        "geometryStatus": "approximate-waypoint-corridor",
+        "mapConfidence": "medium",
+        "navigationUse": "planning-reference",
+        "sourceFormat": "manual",
+        "warning": "Approximate planning connection line only. Use current SL/Waxholmsbolaget/Trafikverket planning for exact ferry routes, stops, dates, request stops, and disruptions."
+      }
+    },
+    {
+      "id": "sat-finnhamn-to-rowboats",
+      "mode": "walk",
+      "from": {
+        "sectionId": "sat-finnhamn",
+        "label": "Finnhamn ferry jetty",
+        "coordinates": [
+          59.482801,
+          18.826574
+        ],
+        "coordinateSource": "transit-stop"
+      },
+      "to": {
+        "sectionId": "sat-rowboats-finnhamn-ingmarso",
+        "label": "Finnhamn / Idholmen rowboat landing",
+        "coordinates": [
+          59.48211,
+          18.804459
+        ],
+        "coordinateSource": "transit-stop"
+      },
       "operator": "Stockholm Archipelago Trail",
       "lineName": "Local Finnhamn/Idholmen trail connection",
       "currentness": "Planner/timetable-dependent. Do not store exact departures in this static connection plan.",
-      "note": "Short local trail continuity between the Finnhamn side of the rowboat landing and the Finnhamn section hub.",
+      "note": "Walk from the Finnhamn ferry/section hub to the Idholmen rowboat landing, where the separate rowboat route section begins.",
       "source": {
         "provider": "Stockholm Archipelago Trail",
         "url": "https://stockholmarchipelagotrail.com/section/rowboats-finnhamn-ingmarso/",
@@ -387,7 +387,7 @@
         "notes": "Official rowboat connector page. The page describes the 400 m crossing and the requirement that one rowboat stays on each side."
       },
       "route": {
-        "geojsonPath": "/routes/hiking/stockholm-archipelago-trail/connections/sat-rowboats-to-finnhamn.geojson",
+        "geojsonPath": "/routes/hiking/stockholm-archipelago-trail/connections/sat-finnhamn-to-rowboats.geojson",
         "geometryStatus": "approximate-waypoint-corridor",
         "mapConfidence": "high",
         "navigationUse": "planning-reference",
@@ -396,19 +396,10 @@
       }
     },
     {
-      "id": "sat-finnhamn-to-ingmarso",
-      "mode": "rowboat",
+      "id": "sat-rowboats-to-ingmarso",
+      "mode": "same-island",
       "from": {
-        "sectionId": "sat-finnhamn",
-        "label": "Finnhamn / Idholmen rowboat landing",
-        "coordinates": [
-          59.48211,
-          18.804459
-        ],
-        "coordinateSource": "transit-stop"
-      },
-      "to": {
-        "sectionId": "sat-ingmarso",
+        "sectionId": "sat-rowboats-finnhamn-ingmarso",
         "label": "Kålgårdsön / Ingmarsö rowboat landing",
         "coordinates": [
           59.481047,
@@ -416,24 +407,23 @@
         ],
         "coordinateSource": "transit-stop"
       },
-      "operator": "Skärgårdsstiftelsen / Stockholm Archipelago Trail",
-      "lineName": "SAT rowboats Finnhamn-Ingmarsö",
-      "seasonality": "Do not cross if the boats are missing, weather is unsafe, or rowing conditions are unsuitable.",
-      "currentness": "Planner/timetable-dependent. Do not store exact departures in this static connection plan.",
-      "note": "Use the SAT rowboats between Finnhamn/Idholmen and Kålgårdsön/Ingmarsö. The official instructions require rowing three times so one boat remains on each side.",
+      "to": {
+        "sectionId": "sat-ingmarso",
+        "label": "Kålgårdsön / Ingmarsö rowboat connection",
+        "coordinates": [
+          59.481047,
+          18.798495
+        ],
+        "coordinateSource": "transit-stop"
+      },
+      "operator": "Stockholm Archipelago Trail",
+      "lineName": "Kålgårdsön/Ingmarsö route continuity",
+      "note": "The rowboat section lands at Kålgårdsön, where the Ingmarsö section continues. No separate rowboat transfer line is needed.",
       "source": {
         "provider": "Stockholm Archipelago Trail",
         "url": "https://stockholmarchipelagotrail.com/section/rowboats-finnhamn-ingmarso/",
         "title": "Rowboats between the Finnhamn & Ingmarsö sections",
         "notes": "Official rowboat connector page. The page describes the 400 m crossing and the requirement that one rowboat stays on each side."
-      },
-      "route": {
-        "geojsonPath": "/routes/hiking/stockholm-archipelago-trail/connections/sat-finnhamn-to-ingmarso.geojson",
-        "geometryStatus": "approximate-waypoint-corridor",
-        "mapConfidence": "high",
-        "navigationUse": "planning-reference",
-        "sourceFormat": "manual",
-        "warning": "Approximate planning connection line only. Use current SL/Waxholmsbolaget/Trafikverket planning for exact ferry routes, stops, dates, request stops, and disruptions."
       }
     },
     {

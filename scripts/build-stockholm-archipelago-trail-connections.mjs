@@ -119,45 +119,44 @@ const CONNECTION_DRAFTS = [
     note: "Use the free Furusund-Köpmanholm/Yxlan road ferry to continue from Furusund to the Yxlan section."
   },
   {
-    id: "sat-yxlan-to-rowboats",
+    id: "sat-yxlan-to-finnhamn",
     mode: "ferry",
     fromSectionId: "sat-yxlan",
-    toSectionId: "sat-rowboats-finnhamn-ingmarso",
+    toSectionId: "sat-finnhamn",
     fromAccessId: "sat-yxlan-access-waxholmsbolaget-kopmanholm",
-    toAccessId: "sat-rowboats-access-idholmen-landing",
+    toAccessId: "sat-finnhamn-access-ferry-jetty",
     operator: "Waxholmsbolaget",
-    lineName: "Planner-verified ferry to Finnhamn/Idholmen; summer North-South Line may help",
+    lineName: "Planner-verified ferry to Finnhamn; summer North-South Line may help",
     source: SAT_FAQ_SOURCE,
     seasonality: "Exact ferry pattern is date-specific and may require request/booking at some stops.",
     note:
-      "To reach the rowboat connector after Yxlan, plan a ferry transfer to Finnhamn/Idholmen. The official rowboat crossing itself starts between Finnhamn/Idholmen and Kålgårdsön/Ingmarsö."
+      "After Yxlan, plan a ferry transfer to Finnhamn. The official Finnhamn-Ingmarsö rowboat crossing is modeled as its own following route section, not as a transfer line."
   },
   {
-    id: "sat-rowboats-to-finnhamn",
+    id: "sat-finnhamn-to-rowboats",
     mode: "walk",
-    fromSectionId: "sat-rowboats-finnhamn-ingmarso",
-    toSectionId: "sat-finnhamn",
-    fromAccessId: "sat-rowboats-access-idholmen-landing",
-    toAccessId: "sat-finnhamn-access-ferry-jetty",
+    fromSectionId: "sat-finnhamn",
+    toSectionId: "sat-rowboats-finnhamn-ingmarso",
+    fromAccessId: "sat-finnhamn-access-ferry-jetty",
+    toAccessId: "sat-rowboats-access-idholmen-landing",
     operator: "Stockholm Archipelago Trail",
     lineName: "Local Finnhamn/Idholmen trail connection",
     source: ROWBOAT_SOURCE,
     note:
-      "Short local trail continuity between the Finnhamn side of the rowboat landing and the Finnhamn section hub."
+      "Walk from the Finnhamn ferry/section hub to the Idholmen rowboat landing, where the separate rowboat route section begins."
   },
   {
-    id: "sat-finnhamn-to-ingmarso",
-    mode: "rowboat",
-    fromSectionId: "sat-finnhamn",
+    id: "sat-rowboats-to-ingmarso",
+    mode: "same-island",
+    fromSectionId: "sat-rowboats-finnhamn-ingmarso",
     toSectionId: "sat-ingmarso",
-    fromAccessId: "sat-rowboats-access-idholmen-landing",
-    toAccessId: "sat-rowboats-access-kalgardson-landing",
-    operator: "Skärgårdsstiftelsen / Stockholm Archipelago Trail",
-    lineName: "SAT rowboats Finnhamn-Ingmarsö",
+    fromAccessId: "sat-rowboats-access-kalgardson-landing",
+    toAccessId: "sat-ingmarso-access-rowboat-connection",
+    operator: "Stockholm Archipelago Trail",
+    lineName: "Kålgårdsön/Ingmarsö route continuity",
     source: ROWBOAT_SOURCE,
-    seasonality: "Do not cross if the boats are missing, weather is unsafe, or rowing conditions are unsuitable.",
     note:
-      "Use the SAT rowboats between Finnhamn/Idholmen and Kålgårdsön/Ingmarsö. The official instructions require rowing three times so one boat remains on each side."
+      "The rowboat section lands at Kålgårdsön, where the Ingmarsö section continues. No separate rowboat transfer line is needed."
   },
   {
     id: "sat-ingmarso-to-brotto",
@@ -386,6 +385,20 @@ function routePathFor(connectionId) {
   return `/routes/hiking/stockholm-archipelago-trail/connections/${connectionId}.geojson`;
 }
 
+function orderedSectionsForRoute(research) {
+  const sections = [...(research.sections ?? [])];
+  const rowboatIndex = sections.findIndex((section) => section.id === "sat-rowboats-finnhamn-ingmarso");
+  const finnhamnIndex = sections.findIndex((section) => section.id === "sat-finnhamn");
+
+  if (rowboatIndex !== -1 && finnhamnIndex !== -1 && rowboatIndex < finnhamnIndex) {
+    const [rowboatSection] = sections.splice(rowboatIndex, 1);
+    const updatedFinnhamnIndex = sections.findIndex((section) => section.id === "sat-finnhamn");
+    sections.splice(updatedFinnhamnIndex + 1, 0, rowboatSection);
+  }
+
+  return sections;
+}
+
 function collectAccessPoints(research) {
   const accessPoints = new Map(Object.entries(EXTRA_ACCESS_POINTS));
 
@@ -441,6 +454,18 @@ function buildConnection(draft, accessPoints) {
     };
   });
 
+  const route =
+    draft.mode === "same-island" || draft.mode === "none"
+      ? null
+      : {
+          geojsonPath: routePathFor(draft.id),
+          geometryStatus: "approximate-waypoint-corridor",
+          mapConfidence: draft.mode === "rowboat" || draft.mode === "walk" ? "high" : "medium",
+          navigationUse: "planning-reference",
+          sourceFormat: "manual",
+          warning: PLANNING_WARNING
+        };
+
   return {
     id: draft.id,
     mode: draft.mode,
@@ -450,17 +475,12 @@ function buildConnection(draft, accessPoints) {
     operator: draft.operator,
     lineName: draft.lineName,
     ...(draft.seasonality ? { seasonality: draft.seasonality } : {}),
-    currentness: "Planner/timetable-dependent. Do not store exact departures in this static connection plan.",
+    ...(draft.mode === "same-island"
+      ? {}
+      : { currentness: "Planner/timetable-dependent. Do not store exact departures in this static connection plan." }),
     note: draft.note,
     source: draft.source,
-    route: {
-      geojsonPath: routePathFor(draft.id),
-      geometryStatus: "approximate-waypoint-corridor",
-      mapConfidence: draft.mode === "rowboat" || draft.mode === "walk" ? "high" : "medium",
-      navigationUse: "planning-reference",
-      sourceFormat: "manual",
-      warning: PLANNING_WARNING
-    }
+    ...(route ? { route } : {})
   };
 }
 
@@ -496,11 +516,22 @@ function routeFeatureFor(connection) {
   };
 }
 
-function validatePlan(research, connections) {
-  const sectionIds = (research.sections ?? []).map((section) => section.id);
+function validatePlan(research, connections, orderedSections) {
+  const researchSectionIds = new Set((research.sections ?? []).map((section) => section.id));
+  const sectionIds = orderedSections.map((section) => section.id);
   const sectionIdSet = new Set(sectionIds);
   const expectedConnectionCount = Math.max(0, sectionIds.length - 1);
   const errors = [];
+
+  if (sectionIds.length !== researchSectionIds.size) {
+    errors.push(`Expected route order to contain ${researchSectionIds.size} sections, found ${sectionIds.length}`);
+  }
+  for (const sectionId of sectionIds) {
+    if (!researchSectionIds.has(sectionId)) errors.push(`Route order contains unknown research section ${sectionId}`);
+  }
+  for (const sectionId of researchSectionIds) {
+    if (!sectionIdSet.has(sectionId)) errors.push(`Route order is missing research section ${sectionId}`);
+  }
 
   if (connections.length !== expectedConnectionCount) {
     errors.push(`Expected ${expectedConnectionCount} adjacent connections, found ${connections.length}`);
@@ -521,7 +552,9 @@ function validatePlan(research, connections) {
         errors.push(`${connection.id} endpoint ${endpoint.label} is missing coordinates`);
       }
     }
-    if (!connection.route?.geojsonPath) errors.push(`${connection.id} is missing route.geojsonPath`);
+    if (!["same-island", "none"].includes(connection.mode) && !connection.route?.geojsonPath) {
+      errors.push(`${connection.id} is missing route.geojsonPath`);
+    }
   }
 
   if (errors.length) throw new Error(errors.join("\n"));
@@ -529,8 +562,9 @@ function validatePlan(research, connections) {
 
 function createPlan(research) {
   const accessPoints = collectAccessPoints(research);
+  const orderedSections = orderedSectionsForRoute(research);
   const connections = CONNECTION_DRAFTS.map((draft) => buildConnection(draft, accessPoints));
-  validatePlan(research, connections);
+  validatePlan(research, connections, orderedSections);
 
   return {
     planVersion: 1,
@@ -539,11 +573,11 @@ function createPlan(research) {
     generatedBy: path.relative(REPO_ROOT, fileURLToPath(import.meta.url)),
     sourcePath: path.relative(REPO_ROOT, RESEARCH_PATH),
     purpose:
-      "Slice 2 ferry/rowboat/transfer mapping for Stockholm Archipelago Trail. These are planning connection routes, not navigation tracks or timetable promises.",
+      "Slice 2 ferry/transfer mapping for Stockholm Archipelago Trail. The official Finnhamn-Ingmarsö rowboat crossing is modeled as a route section; remaining transfer lines are planning connection routes, not navigation tracks or timetable promises.",
     sourceUrls: [OFFICIAL_SECTIONS_SOURCE, SAT_FAQ_SOURCE, ROWBOAT_SOURCE],
     currentness:
       "Static route relationships are captured here. Exact ferry departures, request stops, summer timetables, route deviations, weather docking, and disruptions must be checked in live official planners.",
-    officialSectionOrder: (research.sections ?? []).map((section, index) => ({
+    officialSectionOrder: orderedSections.map((section, index) => ({
       order: index + 1,
       id: section.id,
       name: section.name,
@@ -570,7 +604,11 @@ async function writeJson(filePath, value) {
 
 async function writeConnectionRoutes(connections) {
   await mkdir(PUBLIC_CONNECTION_ROUTE_DIR, { recursive: true });
-  const expectedFiles = new Set(connections.map((connection) => `${connection.id}.geojson`));
+  const expectedFiles = new Set(
+    connections
+      .filter((connection) => connection.route?.geojsonPath)
+      .map((connection) => `${connection.id}.geojson`)
+  );
   const existingFiles = await readdir(PUBLIC_CONNECTION_ROUTE_DIR).catch(() => []);
   await Promise.all(
     existingFiles
@@ -578,9 +616,11 @@ async function writeConnectionRoutes(connections) {
       .map((file) => rm(path.join(PUBLIC_CONNECTION_ROUTE_DIR, file), { force: true })),
   );
   await Promise.all(
-    connections.map((connection) =>
-      writeJson(path.join(PUBLIC_CONNECTION_ROUTE_DIR, `${connection.id}.geojson`), routeFeatureFor(connection)),
-    ),
+    connections
+      .filter((connection) => connection.route?.geojsonPath)
+      .map((connection) =>
+        writeJson(path.join(PUBLIC_CONNECTION_ROUTE_DIR, `${connection.id}.geojson`), routeFeatureFor(connection)),
+      ),
   );
 }
 
@@ -588,7 +628,7 @@ async function generatedTexts() {
   const research = JSON.parse(await readFile(RESEARCH_PATH, "utf8"));
   const plan = createPlan(research);
   const files = new Map([[CONNECTION_PLAN_PATH, `${JSON.stringify(plan, null, 2)}\n`]]);
-  for (const connection of plan.connections) {
+  for (const connection of plan.connections.filter((candidate) => candidate.route?.geojsonPath)) {
     files.set(
       path.join(PUBLIC_CONNECTION_ROUTE_DIR, `${connection.id}.geojson`),
       `${JSON.stringify(routeFeatureFor(connection), null, 2)}\n`,
@@ -616,8 +656,9 @@ async function main() {
   await mkdir(RESEARCH_DIR, { recursive: true });
   await writeJson(CONNECTION_PLAN_PATH, plan);
   await writeConnectionRoutes(plan.connections);
+  const drawableConnectionCount = plan.connections.filter((connection) => connection.route?.geojsonPath).length;
   console.log(`Wrote ${path.relative(REPO_ROOT, CONNECTION_PLAN_PATH)}.`);
-  console.log(`Wrote ${plan.connections.length} connection route GeoJSON files.`);
+  console.log(`Wrote ${drawableConnectionCount} connection route GeoJSON files.`);
 }
 
 main().catch((error) => {

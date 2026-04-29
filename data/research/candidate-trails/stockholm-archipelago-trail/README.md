@@ -6,7 +6,7 @@ Files:
 
 - `trail.research.json`: whole-trail research packet.
 - `facility-normalization-audit.json`: deterministic Slice 0 audit of raw facility, POI, suppression, pending, access, and transfer records against the current app taxonomy.
-- `section-connection-plan.json`: deterministic Slice 2 plan for ferry, rowboat, bus/ferry, and walking connections between official SAT entries.
+- `section-connection-plan.json`: deterministic Slice 2 plan for ferry, bus/ferry, walking, and same-island continuity decisions between official SAT entries. The Finnhamn-Ingmarsö rowboat crossing is modeled as a section route, not as a transfer line.
 
 The app-owned SAT source now lives under `data/source/hiking/stockholm-archipelago-trail/`. Runtime code must use generated public shards under `public/data/trail-systems/stockholm-archipelago-trail/`; it must not read this research directory directly.
 

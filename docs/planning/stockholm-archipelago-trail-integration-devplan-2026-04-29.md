@@ -31,7 +31,7 @@ Important rule: the candidate research file is an input only. Runtime code must 
 - [x] Agreed that ferries are central and need route-connection rendering on the map.
 - [x] Slice 0: Lock the import contract and normalization policy.
 - [x] Slice 1: Add ferry-capable transfer and connection data types.
-- [x] Slice 2: Map ferry and rowboat transfers between sections.
+- [x] Slice 2: Map ferry/walk transfers and keep the rowboat crossing as its own section.
 - [x] Slice 3: Render connection routes on the map.
 - [x] Slice 4: Create Stockholm Archipelago Trail hiking source shards.
 - [x] Slice 5: Normalize and import facilities.
@@ -51,10 +51,10 @@ The app should answer:
 - Which official section am I looking at?
 - What facilities exist on or near that section?
 - How do I move from this section to the next island or section?
-- Which ferry, rowboat, bus, or walking connector is part of that transfer?
+- Which ferry, bus, or walking connector is part of that transfer?
 - Is a transfer seasonal, timetable-dependent, or otherwise volatile?
 
-Ferry and rowboat connections should be drawn as connection routes on the map. These lines are planning references, not navigation tracks.
+Ferry and walking transfer connections should be drawn as connection routes on the map. The Finnhamn-Ingmarsö rowboat crossing is a route section, not a transfer line.
 
 ## Current Facility Policy
 
@@ -100,7 +100,7 @@ Each adjacent official section transition should have an explicit connection dec
 - `walk`: short connector path between endpoints.
 - `bus`: land transit connector.
 - `ferry`: scheduled public ferry, usually Waxholmsbolaget or equivalent.
-- `rowboat`: self-service rowboat or similar official crossing.
+- `rowboat`: reserved for future self-service crossings that are not already modeled as official route sections.
 - `none`: no normal direct connection; explain the gap.
 - `unknown`: temporary state only while importing; validation should reject this before release.
 
@@ -117,7 +117,7 @@ Connection records should include:
 - Geometry path for drawable connection routes.
 - A short public note for route-builder/detail display.
 
-Connection geometry should be visibly different from walking trail geometry. Recommended map treatment: thinner dashed blue/teal line below section route lines, with small ferry/rowboat endpoint markers where useful. Keep it quiet enough that walking route and facilities remain the primary map read.
+Connection geometry should be visibly different from walking trail geometry. Recommended map treatment: thinner dashed blue/teal line below section route lines, with small ferry/transfer endpoint markers where useful. Keep it quiet enough that walking route and facilities remain the primary map read.
 
 ## Slice 0: Import Contract And Normalization Policy
 
@@ -173,13 +173,13 @@ Completion notes:
 - Added `TrailSectionConnection`, `TrailConnectionEndpoint`, `TrailConnectionMode`, `TrailTransitStop`, and ferry-capable transit typing in `src/types.ts`.
 - Added optional `connections.json` support to hiking source shard reads/writes and public trail-system shard writes.
 - Added optional runtime loading for trail-system connections through `src/data/library.ts`.
-- Added validation for connection IDs, modes, section references, endpoint coordinates, ferry/rowboat navigation-use constraints, route metadata, and connection GeoJSON paths.
+- Added validation for connection IDs, modes, section references, endpoint coordinates, transfer navigation-use constraints, route metadata, and connection GeoJSON paths.
 - Added runtime probe and unit-test coverage for connection shard loading.
 - Existing Roslagsleden and Sörmlandsleden stay valid with no connection records.
 
 Scope:
 
-- Extend the data contract so the app can represent ferry, rowboat, bus, and walking transfers between trail sections.
+- Extend the data contract so the app can represent ferry, bus, and walking transfers between trail sections, while keeping official rowboat route entries as sections.
 - Keep existing Roslagsleden and Sormlandsleden data valid.
 
 Likely files:
@@ -221,14 +221,15 @@ Completion notes:
 - Added `scripts/build-stockholm-archipelago-trail-connections.mjs`.
 - Added `npm run data:sat:connection-plan` and `npm run data:sat:connection-plan:check`.
 - Added `data/research/candidate-trails/stockholm-archipelago-trail/section-connection-plan.json`.
-- Added 21 public planning-route GeoJSON files under `public/routes/hiking/stockholm-archipelago-trail/connections/`.
-- Current plan covers all 21 adjacent official section transitions across 22 entries: 16 ferry-style transfers, 1 rowboat crossing, and 4 walking connectors.
+- Added 20 public planning-route GeoJSON files under `public/routes/hiking/stockholm-archipelago-trail/connections/`.
+- Current plan covers all 21 adjacent official section transitions across 22 entries: 16 ferry-style transfers, 4 walking connectors, and 1 same-island continuity decision after the rowboat section.
+- Corrected the mainline order so the official rowboat entry sits between Finnhamn and Ingmarsö and is rendered as a section route, not as an inter-section transfer line.
 - Exact ferry schedules remain planner/currentness caveats; route lines are approximate planning references rather than navigation tracks.
 - Validation passed: `npm run data:sat:connection-plan:check`, `node --check scripts/build-stockholm-archipelago-trail-connections.mjs`, `npm run data:validate`, and `git diff --check`.
 
 Scope:
 
-- Map which ferry, rowboat, bus, or walking route connects each official Stockholm Archipelago Trail section to the next.
+- Map which ferry, bus, walking route, or continuity decision connects each official Stockholm Archipelago Trail section to the next.
 - Produce drawable connection route geometry.
 
 Likely files:
@@ -250,7 +251,7 @@ Work:
 Definition of done:
 
 - Every adjacent official section transition has an explicit connection decision.
-- Every `ferry`, `rowboat`, `bus`, or `walk` connection has from/to coordinates and a geometry path.
+- Every `ferry`, `rowboat`, `bus`, or `walk` connection has from/to coordinates and a geometry path. `same-island` continuity decisions may omit geometry.
 - Every seasonal or timetable-dependent connection has a public caveat.
 - There are no `unknown` connection modes in release data.
 
@@ -277,7 +278,7 @@ Completion notes:
 
 Scope:
 
-- Draw ferry/rowboat/transfer routes on trail-system maps.
+- Draw ferry and transfer routes on trail-system maps.
 - Keep them visually distinct from walking trail geometry and facility markers.
 
 Likely files:
@@ -293,14 +294,14 @@ Work:
 - Load connection route GeoJSON alongside selected/context section route geometry.
 - Render connection routes below walking route lines.
 - Use a consistent connection style, likely dashed with modest opacity.
-- Add ferry/rowboat endpoint markers only when they add clarity.
+- Add ferry/transfer endpoint markers only when they add clarity.
 - Ensure facility filter hover highlighting still targets facilities only.
 - Ensure start/end callouts stay above connection layers and remain readable.
 - Decide whether the overview map shows all ferry connections or only relevant selected/context connections.
 
 Definition of done:
 
-- Selecting SAT sections displays the walking route plus relevant ferry/rowboat/walk/bus connection lines.
+- Selecting SAT sections displays section routes plus relevant ferry/walk/bus connection lines.
 - Connection lines do not change facility counts, filter behavior, or facility hover highlighting.
 - Start/end labels are not covered by connection routes or ferry markers.
 - Desktop and mobile maps remain legible.
@@ -308,7 +309,7 @@ Definition of done:
 Validation:
 
 - Browser inspect a SAT section with at least one ferry transfer.
-- Browser inspect a multi-section SAT selection with at least one ferry/rowboat transfer.
+- Browser inspect a multi-section SAT selection with at least one ferry transfer and the rowboat route section.
 - Browser inspect a non-SAT trail system and confirm no visual regression.
 - If screenshots are produced, save them under `artifacts/` or `docs/test-reports/` according to the existing workflow.
 
@@ -433,7 +434,7 @@ Likely files:
 
 Work:
 
-- Show ferry/rowboat/bus/walk transfers in selected-route details.
+- Show ferry/bus/walk transfers in selected-route details.
 - Add ferry-aware getting-there/access display where current `busStop` and `trainStop` assumptions are too narrow.
 - Decide how multi-section SAT selections behave when sections are separated by ferry transfers.
 - Add concise caveats for seasonal/timetable-dependent transfers.
@@ -441,7 +442,7 @@ Work:
 
 Completed:
 
-- Added a selected-transfer helper that returns adjacent ferry/rowboat/bus/walk transfers even when a connection has no drawable map geometry.
+- Added a selected-transfer helper that returns adjacent ferry/bus/walk transfers even when a connection has no drawable map geometry.
 - Added a compact transfer summary to the route builder so SAT selections show required transfers before the user enters the detail view.
 - Added a `Route Transfers` detail block with mode, endpoints, service/operator, notes, timetable/currentness caveats, and source links.
 - Made selected-route access text and transit access cards aware of `ferryStop` and `nearestStop` while keeping bus/train-only trail systems visually unchanged.
@@ -546,7 +547,7 @@ Likely files:
 Work:
 
 - Validate connection records: IDs, modes, section refs, endpoint coordinates, source URLs, geometry paths.
-- Validate ferry/rowboat connection coverage for SAT section adjacency.
+- Validate SAT section adjacency, including ferry/walk connection coverage and same-island continuity decisions.
 - Validate all SAT facilities are normalized to supported types.
 - Validate no skipped metadata leaks into runtime facilities.
 - Add unit coverage for route-selection behavior when connections exist.
@@ -629,7 +630,7 @@ Completed:
 Definition of done:
 
 - SAT can be opened from the app and selected sections render.
-- Ferry/rowboat connection routes are visible and understandable.
+- Ferry and transfer connection routes are visible and understandable.
 - Facility filters, hover highlighting, and marker counts still match.
 - Start/end indicators and ferry markers do not cover each other in a confusing way.
 - Existing Roslagsleden, Sormlandsleden, and kayaking paths still smoke-test cleanly.
@@ -700,7 +701,7 @@ Status: completed 2026-04-29.
 Scope:
 
 - Replace marker-only SAT sections with route geometry for all official SAT entries.
-- Keep ferry and transfer connection routes separate from walking section routes.
+- Keep ferry and transfer connection routes separate from section routes.
 - Make the route import repeatable from app-owned source snapshots.
 
 Completed:
@@ -716,7 +717,7 @@ Completed:
 Definition of done:
 
 - Every SAT section has a public route GeoJSON path and validates as a ready route.
-- The rowboat entry remains an explicit route line without pretending it is walking geometry.
+- The rowboat entry remains an explicit route section without pretending it is either walking geometry or a transfer line.
 - Source route snapshots and generated GeoJSON are checkable without network access.
 - Browser QA confirms the SAT map shows section route lines, not only transfer connections.
 
@@ -733,7 +734,7 @@ Validation:
 
 1. Slice 0: contract and normalization policy.
 2. Slice 1: data model and validation foundation for connections.
-3. Slice 2: ferry/rowboat transfer mapping and connection geometry.
+3. Slice 2: ferry/walk transfer mapping and connection geometry.
 4. Slice 4: SAT source shards and route geometry.
 5. Slice 5: facility normalization.
 6. Slice 7: build integration.
@@ -746,7 +747,7 @@ This order keeps the data contract honest before UI work depends on it. It also 
 
 ## Open Questions
 
-- Should rowboat crossings be a distinct `rowboat` connection mode or a subtype of `ferry`? Recommendation: distinct mode, because availability and user expectations differ.
+- Should future rowboat crossings be a distinct `rowboat` connection mode or modeled as route sections? Recommendation: use route sections when the official trail treats the crossing as an entry, and reserve `rowboat` connection mode for crossings that are true inter-section handoffs.
 - Should all SAT ferry connections appear on the overview map, or only selected/context connections? Recommendation: selected/context first; consider overview later if it remains readable.
 - Should seasonal ferries show disabled states outside season, or only caveat text? Recommendation: caveat text for MVP; avoid pretending we have live timetable state.
 - Should rentals and saunas be shown as `service`? Recommendation: suppress by default unless the record clearly helps hikers plan the trail.

@@ -278,7 +278,7 @@ const ACCESS_POLICIES = {
   rowboat_crossing: {
     action: "hold_for_connection_model",
     connectionMode: "rowboat",
-    note: "Self-service rowboat crossing; first-class connection route, not a facility.",
+    note: "Self-service rowboat crossing; official route section, not a facility.",
   },
   seasonal_public_ferry_route_metadata: {
     action: "hold_for_connection_model",
@@ -592,6 +592,7 @@ function collectAccessRecords(sections) {
     });
 
     if (section.sectionType === "transfer" || section.transferMode) {
+      const isRowboatSection = section.id === "sat-rowboats-finnhamn-ingmarso";
       records.push({
         id: section.id,
         sectionId: section.id,
@@ -601,7 +602,9 @@ function collectAccessRecords(sections) {
         name: section.name,
         decision: "hold_for_connection_model",
         connectionMode: section.transferMode ?? "unknown",
-        note: "Section-level transfer. Model as an inter-section connection route in Slice 1/2.",
+        note: isRowboatSection
+          ? "Section-level rowboat crossing. Model as an official route section, not as an inter-section transfer line."
+          : "Section-level transfer. Model as an inter-section connection route in Slice 1/2.",
       });
     }
   }

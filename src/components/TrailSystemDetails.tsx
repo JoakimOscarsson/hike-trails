@@ -44,6 +44,11 @@ function sectionLabel(section: Pick<TrailSection, "stageNumber">) {
   return `Stage ${section.stageNumber}`;
 }
 
+function routePickerSectionLabel(section: Pick<TrailSection, "stageNumber" | "from" | "to">) {
+  const endpointLabel = section.from === section.to ? section.from : `${section.from} -> ${section.to}`;
+  return `${section.stageNumber}. ${endpointLabel}`;
+}
+
 function selectedRouteDescription({
   sections,
   distanceKm,
@@ -981,7 +986,7 @@ export function TrailSystemDetails({
               <select value={startSectionId} onChange={(event) => setStartSectionId(event.target.value)}>
                 {routeSections.map((section) => (
                   <option key={section.id} value={section.id}>
-                    {section.stageNumber}. {section.from}
+                    {routePickerSectionLabel(section)}
                   </option>
                 ))}
               </select>
@@ -992,7 +997,7 @@ export function TrailSystemDetails({
               <select value={endSectionId} onChange={(event) => setEndSectionId(event.target.value)}>
                 {routeSections.map((section, index) => (
                   <option key={section.id} value={section.id} disabled={index < startIndex}>
-                    {section.stageNumber}. {section.to}
+                    {routePickerSectionLabel(section)}
                   </option>
                 ))}
               </select>
