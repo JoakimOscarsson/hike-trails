@@ -1,11 +1,12 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-29T18:44:38Z",
-  "currentPhase": "Phase 2 section research resumed; N3 synthesized and next section is hallandsleden-stattared-veddige",
+  "lastUpdated": "2026-04-29T19:10:12Z",
+  "currentPhase": "Phase 2 section research complete through hallandsleden-stattared-veddige; next section hallandsleden-veddige-nosslinge",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
-    "hallandsleden-askhults-by-stattared"
+    "hallandsleden-askhults-by-stattared",
+    "hallandsleden-stattared-veddige"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -89,19 +90,22 @@
       "sectionNumber": "N4",
       "name": "Stättared - Veddige",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-map-line-discovered-needs-gpx-cross-check",
-      "startEndCoordinateStatus": "official-map-line-endpoints-captured-needs-validation",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-initial-six-lane-synthesis",
+      "routeGeometryStatus": "complete-official-gpx-api-geo_json-verified-suppress-api-line_geometry-naturkartan-osm-stattared-dranstugan-caveats",
+      "startEndCoordinateStatus": "complete-high-confidence-official-gpx-api-endpoints-stitch-to-n3-n5",
+      "commuteAccessStatus": "complete-with-remote-stattared-bus-and-strong-veddige-station-caveats",
+      "facilityResearchStatus": "complete-with-stattared-dedupe-veddige-services-and-dranstugan-adjacent-legacy-caveats",
+      "rulesSafetyStatus": "complete-with-2024-reroute-dynamic-fire-ban-dog-hunting-and-protected-area-overlay-caveats",
+      "synthesisStatus": "complete",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
-        "Run six independent section research lanes and synthesize findings.",
-        "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
-        "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Verify exact Stättared shelter toilet point and whether any toilet should be modeled separately from the shelter/farm cluster.",
+        "Confirm whether Stättareds 4H water tap is available when farm buildings/cafe are unmanned.",
+        "Verify exact Stättared 4H parking-lot coordinate and any Veddige station parking rules before importing parking metadata.",
+        "Decide how to model Dranstugan official facilities: adjacent/nearest-campsite metadata, N5 context, side-trip metadata, or suppression for current N4.",
+        "Resolve Dranstugan water seasonality conflict if Dranstugan is later imported anywhere.",
+        "Run protected-area polygon overlay before final normalization to confirm whether Skoga or any other protected area intersects the N4 GPX.",
+        "Do not use official API line.geometry, full Naturkartan Stättared-Dranstugan geometry, or OSM relation 3209148 as canonical current N4 geometry."
       ]
     },
     "hallandsleden-veddige-nosslinge": {
@@ -902,21 +906,70 @@
       "completedAt": "2026-04-29T18:44:38Z",
       "synthesisFile": "sections/hallandsleden-askhults-by-stattared.research.json",
       "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around Äskhult/Lilla Äskhult fire and tent rules, seasonal Äskhult water/toilet access, Stättared water and parking verification, sparse end-access transit, off-route side services, stale Stensjön prose, and non-canonical API line.geometry/Naturkartan/OSM distance clues."
+    },
+    {
+      "batchId": "hallandsleden-stattared-veddige-initial-6-lane-2026-04-29",
+      "sectionId": "hallandsleden-stattared-veddige",
+      "startedAt": "2026-04-29T19:03:40Z",
+      "status": "completed-and-synthesized",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddaa0-ad41-7400-a51f-354c5ae69576",
+          "nickname": "Gauss"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddaa0-ae11-7a32-bc30-7f6aa850c5ce",
+          "nickname": "Lorentz"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddaa0-aeec-7100-a470-f29390fc2668",
+          "nickname": "Feynman"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddaa0-afb2-7283-a2ed-4dc53ffa331e",
+          "nickname": "Anscombe"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddaa0-b069-7ca1-8bde-273b4222bb90",
+          "nickname": "McClintock"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddaa0-b0e4-7b61-b429-a521a8032e8d",
+          "nickname": "Sartre"
+        }
+      ],
+      "requestedOutputs": [
+        "official facts",
+        "geometry verification",
+        "facilities",
+        "transit/access",
+        "field reports",
+        "rules/safety/currentness"
+      ],
+      "completedAt": "2026-04-29T19:10:12Z",
+      "synthesisFile": "sections/hallandsleden-stattared-veddige.research.json",
+      "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around the 2024 Veddige reroute, stale Stättared-Dranstugan geometry in Naturkartan/OSM/API line.geometry, remote Stättared bus access, Stättared water/toilet normalization, Dranstugan adjacent/legacy facilities, and dynamic fire/protected-area checks."
     }
   ],
   "sourceCoverage": {
     "officialOverview": "complete-initial-pass",
     "officialSectionInventory": "complete-initial-pass-35-sections",
-    "officialGeometry": "complete-for-first-three-sections-with-api-line_geometry-caveats",
-    "municipalities": "overview-list-captured-from-official-footer-n1-n2-n3-section-specific-pages-reviewed",
-    "protectedAreas": "complete-for-first-three-sections",
-    "transitOperators": "complete-for-first-three-sections",
-    "facilities": "complete-for-first-three-sections",
-    "fieldReports": "complete-for-first-three-sections",
-    "rulesSafety": "overview-pass-complete-n1-n2-n3-section-specific-complete"
+    "officialGeometry": "complete-for-first-four-sections-with-api-line_geometry-caveats",
+    "municipalities": "overview-list-captured-from-official-footer-n1-n2-n3-n4-section-specific-pages-reviewed",
+    "protectedAreas": "complete-for-first-four-sections-with-n4-skoga-overlay-pending",
+    "transitOperators": "complete-for-first-four-sections",
+    "facilities": "complete-for-first-four-sections",
+    "fieldReports": "complete-for-first-four-sections",
+    "rulesSafety": "overview-pass-complete-n1-n2-n3-n4-section-specific-complete"
   },
   "knownGaps": [
-    "Only the overview and first three sections have been researched/synthesized; 32 remaining sections still need the six-lane workflow.",
+    "Only the overview and first four sections have been researched/synthesized; 31 remaining sections still need the six-lane workflow.",
     "Coastal Hallandsleden is incomplete by official statement; future import must model gaps instead of stitching a continuous coast.",
     "Older sources may report 435 km / 26 stages / 3 parts; live official source reports 612 km / 35 sections / 4 subtrails.",
     "Paper maps printed June 2022 are stale for 2024 rerouted sections.",
@@ -934,12 +987,17 @@
     "N3: official section prose appears to contain stale Stensjön shelter/toilet wording; current N3 places API and endpoint evidence support Lägerplats Stättared instead.",
     "N3: Äskhult/Lilla Äskhult shelter fire and any tenting permission need exact boundary/designated-place verification.",
     "N3: Stättared drinking water is at Stättareds 4H-gård, not the shelter, and all-hours tap access remains unverified.",
-    "N3: Stättared bus access is sparse and endpoint distances are measured differently by sources; use Stättaredsvägen/Backen with caveats."
+    "N3: Stättared bus access is sparse and endpoint distances are measured differently by sources; use Stättaredsvägen/Backen with caveats.",
+    "N4: official API line.geometry, Naturkartan full geometry, and OSM relation 3209148 continue toward Dranstugan and should not be used as current N4 geometry.",
+    "N4: Dranstugan shelters/water/toilet are official facilities but over 2 km off current N4 GPX; keep as adjacent/legacy context pending N5/side-service modeling.",
+    "N4: Stättared water is at Stättareds 4H-gård, not the shelter, and all-hours tap access remains unverified.",
+    "N4: Stättared bus access is remote/sparse; Veddige Station is strong endpoint access.",
+    "N4: Skoga reserve was screened but not proven on-route; run protected-area polygon overlay before final normalization."
   ],
   "nextActions": [
-    "Continue Phase 2 with hallandsleden-stattared-veddige.",
+    "Continue Phase 2 with hallandsleden-veddige-nosslinge.",
     "For each remaining section, run the six-lane research workflow and update this progress file after each batch/synthesis.",
-    "When researching N4, pay special attention to the N3/N4 Stättared endpoint handoff and duplicate Stättared shelter, toilet, water, parking, and 4H side-service records.",
+    "When researching N5, pay special attention to the N4/N5 Veddige endpoint handoff and whether Dranstugan facilities belong to N5, adjacent side-service metadata, or only stale Stättared-Dranstugan context.",
     "Keep edits confined to data/research/candidate-trails/hallandsleden/ until explicitly asked otherwise."
   ],
   "handoffNotes": [
@@ -947,8 +1005,8 @@
     "Only files under data/research/candidate-trails/hallandsleden/ were written.",
     "Do not edit source/runtime/generated app data. Do not run forbidden generated-data/import commands.",
     "Overview files are complete for Phase 1.",
-    "Completed section files: sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json, sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json, and sections/hallandsleden-askhults-by-stattared.research.json.",
-    "Next section to research: hallandsleden-stattared-veddige."
+    "Completed section files: sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json, sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json, sections/hallandsleden-askhults-by-stattared.research.json, and sections/hallandsleden-stattared-veddige.research.json.",
+    "Next section to research: hallandsleden-veddige-nosslinge."
   ],
   "filesWritten": [
     "README.md",
@@ -956,7 +1014,8 @@
     "research-progress.json",
     "sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json",
     "sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json",
-    "sections/hallandsleden-askhults-by-stattared.research.json"
+    "sections/hallandsleden-askhults-by-stattared.research.json",
+    "sections/hallandsleden-stattared-veddige.research.json"
   ],
   "meaningfulPasses": [
     {
@@ -993,6 +1052,16 @@
       "id": "phase-2-n3-six-lane-synthesis-complete-2026-04-29",
       "completedAt": "2026-04-29T18:44:38Z",
       "summary": "Synthesized six lane reports and main-thread API/GPX/Naturkartan/Västtrafik checks for N3 into a section research JSON. Marked N3 research-ready with caveats around Äskhult/Lilla Äskhult fire and tent rules, seasonal Äskhult water/toilet access, Stättared water and parking verification, sparse end-access transit, stale Stensjön prose, and non-canonical geometry/distance sources."
+    },
+    {
+      "id": "phase-2-n4-initial-agent-batch-started-2026-04-29",
+      "completedAt": "2026-04-29T19:03:40Z",
+      "summary": "Started Phase 2 six-lane research workflow for N4 Stättared - Veddige. Main thread retains file-write ownership and will synthesize agent reports into the section research JSON."
+    },
+    {
+      "id": "phase-2-n4-six-lane-synthesis-complete-2026-04-29",
+      "completedAt": "2026-04-29T19:10:12Z",
+      "summary": "Synthesized six lane reports and main-thread API/GPX/Naturkartan/OSM/place checks for N4 into a section research JSON. Marked N4 research-ready with caveats around the 2024 Veddige reroute, stale Stättared-Dranstugan geometry in Naturkartan/OSM/API line.geometry, Dranstugan adjacent/legacy facilities, remote Stättared bus access, and dynamic fire/protected-area checks."
     }
   ]
 }
