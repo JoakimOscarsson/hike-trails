@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-29T20:45:45Z",
-  "currentPhase": "Phase 2 section research complete through hallandsleden-akulla-ullared; next section hallandsleden-ullared-karnebygd",
+  "lastUpdated": "2026-04-29T21:12:20Z",
+  "currentPhase": "Phase 2 section research complete for hallandsleden-ullared-karnebygd; ready to start hallandsleden-karnebygd-atran",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -11,7 +11,8 @@
     "hallandsleden-nosslinge-akulla",
     "hallandsleden-akulla-astad",
     "hallandsleden-varberg-akulla",
-    "hallandsleden-akulla-ullared"
+    "hallandsleden-akulla-ullared",
+    "hallandsleden-ullared-karnebygd"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -248,19 +249,23 @@
       "sectionNumber": "M2",
       "name": "Ullared - Kärnebygd",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-map-line-discovered-needs-gpx-cross-check",
-      "startEndCoordinateStatus": "official-map-line-endpoints-captured-needs-validation",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-six-lane-synthesis",
+      "routeGeometryStatus": "complete-official-gpx-api-geojson-naturkartan-canonical-api-line-geometry-and-osm-stale",
+      "startEndCoordinateStatus": "complete-official-gpx-api-naturkartan-with-m1-m3-continuity",
+      "commuteAccessStatus": "complete-strong-ullared-weak-karnebygd-with-official-horsared-and-stop-data-lia-caveats",
+      "facilityResearchStatus": "complete-core-facilities-ready-with-kogstorp-suppression-and-ullared-overinclusion-caveats",
+      "rulesSafetyStatus": "complete-with-hogvadsan-natura-water-protection-dynamic-fire-dog-hunting-caveats",
+      "synthesisStatus": "complete-section-file-written",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
-        "Run six independent section research lanes and synthesize findings.",
-        "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
-        "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Ask Hallandsleden/Falkenberg whether the English Ullared-Kvarnlyckan and Kvarnlyckan-Ätran labels are stale translations of current Ullared-Kärnebygd / Kärnebygd-Ätran segmentation before exposing aliases.",
+        "Before normalization, suppress official API line.geometry and OSM relation 4175922 as stale old Kogstorp-Kärnebygd geometry unless a legacy/connector model is explicitly introduced.",
+        "Decide whether to import the official GPX/API/Naturkartan 257-point shape directly or densify later for navigation; current evidence supports planning-grade canonical import only.",
+        "Normalize Kärnebygd endpoint access conservatively: official page says no buses and Horsared Södra 6 km west, while Lia/Obbhult are closer straight-line but weaker/off-route access options.",
+        "Verify current commercial access/opening for Sveas B&B, Örnatorpet, B&B Horsared, Viktors, Gekåsbyn, ICA and Ullared services before public import.",
+        "Do not import Kärnebygd shelter or Byasjön/Hackarpssjön as potable water unless a current drinking-water source is confirmed.",
+        "Run protected-area polygon overlay before final normalization for exact Högvadsån Natura 2000 and Ullared Ängaberg/Nedre Ätran water-protection spans.",
+        "Keep fire-risk/fire-ban state dynamic; 2026-04-29 checks found cautionary fire-risk status but no durable route-specific fire-ban fact."
       ]
     },
     "hallandsleden-karnebygd-atran": {
@@ -1364,21 +1369,120 @@
         }
       ],
       "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around canonical official GPX/API geo_json/Naturkartan shape versus stale API line.geometry/OSM/Naturkartan metadata/route-app old segmentation, Åkulla multi-section dedupe and seasonal access, strong Ullared endpoint access but dense Gekås/Ullared over-inclusion, Yasjön seasonality, Kogstorp no verified water, Åkullaboket/Nedre Ätran rules, dynamic fire checks and sparse current full-stage field reports."
+    },
+    {
+      "batchId": "hallandsleden-ullared-karnebygd-initial-6-lane-2026-04-29",
+      "sectionId": "hallandsleden-ullared-karnebygd",
+      "startedAt": "2026-04-29T20:47:57Z",
+      "status": "complete-with-replacement-route-geometry-lane",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddaff-89c4-7440-bdea-24199a2d6653",
+          "nickname": "Pauli"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddaff-8a8b-7f51-b4c5-6e0726c16092",
+          "nickname": "Russell",
+          "status": "closed-stalled-no-report"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddaff-8afd-7ed2-876c-1fc51b83d9e4",
+          "nickname": "Herschel"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddaff-8b44-7d32-bb19-01e8929de9bc",
+          "nickname": "Parfit"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddaff-8bc8-70a1-86e5-61e00c692750",
+          "nickname": "Maxwell"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddaff-8c17-7663-906b-fa05d976d976",
+          "nickname": "Jason"
+        }
+      ],
+      "replacementAgents": [
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb0c-aa96-7a22-a00f-a2b421e6ec32",
+          "nickname": "Copernicus",
+          "startedAt": "2026-04-29T21:02:16Z",
+          "reason": "Original route-geometry lane did not return after repeated waits; replacement asked to verify GPX/API/Naturkartan/OSM geometry and endpoint consistency.",
+          "completedAt": "2026-04-29T21:12:20Z"
+        }
+      ],
+      "requestedOutputs": [
+        "official facts",
+        "geometry verification",
+        "facilities",
+        "transit/access",
+        "field reports",
+        "rules/safety/currentness"
+      ],
+      "notes": [
+        "Focus on stale old Kogstorp-Kärnebygd/Kvarnlyckan segmentation leakage, Ullared endpoint continuity and service over-inclusion, Kärnebygd endpoint access, official GPX/API line conflicts, and facilities/water/camping between Ullared and Kärnebygd."
+      ],
+      "receivedReports": [
+        {
+          "lane": "field-reports",
+          "agentId": "019ddaff-8bc8-70a1-86e5-61e00c692750",
+          "receivedAt": "2026-04-29T20:49:00Z",
+          "summary": "Found thin but useful field evidence from 2017, 2018, 2023, 2024 and 2025. Sources consistently describe firm/easy walking on railway embankment, gravel/forest roads, paths and short asphalt/settlement sections, with effort around Örnatorpet and after leaving the embankment. No recent exact-section reports of washouts, severe mud, forestry closures or shelter failures were found."
+        },
+        {
+          "lane": "official-sources",
+          "agentId": "019ddaff-89c4-7440-bdea-24199a2d6653",
+          "receivedAt": "2026-04-29T20:52:00Z",
+          "summary": "Confirmed official Swedish/API/GPX identity Ullared - Kärnebygd, 17 km, red/hard, GPX metadata time 2025-06-23T09:29:26+02:00. Noted English page/menu stale naming Ullared - Kvarnlyckan and Kvarnlyckan - Ätran, Kogstorp legacy leakage in places/text, and 17 km display versus 17.2 km GPX description."
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddaff-8b44-7d32-bb19-01e8929de9bc",
+          "receivedAt": "2026-04-29T20:54:00Z",
+          "summary": "Confirmed strong Ullared bus-terminal access about 60 m from the GPX start. For Kärnebygd, no endpoint bus was found; official page says Horsared Södra 6 km west, while stop-data search found Lia and Obbhult about 4.1-4.2 km straight-line but requiring off-route road access. Parking at Kärnebygd remains private/local unless arranged."
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddaff-8c17-7663-906b-fa05d976d976",
+          "receivedAt": "2026-04-29T20:56:00Z",
+          "summary": "Found Högvadsån Natura 2000 on the route, no established nature-reserve overlay from queried official layers, Ullared Ängaberg and Nedre Ätran water-protection areas, no M2-specific closure/reroute, dynamic fire-risk checks, dog/livestock, hunting, forestry and road-safety caveats, and Kärnebygd water-point reliability caveats."
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddaff-8afd-7ed2-876c-1fc51b83d9e4",
+          "receivedAt": "2026-04-29T20:58:00Z",
+          "summary": "Collected trail-relevant facilities and import decisions: Ullared bus terminal/ICA/Sveas/start services, Örnatorpet, Pyttebanan bridge/rest place, B&B Horsared, Pyttebanan embankment, Kärnebygd shelter/kvarn/såg/rest place/Viktors. Recommended suppressing Kogstorp and Linbastan for current M2, keeping Gekås/Ullared as access/service metadata, and not importing unverified mid-route public water."
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb0c-aa96-7a22-a00f-a2b421e6ec32",
+          "receivedAt": "2026-04-29T21:12:20Z",
+          "summary": "Replacement route-geometry lane confirmed the 257-point official GPX/API geo_json/Naturkartan site 22040 shape as canonical current M2 geometry from Ullared to Kärnebygd, with 17.176 km computed length and good M1/M3 endpoint continuity. It identified official API line.geometry and OSM relation 4175922 as stale old Kogstorp-Kärnebygd geometry to suppress for current import."
+        }
+      ],
+      "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around canonical official GPX/API geo_json/Naturkartan shape versus stale API line.geometry/OSM old Kogstorp-Kärnebygd segmentation, stale English Kvarnlyckan labels, Ullared service over-inclusion, weak Kärnebygd endpoint transit, Kogstorp facility leakage, unverified mid-stage water, Högvadsån Natura 2000/water-protection contexts and dynamic fire-risk checks."
     }
   ],
   "sourceCoverage": {
     "officialOverview": "complete-initial-pass",
     "officialSectionInventory": "complete-initial-pass-35-sections",
-    "officialGeometry": "complete-for-first-nine-sections-with-api-line_geometry-caveats-through-m1",
-    "municipalities": "overview-list-captured-from-official-footer-n1-n2-n3-n4-n5-n6-n7-n8-m1-section-specific-pages-reviewed",
-    "protectedAreas": "complete-for-first-nine-sections-with-n4-skoga-overlay-pending-n5-water-protection-note-n6-markedalen-akullaboket-caveats-n7-akullaboket-toppbjar-langanskogen-skarback-skogsbo-valaklitt-overlay-caveats-n8-akullaboket-nabben-grimeton-overlay-caveats-and-m1-akullaboket-nedre-atran-yasjon-caveats",
-    "transitOperators": "complete-for-first-nine-sections-with-m1-seasonal-akulla-and-strong-ullared-terminal-caveats",
-    "facilities": "complete-for-first-nine-sections-with-m1-gekas-ullared-overinclusion-and-akulla-dedupe-caveats",
-    "fieldReports": "complete-for-first-nine-sections-with-m1-full-stage-field-report-thinness-caveat",
-    "rulesSafety": "overview-pass-complete-n1-n2-n3-n4-n5-n6-n7-n8-m1-section-specific-complete"
+    "officialGeometry": "complete-for-first-ten-sections-through-m2-with-api-line_geometry-caveats-and-m2-gpx-api-naturkartan-canonical-shape-confirmed",
+    "municipalities": "overview-list-captured-from-official-footer-n1-n2-n3-n4-n5-n6-n7-n8-m1-m2-section-specific-pages-reviewed",
+    "protectedAreas": "complete-for-first-ten-sections-with-n4-skoga-overlay-pending-n5-water-protection-note-n6-markedalen-akullaboket-caveats-n7-akullaboket-toppbjar-langanskogen-skarback-skogsbo-valaklitt-overlay-caveats-n8-akullaboket-nabben-grimeton-overlay-caveats-m1-akullaboket-nedre-atran-yasjon-caveats-and-m2-hogvadsan-natura-water-protection-caveats",
+    "transitOperators": "complete-for-first-ten-sections-with-m1-seasonal-akulla-and-strong-ullared-terminal-caveats-and-m2-strong-ullared-weak-karnebygd-access-caveats",
+    "facilities": "complete-for-first-ten-sections-with-m1-gekas-ullared-overinclusion-and-akulla-dedupe-caveats-and-m2-kogstorp-leakage-ullared-overinclusion-karnebygd-water-caveats",
+    "fieldReports": "complete-for-first-ten-sections-with-m1-full-stage-field-report-thinness-caveat-and-m2-thin-but-useful-2017-2025-field-evidence",
+    "rulesSafety": "overview-pass-complete-n1-n2-n3-n4-n5-n6-n7-n8-m1-m2-section-specific-complete"
   },
   "knownGaps": [
-    "Only the overview and first nine sections have been researched/synthesized; 26 later sections still need the six-lane workflow.",
+    "Only the overview and first ten sections have been researched/synthesized; 25 later sections still need the six-lane workflow.",
     "Coastal Hallandsleden is incomplete by official statement; future import must model gaps instead of stitching a continuous coast.",
     "Older sources may report 435 km / 26 stages / 3 parts; live official source reports 612 km / 35 sections / 4 subtrails.",
     "Paper maps printed June 2022 are stale for 2024 rerouted sections.",
@@ -1443,12 +1547,18 @@
     "M1: Ullared endpoint access is strong at Ullared bussterminal, but Gekås/Ullared commercial services should be filtered to a small set of trail-relevant records.",
     "M1: Kogstorp shelter/toilet/fireplace is import-ready, but no potable water was verified there; official water is Åkulla Outdoor Resort and likely commercial/service-dependent Dricksvatten Ullared.",
     "M1: rules/safety caveats include Åkullaboket reserve at the start, Nedre Ätran water-protection area, Yasjön island closure 1 March-30 June, dynamic fire-ban checks, dog/leash and hunting-season guidance.",
-    "M1: current public field evidence for the full 16.9 km Åkulla-Ullared alignment is thin; many reports and route apps still describe the old Åkulla-Kogstorp partial segment."
+    "M1: current public field evidence for the full 16.9 km Åkulla-Ullared alignment is thin; many reports and route apps still describe the old Åkulla-Kogstorp partial segment.",
+    "M2: official Swedish/API/GPX/Naturkartan sources support Ullared-Kärnebygd, 17 km/red, but English Hallandsleden still says Ullared-Kvarnlyckan and Kvarnlyckan-Ätran.",
+    "M2: official GPX/API geo_json/Naturkartan site 22040 are 257-point current Ullared-Kärnebygd geometry at about 17.176 km, while official API line.geometry is a 692-point 18.555 km old Kogstorp-Kärnebygd line starting 2.888 km before the current M2 GPX start and ending 929 m beyond the current GPX end.",
+    "M2: Kogstorp shelter/linbasta are official place-feed leakage from old/current side context and should be suppressed for current M2 import unless a legacy/side-context model is chosen.",
+    "M2: Kärnebygd endpoint access is weak; official page says no buses and nearest Horsared Södra 6 km west, while stop-data search found Lia/Obbhult about 4.1-4.2 km straight-line with off-route road access.",
+    "M2: Högvadsån Natura 2000 and Ullared Ängaberg/Nedre Ätran water-protection areas intersect or affect the route; no M2-specific official closure/reroute was found.",
+    "M2: no reliable mid-stage public drinking water was found; Kärnebygd water status/pump relocation and any firewood/no-firewood note need careful normalization."
   ],
   "nextActions": [
-    "Commit M1 research files before starting edits for M2.",
-    "Resume Phase 2 with hallandsleden-ullared-karnebygd (M2): spawn the six required research/report agents, synthesize their findings, write the section JSON, then update research-progress.json.",
-    "For M2, pay special attention to stale old Kogstorp-Kärnebygd segmentation leakage, Ullared endpoint dedupe/continuity with M1, Kärnebygd endpoint access, official GPX/API conflicts, and facilities between Ullared and Kärnebygd.",
+    "Commit M2 hallandsleden-ullared-karnebygd research before starting M3.",
+    "Start M3 hallandsleden-karnebygd-atran with the required six parallel research/report lanes, then update this progress file before the main-thread source pass.",
+    "For M3, pay attention to Kärnebygd endpoint continuity from M2, stale Kvarnlyckan naming, Ätran access/service clustering, official GPX/API/Naturkartan/OSM geometry conflicts, and water/shelter handoff at both endpoints.",
     "For each remaining section, run the six-lane research workflow and update this progress file after each batch/synthesis.",
     "Keep edits confined to data/research/candidate-trails/hallandsleden/ until explicitly asked otherwise."
   ],
@@ -1457,11 +1567,12 @@
     "Only files under data/research/candidate-trails/hallandsleden/ were written.",
     "Do not edit source/runtime/generated app data. Do not run forbidden generated-data/import commands.",
     "Overview files are complete for Phase 1.",
-    "Completed section files: sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json, sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json, sections/hallandsleden-askhults-by-stattared.research.json, sections/hallandsleden-stattared-veddige.research.json, sections/hallandsleden-veddige-nosslinge.research.json, sections/hallandsleden-nosslinge-akulla.research.json, sections/hallandsleden-akulla-astad.research.json, sections/hallandsleden-varberg-akulla.research.json, and sections/hallandsleden-akulla-ullared.research.json.",
+    "Completed section files: sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json, sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json, sections/hallandsleden-askhults-by-stattared.research.json, sections/hallandsleden-stattared-veddige.research.json, sections/hallandsleden-veddige-nosslinge.research.json, sections/hallandsleden-nosslinge-akulla.research.json, sections/hallandsleden-akulla-astad.research.json, sections/hallandsleden-varberg-akulla.research.json, sections/hallandsleden-akulla-ullared.research.json, and sections/hallandsleden-ullared-karnebygd.research.json.",
     "N7 initial six-lane agent batch started 2026-04-29T19:50:16Z with agents Popper, Newton, Bernoulli, Euler, Pasteur, and Mencius, and was synthesized into sections/hallandsleden-akulla-astad.research.json at 2026-04-29T20:06:11Z.",
     "N8 initial six-lane agent batch started 2026-04-29T20:09:28Z with agents Goodall, Kepler, Peirce, Hilbert, Kant, and Volta, and was synthesized into sections/hallandsleden-varberg-akulla.research.json at 2026-04-29T20:26:09Z.",
     "M1 initial six-lane agent batch started 2026-04-29T20:28:19Z with agents Einstein, Wegener, Ohm, Rawls, Hooke, and Arendt; Einstein errored from context exhaustion and was replaced by Turing for official-source research. M1 synthesized into sections/hallandsleden-akulla-ullared.research.json at 2026-04-29T20:45:45Z.",
-    "Next section is M2 hallandsleden-ullared-karnebygd after committing M1."
+    "M2 initial six-lane agent batch started 2026-04-29T20:47:57Z with agents Pauli, Russell, Herschel, Parfit, Maxwell, and Jason. Pauli, Herschel, Parfit, Maxwell and Jason returned; Russell route-geometry was closed after repeated timeouts and replacement geometry agent Copernicus completed the geometry lane. M2 synthesized into sections/hallandsleden-ullared-karnebygd.research.json at 2026-04-29T21:12:20Z.",
+    "Next section is M3 hallandsleden-karnebygd-atran after committing M2."
   ],
   "filesWritten": [
     "README.md",
@@ -1475,7 +1586,8 @@
     "sections/hallandsleden-nosslinge-akulla.research.json",
     "sections/hallandsleden-akulla-astad.research.json",
     "sections/hallandsleden-varberg-akulla.research.json",
-    "sections/hallandsleden-akulla-ullared.research.json"
+    "sections/hallandsleden-akulla-ullared.research.json",
+    "sections/hallandsleden-ullared-karnebygd.research.json"
   ],
   "meaningfulPasses": [
     {
@@ -1597,6 +1709,31 @@
       "id": "phase-2-m1-six-lane-synthesis-complete-2026-04-29",
       "completedAt": "2026-04-29T20:45:45Z",
       "summary": "Synthesized six lane reports and main-thread API/GPX/Naturkartan/OSM/Hallandstrafiken/ResRobot/protected-area/fire-risk checks for M1 into a section research JSON. Marked M1 research-ready with caveats around canonical official GPX/API geo_json/Naturkartan shape versus stale old Åkulla-Kogstorp/Kogstorp-Kärnebygd segmentation, Åkulla service/facility dedupe, seasonal Åkturen, strong Ullared bus-terminal access but dense Gekås/Ullared over-inclusion, Yasjön seasonality, Kogstorp no verified water, Åkullaboket/Nedre Ätran rules and sparse current full-stage field reports."
+    },
+    {
+      "id": "phase-2-m2-initial-agent-batch-started-2026-04-29",
+      "completedAt": "2026-04-29T20:47:57Z",
+      "summary": "Started Phase 2 six-lane research workflow for M2 Ullared - Kärnebygd. Main thread retains file-write ownership and flagged stale old Kogstorp-Kärnebygd/Kvarnlyckan segmentation leakage, Ullared endpoint continuity and service over-inclusion, Kärnebygd endpoint access, official GPX/API line conflicts, facilities/water/camping between endpoints, and route-specific rules/currentness for agents."
+    },
+    {
+      "id": "phase-2-m2-main-thread-official-api-gpx-access-rules-pass-2026-04-29",
+      "completedAt": "2026-04-29T20:58:42Z",
+      "summary": "Fetched M2 official Swedish and English pages, GPX, map API, places API, Naturkartan page/site id 22040, OSM relation 4175922, ResRobot stop lookups, and rules/currentness/protected-area sources. Found Swedish official/API/GPX/Naturkartan current identity Ullared-Kärnebygd, 17 km/red, while English still says Ullared-Kvarnlyckan. Official GPX/API geo_json/Naturkartan shape is a 257-point 17.176 km line from Ullared to Kärnebygd that stitches to M1 within 31.6 m and M3 within 11.7 m. Official API line.geometry is a stale 692-point 18.555 km old Kogstorp-Kärnebygd line. Places API returned 17 records including Ullared start services, Pyttebanan bridge/embankment, Horsared B&B, Kärnebygd shelter/kvarn/såg/rest/Viktors, plus Kogstorp leakage to suppress."
+    },
+    {
+      "id": "phase-2-m2-five-agent-reports-received-2026-04-29",
+      "completedAt": "2026-04-29T20:58:42Z",
+      "summary": "Received M2 reports for official sources, facilities, transit/access, field reports, and rules/safety/currentness. Route-geometry lane remains pending; if it does not return promptly, spawn a replacement geometry agent before final M2 synthesis."
+    },
+    {
+      "id": "phase-2-m2-replacement-route-geometry-agent-started-2026-04-29",
+      "completedAt": "2026-04-29T21:02:16Z",
+      "summary": "Closed stalled original route-geometry lane Russell after repeated timeouts and spawned replacement geometry agent Copernicus to independently verify official GPX/API/Naturkartan/OSM geometry, endpoints, direction, continuity, and stale-source contradictions for M2."
+    },
+    {
+      "id": "phase-2-m2-six-lane-synthesis-complete-2026-04-29",
+      "completedAt": "2026-04-29T21:12:20Z",
+      "summary": "Synthesized five original lane reports, the replacement route-geometry lane, and main-thread API/GPX/Naturkartan/OSM/ResRobot/protected-area/fire-risk checks for M2 into a section research JSON. Marked M2 research-ready with caveats around canonical official GPX/API geo_json/Naturkartan shape versus stale API line.geometry/OSM old Kogstorp-Kärnebygd segmentation, stale English Kvarnlyckan labels, Ullared service filtering, weak Kärnebygd access, Kogstorp facility leakage, no reliable mid-stage potable water, Högvadsån Natura 2000/water-protection contexts and dynamic fire checks."
     }
   ]
 }
