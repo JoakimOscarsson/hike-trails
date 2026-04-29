@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-29T23:14:00Z",
-  "currentPhase": "Phase 2 section research ready to start hallandsleden-frodeparken-oskarstrom",
+  "lastUpdated": "2026-04-29T23:31:00Z",
+  "currentPhase": "Phase 2 section research ready to start hallandsleden-oskarstrom-gyltige",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -18,7 +18,8 @@
     "hallandsleden-langesjon-rydobruk",
     "hallandsleden-rydobruk-kvarnforsen",
     "hallandsleden-astad-vessigebro",
-    "hallandsleden-vessigebro-frodeparken"
+    "hallandsleden-vessigebro-frodeparken",
+    "hallandsleden-frodeparken-oskarstrom"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -442,19 +443,25 @@
       "sectionNumber": "S1",
       "name": "Frodeparken - Oskarström",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-map-line-discovered-needs-gpx-cross-check",
-      "startEndCoordinateStatus": "official-map-line-endpoints-captured-needs-validation",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-official-swedish-english-gpx-api-naturkartan-lansstyrelsen-destinationhalmstad-source-pass",
+      "routeGeometryStatus": "complete-official-gpx-api-geojson-canonical-536-point-22-272km-naturkartan-current-simplified-stale-osm-dobla-ryet-suppressed",
+      "startEndCoordinateStatus": "complete-official-gpx-api-endpoints-high-confidence-m8-exact-and-s2-2-94m-continuity",
+      "commuteAccessStatus": "complete-frodeparken-start-no-direct-transit-roadside-shelter-access-with-sparse-rural-fallbacks-oskarstrom-end-strong-bus-rail-access",
+      "facilityResearchStatus": "complete-core-facilities-ready-frodeparken-dobla-oskarstrom-services-water-status-conflict-and-offroute-filtering-recorded",
+      "rulesSafetyStatus": "complete-frodeparken-almeberget-reserve-natura2000-road26-forestry-dynamic-fire-dogs-hunting-currentness-caveats",
+      "synthesisStatus": "complete-six-lane-synthesis-complete",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
-        "Run six independent section research lanes and synthesize findings.",
-        "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
-        "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Before runtime import, verify Oskarström public toilet/water current status because official water and toilet records conflict.",
+        "Before normalization, decide whether S1/S2 endpoints should be snapped to one shared Oskarström node or preserved with the 2.94 m official GPX gap.",
+        "Before import, confirm whether Hallandstrafiken current lines/stops for Oskarström Centrum should override older official stop text listing 315/410 and 700 m to trail.",
+        "Before public access guidance, verify Frodeparken roadside stopping and any lawful parking; do not promise formal parking or direct transit at Frodeparken.",
+        "Before import, decide whether to include OSM-only Oskarström service candidates such as Hemköp, Preem and dense food cluster, or limit services to official Hallandsleden POIs.",
+        "Before import, verify Gårdsbutik Slättåkra current opening/location relevance because it is about 4 km off route and official opening text appears old.",
+        "Before final rules copy, verify exact reserve rule wording from final Länsstyrelsen pages/PDFs, especially whether Almeberget visible rules include a tenting ban or only caravan/camper restrictions.",
+        "Before publication/use, recheck Hallandsleden deviation/currentness page, Länsstyrelsen reserve pages, Trafikverket road 26 project, Skogsstyrelsen felling notifications, Hallandstrafiken schedules and fire status.",
+        "If navigation-grade turn detail is required, review the 536-point GPX and road/bridge crossings for rendering/turn accuracy while preserving official provenance.",
+        "A future field/source pass could try to localize the 2024 waymark gap after Oskarström if current waymark quality becomes important."
       ]
     },
     "hallandsleden-oskarstrom-gyltige": {
@@ -2893,21 +2900,327 @@
       ],
       "synthesizedAt": "2026-04-29T23:14:00Z",
       "synthesisSummary": "M8 synthesized into sections/hallandsleden-vessigebro-frodeparken.research.json. No targeted follow-up batch was needed: official geometry, facilities and rules evidence are strong; remaining issues are import caveats around Frodeparken access, service-coordinate verification, no campsite water, stale Skattagard-Frodeparken sources and dynamic currentness checks."
+    },
+    {
+      "batchId": "hallandsleden-frodeparken-oskarstrom-initial-6-lane-2026-04-29",
+      "sectionId": "hallandsleden-frodeparken-oskarstrom",
+      "startedAt": "2026-04-29T23:15:00Z",
+      "status": "complete-six-lane-synthesis-complete",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb86-7026-7103-8955-3c3cb082f795",
+          "nickname": "Zeno"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb86-7093-7321-a52c-933b8496f912",
+          "nickname": "Socrates"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb86-70c8-7fb2-bcf9-a9917b54c25a",
+          "nickname": "Heisenberg"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb86-713b-73c3-a00c-988b46a4c42f",
+          "nickname": "Confucius"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb86-715e-7ee2-9e0b-ee936e4353d9",
+          "nickname": "Gibbs"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb86-7186-7c63-a8c8-26a8fcc06dd5",
+          "nickname": "Locke"
+        }
+      ],
+      "requestedOutputs": [
+        "official facts",
+        "geometry verification",
+        "facilities",
+        "transit/access",
+        "field reports",
+        "rules/safety/currentness"
+      ],
+      "notes": [
+        "Focus on exact M8 Frodeparken handoff, Södra delleden first-section semantics, official GPX/API/Naturkartan/OSM geometry conflicts, Frodeparken access weakness, Oskarström rail/bus/services, water/camping/fire/toilets, protected-area/currentness risks and broad/off-route place over-inclusion."
+      ],
+      "receivedReports": [
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb86-715e-7ee2-9e0b-ee936e4353d9",
+          "receivedAt": "2026-04-29T23:19:30Z",
+          "summary": "Found no current official closure/reroute or full-section review issue, but found a useful 2024 reverse-direction field report noting Oskarström resupply, an orange-waymark gap/route-finding problem after Oskarström, a stream-side camp/shelter area and Frodeparken shelter/barbecue. Partial 2023 Wikiloc Frodeparken-area route corroborates gravel roads, uphill start, beech forest and small farms. Older 2015 En Vandringssaga and Pacer sources preserve stale Frodeparken-Döbla/Döbla-Ryet segmentation and should not define current S1 boundaries.",
+          "keySources": [
+            "https://www.hallandsleden.se/en/etapp/frodeparken-oskarstrom",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/S%C3%B6dra_Frodeparken_Oskarstrom260114.gpx",
+            "https://www.naturkartan.se/en/hallands-lan/dobla-ryet-hallandsleden",
+            "https://www.naturkartan.se/en/hallands-lan/dobla",
+            "https://www.hallandsleden.se/item/viktig-information/i48rep1ncwkafz7wux50lp0dhxvboodp",
+            "https://hallandsleden.se/en/item/nya-leddragningar-1/f22cgopgvzykg0snvt9jgr6lxgvdb1n5",
+            "https://trekkingadventuresbackpacking.com/2024/07/10/e1-walk-continues-in-sweden-north-from-halmstad/",
+            "https://www.wikiloc.com/hiking-trails/frodeparken-rundtur-frodeparken-circular-walk-148751793",
+            "https://www.wikiloc.com/hiking-trails/skogsbygden-mellan-moshult-och-oskarstrom-forest-landscape-between-moshult-and-oskarstrom-48535983",
+            "https://www.bejegard.se/vandring/halland/hallandsleden/hallandsleden-frodeparken-dobla-7-km/",
+            "https://www.alltrails.com/trail/sweden/halland/frodeparkens-naturreservat-ovre-karra",
+            "https://www.mypacer.com/routes/oi09oh/hallandsleden-stage-frodeparken-d%C3%B6bla-hiking-hallands-l%C3%A4n",
+            "https://www.mypacer.com/routes/oi0etx/hallandsleden-stage-d%C3%B6bla-ryet-hiking-trail-hallands-l%C3%A4n",
+            "https://www.destinationhalmstad.se/en/experience/nature-and-the-outdoor-life/hallandsleden---435-km-hiking-trail"
+          ],
+          "conditionSignals": [
+            "2024-07-10 Where’s Kathryn report: reverse direction through Oskarström toward Frodeparken, Oskarström supermarket resupply, orange waymarks suddenly stopped after Oskarström, walker used GPS/watch and still missed intended track, then reached a stream-side shelter/camp and Frodeparken shelter/barbecue.",
+            "2023-09-30 Wikiloc Frodeparken circular walk partially overlaps northern S1 and describes gravel roads, uphill start, beech forest, Kung Frodes grave detour and small farms, with no closure/water/signage warning.",
+            "2015-10-24 En Vandringssaga old Frodeparken-Döbla report described easy forest paths/gravel roads, possible marker-miss near Frodeparken, unclear gate/pasture passage and fresh Döbla shelter/outhouse/bin/grill/firewood at that time, but is stale.",
+            "Destination Halmstad updated 2026-04-22 still describes old Frodeparken-Döbla/Ryet-Döbla/Gyltige-Ryet and old 435 km/26-stage framing; treat as stale boundary evidence."
+          ],
+          "importImpacts": [
+            "Import official S1 as one Frodeparken-Oskarström section; do not split at Döbla or Ryet.",
+            "Add warnings/caveats for road 26 crossing, possible waymark ambiguity after Oskarström/toward Döbla, rocks/roots and high stiles.",
+            "Do not import stale old Pacer difficulty/segment splits or 2015 shelter condition as current facts.",
+            "No current S1 closure, bridge outage, official reroute or confirmed potable water at Frodeparken/Döbla found in this lane."
+          ]
+        },
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb86-7026-7103-8955-3c3cb082f795",
+          "receivedAt": "2026-04-29T23:22:00Z",
+          "summary": "Confirmed canonical S1 identity Frodeparken - Oskarström, Södra delleden section 1/order 17, 23 km/23000 m, hard/red, no official time. Official GPX/API start is 56.862930,12.828878 matching M8 endpoint exactly; end is 56.801469,12.976892 with near-contiguous S2 start. Swedish page/API contain the fuller Oskarström route narrative, while English page appears older/partial. Official service data identifies Frodeparken and Döbla shelters, Oskarström services/transit and an Oskarström water/toilet status conflict.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/frodeparken-oskarstrom",
+            "https://www.hallandsleden.se/en/etapp/frodeparken-oskarstrom",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/S%C3%B6dra_Frodeparken_Oskarstrom260114.gpx",
+            "https://www.hallandsleden.se/api/v2/track-segments?track=sodra-delleden&order=ascending&limit=20",
+            "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=frodeparken-oskarstrom&token=<public-page-token>",
+            "https://www.hallandsleden.se/api/v2/places?trackSegment=frodeparken-oskarstrom&limit=100&token=<public-page-token>",
+            "https://www.hallandsleden.se/en/delled/sodra-delleden",
+            "https://www.hallandsleden.se/en/delled/mellersta-delleden",
+            "https://www.hallandsleden.se/plats/lagerplats-frodeparken",
+            "https://www.hallandsleden.se/plats/lagerplats-dobla",
+            "https://www.hallandsleden.se/plats/dricksvatten-oskarstrom",
+            "https://www.hallandsleden.se/plats/toalett-oskarstrom",
+            "https://www.naturkartan.se/sv/hallands-lan/dobla-ryet-hallandsleden",
+            "https://www.destinationhalmstad.se/en/experience/nature-and-the-outdoor-life/hallandsleden---435-km-hiking-trail",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/frodeparken.html",
+            "https://www.hallandsleden.se/en/item/viktig-information/i48rep1ncwkafz7wux50lp0dhxvboodp"
+          ],
+          "officialDescription": [
+            "Swedish/current narrative: route passes Frodeparken nature reserve, gravel roads by farms, Almeberget, Döbla campsite, forest roads/paths, crosses road 26, passes Oskarström church and station, then three bridges and along Nissan to the bus stop.",
+            "Official warning: use great caution crossing riksväg 26.",
+            "Difficulty basis: red because of short rocky/rooty sections and high stiles, though most is easier/blue with some moderate hills.",
+            "Sights include Frodeparken nature reserve, cultivation cairns and Kungsrör/Kung Frodes grav."
+          ],
+          "contradictions": [
+            "English page currently has an older/shorter narrative ending around Almeberget/Döbla instead of the full Oskarström route; prefer Swedish/API text.",
+            "GPX desc says Total: 22.3 km while official page/API says 23 km/23000 m; use 23 km as display metadata and preserve 22.3 km as computed/GPX evidence.",
+            "Oskarström water page says public toilet/fresh-water filling is temporarily closed due vandalism, while Toalett Oskarström page says public toilet with water exists; mark water/toilet status conflict.",
+            "Naturkartan URL slug says dobla-ryet-hallandsleden but title/distance say Frodeparken - Oskarström 23.0 km; do not derive identity from slug.",
+            "Destination Halmstad updated 2026-04-22 still uses old 435 km/26-stage and Frodeparken-Döbla/Döbla-Ryet framing; do not use for canonical segmentation."
+          ],
+          "importImpacts": [
+            "Use official Swedish/API identity, description and GPX/API boundaries as canonical.",
+            "Import Frodeparken and Döbla camps/shelters/fireplaces/toilets with fire/reserve cautions.",
+            "Import Oskarström services/transit but flag water/toilet as currentness conflict, not dependable water.",
+            "Use current digital GPX/API over paper-map-derived or tourism legacy data."
+          ]
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb86-70c8-7fb2-bcf9-a9917b54c25a",
+          "receivedAt": "2026-04-29T23:24:00Z",
+          "summary": "Found strong facility candidates for Frodeparken and Döbla shelters/camps/rest/fire/toilet, Frodeparken reserve/heritage POIs, Oskarström transit/food/resupply/culture/services, and filtered far/off-route or OSM-only microfacilities. Official water is only Dricksvatten Oskarström, tied to a public-toilet closure note; treat S1 as no confirmed reliable potable water until Oskarström status is verified.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/frodeparken-oskarstrom",
+            "https://www.hallandsleden.se/plats/lagerplats-frodeparken",
+            "https://www.hallandsleden.se/plats/frodeparkens-naturreservat",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/frodeparken.html",
+            "https://www.hallandsleden.se/plats/odlingsspar",
+            "https://www.hallandsleden.se/plats/kungsror-med-kung-frodes-grav",
+            "https://www.hallandsleden.se/plats/lagerplats-dobla",
+            "https://www.hallandsleden.se/plats/flyttblock",
+            "https://www.hallandsleden.se/plats/oskarstroms-tagstation",
+            "https://www.hallandsleden.se/plats/oskarstromsmagasinen",
+            "https://www.hallandsleden.se/plats/dricksvatten-oskarstrom",
+            "https://www.hallandsleden.se/plats/toalett-oskarstrom",
+            "https://www.hallandsleden.se/plats/hallplats-oskarstrom-centrum",
+            "https://www.hallandsleden.se/plats/ica-nara-oskarstrom",
+            "https://www.hallandsleden.se/plats/bykokerskan",
+            "https://www.hallandsleden.se/plats/gardsbutik-slattakra-narproducerat",
+            "https://www.halmstad.se/upplevaochgora/idrottmotionochfriluftsliv/friluftslivochmotion/vandringslederochmotionsspar.n1167.html",
+            "https://oskarstromsmagasinen.se/",
+            "https://www.openstreetmap.org/node/11124380566",
+            "https://www.openstreetmap.org/node/2316482254",
+            "https://www.openstreetmap.org/way/1360669370",
+            "https://www.openstreetmap.org/way/395825633",
+            "https://www.openstreetmap.org/node/247134927"
+          ],
+          "strongCandidates": [
+            "Lägerplats Frodeparken: shelter/campsite/rest/fireplace/toilet/waste/info at 56.863032,12.828918, 12 m from GPX at km 0.0, import with fire-risk and reserve-camping caveats.",
+            "Frodeparkens naturreservat: reserve/nature/heritage/access-rules POI at 56.859168,12.846000, about 22 m from GPX at km 1.4, import as POI/access metadata.",
+            "Odlingsspår: heritage POI at 56.859285,12.841408, about 9 m from GPX at km 1.1, import.",
+            "Kungsrör med Kung Frodes grav: heritage spur at 56.863294,12.840620, about 435 m from GPX at km 1.1, import with spur-distance metadata.",
+            "Lägerplats Döbla: shelter/campsite/rest/fireplace/toilet/picnic at 56.853004,12.918367, about 52 m from GPX at km 8.2, import and mark no confirmed drinking water.",
+            "Flyttblock: geology POI at 56.853507,12.944877, about 84 m from GPX at km 10.5, import.",
+            "Oskarströms tågstation: rail station at 56.806482,12.971950, about 130 m from GPX at km 20.8, import.",
+            "Oskarströmsmagasinen: culture/heritage POI at 56.805860,12.972246, about 72 m from GPX at km 20.9, import with opening/seasonal metadata.",
+            "Hållplats Oskarström Centrum, ICA Nära Oskarström and Bykokerskan are official endpoint access/resupply/food records within about 40 m of the route endpoint.",
+            "Hemköp Oskarström and Preem Oskarström are useful OSM service candidates near route km 20.1 if app policy accepts OSM services."
+          ],
+          "suppressOrPending": [
+            "Dricksvatten Oskarström / Toalett Oskarström location is high confidence but availability is low due closure/status contradiction; keep pending/access metadata or show closed/unverified, not reliable water.",
+            "Gårdsbutik Slättåkra närproducerat is an official stage POI but about 4 km off route with old-looking opening info; pending or suppress unless app imports official off-route services.",
+            "Oskarström food cluster from OSM is useful but dense; pending unless app accepts OSM endpoint food services beyond official Bykokerskan.",
+            "Furulundsbadet is about 735 m from endpoint and seasonal; pending/seasonal metadata only.",
+            "Suppress OSM bus shelters as transit shelters, private/customer parking lots, benches/picnic microfacilities and unverified parking; no lodging beyond shelters was found."
+          ],
+          "importImpacts": [
+            "S1 has no confirmed reliable potable water until Oskarström public toilet/water status is verified.",
+            "Import core shelters and toilets, but add camping/fire caveats for Frodeparken reserve and dynamic fire risk.",
+            "Filter Oskarström dense service cluster and avoid over-importing microfacilities or restricted/private parking."
+          ]
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb86-7093-7321-a52c-933b8496f912",
+          "receivedAt": "2026-04-29T23:25:30Z",
+          "summary": "Confirmed official GPX/Hallandsleden API geo_json as canonical S1 geometry: 536 points, 22.272 km, start 56.862930,12.828878, end 56.801469,12.976892, official display 23 km, hard/red. Start exactly matches M8; S1 end is 2.94 m from S2 start. Naturkartan site 22046 has current but simplified derivative geometry and stale slug dobla-ryet-hallandsleden. OSM relations remain old Frodeparken-Döbla, Döbla-Ryet and Ryet-Gyltige segmentation and must not be used as current S1 geometry.",
+          "keySources": [
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/S%C3%B6dra_Frodeparken_Oskarstrom260114.gpx",
+            "https://www.hallandsleden.se/etapp/frodeparken-oskarstrom",
+            "https://www.hallandsleden.se/api/v2/track-segments?limit=100",
+            "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=frodeparken-oskarstrom&token=<public-page-token>",
+            "https://www.naturkartan.se/sv/hallands-lan/dobla-ryet-hallandsleden",
+            "https://api.naturkartan.se/v3/sites/22046",
+            "https://www.openstreetmap.org/relation/7398312",
+            "https://www.openstreetmap.org/relation/7398311",
+            "https://www.openstreetmap.org/relation/7398310",
+            "https://www.destinationhalmstad.se/en/experience/nature-and-the-outdoor-life/hallandsleden---435-km-hiking-trail"
+          ],
+          "canonicalGeometry": {
+            "points": 536,
+            "start": [
+              56.86293,
+              12.828878
+            ],
+            "end": [
+              56.801469,
+              12.976892
+            ],
+            "computedKm": 22.272,
+            "officialDistance": "23 km rounded on official page/API; GPX desc Total: 22.3 km",
+            "gpxMetadataTime": "2026-01-21T12:51:36+01:00",
+            "grade": "navigation/planning-grade A",
+            "continuity": {
+              "m8EndToS1Start": "0.000 m",
+              "s1EndToS2Start": "2.941 m"
+            }
+          },
+          "secondaryGeometry": [
+            "Naturkartan site 22046 slug dobla-ryet-hallandsleden, title Frodeparken - Oskarström, updated 2026-04-27T13:11:59, display length 23.0 km, 462 vertices/22.271 km, endpoints/bounds match official; use as simplified corroboration only.",
+            "OSM relation 7398312 Frodeparken - Döbla, relation 7398311 Döbla - Ryet and relation 7398310 Ryet - Gyltige preserve old segmentation; do not import as canonical S1 geometry."
+          ],
+          "importImpacts": [
+            "Use official GPX or Hallandsleden API geo_json for S1 geometry with 536 points and 22.272 km computed length.",
+            "Use 23 km as official display distance and store 22.3/22.272 km as GPX/computed evidence.",
+            "Preserve official direction Frodeparken to Oskarström and exact M8 handoff; snap S1/S2 endpoint only if topology policy allows shared node tolerance.",
+            "Avoid OSM relations, Naturkartan slug and old Döbla/Ryet names for current section boundaries."
+          ]
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb86-713b-73c3-a00c-988b46a4c42f",
+          "receivedAt": "2026-04-29T23:27:30Z",
+          "summary": "Confirmed Frodeparken start has no formal public transport at the trailhead: use on-route roadside/shelter access with reserve/roadside caveats; nearest GTFS stops are several kilometers away and sparse. Oskarström end has strong access at Oskarström Centrum bus stop about 36 m from the GPX end, centrum parking about 46 m, and Oskarström station about 634 m away.",
+          "keySources": [
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/S%C3%B6dra_Frodeparken_Oskarstrom260114.gpx",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/frodeparken.html",
+            "https://falkenberg.se/se-gora/naturen/naturreservat/",
+            "https://www.trafiklab.se/api/gtfs-datasets/gtfs-sverige-2/",
+            "https://www.hallandstrafiken.se/res-med-oss/sok-resa/hallplatser",
+            "https://www.hallandstrafiken.se/res-med-oss/sok-resa",
+            "https://www.hallandstrafiken.se/res-med-oss/sok-resa/tidtabeller",
+            "https://www.jlt.se/res-med-oss/linjer-hallplatser/hallplats/?id=3182",
+            "https://www.krosatagen.se/",
+            "https://www.hallandstrafiken.se/trafikinformation/ersattningstrafik",
+            "https://www.openstreetmap.org/way/608402966",
+            "https://www.openstreetmap.org/way/1143160369"
+          ],
+          "endpointAccess": [
+            "Start: Hallandsleden/Frodeparken roadside trail access at 56.862930,12.828878, 0 m from endpoint, high confidence, not a formal transit stop; Länsstyrelsen describes stopping by road edge where Hallandsleden passes.",
+            "Start: Frodeparken shelter/picnic access approx 56.863150,12.828600, about 28 m from endpoint, high confidence as access reference.",
+            "Start reserve coordinate: 56.859530,12.841880, about 861 m from endpoint, medium confidence for reserve generally rather than trailhead.",
+            "Start transit fallbacks: Bjärnared 4.62 km (line 517), Gräsås Halmstad 4.83 km (line 937), Slättåkra 5.37 km (line 937), Asige 5.50 km (line 517), Fröllinge 6.89 km (line 351); all require schedule/walking-route caveats.",
+            "End: Oskarström Centrum bus stop 56.801766,12.977107, 36 m from endpoint, Hallandstrafiken lines 316/937, high confidence.",
+            "End: Oskarström centrum surface parking 56.801790,12.976412, 46 m from endpoint, OSM access yes/no fee but verify local signage.",
+            "End: Oskarström station 56.806491,12.971952, 634 m from endpoint, Krösatågen/JLT line 1086, high confidence; replacement buses use separate Gamla Nissastigen stop.",
+            "End backup bus stops: Sandgatan 299 m, Sveagatan 371 m, Bronsgatan 1.08 km and Maredlid 1.36 km."
+          ],
+          "importImpacts": [
+            "Use Frodeparken roadside/shelter access as closest start access, with no-transit/no-formal-parking caveats.",
+            "Use Oskarström Centrum as required closest commute point for the end; include Oskarström station as strong rail fallback.",
+            "Verify Hallandstrafiken/ResRobot travel-date schedules, footnotes and disruptions; rural Frodeparken fallback stops are sparse and often weekday-focused.",
+            "No ferry access relevant to either endpoint."
+          ]
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb86-7186-7c63-a8c8-26a8fcc06dd5",
+          "receivedAt": "2026-04-29T23:29:00Z",
+          "summary": "Confirmed protected-area/rules/currentness context for S1: Frodeparken nature reserve/Natura 2000 crossed around km 1.15-1.83, Almeberget nature reserve/Natura 2000 crossed around km 6.20-6.63, no water-protection-area GPX intersection, dynamic fire/dog/hunting/livestock/stile caveats, multiple near-route forestry/felling currentness risks, road 26 crossing around km 20.13, three-bridge/Nissan awareness and no official S1 closure/reroute found.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/frodeparken-oskarstrom",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/S%C3%B6dra_Frodeparken_Oskarstrom260114.gpx",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/frodeparken.html",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/almeberget.html",
+            "https://geodata.naturvardsverket.se/naturvardsregistret/wfs",
+            "https://geodata.naturvardsverket.se/n2000/wfs",
+            "https://www.lansstyrelsen.se/halland/samhalle/sakerhet-och-beredskap/brandrisk-och-eldningsforbud.html",
+            "https://www.halmstad.se/omsorgochstod/tryggochsaker/krisochberedskap/eldningsforbud.n2027.html",
+            "https://www.msb.se/sv/om-msb/kommunikationskanaler/appar/brandrisk-ute/",
+            "https://www.hallandsleden.se/item/vandra-med-hund/gkvddie3ttmazifzlnqae9q4phuhj32b",
+            "https://hallandsleden.se/item/allemansratten/5fogqeoayrfqw4vcyz7lruickdh88ahe",
+            "https://geodpags.skogsstyrelsen.se/arcgis/rest/services/Geodataportal/GeodataportalVisaAvverkningsanmalan/MapServer/0",
+            "https://www.trafikverket.se/vara-projekt/projekt-i-hallands-lan/vag-26-oskarstromlansgransen-faunapassager/"
+          ],
+          "protectedAreas": [
+            "Frodeparken NR/Natura 2000 SE0510110, NVR 2002019, route approx km 1.15-1.83, 56.859258,12.841730 to 56.861681,12.850189; rules include no vegetation/dead-wood damage, no tenting/caravan/camper, fires only at designated places, no unleashed dogs, no disruptive events without permit.",
+            "Almeberget NR/Natura 2000 SE0510152, NVR 2010862, route approx km 6.20-6.63, 56.855614,12.897113 to 56.852375,12.900610; rules include no vegetation/dead-wood damage, fires only at designated places, no unleashed dogs, no caravan/camper, disruptive events permit. Do not mark tent ban unless separately verified."
+          ],
+          "currentnessRisks": [
+            "No Halland water-protection-area GPX intersection found; nearest checked Sennadalen VSO about 1.37 km from endpoint.",
+            "Skogsstyrelsen felling notifications near route: A 31656-2023 at km 2.60 about 2 m from route, A 12890-2022 at km 16.50 intersecting/0 m, and several 2025/2026 cases within 12-135 m around km 2.43, 4.88, 4.98, 9.99 and 14.65; currentness risk, not closure.",
+            "Road 26/Nissastigen crossing hazard approx km 20.13 at 56.804799,12.961362; Trafikverket fauna-passages road-plan project has no build until autumn 2027 and no current S1 closure/reroute found.",
+            "Official page mentions three bridges and Nissan segment after Oskarström station; no official bridge closure found.",
+            "No stage-specific closure/reroute found on official page/currentness/reserve pages; Frodeparken and Almeberget pages say no current news."
+          ],
+          "importImpacts": [
+            "Add Frodeparken and Almeberget reserve/Natura spans and rules.",
+            "Do not tag section as inside water-protection area.",
+            "Add road 26 crossing warning, stiles/pasture/gate/dog caveats, dynamic fire/hunting/weather/currentness checks and forestry risk notes.",
+            "Do not treat forestry notifications, Trafikverket planning or weather banner as active closures."
+          ]
+        }
+      ],
+      "synthesizedAt": "2026-04-29T23:31:00Z",
+      "synthesisSummary": "S1 synthesized into sections/hallandsleden-frodeparken-oskarstrom.research.json. No targeted follow-up batch was needed: official geometry, facilities, access and rules evidence are strong; remaining issues are explicit import caveats around Oskarström water/toilet status, weak Frodeparken access, stale Döbla/Ryet segmentation, dense Oskarström services and dynamic currentness checks."
     }
   ],
   "sourceCoverage": {
     "officialOverview": "complete-initial-pass",
     "officialSectionInventory": "complete-initial-pass-35-sections-with-m6-and-m7-branch-handoff-contradictions-recorded",
-    "officialGeometry": "complete-for-first-sixteen-researched-sections-through-m8-with-m8-official-gpx-api-geojson-canonical-and-stale-skattagard-frodeparken-line-osm-conflicts-recorded",
-    "municipalities": "complete-for-first-sixteen-researched-sections-through-m8-with-varberg-falkenberg-hylte-lansstyrelsen-naturkartan-local-service-sources-reviewed",
-    "protectedAreas": "complete-for-first-sixteen-researched-sections-through-m8-with-m8-skattagard-reserve-frodeparken-endpoint-adjacent-natura2000-and-nedre-atran-vso-recorded",
-    "transitOperators": "complete-for-first-sixteen-researched-sections-through-m8-with-m8-strong-vessigebro-start-access-and-weak-frodeparken-end-access-caveats",
-    "facilities": "complete-for-first-sixteen-researched-sections-through-m8-with-core-pending-suppress-decisions-no-campsite-water-and-offroute-service-filtering",
-    "fieldReports": "complete-for-first-sixteen-researched-sections-through-m8-with-m8-field-report-evidence-thin-stale-legacy-only-current-condition-evidence",
-    "rulesSafety": "overview-pass-complete-n1-n2-n3-n4-n5-n6-n7-n8-m1-m2-m3-m4-m5-m6-m7-m8-section-specific-complete"
+    "officialGeometry": "complete-for-first-seventeen-researched-sections-through-s1-with-s1-official-gpx-api-geojson-canonical-and-stale-dobla-ryet-osm-conflicts-recorded",
+    "municipalities": "complete-for-first-seventeen-researched-sections-through-s1-with-varberg-falkenberg-hylte-halmstad-lansstyrelsen-naturkartan-local-service-sources-reviewed",
+    "protectedAreas": "complete-for-first-seventeen-researched-sections-through-s1-with-s1-frodeparken-and-almeberget-reserve-natura2000-spans-recorded",
+    "transitOperators": "complete-for-first-seventeen-researched-sections-through-s1-with-s1-weak-frodeparken-start-access-and-strong-oskarstrom-end-bus-rail-access-caveats",
+    "facilities": "complete-for-first-seventeen-researched-sections-through-s1-with-core-pending-suppress-decisions-oskarstrom-water-conflict-and-dense-service-filtering",
+    "fieldReports": "complete-for-first-seventeen-researched-sections-through-s1-with-s1-field-report-waymarking-caveat-and-stale-legacy-boundary-context",
+    "rulesSafety": "overview-pass-complete-n1-n2-n3-n4-n5-n6-n7-n8-m1-m2-m3-m4-m5-m6-m7-m8-s1-section-specific-complete"
   },
   "knownGaps": [
-    "Only the overview and first sixteen sections have been researched/synthesized; 19 later sections still need the six-lane workflow.",
+    "Only the overview and first seventeen sections have been researched/synthesized; 18 later sections still need the six-lane workflow.",
     "Coastal Hallandsleden is incomplete by official statement; future import must model gaps instead of stitching a continuous coast.",
     "Older sources may report 435 km / 26 stages / 3 parts; live official source reports 612 km / 35 sections / 4 subtrails.",
     "Paper maps printed June 2022 are stale for 2024 rerouted sections.",
@@ -3057,12 +3370,19 @@
     "M8: no official drinking-water points were found for the campsites; official text says fill water in Vessigebro and no water at campsites.",
     "M8: rules/currentness include Skattagard reserve, Frodeparken endpoint-adjacent reserve/Natura 2000 ambiguity, Nedre Atran VSO at the start, road 150 crossing, forestry notifications and dynamic fire/hunting/dog/gate caveats.",
     "M8: suppress or side-trip far/off-route records such as Nyhagasjon, Asige, Hagbards and Sandbolet; verify Sorby Retreatcenter, Nackagard and Backens kafe before import.",
-    "M8: current exact full-section field evidence is thin; old Skattagard-Frodeparken reports and route apps are stale-source context, not current route authority."
+    "M8: current exact full-section field evidence is thin; old Skattagard-Frodeparken reports and route apps are stale-source context, not current route authority.",
+    "S1: final synthesis marks the section research-ready with caveats; use official GPX/API geo_json as canonical 536-point 22.272 km geometry and suppress API line.geometry/OSM old Frodeparken-Döbla/Döbla-Ryet/Ryet-Gyltige segmentation.",
+    "S1: Naturkartan title/linework is current but slug remains dobla-ryet-hallandsleden; Destination Halmstad and Pacer also preserve stale old segmentation.",
+    "S1: Oskarström water/toilet records conflict because the official water record says the public toilet/water point is temporarily closed due vandalism while the toilet record says public toilet with water exists; do not import reliable water until verified.",
+    "S1: Frodeparken start has roadside/shelter access but no close public transit or confirmed formal parking; Oskarström endpoint has strong bus and nearby rail access.",
+    "S1: rules/currentness include Frodeparken and Almeberget reserve/Natura 2000 spans, road 26 crossing, stiles/pasture/dog/hunting/fire caveats, forestry currentness risks and bridge/Nissan awareness.",
+    "S1: 2024 field report indicates possible orange-waymarking gap/route-finding issue after Oskarström; add as caveat, not geometry change.",
+    "S1: filter dense Oskarström OSM services and off-route Slättåkra farm shop according to service import policy."
   ],
   "nextActions": [
-    "Commit M8 research files before starting the next section.",
-    "Start Phase 2 for hallandsleden-frodeparken-oskarstrom (S1 Frodeparken - Oskarstrom) with the required six parallel research/report agents after the M8 commit.",
-    "Record the S1 batch start and every returned lane in research-progress.json, then synthesize sections/hallandsleden-frodeparken-oskarstrom.research.json.",
+    "Commit S1 research files before starting the next section.",
+    "Start Phase 2 for hallandsleden-oskarstrom-gyltige (S2 Oskarström - Gyltige) with the required six parallel research/report agents after the S1 commit.",
+    "Record the S2 batch start and every returned lane in research-progress.json, then synthesize sections/hallandsleden-oskarstrom-gyltige.research.json.",
     "Keep edits confined to data/research/candidate-trails/hallandsleden/ until explicitly asked otherwise."
   ],
   "handoffNotes": [
@@ -3141,7 +3461,20 @@
     "M8: import core Skattagard, Knobesholm, Frodeparken, Vessigebro, Abild and selected POI records; suppress/side-trip Nyhagasjon, Asige, Hagbards, Sandbolet and unverified service records.",
     "M8: Vessigebro Stationsgatan is strong start transit; Frodeparken endpoint has weak access, no close transit and no confirmed formal parking.",
     "M8: no campsite drinking water; official section text says fill water in Vessigebro because campsites lack water.",
-    "M8: next section is S1 hallandsleden-frodeparken-oskarstrom on Sodra delleden after committing M8."
+    "M8: next section is S1 hallandsleden-frodeparken-oskarstrom on Sodra delleden after committing M8.",
+    "S1 initial six-lane agent batch started 2026-04-29T23:15:00Z with agents Zeno, Socrates, Heisenberg, Confucius, Gibbs and Locke. Main thread retains all file-write ownership.",
+    "S1 field-report lane received: record possible 2024 orange-waymark gap after Oskarström, stale old Frodeparken-Döbla/Döbla-Ryet boundary sources, and no current official S1 closure/reroute evidence.",
+    "S1 official-source lane received: canonical S1 is Frodeparken - Oskarström, 23 km/red; GPX/API start matches M8 exactly, end near S2 start; English page/Naturkartan slug/Destination Halmstad old segmentation and Oskarström water/toilet status are contradictions to record.",
+    "S1 facilities lane received: import Frodeparken/Döbla shelter-toilet-fireplace records and filtered Oskarström services; treat Oskarström water as closed/unverified due vandalism-status conflict; suppress broad off-route/microfacility records.",
+    "S1 geometry lane received: use official GPX/API geo_json as canonical 536-point 22.272 km Frodeparken-Oskarström line; Naturkartan shape is current but slug is stale; suppress old OSM Frodeparken-Döbla/Döbla-Ryet/Ryet-Gyltige relations.",
+    "S1 transit/access lane received: Frodeparken start has roadside/shelter access but no close transit/formal parking; Oskarström endpoint has strong Oskarström Centrum bus access and nearby rail station.",
+    "S1 all six lanes received; synthesize as research-ready with caveats unless final JSON exposes a missing required field. Key caveats: stale Döbla/Ryet segmentation, Oskarström water/toilet conflict, weak Frodeparken access, reserve rules, road 26 and forestry currentness.",
+    "S1: section research JSON written at sections/hallandsleden-frodeparken-oskarstrom.research.json and ready for validation. S1 is research-ready with caveats; no targeted follow-up batch needed before moving to S2.",
+    "S1: use official GPX/API geo_json as canonical 536-point 22.272 km Frodeparken-to-Oskarström geometry; suppress API line.geometry and OSM old Frodeparken-Döbla/Döbla-Ryet/Ryet-Gyltige segmentation.",
+    "S1: import core Frodeparken and Döbla shelter/toilet/fireplace records plus selected reserve/heritage/Oskarström service records; water at Oskarström remains closed/unverified due official status conflict.",
+    "S1: access is weak at Frodeparken with no direct transit/formal parking; Oskarström endpoint has strong bus and rail access.",
+    "S1: rules include Frodeparken and Almeberget reserve/Natura 2000 spans, road 26 crossing, forestry currentness risks, dog/stile/livestock/hunting/fire caveats and no official closure/reroute.",
+    "S1: next section is S2 hallandsleden-oskarstrom-gyltige after committing S1."
   ],
   "filesWritten": [
     "README.md",
@@ -3162,7 +3495,8 @@
     "sections/hallandsleden-langesjon-rydobruk.research.json",
     "sections/hallandsleden-rydobruk-kvarnforsen.research.json",
     "sections/hallandsleden-astad-vessigebro.research.json",
-    "sections/hallandsleden-vessigebro-frodeparken.research.json"
+    "sections/hallandsleden-vessigebro-frodeparken.research.json",
+    "sections/hallandsleden-frodeparken-oskarstrom.research.json"
   ],
   "meaningfulPasses": [
     {
@@ -3599,6 +3933,46 @@
       "id": "phase-2-m8-synthesis-complete-2026-04-29",
       "completedAt": "2026-04-29T23:14:00Z",
       "summary": "Synthesized M8 into sections/hallandsleden-vessigebro-frodeparken.research.json. Section is research-ready with caveats: official GPX/API geo_json canonical, stale Skattagard-Frodeparken linework suppressed, Frodeparken access weak, no campsite water, reserve/water-protection/forestry/currentness caveats recorded."
+    },
+    {
+      "id": "phase-2-s1-initial-six-lane-batch-started-2026-04-29",
+      "completedAt": "2026-04-29T23:15:00Z",
+      "summary": "Started S1 Frodeparken - Oskarström six-lane research batch with agents Zeno, Socrates, Heisenberg, Confucius, Gibbs and Locke. Main thread retains all file-write ownership."
+    },
+    {
+      "id": "phase-2-s1-field-report-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T23:19:30Z",
+      "summary": "Received S1 field-report lane. It found no current official closure/reroute, a 2024 waymarking/route-finding issue after Oskarström, partial Frodeparken-area Wikiloc context, stale 2015 Frodeparken-Döbla evidence and stale Destination Halmstad/Pacer boundary risks."
+    },
+    {
+      "id": "phase-2-s1-official-source-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T23:22:00Z",
+      "summary": "Received S1 official-source lane. It confirms canonical identity/order, GPX/API endpoints and handoffs, official Swedish route description, Frodeparken/Döbla facilities, Oskarström service/transit records and stale/contradictory English/Naturkartan/Destination Halmstad/water-toilet metadata."
+    },
+    {
+      "id": "phase-2-s1-facilities-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T23:24:00Z",
+      "summary": "Received S1 facilities lane. It identified core Frodeparken/Döbla/Oskarström import candidates, endpoint services, Oskarström water/toilet closure conflict, off-route Slättåkra suppression and dense OSM service/microfacility filtering."
+    },
+    {
+      "id": "phase-2-s1-route-geometry-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T23:25:30Z",
+      "summary": "Received S1 route-geometry lane. It confirms official GPX/API geo_json as canonical 536-point 22.272 km geometry, exact M8 handoff, 2.94 m S2 handoff, current simplified Naturkartan geometry and stale OSM/Döbla-Ryet segmentation."
+    },
+    {
+      "id": "phase-2-s1-transit-access-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T23:27:30Z",
+      "summary": "Received S1 transit/access lane. It confirms weak Frodeparken start access with no close transit/formal parking, sparse rural fallback stops, and strong Oskarström endpoint bus/rail/parking access."
+    },
+    {
+      "id": "phase-2-s1-rules-safety-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T23:29:00Z",
+      "summary": "Received S1 rules/safety/currentness lane. It found Frodeparken and Almeberget reserve/Natura spans, no water-protection overlap, road 26 crossing, forestry currentness risks, dynamic fire/dog/hunting/livestock/stile caveats, bridge/Nissan awareness and no official closure/reroute."
+    },
+    {
+      "id": "phase-2-s1-synthesis-complete-2026-04-29",
+      "completedAt": "2026-04-29T23:31:00Z",
+      "summary": "Synthesized S1 into sections/hallandsleden-frodeparken-oskarstrom.research.json. Section is research-ready with caveats: official GPX/API geo_json canonical, stale Döbla/Ryet geometry suppressed, Oskarström water/toilet status conflict, weak Frodeparken access, reserve/road26/forestry/currentness caveats recorded."
     }
   ]
 }
