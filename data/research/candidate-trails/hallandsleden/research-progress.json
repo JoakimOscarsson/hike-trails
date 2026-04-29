@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-29T23:59:30Z",
-  "currentPhase": "Phase 2 section research complete through hallandsleden-oskarstrom-gyltige; next section is hallandsleden-kvarnforsen-gyltige",
+  "lastUpdated": "2026-04-29T23:59:59Z",
+  "currentPhase": "Phase 2 section research complete through hallandsleden-kvarnforsen-gyltige; next section is hallandsleden-gyltige-simlangsdalen",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -20,7 +20,8 @@
     "hallandsleden-astad-vessigebro",
     "hallandsleden-vessigebro-frodeparken",
     "hallandsleden-frodeparken-oskarstrom",
-    "hallandsleden-oskarstrom-gyltige"
+    "hallandsleden-oskarstrom-gyltige",
+    "hallandsleden-kvarnforsen-gyltige"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -496,19 +497,23 @@
       "sectionNumber": "S3",
       "name": "Kvarnforsen - Gyltige",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-gpx-discovered-map-api-line-empty-or-sparse-needs-parsing",
-      "startEndCoordinateStatus": "not-yet-validated-gpx-endpoints-needed",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-initial-six-lane",
+      "routeGeometryStatus": "complete-official-gpx-api-geojson-navigation-planning-grade",
+      "startEndCoordinateStatus": "complete-high-confidence-with-kvarnforsen-first-point-spur-caveat",
+      "commuteAccessStatus": "complete-both-endpoints-public-transit-weak",
+      "facilityResearchStatus": "complete-with-import-pending-suppress-decisions",
+      "rulesSafetyStatus": "complete-protected-water-fire-dog-livestock-hunting-forestry-currentness",
+      "synthesisStatus": "complete-section-json-written",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
-        "Run six independent section research lanes and synthesize findings.",
-        "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
-        "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Decide how to model the Kvarnforsen start spur versus the practical M6/S3 handoff at S3 point 4.",
+        "Decide whether S2/S3/S4 Gyltige endpoints should be snapped to a shared node.",
+        "Verify Gyltige water/toilet status because official S3 says no toilet while Destination Halmstad/OSM say dry toilet/water.",
+        "Verify Kvarnforsen water/shower/firewood service currentness and access expectations with adjacent property owner or current official guidance.",
+        "Verify Kvarnforsen parking/legal pickup options because official text says no parking at the campsite and mapped parking is unlabeled.",
+        "Decide whether to include off-route Pensionat Sågknorren as side service and suppress Hålväg/Rödek/Sandsjön/Svarta klippan leakage.",
+        "Verify Hallandstrafiken current schedules and walking routes for Rydöbruk/Torup and Simlångsdalen/Brearedsskolan fallback access.",
+        "Recheck Hallandsleden currentness, Hylte/Halmstad fire status, Skogsstyrelsen felling notifications and bridge/high-water conditions before publication/use."
       ]
     },
     "hallandsleden-gyltige-simlangsdalen": {
@@ -3520,6 +3525,356 @@
       "synthesizedAt": "2026-04-29T23:59:30Z",
       "synthesisOutput": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-oskarstrom-gyltige.research.json",
       "synthesisSummary": "S2 synthesized as research-ready-with-caveats. Official GPX/API geo_json is canonical; Hallandsleden line.geometry and OSM Ryet-Gyltige relation suppressed. Oskarström has strong access but water/toilet conflict. Gyltige has shelter/fireplace and parking/pickup access, weak public transit, and water/toilet conflict. Virsehatt/Keddaböke/Sennadalen/Fylleån rules/currentness recorded."
+    },
+    {
+      "batchId": "hallandsleden-kvarnforsen-gyltige-initial-6-lane-2026-04-29",
+      "sectionId": "hallandsleden-kvarnforsen-gyltige",
+      "startedAt": "2026-04-29T23:59:45Z",
+      "status": "complete-synthesized",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "nickname": "Carson"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "nickname": "Darwin"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "nickname": "Beauvoir the 2nd"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "nickname": "Poincare the 2nd"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "nickname": "Rawls the 2nd"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "nickname": "Kuhn the 2nd"
+        }
+      ],
+      "requestedOutputs": [
+        "official facts",
+        "geometry verification",
+        "facilities",
+        "transit/access",
+        "field reports",
+        "rules/safety/currentness"
+      ],
+      "notes": [
+        "Research only; agents must not edit files. Main thread owns final JSON/progress writes.",
+        "Focus on Kvarnforsen start, Gyltige shared endpoint, official GPX vs empty/sparse overview map line, old Sandsjön/Kvarnforsen/Gyltige segmentation, endpoint access, facilities/water/toilets/camping/fire and protected-area/currentness risks."
+      ],
+      "receivedReports": [
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "receivedAt": "2026-04-29T23:59:58Z",
+          "summary": "Found no active S3-specific closure or reroute in searched official/Naturkartan/Pacer/Wikiloc/blog/forum/tourism sources. Current official/Naturkartan/Woods sources support Kvarnforsen-Gyltige, 24 km/23.3 km, medium/blue, mostly forest roads/firm paths, moderate Årnaböke climb, Fylleån and Hällabäcken crossings, and shelters at Kvarnforsen/Gyltige. Detailed field evidence is mostly stale old/reverse or combined Sandsjön-Kvarnforsen-Gyltige context; main human condition caveats are wet/icy/slippery bridge/path conditions from a 2015 winter report and a 2025 Reddit Kvarnforsen-area signal with no obstruction mentioned.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/kvarnforsen-gyltige",
+            "https://www.naturkartan.se/en/hallands-lan/sandsjon-kvarnforsen-gyltige-hallandsleden",
+            "https://www.woodsofhalland.se/object/kvarnforsen-gyltige-hallandsleden-23-km/",
+            "https://www.destinationhalmstad.se/en/experience/nature-and-the-outdoor-life/hallandsleden---435-km-hiking-trail",
+            "https://www.reddit.com/r/friluftslivSverige/comments/1kl0jwv/hallandsleden/",
+            "https://www.bejegard.se/vandring/halland/hallandsleden/hallandsleden-gyltige-kvarnforsen-23-km/",
+            "https://www.wikiloc.com/hiking-trails/sandsjon-kvarnforsen-gyltige-107713749",
+            "https://www.wikiloc.com/outdoor-trails/sandsjon-kvarnforsen-gyltige-41207043",
+            "https://www.mypacer.com/routes/ohzczl/hallandsleden-stage-sandsj%C3%B6n-kvarnforsen-gyltige-hiking-trail-hallands-l%C3%A4n",
+            "https://hallandsleden.se/item/kolla-brandrisken-4/h1orikco24kzjjuuyczmerpw6s8fe3it",
+            "https://www.halmstad.se/omsorgochstod/tryggochsaker/krisochberedskap/eldningsforbud.n2027.html",
+            "https://www.hylte.se/bygga-bo-och-miljo/raddningstjansten/brandsakerhet/eldning-och-brandrisk"
+          ],
+          "conditionSignals": [
+            "No current S3-specific active closure/reroute found; absence of notice is medium confidence and should be rechecked before publication.",
+            "Naturkartan current listing has 0 reviews and stale slug sandsjon-kvarnforsen-gyltige-hallandsleden; useful for current title/amenity/parking caution, not user reports.",
+            "En Vandringssaga 2015 reverse Gyltige-Kvarnforsen report notes storm/wet mud/puddles, very slippery Fylleån wooden bridge, generally good marking but map recommended, and icy conditions near Kvarnforsen after snow/thaw. Stale and seasonal only.",
+            "Reddit May 2025 Kvarnforsen/Långsjön signal indicates Kvarnforsen area was visited/usable with no obstruction mentioned; low-medium confidence only.",
+            "Wikiloc/Pacer still expose old 31-32 km Sandsjön-Kvarnforsen-Gyltige combined routes and provide no usable current condition text."
+          ],
+          "contradictions": [
+            "Destination Halmstad page updated 2026-04-22 still uses old 31 km Sandsjön-Gyltige-Kvarnforsen/Gyltige-Kvarnforsen-Sandsjön framing; do not use for current S3 boundary/distance.",
+            "Naturkartan title is current Kvarnforsen-Gyltige but slug remains old sandsjon-kvarnforsen-gyltige-hallandsleden.",
+            "Official/Naturkartan/Woods say Kvarnforsen has dry toilet/rubbish/fireplace and Gyltige has no toilet; other general shelter pages may imply broader toilet availability near shelters."
+          ],
+          "importImpacts": [
+            "Use official Hallandsleden page/GPX as canonical; do not import 31-32 km old Sandsjön-Kvarnforsen-Gyltige route.",
+            "Add optional weather-dependent caution for slippery wooden bridges/paths in wet/icy conditions, not a current defect.",
+            "Import Kvarnforsen dry toilet/rubbish/fireplace and shelters at Kvarnforsen/Gyltige if corroborated by facilities lane; avoid Gyltige toilet without resolving conflict.",
+            "Add fire-ban/current fire-risk caveat and parking caution if corroborated by access/facilities lanes."
+          ]
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "receivedAt": "2026-04-29T23:59:59Z",
+          "summary": "Facilities lane confirmed official S3 POIs and import decisions. High-confidence imports: Lägerplats Kvarnforsen with shelter/fireplace/dry toilet/waste, Lägerplats Gyltige with shelter/fireplace, Gyltige parking, Mjälahults kapell, Ynnabo eken, Lurehus and Fylleån. Pending/caveated: Kvarnforsen water/shower/firewood are available via adjacent property owner per Naturkartan rather than public tap; Kvarnforsen parking lacks precise coordinate and official text says no parking at campsite; Gyltige water/toilet conflict persists; Pensionat Sågknorren is official but a long side service. Suppress old/adjacent leakage such as Sandsjön shelter, S2 Hålväg/Rödek, Svarta klippan and far OSM shelters.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/kvarnforsen-gyltige",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Kvarnforsen_Gyltige.gpx",
+            "https://www.hallandsleden.se/plats/lagerplats-kvarnforsen",
+            "https://www.hallandsleden.se/plats/lagerplats-gyltige",
+            "https://www.naturkartan.se/en/hallands-lan/kvarnforsens-vindskydd",
+            "https://www.naturkartan.se/en/hallands-lan/gyltige",
+            "https://www.hylte.se/visit-hylte/woods-of-halland/vibe-spaces",
+            "https://www.destinationhalmstad.se/en/accommodation/stay-in-nature---shelters-and-tents",
+            "https://www.hallandsleden.se/plats/mjalahults-kapell",
+            "https://www.hallandsleden.se/plats/ynnabo-eken",
+            "https://www.hallandsleden.se/plats/lurehus",
+            "https://www.hallandsleden.se/plats/fyllean",
+            "http://www.sagknorren.se",
+            "OSM/Overpass corridor query"
+          ],
+          "importCandidates": [
+            "Lägerplats Kvarnforsen 56.89472780,13.18702122 official / Naturkartan 56.89484250887637,13.18645526781418, about 13-17 m from route km 0.02-0.05, shelter/campsite/fireplace/dry_toilet/waste endpoint facility, high confidence, import.",
+            "Kvarnforsen water/shower/firewood at/near shelter, Naturkartan says adjacent property owner can provide drinking water, sell firewood and offer warm shower; medium-high, access metadata only not standalone unattended tap.",
+            "Kvarnforsen parking note: official API text says no parking at campsite, park outside gate along road before campsite; no discrete coordinate, medium, access metadata/pending coordinate.",
+            "Lägerplats Gyltige 56.76735344,13.18214557, 4 m at km 23.49, shelter/campsite/fireplace shared endpoint, high confidence, import.",
+            "Gyltige drinking water 56.7673483,13.1830561 OSM + Destination Halmstad, 59 m, medium-high but pending strict official verification.",
+            "Gyltige toilet 56.7673269,13.1830329 OSM + Destination Halmstad conflicts with official S3 no-toilet text; medium, pending/conflict metadata.",
+            "Gyltige parking 56.7670597,13.1833973, 87 m, OSM capacity 30/access yes/fee no, medium-high, import.",
+            "Mjälahults kapell 56.88766563,13.21008325, 25 m at km 2.27, high, import heritage.",
+            "Ynnabo eken 56.87503016,13.25344384, 14 m at km 5.84, high, import natural/heritage tree.",
+            "Lurehus 56.81173883,13.20794821, 7 m at km 15.62, high, import heritage.",
+            "Fylleån 56.77133517,13.17908764, 18 m at km 22.95, high, import natural/protected river context.",
+            "Pensionat Sågknorren 56.85647580,13.28583950, 2.59 km straight-line / official about 4.8 km from Hallandsleden, high as official off-route service, pending side-service import policy."
+          ],
+          "suppressOrPending": [
+            "Sandsjöns vindskydd belongs to adjacent/previous Kvarnforsen/Sandsjön context, about 5.51 km from S3 start; suppress for S3.",
+            "Hålväg 844 m off route near Gyltige and Rödek 5.38 km off route look like S2 leakage; suppress or keep pending only if broad side-POIs are allowed.",
+            "Svarta klippan shelter/firepit/parking are OSM-only local facilities 311-351 m off route; pending/suppress for strict S3.",
+            "Far OSM shelters/fireplaces/picnic/heritage nodes 1-4.6 km off route should be suppressed.",
+            "Kvarnforsen Flug & Sportfiske camp should be kept only as access text/landmark; no current authoritative service page found."
+          ],
+          "contradictions": [
+            "Gyltige toilet: official S3 page says no toilet at Gyltige; Destination Halmstad and OSM say dry toilet/toilets exist.",
+            "Kvarnforsen water is access-dependent via adjacent property owner per Naturkartan, not an official public tap in Hallandsleden data.",
+            "Official places API returns Hålväg and Rödek despite these appearing to belong to S2 or broad Gyltige search radius rather than S3 core."
+          ],
+          "importImpacts": [
+            "Import Kvarnforsen and Gyltige shelters/fireplaces, Kvarnforsen dry toilet/rubbish, key on-route heritage/nature POIs and Gyltige parking.",
+            "Model Kvarnforsen water/shower/firewood as access-dependent metadata, not standalone public amenities.",
+            "Keep Gyltige toilet/water pending/conflict metadata.",
+            "Suppress adjacent/legacy/off-route facility leakage."
+          ]
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "receivedAt": "2026-04-29T23:59:59Z",
+          "summary": "Geometry lane confirmed official GPX and Hallandsleden API geo_json are exact matches: 247 points, computed 23.493 km, GPX desc Total: 23.5 km, timestamp 2025-06-23T09:29:25+02:00, start 56.895058,13.186319, end 56.767378,13.182092, direction Kvarnforsen to Gyltige. Hallandsleden line.geometry has no usable S3 geometry. Naturkartan site 22044 is current in display name but stale in slug, and its 240/243-point 23.356 km shape starts near S3 point 4 rather than first point. OSM relation 5599309 is a stale composite Sandsjön-Kvarnforsen-Gyltige relation, not current S3-only geometry.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/kvarnforsen-gyltige",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Kvarnforsen_Gyltige.gpx",
+            "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=kvarnforsen-gyltige&token=<public-page-token>",
+            "https://www.naturkartan.se/sv/hallands-lan/sandsjon-kvarnforsen-gyltige-hallandsleden",
+            "https://api.naturkartan.se/v3.2/sites/22044",
+            "https://www.naturkartan.se/sv/hallands-lan/sandsjon-kvarnforsen-gyltige-hallandsleden.gpx",
+            "https://www.openstreetmap.org/relation/5599309",
+            "https://overpass-api.de/api/interpreter"
+          ],
+          "geometryFindings": [
+            "Official GPX creator FME(R) 2024.2.1.0, metadata time 2025-06-23T09:29:25+02:00, track name Kvarnforsen - Gyltige, desc Total: 23.5 km.",
+            "Official GPX/API geo_json point count 247, computed length 23.493 km, bounds min 56.767378,13.179367 and max 56.895058,13.255235.",
+            "API length_in_meters 24000, time null, medium difficulty; geo_json exact match to GPX.",
+            "API line.geometry has no usable S3 line geometry; use geo_json/GPX.",
+            "Naturkartan site 22044 slug sandsjon-kvarnforsen-gyltige-hallandsleden, display name Kvarnforsen - Gyltige, API updated 2026-04-27T13:11:59, computed 23.356 km, start 56.894688,13.188803, end 56.767487,13.182607; start is 156.4 m from official first point but only 10.9 m from official S3 point 4.",
+            "OSM relation 5599309 name Hallandsleden Etappen Sandsjön - Kvarnforsen - Gyltige, distance tag 31, computed member-way length 30.417 km, nearest coordinate to official S3 start 1.1 m and end 29.1 m, but relation is composite/stale and member ordering has gaps.",
+            "M6 end 56.894596,13.188851 to S3 first point gap 162.1 m; M6 end to nearest S3 point gap 2.7 m at S3 point 4 56.894590,13.188808, indicating S3 starts on a short local spur/loop near Kvarnforsen.",
+            "S3 end to S2 end gap 1.5 m and S3 end to S4 start gap 9.2 m; Gyltige handoff is coherent for hub snapping."
+          ],
+          "contradictions": [
+            "Naturkartan displayed name/shape are current but slug and historic identity remain old Sandsjön-Kvarnforsen-Gyltige.",
+            "OSM relation 5599309 is not current S3-only geometry despite containing S3; direct import would include old Sandsjön-Kvarnforsen segment.",
+            "Official S3 first point is not the practical M6/S3 handoff; nearest practical handoff is S3 point 4."
+          ],
+          "importImpacts": [
+            "Geometry grade A for official GPX/API geo_json; import from these sources and preserve Kvarnforsen-to-Gyltige direction.",
+            "Store official length 24 km and computed geometry length 23.493 km/GPX 23.5 km.",
+            "Do not use Hallandsleden line.geometry, Naturkartan as authoritative endpoints, or OSM relation 5599309 for direct import.",
+            "Record Kvarnforsen 162.1 m first-point ambiguity and practical M6 connection at S3 point 4; snap Gyltige hub within about 10 m if topology policy allows."
+          ]
+        },
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "receivedAt": "2026-04-29T23:59:59Z",
+          "summary": "Official-source lane confirmed canonical S3 identity: Kvarnforsen - Gyltige, official order 19/Södra local order 3, SÖDRA DELLEDEN, 24 km/API 24000 m, blue/medium, no official time. Official GPX metadata name Mellersta_Kvarnforsen_Gyltige, creator FME(R) 2024.2.1.0, time 2025-06-23T09:29:25+02:00, HTTP last-modified 2025-06-27, first/last trackpoints 56.895058,13.186319 to 56.767378,13.182092; API map endpoints match. Official description covers forest/country/gravel roads, Hagasjön view, farms/lakes, Ynnabo oak, Lurehus, Fylleån/Hällabäcken and Gyltige. Official camps: Kvarnforsen and Gyltige shelters, Kvarnforsen fireplace/dry toilet/rubbish, no toilet at Gyltige.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/kvarnforsen-gyltige",
+            "https://www.hallandsleden.se/en/etapp/kvarnforsen-gyltige",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Kvarnforsen_Gyltige.gpx",
+            "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=kvarnforsen-gyltige",
+            "https://www.hallandsleden.se/api/v2/places?trackSegment=kvarnforsen-gyltige&limit=100",
+            "https://www.hallandsleden.se/plats/lagerplats-kvarnforsen",
+            "https://www.hallandsleden.se/plats/lagerplats-gyltige",
+            "https://www.hylte.se/visit-hylte/woods-of-halland/hiking-trails",
+            "https://www.naturkartan.se/en/hallands-lan/sandsjon-kvarnforsen-gyltige-hallandsleden",
+            "https://www.destinationhalmstad.se/boende/bo-i-naturen---vindskydd-och-talt",
+            "https://www.hallandsleden.se/en/item/viktig-information/i48rep1ncwkafz7wux50lp0dhxvboodp",
+            "https://hallandsleden.se/en/item/nya-leddragningar-1/f22cgopgvzykg0snvt9jgr6lxgvdb1n5",
+            "https://hallandsleden.se/en/item/kolla-brandrisken-4/h1orikco24kzjjuuyczmerpw6s8fe3it",
+            "https://www.hallandsleden.se/en/item/kop-kartor/2bwumbjftdlj2waiogadvzv1tcjnbsp8",
+            "https://www.hallandsleden.se/plats/fyllean",
+            "https://www.lansstyrelsen.se/download/18.45f58e4d18180023efb26599/1656917775222/Bevarandeplan%20Fylle%C3%A5n.pdf"
+          ],
+          "officialFindings": [
+            "Official distance mismatch: page/API 24 km/24000 m, GPX desc 23.5 km, Naturkartan 23.3 km; use 24 km canonical display.",
+            "Official difficulty maps Blue to medium; preserve both if schema supports.",
+            "Official S3 page says mostly forest roads, some firm-ground paths, moderate slope to Årnaböke.",
+            "Listed official sights: Mjälahults kapell, Ynnaboeken old oak and Lurehus old cottage/croft.",
+            "Official places API count 9: Fylleån, Hålväg, Lurehus, Lägerplats Gyltige, Lägerplats Kvarnforsen, Mjälahults kapell, Pensionat Sågknorren, Rödek utmed leden, Ynnabo eken.",
+            "Topology: S2 and S3 both terminate at Gyltige and S4 starts at Gyltige; Kvarnforsen is also endpoint on Rydöbruk - Kvarnforsen. Build graph nodes at Kvarnforsen and Gyltige."
+          ],
+          "contradictions": [
+            "Track/filename mismatch: current page/API classify S3 as Södra delleden, but GPX filename/metadata begins Mellersta; use page/API track classification and keep filename as source artifact.",
+            "Gyltige toilet/water conflict: Hallandsleden S3 says no toilet at Gyltige; Destination Halmstad says Gyltige has drinking water and dry toilet.",
+            "Older overview counts: Hallandsleden current home/API uses 4 subtrails/35 sections/612 km, while Destination Halmstad still says 435 km/three parts/26 stages.",
+            "Naturkartan identity is current in display but older Sandsjön-Kvarnforsen-Gyltige slug/description remains."
+          ],
+          "importImpacts": [
+            "Use Hallandsleden page/API for canonical identity/order/track classification and official GPX/API for geometry.",
+            "Use 24 km/medium-blue/no official time in display metadata, retaining measured 23.5 km discrepancy.",
+            "Import Kvarnforsen/Gyltige shelter context and Kvarnforsen dry toilet/rubbish; flag Gyltige water/toilet conflict.",
+            "Attach Fylleån protected/Natura context to crossing/POI but do not infer trail access restriction from checked sources.",
+            "Use digital map/GPX over old paper maps or old 435 km/26-stage tourism framing."
+          ]
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "receivedAt": "2026-04-29T23:59:59Z",
+          "summary": "Transit/access lane found both S3 endpoints are weak for public transport. Kvarnforsen start is remote: no close transit found, closest mapped parking about 1.11 km, backup parking about 1.54 km, nearest useful bus cluster Rydöbruk about 7.78 km and Torup station about 9.5 km. Gyltige end has good parking/pickup at 87 m but no mapped Gyltige bus stop within 8 km; practical transit is continuing toward Simlångsdalen/Brearedsskolan 5.7-6.3 km straight-line or the official next stage. Hallandstrafiken planner/current timetables required; old indexed Gyltige timetable evidence is obsolete.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/kvarnforsen-gyltige",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Kvarnforsen_Gyltige.gpx",
+            "https://www.naturkartan.se/en/hallands-lan/sandsjon-kvarnforsen-gyltige-hallandsleden",
+            "https://www.openstreetmap.org/node/2407966168",
+            "https://www.openstreetmap.org/node/11180827629",
+            "https://www.openstreetmap.org/node/11105664113",
+            "https://transitapp.com/en/region/halland/hallandstrafiken/bus-401",
+            "https://www.openstreetmap.org/node/12813145989",
+            "https://www.openstreetmap.org/node/6536105233",
+            "https://www.jlt.se/res-med-oss/linjer-hallplatser/linje/?id=1086",
+            "https://transitapp.com/en/region/halland/hallandstrafiken/bus-430",
+            "https://www.hallandstrafiken.se/download/18.1619b360195fff62650672b/1744046699455/1297095_Hyltebruk_bussterminal_3d-karta.pdf",
+            "https://www.openstreetmap.org/way/366034182",
+            "https://www.openstreetmap.org/node/9945257352",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/hule.html",
+            "https://www.openstreetmap.org/node/9913860866",
+            "https://www.openstreetmap.org/node/1797668994",
+            "https://transitapp.com/en/region/halland/hallandstrafiken/bus-318",
+            "https://www.hallandstrafiken.se/res-med-oss/sok-resa/hallplatser",
+            "https://www.hallandstrafiken.se/res-med-oss/sok-resa/tidtabeller",
+            "https://www.stenalinetravel.com/routes/grenaa-halmstad"
+          ],
+          "startAccess": [
+            "Kvarnforsen rest area/trail access 56.895058,13.186319, 0 m, Hallandsleden, high confidence; no close transit, Naturkartan says parking next to rest areas unsuitable and expect walking a few km if arriving by car.",
+            "Unnamed OSM parking 56.902113,13.199344, 1.11 km, medium-low; unlabeled capacity/access not specified, verify on ground.",
+            "Unnamed OSM surface parking 56.886741,13.206657, 1.54 km, medium-low backup.",
+            "Rydöbruk bus stop 56.959435,13.136151, 7.78 km, Hallandstrafiken line 401 GTFS-derived, medium; long access, verify planner.",
+            "Rydöbruk gamla stationen 56.962196,13.143440, 7.91 km, Hallandstrafiken, medium.",
+            "Torup station/bus-rail access 56.957383,13.080395 bus / 56.957662,13.079637 rail, 9.45-9.51 km, Hallandstrafiken/Krösatågen-JLT, medium; better network node but farther.",
+            "Hyltebruk Bussterminal about 56.9987,13.2374, 11.93 km, Hallandstrafiken lines 400/401/430/431/432/847, medium; far service hub."
+          ],
+          "endAccess": [
+            "Gyltige endpoint/campsite 56.767378,13.182092, 0 m, high confidence trail access.",
+            "Gyltige mapped parking 56.767060,13.183397, 87 m, OSM access=yes/fee=no/capacity=30, medium-high, best car/pickup point.",
+            "Roadside parking 56.750736,13.184265, 1.86 km, OSM capacity 2, medium backup only.",
+            "Hule Norra parking 56.725833,13.144444, 5.16 km, high, access for next-section corridor not direct Gyltige endpoint.",
+            "Brearedsskolan bus stop 56.722554,13.136846, 5.70 km, Hallandstrafiken, medium; verify departures/walkability.",
+            "Simlångsdalen bus stop 56.720754,13.130341, 6.07 km, Hallandstrafiken line 318 GTFS-derived, high practical transit after continuing south/east on next section.",
+            "Ljungblomman bus stop 56.719705,13.125000, 6.34 km, medium alternative Simlångsdalen-area stop."
+          ],
+          "caveats": [
+            "Kvarnforsen is effectively car/pickup/long-walk access; closest useful bus cluster is several km away.",
+            "Gyltige is effectively car/pickup or continue-to-Simlångsdalen access; no current mapped Gyltige bus stop found within 8 km.",
+            "Hallandstrafiken planner/app should be used for current lines, stop locations and date-specific departures; many stop times are approximate.",
+            "Old indexed Hallandstrafiken PDF mentions Gyltige on older line 318/Lidhult-era trips but is 2014/2015-era and should not be treated as current.",
+            "No ferry is relevant; Halmstad-Grenaa is distant, does not take foot passengers and is scheduled to cease 2026-04-30."
+          ],
+          "importImpacts": [
+            "Mark both endpoints as weak public-transit access.",
+            "Import Kvarnforsen as trail/campsite access with parking caution and pending parking coordinates, not a transit-friendly trailhead.",
+            "Import Gyltige parking/pickup strongly; model Simlångsdalen continuation as transit connection metadata, not direct S3 endpoint transit.",
+            "Preserve Hallandstrafiken live-planner caveat."
+          ]
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "receivedAt": "2026-04-29T23:59:59Z",
+          "summary": "Rules lane found no current S3-specific official closure/reroute/bridge warning. Use official digital GPX/current page over older maps. Protected/currentness findings: Fylleån Natura 2000 SE0510132 intersects near km 22.96-23.00 and Fylleån/Hällabäcken water crossings need bridge/high-water awareness; nearby Svarta klippan, Stavsbjär, Sutarebo reserves and Idegran Högalt natural monument do not intersect and should be off-route caution only. No direct water-protection area intersect found. Dynamic rules: fire bans/fire risk for Hylte/Halmstad, dogs leashed, livestock/gates, hunting Aug-Jan, allemansrätten. Forestry notifications near km 21.28 and 22.78 are currentness risks near Gyltige approach; additional lower-priority forestry watch around km 17.46, 9.50 and 2.38. Trafikverket road 26 project is future access/traffic watch, not 2026 closure.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/kvarnforsen-gyltige",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Kvarnforsen_Gyltige.gpx",
+            "https://www.hallandsleden.se/item/viktig-information/i48rep1ncwkafz7wux50lp0dhxvboodp",
+            "https://geodata.naturvardsverket.se/n2000/wfs",
+            "https://geodata.naturvardsverket.se/naturvardsregistret/wfs",
+            "https://hallandsleden.se/item/kolla-brandrisken-4/h1orikco24kzjjuuyczmerpw6s8fe3it",
+            "https://www.hylte.se/bygga-bo-och-miljo/raddningstjansten/brandsakerhet/eldning-och-brandrisk",
+            "https://www.halmstad.se/omsorgochstod/tryggochsaker/krisochberedskap/brandriskprognos.n1495.html",
+            "https://www.halmstad.se/omsorgochstod/tryggochsaker/krisochberedskap/eldningsforbud.n2027.html",
+            "https://www.hallandsleden.se/item/vandra-under-jaktsasongen/fxm1j3j5ltmdkd65aqrztndfqhr3txnq",
+            "https://hallandsleden.se/item/allemansratten/5fogqeoayrfqw4vcyz7lruickdh88ahe",
+            "https://geodpags.skogsstyrelsen.se/arcgis/rest/services/Geodataportal/GeodataportalVisaSkogsbruk/MapServer/5",
+            "https://www.trafikverket.se/vara-projekt/projekt-i-hallands-lan/vag-26-oskarstromlansgransen-faunapassager/"
+          ],
+          "protectedAreasAndWater": [
+            "Fylleån Natura 2000 SE0510132 intersects official GPX around km 22.96-23.00, approximately 56.771749,13.179528 to 56.771400,13.179367; import Natura crossing/corridor warning and permit/review caveat for works/reroutes/bridge/bank disturbance.",
+            "Fylleån watercourse also named by official page around km 18.8 near 56.795641,13.217395 and Natura corridor again near km 23.0; import water crossing/currentness risk after floods/storms.",
+            "Hällabäcken named by official page around km 22.2 near 56.775261,13.188027; import water crossing/currentness risk.",
+            "Nearby protected areas Svarta klippan (about 300 m), Stavsbjär (about 618 m), Sutarebo (about 472 m near Gyltige), and Idegran Högalt 2:2 natural monument (about 90 m) do not intersect official GPX; keep off-route caution only.",
+            "No direct water-protection-area intersection found in checked NVR query."
+          ],
+          "rules": [
+            "No S3-specific closure/reroute/bridge warning found in checked official sources as of 2026-04-29; recheck before publication/use.",
+            "Use digital official GPX/current page over older maps; Hallandsleden warns older maps can be stale.",
+            "Fire: use prepared fireplaces only, never during fire bans, firewood may be absent during bans; check Hylte and Halmstad fire status day-of.",
+            "Dogs: Hallandsleden says dogs always leashed along Hallandsleden.",
+            "Livestock/gates: route passes a few pastures toward Gyltige; close gates and respect animals/crops.",
+            "Hunting: import seasonal Aug-Jan hunting visibility/stay-on-trail/leashed-dog awareness.",
+            "Allemansrätten: do not damage living trees, do not light fires on rock, camp carefully and respect landowners/animals."
+          ],
+          "currentnessRisks": [
+            "Skogsstyrelsen A 9149-2024 direct/near GPX around km 22.78 near 56.772224,13.181433, filed 2024-03-07 season 2024/2025, high currentness risk near Gyltige approach.",
+            "Skogsstyrelsen A 19304-2023 about 2 m from GPX around km 21.28 near 56.779763,13.197381, filed 2023-05-03 season 2024/2025, high currentness risk.",
+            "Lower-priority forestry watch: A 20826-2021 about 38 m from GPX around km 17.46, A 47820-2021 about 110 m from GPX around km 2.38, A 52465-2023 about 142 m from GPX around km 9.50.",
+            "Skogsstyrelsen notices are not proof felling occurred or will occur; use as currentness risk, not closure.",
+            "Trafikverket Road 26 Oskarström-länsgränsen faunapassages: review spring 2026, construction autumn 2027, completion summer 2029; future access/traffic watch, not 2026 S3 closure."
+          ],
+          "hazards": [
+            "Mixed forest paths, country lanes and gravel roads across full section; import shared road/gravel walking visibility/traffic note.",
+            "Steep hillside near main road at Lurehus from official page description; exact point should be verified if adding hazard pin.",
+            "Fylleån/Hällabäcken crossings; no official bridge closure found but recheck after high water."
+          ],
+          "importImpacts": [
+            "No active closure/reroute flag for S3 from current official sources.",
+            "Import Fylleån Natura 2000 intersection and Fylleån/Hällabäcken water-crossing currentness caution.",
+            "Import dynamic fire/dog/livestock/hunting/allemansrätten rules.",
+            "Import forestry currentness warnings around km 21.28 and 22.78; lower-priority watch at km 17.46, 9.50 and 2.38.",
+            "Nearby reserves/natural monument are not on-route restrictions; only off-route caution if mapping side detours."
+          ]
+        }
+      ],
+      "mainThreadBaseline": {
+        "completedAt": "2026-04-29T23:59:55Z",
+        "summary": "Main thread checked S3 official page, official GPX, Hallandsleden map API, places API, Södra segment list, Naturkartan site 22044 and adjacent M6/S2/S4 endpoint continuity. Official GPX/API geo_json are a 247-point 23.493 km line from Kvarnforsen 56.895058,13.186319 to Gyltige 56.767378,13.182092; GPX desc Total: 23.5 km, timestamp 2025-06-23T09:29:25+02:00. Hallandsleden line.geometry is empty/null for this section. Naturkartan current page uses stale slug sandsjon-kvarnforsen-gyltige-hallandsleden but title Kvarnforsen - Gyltige and 243-point/23.356 km shape from 56.894688,13.188803 to 56.767487,13.182607. Places API returned 9 records: Fylleån, Hålväg, Lurehus, Lägerplats Gyltige, Lägerplats Kvarnforsen, Mjälahults kapell, Pensionat Sågknorren, Rödek utmed leden, Ynnabo eken."
+      },
+      "completedAt": "2026-04-29T23:59:59Z",
+      "synthesizedAt": "2026-04-29T23:59:59Z",
+      "synthesisOutput": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-kvarnforsen-gyltige.research.json",
+      "synthesisSummary": "S3 synthesized as research-ready-with-caveats. Official GPX/API geo_json is canonical; Hallandsleden line.geometry is empty; OSM/Naturkartan/Pacer/Wikiloc preserve old Sandsjön composite semantics. Key caveats: Kvarnforsen first-point spur and M6 handoff, weak endpoint transit, Gyltige water/toilet conflict, Kvarnforsen access-dependent water/shower/firewood, forestry/currentness risks and Fylleån Natura crossing."
     }
   ],
   "sourceCoverage": {
@@ -3541,6 +3896,17 @@
       "commuteAccess": "complete; start strong, Gyltige public transit weak",
       "fieldReports": "complete; no current closure found, stale old Ryet-Gyltige context recorded",
       "rulesSafety": "complete; protected areas, water protection, fire/dogs/hunting/forestry/currentness recorded",
+      "synthesis": "complete; section JSON written"
+    },
+    "hallandsleden-kvarnforsen-gyltige": {
+      "overview": "complete from trail.research.json overview pass",
+      "officialSources": "complete from official-source lane and main-thread baseline",
+      "routeGeometry": "complete from geometry lane and main-thread baseline; official GPX/API geo_json preferred",
+      "endpointCoordinates": "complete from geometry lane/main baseline with Kvarnforsen spur ambiguity and Gyltige hub gaps",
+      "facilities": "complete from facilities lane; import/pending/suppress decisions recorded",
+      "commuteAccess": "complete from transit-access lane; both endpoints weak for public transit, parking/pickup/continuation caveats recorded",
+      "fieldReports": "complete from field-reports lane; no active closure found, stale combined-route risks and seasonal wet/icy caveats recorded",
+      "rulesSafety": "complete from rules-safety-currentness lane; protected/water/fire/dog/livestock/hunting/forestry/currentness recorded",
       "synthesis": "complete; section JSON written"
     }
   },
@@ -3711,12 +4077,16 @@
     "S2 research-ready caveat: Oskarström water/toilet availability conflicts inside official Hallandsleden POIs; verify before import.",
     "S2 research-ready caveat: Gyltige water/toilet availability conflicts across Destination Halmstad/OSM and Hallandsleden adjacent-stage text; verify before import.",
     "S2 research-ready caveat: Gyltige public-transit endpoint is weak; model parking/pickup or continuation to Simlångsdalen rather than direct transit.",
-    "S2 research-ready caveat: Hallandsleden API line.geometry and OSM relation 7398310 are stale/partial old Ryet-Gyltige geometry and must be suppressed."
+    "S2 research-ready caveat: Hallandsleden API line.geometry and OSM relation 7398310 are stale/partial old Ryet-Gyltige geometry and must be suppressed.",
+    "S3 research-ready caveat: Kvarnforsen official first point is 162.1 m from M6 endpoint but S3 point 4 is 2.7 m from M6 endpoint; decide graph handoff policy.",
+    "S3 research-ready caveat: Gyltige water/toilet conflict remains unresolved; official S3 says no toilet while Destination Halmstad/OSM say dry toilet/water.",
+    "S3 research-ready caveat: both endpoints are weak for public transit; Kvarnforsen has long access to Rydöbruk/Torup and Gyltige needs parking/pickup or continuation to Simlångsdalen.",
+    "S3 research-ready caveat: old Sandsjön-Kvarnforsen-Gyltige composite geometry persists in OSM/Naturkartan slug/Wikiloc/Pacer/Destination Halmstad and must be suppressed."
   ],
   "nextActions": [
-    "Validate S2 JSON/progress/README and commit Add Hallandsleden S2 research.",
-    "Start S3 hallandsleden-kvarnforsen-gyltige with six parallel lanes: official sources, route geometry, facilities, transit/access, field reports, rules/safety/currentness.",
-    "For S3, pay special attention to Kvarnforsen access, Gyltige shared endpoint topology/facilities, branch semantics and old Kvarnforsen/Sandsjön/Gyltige source risks."
+    "Validate S3 JSON/progress/README and commit Add Hallandsleden S3 research.",
+    "Start S4 hallandsleden-gyltige-simlangsdalen with six parallel lanes: official sources, route geometry, facilities, transit/access, field reports, rules/safety/currentness.",
+    "For S4, pay special attention to Gyltige shared endpoint, Simlångsdalen access, highway 25 crossing, Hule/Breared/Sutarebo/Fylleån contexts, Gyltige water/toilet conflicts and old Gyltige-Assman/Simlångsdalen source risks."
   ],
   "handoffNotes": [
     "Work resumed on 2026-04-29 in /workspaces/hike-trails-codex-hallandsleden-research on branch codex/hallandsleden-research.",
@@ -3815,7 +4185,13 @@
     "For S2, do not treat Kvarnforsen-Gyltige as a continuation from S2 start; both S2 and S3 terminate at Gyltige.",
     "S2 section JSON is written at data/research/candidate-trails/hallandsleden/sections/hallandsleden-oskarstrom-gyltige.research.json and is research-ready-with-caveats.",
     "Commit S2 before starting S3 per user instruction to commit between sections.",
-    "S3 next target: hallandsleden-kvarnforsen-gyltige, official page https://www.hallandsleden.se/etapp/kvarnforsen-gyltige, official GPX Mellersta_Kvarnforsen_Gyltige.gpx, distance 24 km, medium; S3 geometry starts Kvarnforsen and ends at Gyltige."
+    "S3 next target: hallandsleden-kvarnforsen-gyltige, official page https://www.hallandsleden.se/etapp/kvarnforsen-gyltige, official GPX Mellersta_Kvarnforsen_Gyltige.gpx, distance 24 km, medium; S3 geometry starts Kvarnforsen and ends at Gyltige.",
+    "S3 active target: hallandsleden-kvarnforsen-gyltige, official page https://www.hallandsleden.se/etapp/kvarnforsen-gyltige, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Kvarnforsen_Gyltige.gpx, distance 24 km, medium; starts Kvarnforsen and ends Gyltige.",
+    "S3 main-thread baseline: official GPX starts at 56.895058,13.186319, but M6 Kvarnforsen endpoint is nearest S3 vertex index 3 at 2.70 m; investigate whether S3 start is campsite spur/access while M6 endpoint is main route handoff.",
+    "S3 main-thread baseline: Hallandsleden line.geometry empty/null; official GPX/API geo_json is preferred pending geometry lane.",
+    "S3 section JSON is written at data/research/candidate-trails/hallandsleden/sections/hallandsleden-kvarnforsen-gyltige.research.json and is research-ready-with-caveats.",
+    "Commit S3 before starting S4 per user instruction to commit between sections.",
+    "S4 next target: hallandsleden-gyltige-simlangsdalen, official page https://www.hallandsleden.se/etapp/gyltige-simlangsdalen, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Gyltige_Simlangsdalen.gpx, distance 7.9 km, easy; starts Gyltige and ends Simlångsdalen."
   ],
   "filesWritten": [
     "README.md",
