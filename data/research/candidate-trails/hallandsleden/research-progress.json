@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-29T21:47:31Z",
-  "currentPhase": "Phase 2 ready to start section research for hallandsleden-langesjon-rydobruk",
+  "lastUpdated": "2026-04-29T22:06:57Z",
+  "currentPhase": "Phase 2 ready to start section research for hallandsleden-rydobruk-kvarnforsen",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -14,7 +14,8 @@
     "hallandsleden-akulla-ullared",
     "hallandsleden-ullared-karnebygd",
     "hallandsleden-karnebygd-atran",
-    "hallandsleden-atran-langesjon"
+    "hallandsleden-atran-langesjon",
+    "hallandsleden-langesjon-rydobruk"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -326,19 +327,25 @@
       "sectionNumber": "M5",
       "name": "Långesjön - Rydöbruk",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-map-line-discovered-needs-gpx-cross-check",
-      "startEndCoordinateStatus": "official-map-line-endpoints-captured-needs-validation",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-official-swedish-english-gpx-api-hylte-naturkartan-source-pass",
+      "routeGeometryStatus": "complete-official-gpx-and-api-geojson-canonical-navigation-grade-stale-line-naturkartan-osm-suppressed",
+      "startEndCoordinateStatus": "complete-official-gpx-api-endpoints-high-confidence-m4-and-m6-continuity-within-7m",
+      "commuteAccessStatus": "complete-no-direct-langesjon-transit-strong-rydobruk-line-401-access-with-parking-caveats",
+      "facilityResearchStatus": "complete-core-facilities-ready-side-services-pending-next-section-suppression-and-no-water-caveats",
+      "rulesSafetyStatus": "complete-no-direct-protected-area-overlap-dynamic-fire-dogs-hunting-forestry-road-safety-caveats",
+      "synthesisStatus": "complete-six-lane-synthesis-complete",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
-        "Run six independent section research lanes and synthesize findings.",
-        "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
-        "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Before normalization, verify public parking legality/capacity and long-stay suitability at Rydöbruk OSM parking ways 1191353620 and 1191353618.",
+        "Before normalization, decide side-service policy for Kinnared/Torup/Drängsered services 2-3.5 km off route. Current recommendation: keep as pending side-service metadata, not M5 core.",
+        "Before import, verify current operation/opening hours for Fika by Steph, Bergåsa B&B, Lahults B&B, Kinnared/Torup food/lodging/service records if any are normalized.",
+        "Before publication, recheck Hylte fire-ban status, Brandrisk Ute/Krisinformation, Hylte drift information and Trafikverket live road information for the highway 26 crossing.",
+        "Before autumn 2026 publication/hike notes, recheck Länsstyrelsen Halland for 2026/2027 elk-hunt dates and any local hunt notices.",
+        "Ask Hallandsleden/Hylte if near-route forestry notifications around route km 5.3 and 12.3 are causing temporary trail impacts before publication.",
+        "Confirm whether local signage near Rydöbruk/Nissan/Knystaforsen adds any water-protection, access or industrial-area safety rules not captured by NVR overlays.",
+        "If app rendering/navigation requires denser linework, QA/densify the 408 m sparse GPX segment near Långesjön without replacing official GPX provenance.",
+        "Consider reporting OSM relation 4219136 and Naturkartan stale slug/old Långesjön-Sandsjön segmentation after import policy is finalized.",
+        "Do not model Karl XI:s källa/Kungakällan, Långesjön or Sandsjön as potable water unless an official/current drinking-water source is found."
       ]
     },
     "hallandsleden-rydobruk-kvarnforsen": {
@@ -1794,18 +1801,271 @@
       "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around stale Eseredssjön-Långesjön naming, official 22 km versus computed 21.293 km/Naturkartan 20.0 km distance conflict, canonical 516-point planning-grade GPX/API/Naturkartan geometry, no direct Långesjön transit, Krogsered shelter versus Lyngsjön bath/toilet component split, side-service over-inclusion, Ätran VSO first-kilometre overlap, Lysegårdsmossen near-boundary protected-area QA, dynamic fire/currentness and thin recent field condition evidence.",
       "completedAt": "2026-04-29T21:47:31Z",
       "outputFile": "sections/hallandsleden-atran-langesjon.research.json"
+    },
+    {
+      "batchId": "hallandsleden-langesjon-rydobruk-initial-6-lane-2026-04-29",
+      "sectionId": "hallandsleden-langesjon-rydobruk",
+      "startedAt": "2026-04-29T21:48:43Z",
+      "status": "complete-six-lane-synthesis-complete",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb37-238e-7a81-8c01-affb88efb375",
+          "nickname": "Plato"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb37-2406-7cd1-a8ad-6053ddeeb851",
+          "nickname": "Harvey"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb37-243b-73f2-b581-0baf2c390226",
+          "nickname": "James"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb37-247c-7b02-9c56-73a00fa7b42d",
+          "nickname": "Mendel"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb37-24d3-7923-be51-0d628ca62fef",
+          "nickname": "Ampere"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb37-2569-76a1-80ea-f69987d392f8",
+          "nickname": "Noether"
+        }
+      ],
+      "requestedOutputs": [
+        "official facts",
+        "geometry verification",
+        "facilities",
+        "transit/access",
+        "field reports",
+        "rules/safety/currentness"
+      ],
+      "notes": [
+        "Focus on Långesjön handoff from M4, no-direct-transit context at Långesjön, Rydöbruk endpoint access, official GPX/API/Naturkartan/OSM geometry conflicts, shelters/water/toilets, Hylte municipal sources, Nissan/road/industrial-community access and safety constraints, and dynamic fire/currentness."
+      ],
+      "receivedReports": [
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb37-24d3-7923-be51-0d628ca62fef",
+          "receivedAt": "2026-04-29T21:51:45Z",
+          "summary": "Found medium-low field-report confidence. Best section-specific evidence is historical: a detailed 2016 En Vandringssaga report under old Sandsjön-Långesjön naming and Flickr photo notes from 2021-06-21 around Rydöbruk/Nissan/Karl XI:s källa. Pacer/Naturkartan still show stale Långesjön-Sandsjön naming but no condition text/reviews. No current field-condition claim should be made for closures, boardwalks, bridges, shelters, signage or maintenance.",
+          "keySources": [
+            "https://www.bejegard.se/vandring/halland/hallandsleden/hallandsleden-sandsjon-langesjon-20-km/",
+            "https://www.flickr.com/photos/72616463@N00/53635722665/",
+            "https://www.flickr.com/photos/72616463@N00/53635611744/",
+            "https://www.flickr.com/photos/72616463@N00/53635275396/",
+            "https://www.mypacer.com/routes/ohzcqx/hallandsleden-stage-l%C3%A5ngesj%C3%B6n-sandsj%C3%B6n-hiking-trail-hallands-l%C3%A4n",
+            "https://www.mypacer.com/routes/ohzczl/hallandsleden-stage-sandsj%C3%B6n-kvarnforsen-gyltige-hiking-trail-hallands-l%C3%A4n",
+            "https://www.naturkartan.se/sv/hallands-lan/langesjon-sandsjon-hallandsleden",
+            "https://www.vandringstjejen.se/hallandsleden/",
+            "https://www.hallandsleden.se/etapp/langesjon-rydobruk"
+          ],
+          "conditionSignals": [
+            "2016 report describes gravel road, paved road through Rydöbruk, a small/indistinct path near RV26, varied meadow/pasture/forest and about 0.5 km wrong turn, but this is historical only.",
+            "2016/2021 sources mention Karl XI:s källa water being clear/cold or tasted, but this is not potable-water evidence.",
+            "No user field report found for current Långesjön/Sandsjön shelter toilet, firewood, trash, bridge or boardwalk condition."
+          ]
+        },
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb37-238e-7a81-8c01-affb88efb375",
+          "receivedAt": "2026-04-29T21:54:39Z",
+          "summary": "Confirmed canonical identity Långesjön - Rydöbruk, slug langesjon-rydobruk, Mellersta delleden, Hylte/Hallands län, official 19 km/blue-medium/no time, GPX desc 18.9 km and official API 19000 m. Swedish Hallandsleden page is richer than English. Hylte/Naturkartan/Woods of Halland often show 18 km. Naturkartan slug and some official place/API associations preserve Långesjön-Sandsjön/Sandsjön context. No official M5 drinking-water record found. Långesjön shelter is start/handoff; Sandsjön shelter appears as next-section/off-section context unless product supports such notes.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/langesjon-rydobruk",
+            "https://www.hallandsleden.se/en/etapp/langesjon-rydobruk",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Langesjon_Rydobruk.gpx",
+            "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=langesjon-rydobruk&token=<public-page-token>",
+            "https://www.hallandsleden.se/api/v2/places?limit=150&withImages=true&trackSegment=langesjon-rydobruk&token=<public-page-token>",
+            "https://www.hallandsleden.se/kartplaneringsverktyg/hallandsleden/langesjon-rydobruk",
+            "https://www.hylte.se/visit-hylte/woods-of-halland/hiking-trails",
+            "https://www.woodsofhalland.se/object/langesjon-rydobruk-hallandsleden-18-km/",
+            "https://www.naturkartan.se/sv/hallands-lan/langesjon-sandsjon-hallandsleden",
+            "https://www.naturkartan.se/en/hallands-lan/langesjon-sandsjon-hallandsleden",
+            "https://www.naturkartan.se/en/hallands-lan/langesjon",
+            "https://www.naturkartan.se/en/hallands-lan/sandsjons-vindskydd",
+            "https://www.hylte.se/download/18.43496dc718a173c22043718/1692791962119/rydobruk.pdf",
+            "https://hallandsleden.se/en/"
+          ],
+          "contradictions": [
+            "Distance: Hallandsleden page/API 19 km/19000 m, GPX 18.9 km, Hylte/Woods/Naturkartan 18 km/18.0 km.",
+            "Endpoint: current official name/GPX end at Rydöbruk, but Naturkartan slug says langesjon-sandsjon, API line geometry extends toward Sandsjön and places include Sandsjön/off-section records.",
+            "Language: Swedish Hallandsleden page has fuller sights/service detail than English; Naturkartan Swedish and English prose differ.",
+            "Shelter capacity: Långesjön/Sandsjön 4-5 people in Naturkartan/Woods of Halland, 4-6 adults in Hallandsleden section text.",
+            "Bergåsa B&B detour distance: Swedish text about 2.9 km, places API about 2 km."
+          ]
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb37-247c-7b02-9c56-73a00fa7b42d",
+          "receivedAt": "2026-04-29T21:55:09Z",
+          "summary": "Confirmed no direct public transport at Långesjön; treat as remote campsite/trail handoff. Kinnared station is the most plausible distant regular-transit walk-out but connector is not verified and should not be attached as endpoint transit. Rydöbruk has strong direct Hallandstrafiken bus access on line 401; Hållplats Rydöbruk is primary M5 endpoint access, Rydöbruk gamla stationen and Borgenvägen are secondary/alternate, Torup station is transfer context, and Rydöbruk should not be modeled as regular rail service. OSM parking near the GPX endpoint needs verification.",
+          "keySources": [
+            "https://www.hallandsleden.se/en/etapp/langesjon-rydobruk",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Langesjon_Rydobruk.gpx",
+            "https://www.hallandsleden.se/plats/lagerplats-langesjon",
+            "https://www.hallandsleden.se/plats/hallplats-rydobruk",
+            "https://www.hallandsleden.se/plats/hallplats-borgenvagen-rydobruk",
+            "https://www.hallandstrafiken.se/rest-api/rh-timetables-backend/search-results?query=401&selectFilters=%7B%7D&toggleFilters=%7B%7D&dateFilters=%7B%7D&page=1&pageSize=20",
+            "https://www.iphone.fskab.se/hlt/Regionbuss/251214_260614/Regionbuss_401_251214_260614.pdf",
+            "https://www.jlt.se/res-med-oss/linjer-hallplatser/hallplats/?id=4036",
+            "https://www.krosatagen.se/english/",
+            "https://www.openstreetmap.org/way/1191353620",
+            "https://www.openstreetmap.org/way/1191353618",
+            "https://www.hylte.se/bygga-bo-och-miljo/resor-och-transporter/kollektivtrafik"
+          ],
+          "accessDecisions": {
+            "langesjon": "No direct transit. Do not import as parking/transit; campsite/trail handoff only. Kinnared station distant exit optional with manual-route-needed flag.",
+            "rydobruk": "Import Hållplats Rydöbruk as primary endpoint bus access on line 401; Borgenvägen alternate/next-section; OSM endpoint parking pending verification."
+          }
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb37-243b-73f2-b581-0baf2c390226",
+          "receivedAt": "2026-04-29T21:59:11Z",
+          "summary": "Collected strong M5 facility inventory from Hallandsleden places/API, official GPX, Naturkartan, Hylte/Woods, Vindskyddskartan, OSM and local commercial pages. Core import candidates are Långesjön shelter/campsite/toilet/waste/fire/swim, Bockasten, Väghållningsstenar, Kungakällan as non-potable historic spring/POI, Skärkeåns kanjon, Rydöbruk bus/old-station/bruksmuseum/settlement/Knystahall and Fika by Steph. Side services in Kinnared/Torup/Drängsered and Rydöbruk parking are pending; Sandsjön/M6 records and closed Knystaria should be suppressed for M5 core.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/langesjon-rydobruk",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Langesjon_Rydobruk.gpx",
+            "https://www.hallandsleden.se/api/v2/places?trackSegment=langesjon-rydobruk&bigLimit=150&withImages=true&output=json&token=<public-page-token>",
+            "https://www.naturkartan.se/sv/hallands-lan/langesjon-sandsjon-hallandsleden",
+            "https://www.naturkartan.se/en/hallands-lan/langesjon",
+            "https://www.naturkartan.se/en/hallands-lan/sandsjons-vindskydd",
+            "https://www.hylte.se/visit-hylte/woods-of-halland/hiking-trails",
+            "https://www.woodsofhalland.se/object/langesjon-rydobruk-hallandsleden-18-km/",
+            "https://www.vindskyddskartan.se/sv/vindskydd/Langesjons-vindskydd-5601",
+            "https://overpass-api.de/api/interpreter",
+            "https://www.fikabysteph.se/",
+            "https://www.knystaria.se/"
+          ],
+          "facilityDecisions": {
+            "importCore": [
+              "Lägerplats Långesjön",
+              "Bockasten",
+              "Väghållningsstenar",
+              "Karl XI:s källa / Kungakällan as non-potable historic spring POI",
+              "Skärkeåns kanjon",
+              "Hållplats Borgenvägen Rydöbruk as alternate/access context",
+              "Rydöbruk gamla stationen as secondary OSM bus access",
+              "Rydö Bruksmuseum",
+              "Rydöbruk settlement/historic-area POI",
+              "Knystahall",
+              "Hållplats Rydöbruk primary bus access",
+              "Fika by Steph"
+            ],
+            "pendingOrSide": [
+              "Rydöbruk parking cluster",
+              "Lahults Bed & Breakfast",
+              "Kinnared ICA/station/Restaurang Valvet/waste-parking",
+              "Drängsered Bergåsa B&B and Drängsereds kyrka",
+              "Torup pizzeria/hostel/Coop/station/drinking-water/recycling"
+            ],
+            "suppressCore": [
+              "Lahults kvarn och damm",
+              "Flottningsrännan",
+              "Gravfält vid Lahult",
+              "Lägerplats Sandsjön for M5 core",
+              "Knystaria as active food/service"
+            ],
+            "water": "No official reliable M5 drinking-water source found; carry water. Kungakällan is a sight/spring with no potable-water evidence."
+          }
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb37-2406-7cd1-a8ad-6053ddeeb851",
+          "receivedAt": "2026-04-29T21:59:11Z",
+          "summary": "Confirmed official GPX and Hallandsleden API geo_json as canonical navigation-grade M5 geometry: 669 points, computed 18.904 km, start 57.036766,13.011889 and end 56.957437,13.142738. It connects to M4 within 5.3 m and M6 within 6.7 m. Do not use Hallandsleden API line.geometry, Naturkartan site 22043 shape or OSM relation 4219136 as canonical because they retain shortened/stale Långesjön-Sandsjön linework or endpoint conflicts.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/langesjon-rydobruk",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Langesjon_Rydobruk.gpx",
+            "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=langesjon-rydobruk&token=<public-page-token>",
+            "https://www.naturkartan.se/sv/hallands-lan/langesjon-sandsjon-hallandsleden",
+            "https://api.naturkartan.se/v3.2/sites/22043",
+            "https://www.openstreetmap.org/relation/4219136",
+            "https://www.openstreetmap.org/relation/1673983"
+          ],
+          "canonicalGeometry": {
+            "points": 669,
+            "start": [
+              57.036766,
+              13.011889
+            ],
+            "end": [
+              56.957437,
+              13.142738
+            ],
+            "computedKm": 18.904,
+            "officialDistance": "19 km rounded on official page/API; GPX desc Total: 18.9 km",
+            "grade": "navigation-grade",
+            "continuity": {
+              "m4GpxEndToM5GpxStart": "5.3 m",
+              "m5GpxEndToM6GpxStart": "6.7 m"
+            }
+          },
+          "contradictions": [
+            "Hallandsleden API line.geometry is 1159 points/21.863 km and ends about 2196 m beyond current Rydöbruk endpoint at old Sandsjön/M6-start context.",
+            "Naturkartan title matches current Rydöbruk endpoint but slug remains langesjon-sandsjon-hallandsleden and start is about 442 m from official GPX start.",
+            "OSM relation 4219136 remains Hallandsleden Etappen Långesjön - Sandsjön, about 21.206 km assembled from child relations, not current M5."
+          ]
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb37-2569-76a1-80ea-f69987d392f8",
+          "receivedAt": "2026-04-29T22:00:11Z",
+          "summary": "Found no direct official GPX overlap with Naturvårdsverket protected areas, Natura 2000 or water-protection areas in the queried corridor. Nearby Nyebro Övregård water-protection area and Lintalund reserve/Natura 2000 are context only. Add dynamic fire-status warning, stricter dogs-on-leash/gate/livestock rules, October-January hunting caution, official highway 26 crossing and roots/boardwalk caution, and near-route forestry QA at about km 5.3 and km 12.3. No M5-specific closure/reroute found; recheck Hylte drift info and Trafikverket live before publication.",
+          "keySources": [
+            "https://www.naturvardsverket.se/verktyg-och-tjanster/kartor-och-karttjanster/kartverktyget-skyddad-natur/",
+            "https://geodata.naturvardsverket.se/naturvardsregistret/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=Naturvardsregistret_WFS:SkyddadeOmraden&outputFormat=GEOJSON&srsName=EPSG:4326&bbox=56.877437,12.926815,57.116766,13.231095,EPSG:4326",
+            "https://geodata.naturvardsverket.se/n2000/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=N2000_WFS:N2000&outputFormat=GEOJSON&srsName=EPSG:4326&bbox=56.877437,12.926815,57.116766,13.231095,EPSG:4326",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/lintalund.html",
+            "https://www.hallandsleden.se/en/item/viktig-information/i48rep1ncwkafz7wux50lp0dhxvboodp",
+            "https://www.krisinformation.se/forbered-dig/gras--och-skogsbrand/eldningsforbud/",
+            "https://www.lansstyrelsen.se/halland/samhalle/sakerhet-och-beredskap/brandrisk-och-eldningsforbud.html",
+            "https://www.hylte.se/bygga-bo-och-miljo/raddningstjansten/brandsakerhet/eldning-och-brandrisk",
+            "https://www.hallandsleden.se/en/item/allemansratten/5fogqeoayrfqw4vcyz7lruickdh88ahe",
+            "https://www.hallandsleden.se/en/item/vandra-med-hund/gkvddie3ttmazifzlnqae9q4phuhj32b",
+            "https://www.hallandsleden.se/en/item/vandra-under-jaktsasongen/fxm1j3j5ltmdkd65aqrztndfqhr3txnq",
+            "https://www.lansstyrelsen.se/halland/djur/jakt-och-vilt/algjakt.html",
+            "https://www.skogsstyrelsen.se/e-tjanster-och-kartor/karttjanster/skogsstyrelsens-geodata/",
+            "https://www.hylte.se/driftinformation",
+            "https://www.trafikverket.se/trafikinformation/vag/"
+          ],
+          "importImpacts": [
+            "Do not attach protected-area or water-protection restrictions to M5 as direct overlaps.",
+            "Use dynamic fire warning only; no permanent fire-ban flag.",
+            "Use dogs-on-leash plus livestock/gate reminder.",
+            "Add seasonal hunting caution for October through January with date recheck.",
+            "Add highway 26 crossing hazard and roots/boardwalk caution.",
+            "Add forestry/currentness QA near km 5.3 and km 12.3, but do not mark closure."
+          ]
+        }
+      ],
+      "mainThreadBaseline": {
+        "completedAt": "2026-04-29T21:51:02Z",
+        "summary": "Main thread checked M5 official Swedish/English pages, official GPX/API map, Naturkartan site 22043, official places API, nearby OSM relations and Rydöbruk stop data. GPX/API geo_json likely canonical 669-point 18.904 km line. API line.geometry and Naturkartan/OSM show stale/legacy or extended linework risks; places API returned 21 records including Rydöbruk direct stops and several side/next-section records."
+      },
+      "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around stale Långesjön-Sandsjön naming/geometry, official 19 km versus secondary 18 km/legacy 21+ km distance conflicts, no direct Långesjön transit, strong Rydöbruk bus access with parking caveats, side-service over-inclusion, no official drinking water, Sandsjön/Lahult suppression to M6/off-section context, no direct protected-area overlap, dynamic fire/hunting/currentness checks, RV26 crossing and near-route forestry QA.",
+      "completedAt": "2026-04-29T22:06:57Z",
+      "outputFile": "sections/hallandsleden-langesjon-rydobruk.research.json"
     }
   ],
   "sourceCoverage": {
     "officialOverview": "complete-initial-pass",
     "officialSectionInventory": "complete-initial-pass-35-sections",
-    "officialGeometry": "complete-for-first-twelve-sections-through-m4-with-m4-gpx-api-geojson-naturkartan-canonical-shape-confirmed-and-api-line-osm-stale-secondary",
-    "municipalities": "complete-for-first-twelve-sections-through-m4-with-falkenberg-and-hylte-m4-official-tourism-shelter-sources-reviewed",
-    "protectedAreas": "complete-for-first-twelve-sections-through-m4-with-m4-no-direct-protected-area-overlap-lysegardsmossen-near-boundary-and-atran-vso-first-km-caveats",
-    "transitOperators": "complete-for-first-twelve-sections-through-m4-with-m4-strong-atran-no-direct-langesjon-transit-kinnared-fallback-caveats",
-    "facilities": "complete-for-first-twelve-sections-through-m4-with-core-facilities-ready-side-service-and-component-caveats",
-    "fieldReports": "complete-for-first-twelve-sections-through-m4-with-thin-current-condition-evidence-and-stale-segmentation-signals",
-    "rulesSafety": "overview-pass-complete-n1-n2-n3-n4-n5-n6-n7-n8-m1-m2-m3-m4-section-specific-complete"
+    "officialGeometry": "complete-for-first-fourteen-sections-through-m5-with-m5-official-gpx-api-geojson-navigation-grade-and-stale-line-naturkartan-osm-conflicts-recorded",
+    "municipalities": "complete-for-first-thirteen-researched-sections-through-m5-with-m5-hylte-woods-of-halland-and-rydobruk-sources-reviewed",
+    "protectedAreas": "complete-for-first-thirteen-researched-sections-through-m5-with-m5-no-direct-protected-area-natura2000-or-water-protection-overlap-nearby-context-recorded",
+    "transitOperators": "complete-for-first-thirteen-researched-sections-through-m5-with-m5-no-direct-langesjon-transit-and-strong-rydobruk-line-401-access-caveats",
+    "facilities": "complete-for-first-thirteen-researched-sections-through-m5-with-core-pending-suppress-decisions-and-no-official-water-caveat",
+    "fieldReports": "complete-for-first-thirteen-researched-sections-through-m5-with-m5-field-report-lane-historical-only-current-condition-evidence-thin",
+    "rulesSafety": "overview-pass-complete-n1-n2-n3-n4-n5-n6-n7-n8-m1-m2-m3-m4-m5-section-specific-complete"
   },
   "knownGaps": [
     "Only the overview and first eleven sections have been researched/synthesized; 24 later sections still need the six-lane workflow.",
@@ -1905,12 +2165,37 @@
     "M4: no dedicated public parking was verified at Långesjön; OSM only corroborates shelter/toilet/waste components near the endpoint.",
     "M4: Lysegårdsmossen nature reserve is about 20.5 m from the official GPX near route km 11.47; do not attach reserve rules as a direct overlap now, but rerun protected-area QA with final geometry/snapping before import.",
     "M4: Ätran vattenskyddsområde intersects approximately route km 0.00-0.90; Nedre Ätran VSO does not overlap the M4 GPX in the 2026-04-29 check.",
-    "M4: current fire-ban and route-closure status is dynamic; 2026-04-29 checks found no M4-specific closure/reroute and no fire ban in queried Falkenberg/Hylte records, but this must not be stored as durable status."
+    "M4: current fire-ban and route-closure status is dynamic; 2026-04-29 checks found no M4-specific closure/reroute and no fire ban in queried Falkenberg/Hylte records, but this must not be stored as durable status.",
+    "M5: official GPX/API geo_json is a 669-point Långesjön-Rydöbruk line with computed length about 18.904 km, GPX desc Total: 18.9 km, official page/API rounded distance 19 km, start 57.036766,13.011889 and end 56.957437,13.142738.",
+    "M5: Hallandsleden API line.geometry is 1159 points and about 21.863 km, starts about 441 m from current GPX start and ends about 2196 m beyond/currently away from current GPX end; likely stale/extended linework and not canonical unless geometry lane proves otherwise.",
+    "M5: Naturkartan site 22043 title is Långesjön-Rydöbruk but slug remains langesjon-sandsjon-hallandsleden, visible length is 18.0 km and shape starts about 442 m from the official GPX start; treat as corroboration/currentness clue only until geometry lane resolves.",
+    "M5: OSM search in the corridor found no current Långesjön-Rydöbruk relation; nearby relations preserve old Eseredssjön-Långesjön and Sandsjön-Kvarnforsen-Gyltige segmentation.",
+    "M5: official places API returned 21 records, including core route records at Långesjön, Bockasten, Väghållningsstenar, Karl XI:s källa/Kungakällan, Skärkeåns kanjon, Rydöbruk/Knystahall/Rydö Bruksmuseum and Rydöbruk stops, plus side or next-section records such as Sandsjön shelter, Torup services, Lahult and off-route lodging.",
+    "M5: Rydöbruk transit is likely strong through Hallandstrafiken line 401 and ResRobot stops Rydöbruk station/Borgenvägen/Folkets Hus/gamla stationen, but endpoint distance and best access point need transit-lane synthesis.",
+    "M5: field-report lane found no current exact-section condition evidence; use 2016 En Vandringssaga and 2021 Flickr notes only as historical Långesjön/Sandsjön/Rydöbruk corridor evidence.",
+    "M5: Pacer, Naturkartan slug and historical field reports continue Långesjön-Sandsjön / Sandsjön-Långesjön naming; this appears to be old segmentation around current M5 and adjacent Sandsjön context.",
+    "M5: Karl XI:s källa/Kungakällan appears in user reports as accessible spring water, but no potable-water safety source was found; treat it as historic sight unless facilities/rules lanes verify water status.",
+    "M5: RV26/Nissastigen crossing and small/indistinct path near Karl XI:s källa need current safety/signage verification; 2016 field report is stale.",
+    "M5: official-source lane found no official potable drinking-water record for M5; do not infer water from shelters or Karl XI:s källa unless facilities/rules lanes verify current potable status.",
+    "M5: Swedish Hallandsleden page is richer than English for sights/services, while Naturkartan language versions and Woods of Halland may be shorter/stale; prefer Swedish official text where conflicts exist.",
+    "M5: Hylte/Woods/Naturkartan list 18 km/18.0 km while official Hallandsleden page/API/GPX support 19 km/18.9 km; preserve the contradiction and use official rounded 19 km for metadata unless normalization policy says otherwise.",
+    "M5: Sandsjön shelter appears in official M5 text/API but is about 4 km beyond Rydöbruk and belongs operationally to M6/next-section context unless later synthesis decides to model it as off-section service.",
+    "M5: Bergåsa B&B detour distance conflicts between Hallandsleden Swedish text about 2.9 km and official places API about 2 km; avoid exact side-route distance until map-verified.",
+    "M5: Långesjön has no direct public transport or verified parking; model as M4/M5 trail handoff and campsite access, not as a transit trailhead.",
+    "M5: Kinnared station is a possible distant regular-transit walk-out from the Långesjön side, but no legal/practical connector route was verified; use only as fallback logistics if modeled at all.",
+    "M5: Rydöbruk endpoint transit is strong at Hållplats Rydöbruk on Hallandstrafiken line 401; Borgenvägen is alternate/next-section access and Rydöbruk should not be treated as regular rail service.",
+    "M5: Rydöbruk endpoint parking candidates from OSM ways 1191353620 and 1191353618 need public-access/capacity verification before import.",
+    "M5: Hallandstrafiken line 401 and 558 timetable PDFs found during transit research are valid through 2026-06-14; recheck live for later travel/publication.",
+    "M5: official GPX/API geo_json is canonical navigation-grade geometry at 669 points/18.904 km with endpoint continuity to M4/M6 under 7 m; API line.geometry, Naturkartan shape and OSM relation 4219136 are stale or planning-grade only.",
+    "M5: core facility records are strong for Långesjön shelter/campsite/toilet/waste/fire/swim, Bockasten, Väghållningsstenar, Kungakällan POI, Skärkeåns kanjon, Rydöbruk bus/POIs and Fika by Steph.",
+    "M5: side services in Kinnared/Torup/Drängsered are useful corridor logistics but sit about 2-3.5 km from the GPX line and should remain pending unless side-service policy allows them.",
+    "M5: Sandsjön shelter and Lahult/Flottningsrännan records appear due to stale/adjacent section context; suppress from M5 core and handle under M6 where appropriate.",
+    "M5: Knystaria appears in OSM near Rydöbruk but its website says closed, so suppress as active food/service.",
+    "M5: no official/reliable on-route drinking water source found; do not model Kungakällan or lake/shelter water as potable."
   ],
   "nextActions": [
-    "Commit M4 research before starting M5.",
-    "Start Phase 2 six-lane research workflow for M5 hallandsleden-langesjon-rydobruk.",
-    "For M5, focus on Långesjön handoff from M4, endpoint access around Rydöbruk, any Nissan/industrial-community route constraints, Långesjön no-direct-transit handoff, official GPX/API/Naturkartan/OSM geometry, shelters/water/toilets and Hylte municipal rules/currentness.",
+    "Commit M5 research before starting M6.",
+    "Start Phase 2 six-lane research workflow for M6 hallandsleden-rydobruk-kvarnforsen after committing M5.",
     "For each remaining section, run the six-lane research workflow and update this progress file after each batch/synthesis.",
     "Keep edits confined to data/research/candidate-trails/hallandsleden/ until explicitly asked otherwise."
   ],
@@ -1933,7 +2218,20 @@
     "M4 facilities: import core on-route records; merge Wismhult/Wismens side-service duplicate; suppress Fegens Vandrarhem from core; keep Långesjön parking unverified.",
     "M4 all six lanes received; synthesize as research-ready with caveats, no extra targeted batch needed unless final JSON reveals a gap.",
     "Completed section files through M4: sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json, sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json, sections/hallandsleden-askhults-by-stattared.research.json, sections/hallandsleden-stattared-veddige.research.json, sections/hallandsleden-veddige-nosslinge.research.json, sections/hallandsleden-nosslinge-akulla.research.json, sections/hallandsleden-akulla-astad.research.json, sections/hallandsleden-varberg-akulla.research.json, sections/hallandsleden-akulla-ullared.research.json, sections/hallandsleden-ullared-karnebygd.research.json, sections/hallandsleden-karnebygd-atran.research.json, and sections/hallandsleden-atran-langesjon.research.json.",
-    "M4 synthesized into sections/hallandsleden-atran-langesjon.research.json at 2026-04-29T21:47:31Z and is research-ready with caveats. Next section is M5 hallandsleden-langesjon-rydobruk after committing M4."
+    "M4 synthesized into sections/hallandsleden-atran-langesjon.research.json at 2026-04-29T21:47:31Z and is research-ready with caveats. Next section is M5 hallandsleden-langesjon-rydobruk after committing M4.",
+    "M5 initial six-lane agent batch started 2026-04-29T21:48:43Z with agents Plato, Harvey, James, Mendel, Ampere, and Noether. Main thread retains all file-write ownership.",
+    "M5 main-thread baseline: official GPX/API geo_json likely canonical at 669 points/18.904 km; API line.geometry and Naturkartan/OSM show stale or extended linework risks; Rydöbruk transit looks strong but access record choice needs synthesis.",
+    "M5 field reports: old Långesjön-Sandsjön/Sandsjön-Långesjön sources overlap current corridor but are historical; no current condition claims should be made from field reports.",
+    "M5 official sources: current section is Långesjön - Rydöbruk; use official 19 km/GPX 18.9 km, record Hylte/Naturkartan 18 km, treat Sandsjön as off-section/next-section until synthesis proves otherwise, and do not import potable water.",
+    "M5 access: Långesjön no-direct-transit; import Hållplats Rydöbruk as primary endpoint bus access on line 401; do not model Rydöbruk as regular train service.",
+    "M5 facilities: core import set is mostly ready, with Långesjön endpoint dedupe, no-potable-water, Sandsjön/M6 suppression, side-services-pending and closed-Knystaria caveats.",
+    "M5 geometry: official GPX/API geo_json is canonical; stale API line.geometry/Naturkartan/OSM Långesjön-Sandsjön linework must be recorded as contradiction, not imported as current M5 geometry.",
+    "M5 rules/safety: no direct protected-area/Natura 2000/water-protection overlay; nearby Lintalund and Nyebro Övregård are context only. Add RV26, boardwalk/roots, dynamic fire/hunting/currentness and near-route forestry caveats in final section JSON.",
+    "M5 all six lanes received; synthesize as research-ready with caveats and no extra targeted batch unless final JSON validation exposes a missing required field.",
+    "M5: section research JSON written at sections/hallandsleden-langesjon-rydobruk.research.json and validated. M5 is research-ready with caveats; no targeted follow-up batch needed before moving to M6.",
+    "M5: official GPX/API geo_json is canonical; suppress API line.geometry/Naturkartan/OSM stale Långesjön-Sandsjön linework.",
+    "M5: import core facilities only; keep side services and Rydöbruk parking pending; suppress Sandsjön/Lahult/Flottningsrännan/M6 records and closed Knystaria from M5 core.",
+    "M5: no official on-route drinking water; carry water and do not model Kungakällan/shelters/lakes as potable."
   ],
   "filesWritten": [
     "README.md",
@@ -1950,7 +2248,8 @@
     "sections/hallandsleden-akulla-ullared.research.json",
     "sections/hallandsleden-ullared-karnebygd.research.json",
     "sections/hallandsleden-karnebygd-atran.research.json",
-    "sections/hallandsleden-atran-langesjon.research.json"
+    "sections/hallandsleden-atran-langesjon.research.json",
+    "sections/hallandsleden-langesjon-rydobruk.research.json"
   ],
   "meaningfulPasses": [
     {
@@ -2182,6 +2481,56 @@
       "id": "phase-2-m4-six-lane-synthesis-complete-2026-04-29",
       "completedAt": "2026-04-29T21:47:31Z",
       "summary": "Synthesized six lane reports and main-thread checks for M4 Ätran - Långesjön into a section research JSON. Marked M4 research-ready with caveats around stale Eseredssjön-Långesjön naming, official/geometry/Naturkartan distance disagreement, no direct Långesjön transit, Krogsered/Lyngsjön component modeling, side-service filtering, Ätran VSO, Lysegårdsmossen near-boundary QA and dynamic fire/currentness checks."
+    },
+    {
+      "id": "phase-2-m5-initial-agent-batch-started-2026-04-29",
+      "completedAt": "2026-04-29T21:48:43Z",
+      "summary": "Started Phase 2 six-lane research workflow for M5 Långesjön - Rydöbruk. Main thread retains file-write ownership and will synthesize agent reports into the section research JSON."
+    },
+    {
+      "id": "phase-2-m5-main-thread-official-api-gpx-access-pass-2026-04-29",
+      "completedAt": "2026-04-29T21:51:02Z",
+      "summary": "Main thread checked M5 official Swedish/English pages, official GPX/API map, Naturkartan site 22043, official places API, OSM nearby relations and Rydöbruk stop data. Key unresolved issues are canonical GPX/API geo_json versus API line.geometry/Naturkartan/OSM stale linework, Långesjön weak access handoff, Rydöbruk endpoint access choice and places API side/next-section over-inclusion."
+    },
+    {
+      "id": "phase-2-m5-field-report-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T21:51:45Z",
+      "summary": "Received M5 field-report lane. It found historical Långesjön/Sandsjön/Rydöbruk evidence from 2016 and 2021, Pacer/Naturkartan stale segmentation clues and no recent exact-section condition evidence strong enough for current claims."
+    },
+    {
+      "id": "phase-2-m5-official-source-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T21:54:39Z",
+      "summary": "Received M5 official-source lane. It confirms current identity/difficulty/distance sources, Swedish/English/Hylte/Naturkartan source differences, no official M5 drinking-water record, and key import caveats around API line geometry/place associations extending toward Sandsjön."
+    },
+    {
+      "id": "phase-2-m5-transit-access-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T21:55:09Z",
+      "summary": "Received M5 transit/access lane. Långesjön remains no-direct-transit with only distant Kinnared/fallback logistics; Rydöbruk has strong line 401 bus access at Hållplats Rydöbruk, Borgenvägen is alternate/next-section access, and endpoint parking candidates need verification."
+    },
+    {
+      "id": "phase-2-m5-facilities-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T21:59:11Z",
+      "summary": "Received M5 facilities lane. Core on-route/endpoint facilities are strong; side services in Kinnared/Torup/Drängsered and parking require pending treatment; Sandsjön/M6 records and closed Knystaria should be suppressed from M5 core; no reliable official drinking water was found."
+    },
+    {
+      "id": "phase-2-m5-route-geometry-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T21:59:11Z",
+      "summary": "Received M5 route-geometry lane. Official GPX/API geo_json is canonical navigation-grade geometry with good M4/M6 continuity; API line.geometry, Naturkartan and OSM preserve stale or shortened Långesjön-Sandsjön-era linework and should not be imported as canonical."
+    },
+    {
+      "id": "phase-2-m5-rules-safety-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T22:00:11Z",
+      "summary": "Received M5 rules/safety/currentness lane. It found no direct protected-area/Natura 2000/water-protection overlap, but added dynamic fire, dog/livestock, hunting, RV26 crossing, roots/boardwalk, near-route forestry and currentness QA caveats."
+    },
+    {
+      "id": "phase-2-m5-six-lane-reports-complete-synthesis-started-2026-04-29",
+      "completedAt": "2026-04-29T22:00:11Z",
+      "summary": "All six M5 lane reports are in. Main thread decided no targeted follow-up batch is needed because remaining gaps are import/currentness caveats rather than research blockers; synthesis of the M5 section research JSON is underway."
+    },
+    {
+      "id": "phase-2-m5-six-lane-synthesis-complete-2026-04-29",
+      "completedAt": "2026-04-29T22:06:57Z",
+      "summary": "Synthesized six lane reports and main-thread checks for M5 Långesjön - Rydöbruk into a section research JSON. Marked M5 research-ready with caveats around stale Långesjön-Sandsjön geometry/naming, official/secondary distance disagreement, no direct Långesjön transit, Rydöbruk line 401 access, side-service filtering, no official drinking water, Sandsjön/M6 suppression, no direct protected-area overlap, dynamic fire/currentness checks, highway 26 crossing and near-route forestry QA."
     }
   ]
 }

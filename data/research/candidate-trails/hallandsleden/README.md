@@ -4,7 +4,7 @@ Status: research-only candidate trail packet. Do not import these files automati
 
 Trail ID: `hallandsleden`
 
-Phase 1 overview is complete from the live official Hallandsleden site/API as accessed 2026-04-29. Phase 2 has completed section files for N1, N2, N3, N4, N5, N6, N7, N8, M1, M2, and M3. Work should resume with M4.
+Phase 1 overview is complete from the live official Hallandsleden site/API as accessed 2026-04-29. Phase 2 has completed section files for N1, N2, N3, N4, N5, N6, N7, N8, M1, M2, M3, M4, and M5. Work should resume with M6.
 
 ## Files
 
@@ -21,6 +21,8 @@ Phase 1 overview is complete from the live official Hallandsleden site/API as ac
 - `sections/hallandsleden-akulla-ullared.research.json`: M1 section research synthesized from the required six-lane agent batch.
 - `sections/hallandsleden-ullared-karnebygd.research.json`: M2 section research synthesized from the required six-lane agent batch, with a replacement route-geometry lane after the first geometry agent stalled.
 - `sections/hallandsleden-karnebygd-atran.research.json`: M3 section research synthesized from the required six-lane agent batch.
+- `sections/hallandsleden-atran-langesjon.research.json`: M4 section research synthesized from the required six-lane agent batch.
+- `sections/hallandsleden-langesjon-rydobruk.research.json`: M5 section research synthesized from the required six-lane agent batch.
 - `sections/*.research.json`: remaining section files, to be written after future section research batches.
 
 ## Official Overview
@@ -54,7 +56,8 @@ The inland route is branched rather than a single line. It meets Bohusleden at �
 - M2 `hallandsleden-ullared-karnebygd`: research-ready with caveats. Main caveats are official GPX/API `geo_json`/Naturkartan shape being canonical while API `line.geometry` and OSM preserve old Kogstorp-Kärnebygd segmentation, the English Hallandsleden page still using stale Ullared-Kvarnlyckan naming, Ullared service over-inclusion, weak Kärnebygd transit access, Kogstorp shelter/linbasta leakage to suppress, no reliable mid-stage potable water, Högvadsån Natura 2000 and water-protection contexts, and dynamic fire-risk/currentness checks.
 - M3 `hallandsleden-karnebygd-atran`: research-ready with caveats. Main caveats are official GPX/API `geo_json` being canonical while API `line.geometry` and OSM preserve old Kärnebygd-Eseredssjön geometry, the English Hallandsleden page still using stale Kvarnlyckan-Ätran naming, Naturkartan/Pacer/local sources preserving Eseredssjön naming, weak Kärnebygd transit access, strong Ätran endpoint access, side-distance Kärnebygd/Eseredssjön shelters, no campsite or mid-stage potable water, Ätran endpoint water-protection overlap, and dynamic fire/currentness checks.
 - M4 `hallandsleden-atran-langesjon`: research-ready with caveats. Main caveats are official GPX/API `geo_json`/Naturkartan 516-point geometry being canonical while API `line.geometry` and OSM relation 4219135 preserve old Eseredssjön-Långesjön semantics, distance disagreement between official 22 km, GPX 21.3 km/21.293 km and Naturkartan 20.0 km, no direct verified Långesjön transit, Kinnared/Kinnared station fallback access requiring walking-route validation, Krogsered shelter and Lyngsjön bath/toilet/waste components needing separate modeling, Wismhult/Wismens side-service dedupe, side/regional official place over-inclusion, Ätran water-protection overlap for roughly the first kilometre, Lysegårdsmossen near-boundary protected-area QA, and dynamic fire/currentness checks.
+- M5 `hallandsleden-langesjon-rydobruk`: research-ready with caveats. Main caveats are official GPX/API `geo_json` 669-point geometry being canonical while API `line.geometry`, Naturkartan and OSM relation 4219136 preserve stale Långesjön-Sandsjön linework, distance disagreement between official 19 km, GPX 18.9 km/18.904 km and secondary 18 km sources, no direct verified Långesjön transit, strong Rydöbruk line 401 bus access with parking verification needed, side-service over-inclusion in Kinnared/Torup/Drängsered, no official on-route potable water, Sandsjön/Lahult/M6 records needing suppression from M5 core, nearby protected/water areas being context only, highway 26 crossing risk, near-route forestry QA, and dynamic fire/hunting/currentness checks.
 
 ## Next Safe Step
 
-Resume Phase 2 with `hallandsleden-langesjon-rydobruk` (M5): spawn the six required research/report agents, synthesize their findings, write the section JSON, then update `research-progress.json`. Pay attention to the Långesjön handoff from M4, no-direct-transit context at Långesjön, Rydöbruk endpoint access, official GPX/API/Naturkartan/OSM geometry conflicts, shelters/water/toilets, Hylte municipal sources, and any Nissan/road/industrial-community access or safety constraints.
+Resume Phase 2 with `hallandsleden-rydobruk-kvarnforsen` (M6): spawn the six required research/report agents, synthesize their findings, write the section JSON, then update `research-progress.json`. Pay attention to the Rydöbruk handoff from M5, Sandsjön/Lahult records that were suppressed from M5, official GPX/API/Naturkartan/OSM geometry conflicts, Kvarnforsen endpoint access, shelters/water/toilets, Nissan/road/industrial-community safety context, Hylte municipal sources, and any current forestry/fire/hunting/closure risks.
