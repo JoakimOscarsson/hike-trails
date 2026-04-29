@@ -4,6 +4,7 @@ import type { TrailFacility, TrailSection, TrailSystem } from "../types";
 import { fitSelectedLayersOrMarkers } from "./fitMapBounds";
 import { addHikingPoiMarkers, visibleHikingMapFacilities } from "./hikingFacilityMarkers";
 import { selectedAccessPoints, type FacilityType } from "./hikingFacilities";
+import { addRouteEndpointMarker } from "./routeEndpointMarkers";
 import {
   drawTrailSectionRoutes,
   loadTrailSectionRoute,
@@ -71,20 +72,6 @@ export function TrailSystemMap({
     const markerLayerGroup = L.layerGroup().addTo(map);
     const poiLayerGroup = L.layerGroup().addTo(map);
 
-    const startIcon = L.divIcon({
-      className: "route-marker route-marker-start",
-      html: "Start",
-      iconSize: [52, 26],
-      iconAnchor: [26, 13]
-    });
-
-    const finishIcon = L.divIcon({
-      className: "route-marker route-marker-finish",
-      html: "End",
-      iconSize: [44, 26],
-      iconAnchor: [22, 13]
-    });
-
     let cancelled = false;
     setRouteLoadWarning("");
 
@@ -107,11 +94,11 @@ export function TrailSystemMap({
         routeCoordinatesBySection
       );
       if (first) {
-        const marker = L.marker(first, { icon: startIcon }).addTo(markerLayerGroup);
+        const marker = addRouteEndpointMarker({ coordinates: first, kind: "start", layerGroup: markerLayerGroup });
         markerLayerRefs.push(marker);
       }
       if (last) {
-        const marker = L.marker(last, { icon: finishIcon }).addTo(markerLayerGroup);
+        const marker = addRouteEndpointMarker({ coordinates: last, kind: "end", layerGroup: markerLayerGroup });
         markerLayerRefs.push(marker);
       }
 

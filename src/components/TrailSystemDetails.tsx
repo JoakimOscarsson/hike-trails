@@ -1,5 +1,5 @@
 import React from "react";
-import { AlertTriangle, ArrowLeft, BusFront, CalendarDays, Check, ChevronDown, ExternalLink, Info, Layers, MapPin, Star, Tent, Train } from "lucide-react";
+import { AlertTriangle, ArrowLeft, CalendarDays, Check, ChevronDown, ExternalLink, Info, Layers, MapPin, Star, Tent, Train } from "lucide-react";
 import type { TrailAccessPoint, TrailCommuteStop, TrailFacility, TrailSection, TrailSystem } from "../types";
 import { useTrailSectionDetails } from "../data/useTrailSectionDetails";
 import {
@@ -23,7 +23,6 @@ import {
   defaultFacilityTypes,
   facilityCategoryGroups,
   facilityProximityText,
-  facilityTypeIcon,
   facilityTypeLabels,
   isCloseTrailFacility,
   isOffRouteFacility,
@@ -34,6 +33,7 @@ import {
 import { BackToOverviewButton, DetailRow, InfoList } from "./DetailBlocks";
 
 const campingRulePattern = /camp|tent|fire|grill|overnight|leash|dog|reserve|national park|designated/i;
+type FacilityCategoryGroup = (typeof facilityCategoryGroups)[number];
 
 function uniqueStrings(items: string[]) {
   return [...new Set(items.map((item) => item.trim()).filter(Boolean))];
@@ -349,13 +349,18 @@ function TransitAccessList({ sections }: { sections: TrailSection[] }) {
   );
 }
 
+function commuteTypesForFacilityGroup(group: FacilityCategoryGroup): TrailCommuteStop["type"][] {
+  return group.id === "parking-transit" ? ["bus", "train"] : [];
+}
+
 function FacilityMapFilters({
   selectedTypes,
   onChange,
   facilities,
   accessPoints,
   selectedCommuteTypes,
-  onCommuteChange
+  onCommuteChange,
+  onHighlightGroupChange
 }: {
   selectedTypes: Set<FacilityType>;
   onChange: (types: Set<FacilityType>) => void;
@@ -363,15 +368,8 @@ function FacilityMapFilters({
   accessPoints: SelectedTrailAccessPoint[];
   selectedCommuteTypes: Set<TrailCommuteStop["type"]>;
   onCommuteChange: (types: Set<TrailCommuteStop["type"]>) => void;
+  onHighlightGroupChange: (groupId: string | null) => void;
 }) {
-  const counts = React.useMemo(
-    () =>
-      defaultFacilityTypes.map((type) => ({
-        type,
-        count: facilities.filter((facility) => facility.type === type && facility.coordinates).length
-      })),
-    [facilities]
-  );
   const commuteCounts = React.useMemo(
     () =>
       (["bus", "train"] as const).map((type) => {
@@ -382,19 +380,37 @@ function FacilityMapFilters({
       }),
     [accessPoints]
   );
+  const categoryCounts = React.useMemo(
+    () =>
+      facilityCategoryGroups.map((group) => {
+        const facilityCount = facilities.filter((facility) => group.types.includes(facility.type) && facility.coordinates).length;
+        const commuteCount = group.id === "parking-transit" ? commuteCounts.reduce((total, item) => total + item.count, 0) : 0;
+        return { ...group, count: facilityCount + commuteCount };
+      }),
+    [commuteCounts, facilities]
+  );
 
-  function toggle(type: FacilityType) {
+  function toggleCategory(group: (typeof facilityCategoryGroups)[number]) {
     const next = new Set(selectedTypes);
-    if (next.has(type)) next.delete(type);
-    else next.add(type);
-    onChange(next);
-  }
+    const commuteTypes = commuteTypesForFacilityGroup(group);
+    const allFacilitiesSelected = group.types.every((type) => selectedTypes.has(type));
+    const allCommuteSelected = commuteTypes.every((type) => selectedCommuteTypes.has(type));
+    const shouldShow = !(allFacilitiesSelected && allCommuteSelected);
 
-  function toggleCommute(type: TrailCommuteStop["type"]) {
-    const next = new Set(selectedCommuteTypes);
-    if (next.has(type)) next.delete(type);
-    else next.add(type);
-    onCommuteChange(next);
+    for (const type of group.types) {
+      if (shouldShow) next.add(type);
+      else next.delete(type);
+    }
+    onChange(next);
+
+    if (commuteTypes.length) {
+      const nextCommute = new Set(selectedCommuteTypes);
+      for (const type of commuteTypes) {
+        if (shouldShow) nextCommute.add(type);
+        else nextCommute.delete(type);
+      }
+      onCommuteChange(nextCommute);
+    }
   }
 
   return (
@@ -403,38 +419,30 @@ function FacilityMapFilters({
         <Layers size={14} aria-hidden="true" />
       </div>
       <div className="map-filter-options">
-        {counts.map(({ type, count }) => (
-          <button
-            key={type}
-            aria-pressed={selectedTypes.has(type)}
-            className={selectedTypes.has(type) ? "map-filter-chip active" : "map-filter-chip"}
-            type="button"
-            onClick={() => toggle(type)}
-            disabled={!count}
-            data-facility-type={type}
-            title={`${selectedTypes.has(type) ? "Hide" : "Show"} ${facilityTypeLabels[type]} (${count})`}
-            aria-label={`${facilityTypeLabels[type]} (${count})`}
-          >
-            {facilityTypeIcon(type)}
-            <span>{count}</span>
-          </button>
-        ))}
-        {commuteCounts.map(({ type, count }) => {
-          const label = type === "bus" ? "Bus stops" : "Train stations";
+        {categoryCounts.map((group) => {
+          const isActive =
+            group.types.every((type) => selectedTypes.has(type)) &&
+            (group.id !== "parking-transit" || (selectedCommuteTypes.has("bus") && selectedCommuteTypes.has("train")));
           return (
             <button
-              key={type}
-              aria-pressed={selectedCommuteTypes.has(type)}
-              className={selectedCommuteTypes.has(type) ? "map-filter-chip active commute-filter-chip" : "map-filter-chip commute-filter-chip"}
+              key={group.id}
+              aria-pressed={isActive}
+              className={isActive ? "map-filter-chip active" : "map-filter-chip"}
               type="button"
-              onClick={() => toggleCommute(type)}
-              disabled={!count}
-              data-commute-type={type}
-              title={`${selectedCommuteTypes.has(type) ? "Hide" : "Show"} ${label} (${count})`}
-              aria-label={`${label} (${count})`}
+              onClick={() => toggleCategory(group)}
+              onBlur={() => onHighlightGroupChange(null)}
+              disabled={!group.count}
+              data-facility-group={group.id}
+              onFocus={() => onHighlightGroupChange(group.id)}
+              onMouseEnter={() => onHighlightGroupChange(group.id)}
+              onMouseLeave={() => onHighlightGroupChange(null)}
+              onPointerEnter={() => onHighlightGroupChange(group.id)}
+              onPointerLeave={() => onHighlightGroupChange(null)}
+              title={`${isActive ? "Hide" : "Show"} ${group.title} (${group.count})`}
+              aria-label={`${group.title} (${group.count})`}
             >
-              {type === "bus" ? <BusFront size={15} aria-hidden="true" /> : <Train size={15} aria-hidden="true" />}
-              <span>{count}</span>
+              {group.icon}
+              <span>{group.count}</span>
             </button>
           );
         })}
@@ -483,6 +491,7 @@ export function TrailSystemDetails({
   const [selectedCommuteTypes, setSelectedCommuteTypes] = React.useState<Set<TrailCommuteStop["type"]>>(
     () => new Set(["bus", "train"])
   );
+  const [highlightedFacilityGroupId, setHighlightedFacilityGroupId] = React.useState<string | null>(null);
   const [selectedContextGroupIds, setSelectedContextGroupIds] = React.useState<Set<string>>(() => new Set());
   const [mapFocusTarget, setMapFocusTarget] = React.useState<TrailMapFocusTarget | null>(null);
   const contentTopRef = React.useRef<HTMLElement | null>(null);
@@ -690,7 +699,7 @@ export function TrailSystemDetails({
           </div>
         </section>
 
-        <div className="map-with-controls" ref={mapRegionRef}>
+        <div className="map-with-controls" data-highlight-group={highlightedFacilityGroupId ?? undefined} ref={mapRegionRef}>
           <section className="map-panel" aria-label={`${trailSystem.name} map`}>
             <DeferredMapMount>
               <TrailSystemMap
@@ -716,6 +725,7 @@ export function TrailSystemDetails({
             onChange={setSelectedFacilityTypes}
             selectedCommuteTypes={selectedCommuteTypes}
             onCommuteChange={setSelectedCommuteTypes}
+            onHighlightGroupChange={setHighlightedFacilityGroupId}
           />
         </div>
 
@@ -904,7 +914,7 @@ export function TrailSystemDetails({
           </button>
         </div>
 
-        <div className="map-with-controls" ref={mapRegionRef}>
+        <div className="map-with-controls" data-highlight-group={highlightedFacilityGroupId ?? undefined} ref={mapRegionRef}>
           <section className="map-panel builder-map-panel" aria-label={`${trailSystem.name} map`}>
             <DeferredMapMount>
               <TrailSystemMap
@@ -926,6 +936,7 @@ export function TrailSystemDetails({
             onChange={setSelectedFacilityTypes}
             selectedCommuteTypes={selectedCommuteTypes}
             onCommuteChange={setSelectedCommuteTypes}
+            onHighlightGroupChange={setHighlightedFacilityGroupId}
           />
         </div>
       </section>

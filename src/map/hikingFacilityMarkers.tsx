@@ -34,10 +34,17 @@ function facilityPopup(facility: TrailFacility) {
 
 function facilityIcon(facility: TrailFacility, spidered = false) {
   const offRoute = isOffRouteFacility(facility);
+  const className = [
+    "facility-marker",
+    `facility-marker-${facility.type}`,
+    offRoute ? "facility-marker-off-route" : "",
+    spidered ? "facility-spider-marker" : ""
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return L.divIcon({
-    className: `facility-marker facility-marker-${facility.type}${offRoute ? " facility-marker-off-route" : ""}${
-      spidered ? " facility-spider-marker" : ""
-    }`,
+    className,
     html: renderToStaticMarkup(
       <>
         {facilityTypeIcon(facility.type, 14)}

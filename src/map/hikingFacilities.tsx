@@ -8,6 +8,7 @@ import {
   Landmark,
   MapPin,
   Mountain,
+  PhoneCall,
   Tent,
   Toilet,
   Train,
@@ -85,6 +86,7 @@ export const facilityTypeLabels: Record<TrailFacility["type"], string> = {
   "rule-warning": "Rule warning",
   "unofficial-shelter": "Unofficial shelter",
   "trail-junction": "Trail junction",
+  "emergency-phone": "Emergency phone",
   lodging: "Lodging",
   waste: "Waste",
   hazard: "Hazard",
@@ -127,10 +129,12 @@ export function facilityTypeIcon(type: FacilityType, size = 15) {
       return <House size={size} aria-hidden="true" />;
     case "trail-junction":
       return <MapPin size={size} aria-hidden="true" />;
+    case "emergency-phone":
+      return <PhoneCall size={size} aria-hidden="true" />;
     case "lodging":
       return <House size={size} aria-hidden="true" />;
     case "waste":
-      return <MapPin size={size} aria-hidden="true" />;
+      return <Toilet size={size} aria-hidden="true" />;
     case "hazard":
       return <AlertTriangle size={size} aria-hidden="true" />;
     case "viewpoint":
@@ -148,36 +152,15 @@ export const facilityCategoryGroups: Array<{
   icon: ReactNode;
   types: FacilityType[];
 }> = [
-  { id: "overnight", title: "Overnight", icon: <Tent size={18} />, types: ["campsite", "camping", "shelter", "unofficial-shelter", "lodging"] },
-  { id: "fire-rest", title: "Fire and rest", icon: <Flame size={18} />, types: ["fireplace", "rest-area"] },
-  { id: "water-toilet", title: "Water and toilets", icon: <Droplets size={18} />, types: ["water", "natural-water", "toilet"] },
-  { id: "food-service", title: "Food and services", icon: <Utensils size={18} />, types: ["food", "service", "waste"] },
-  { id: "swimming", title: "Swimming", icon: <Waves size={18} />, types: ["swimming"] },
-  { id: "access", title: "Access", icon: <Train size={18} />, types: ["parking", "transit", "trail-junction"] },
-  { id: "places-warnings", title: "Places and warnings", icon: <Landmark size={18} />, types: ["attraction", "heritage", "viewpoint", "rule-warning", "hazard"] }
+  { id: "warnings", title: "Warnings", icon: <AlertTriangle size={18} />, types: ["rule-warning", "hazard"] },
+  { id: "shelter-emergency", title: "Shelter and emergency", icon: <House size={18} />, types: ["shelter", "unofficial-shelter", "emergency-phone"] },
+  { id: "water", title: "Water", icon: <Droplets size={18} />, types: ["water", "natural-water"] },
+  { id: "tent-sites", title: "Tent sites", icon: <Tent size={18} />, types: ["campsite", "camping"] },
+  { id: "fire", title: "Fire", icon: <Flame size={18} />, types: ["fireplace"] },
+  { id: "toilets-waste", title: "Toilets and waste", icon: <Toilet size={18} />, types: ["toilet", "waste"] },
+  { id: "food-lodging-services", title: "Food, lodging and services", icon: <Utensils size={18} />, types: ["food", "lodging", "service"] },
+  { id: "parking-transit", title: "Parking and transit", icon: <Train size={18} />, types: ["parking", "transit"] },
+  { id: "places", title: "Places", icon: <Landmark size={18} />, types: ["rest-area", "attraction", "heritage", "viewpoint", "swimming"] }
 ];
 
-export const defaultFacilityTypes: FacilityType[] = [
-  "campsite",
-  "camping",
-  "shelter",
-  "unofficial-shelter",
-  "lodging",
-  "fireplace",
-  "rest-area",
-  "water",
-  "natural-water",
-  "toilet",
-  "food",
-  "service",
-  "swimming",
-  "parking",
-  "transit",
-  "waste",
-  "attraction",
-  "heritage",
-  "viewpoint",
-  "trail-junction",
-  "rule-warning",
-  "hazard"
-];
+export const defaultFacilityTypes: FacilityType[] = facilityCategoryGroups.flatMap((group) => group.types);

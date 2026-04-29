@@ -178,6 +178,7 @@ export type TrailFacility = {
     | "rule-warning"
     | "unofficial-shelter"
     | "trail-junction"
+    | "emergency-phone"
     | "lodging"
     | "waste"
     | "hazard"

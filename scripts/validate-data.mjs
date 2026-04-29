@@ -50,6 +50,7 @@ const allowedFacilityTypes = new Set([
   "rule-warning",
   "unofficial-shelter",
   "trail-junction",
+  "emergency-phone",
   "lodging",
   "waste",
   "hazard",
