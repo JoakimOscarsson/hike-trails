@@ -4,7 +4,7 @@ Date: 2026-04-29
 
 Workspace target: `/Users/joakim/Documents/codex/hike-trails`
 
-Status: Slice 1 completed; Slice 2 not started.
+Status: Slice 2 completed; Slice 3 not started.
 
 This is a living development plan for bringing Stockholm Archipelago Trail into the app. It is intentionally concrete: every slice has a scope, likely files, a definition of done, and validation notes. The trail is ferry-dependent, so ferry transfers are first-class route connections, not just text notes.
 
@@ -31,7 +31,7 @@ Important rule: the candidate research file is an input only. Runtime code must 
 - [x] Agreed that ferries are central and need route-connection rendering on the map.
 - [x] Slice 0: Lock the import contract and normalization policy.
 - [x] Slice 1: Add ferry-capable transfer and connection data types.
-- [ ] Slice 2: Map ferry and rowboat transfers between sections.
+- [x] Slice 2: Map ferry and rowboat transfers between sections.
 - [ ] Slice 3: Render connection routes on the map.
 - [ ] Slice 4: Create Stockholm Archipelago Trail hiking source shards.
 - [ ] Slice 5: Normalize and import facilities.
@@ -212,6 +212,18 @@ Validation:
 - `npm run build`
 
 ## Slice 2: Ferry And Rowboat Transfer Mapping
+
+Status: completed 2026-04-29.
+
+Completion notes:
+
+- Added `scripts/build-stockholm-archipelago-trail-connections.mjs`.
+- Added `npm run data:sat:connection-plan` and `npm run data:sat:connection-plan:check`.
+- Added `data/research/candidate-trails/stockholm-archipelago-trail/section-connection-plan.json`.
+- Added 21 public planning-route GeoJSON files under `public/routes/hiking/stockholm-archipelago-trail/connections/`.
+- Current plan covers all 21 adjacent official section transitions across 22 entries: 16 ferry-style transfers, 1 rowboat crossing, and 4 walking connectors.
+- Exact ferry schedules remain planner/currentness caveats; route lines are approximate planning references rather than navigation tracks.
+- Validation passed: `npm run data:sat:connection-plan:check`, `node --check scripts/build-stockholm-archipelago-trail-connections.mjs`, `npm run data:validate`, and `git diff --check`.
 
 Scope:
 
