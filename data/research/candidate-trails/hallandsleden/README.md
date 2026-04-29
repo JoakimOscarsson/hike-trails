@@ -4,7 +4,7 @@ Status: research-only candidate trail packet. Do not import these files automati
 
 Trail ID: `hallandsleden`
 
-Phase 1 overview is complete from the live official Hallandsleden site/API as accessed 2026-04-29. Phase 2 has completed section files for N1, N2, N3, N4, N5, and N6. Work should resume with N7.
+Phase 1 overview is complete from the live official Hallandsleden site/API as accessed 2026-04-29. Phase 2 has completed section files for N1, N2, N3, N4, N5, N6, and N7. Work should resume with N8.
 
 ## Files
 
@@ -16,6 +16,7 @@ Phase 1 overview is complete from the live official Hallandsleden site/API as ac
 - `sections/hallandsleden-stattared-veddige.research.json`: N4 section research synthesized from the required six-lane agent batch.
 - `sections/hallandsleden-veddige-nosslinge.research.json`: N5 section research synthesized from the required six-lane agent batch.
 - `sections/hallandsleden-nosslinge-akulla.research.json`: N6 section research synthesized from the required six-lane agent batch.
+- `sections/hallandsleden-akulla-astad.research.json`: N7 section research synthesized from the required six-lane agent batch.
 - `sections/*.research.json`: remaining section files, to be written after future section research batches.
 
 ## Official Overview
@@ -43,7 +44,8 @@ The inland route is branched rather than a single line. It meets Bohusleden at �
 - N4 `hallandsleden-stattared-veddige`: research-ready with caveats. Main caveats are the 2024 reroute north of Veddige, stale Stättared-Dranstugan geometry in Naturkartan/OSM/API `line.geometry`, remote Stättared bus access, Stättared water/toilet normalization, and Dranstugan facilities being adjacent/legacy context rather than on-route current N4.
 - N5 `hallandsleden-veddige-nosslinge`: research-ready with caveats. Main caveats are the official GPX `desc` saying `Total: 8.6 km` despite the 28 km official section distance, the four-part MultiLineString/gap handling, the misleading overview API `line.geometry` starting near Dranstugan, the practical endpoint being at Gällarpesjön/Gällarp rather than Nösslinge church, Dranstugan/Nösslinge water verification, sparse Hallandstrafiken line 661 access, and Stora Neden-Mäsen water-protection context near the endpoint.
 - N6 `hallandsleden-nosslinge-akulla`: research-ready with caveats. Main caveats are the practical start being Gällarpesjön/Gällarp rather than Nösslinge church, official `geo_json`/GPX being canonical while API `line.geometry`/Naturkartan/OSM preserve older 18 km Åkulla linework, 2024 reroutes at Nedre Lia/Lilla Neten and Åkulla east of Yasjön, the Naturkartan Åkulla/banvallen/Yasjöhult bridge and missing-orange-marking advisory, seasonal Åkturen endpoint transit, Märkedalen/Åkullaboket reserve rules, Yasjön raft seasonality, and Långasjön rest-place coordinate verification.
+- N7 `hallandsleden-akulla-astad`: research-ready with caveats. Main caveats are official GPX/API `geo_json` being canonical while API `line.geometry` and OSM preserve a longer older/access-style Ästad endpoint, the practical endpoint being Byasjön shelter rather than Ästad stop/Vingård, N6/N7/M7 junction continuity, 2024 Kalvsjön reroute currentness, Åkulla/Byasjön shelter and service dedupe, seasonal Yasjön raft access, Långanskogen/Toppbjär/Åkullaboket reserve rules, and weak endpoint transit from Byasjön to Hållplats Ästad.
 
 ## Next Safe Step
 
-Resume Phase 2 with `hallandsleden-akulla-astad`: spawn the six required research/report agents, synthesize their findings, write the section JSON, then update `research-progress.json`. Pay attention to the Åkulla multi-section junction, Åkullaboket/Åkulla Bokskogar reserve context, the N6/N7 endpoint handoff, and Ästad endpoint facilities/access.
+Resume Phase 2 with `hallandsleden-varberg-akulla`: spawn the six required research/report agents, synthesize their findings, write the section JSON, then update `research-progress.json`. Pay attention to Varberg urban start access, Åkulla multi-section junction dedupe, Åkulla endpoint offsets among N6/N7/N8/M1, coastal/urban services, and any official geometry conflicts.

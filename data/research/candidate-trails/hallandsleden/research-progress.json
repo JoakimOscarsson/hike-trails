@@ -1,14 +1,15 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-29T19:47:08Z",
-  "currentPhase": "Phase 2 complete through hallandsleden-nosslinge-akulla; ready to start hallandsleden-akulla-astad",
+  "lastUpdated": "2026-04-29T20:06:11Z",
+  "currentPhase": "Phase 2 complete through hallandsleden-akulla-astad; ready to start hallandsleden-varberg-akulla",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
     "hallandsleden-askhults-by-stattared",
     "hallandsleden-stattared-veddige",
     "hallandsleden-veddige-nosslinge",
-    "hallandsleden-nosslinge-akulla"
+    "hallandsleden-nosslinge-akulla",
+    "hallandsleden-akulla-astad"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -170,19 +171,24 @@
       "sectionNumber": "N7",
       "name": "Åkulla - Ästad",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-map-line-discovered-needs-gpx-cross-check",
-      "startEndCoordinateStatus": "official-map-line-endpoints-captured-needs-validation",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-initial-six-lane-synthesis",
+      "routeGeometryStatus": "complete-official-gpx-api-geo_json-canonical-naturkartan-matches-suppress-api-line_geometry-osm-old-astad-endpoint",
+      "startEndCoordinateStatus": "complete-high-confidence-official-gpx-api-endpoints-with-byasjon-astad-label-and-access-caveats",
+      "commuteAccessStatus": "complete-with-seasonal-akulla-and-astad-stop-connector-caveats",
+      "facilityResearchStatus": "complete-with-akulla-byasjon-core-facilities-and-astad-side-service-caveats",
+      "rulesSafetyStatus": "complete-with-kalvsjon-reroute-yasjon-seasonality-reserve-rules-and-dynamic-fire-ban-caveats",
+      "synthesisStatus": "complete",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
-        "Run six independent section research lanes and synthesize findings.",
-        "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
-        "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Before normalization, decide whether the app endpoint display should remain simply Ästad or become Ästad / Byasjön shelter while preserving the official section name.",
+        "Before navigation-grade use, inspect the 473.3 m GPX segment near Åkulla to ensure the point spacing is intentional simplification rather than missing line detail.",
+        "Ask Hallandsleden/Varberg why API line.geometry and GPX/API geo_json coexist with different N7 endpoints; until resolved, suppress line.geometry for canonical import.",
+        "Run protected-area polygon overlay for Åkullaboket, Toppbjär, Långanskogen, Skärbäck, Skogsbo and Valaklitt before attaching span-level rules.",
+        "Verify current Hallandstrafiken line 660/Åkturen service and any demand-responsive requirements close to publication/use.",
+        "Verify exact Åkulla parking coordinates and any fee/local signage before importing parking metadata.",
+        "Verify whether Ästad 4H, Ästad Vingård and Hållplats Ästad should be represented through an explicit endpoint connector from Byasjön.",
+        "Do not import Byasjön as a potable water source unless a separate drinking-water source is confirmed.",
+        "Do not use old 15-17 km reports, OSM relation geometry or API line.geometry as current geometry."
       ]
     },
     "hallandsleden-varberg-akulla": {
@@ -1067,21 +1073,111 @@
       "completedAt": "2026-04-29T19:47:08Z",
       "synthesisFile": "sections/hallandsleden-nosslinge-akulla.research.json",
       "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around Gällarpesjön/Gällarp practical start versus Nösslinge title, official GPX/API geo_json versus API line.geometry/Naturkartan/OSM old Åkulla geometry, 2024 reroutes at Nedre Lia/Lilla Neten and Åkulla east of Yasjön, Naturkartan Åkulla/banvallen/Yasjöhult bridge and missing-orange-marking advisory, seasonal Åkturen endpoint access, Märkedalen/Åkullaboket reserve rules, Yasjön raft seasonality, Långasjön rest-place verification, and off-route service suppression."
+    },
+    {
+      "batchId": "hallandsleden-akulla-astad-initial-6-lane-2026-04-29",
+      "sectionId": "hallandsleden-akulla-astad",
+      "startedAt": "2026-04-29T19:50:16Z",
+      "status": "completed-and-synthesized",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddaca-b39a-74d1-afe6-d3a2df91f407",
+          "nickname": "Popper"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddaca-b466-77c0-8509-0b330fdde96c",
+          "nickname": "Newton"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddaca-b5f7-7eb2-a096-f6a95261d033",
+          "nickname": "Bernoulli"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddaca-b706-79c1-9243-287d88811bb2",
+          "nickname": "Euler"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddaca-b94c-7d83-8019-43e58e21f96e",
+          "nickname": "Pasteur"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddaca-bbda-7e63-a52e-c5c161127112",
+          "nickname": "Mencius"
+        }
+      ],
+      "requestedOutputs": [
+        "official facts",
+        "geometry verification",
+        "facilities",
+        "transit/access",
+        "field reports",
+        "rules/safety/currentness"
+      ],
+      "notes": [
+        "Focus on Åkulla multi-section junction, N6/N7 handoff, Kalvsjön 2024 reroute, Åkullaboket/Åkulla Bokskogar and Ästad protected-area context, Ästad endpoint services/access, and GPX filename versus subtrail mismatch."
+      ],
+      "receivedReports": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddaca-b39a-74d1-afe6-d3a2df91f407",
+          "receivedAt": "2026-04-29T19:55:26Z",
+          "summary": "Confirmed official name Åkulla - Ästad, N7, Norra delleden, Varberg/Halland, official distance 12 km and Blue/medium difficulty. Flagged official topology ambiguity: previous/next in northern track are Nösslinge-Åkulla and Varberg-Åkulla, while Ästad also relates to cross-track continuation. Confirmed GPX/API geo_json 223-point 12.236 km line from Åkulla Outdoor Resort to Byasjön shelter, conflicting API line.geometry ending near Ästad village/4H/Vingård. Noted stale English shelter text and GPX filename Mellersta_Akulla_Astad despite Norra delleden classification."
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddaca-b5f7-7eb2-a096-f6a95261d033",
+          "receivedAt": "2026-04-29T19:55:26Z",
+          "summary": "Official GPX-proximity pass identified high-confidence import candidates: Lägerplats Åkulla, Dricksvatten Åkulla Outdoor Resort, Åkulla Outdoor Resort, seasonal Lägerplats Yasjön, Lägerplats Byasjön/Vindskydd Ästad, Skärbäcks gård, Öströö Fårfarm, Bexells talande stenar, and Toppbjärs reservat. Kept Ästad Vingård, Ästad 4H, Långanskogen/Emmas stuga and parking as access/endpoint metadata pending geometry decision; suppressed Björkasjö and other far side-trip records."
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddaca-b94c-7d83-8019-43e58e21f96e",
+          "receivedAt": "2026-04-29T19:55:26Z",
+          "summary": "Found direct current N7 field-report coverage thin. Direct reports are old/pre-2024, including En Vandringssaga 2019 reverse Ästad-Åkulla and Utsidan 2005. Recent adjacent-route reports around Ästad, Byasjön, Öströö, Kalvsjön and Åkulla Bokskogar generally show good conditions, easy/gravel/road-heavy walking, livestock/electric-fence caveats, and possible wetness near lake/boardwalk areas. No independent post-2024 confirmation of the Kalvsjön reroute was found."
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddaca-bbda-7e63-a52e-c5c161127112",
+          "receivedAt": "2026-04-29T19:55:26Z",
+          "summary": "Confirmed Åkulla Bokskogar as a reserve landscape/cluster, with high-confidence rule impacts at Åkullaboket, Toppbjär and Långanskogen; Skärbäck, Skogsbo and Valaklitt need overlay before being treated as crossed. Key rules include dogs leashed in reserves, fire only at designated places in several reserves, Yasjön island closed 1 March-30 June and raft 1 July-mid-October, Byasjön water unconfirmed, and dynamic fire-ban checks via current official sources. Reroute page confirms 2024 Kalvsjön reroute and stale June 2022 paper maps."
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddaca-b466-77c0-8509-0b330fdde96c",
+          "receivedAt": "2026-04-29T19:58:09Z",
+          "summary": "Recommended official Hallandsleden GPX/API geo_json as canonical N7 geometry and not API line.geometry, OSM, or route-app distances. Confirmed GPX/API geo_json is a 223-point 12.236 km LineString from Åkulla Outdoor Resort to Byasjön shelter, N6-to-N7 continuity 0.6 m, N7-to-M7 continuity 0.2 m, and start-to-M1 continuity 5.8 m. Naturkartan site 19215 geometry now matches current GPX endpoints/distance but metadata still says 13.0 km/red; OSM relation 7398315 remains stale with old endpoints and 13.373 km. Kalvsjön reroute page updated 2024-11-07 confirms the current line west of Kalvsjön."
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddaca-b706-79c1-9243-287d88811bb2",
+          "receivedAt": "2026-04-29T20:01:30Z",
+          "summary": "Confirmed closest start commute point Åkulla (Varberg kn), ResRobot extId 740074382, 57.124012/12.566353, about 0.21 km from GPX start, seasonal Åkturen. Confirmed closest named end stop Ästad (Varberg kn), extId 740023695, 57.063847/12.560456, about 1.87 km straight-line from the official GPX end at Byasjön but about 0.21 km from Ästad Vingård, so endpoint access needs a connector/walk caveat. Noted 2026 Åkturen season 15 June-16 August from Hallandstrafiken news, possible line 660 regular access, Brännhult/Haksered fallbacks for Åkulla broader access, and that Byasjön shelter parking is unsuitable with Skogsbo/Skärbäck as general parking alternatives."
+        }
+      ],
+      "completedAt": "2026-04-29T20:06:11Z",
+      "synthesisFile": "sections/hallandsleden-akulla-astad.research.json",
+      "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around canonical official GPX/API geo_json versus stale API line.geometry/OSM endpoints, Byasjön practical endpoint versus Ästad title/access, N6/N7/M7 junction continuity, 2024 Kalvsjön reroute, Åkulla/Byasjön facility dedupe, seasonal Yasjön island access, Långanskogen/Toppbjär/Åkullaboket/Skärbäck/Skogsbo/Valaklitt reserve overlay needs, Byasjön potable-water gap, and endpoint transit connector requirements."
     }
   ],
   "sourceCoverage": {
     "officialOverview": "complete-initial-pass",
     "officialSectionInventory": "complete-initial-pass-35-sections",
-    "officialGeometry": "complete-for-first-six-sections-with-api-line_geometry-caveats",
-    "municipalities": "overview-list-captured-from-official-footer-n1-n2-n3-n4-n5-n6-section-specific-pages-reviewed",
-    "protectedAreas": "complete-for-first-six-sections-with-n4-skoga-overlay-pending-n5-water-protection-note-and-n6-markedalen-akullaboket-caveats",
-    "transitOperators": "complete-for-first-six-sections",
-    "facilities": "complete-for-first-six-sections",
-    "fieldReports": "complete-for-first-six-sections",
-    "rulesSafety": "overview-pass-complete-n1-n2-n3-n4-n5-n6-section-specific-complete"
+    "officialGeometry": "complete-for-first-seven-sections-with-api-line_geometry-caveats",
+    "municipalities": "overview-list-captured-from-official-footer-n1-n2-n3-n4-n5-n6-n7-section-specific-pages-reviewed",
+    "protectedAreas": "complete-for-first-seven-sections-with-n4-skoga-overlay-pending-n5-water-protection-note-n6-markedalen-akullaboket-caveats-and-n7-akullaboket-toppbjar-langanskogen-skarback-skogsbo-valaklitt-overlay-caveats",
+    "transitOperators": "complete-for-first-seven-sections",
+    "facilities": "complete-for-first-seven-sections",
+    "fieldReports": "complete-for-first-seven-sections",
+    "rulesSafety": "overview-pass-complete-n1-n2-n3-n4-n5-n6-n7-section-specific-complete"
   },
   "knownGaps": [
-    "Only the overview and first six sections have been researched/synthesized; 29 remaining sections still need the six-lane workflow.",
+    "Only the overview and first seven sections have been researched/synthesized; 28 later sections still need the six-lane workflow.",
     "Coastal Hallandsleden is incomplete by official statement; future import must model gaps instead of stitching a continuous coast.",
     "Older sources may report 435 km / 26 stages / 3 parts; live official source reports 612 km / 35 sections / 4 subtrails.",
     "Paper maps printed June 2022 are stale for 2024 rerouted sections.",
@@ -1119,12 +1215,22 @@
     "N6: Märkedalen reserve is directly on-route; Åkullaboket/Åkulla Bokskogar reserve context is endpoint-relevant and needs geometry-boundary confirmation before span-level rules.",
     "N6: Åkulla endpoint public transport is seasonal via Åkturen; outside the 2026 15 June-16 August service period, Brännhult/Haksered/taxi are fallback planning notes.",
     "N6: Yasjön island shelter has seasonal access and a 1 March-30 June bird-nesting closure; do not model it as always accessible.",
-    "N6: Långasjön rest place is plausible but lacks a Hallandsleden places API record; keep pending until coordinate/name verification."
+    "N6: Långasjön rest place is plausible but lacks a Hallandsleden places API record; keep pending until coordinate/name verification.",
+    "N7: official GPX/API geo_json is a 223-point LineString from Åkulla Outdoor Resort to Byasjön shelter, 12.236 km computed and official display distance 12 km; use it as canonical but inspect the 473.3 m max segment near Åkulla before navigation-grade use.",
+    "N7: official API line.geometry has 382 points, computes 13.956 km, starts 687 m away from the official GPX start and ends about 1.124 km east of the official GPX endpoint near Ästad village/4H/Vingård access; suppress it as canonical geometry.",
+    "N7: OSM relation 7398315 has a 2025 timestamp but still uses old endpoints and computes about 13.373 km; do not use as canonical current geometry.",
+    "N7: Naturkartan geometry now matches official GPX/API geo_json, but Naturkartan page metadata still says 13.0 km and red/demanding while Hallandsleden says 12 km and blue/medium.",
+    "N7: practical route endpoint is Lägerplats Byasjön, while official title says Ästad and Ästad Vingård/Ästad 4H/Hållplats Ästad are 1.17-1.87 km from the GPX endpoint; model as endpoint access/connector metadata.",
+    "N7: Hållplats Ästad official place text appears to contain a copy/paste error about Hållplats Åkulla; use ResRobot/Hallandstrafiken for transit text.",
+    "N7: Byasjön shelter has toilet/fire/waste/recycling/wood but no confirmed potable water; do not import Byasjön as drinking water.",
+    "N7: Yasjön island shelter is seasonal/access-limited: no access 1 March-30 June during bird nesting and cable raft normally 1 July-mid-October.",
+    "N7: Åkullaboket, Toppbjär and Långanskogen are high-confidence protected-area contexts; Skärbäck, Skogsbo and Valaklitt need polygon overlay before being marked as crossed.",
+    "N7: no independent post-2024 field report confirming the Kalvsjön reroute was found; official 2024 reroute page and current digital GPX remain the source of truth."
   ],
   "nextActions": [
-    "Continue Phase 2 with hallandsleden-akulla-astad.",
+    "Continue Phase 2 with hallandsleden-varberg-akulla.",
     "For each remaining section, run the six-lane research workflow and update this progress file after each batch/synthesis.",
-    "When researching N7, pay special attention to the Åkulla multi-section junction, N6/N7 geometry handoff, Åkullaboket/Åkulla Bokskogar reserve context, and Ästad endpoint facilities/access.",
+    "When researching N8, pay special attention to Varberg urban start access, Åkulla multi-section junction dedupe, Åkulla endpoint offsets among N6/N7/N8/M1, coastal/urban service density, and any official geometry conflicts.",
     "Keep edits confined to data/research/candidate-trails/hallandsleden/ until explicitly asked otherwise."
   ],
   "handoffNotes": [
@@ -1132,8 +1238,9 @@
     "Only files under data/research/candidate-trails/hallandsleden/ were written.",
     "Do not edit source/runtime/generated app data. Do not run forbidden generated-data/import commands.",
     "Overview files are complete for Phase 1.",
-    "Completed section files: sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json, sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json, sections/hallandsleden-askhults-by-stattared.research.json, sections/hallandsleden-stattared-veddige.research.json, sections/hallandsleden-veddige-nosslinge.research.json, and sections/hallandsleden-nosslinge-akulla.research.json.",
-    "Next section to research: hallandsleden-akulla-astad."
+    "Completed section files: sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json, sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json, sections/hallandsleden-askhults-by-stattared.research.json, sections/hallandsleden-stattared-veddige.research.json, sections/hallandsleden-veddige-nosslinge.research.json, sections/hallandsleden-nosslinge-akulla.research.json, and sections/hallandsleden-akulla-astad.research.json.",
+    "Next section to research: hallandsleden-varberg-akulla.",
+    "N7 initial six-lane agent batch started 2026-04-29T19:50:16Z with agents Popper, Newton, Bernoulli, Euler, Pasteur, and Mencius, and was synthesized into sections/hallandsleden-akulla-astad.research.json at 2026-04-29T20:06:11Z."
   ],
   "filesWritten": [
     "README.md",
@@ -1144,7 +1251,8 @@
     "sections/hallandsleden-askhults-by-stattared.research.json",
     "sections/hallandsleden-stattared-veddige.research.json",
     "sections/hallandsleden-veddige-nosslinge.research.json",
-    "sections/hallandsleden-nosslinge-akulla.research.json"
+    "sections/hallandsleden-nosslinge-akulla.research.json",
+    "sections/hallandsleden-akulla-astad.research.json"
   ],
   "meaningfulPasses": [
     {
@@ -1221,6 +1329,21 @@
       "id": "phase-2-n6-six-lane-synthesis-complete-2026-04-29",
       "completedAt": "2026-04-29T19:47:08Z",
       "summary": "Synthesized six lane reports and main-thread API/GPX/Naturkartan/ResRobot/protected-area checks for N6 into a section research JSON. Marked N6 research-ready with caveats around Gällarpesjön/Gällarp practical start versus Nösslinge title, official GPX/API geo_json versus API line.geometry/Naturkartan/OSM old Åkulla geometry, 2024 reroutes at Nedre Lia/Lilla Neten and Åkulla east of Yasjön, Naturkartan Åkulla/banvallen/Yasjöhult bridge and missing-orange-marking advisory, seasonal Åkturen endpoint access, Märkedalen/Åkullaboket reserve rules, Yasjön raft seasonality, Långasjön rest-place verification, and off-route service suppression."
+    },
+    {
+      "id": "phase-2-n7-initial-agent-batch-started-2026-04-29",
+      "completedAt": "2026-04-29T19:50:16Z",
+      "summary": "Started Phase 2 six-lane research workflow for N7 Åkulla - Ästad. Main thread retains file-write ownership and flagged the Åkulla multi-section junction, N6/N7 geometry handoff, official GPX filename/subtrail mismatch, Kalvsjön reroute, Ästad endpoint access/services, and Åkullaboket/Åkulla Bokskogar/Ästad protected-area context for the agents."
+    },
+    {
+      "id": "phase-2-n7-main-thread-official-api-gpx-access-rules-pass-2026-04-29",
+      "completedAt": "2026-04-29T19:55:26Z",
+      "summary": "Fetched official N7 page, GPX, map API, places API, Hallandsleden reroute/currentness pages, ResRobot stop lookups, Hallandstrafiken Åkturen/beställningstrafik, and Länsstyrelsen Åkulla/Långanskogen protected-area sources. Found official GPX/API geo_json is a 223-point LineString from Åkulla Outdoor Resort to Byasjön shelter, 12.236 km computed and official 12 km displayed; API line.geometry is a conflicting 382-point 13.956 km line that starts 687 m away and ends about 1.124 km east of the GPX endpoint near Ästad village/4H/Vingård. Places API returned 24 records, including on-route Åkulla water/shelter/resort, Bexells talande stenar, Toppbjär, Skärbäcks gård, Öströö Fårfarm and Byasjön shelter, plus over-included/off-route side services. Access checks found Åkulla stop about 213 m from start and Ästad stop about 1.86 km from the GPX endpoint but only 754 m from the line.geometry Ästad-village endpoint; Åkturen 2026 runs 15 June-16 August."
+    },
+    {
+      "id": "phase-2-n7-six-lane-synthesis-complete-2026-04-29",
+      "completedAt": "2026-04-29T20:06:11Z",
+      "summary": "Synthesized six lane reports and main-thread API/GPX/Naturkartan/OSM/ResRobot/Hallandstrafiken/protected-area checks for N7 into a section research JSON. Marked N7 research-ready with caveats around canonical official GPX/API geo_json versus stale API line.geometry/OSM endpoints, Byasjön practical endpoint versus Ästad title/access, N6/N7/M7 junction continuity, 2024 Kalvsjön reroute, Åkulla/Byasjön facility dedupe, seasonal Yasjön island access, Långanskogen/Toppbjär/Åkullaboket/Skärbäck/Skogsbo/Valaklitt reserve overlay needs, Byasjön potable-water gap, and endpoint transit connector requirements."
     }
   ]
 }
