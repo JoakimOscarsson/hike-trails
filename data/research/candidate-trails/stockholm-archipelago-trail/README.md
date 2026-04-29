@@ -12,6 +12,8 @@ The app-owned SAT source now lives under `data/source/hiking/stockholm-archipela
 
 This research packet remains useful for rebuilding audits, connection planning, and source shards, but it includes suppressed, pending, metadata-only, access-only, and transfer records that are not normal runtime facilities. `harbor_services` is intentionally skipped for the current app surface.
 
+Section route GPX snapshots are app-owned source artifacts under `data/source/hiking/stockholm-archipelago-trail/route-sources/`. Refresh them only when deliberately updating official route geometry provenance.
+
 Run the normalization audit with:
 
 ```sh
@@ -34,6 +36,24 @@ Check the committed connection plan output with:
 
 ```sh
 npm run data:sat:connection-plan:check
+```
+
+Build public SAT section route GeoJSON files from committed route snapshots with:
+
+```sh
+npm run data:sat:section-routes
+```
+
+Refresh committed GPX snapshots from their official download URLs only when intentionally updating route provenance:
+
+```sh
+npm run data:sat:section-routes -- --refresh
+```
+
+Check the committed section route output with:
+
+```sh
+npm run data:sat:section-routes:check
 ```
 
 Build the app-owned source shards from this research packet and the connection plan with:

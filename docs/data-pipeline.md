@@ -35,7 +35,7 @@ Completed and stable enough to build on:
 - Read-only hiking/kayak runtime validation, shared domain types, `data:validate`, `typecheck`, `ci:check`, `ci:check:browser`, and project-owned GitHub Actions checks.
 - Fast unit tests, no-write generated-output drift checking, and a documented local test matrix in `docs/testing.md`.
 - Hiking trail-system runtime shards and app runtime loading from `library-index.json` plus sharded trail-system data.
-- Stockholm Archipelago Trail source/runtime shards, normalized facilities, selected-route transfer connections, and SAT-specific validation for adjacent ferry/rowboat handoffs.
+- Stockholm Archipelago Trail source/runtime shards, generated section route geometry, normalized facilities, selected-route transfer connections, and SAT-specific validation for adjacent ferry/rowboat handoffs.
 - Bounded route geometry cache, per-route load resilience, and Leaflet lifecycle fixes.
 - Hiking and kayaking overview/detail runtime paths, kayak source import, kayak detail facility rendering, and compact kayak filters.
 - Activity-scoped generated index fragments: `library-index.hiking.json` and `library-index.kayaking.json` compose into the runtime `library-index.json`.
@@ -123,7 +123,7 @@ public/data/trail-systems/<trail-system-id>/
 
 Legacy all-in-one trail-system runtime JSON is no longer generated. Validation rejects `public/data/hikes-index.json` and root-level `public/data/trail-systems/<trail-system-id>.json` if they reappear.
 
-When `connections.json` is present, both the library index and manifest expose `connectionsPath`. Connection route geometry is stored separately under `public/routes/hiking/<trail-system-id>/connections/` and should be treated as planning-reference geometry unless the route record says otherwise.
+When `connections.json` is present, both the library index and manifest expose `connectionsPath`. Section route geometry is stored under each section's `route.geojsonPath`; SAT section routes are generated from committed route-source snapshots under `data/source/hiking/stockholm-archipelago-trail/route-sources/`. Connection route geometry is stored separately under `public/routes/hiking/<trail-system-id>/connections/` and should be treated as planning-reference geometry unless the route record says otherwise.
 
 ## Slice 1: Validation And Shared Contract Foundation
 

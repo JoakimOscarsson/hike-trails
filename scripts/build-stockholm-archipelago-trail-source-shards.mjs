@@ -1,5 +1,6 @@
 import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { endpointCoordinatesFromRoute, parseGpxFeatureCollection } from "./lib/trail-system-builder.mjs";
 
 const REPO_ROOT = process.cwd();
 const TRAIL_ID = "stockholm-archipelago-trail";
@@ -9,6 +10,7 @@ const SECTIONS_DIR = path.join(SOURCE_DIR, "sections");
 const RESEARCH_PATH = path.join(RESEARCH_DIR, "trail.research.json");
 const CONNECTION_PLAN_PATH = path.join(RESEARCH_DIR, "section-connection-plan.json");
 const FACILITY_AUDIT_PATH = path.join(RESEARCH_DIR, "facility-normalization-audit.json");
+const ROUTE_SOURCES_PATH = path.join(SOURCE_DIR, "route-sources", "index.json");
 const OFFICIAL_SECTION_LIST_URL = "https://stockholmarchipelagotrail.com/section/";
 const FACILITY_IMPORT_DECISIONS = new Set([
   "import_facility",
@@ -57,6 +59,10 @@ function connectionWithoutPlanOnlyFields(connection) {
   return runtimeConnection;
 }
 
+function routeSourcesBySectionId(routeSources) {
+  return new Map((routeSources.entries ?? []).map((entry) => [entry.sectionId, entry]));
+}
+
 function collectConnectionEndpoints(connections) {
   const incomingBySectionId = new Map();
   const outgoingBySectionId = new Map();
@@ -96,6 +102,46 @@ function sectionEndpointCoordinates(sectionId, incoming, outgoing) {
     source: "approximate",
     ...(start ? { start } : {}),
     ...(end ? { end } : {})
+  };
+}
+
+function manualRouteCoordinates(entry) {
+  return (entry.latLonCoordinates ?? [])
+    .map(([lat, lon]) => [lon, lat])
+    .filter(([lon, lat]) => Number.isFinite(lon) && Number.isFinite(lat));
+}
+
+async function routeCoordinates(entry) {
+  if (!entry) return [];
+  if (entry.sourceFormat === "manual") return manualRouteCoordinates(entry);
+  if (entry.sourceFormat !== "gpx") return [];
+  const gpxPath = path.join(REPO_ROOT, entry.localPath);
+  return parseGpxFeatureCollection(await readFile(gpxPath, "utf8"), entry.sectionId).coordinates;
+}
+
+async function sectionRoute(entry) {
+  if (!entry) {
+    return {
+      route: {
+        status: "marker-only"
+      }
+    };
+  }
+
+  const coordinates = await routeCoordinates(entry);
+  if (coordinates.length < 2) {
+    throw new Error(`${entry.sectionId} route source does not contain enough route coordinates`);
+  }
+
+  return {
+    endpointCoordinates: entry.endpointCoordinates ?? endpointCoordinatesFromRoute(coordinates),
+    route: {
+      status: "ready",
+      sourceFormat: entry.sourceFormat,
+      sourceUrl: entry.sourceUrl,
+      ...(entry.sourceFormat === "gpx" ? { gpxUrl: entry.sourceUrl } : {}),
+      geojsonPath: entry.geojsonPath
+    }
   };
 }
 
@@ -275,11 +321,12 @@ function sectionNotes(section) {
   ];
 }
 
-function buildSection(section, index, endpointLookups, facilityDecisions, createdAt) {
+async function buildSection(section, index, endpointLookups, facilityDecisions, routeSources, createdAt) {
   const incoming = endpointLookups.incomingBySectionId.get(section.id);
   const outgoing = endpointLookups.outgoingBySectionId.get(section.id);
   const labels = sectionEndpointLabels(section);
-  const endpointCoordinates = sectionEndpointCoordinates(section.id, incoming, outgoing);
+  const fallbackEndpointCoordinates = sectionEndpointCoordinates(section.id, incoming, outgoing);
+  const route = await sectionRoute(routeSources.get(section.id));
   return {
     id: section.id,
     stageNumber: index + 1,
@@ -293,12 +340,12 @@ function buildSection(section, index, endpointLookups, facilityDecisions, create
     waterSources: textList(section.waterSourcesDraft),
     notes: sectionNotes(section),
     facilities: buildFacilities(section, facilityDecisions, createdAt),
-    ...(endpointCoordinates ? { endpointCoordinates } : {}),
+    ...(route.endpointCoordinates ?? fallbackEndpointCoordinates
+      ? { endpointCoordinates: route.endpointCoordinates ?? fallbackEndpointCoordinates }
+      : {}),
     accessPoints: [],
     source: sectionSource(section, createdAt),
-    route: {
-      status: "marker-only"
-    }
+    route: route.route
   };
 }
 
@@ -348,8 +395,9 @@ function buildPresets(sectionIds) {
   ];
 }
 
-function buildTrailSystem(research, connectionPlan, facilityAudit) {
+async function buildTrailSystem(research, connectionPlan, facilityAudit, routeSources) {
   const researchSectionsById = new Map(research.sections.map((section) => [section.id, section]));
+  const sectionRouteSources = routeSourcesBySectionId(routeSources);
   const orderedSectionIds = connectionPlan.officialSectionOrder.map((entry) => entry.id);
   const missingSections = orderedSectionIds.filter((sectionId) => !researchSectionsById.has(sectionId));
   if (missingSections.length) {
@@ -358,8 +406,17 @@ function buildTrailSystem(research, connectionPlan, facilityAudit) {
 
   const runtimeConnections = connectionPlan.connections.map(connectionWithoutPlanOnlyFields);
   const endpointLookups = collectConnectionEndpoints(runtimeConnections);
-  const sections = orderedSectionIds.map((sectionId, index) =>
-    buildSection(researchSectionsById.get(sectionId), index, endpointLookups, facilityAudit.facilityRecordDecisions ?? [], research.createdAt)
+  const sections = await Promise.all(
+    orderedSectionIds.map((sectionId, index) =>
+      buildSection(
+        researchSectionsById.get(sectionId),
+        index,
+        endpointLookups,
+        facilityAudit.facilityRecordDecisions ?? [],
+        sectionRouteSources,
+        research.createdAt
+      )
+    )
   );
   const firstCoordinate = endpointLookups.coordinates[0] ?? [59.85124, 19.10752];
   const totalDistanceKm = roundDistance(sections.reduce((total, section) => total + section.distanceKm, 0));
@@ -396,7 +453,8 @@ function buildTrailSystem(research, connectionPlan, facilityAudit) {
       "Some sections have seasonal harbor or service water; natural water must be treated."
     ],
     notes: [
-      "Walking section lines are not yet imported; transfer connection geometry is available as planning-reference lines.",
+      "Walking section lines are imported from official GPX or official route geometry sources where available.",
+      "Transfer connection geometry is available as planning-reference lines and is not a live timetable or navigation promise.",
       "Exact ferry departures, request-stop rules, and disruptions are intentionally not hardcoded."
     ],
     source: {
@@ -470,12 +528,13 @@ async function writeShards(expectedFiles) {
   ]);
 }
 
-const [research, connectionPlan, facilityAudit] = await Promise.all([
+const [research, connectionPlan, facilityAudit, routeSources] = await Promise.all([
   readJson(RESEARCH_PATH),
   readJson(CONNECTION_PLAN_PATH),
-  readJson(FACILITY_AUDIT_PATH)
+  readJson(FACILITY_AUDIT_PATH),
+  readJson(ROUTE_SOURCES_PATH)
 ]);
-const trailSystem = buildTrailSystem(research, connectionPlan, facilityAudit);
+const trailSystem = await buildTrailSystem(research, connectionPlan, facilityAudit, routeSources);
 const expectedFiles = expectedShardFiles(trailSystem);
 
 if (checkOnly) {

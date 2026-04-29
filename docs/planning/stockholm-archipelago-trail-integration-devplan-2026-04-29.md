@@ -4,7 +4,7 @@ Date: 2026-04-29
 
 Workspace target: `/Users/joakim/Documents/codex/hike-trails`
 
-Status: Slice 10 completed; implementation plan completed.
+Status: Slice 11 completed; implementation plan completed.
 
 This is a living development plan for bringing Stockholm Archipelago Trail into the app. It is intentionally concrete: every slice has a scope, likely files, a definition of done, and validation notes. The trail is ferry-dependent, so ferry transfers are first-class route connections, not just text notes.
 
@@ -40,6 +40,7 @@ Important rule: the candidate research file is an input only. Runtime code must 
 - [x] Slice 8: Add validation and tests.
 - [x] Slice 9: Complete browser/product QA.
 - [x] Slice 10: Update documentation and release notes.
+- [x] Slice 11: Import official walking section route geometry.
 
 ## Product Goals
 
@@ -692,6 +693,42 @@ Completed validation:
 - `npm run build`
 - `git diff --check`
 
+## Slice 11: Walking Section Route Geometry
+
+Status: completed 2026-04-29.
+
+Scope:
+
+- Replace marker-only SAT sections with route geometry for all official SAT entries.
+- Keep ferry and transfer connection routes separate from walking section routes.
+- Make the route import repeatable from app-owned source snapshots.
+
+Completed:
+
+- Added `data/source/hiking/stockholm-archipelago-trail/route-sources/index.json` and 21 committed GPX snapshots for official GPX-backed sections.
+- Added one manual official rowboat line for `sat-rowboats-finnhamn-ingmarso`.
+- Added `scripts/build-stockholm-archipelago-trail-section-routes.mjs`.
+- Added `npm run data:sat:section-routes` and `npm run data:sat:section-routes:check`.
+- Generated 22 public section route GeoJSON files under `public/routes/hiking/stockholm-archipelago-trail/sections/`.
+- Updated SAT source shard generation so all 22 sections now have `route.status: "ready"` and section route `geojsonPath` values.
+- Regenerated public trail-system shards and the hiking overview, which now exposes SAT as ready `MultiLineString` geometry instead of a single marker.
+
+Definition of done:
+
+- Every SAT section has a public route GeoJSON path and validates as a ready route.
+- The rowboat entry remains an explicit route line without pretending it is walking geometry.
+- Source route snapshots and generated GeoJSON are checkable without network access.
+- Browser QA confirms the SAT map shows section route lines, not only transfer connections.
+
+Validation:
+
+- `npm run data:sat:section-routes:check`
+- `npm run data:sat:source-shards:check`
+- `npm run data:build`
+- `npm run data:validate`
+- `npm run data:check`
+- Browser inspect SAT at `http://localhost:5173/`.
+
 ## Recommended Implementation Order
 
 1. Slice 0: contract and normalization policy.
@@ -720,6 +757,7 @@ This order keeps the data contract honest before UI work depends on it. It also 
 Before calling SAT done, run the strongest practical suite:
 
 ```sh
+npm run data:sat:section-routes:check
 npm run data:build
 npm run data:validate
 npm run data:check
