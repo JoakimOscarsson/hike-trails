@@ -8,7 +8,15 @@ const SOURCE_DIR = path.join(REPO_ROOT, "data", "source", "hiking", TRAIL_ID);
 const SECTIONS_DIR = path.join(SOURCE_DIR, "sections");
 const RESEARCH_PATH = path.join(RESEARCH_DIR, "trail.research.json");
 const CONNECTION_PLAN_PATH = path.join(RESEARCH_DIR, "section-connection-plan.json");
+const FACILITY_AUDIT_PATH = path.join(RESEARCH_DIR, "facility-normalization-audit.json");
 const OFFICIAL_SECTION_LIST_URL = "https://stockholmarchipelagotrail.com/section/";
+const FACILITY_IMPORT_DECISIONS = new Set([
+  "import_facility",
+  "normalize_facility",
+  "case_normalize_facility",
+  "split_facility"
+]);
+const skippedFacilityImports = [];
 
 const checkOnly = process.argv.includes("--check");
 
@@ -108,6 +116,158 @@ function textList(value) {
   return [];
 }
 
+function sourceProviderFromUrl(url) {
+  if (typeof url !== "string") return "Stockholm Archipelago Trail";
+  try {
+    const hostname = new URL(url).hostname.replace(/^www\./, "");
+    if (hostname.includes("stockholmarchipelagotrail")) return "Stockholm Archipelago Trail";
+    if (hostname.includes("openstreetmap")) return "OpenStreetMap";
+    if (hostname.includes("lansstyrelsen")) return "Länsstyrelsen";
+    if (hostname.includes("explorearchipelago")) return "Explore Archipelago";
+    if (hostname.includes("trafikverket")) return "Trafikverket";
+    return hostname;
+  } catch {
+    return "Stockholm Archipelago Trail";
+  }
+}
+
+function recordIdentifier(record) {
+  return typeof record?.id === "string" ? record.id : typeof record?.sourceResearchId === "string" ? record.sourceResearchId : null;
+}
+
+function collectFacilityRecordIndex(section) {
+  const exact = new Map();
+  const byId = new Map();
+
+  function visit(value, pathParts) {
+    if (Array.isArray(value)) {
+      for (const item of value) visit(item, pathParts);
+      return;
+    }
+    if (!value || typeof value !== "object") return;
+
+    const id = recordIdentifier(value);
+    if (id && (value.name || value.type || value.coordinates || value.coordinateAnchor)) {
+      const origin = pathParts.join(".");
+      exact.set(`${origin}:${id}`, value);
+      if (!byId.has(id)) byId.set(id, value);
+    }
+
+    for (const [key, child] of Object.entries(value)) {
+      if (child && typeof child === "object") visit(child, [...pathParts, key]);
+    }
+  }
+
+  for (const [key, value] of Object.entries(section)) visit(value, [key]);
+  return { exact, byId };
+}
+
+function sourceRecordForDecision(recordIndex, decision) {
+  return (
+    recordIndex.exact.get(`${decision.origin}:${decision.id}`) ??
+    recordIndex.byId.get(decision.id) ?? {
+      id: decision.id,
+      name: decision.name,
+      type: decision.rawType
+    }
+  );
+}
+
+function facilityCoordinates(record) {
+  return (
+    roundLatLon(record.coordinates) ??
+    roundLatLon(record.coordinateAnchor?.coordinates) ??
+    roundLatLon(record.optionalApproximateRouteAnchor)
+  );
+}
+
+function normalizeRouteProximity(record) {
+  const raw = record.routeProximity;
+  if (raw && typeof raw === "object" && typeof raw.status === "string") {
+    return {
+      status: raw.status,
+      ...(Number.isFinite(raw.distanceKm) ? { distanceKm: raw.distanceKm } : {}),
+      thresholdKm: Number.isFinite(raw.thresholdKm) ? raw.thresholdKm : 2,
+      ...(raw.note ? { note: raw.note } : {})
+    };
+  }
+
+  if (typeof raw === "string" && raw.trim()) {
+    const lower = raw.toLowerCase();
+    const status = lower.includes("off") ? "off-route" : lower.includes("on") ? "on-route" : "unknown";
+    return { status, thresholdKm: 2, note: raw };
+  }
+
+  const routeDistanceMeters = Number(record.routeDistanceMeters ?? record.nearestOfficialRouteDistanceMeters);
+  if (Number.isFinite(routeDistanceMeters)) {
+    return {
+      status: routeDistanceMeters <= 100 ? "on-route" : "unknown",
+      distanceKm: round(routeDistanceMeters / 1000, 3),
+      thresholdKm: 2
+    };
+  }
+
+  return { status: "unknown", thresholdKm: 2 };
+}
+
+function facilitySource(record, section, createdAt) {
+  const sourceObject = record.source && typeof record.source === "object" ? record.source : null;
+  const sourceString = typeof record.source === "string" ? record.source : null;
+  const url = sourceObject?.url ?? sourceString ?? record.sources?.[0] ?? section.officialUrl ?? OFFICIAL_SECTION_LIST_URL;
+  return {
+    provider: sourceObject?.provider ?? sourceProviderFromUrl(url),
+    url,
+    lastFetchedAt: createdAt,
+    ...(sourceObject?.notes ? { notes: sourceObject.notes } : {})
+  };
+}
+
+function facilityDescription(record, decision) {
+  const description = [record.description, record.importCaveat].filter((part) => typeof part === "string" && part.trim()).join(" ");
+  return description || `${decision.name}.`;
+}
+
+function facilityTypeLabel(type) {
+  return type.replace(/-/g, " ");
+}
+
+function buildFacilities(section, decisions, createdAt) {
+  const recordIndex = collectFacilityRecordIndex(section);
+  const facilities = [];
+  const seen = new Set();
+  const sectionDecisions = decisions.filter(
+    (decision) => decision.sectionId === section.id && FACILITY_IMPORT_DECISIONS.has(decision.decision)
+  );
+
+  for (const decision of sectionDecisions) {
+    const sourceRecord = sourceRecordForDecision(recordIndex, decision);
+    const coordinates = facilityCoordinates(sourceRecord);
+    if (!coordinates) {
+      skippedFacilityImports.push(`${decision.sectionId}/${decision.id}`);
+      continue;
+    }
+
+    for (const normalizedType of decision.normalizedTypes ?? []) {
+      const split = (decision.normalizedTypes ?? []).length > 1;
+      const facilityId = split ? `${decision.id}-${normalizedType}` : decision.id;
+      if (seen.has(facilityId)) continue;
+      seen.add(facilityId);
+      facilities.push({
+        id: facilityId,
+        name: split ? `${decision.name} (${facilityTypeLabel(normalizedType)})` : decision.name,
+        type: normalizedType,
+        sectionId: section.id,
+        coordinates,
+        description: facilityDescription(sourceRecord, decision),
+        routeProximity: normalizeRouteProximity(sourceRecord),
+        source: facilitySource(sourceRecord, section, createdAt)
+      });
+    }
+  }
+
+  return facilities;
+}
+
 function sectionNotes(section) {
   return [
     ...(section.routeShape ? [`Route shape: ${section.routeShape}.`] : []),
@@ -115,10 +275,11 @@ function sectionNotes(section) {
   ];
 }
 
-function buildSection(section, index, endpointLookups, createdAt) {
+function buildSection(section, index, endpointLookups, facilityDecisions, createdAt) {
   const incoming = endpointLookups.incomingBySectionId.get(section.id);
   const outgoing = endpointLookups.outgoingBySectionId.get(section.id);
   const labels = sectionEndpointLabels(section);
+  const endpointCoordinates = sectionEndpointCoordinates(section.id, incoming, outgoing);
   return {
     id: section.id,
     stageNumber: index + 1,
@@ -131,10 +292,8 @@ function buildSection(section, index, endpointLookups, createdAt) {
     utilities: textList(section.utilitiesDraft),
     waterSources: textList(section.waterSourcesDraft),
     notes: sectionNotes(section),
-    facilities: [],
-    ...(sectionEndpointCoordinates(section.id, incoming, outgoing)
-      ? { endpointCoordinates: sectionEndpointCoordinates(section.id, incoming, outgoing) }
-      : {}),
+    facilities: buildFacilities(section, facilityDecisions, createdAt),
+    ...(endpointCoordinates ? { endpointCoordinates } : {}),
     accessPoints: [],
     source: sectionSource(section, createdAt),
     route: {
@@ -189,7 +348,7 @@ function buildPresets(sectionIds) {
   ];
 }
 
-function buildTrailSystem(research, connectionPlan) {
+function buildTrailSystem(research, connectionPlan, facilityAudit) {
   const researchSectionsById = new Map(research.sections.map((section) => [section.id, section]));
   const orderedSectionIds = connectionPlan.officialSectionOrder.map((entry) => entry.id);
   const missingSections = orderedSectionIds.filter((sectionId) => !researchSectionsById.has(sectionId));
@@ -200,7 +359,7 @@ function buildTrailSystem(research, connectionPlan) {
   const runtimeConnections = connectionPlan.connections.map(connectionWithoutPlanOnlyFields);
   const endpointLookups = collectConnectionEndpoints(runtimeConnections);
   const sections = orderedSectionIds.map((sectionId, index) =>
-    buildSection(researchSectionsById.get(sectionId), index, endpointLookups, research.createdAt)
+    buildSection(researchSectionsById.get(sectionId), index, endpointLookups, facilityAudit.facilityRecordDecisions ?? [], research.createdAt)
   );
   const firstCoordinate = endpointLookups.coordinates[0] ?? [59.85124, 19.10752];
   const totalDistanceKm = roundDistance(sections.reduce((total, section) => total + section.distanceKm, 0));
@@ -311,14 +470,23 @@ async function writeShards(expectedFiles) {
   ]);
 }
 
-const [research, connectionPlan] = await Promise.all([readJson(RESEARCH_PATH), readJson(CONNECTION_PLAN_PATH)]);
-const trailSystem = buildTrailSystem(research, connectionPlan);
+const [research, connectionPlan, facilityAudit] = await Promise.all([
+  readJson(RESEARCH_PATH),
+  readJson(CONNECTION_PLAN_PATH),
+  readJson(FACILITY_AUDIT_PATH)
+]);
+const trailSystem = buildTrailSystem(research, connectionPlan, facilityAudit);
 const expectedFiles = expectedShardFiles(trailSystem);
 
 if (checkOnly) {
   await checkShards(expectedFiles);
 } else {
   await writeShards(expectedFiles);
+  const facilityCount = trailSystem.sections.reduce((total, section) => total + section.facilities.length, 0);
   console.log(`Wrote ${trailSystem.sections.length} Stockholm Archipelago Trail source section shards.`);
+  console.log(`Wrote ${facilityCount} normalized Stockholm Archipelago Trail source facilities.`);
+  if (skippedFacilityImports.length) {
+    console.log(`Skipped ${skippedFacilityImports.length} coordinate-less facility import candidates.`);
+  }
   console.log(`Wrote ${trailSystem.connections.length} Stockholm Archipelago Trail source connections.`);
 }

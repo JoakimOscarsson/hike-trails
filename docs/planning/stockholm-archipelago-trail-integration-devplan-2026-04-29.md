@@ -4,7 +4,7 @@ Date: 2026-04-29
 
 Workspace target: `/Users/joakim/Documents/codex/hike-trails`
 
-Status: Slice 4 completed; Slice 5 not started.
+Status: Slice 5 completed; Slice 6 not started.
 
 This is a living development plan for bringing Stockholm Archipelago Trail into the app. It is intentionally concrete: every slice has a scope, likely files, a definition of done, and validation notes. The trail is ferry-dependent, so ferry transfers are first-class route connections, not just text notes.
 
@@ -34,7 +34,7 @@ Important rule: the candidate research file is an input only. Runtime code must 
 - [x] Slice 2: Map ferry and rowboat transfers between sections.
 - [x] Slice 3: Render connection routes on the map.
 - [x] Slice 4: Create Stockholm Archipelago Trail hiking source shards.
-- [ ] Slice 5: Normalize and import facilities.
+- [x] Slice 5: Normalize and import facilities.
 - [ ] Slice 6: Update access, detail, and route-builder UX for ferry-dependent sections.
 - [ ] Slice 7: Add build scripts and generated runtime outputs.
 - [ ] Slice 8: Add validation and tests.
@@ -363,6 +363,20 @@ Validation:
 - `npm run data:check`
 
 ## Slice 5: Facility Normalization And Import
+
+Status: completed 2026-04-29.
+
+Completion notes:
+
+- Extended `scripts/build-stockholm-archipelago-trail-source-shards.mjs` to import facilities from the Slice 0 normalization audit.
+- Imported only `import_facility`, `normalize_facility`, `case_normalize_facility`, and `split_facility` records.
+- Kept pending, suppressed, metadata-only, access, and connection records out of app facilities.
+- Imported 284 normalized facilities across 20 of 22 SAT sections.
+- Skipped 2 coordinate-less import candidates so every rendered SAT facility has coordinates.
+- Split multi-type records into separate typed facilities, including shelter/fire/rest-area records.
+- No new facility categories or marker icons were added.
+- Browser QA confirmed SAT facility clusters and filter counts render in the builder, and the info view facility list loads without internal audit wording.
+- Validation passed: `npm run data:sat:source-shards:check`, `npm run data:build`, `npm run data:validate`, `npm run data:check`, `npm run runtime:probe`, `npm run typecheck`, `npm run test:unit`, `npm run build`, and `git diff --check`.
 
 Scope:
 

@@ -45,7 +45,568 @@
     "Private water-taxi fallback candidates for Finnhamn are Rederi Gällnö, Gula Båten and Finnhamns sjötaxi, but these are paid booked/quoted services and should remain note-only rather than accessMetadata records. Do not list Edö Båttaxi as active.",
     "Do not store exact commercial date/hour bands as normalized app data for Finnhamn. Use summer/seasonal/check-current-opening labels; exact hours belong only in source notes if needed."
   ],
-  "facilities": [],
+  "facilities": [
+    {
+      "id": "sat-finnhamn-brygga",
+      "name": "Finnhamn brygga",
+      "type": "transit",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.482801,
+        18.826574
+      ],
+      "description": "Main ferry arrival and SAT start/end point; services cluster begins nearby at the restaurant, shop and hostel access road.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-finnhamn/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-brygga-public-toilet",
+      "name": "Finnhamn brygga public toilet",
+      "type": "toilet",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.482202,
+        18.823244
+      ],
+      "description": "Accessible/public reserve toilet at the ferry/steamboat quay service cluster, confirmed generally by Länsstyrelsen with OSM coordinate support.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Länsstyrelsen",
+        "url": "https://www.lansstyrelsen.se/stockholm/besoksmal/naturreservat/finnhamn.html",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-cafe-krog",
+      "name": "Finnhamns Café & Krog",
+      "type": "food",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.482629,
+        18.825061
+      ],
+      "description": "Seasonal restaurant by the ferry/service hub. Operator page checked on 2026-04-26 still explicitly showed 2025 restaurant hours, so expose the service but do not hardcode exact current-year hours.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "finnhamn.se",
+        "url": "https://finnhamn.se/ata/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-lanthandel",
+      "name": "Finnhamns lanthandel / Sommarbutiken",
+      "type": "food",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.482715,
+        18.824364
+      ],
+      "description": "Seasonal shop/resupply near the ferry quay. Operator page says daily June-August and low-season emergency assortment by phone, but the page is not explicit enough to treat exact dates/hours as confirmed 2026 data.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "finnhamn.se",
+        "url": "https://finnhamn.se/ata/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-utsikten-hostel",
+      "name": "STF/Finnhamns vandrarhem Utsikten",
+      "type": "lodging",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.479444,
+        18.823611
+      ],
+      "description": "Major lodging/service hub with hostel, cottages, guest kitchen and guest toilets/showers. Naturkartan says hostel is open year-round but mainly for larger groups in colder seasons; June-August has fuller service.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "svenskaturistforeningen.se",
+        "url": "https://www.svenskaturistforeningen.se/boende/stf-finnhamns-vandrarhem/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-taltplats-sodra",
+      "name": "Södra tältplatsen Finnhamn",
+      "type": "campsite",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.475634,
+        18.81736
+      ],
+      "description": "Designated tent area on Finnhamn with dry toilet, water and barbecue/fireplace nearby. Camping on the main trail islands should be treated as designated-site only.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Explore Archipelago",
+        "url": "https://www.explorearchipelago.com/sv/sthlm/mellersta-skargarden/finnhamn/taltplats-3",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-sodra-taltplats-toilet",
+      "name": "Södra tältplatsen dry toilet",
+      "type": "toilet",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.47595,
+        18.817699
+      ],
+      "description": "Dry toilet at the southern designated tent area; useful for hikers but tied to the campsite/reserve-service context.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Explore Archipelago",
+        "url": "https://www.explorearchipelago.com/sv/sthlm/mellersta-skargarden/finnhamn/taltplats-3",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-campsite-water-pump",
+      "name": "Finnhamn tent-area water pump",
+      "type": "water",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.476425,
+        18.81732
+      ],
+      "description": "Fresh-water pump at the tent-area service cluster. Treat as the best hiker-relevant water pin, but no official year-round guarantee was confirmed.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Explore Archipelago",
+        "url": "https://www.explorearchipelago.com/sv/sthlm/mellersta-skargarden/finnhamn/taltplats-3",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-sodra-jolpan-fireplace",
+      "name": "Södra Jolpan / Sydfladen fireplace",
+      "type": "fireplace",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.475375,
+        18.817207
+      ],
+      "description": "Designated fireplace/grill cluster by the south Jolpan tent area. Attach to the campsite context and apply strict fire-ban/fixed-grill wording.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Länsstyrelsen",
+        "url": "https://www.lansstyrelsen.se/stockholm/besoksmal/naturreservat/finnhamn.html",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-ragnars-kiosk",
+      "name": "Ragnars kiosk / Paradisviken",
+      "type": "food",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.479674,
+        18.81284
+      ],
+      "description": "Seasonal beach kiosk at Paradisviken with ice cream, coffee, waffles, bread ordering, harbor-payment functions and kayak/SUP/rowboat rentals with life jackets. Operator page says mid-June to mid-August; exact hours should still be treated as current-page guidance rather than stable static 2026 data.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "finnhamn.se",
+        "url": "https://finnhamn.se/ata/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-paradisviken-south-toilet",
+      "name": "Paradisviken south dry toilet",
+      "type": "toilet",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.475483,
+        18.808452
+      ],
+      "description": "Dry toilet at southern Paradisviken / guest-harbor beach edge. Hiker-relevant on the route, but should be described as guest-harbor/beach-edge context rather than generic island-wide service.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "finnhamn.se",
+        "url": "https://finnhamn.se/hamnar/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-idholmens-gard",
+      "name": "Idholmens gård / gårdsbutik",
+      "type": "food",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.482851,
+        18.815472
+      ],
+      "description": "Working farm/farm shop on the Idholmen loop with seasonal produce, eggs and flowers rather than full grocery resupply. Swedish Explore Archipelago wording is stronger than the English page for seasonality: spring/early-summer/fall holiday opening and harvest-period daily 15:00-17:00 guidance.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-finnhamn/step-by-step-hiking-instruction-section-finnhamn/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-idholmen-stugby-public-toilet",
+      "name": "Idholmen stugby-edge dry toilet",
+      "type": "toilet",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.480982,
+        18.812552
+      ],
+      "description": "Dry toilet on Idholmen near the cottage/tent-service side. Länsstyrelsen confirms toilets on Idholmen and OSM supplies the exact pin.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Länsstyrelsen",
+        "url": "https://www.lansstyrelsen.se/stockholm/besoksmal/naturreservat/finnhamn.html",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-idholmen-rowboat-side-toilet",
+      "name": "Idholmen rowboat-side dry toilet",
+      "type": "toilet",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.48058,
+        18.804356
+      ],
+      "description": "Public dry toilet on the Finnhamn/Idholmen side near the rowboat meadow. Attach to sat-finnhamn, not to the rowboat connector.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Länsstyrelsen",
+        "url": "https://www.lansstyrelsen.se/stockholm/besoksmal/naturreservat/finnhamn.html",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-pojkarnas-udde-grill",
+      "name": "Pojkarnas Udde barbecue spots",
+      "type": "fireplace",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.47945,
+        18.80537
+      ],
+      "description": "Two barbecue spots on the Idholmen coastal return, confirmed by official SAT step-by-step. Use only when fires are allowed and only at designated places.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-finnhamn/step-by-step-hiking-instruction-section-finnhamn/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-pojkarnas-udde-toilet",
+      "name": "Pojkarnas Udde dry toilet",
+      "type": "toilet",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.47955,
+        18.805166
+      ],
+      "description": "Dry toilet near Pojkarnas Udde / Idholmen coastal loop. SAT confirms the route and barbecue area here; OSM supports the exact toilet pin.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-finnhamn/step-by-step-hiking-instruction-section-finnhamn/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-idholmen-grill-bad",
+      "name": "Idholmen grill/bathing spot",
+      "type": "fireplace",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.482877,
+        18.807789
+      ],
+      "description": "Mapped/photographed grill and bathing spot on Idholmen. Länsstyrelsen confirms designated fireplaces on Idholmen generally; use as a secondary rest/bathing POI, not as managed bathing safety.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Länsstyrelsen",
+        "url": "https://www.lansstyrelsen.se/stockholm/besoksmal/naturreservat/finnhamn.html",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-lilla-jolpan-wind-shelter",
+      "name": "Lilla Jolpan wind shelter",
+      "type": "shelter",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.472891,
+        18.818998
+      ],
+      "description": "Wind shelter/rest-weather shelter on or very near the official southern Lilla Jolpan route. Do not label as overnight accommodation and do not imply a fireplace here.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-finnhamn/step-by-step-hiking-instruction-section-finnhamn/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-lammudden-wind-shelter",
+      "name": "Lammuddens wind shelter",
+      "type": "shelter",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.474249,
+        18.807786
+      ],
+      "description": "Optional side-trip rest/fire POI, likely corresponding to the SAT side-detour shelter about 200 m off Sindra's Trail. Use only if optional side-trip shelters are supported; do not label as overnight accommodation.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-finnhamn/step-by-step-hiking-instruction-section-finnhamn/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-vandrarhemmet-grill",
+      "name": "Vandrarhemmet grillplats",
+      "type": "fireplace",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.479832,
+        18.823304
+      ],
+      "description": "Designated grill/fireplace near the hostel. Use fixed-grill/charcoal-only and fire-ban caveats; do not imply firewood collection.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Länsstyrelsen",
+        "url": "https://www.lansstyrelsen.se/stockholm/besoksmal/naturreservat/finnhamn.html",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-paradisviken",
+      "name": "Paradisviken",
+      "type": "swimming",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.47949,
+        18.81256
+      ],
+      "description": "Sandy beach, guest-harbor/service landmark and activity hub on the Idholmen side of the loop. This is both a route landmark and a beach/service node; treat swimming as natural/open-water swimming unless managed safety is confirmed.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-finnhamn/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-idholmen-farm",
+      "name": "Idholmen farm and former strawberry-growing area",
+      "type": "heritage",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.48325,
+        18.815494
+      ],
+      "description": "Working farm/farm-shop and agricultural/cultural landscape on the Idholmen loop. Länsstyrelsen lists the farm shop, Explore Archipelago describes the farm, and SAT notes the former strawberry-growing area nearby.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-finnhamn/step-by-step-hiking-instruction-section-finnhamn/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-utsikten-viewpoint",
+      "name": "Vandrarhemmet Utsikten / hilltop view",
+      "type": "viewpoint",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.479528,
+        18.823641
+      ],
+      "description": "Hilltop hostel/old-villa area with cultural and viewpoint value; also a major service/accommodation hub.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "naturkartan.se",
+        "url": "https://www.naturkartan.se/sv/stockholms-lan/stf-finnhamns-vandrarhem",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-lilla-jolpan-lookout",
+      "name": "Lilla Jolpan lookout tower",
+      "type": "viewpoint",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.477796,
+        18.827904
+      ],
+      "description": "Optional viewpoint/lookout detour on Lilla Jolpan. SAT explicitly recommends the detour, while the coordinate is inferred from map/OSM evidence.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-finnhamn/step-by-step-hiking-instruction-section-finnhamn/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-sindras-trail",
+      "name": "Sindra's Trail",
+      "type": "attraction",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.478245,
+        18.817327
+      ],
+      "description": "Pasture/forest route feature on Stora Jolpan. Expect grazing animals, gates and possibly wet spring ground.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-finnhamn/step-by-step-hiking-instruction-section-finnhamn/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-jordgubbslandet",
+      "name": "Jordgubbslandet",
+      "type": "heritage",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.484589,
+        18.815613
+      ],
+      "description": "Strawberry-growing heritage point near Idholmens gård. Naturskatter provides the interpretive story and SAT also notes the former strawberry-growing area.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "naturskatter.finnhamn.se",
+        "url": "https://naturskatter.finnhamn.se/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-pojkarnas-udde-poi",
+      "name": "Pojkarnas Udde",
+      "type": "rest-area",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.479442,
+        18.805395
+      ],
+      "description": "Coastal rest point on Idholmen with SAT-confirmed barbecue spots and local cultural history from Naturskatter.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-finnhamn/step-by-step-hiking-instruction-section-finnhamn/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-finnhamn-idholmen-beach",
+      "name": "Idholmen beach",
+      "type": "swimming",
+      "sectionId": "sat-finnhamn",
+      "coordinates": [
+        59.483142,
+        18.807747
+      ],
+      "description": "Secondary swimming/beach POI useful if the app has a swim layer. Treat as natural/open-water bathing, not managed bathing safety.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Explore Archipelago",
+        "url": "https://www.explorearchipelago.com/sthlm/mellersta-skargarden/finnhamn",
+        "lastFetchedAt": "2026-04-26"
+      }
+    }
+  ],
   "endpointCoordinates": {
     "source": "approximate",
     "start": [
