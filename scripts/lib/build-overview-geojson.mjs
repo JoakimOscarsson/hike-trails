@@ -127,6 +127,18 @@ function featureGeometry(lines, item) {
   return point ? { type: "Point", coordinates: point } : null;
 }
 
+function uniqueStrings(values) {
+  return values.filter((value, index) => typeof value === "string" && value.trim() && values.indexOf(value) === index);
+}
+
+function overviewSectionIds(trailSystem) {
+  const groupedSectionIds = uniqueStrings(
+    (trailSystem.routeGroups ?? []).flatMap((group) => (Array.isArray(group.sectionIds) ? group.sectionIds : []))
+  );
+  if (groupedSectionIds.length) return groupedSectionIds;
+  return uniqueStrings((trailSystem.sections ?? []).map((section) => section.id));
+}
+
 function overviewProperties(item, itemType, geometryStatus, detailPath) {
   const properties = {
     id: item.id,
@@ -159,14 +171,20 @@ async function hikeFeature(hike, publicRoot) {
 
 async function trailSystemFeature(trailSystem, publicRoot) {
   const sectionsById = new Map((trailSystem.sections ?? []).map((section) => [section.id, section]));
-  const mainlineGroups = (trailSystem.routeGroups ?? []).filter((group) => group.kind === "mainline");
-  const sectionIds = (mainlineGroups.length ? mainlineGroups : [{ sectionIds: (trailSystem.sections ?? []).map((section) => section.id) }])
-    .flatMap((group) => group.sectionIds ?? [])
-    .filter((sectionId, index, values) => values.indexOf(sectionId) === index);
-  const sections = sectionIds.map((sectionId) => sectionsById.get(sectionId)).filter(Boolean);
-  const lines = (
+  const sections = overviewSectionIds(trailSystem)
+    .map((sectionId) => sectionsById.get(sectionId))
+    .filter(Boolean);
+  const sectionLines = (
     await Promise.all(sections.map((section) => (section.route?.geojsonPath ? readRouteLines(publicRoot, section.route.geojsonPath) : [])))
   ).flat();
+  const connectionLines = (
+    await Promise.all(
+      (trailSystem.connections ?? []).map((connection) =>
+        connection.route?.geojsonPath ? readRouteLines(publicRoot, connection.route.geojsonPath) : []
+      )
+    )
+  ).flat();
+  const lines = [...sectionLines, ...connectionLines];
   const geometry = featureGeometry(lines, trailSystem);
   if (!geometry) return null;
   return {
@@ -188,7 +206,7 @@ export async function buildHikingOverviewGeoJSON({ hikes = [], trailSystems = []
   return {
     type: "FeatureCollection",
     name: "hiking-overview",
-    generatedFrom: "current hiking public route geometry",
+    generatedFrom: "current hiking public route and connection geometry",
     features
   };
 }

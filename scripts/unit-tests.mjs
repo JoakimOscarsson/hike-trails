@@ -1,7 +1,10 @@
 import assert from "node:assert/strict";
+import { mkdir, mkdtemp, rm, writeFile } from "node:fs/promises";
+import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { createServer as createViteServer } from "vite";
+import { buildHikingOverviewGeoJSON } from "./lib/build-overview-geojson.mjs";
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(scriptDir, "..");
@@ -39,6 +42,23 @@ function namedFilter(filters, id) {
   const filter = filters.find((candidate) => candidate.id === id);
   assert.ok(filter, `Expected filter "${id}" to exist`);
   return filter;
+}
+
+async function writeRouteFixture(publicRoot, publicUrl, coordinates) {
+  const cleanPath = publicUrl.startsWith("/") ? publicUrl.slice(1) : publicUrl;
+  const filePath = path.join(publicRoot, cleanPath);
+  await mkdir(path.dirname(filePath), { recursive: true });
+  await writeFile(
+    filePath,
+    `${JSON.stringify({
+      type: "Feature",
+      properties: {},
+      geometry: {
+        type: "LineString",
+        coordinates
+      }
+    })}\n`
+  );
 }
 
 const vite = await createViteServer({
@@ -151,6 +171,74 @@ try {
         notice: "This trail does not have explicit branch topology yet; sections are shown in catalog order."
       }
     ]);
+  });
+
+  test("includes trail-system branches and connections in hiking overview geometry", async () => {
+    const publicRoot = await mkdtemp(path.join(tmpdir(), "hiking-overview-"));
+    try {
+      await Promise.all([
+        writeRouteFixture(publicRoot, "/routes/main.geojson", [
+          [18, 59],
+          [18.1, 59.1]
+        ]),
+        writeRouteFixture(publicRoot, "/routes/branch.geojson", [
+          [18.2, 59.2],
+          [18.3, 59.3]
+        ]),
+        writeRouteFixture(publicRoot, "/routes/connection.geojson", [
+          [18.4, 59.4],
+          [18.5, 59.5]
+        ])
+      ]);
+
+      const overview = await buildHikingOverviewGeoJSON({
+        publicRoot,
+        trailSystems: [
+          {
+            id: "trail-system",
+            name: "Trail System",
+            location: { label: "Test" },
+            sections: [
+              { id: "main", route: { geojsonPath: "/routes/main.geojson" } },
+              { id: "branch", route: { geojsonPath: "/routes/branch.geojson" } }
+            ],
+            routeGroups: [
+              { id: "mainline", kind: "mainline", sectionIds: ["main"], connectsToSectionIds: [] },
+              { id: "branch", kind: "branch", sectionIds: ["branch"], connectsToSectionIds: ["main"] }
+            ],
+            connections: [
+              {
+                id: "main-branch-transfer",
+                mode: "ferry",
+                from: { sectionId: "main" },
+                to: { sectionId: "branch" },
+                route: { geojsonPath: "/routes/connection.geojson" }
+              }
+            ]
+          }
+        ]
+      });
+
+      const feature = overview.features.find((candidate) => candidate.properties.id === "trail-system");
+      assert.ok(feature);
+      assert.equal(feature.geometry.type, "MultiLineString");
+      assert.deepEqual(feature.geometry.coordinates, [
+        [
+          [18, 59],
+          [18.1, 59.1]
+        ],
+        [
+          [18.2, 59.2],
+          [18.3, 59.3]
+        ],
+        [
+          [18.4, 59.4],
+          [18.5, 59.5]
+        ]
+      ]);
+    } finally {
+      await rm(publicRoot, { recursive: true, force: true });
+    }
   });
 
   test("prefers curated trail-system presets when they match distance filters", () => {
