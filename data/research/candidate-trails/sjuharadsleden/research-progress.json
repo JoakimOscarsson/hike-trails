@@ -1,9 +1,11 @@
 {
   "trailId": "sjuharadsleden",
-  "lastUpdated": "2026-04-29T17:33:02Z",
-  "currentPhase": "stopped-after-overview-and-section-1-ready-to-push",
+  "lastUpdated": "2026-04-29T18:54:19Z",
+  "currentPhase": "section-3-complete-ready-for-section-4",
   "completedSections": [
-    "sjuharadsleden-etapp-1-hindas-station-hestrafors-if"
+    "sjuharadsleden-etapp-1-hindas-station-hestrafors-if",
+    "sjuharadsleden-etapp-2-hestrafors-if-ik-omega",
+    "sjuharadsleden-etapp-3-ik-omega-sok-stugan"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -27,32 +29,40 @@
     },
     "sjuharadsleden-etapp-2-hestrafors-if-ik-omega": {
       "overviewStatus": "complete",
-      "officialSourceStatus": "overview-only",
-      "routeGeometryStatus": "overview-gpx-audited",
-      "startEndCoordinateStatus": "overview-gpx-and-boras-sweref-converted",
-      "commuteAccessStatus": "pending",
-      "facilityResearchStatus": "pending",
-      "rulesSafetyStatus": "overview-only",
-      "synthesisStatus": "pending",
-      "importReadiness": "not-ready",
+      "officialSourceStatus": "complete",
+      "routeGeometryStatus": "complete-with-hestrafors-if-and-osm-direction-caveats",
+      "startEndCoordinateStatus": "complete-with-access-cluster-caveats",
+      "commuteAccessStatus": "complete-with-weak-start-transit-and-omegastugan-access-caveat",
+      "facilityResearchStatus": "complete-with-abborrsjon-currentness-caveat",
+      "rulesSafetyStatus": "complete-with-trailwide-qa-and-fire-status-caveats",
+      "synthesisStatus": "complete",
+      "importReadiness": "ready-for-normalization-with-caveats",
       "remainingQuestions": [
-        "Resolve the relationship between IK Omega and the separate 'Start etapp 3' coordinate on Borås Stad.",
-        "Verify Olsfors/IK Omega transit and parking access."
+        "Confirm whether Abborrsjön/Slätthult shelter is fully rebuilt/restored and suitable for overnight use.",
+        "Verify public/seasonal status for Abborrsjön toilet and Hestrafors IF/Omegastugan clubhouse toilets.",
+        "Confirm intended access semantics: route endpoint at IK Omega versus lower Omegastugan/Start etapp 3 access cluster.",
+        "Refresh Västtrafik line 122/402 schedules and SÄRF fire status before import."
       ]
     },
     "sjuharadsleden-etapp-3-ik-omega-sok-stugan": {
       "overviewStatus": "complete",
-      "officialSourceStatus": "overview-only",
-      "routeGeometryStatus": "overview-gpx-audited",
-      "startEndCoordinateStatus": "overview-gpx-and-boras-sweref-converted",
-      "commuteAccessStatus": "pending",
-      "facilityResearchStatus": "pending",
-      "rulesSafetyStatus": "overview-only",
-      "synthesisStatus": "pending",
-      "importReadiness": "not-ready",
+      "officialSourceStatus": "complete",
+      "routeGeometryStatus": "complete-with-sok-stugan-endpoint-and-osm-caveats",
+      "startEndCoordinateStatus": "complete-with-ik-omega-omegastugan-and-sok-stugan-access-caveats",
+      "commuteAccessStatus": "complete-with-weak-end-transit-and-stop-name-caveat",
+      "facilityResearchStatus": "complete-with-hultafors-old-new-shelter-and-sok-utility-caveats",
+      "rulesSafetyStatus": "complete-with-qa-contradiction-and-nature-value-caveats",
+      "synthesisStatus": "complete",
+      "importReadiness": "ready-for-normalization-with-caveats",
       "remainingQuestions": [
-        "Verify stage 3 start boundary against IK Omega/Omegastugan/Start etapp 3.",
-        "Locate wind shelter/viewpoint, toilet, waste and grill facilities from the PDF/map."
+        "Decide whether import display should use the Naturkartan section 3/4 continuity point or SOK-stugan clubhouse/access coordinate for the endpoint.",
+        "Resolve Naturkartan/STF trail-wide QA and reroute warnings versus Västsverige's statement that stages 3-7 are quality-assured.",
+        "Verify whether the Hultafors shelter cluster should model one new shelter, one old shelter, or a combined old/new shelter cluster.",
+        "Verify whether SOK-stugan toilets/changing/showers/sauna are publicly available to hikers outside club events or ski-season openings.",
+        "Find exact coordinates for Butorpet, Anneberg and Mölnedal croft remains if these POI records are needed.",
+        "Find exact coordinates for the Mölnebäcken crossing and small-mill context if these POI records are needed.",
+        "Decide whether Hultafors station, Rydets badplats and Sandared services should be exposed as nearby access/service metadata.",
+        "Refresh Västtrafik line 151/402 stop names and SÄRF fire status immediately before any import or publication."
       ]
     },
     "sjuharadsleden-etapp-4-sok-stugan-rya-asar": {
@@ -192,42 +202,229 @@
       "outputs": [
         "sections/sjuharadsleden-etapp-1-hindas-station-hestrafors-if.research.json"
       ]
+    },
+    {
+      "id": "section-2-batch-1",
+      "sectionId": "sjuharadsleden-etapp-2-hestrafors-if-ik-omega",
+      "startedAt": "2026-04-29T18:24:59Z",
+      "completedAt": "2026-04-29T18:39:30Z",
+      "lanes": [
+        "official-sources",
+        "route-geometry",
+        "facilities",
+        "transit-access",
+        "field-reports",
+        "rules-safety-currentness"
+      ],
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019dda7d-84b7-7c03-908c-226efe9ebea2",
+          "nickname": "Huygens"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019dda7d-84ee-7ea2-9817-4e49cc524c14",
+          "nickname": "Newton"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019dda7d-851d-7950-8303-f94797bfde01",
+          "nickname": "Pauli"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019dda7d-8546-7340-a41a-13a37a3279e6",
+          "nickname": "Plato"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019dda7d-8589-7f03-95a4-3425b65bb208",
+          "nickname": "Sagan"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019dda7d-862f-7370-8e5c-1d800a3d567f",
+          "nickname": "Peirce"
+        }
+      ],
+      "laneStatuses": [
+        {
+          "lane": "official-sources",
+          "status": "completed",
+          "completedAt": "2026-04-29T18:31:15Z",
+          "summary": "Confirmed official label Sjuhäradsleden etapp 2, Borås distance/time/difficulty 10 km/2.5 hours/Medel, Hestrafors IF in Brandshed start with parking/information at clubhouse, and Bollebygd/Västsverige description of mixed gravel road/path/forest road, hilly terrain and quiet forest lakes. Found official Abborrsjön/Slätthult rest area mention with grill, trash bin and shelter under restoration. Preserved contradictions: Naturkartan 9.3 km vs Borås 10 km, IK Omega vs Olsfors label, separate Start etapp 3 coordinate, and GPX start south of Hestrafors IF clubhouse/access coordinate."
+        },
+        {
+          "lane": "field-reports",
+          "status": "completed",
+          "completedAt": "2026-04-29T18:28:24Z",
+          "summary": "Found sparse but useful recent AllTrails evidence for section 2: 2025-11-16 slippery boardwalks/spångar without chicken wire, 2025-09-06 bugs/overgrowth and no bathrooms, conflicting 2025-05-25 bathroom availability, and winter poor-condition note from 2025-01-02. Older Utsidan/E1 evidence identifies Abborrsjön shelter use/history; Trailforks near Olsfors/Hultafors gives endpoint-area wetness/mud clues. No current formal closure/reroute found."
+        },
+        {
+          "lane": "route-geometry",
+          "status": "completed",
+          "completedAt": "2026-04-29T18:32:12Z",
+          "summary": "Audited Naturkartan GPX/API and OSM relation 5604822. Naturkartan GPX has 342 points, one segment, computed 9.304 km, max gap 285.3 m, no >500 m gaps, and direction Hestrafors/Brandshed to IK Omega. OSM relation is connected and matches GPX within about 20 m, but stored east-to-west; reverse OSM if used. GPX start is about 392 m south of Borås Hestrafors IF clubhouse/access coordinate; GPX end matches IK Omega and Etapp 3 GPX start within 7 m. Treat Start etapp 3 coordinate as access/map-label caveat, not section boundary."
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "status": "completed",
+          "completedAt": "2026-04-29T18:32:12Z",
+          "summary": "Confirmed active Naturkartan/Västkuststiftelsen trail-wide QA warning; no section-2-specific closure/reroute or protected-area intersection found. SÄRF is current fire-ban authority and status must be refreshed at import time. Found Abborrsjön/Slätthult shelter currentness conflict: Bollebygd still says under restoration, while Västkuststiftelsen 2024 report and Vindskyddskartan March 2025 note suggest a new shelter. No official potable water found; treat Aborrsjön water as untreated/unknown if mentioned."
+        },
+        {
+          "lane": "transit-access",
+          "status": "completed",
+          "completedAt": "2026-04-29T18:34:04Z",
+          "summary": "Modeled route endpoints separately from access clusters. Start route endpoint's closest stop is Holmens bro about 1.83 km away on Västtrafik line 122/preordered traffic; Hestrafors IF clubhouse cluster is about 392 m north of route start and has parking/information. End route endpoint/IK Omega has Olsfors and Bråtes bro stops about 0.98 km straight-line away on Västtrafik line 402. Omegastugan/Start etapp 3 access cluster is about 1.1 km south of GPX end and about 179-200 m from Bråtes bro; keep it as access metadata, not route boundary."
+        },
+        {
+          "lane": "facilities",
+          "status": "completed",
+          "completedAt": "2026-04-29T18:34:20Z",
+          "summary": "Found strong facility candidates at Rastplats Slätthult/Abborrsjön: shelter 57.7081968,12.6209842; toilet 57.7079620,12.6216014; waste basket 57.7081797,12.6210861; firepit/grill 57.7081802,12.6210283. Recommended importing these with shelter currentness caveat and no potable-water claim. Hestrafors IF/Bollevi, IK Omega/Omegastugan, Bråtes bro/Olsfors are access metadata. Hulta GK, Stockasjön/Gesebol and Vannasjön/Vanna kvarn are off-route/pending/suppressed for section 2."
+        }
+      ],
+      "summary": "Six parallel research/report agents completed for section 2 Hestrafors IF to IK Omega. Main thread synthesized official sources, GPX/OSM geometry, facilities, commute/access, field reports and rules/safety into the section research JSON.",
+      "outputs": [
+        "sections/sjuharadsleden-etapp-2-hestrafors-if-ik-omega.research.json"
+      ]
+    },
+    {
+      "id": "section-3-batch-1",
+      "sectionId": "sjuharadsleden-etapp-3-ik-omega-sok-stugan",
+      "startedAt": "2026-04-29T18:40:58Z",
+      "completedAt": "2026-04-29T18:54:19Z",
+      "lanes": [
+        "official-sources",
+        "route-geometry",
+        "facilities",
+        "transit-access",
+        "field-reports",
+        "rules-safety-currentness"
+      ],
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019dda8c-4332-7c33-a0e0-7aa9f768d0e5",
+          "nickname": "Chandrasekhar"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019dda8c-43d9-7e12-80e2-6b69c1d91b97",
+          "nickname": "Linnaeus"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019dda8c-445d-7af1-bd97-5853d1ac3d78",
+          "nickname": "Erdos"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019dda8c-44ea-7a41-86db-fd901a1dd7b3",
+          "nickname": "Halley"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019dda8c-458c-7f60-9c39-d4ee8dbd61a2",
+          "nickname": "Archimedes"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019dda8c-464e-7540-bcf4-4392cfffeed5",
+          "nickname": "Beauvoir"
+        }
+      ],
+      "laneStatuses": [
+        {
+          "lane": "main-thread-baseline",
+          "status": "completed",
+          "completedAt": "2026-04-29T18:44:20Z",
+          "summary": "Coordinator baseline pass checked Borås/Bollebygd section-3 text and PDFs, Naturkartan GPX and Västtrafik/OSM stop sanity data. Official baseline: IK Omega to SOK-stugan, 10 km, 2.5 hours, 83 m height difference, Medel, 30% asphalt/gravel road and 70% tractor road/path. Naturkartan GPX has 307 points, one segment, computed 10.312 km, start 57.6988914,12.6936707, end 57.732252,12.79876, max gap 296.1 m, no >500 m gaps. Early facility clue: Hultafors Vindskydd/Stora utsikten cluster near 57.7010,12.7568 has shelter/fireplace/toilet/waste evidence and sits directly on/near route around km 4.37. End transit appears weak from SOK-stugan, with Sandared-area stops about 2.4-2.5 km straight-line from the route endpoint."
+        },
+        {
+          "lane": "field-reports",
+          "status": "completed",
+          "completedAt": "2026-04-29T18:44:34Z",
+          "summary": "Found recent AllTrails activity on 2026-04-14 and 2026-04-12 without text notes, 2025-09-07 report of nice sections/shelter with toilet but too much gravel/asphalt and insects, 2025-08-23 report of great conditions/views, bathrooms, dog-friendly and easy parking, plus 2024-10-05 muddy conditions. Trailforks/Fjällaberg and Olsfors-Hultafors segments add wet/mud clues; older Hjälmrydshästar reverse walk confirms place sequence Mölnebäcken, Mölnesjö, Håmosse, Viaredssjön, Fjälla. No current formal closure/reroute found."
+        },
+        {
+          "lane": "route-geometry",
+          "status": "completed",
+          "completedAt": "2026-04-29T18:47:05Z",
+          "summary": "Audited Naturkartan GPX/API and OSM relation 4176438. Naturkartan GPX has 307 points, one segment, computed 10.312 km, max gap 296.1 m, no >500 m gaps, start matches IK Omega and section 2 end within about 7 m, and end joins section 4 GPX start within 2.1 m. Borås SOK-stugan coordinate is about 191 m west of the Naturkartan GPX end. OSM is useful but has reverse/awkward member order, one real 51.5 m continuity gap, and ends nearer the SOK-stugan clubhouse coordinate than Naturkartan."
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "status": "completed",
+          "completedAt": "2026-04-29T18:47:23Z",
+          "summary": "Found no section-3-specific closure/reroute or formal protected-area intersection. Naturkartan/STF trail-wide QA/reroute warnings conflict with Västsverige's claim that stages 3-7 are quality-assured. Stage PDF identifies Håmossen as class I nature value and Mölnebäcken as class II nature value, which are sensitivity notes rather than formal reserve rules. SÄRF fire status must be dynamic; stage PDF and Borås identify fireplace/grill facilities but they are conditional on current fire status. No official potable water found."
+        },
+        {
+          "lane": "transit-access",
+          "status": "completed",
+          "completedAt": "2026-04-29T18:47:38Z",
+          "summary": "Modeled IK Omega route start separately from lower Omegastugan/Olsfors access cluster about 1.14 km south. Closest start stops are Olsfors and Bråtes bro, each about 0.99 km straight-line from the route start on Västtrafik line 402; Bråtes bro is best for Omegastugan access. End route/SOK-stugan closest current stop is Skogshill övre about 1.68 km straight-line on Västtrafik line 151; Sandared station is a secondary stronger hub about 2.55 km away. Older/local pages mention Sandevi, but current Västtrafik/GTFS did not support that stop name."
+        },
+        {
+          "lane": "official-sources",
+          "status": "completed",
+          "completedAt": "2026-04-29T18:48:08Z",
+          "summary": "Confirmed official labels Sjuhäradsleden etapp 3 / IK Omega - SOK-stugan, 10 km, 2.5 hours, Medel/Blå-medel, 83 m height difference, 30% asphalt/gravel and 70% tractor road/path. Section starts in Bollebygd and enters Borås; Borås says this is the first stage through Borås. Official sources identify Hultafors/Stora utsikten shelter with fireplace, compost toilet and waste bin, Håmossen class I nature value, Butorpet/Anneberg/Mölnedal croft remains, Mölnesjö/Mölnebäcken class II nature value, and SOK-stugan/Nordtorp information/grill context. Preserved Naturkartan/STF warning versus Västsverige stage 3-7 quality-assured contradiction."
+        },
+        {
+          "lane": "facilities",
+          "status": "completed",
+          "completedAt": "2026-04-29T18:48:34Z",
+          "summary": "Found strong Hultafors Vindskydd/Stora utsikten/Viaredssjön cluster around 57.70095,12.75675 with shelter, rest area, viewpoint, fireplace, toilet and waste; OSM/Vindskyddskartan indicate both new and old shelter caveat and water of unknown quality only. Confirmed IK Omega as route-start access only; Omegastugan/Olsfors as off-route access cluster; SOK-stugan/Nordtorp as endpoint access with parking, information and public grill but clubhouse toilets/showers/sauna pending; Håmossen, croft remains and Mölnesjön/Mölnebäcken as POI/context only; Sandared/Hultafors/Rydets access/service/swim items mostly off-route metadata or suppression."
+        }
+      ],
+      "summary": "Six parallel research/report agents completed for section 3 IK Omega to SOK-stugan. Main thread synthesized official sources, Naturkartan/OSM geometry, Hultafors/SOK-stugan facilities, commute/access, field reports, rules/safety and currentness into the section research JSON.",
+      "outputs": [
+        "sections/sjuharadsleden-etapp-3-ik-omega-sok-stugan.research.json"
+      ]
     }
   ],
   "sourceCoverage": {
     "officialTrailOverview": "good",
     "officialSectionInventory": "good",
-    "routeGeometry": "section-1-complete-plus-good-overview-gpx-for-all-stages",
-    "osmRelations": "good-overview",
-    "facilities": "section-1-complete-with-pending-verification-items; overview-only-for-sections-2-10",
-    "commuteAccess": "section-1-complete; pending-for-sections-2-10",
-    "fieldReports": "section-1-complete; pending-for-sections-2-10",
-    "rulesSafety": "section-1-complete; overview-only-for-sections-2-10"
+    "routeGeometry": "sections-1-through-3-complete-plus-good-overview-gpx-for-all-stages",
+    "osmRelations": "sections-1-through-3-cross-checked-plus-good-overview",
+    "facilities": "sections-1-through-3-complete-with-pending-verification-items; overview-only-for-sections-4-10",
+    "commuteAccess": "sections-1-through-3-complete-with-weak-transit-caveats; pending-for-sections-4-10",
+    "fieldReports": "sections-1-through-3-complete; pending-for-sections-4-10",
+    "rulesSafety": "sections-1-through-3-complete-with-trailwide-qa-caveats; overview-only-for-sections-4-10"
   },
   "knownGaps": [
-    "Only section 1 has a synthesized section JSON packet; sections 2 through 10 still need six-agent section research and synthesis.",
+    "Sections 1 through 3 have synthesized section JSON packets; sections 4 through 10 still need six-agent section research and synthesis.",
     "Section 1 end access remains weak: closest transit is Holmens bro, about 2 km away, served by limited/preordered Västtrafik line 122.",
     "Section 1 route endpoint and Hestrafors IF/Bollevi official access coordinate differ by about 350-400 m; model separately unless confirmed by trail manager.",
     "Section 1 Klippan naturreservat overlap and winter ski-track access near Hindås/Hindåsgården remain unresolved.",
     "Section 1 facilities needing coordinate/currentness verification include Hindås potable tap, Västra Nedsjön seasonal toilet/grill, Hindås Camping, Petaredbackens picnic shelter, and Hestrafors IF public toilet/access.",
-    "Commute/access endpoints for sections 2 through 10 need current stop/operator coordinates and confidence.",
-    "Facilities for sections 2 through 10 need coordinate verification and import/suppress/pending decisions.",
-    "Protected-area rules and fire/dog/hunting/current-condition details need section-level research for sections 2 through 10.",
-    "Stage 2/3 boundary and Stage 8 Böne coordinate typo need verification.",
+    "Section 2 Abborrsjön/Slätthult shelter and toilet currentness needs verification before final import.",
+    "Section 2 access semantics remain important: keep IK Omega route endpoint separate from lower Omegastugan/Start etapp 3 access cluster unless trail manager confirms otherwise.",
+    "Section 3 endpoint/access semantics remain important: keep IK Omega route boundary separate from lower Omegastugan/Olsfors access, and keep Naturkartan section-continuity endpoint separate from SOK-stugan/Nordtorp access/facility cluster unless trail manager confirms otherwise.",
+    "Section 3 Hultafors shelter cluster likely has old/new shelter currentness ambiguity; SOK-stugan clubhouse utilities remain pending/suppressed unless public access is verified.",
+    "Section 3 current nearest end stop appears to be Skogshill övre, while older/local pages mention Sandevi/Backabo; refresh Västtrafik before import.",
+    "Commute/access endpoints for sections 4 through 10 need current stop/operator coordinates and confidence.",
+    "Facilities for sections 4 through 10 need coordinate verification and import/suppress/pending decisions.",
+    "Protected-area rules and fire/dog/hunting/current-condition details need section-level research for sections 4 through 10.",
+    "Stage 8 Böne coordinate typo still needs verification.",
     "Stage 7 GPX has one >500 m simplification gap needing route-geometry review."
   ],
   "nextActions": [
-    "Commit and push branch codex/sjuharadsleden-research for handoff.",
-    "On the next computer/thread, resume from this branch and start section 2 with the required six parallel research/report agents.",
+    "Start section 4 SOK-stugan - Rya åsar with the required six parallel research/report agents.",
     "Do not edit overview/shared files concurrently from multiple threads; use one coordinator or per-section files if parallelizing later sections.",
-    "Repeat the six-agent batch/synthesis cycle for sections 2 through 10."
+    "Repeat the six-agent batch/synthesis cycle for sections 4 through 10."
   ],
   "handoffNotes": [
     "Write only under data/research/candidate-trails/sjuharadsleden/.",
     "Do not run generated-data build/import commands.",
-    "The worktree branch is codex/sjuharadsleden-research at /Users/joakim/Documents/codex/hike-trails-sjuharadsleden-research.",
-    "Per user change of plan, this handoff intentionally stops after the overview and section 1; no section 2 work has begun.",
+    "The worktree branch is codex/sjuharadsleden-research at /workspaces/hike-trails-codex-sjuharadsleden-research.",
     "Section 1 file is sections/sjuharadsleden-etapp-1-hindas-station-hestrafors-if.research.json and is ready for normalization review with caveats, not runtime import.",
+    "Section 2 file is sections/sjuharadsleden-etapp-2-hestrafors-if-ik-omega.research.json and is ready for normalization review with caveats, not runtime import.",
+    "Section 3 file is sections/sjuharadsleden-etapp-3-ik-omega-sok-stugan.research.json and is ready for normalization review with caveats, not runtime import.",
     "Use Naturkartan GPX URLs as primary geometry candidates, with OSM relations as cross-checks.",
     "Keep Naturkartan's Västkuststiftelsen quality-assurance warning visible unless a newer official source supersedes it."
   ]

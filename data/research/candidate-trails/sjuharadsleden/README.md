@@ -8,10 +8,12 @@ Current scope:
 
 - `trail.research.json`: whole-trail overview and official section inventory.
 - `sections/sjuharadsleden-etapp-1-hindas-station-hestrafors-if.research.json`: completed section 1 packet from the six-agent section research batch.
-- `sections/*.research.json`: later per-section packets for sections 2-10.
+- `sections/sjuharadsleden-etapp-2-hestrafors-if-ik-omega.research.json`: completed section 2 packet from the six-agent section research batch.
+- `sections/sjuharadsleden-etapp-3-ik-omega-sok-stugan.research.json`: completed section 3 packet from the six-agent section research batch.
+- `sections/*.research.json`: later per-section packets for sections 4-10.
 - `research-progress.json`: continuous handoff/progress ledger for this trail.
 
-Handoff status on 2026-04-29: per user change of plan, this branch intentionally stops after the overview and section 1. Sections 2-10 remain pending and should be resumed from `research-progress.json` in a new thread/worktree.
+Handoff status on 2026-04-29: overview plus sections 1-3 are complete enough for normalization review with caveats. Sections 4-10 remain pending and should be resumed from `research-progress.json`.
 
 ## Overview
 
@@ -46,6 +48,8 @@ Important currentness caveat: Naturkartan states that the whole Sjuhäradsleden 
 - Naturkartan exposes per-stage GPX files for all 10 stages. The GPX coordinate order matches the official Hindås-to-Mullsjö stage order.
 - Borås Stad publishes SWEREF 99 TM-style endpoint coordinates. Converted WGS84 coordinates generally agree with GPX endpoints; section-level packets should keep both when useful and explain any endpoint alias differences.
 - Section 1 is ready for normalization review with caveats, not runtime import. Important unresolved items include the Hestrafors IF/Bollevi access cluster versus GPX endpoint, possible Klippan naturreservat overlap, winter ski-track sensitivity near Hindås/Hindåsgården, weak end transit, and currentness checks for several facilities.
+- Section 2 is ready for normalization review with caveats, not runtime import. Important unresolved items include the Hestrafors IF/Bollevi access cluster versus route-line start, IK Omega route endpoint versus lower Omegastugan/Start etapp 3 access cluster, Abborrsjön/Slätthult shelter and toilet currentness, no confirmed potable water, weak Hestrafors/Brandshed public transport, and dynamic fire-ban checks.
+- Section 3 is ready for normalization review with caveats, not runtime import. Important unresolved items include the IK Omega route endpoint versus lower Omegastugan/Olsfors access cluster, Naturkartan section-continuity endpoint versus SOK-stugan/Nordtorp access cluster, Hultafors old/new shelter modeling, SOK-stugan utility public-access verification, no confirmed potable water, weak SOK-stugan end transit, and the Naturkartan/STF QA warning versus Västsverige quality-assured statement.
 - Stage 8 on the Borås page appears to have a likely typo for Böne kyrka (`4120226` instead of `412026`), while adjacent stage 9 and the GPX endpoint support `412026`.
 - OSM lists a parent relation plus 10 child relations and marks all 100 percent complete. Use OSM as a geometry cross-check, not the primary official source.
 - Do not integrate into `data/source/hiking/**`, `public/data/**`, or generated outputs from this research directory.
