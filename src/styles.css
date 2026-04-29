@@ -746,6 +746,37 @@ dd {
   pointer-events: none;
 }
 
+.poi-cluster-marker.facility-cluster-marker.commute-cluster-marker:not(.poi-cluster-origin-dot) {
+  background: linear-gradient(135deg, #20321f 0 50%, #1f4864 50% 100%);
+}
+
+.poi-cluster-origin-dot {
+  background: #20321f;
+  color: transparent;
+  box-shadow: 0 5px 12px rgba(32, 35, 31, 0.24);
+  cursor: pointer;
+}
+
+.poi-cluster-origin-dot.commute-cluster-marker {
+  background: #1f4864;
+}
+
+.poi-cluster-origin-dot.facility-cluster-marker.commute-cluster-marker {
+  background: linear-gradient(135deg, #20321f 0 50%, #1f4864 50% 100%);
+}
+
+.poi-cluster-origin-dot span {
+  display: none;
+}
+
+.poi-cluster-origin-dot::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: #f5c84b;
+}
+
 .commute-marker-train {
   background: #262f74;
 }

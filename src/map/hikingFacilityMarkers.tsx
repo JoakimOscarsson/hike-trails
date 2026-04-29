@@ -1,6 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import L from "leaflet";
 import type { TrailFacility } from "../types";
+import { addCommuteMarker, commuteStopsForAccessPoints, type CommuteMapStop } from "./hikingCommuteMarkers";
 import {
   escapeHtml,
   facilityProximityText,
@@ -8,12 +9,15 @@ import {
   facilityTypeLabels,
   isCloseTrailFacility,
   isOffRouteFacility,
-  type FacilityType
+  type FacilityType,
+  type SelectedTrailAccessPoint
 } from "./hikingFacilities";
 
 const facilityMarkerSize = 26;
 const facilityMarkerAnchor = facilityMarkerSize / 2;
-const markerOverlapPixels = 30;
+const poiOverlapPixels = 38;
+const collapsedClusterSize = 32;
+const originDotSize = 14;
 
 export function visibleHikingMapFacilities(facilities: TrailFacility[] | undefined, visibleFacilityTypes?: Set<FacilityType>) {
   return (facilities ?? []).filter(
@@ -74,111 +78,211 @@ function addFacilityMarker({
   return marker;
 }
 
-type FacilityMarkerGroup = {
-  facilities: TrailFacility[];
+type FacilityPoiMarkerItem = {
+  kind: "facility";
+  id: string;
+  coordinates: [number, number];
+  facility: TrailFacility;
+};
+
+type CommutePoiMarkerItem = {
+  kind: "commute";
+  id: string;
+  coordinates: [number, number];
+  stop: CommuteMapStop;
+};
+
+type PoiMarkerItem = FacilityPoiMarkerItem | CommutePoiMarkerItem;
+
+type PoiMarkerGroup = {
+  items: PoiMarkerItem[];
   center: [number, number];
   centerPoint: L.Point;
 };
 
-function clusteredFacilityPopup(facilities: TrailFacility[]) {
-  const items = facilities
-    .map(
-      (facility) =>
-        `<li><strong>${escapeHtml(facility.name)}</strong><span>${escapeHtml(facilityTypeLabels[facility.type])}</span></li>`
-    )
-    .join("");
-  return `<strong>${facilities.length} facilities here</strong><ul class="facility-cluster-popup">${items}</ul>`;
+function markerItemLabel(item: PoiMarkerItem) {
+  return item.kind === "facility" ? item.facility.name : item.stop.name;
 }
 
-function addClusteredFacilityMarker({
-  facilities,
+function markerItemTypeLabel(item: PoiMarkerItem) {
+  if (item.kind === "facility") return facilityTypeLabels[item.facility.type];
+  return item.stop.type === "bus" ? "Bus stop" : "Train stop";
+}
+
+function markerItemClasses(item: PoiMarkerItem) {
+  if (item.kind === "facility") return [`facility-cluster-has-${item.facility.type}`];
+  return [`commute-cluster-has-${item.stop.type}`];
+}
+
+function clusterSummary(items: PoiMarkerItem[]) {
+  const facilityCount = items.filter((item) => item.kind === "facility").length;
+  const commuteCount = items.length - facilityCount;
+  if (facilityCount && commuteCount) return `${facilityCount} facilities and ${commuteCount} transit stops here. Click to expand.`;
+  if (commuteCount) return `${commuteCount} transit stops here. Click to expand.`;
+  return `${facilityCount} facilities here. Click to expand.`;
+}
+
+function clusteredPoiPopup(items: PoiMarkerItem[]) {
+  const listItems = items
+    .map(
+      (item) =>
+        `<li><strong>${escapeHtml(markerItemLabel(item))}</strong><span>${escapeHtml(markerItemTypeLabel(item))}</span></li>`
+    )
+    .join("");
+  return `<strong>${items.length} places here</strong><ul class="facility-cluster-popup">${listItems}</ul>`;
+}
+
+function clusterIcon(items: PoiMarkerItem[], expanded = false) {
+  const hasFacilities = items.some((item) => item.kind === "facility");
+  const hasCommute = items.some((item) => item.kind === "commute");
+  const clusterTypeClasses = [...new Set(items.flatMap(markerItemClasses))].join(" ");
+  const className = [
+    "poi-cluster-marker",
+    hasFacilities ? "facility-marker facility-cluster-marker" : "",
+    hasCommute ? "commute-marker commute-cluster-marker" : "",
+    expanded ? "poi-cluster-origin-dot" : "",
+    clusterTypeClasses
+  ]
+    .filter(Boolean)
+    .join(" ");
+  const size = expanded ? originDotSize : collapsedClusterSize;
+  const anchor = size / 2;
+  return L.divIcon({
+    className,
+    html: expanded ? renderToStaticMarkup(<span aria-hidden="true" />) : renderToStaticMarkup(<span>{items.length}</span>),
+    iconSize: [size, size],
+    iconAnchor: [anchor, anchor],
+    popupAnchor: [0, -anchor]
+  });
+}
+
+function setMarkerTitle(marker: L.Marker, title: string) {
+  marker.options.title = title;
+  marker.getElement()?.setAttribute("title", title);
+}
+
+function addPoiMarker({
+  coordinates,
+  item,
+  markerLayerGroup,
+  shouldOpen = false,
+  spidered = false
+}: {
+  coordinates?: [number, number];
+  item: PoiMarkerItem;
+  markerLayerGroup: L.LayerGroup;
+  shouldOpen?: boolean;
+  spidered?: boolean;
+}) {
+  if (item.kind === "facility") {
+    return addFacilityMarker({
+      coordinates,
+      facility: item.facility,
+      markerLayerGroup,
+      shouldOpen,
+      spidered
+    });
+  }
+
+  return addCommuteMarker({
+    coordinates,
+    markerLayerGroup,
+    spidered,
+    stop: item.stop
+  });
+}
+
+function addClusteredPoiMarker({
+  items,
   markerLayerGroup,
   map,
   center,
   focusedFacilityId
 }: {
-  facilities: TrailFacility[];
+  items: PoiMarkerItem[];
   markerLayerGroup: L.LayerGroup;
   map: L.Map;
   center: [number, number];
   focusedFacilityId?: string;
 }) {
-  const clusterTypeClasses = [...new Set(facilities.map((facility) => `facility-cluster-has-${facility.type}`))].join(" ");
-  const icon = L.divIcon({
-    className: `facility-marker facility-cluster-marker ${clusterTypeClasses}`,
-    html: renderToStaticMarkup(<span>{facilities.length}</span>),
-    iconSize: [32, 32],
-    iconAnchor: [16, 16],
-    popupAnchor: [0, -16]
-  });
+  const title = clusterSummary(items);
   const marker = L.marker(center, {
-    icon,
-    title: `${facilities.length} facilities here. Click to expand.`
+    icon: clusterIcon(items),
+    title
   })
-    .bindPopup(clusteredFacilityPopup(facilities))
-    .bindTooltip(`${facilities.length} facilities here. Click to expand.`, { direction: "top", offset: [0, -14] })
+    .bindPopup(clusteredPoiPopup(items))
+    .bindTooltip(title, { direction: "top", offset: [0, -14] })
     .addTo(markerLayerGroup);
 
   const shouldExpandFocusedFacility = focusedFacilityId
-    ? facilities.some((facility) => facility.id === focusedFacilityId)
+    ? items.some((item) => item.kind === "facility" && item.facility.id === focusedFacilityId)
     : false;
   const expandedMarkers: L.Layer[] = [];
-  const toggleExpandedFacilities = () => {
+  const toggleExpandedPois = () => {
     if (expandedMarkers.length) {
       for (const expandedMarker of expandedMarkers.splice(0)) markerLayerGroup.removeLayer(expandedMarker);
       marker.closePopup();
+      marker.setIcon(clusterIcon(items));
+      marker.bindTooltip(title, { direction: "top", offset: [0, -14] });
+      setMarkerTitle(marker, title);
+      marker.setZIndexOffset(0);
       return;
     }
 
-    const radius = Math.max(34, 14 + facilities.length * 5);
+    marker.closePopup();
+    marker.closeTooltip();
+    marker.unbindTooltip();
+    marker.setIcon(clusterIcon(items, true));
+    setMarkerTitle(marker, "Collapse expanded places.");
+    marker.setZIndexOffset(900);
+
+    const radius = Math.max(42, 18 + items.length * 5);
     const centerPoint = map.latLngToLayerPoint(center);
-    facilities.forEach((facility, index) => {
-      const angle = (Math.PI * 2 * index) / facilities.length - Math.PI / 2;
+    items.forEach((item, index) => {
+      const angle = (Math.PI * 2 * index) / items.length - Math.PI / 2;
       const spiderPoint = centerPoint.add(L.point(Math.cos(angle) * radius, Math.sin(angle) * radius));
       const spiderCoordinates = map.layerPointToLatLng(spiderPoint);
       const spiderLeg = L.polyline([center, spiderCoordinates], {
-        className: "facility-spider-leg",
-        color: "#20321f",
+        className: item.kind === "facility" ? "facility-spider-leg poi-spider-leg" : "commute-spider-leg poi-spider-leg",
+        color: item.kind === "facility" ? "#20321f" : "#1f4864",
         opacity: 0.55,
         weight: 2
       }).addTo(markerLayerGroup);
-      const expandedMarker = addFacilityMarker({
-        facility,
+      const expandedMarker = addPoiMarker({
+        item,
         markerLayerGroup,
         coordinates: [spiderCoordinates.lat, spiderCoordinates.lng],
         spidered: true,
-        shouldOpen: facility.id === focusedFacilityId
+        shouldOpen: item.kind === "facility" && item.facility.id === focusedFacilityId
       });
       expandedMarkers.push(spiderLeg);
       if (expandedMarker) expandedMarkers.push(expandedMarker);
     });
-    if (!focusedFacilityId) marker.openPopup();
   };
-  marker.on("click", toggleExpandedFacilities);
-  if (shouldExpandFocusedFacility) toggleExpandedFacilities();
+  marker.on("click", toggleExpandedPois);
+  if (shouldExpandFocusedFacility) toggleExpandedPois();
 
   return marker;
 }
 
-function createFacilityMarkerGroups(facilities: TrailFacility[], map: L.Map) {
-  const groups: FacilityMarkerGroup[] = [];
+function createPoiMarkerGroups(items: PoiMarkerItem[], map: L.Map) {
+  const groups: PoiMarkerGroup[] = [];
 
-  for (const facility of facilities) {
-    if (!facility.coordinates) continue;
-    const point = map.latLngToLayerPoint(facility.coordinates);
-    const group = groups.find((candidate) => candidate.centerPoint.distanceTo(point) < markerOverlapPixels);
+  for (const item of items) {
+    const point = map.latLngToLayerPoint(item.coordinates);
+    const group = groups.find((candidate) => candidate.centerPoint.distanceTo(point) < poiOverlapPixels);
     if (!group) {
-      groups.push({ facilities: [facility], center: facility.coordinates, centerPoint: point });
+      groups.push({ items: [item], center: item.coordinates, centerPoint: point });
       continue;
     }
 
-    group.facilities.push(facility);
+    group.items.push(item);
     const averageLat =
-      group.facilities.reduce((sum, groupedFacility) => sum + (groupedFacility.coordinates?.[0] ?? 0), 0) /
-      group.facilities.length;
+      group.items.reduce((sum, groupedItem) => sum + groupedItem.coordinates[0], 0) /
+      group.items.length;
     const averageLng =
-      group.facilities.reduce((sum, groupedFacility) => sum + (groupedFacility.coordinates?.[1] ?? 0), 0) /
-      group.facilities.length;
+      group.items.reduce((sum, groupedItem) => sum + groupedItem.coordinates[1], 0) /
+      group.items.length;
     group.center = [averageLat, averageLng];
     group.centerPoint = map.latLngToLayerPoint(group.center);
   }
@@ -186,32 +290,57 @@ function createFacilityMarkerGroups(facilities: TrailFacility[], map: L.Map) {
   return groups;
 }
 
-export function addHikingFacilityMarkers({
+function facilityPoiItems(facilities: TrailFacility[]) {
+  return facilities.flatMap((facility): PoiMarkerItem[] => {
+    if (!facility.coordinates) return [];
+    return [{ kind: "facility", id: facility.id, coordinates: facility.coordinates, facility }];
+  });
+}
+
+function commutePoiItems(accessPoints: SelectedTrailAccessPoint[] = [], visibleTypes?: Set<CommuteMapStop["type"]>) {
+  return commuteStopsForAccessPoints(accessPoints)
+    .filter((stop) => !visibleTypes || visibleTypes.has(stop.type))
+    .map(
+      (stop): PoiMarkerItem => ({
+        kind: "commute",
+        id: stop.id,
+        coordinates: stop.coordinates,
+        stop
+      })
+    );
+}
+
+export function addHikingPoiMarkers({
+  accessPoints,
   facilities,
   markerLayerGroup,
   map,
-  focusedFacilityId
+  focusedFacilityId,
+  visibleCommuteTypes
 }: {
+  accessPoints?: SelectedTrailAccessPoint[];
   facilities: TrailFacility[];
   markerLayerGroup: L.LayerGroup;
   map: L.Map;
   focusedFacilityId?: string;
+  visibleCommuteTypes?: Set<CommuteMapStop["type"]>;
 }) {
   const markers: L.Layer[] = [];
+  const markerItems = [...facilityPoiItems(facilities), ...commutePoiItems(accessPoints, visibleCommuteTypes)];
 
-  for (const group of createFacilityMarkerGroups(facilities, map)) {
-    if (group.facilities.length === 1) {
-      const marker = addFacilityMarker({
-        facility: group.facilities[0],
+  for (const group of createPoiMarkerGroups(markerItems, map)) {
+    if (group.items.length === 1) {
+      const marker = addPoiMarker({
+        item: group.items[0],
         markerLayerGroup,
-        shouldOpen: group.facilities[0].id === focusedFacilityId
+        shouldOpen: group.items[0].kind === "facility" && group.items[0].facility.id === focusedFacilityId
       });
       if (marker) markers.push(marker);
       continue;
     }
 
-    const marker = addClusteredFacilityMarker({
-      facilities: group.facilities,
+    const marker = addClusteredPoiMarker({
+      items: group.items,
       markerLayerGroup,
       map,
       center: group.center,

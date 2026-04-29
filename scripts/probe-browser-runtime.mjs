@@ -708,7 +708,7 @@ async function assertHikingMapHelpers(client) {
   const expandedCluster = await evaluate(
     client,
     `(() => {
-      const cluster = document.querySelector(".facility-cluster-marker");
+      const cluster = document.querySelector(".facility-cluster-marker:not(.poi-cluster-origin-dot)");
       if (!cluster) return { ok: false };
       cluster.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, view: window }));
       return { ok: true };
@@ -718,15 +718,46 @@ async function assertHikingMapHelpers(client) {
     addError("browser hiking map helpers", "Could not find an overlapping facility cluster marker to expand.");
   } else {
     await waitFor(
-      () => evaluate(client, `document.querySelectorAll(".facility-spider-marker").length > 1`),
+      () =>
+        evaluate(
+          client,
+          `(() => {
+            const spiderMarkers = document.querySelectorAll(".facility-spider-marker, .commute-spider-marker").length;
+            const originDots = document.querySelectorAll(".poi-cluster-origin-dot").length;
+            const openPopups = document.querySelectorAll(".leaflet-popup").length;
+            return spiderMarkers > 1 && originDots > 0 && openPopups === 0;
+          })()`
+        ),
       { timeoutMs: 4_000, label: "facility cluster expansion" }
+    );
+  }
+
+  const collapsedCluster = await evaluate(
+    client,
+    `(() => {
+      const originDot = document.querySelector(".poi-cluster-origin-dot");
+      if (!originDot) return { ok: false };
+      originDot.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, view: window }));
+      return { ok: true };
+    })()`
+  );
+  if (!collapsedCluster.ok) {
+    addError("browser hiking map helpers", "Expanded cluster did not leave a clickable origin dot for collapse.");
+  } else {
+    await waitFor(
+      () =>
+        evaluate(
+          client,
+          `document.querySelectorAll(".facility-spider-marker, .commute-spider-marker").length === 0 && document.querySelectorAll(".poi-cluster-origin-dot").length === 0`
+        ),
+      { timeoutMs: 4_000, label: "cluster recollapse" }
     );
   }
 
   const expandedCommuteCluster = await evaluate(
     client,
     `(() => {
-      const cluster = document.querySelector(".commute-cluster-marker");
+      const cluster = document.querySelector(".commute-cluster-marker:not(.poi-cluster-origin-dot)");
       if (!cluster) return { ok: false };
       cluster.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, view: window }));
       return { ok: true };
@@ -736,7 +767,17 @@ async function assertHikingMapHelpers(client) {
     addError("browser hiking map helpers", "Could not find an overlapping commute cluster marker to expand.");
   } else {
     await waitFor(
-      () => evaluate(client, `document.querySelectorAll(".commute-spider-marker").length > 1`),
+      () =>
+        evaluate(
+          client,
+          `(() => {
+            const commuteSpiders = document.querySelectorAll(".commute-spider-marker").length;
+            const allSpiders = document.querySelectorAll(".facility-spider-marker, .commute-spider-marker").length;
+            const originDots = document.querySelectorAll(".poi-cluster-origin-dot").length;
+            const openPopups = document.querySelectorAll(".leaflet-popup").length;
+            return commuteSpiders > 0 && allSpiders > 1 && originDots > 0 && openPopups === 0;
+          })()`
+        ),
       { timeoutMs: 4_000, label: "commute cluster expansion" }
     );
   }

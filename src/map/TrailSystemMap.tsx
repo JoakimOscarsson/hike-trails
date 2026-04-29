@@ -2,8 +2,7 @@ import React from "react";
 import L from "leaflet";
 import type { TrailFacility, TrailSection, TrailSystem } from "../types";
 import { fitSelectedLayersOrMarkers } from "./fitMapBounds";
-import { addHikingCommuteMarkers } from "./hikingCommuteMarkers";
-import { addHikingFacilityMarkers, visibleHikingMapFacilities } from "./hikingFacilityMarkers";
+import { addHikingPoiMarkers, visibleHikingMapFacilities } from "./hikingFacilityMarkers";
 import { selectedAccessPoints, type FacilityType } from "./hikingFacilities";
 import {
   drawTrailSectionRoutes,
@@ -125,13 +124,14 @@ export function TrailSystemMap({
 
     function drawPointsOfInterest() {
       poiLayerGroup.clearLayers();
-      addHikingFacilityMarkers({
+      addHikingPoiMarkers({
+        accessPoints,
         facilities: markerFacilities,
+        visibleCommuteTypes,
         markerLayerGroup: poiLayerGroup,
         map,
         focusedFacilityId: focusTarget?.id
       });
-      addHikingCommuteMarkers({ accessPoints, markerLayerGroup: poiLayerGroup, map, visibleTypes: visibleCommuteTypes });
     }
 
     map.on("zoomend", drawPointsOfInterest);
