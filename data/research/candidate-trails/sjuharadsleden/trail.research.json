@@ -1,8 +1,8 @@
 {
   "schemaVersion": "trail-overview-research-v1",
   "trailId": "sjuharadsleden",
-  "lastUpdated": "2026-04-29T19:45:00Z",
-  "status": "overview-complete-sections-1-6-complete-sections-7-10-pending",
+  "lastUpdated": "2026-04-29T20:08:00Z",
+  "status": "overview-complete-sections-1-7-complete-sections-8-10-pending",
   "researchOnly": true,
   "doNotImportDirectly": true,
   "trail": {
@@ -717,6 +717,12 @@
       "nextAction": "Normalize Rölle geometry before import, verify Blackered/Komskälet access in the live Västtrafik planner, and verify Raska-Minas water/facility coordinates before exposing them."
     },
     {
+      "topic": "Stage 7 geometry, Prången endpoint and Blackered access caveats",
+      "detail": "Section 7 synthesis found an 838.6 m simplified chord in Naturkartan/Västsverige geometry requiring densification, a 255 m difference between the Naturkartan route endpoint and the Borås/KML Prångens Camping access coordinate, weak Blackered public transport, and a stale Komskälet/Kommskälet stop reference.",
+      "severity": "medium",
+      "nextAction": "Densify section 7 geometry before import, model Prångens route endpoint and campsite access separately, suppress Komskälet until live Västtrafik verification, and deduplicate Prångens endpoint facilities."
+    },
+    {
       "topic": "Stage 8 Böne coordinate typo",
       "detail": "Borås stage 8 line appears to include an extra digit in the easting for Böne kyrka; stage 9 and GPX support the shorter coordinate.",
       "severity": "low",
@@ -737,7 +743,7 @@
   ],
   "importReadiness": {
     "overview": "not-ready-for-runtime-import",
-    "reason": "Whole-trail overview is established and sections 1-6 have section research files, but sections 7-10 still need section research, commute access, facilities, protected-area rules and field/currentness reports.",
-    "safeNextStep": "Run the section 7 six-agent research batch and synthesize one section research JSON at a time under this candidate directory."
+    "reason": "Whole-trail overview is established and sections 1-7 have section research files, but sections 8-10 still need section research, commute access, facilities, protected-area rules and field/currentness reports.",
+    "safeNextStep": "Run the section 8 six-agent research batch and synthesize one section research JSON at a time under this candidate directory."
   }
 }
