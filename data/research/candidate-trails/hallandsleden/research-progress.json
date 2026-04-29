@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-29T20:26:09Z",
-  "currentPhase": "Phase 2 complete through hallandsleden-varberg-akulla; ready to start hallandsleden-akulla-ullared",
+  "lastUpdated": "2026-04-29T20:45:45Z",
+  "currentPhase": "Phase 2 section research complete through hallandsleden-akulla-ullared; next section hallandsleden-ullared-karnebygd",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -10,7 +10,8 @@
     "hallandsleden-veddige-nosslinge",
     "hallandsleden-nosslinge-akulla",
     "hallandsleden-akulla-astad",
-    "hallandsleden-varberg-akulla"
+    "hallandsleden-varberg-akulla",
+    "hallandsleden-akulla-ullared"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -225,19 +226,20 @@
       "sectionNumber": "M1",
       "name": "Åkulla - Ullared",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-map-line-discovered-needs-gpx-cross-check",
-      "startEndCoordinateStatus": "official-map-line-endpoints-captured-needs-validation",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-six-lane-with-official-replacement-agent",
+      "routeGeometryStatus": "complete-official-gpx-api-geojson-naturkartan-shape-canonical-api-line-geometry-and-osm-stale",
+      "startEndCoordinateStatus": "complete-official-gpx-start-end-validated-with-adjacent-continuity",
+      "commuteAccessStatus": "complete-with-seasonal-akulla-caveat-and-strong-ullared-terminal",
+      "facilityResearchStatus": "complete-core-facilities-ready-with-dedupe-and-suppression-decisions",
+      "rulesSafetyStatus": "complete-with-akullaboket-nedre-atran-yasjon-fire-dog-hunting-caveats",
+      "synthesisStatus": "complete-section-file-written",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
-        "Run six independent section research lanes and synthesize findings.",
-        "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
-        "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Import-time decision: standalone Dricksvatten Ullared versus merged Gekåsbyn/Ullared camping water metadata.",
+        "Taxonomy decision: import Den gamla banvallen, Linbastan i Kogstorp and Bockstens mosse connector as POIs/side-trip metadata or keep in descriptive text.",
+        "Geometry normalization decision: snap/connect 59.9 m N8-to-M1 Åkulla gap and 31.6 m M1-to-M2 Ullared gap.",
+        "Verify current commercial access/opening for Åkulla Outdoor Resort, Gekåsbyn, Sveas B&B, ICA and Ullared food aggregate before import.",
+        "Future detour modeling decision for Björkasjö, Bockstens/Nabben, Linbastan and Sumpafallen."
       ]
     },
     "hallandsleden-ullared-karnebygd": {
@@ -1260,21 +1262,123 @@
       "completedAt": "2026-04-29T20:26:09Z",
       "synthesisFile": "sections/hallandsleden-varberg-akulla.research.json",
       "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around canonical official GPX/API geo_json versus alternate API line.geometry/OSM harbor-side start, N8 as a Varberg branch/spur into Åkulla rather than a continuation from N7, Åkulla endpoint snap/connector decision, Varberg urban-service over-inclusion, Åkulla/Yasjön facility dedupe, seasonal Åkturen and fallback access, Grimeton/Bockstens side-trip handling, Åkullaboket/Nabben reserve overlays, dynamic fire-risk checks, and rural water gaps."
+    },
+    {
+      "batchId": "hallandsleden-akulla-ullared-initial-6-lane-2026-04-29",
+      "sectionId": "hallandsleden-akulla-ullared",
+      "startedAt": "2026-04-29T20:28:19Z",
+      "status": "completed-and-synthesized",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddaed-9016-7ea0-aa55-5ee93613e270",
+          "nickname": "Einstein",
+          "status": "errored-context-exhausted"
+        },
+        {
+          "lane": "official-sources-replacement",
+          "agentId": "019ddaf3-9090-70b2-b3d4-781588ccb2c4",
+          "nickname": "Turing",
+          "status": "completed"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddaed-90a0-77e1-ae52-2f537f9ae0ed",
+          "nickname": "Wegener",
+          "status": "completed"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddaed-90d7-78a1-a6bd-219e527643d3",
+          "nickname": "Ohm",
+          "status": "completed"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddaed-914f-7390-83c5-60118943817b",
+          "nickname": "Rawls",
+          "status": "completed"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddaed-9187-7d91-9e52-5809993e020d",
+          "nickname": "Hooke",
+          "status": "completed"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddaed-91ee-7e50-9adf-7ca88cd61adc",
+          "nickname": "Arendt",
+          "status": "completed"
+        }
+      ],
+      "requestedOutputs": [
+        "official facts",
+        "geometry verification",
+        "facilities",
+        "transit/access",
+        "field reports",
+        "rules/safety/currentness"
+      ],
+      "notes": [
+        "Focus on Åkulla multi-section junction dedupe, M1 start continuity with N6/N7/N8, Åkulla reserve rules/facility clustering, Ullared endpoint access/services, Gekås/Ullared over-inclusion risk, and official geometry conflicts."
+      ],
+      "completedAt": "2026-04-29T20:45:45Z",
+      "synthesisFile": "sections/hallandsleden-akulla-ullared.research.json",
+      "receivedReports": [
+        {
+          "lane": "facilities",
+          "agentId": "019ddaed-90d7-78a1-a6bd-219e527643d3",
+          "receivedAt": "2026-04-29T20:31:00Z",
+          "summary": "Identified import-ready core records including Lägerplats Åkulla, Åkulla Outdoor Resort/water cluster, Yasjön island shelter with access seasonality, Kogstorp shelter/toilet/firewood, Dricksvatten Ullared, Gekåsbyn, Musasjön, ICA, one Ullared service aggregate and optional Sveas B&B. Recommended suppressing or detour-modeling Björkasjö, Gunnagård/Almas/Villa/Obbhult, Toppbjär/Bexells/Sumpafallen and keeping transit stops in access metadata."
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddaed-9187-7d91-9e52-5809993e020d",
+          "receivedAt": "2026-04-29T20:31:00Z",
+          "summary": "Found sparse direct evidence for the full current Åkulla-Ullared alignment. Vandra.se reports mostly easy surfaces but sparse markings/path fade on one segment; older En Vandringssaga/Wikiloc/Pacer/Outdooractive sources mostly preserve the old Åkulla-Kogstorp split; adjacent AllTrails reports provide low-confidence wetness/obstruction signals."
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddaed-914f-7390-83c5-60118943817b",
+          "receivedAt": "2026-04-29T20:38:00Z",
+          "summary": "Confirmed Åkulla seasonal stop 740074382 about 219 m from start via Åkturen 15 Jun-16 Aug 2026; Haksered and Brännhult line 651 fallbacks about 3 km straight-line. Confirmed Ullared bussterminal 740000182 about 31 m from endpoint with strong Hallandstrafiken service, plus fallback stops, Gekås parking and commercial shuttle caveats."
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddaed-90a0-77e1-ae52-2f537f9ae0ed",
+          "receivedAt": "2026-04-29T20:39:00Z",
+          "summary": "Confirmed official GPX, Hallandsleden API geo_json and Naturkartan site 19217 shape are coordinate-identical 272-point 16.857 km lines from 57.124927,12.563139 to 57.136787,12.716396. API line.geometry is an incomplete 11.033 km old Åkulla-Kogstorp line, while OSM preserves old split relations 4175923/4175922."
+        },
+        {
+          "lane": "official-sources-replacement",
+          "agentId": "019ddaf3-9090-70b2-b3d4-781588ccb2c4",
+          "receivedAt": "2026-04-29T20:43:00Z",
+          "summary": "Confirmed current official section Åkulla - Ullared, central/Mellersta delleden context, 17 km/blue/medium, GPX metadata generated 2025-06-23, official facilities and access POIs. Noted M1 is not stated as an official section number and flagged old Åkulla-Kogstorp stale-source risks."
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddaed-91ee-7e50-9adf-7ca88cd61adc",
+          "receivedAt": "2026-04-29T20:44:00Z",
+          "summary": "Found Åkullaboket reserve and Nedre Ätran water-protection context on the main route, no current M1-specific closure/reroute, no main-line Natura/bird/species-protection layer hits, no active fire ban on 2026-04-29 but fire-risk caution, plus general dog/hunting/forestry/fire/water caveats and side-only Nabben/Sumpafallen rule contexts."
+        }
+      ],
+      "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around canonical official GPX/API geo_json/Naturkartan shape versus stale API line.geometry/OSM/Naturkartan metadata/route-app old segmentation, Åkulla multi-section dedupe and seasonal access, strong Ullared endpoint access but dense Gekås/Ullared over-inclusion, Yasjön seasonality, Kogstorp no verified water, Åkullaboket/Nedre Ätran rules, dynamic fire checks and sparse current full-stage field reports."
     }
   ],
   "sourceCoverage": {
     "officialOverview": "complete-initial-pass",
     "officialSectionInventory": "complete-initial-pass-35-sections",
-    "officialGeometry": "complete-for-first-eight-sections-with-api-line_geometry-caveats",
-    "municipalities": "overview-list-captured-from-official-footer-n1-n2-n3-n4-n5-n6-n7-n8-section-specific-pages-reviewed",
-    "protectedAreas": "complete-for-first-eight-sections-with-n4-skoga-overlay-pending-n5-water-protection-note-n6-markedalen-akullaboket-caveats-n7-akullaboket-toppbjar-langanskogen-skarback-skogsbo-valaklitt-overlay-caveats-and-n8-akullaboket-nabben-grimeton-overlay-caveats",
-    "transitOperators": "complete-for-first-eight-sections",
-    "facilities": "complete-for-first-eight-sections",
-    "fieldReports": "complete-for-first-eight-sections",
-    "rulesSafety": "overview-pass-complete-n1-n2-n3-n4-n5-n6-n7-n8-section-specific-complete"
+    "officialGeometry": "complete-for-first-nine-sections-with-api-line_geometry-caveats-through-m1",
+    "municipalities": "overview-list-captured-from-official-footer-n1-n2-n3-n4-n5-n6-n7-n8-m1-section-specific-pages-reviewed",
+    "protectedAreas": "complete-for-first-nine-sections-with-n4-skoga-overlay-pending-n5-water-protection-note-n6-markedalen-akullaboket-caveats-n7-akullaboket-toppbjar-langanskogen-skarback-skogsbo-valaklitt-overlay-caveats-n8-akullaboket-nabben-grimeton-overlay-caveats-and-m1-akullaboket-nedre-atran-yasjon-caveats",
+    "transitOperators": "complete-for-first-nine-sections-with-m1-seasonal-akulla-and-strong-ullared-terminal-caveats",
+    "facilities": "complete-for-first-nine-sections-with-m1-gekas-ullared-overinclusion-and-akulla-dedupe-caveats",
+    "fieldReports": "complete-for-first-nine-sections-with-m1-full-stage-field-report-thinness-caveat",
+    "rulesSafety": "overview-pass-complete-n1-n2-n3-n4-n5-n6-n7-n8-m1-section-specific-complete"
   },
   "knownGaps": [
-    "Only the overview and first eight sections have been researched/synthesized; 27 later sections still need the six-lane workflow.",
+    "Only the overview and first nine sections have been researched/synthesized; 26 later sections still need the six-lane workflow.",
     "Coastal Hallandsleden is incomplete by official statement; future import must model gaps instead of stitching a continuous coast.",
     "Older sources may report 435 km / 26 stages / 3 parts; live official source reports 612 km / 35 sections / 4 subtrails.",
     "Paper maps printed June 2022 are stale for 2024 rerouted sections.",
@@ -1332,12 +1436,20 @@
     "N8: Varberg official places feed over-includes dense urban services; do not bulk-import all start-area restaurants/lodging as trail facilities.",
     "N8: Åkulla endpoint public transport is seasonal via Åkturen; outside the 2026 15 June-16 August service period, Haksered/Brännhult/taxi are fallback planning notes.",
     "N8: Grimeton and Bockstens mosse are important side-trip/visual contexts but more than 1 km from the official GPX line; do not treat as on-route facilities/rules without side-trip modeling.",
-    "N8: no confirmed potable water or shelter/camping in the rural middle of the section; Åkulla Outdoor Resort is the reliable official water point."
+    "N8: no confirmed potable water or shelter/camping in the rural middle of the section; Åkulla Outdoor Resort is the reliable official water point.",
+    "M1: official GPX/API geo_json/Naturkartan shape is canonical 272-point 16.857 km planning-grade geometry; API line.geometry, OSM and visible Naturkartan 11.0 km/red metadata preserve stale old Åkulla-Kogstorp/Kogstorp-Kärnebygd segmentation.",
+    "M1: Åkulla endpoint needs service/facility dedupe across Lägerplats Åkulla, Yasjön, Åkulla Outdoor Resort, explicit water point and seasonal Åkulla stop.",
+    "M1: Åkulla closest bus stop is seasonal Åkturen only; outside 15 June-16 August 2026 use Haksered/Brännhult line 651 fallback walks or other planning access.",
+    "M1: Ullared endpoint access is strong at Ullared bussterminal, but Gekås/Ullared commercial services should be filtered to a small set of trail-relevant records.",
+    "M1: Kogstorp shelter/toilet/fireplace is import-ready, but no potable water was verified there; official water is Åkulla Outdoor Resort and likely commercial/service-dependent Dricksvatten Ullared.",
+    "M1: rules/safety caveats include Åkullaboket reserve at the start, Nedre Ätran water-protection area, Yasjön island closure 1 March-30 June, dynamic fire-ban checks, dog/leash and hunting-season guidance.",
+    "M1: current public field evidence for the full 16.9 km Åkulla-Ullared alignment is thin; many reports and route apps still describe the old Åkulla-Kogstorp partial segment."
   ],
   "nextActions": [
-    "Continue Phase 2 with hallandsleden-akulla-ullared.",
+    "Commit M1 research files before starting edits for M2.",
+    "Resume Phase 2 with hallandsleden-ullared-karnebygd (M2): spawn the six required research/report agents, synthesize their findings, write the section JSON, then update research-progress.json.",
+    "For M2, pay special attention to stale old Kogstorp-Kärnebygd segmentation leakage, Ullared endpoint dedupe/continuity with M1, Kärnebygd endpoint access, official GPX/API conflicts, and facilities between Ullared and Kärnebygd.",
     "For each remaining section, run the six-lane research workflow and update this progress file after each batch/synthesis.",
-    "When researching M1, pay special attention to Åkulla multi-section junction dedupe, M1 start continuity with N6/N7/N8, Åkulla reserve rules/facility clustering, Ullared endpoint access/services, and any official geometry conflicts.",
     "Keep edits confined to data/research/candidate-trails/hallandsleden/ until explicitly asked otherwise."
   ],
   "handoffNotes": [
@@ -1345,10 +1457,11 @@
     "Only files under data/research/candidate-trails/hallandsleden/ were written.",
     "Do not edit source/runtime/generated app data. Do not run forbidden generated-data/import commands.",
     "Overview files are complete for Phase 1.",
-    "Completed section files: sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json, sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json, sections/hallandsleden-askhults-by-stattared.research.json, sections/hallandsleden-stattared-veddige.research.json, sections/hallandsleden-veddige-nosslinge.research.json, sections/hallandsleden-nosslinge-akulla.research.json, sections/hallandsleden-akulla-astad.research.json, and sections/hallandsleden-varberg-akulla.research.json.",
-    "Next section to research: hallandsleden-akulla-ullared.",
+    "Completed section files: sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json, sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json, sections/hallandsleden-askhults-by-stattared.research.json, sections/hallandsleden-stattared-veddige.research.json, sections/hallandsleden-veddige-nosslinge.research.json, sections/hallandsleden-nosslinge-akulla.research.json, sections/hallandsleden-akulla-astad.research.json, sections/hallandsleden-varberg-akulla.research.json, and sections/hallandsleden-akulla-ullared.research.json.",
     "N7 initial six-lane agent batch started 2026-04-29T19:50:16Z with agents Popper, Newton, Bernoulli, Euler, Pasteur, and Mencius, and was synthesized into sections/hallandsleden-akulla-astad.research.json at 2026-04-29T20:06:11Z.",
-    "N8 initial six-lane agent batch started 2026-04-29T20:09:28Z with agents Goodall, Kepler, Peirce, Hilbert, Kant, and Volta, and was synthesized into sections/hallandsleden-varberg-akulla.research.json at 2026-04-29T20:26:09Z."
+    "N8 initial six-lane agent batch started 2026-04-29T20:09:28Z with agents Goodall, Kepler, Peirce, Hilbert, Kant, and Volta, and was synthesized into sections/hallandsleden-varberg-akulla.research.json at 2026-04-29T20:26:09Z.",
+    "M1 initial six-lane agent batch started 2026-04-29T20:28:19Z with agents Einstein, Wegener, Ohm, Rawls, Hooke, and Arendt; Einstein errored from context exhaustion and was replaced by Turing for official-source research. M1 synthesized into sections/hallandsleden-akulla-ullared.research.json at 2026-04-29T20:45:45Z.",
+    "Next section is M2 hallandsleden-ullared-karnebygd after committing M1."
   ],
   "filesWritten": [
     "README.md",
@@ -1361,7 +1474,8 @@
     "sections/hallandsleden-veddige-nosslinge.research.json",
     "sections/hallandsleden-nosslinge-akulla.research.json",
     "sections/hallandsleden-akulla-astad.research.json",
-    "sections/hallandsleden-varberg-akulla.research.json"
+    "sections/hallandsleden-varberg-akulla.research.json",
+    "sections/hallandsleden-akulla-ullared.research.json"
   ],
   "meaningfulPasses": [
     {
@@ -1468,6 +1582,21 @@
       "id": "phase-2-n8-six-lane-synthesis-complete-2026-04-29",
       "completedAt": "2026-04-29T20:26:09Z",
       "summary": "Synthesized six lane reports and main-thread API/GPX/Naturkartan/OSM/ResRobot/Hallandstrafiken/protected-area checks for N8 into a section research JSON. Marked N8 research-ready with caveats around canonical official GPX/API geo_json versus alternate API line.geometry/OSM harbor-side start, N8 as a Varberg branch/spur into Åkulla rather than a continuation from N7, Åkulla endpoint snap/connector decision, dense Varberg urban-service over-inclusion, Åkulla/Yasjön facility dedupe, seasonal Åkturen and fallback access, Grimeton/Bockstens side-trip handling, Åkullaboket/Nabben reserve overlays, dynamic fire-risk checks, and rural water gaps."
+    },
+    {
+      "id": "phase-2-m1-initial-agent-batch-started-2026-04-29",
+      "completedAt": "2026-04-29T20:28:19Z",
+      "summary": "Started Phase 2 six-lane research workflow for M1 Åkulla - Ullared. Main thread retains file-write ownership and flagged Åkulla multi-section junction dedupe, M1 start continuity with N6/N7/N8, Åkulla reserve rules/facility clustering, Ullared endpoint access/services, Gekås/Ullared over-inclusion risk, and official geometry conflicts for the agents."
+    },
+    {
+      "id": "phase-2-m1-main-thread-official-api-gpx-access-pass-2026-04-29",
+      "completedAt": "2026-04-29T20:40:00Z",
+      "summary": "Fetched M1 official page, English mirror, GPX, map API, places API, Naturkartan page/site id 19217, M2 API/GPX continuity, old OSM relations, ResRobot/Hallandstrafiken access data, and relevant currentness/rules pages. Found official GPX/API geo_json/Naturkartan shape is a 272-point 16.857 km line from Åkulla to Ullared. API line.geometry is an 11.033 km old Åkulla-Kogstorp line; M2 line.geometry starts near Kogstorp, confirming stale segmentation. Places API returned 27 records; core import candidates are Åkulla cluster, Kogstorp shelter, Gekåsbyn/Ullared water/service, Musasjön, ICA, Ullared aggregate and optional Sveas B&B."
+    },
+    {
+      "id": "phase-2-m1-six-lane-synthesis-complete-2026-04-29",
+      "completedAt": "2026-04-29T20:45:45Z",
+      "summary": "Synthesized six lane reports and main-thread API/GPX/Naturkartan/OSM/Hallandstrafiken/ResRobot/protected-area/fire-risk checks for M1 into a section research JSON. Marked M1 research-ready with caveats around canonical official GPX/API geo_json/Naturkartan shape versus stale old Åkulla-Kogstorp/Kogstorp-Kärnebygd segmentation, Åkulla service/facility dedupe, seasonal Åkturen, strong Ullared bus-terminal access but dense Gekås/Ullared over-inclusion, Yasjön seasonality, Kogstorp no verified water, Åkullaboket/Nedre Ätran rules and sparse current full-stage field reports."
     }
   ]
 }
