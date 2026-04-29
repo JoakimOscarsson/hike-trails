@@ -1,6 +1,6 @@
 import React from "react";
-import { AlertTriangle, ArrowLeft, CalendarDays, Check, ChevronDown, ExternalLink, Info, Layers, MapPin, Star, Tent, Train } from "lucide-react";
-import type { TrailAccessPoint, TrailCommuteStop, TrailFacility, TrailSection, TrailSystem } from "../types";
+import { AlertTriangle, ArrowLeft, CalendarDays, Check, ChevronDown, ExternalLink, Info, Layers, MapPin, Route, Star, Tent, Train } from "lucide-react";
+import type { TrailAccessPoint, TrailCommuteStop, TrailFacility, TrailSection, TrailSectionConnection, TrailSystem, TrailTransitStop } from "../types";
 import { useTrailSectionDetails } from "../data/useTrailSectionDetails";
 import {
   matchingRouteGroupRange,
@@ -19,6 +19,7 @@ import {
 } from "../data/filters";
 import { DeferredMapMount } from "../map/DeferredMapMount";
 import { TrailSystemMap, type TrailMapFocusTarget } from "../map/TrailSystemMap";
+import { selectedTrailTransferConnections, trailConnectionModeLabels } from "../map/trailSystemConnections";
 import {
   defaultFacilityTypes,
   facilityCategoryGroups,
@@ -80,13 +81,33 @@ function commuteStopText(label: string, stop?: TrailCommuteStop) {
   return stop ? `${label} ${stop.name} (${formatDistance(stop.distanceKm)})` : `${label} not researched`;
 }
 
+function transitStopText(label: string, stop: TrailTransitStop) {
+  return `${label} ${stop.name} (${formatDistance(stop.distanceKm)})`;
+}
+
+function isSameTransitStop(a?: TrailTransitStop, b?: TrailTransitStop) {
+  return Boolean(a && b && a.id === b.id);
+}
+
 function accessPointText(label: string, accessPoint?: TrailAccessPoint) {
   if (!accessPoint) return `${label}: no section-specific transit data is attached yet.`;
   const approximation = accessPoint.coordinateSource === "route-geometry" ? "" : " Approximate endpoint coordinate.";
-  return `${label}: ${accessPoint.placeName}. ${commuteStopText("Bus", accessPoint.busStop)}; ${commuteStopText(
-    "train",
-    accessPoint.trainStop
-  )}.${approximation}`;
+  const stopItems = [
+    commuteStopText("Bus", accessPoint.busStop),
+    commuteStopText("train", accessPoint.trainStop)
+  ];
+
+  if (accessPoint.ferryStop) {
+    stopItems.push(transitStopText("ferry", accessPoint.ferryStop));
+  } else if (
+    accessPoint.nearestStop &&
+    !isSameTransitStop(accessPoint.nearestStop, accessPoint.busStop) &&
+    !isSameTransitStop(accessPoint.nearestStop, accessPoint.trainStop)
+  ) {
+    stopItems.push(transitStopText(accessPoint.nearestStop.type === "ferry" ? "nearest ferry" : "nearest stop", accessPoint.nearestStop));
+  }
+
+  return `${label}: ${accessPoint.placeName}. ${stopItems.join("; ")}.${approximation}`;
 }
 
 function selectedRouteGettingThereItems(sections: TrailSection[]) {
@@ -122,6 +143,93 @@ function selectedRouteCampingRuleItems(sections: TrailSection[]) {
   if (!items.length) return ["No selected-section camping or fire-rule notes are attached yet; check posted local rules before overnight plans."];
   if (items.length <= 8) return items;
   return [...items.slice(0, 8), `${items.length - 8} more camping, fire, or rule notes are attached to the selected sections below.`];
+}
+
+function routeTransferTitle(connection: TrailSectionConnection) {
+  return `${connection.from.label} to ${connection.to.label}`;
+}
+
+function routeTransferService(connection: TrailSectionConnection) {
+  return [connection.lineName, connection.operator].filter(Boolean).join(" · ");
+}
+
+function routeTransferMode(connection: TrailSectionConnection) {
+  return trailConnectionModeLabels[connection.mode];
+}
+
+function RouteTransferList({ connections }: { connections: TrailSectionConnection[] }) {
+  if (!connections.length) return null;
+
+  return (
+    <section className="info-block transfer-block">
+      <div className="transfer-block-head">
+        <h2>
+          <Route size={18} aria-hidden="true" />
+          Route Transfers
+        </h2>
+        <span>{connections.length}</span>
+      </div>
+      <div className="transfer-list">
+        {connections.map((connection) => {
+          const service = routeTransferService(connection);
+          const sourceUrl = connection.timetableUrl ?? connection.source?.url;
+          const sourceLabel = connection.timetableUrl ? "Timetable" : connection.source?.provider ?? "Source";
+
+          return (
+            <article className="transfer-item" key={connection.id}>
+              <span className="transfer-kind">{routeTransferMode(connection)}</span>
+              <h3>{routeTransferTitle(connection)}</h3>
+              {service ? <p className="transfer-service">{service}</p> : null}
+              <p>{connection.note}</p>
+              {connection.seasonality || connection.currentness ? (
+                <div className="transfer-caveats">
+                  {connection.seasonality ? <small>{connection.seasonality}</small> : null}
+                  {connection.currentness ? <small>{connection.currentness}</small> : null}
+                </div>
+              ) : null}
+              {sourceUrl ? (
+                <a href={sourceUrl} target="_blank" rel="noreferrer">
+                  {sourceLabel}
+                  <ExternalLink size={14} aria-hidden="true" />
+                </a>
+              ) : null}
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function SelectedTransferSummary({ connections }: { connections: TrailSectionConnection[] }) {
+  if (!connections.length) return null;
+  const visibleConnections = connections.slice(0, 4);
+  const hiddenCount = Math.max(0, connections.length - visibleConnections.length);
+
+  return (
+    <section className="selected-transfer-summary" aria-label="Selected route transfers">
+      <div className="selected-transfer-head">
+        <Route size={16} aria-hidden="true" />
+        <strong>
+          {connections.length} transfer{connections.length === 1 ? "" : "s"} in this selection
+        </strong>
+      </div>
+      <ul className="selected-transfer-list">
+        {visibleConnections.map((connection) => {
+          const service = routeTransferService(connection);
+
+          return (
+            <li key={connection.id}>
+              <span>{routeTransferMode(connection)}</span>
+              <strong>{routeTransferTitle(connection)}</strong>
+              {service ? <small>{service}</small> : null}
+            </li>
+          );
+        })}
+        {hiddenCount ? <li className="selected-transfer-more">{hiddenCount} more transfer{hiddenCount === 1 ? "" : "s"}</li> : null}
+      </ul>
+    </section>
+  );
 }
 
 export function FacilityList({
@@ -235,7 +343,7 @@ export function FacilityList({
   );
 }
 
-function CommuteStopLine({ label, stop }: { label: string; stop?: TrailCommuteStop }) {
+function CommuteStopLine({ label, stop }: { label: string; stop?: TrailTransitStop }) {
   return (
     <span className={stop ? "commute-line" : "commute-line missing"}>
       <strong>{label}</strong>
@@ -272,6 +380,13 @@ function TransitAccessCard({
       <div className="commute-lines">
         <CommuteStopLine label="Bus" stop={accessPoint.busStop} />
         <CommuteStopLine label="Train" stop={accessPoint.trainStop} />
+        {accessPoint.ferryStop ? <CommuteStopLine label="Ferry" stop={accessPoint.ferryStop} /> : null}
+        {accessPoint.nearestStop &&
+        !isSameTransitStop(accessPoint.nearestStop, accessPoint.busStop) &&
+        !isSameTransitStop(accessPoint.nearestStop, accessPoint.trainStop) &&
+        !isSameTransitStop(accessPoint.nearestStop, accessPoint.ferryStop) ? (
+          <CommuteStopLine label={accessPoint.nearestStop.type === "ferry" ? "Ferry" : "Near"} stop={accessPoint.nearestStop} />
+        ) : null}
       </div>
     </article>
   );
@@ -543,6 +658,7 @@ export function TrailSystemDetails({
   });
   const gettingThereItems = selectedRouteGettingThereItems(detailedPrimaryRouteSections);
   const campingRuleItems = selectedRouteCampingRuleItems(detailedPrimaryRouteSections);
+  const selectedTransferConnections = selectedTrailTransferConnections(trailSystem.connections, detailedPrimaryRouteSections);
 
   React.useEffect(() => {
     if (rawEndIndex >= 0 && rawEndIndex < startIndex) {
@@ -694,7 +810,8 @@ export function TrailSystemDetails({
             <strong>{firstSection.from} to {lastSection.to}</strong>
             <span>
               {routeGroupLabel} · {selectedSections.length} main sections
-              {selectedContextGroups.length ? ` · ${selectedContextGroups.length} related option${selectedContextGroups.length === 1 ? "" : "s"}` : ""} · {formatDistance(distanceKm)}
+              {selectedContextGroups.length ? ` · ${selectedContextGroups.length} related option${selectedContextGroups.length === 1 ? "" : "s"}` : ""}
+              {selectedTransferConnections.length ? ` · ${selectedTransferConnections.length} transfer${selectedTransferConnections.length === 1 ? "" : "s"}` : ""} · {formatDistance(distanceKm)}
             </span>
           </div>
         </section>
@@ -737,6 +854,7 @@ export function TrailSystemDetails({
 
         <div className="info-grid">
           <InfoList title="Getting There" icon={<Train size={18} />} items={gettingThereItems} />
+          <RouteTransferList connections={selectedTransferConnections} />
 
           <InfoList title="Camping Rules" icon={<Tent size={18} />} items={campingRuleItems} />
 
@@ -792,7 +910,8 @@ export function TrailSystemDetails({
             </div>
             <div className="selected-summary">
               {selectedSections.length} main
-              {selectedContextGroups.length ? ` + ${contextSections.length} related` : ""} · {formatDistance(distanceKm)}
+              {selectedContextGroups.length ? ` + ${contextSections.length} related` : ""}
+              {selectedTransferConnections.length ? ` · ${selectedTransferConnections.length} transfer${selectedTransferConnections.length === 1 ? "" : "s"}` : ""} · {formatDistance(distanceKm)}
             </div>
           </div>
 
@@ -878,6 +997,8 @@ export function TrailSystemDetails({
               </select>
             </label>
           </div>
+
+          <SelectedTransferSummary connections={selectedTransferConnections} />
 
           <div className="section-list">
             {routeSections.map((section, index) => {

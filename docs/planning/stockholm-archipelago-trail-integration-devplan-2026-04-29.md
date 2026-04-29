@@ -4,11 +4,11 @@ Date: 2026-04-29
 
 Workspace target: `/Users/joakim/Documents/codex/hike-trails`
 
-Status: Slice 5 completed; Slice 6 not started.
+Status: Slice 6 completed; Slice 7 not started.
 
 This is a living development plan for bringing Stockholm Archipelago Trail into the app. It is intentionally concrete: every slice has a scope, likely files, a definition of done, and validation notes. The trail is ferry-dependent, so ferry transfers are first-class route connections, not just text notes.
 
-No runtime code or generated app data was changed while creating this plan.
+This document is now tracking implementation progress; runtime changes are committed per slice.
 
 ## Agent Start Here
 
@@ -35,7 +35,7 @@ Important rule: the candidate research file is an input only. Runtime code must 
 - [x] Slice 3: Render connection routes on the map.
 - [x] Slice 4: Create Stockholm Archipelago Trail hiking source shards.
 - [x] Slice 5: Normalize and import facilities.
-- [ ] Slice 6: Update access, detail, and route-builder UX for ferry-dependent sections.
+- [x] Slice 6: Update access, detail, and route-builder UX for ferry-dependent sections.
 - [ ] Slice 7: Add build scripts and generated runtime outputs.
 - [ ] Slice 8: Add validation and tests.
 - [ ] Slice 9: Complete browser/product QA.
@@ -438,6 +438,14 @@ Work:
 - Add concise caveats for seasonal/timetable-dependent transfers.
 - Keep the UI calm: connections should aid planning without turning the route builder into a timetable app.
 
+Completed:
+
+- Added a selected-transfer helper that returns adjacent ferry/rowboat/bus/walk transfers even when a connection has no drawable map geometry.
+- Added a compact transfer summary to the route builder so SAT selections show required transfers before the user enters the detail view.
+- Added a `Route Transfers` detail block with mode, endpoints, service/operator, notes, timetable/currentness caveats, and source links.
+- Made selected-route access text and transit access cards aware of `ferryStop` and `nearestStop` while keeping bus/train-only trail systems visually unchanged.
+- Adjusted the builder header wrapping so transfer counts do not squeeze explanatory text on narrower layouts.
+
 Definition of done:
 
 - A user can select adjacent SAT sections and see the required transfer between them.
@@ -450,6 +458,18 @@ Validation:
 - `npm run test:unit` for route-selection helpers if behavior changes.
 - `npm run typecheck`
 - Browser inspect route-builder interactions for SAT and an existing trail system.
+
+Completed validation:
+
+- `npm run typecheck`
+- `npm run test:unit`
+- `npm run data:validate`
+- `npm run data:check`
+- `npm run runtime:probe`
+- `npm run runtime:cache-probe`
+- `npm run build`
+- `git diff --check`
+- Browser QA on `http://localhost:5173/`: SAT builder shows 3 selected transfers for the northern preset; SAT detail view shows one `Route Transfers` block with the expected ferry services and caveats; Roslagsleden builder and detail views do not render empty transfer UI.
 
 ## Slice 7: Build Scripts And Generated Runtime Outputs
 

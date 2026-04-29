@@ -10,6 +10,7 @@ export const trailConnectionModeLabels: Record<TrailConnectionMode, string> = {
 };
 
 const drawableTrailConnectionModes = new Set<TrailConnectionMode>(["walk", "bus", "ferry", "rowboat"]);
+const transferTrailConnectionModes = new Set<TrailConnectionMode>(["walk", "bus", "ferry", "rowboat"]);
 
 function uniqueSectionIds(sections: TrailSection[]) {
   const seen = new Set<string>();
@@ -32,6 +33,20 @@ export function selectedTrailConnections(
   connections: TrailSectionConnection[] | undefined,
   sections: TrailSection[]
 ) {
+  return selectedAdjacentTrailConnections(connections, sections).filter(isDrawableTrailConnection);
+}
+
+export function selectedTrailTransferConnections(
+  connections: TrailSectionConnection[] | undefined,
+  sections: TrailSection[]
+) {
+  return selectedAdjacentTrailConnections(connections, sections).filter((connection) => transferTrailConnectionModes.has(connection.mode));
+}
+
+function selectedAdjacentTrailConnections(
+  connections: TrailSectionConnection[] | undefined,
+  sections: TrailSection[]
+) {
   if (!connections?.length || sections.length < 2) return [];
 
   const sectionIds = uniqueSectionIds(sections);
@@ -46,7 +61,6 @@ export function selectedTrailConnections(
   const selected: TrailSectionConnection[] = [];
   const seenConnectionIds = new Set<string>();
   for (const connection of connections) {
-    if (!isDrawableTrailConnection(connection)) continue;
     const pair = `${connection.from.sectionId}->${connection.to.sectionId}`;
     if (!adjacentPairs.has(pair) || seenConnectionIds.has(connection.id)) continue;
     seenConnectionIds.add(connection.id);

@@ -271,6 +271,45 @@ try {
     );
   });
 
+  test("selects adjacent route transfers without requiring map geometry", () => {
+    const sections = [{ id: "stage-1" }, { id: "stage-2" }, { id: "stage-3" }];
+    const connections = [
+      {
+        id: "stage-1-stage-2-ferry",
+        mode: "ferry",
+        from: { sectionId: "stage-1", label: "Stage 1 quay" },
+        to: { sectionId: "stage-2", label: "Stage 2 quay" },
+        note: "Use ferry."
+      },
+      {
+        id: "stage-2-stage-3-bus",
+        mode: "bus",
+        from: { sectionId: "stage-2", label: "Stage 2 stop" },
+        to: { sectionId: "stage-3", label: "Stage 3 stop" },
+        note: "Use bus."
+      },
+      {
+        id: "stage-1-stage-3-rowboat",
+        mode: "rowboat",
+        from: { sectionId: "stage-1", label: "Stage 1 boats" },
+        to: { sectionId: "stage-3", label: "Stage 3 boats" },
+        note: "Not adjacent in this selection."
+      },
+      {
+        id: "stage-1-stage-2-same-island",
+        mode: "same-island",
+        from: { sectionId: "stage-1", label: "Stage 1" },
+        to: { sectionId: "stage-2", label: "Stage 2" },
+        note: "No transfer needed."
+      }
+    ];
+
+    assert.deepEqual(
+      trailConnections.selectedTrailTransferConnections(connections, sections).map((connection) => connection.id),
+      ["stage-1-stage-2-ferry", "stage-2-stage-3-bus"]
+    );
+  });
+
   test("matches trail-system distance filters against route-group distance windows", () => {
     const trailSystemItem = {
       id: "trail-system",
