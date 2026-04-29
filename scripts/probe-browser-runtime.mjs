@@ -710,14 +710,16 @@ async function assertHikingMapHelpers(client) {
     `(() => {
       const cluster = document.querySelector(".facility-cluster-marker:not(.poi-cluster-origin-dot)");
       if (!cluster) return { ok: false };
+      const mapPane = cluster.closest(".leaflet-container")?.querySelector(".leaflet-map-pane");
+      const beforeTransform = mapPane?.style.transform || (mapPane ? getComputedStyle(mapPane).transform : "");
       cluster.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, view: window }));
-      return { ok: true };
+      return { ok: true, beforeTransform };
     })()`
   );
   if (!expandedCluster.ok) {
     addError("browser hiking map helpers", "Could not find an overlapping facility cluster marker to expand.");
   } else {
-    await waitFor(
+    const expandedState = await waitFor(
       () =>
         evaluate(
           client,
@@ -725,11 +727,16 @@ async function assertHikingMapHelpers(client) {
             const spiderMarkers = document.querySelectorAll(".facility-spider-marker, .commute-spider-marker").length;
             const originDots = document.querySelectorAll(".poi-cluster-origin-dot").length;
             const openPopups = document.querySelectorAll(".leaflet-popup").length;
-            return spiderMarkers > 1 && originDots > 0 && openPopups === 0;
+            const mapPane = document.querySelector(".leaflet-map-pane");
+            const mapTransform = mapPane?.style.transform || (mapPane ? getComputedStyle(mapPane).transform : "");
+            return spiderMarkers > 1 && originDots > 0 && openPopups === 0 ? { mapTransform } : false;
           })()`
         ),
       { timeoutMs: 4_000, label: "facility cluster expansion" }
     );
+    if (expandedCluster.beforeTransform !== expandedState.mapTransform) {
+      addError("browser hiking map helpers", "Expanding a facility cluster panned the Leaflet map pane.");
+    }
   }
 
   const collapsedCluster = await evaluate(
@@ -759,14 +766,16 @@ async function assertHikingMapHelpers(client) {
     `(() => {
       const cluster = document.querySelector(".commute-cluster-marker:not(.poi-cluster-origin-dot)");
       if (!cluster) return { ok: false };
+      const mapPane = cluster.closest(".leaflet-container")?.querySelector(".leaflet-map-pane");
+      const beforeTransform = mapPane?.style.transform || (mapPane ? getComputedStyle(mapPane).transform : "");
       cluster.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, view: window }));
-      return { ok: true };
+      return { ok: true, beforeTransform };
     })()`
   );
   if (!expandedCommuteCluster.ok) {
     addError("browser hiking map helpers", "Could not find an overlapping commute cluster marker to expand.");
   } else {
-    await waitFor(
+    const expandedCommuteState = await waitFor(
       () =>
         evaluate(
           client,
@@ -775,11 +784,16 @@ async function assertHikingMapHelpers(client) {
             const allSpiders = document.querySelectorAll(".facility-spider-marker, .commute-spider-marker").length;
             const originDots = document.querySelectorAll(".poi-cluster-origin-dot").length;
             const openPopups = document.querySelectorAll(".leaflet-popup").length;
-            return commuteSpiders > 0 && allSpiders > 1 && originDots > 0 && openPopups === 0;
+            const mapPane = document.querySelector(".leaflet-map-pane");
+            const mapTransform = mapPane?.style.transform || (mapPane ? getComputedStyle(mapPane).transform : "");
+            return commuteSpiders > 0 && allSpiders > 1 && originDots > 0 && openPopups === 0 ? { mapTransform } : false;
           })()`
         ),
       { timeoutMs: 4_000, label: "commute cluster expansion" }
     );
+    if (expandedCommuteCluster.beforeTransform !== expandedCommuteState.mapTransform) {
+      addError("browser hiking map helpers", "Expanding a commute cluster panned the Leaflet map pane.");
+    }
   }
 
   const toggle = await evaluate(

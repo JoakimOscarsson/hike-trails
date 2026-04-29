@@ -100,15 +100,6 @@ type PoiMarkerGroup = {
   centerPoint: L.Point;
 };
 
-function markerItemLabel(item: PoiMarkerItem) {
-  return item.kind === "facility" ? item.facility.name : item.stop.name;
-}
-
-function markerItemTypeLabel(item: PoiMarkerItem) {
-  if (item.kind === "facility") return facilityTypeLabels[item.facility.type];
-  return item.stop.type === "bus" ? "Bus stop" : "Train stop";
-}
-
 function markerItemClasses(item: PoiMarkerItem) {
   if (item.kind === "facility") return [`facility-cluster-has-${item.facility.type}`];
   return [`commute-cluster-has-${item.stop.type}`];
@@ -120,16 +111,6 @@ function clusterSummary(items: PoiMarkerItem[]) {
   if (facilityCount && commuteCount) return `${facilityCount} facilities and ${commuteCount} transit stops here. Click to expand.`;
   if (commuteCount) return `${commuteCount} transit stops here. Click to expand.`;
   return `${facilityCount} facilities here. Click to expand.`;
-}
-
-function clusteredPoiPopup(items: PoiMarkerItem[]) {
-  const listItems = items
-    .map(
-      (item) =>
-        `<li><strong>${escapeHtml(markerItemLabel(item))}</strong><span>${escapeHtml(markerItemTypeLabel(item))}</span></li>`
-    )
-    .join("");
-  return `<strong>${items.length} places here</strong><ul class="facility-cluster-popup">${listItems}</ul>`;
 }
 
 function clusterIcon(items: PoiMarkerItem[], expanded = false) {
@@ -210,7 +191,6 @@ function addClusteredPoiMarker({
     icon: clusterIcon(items),
     title
   })
-    .bindPopup(clusteredPoiPopup(items))
     .bindTooltip(title, { direction: "top", offset: [0, -14] })
     .addTo(markerLayerGroup);
 
@@ -221,7 +201,6 @@ function addClusteredPoiMarker({
   const toggleExpandedPois = () => {
     if (expandedMarkers.length) {
       for (const expandedMarker of expandedMarkers.splice(0)) markerLayerGroup.removeLayer(expandedMarker);
-      marker.closePopup();
       marker.setIcon(clusterIcon(items));
       marker.bindTooltip(title, { direction: "top", offset: [0, -14] });
       setMarkerTitle(marker, title);
@@ -229,7 +208,6 @@ function addClusteredPoiMarker({
       return;
     }
 
-    marker.closePopup();
     marker.closeTooltip();
     marker.unbindTooltip();
     marker.setIcon(clusterIcon(items, true));
