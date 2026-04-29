@@ -1,9 +1,11 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-29T17:28:38.706Z",
-  "currentPhase": "Paused after Phase 1 overview and first section per user request; ready to commit and push",
+  "lastUpdated": "2026-04-29T18:44:38Z",
+  "currentPhase": "Phase 2 section research resumed; N3 synthesized and next section is hallandsleden-stattared-veddige",
   "completedSections": [
-    "hallandsleden-alvsaker-naturum-fjaras-bracka"
+    "hallandsleden-alvsaker-naturum-fjaras-bracka",
+    "hallandsleden-naturum-fjaras-bracka-askhults-by",
+    "hallandsleden-askhults-by-stattared"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -40,20 +42,22 @@
       "sectionNumber": "N2",
       "name": "naturum Fjärås Bräcka - Äskhults by",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-map-line-discovered-needs-gpx-cross-check",
-      "startEndCoordinateStatus": "official-map-line-endpoints-captured-needs-validation",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-initial-six-lane-synthesis",
+      "routeGeometryStatus": "complete-official-gpx-api-geo_json-verified-ignore-api-line_geometry-osm-naturkartan-caveats",
+      "startEndCoordinateStatus": "complete-high-confidence-official-gpx-api-naturkartan",
+      "commuteAccessStatus": "complete-with-vasttrafik-sparse-service-and-axtorp-distance-caveats",
+      "facilityResearchStatus": "complete-with-askhult-seasonal-water-fire-rule-and-stensjon-offsection-caveats",
+      "rulesSafetyStatus": "complete-with-fjaras-bracka-askhult-reserve-rules-and-dynamic-fire-ban-caveats",
+      "synthesisStatus": "complete",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
-        "Next section to research when work resumes on another computer.",
-        "Run six independent section research lanes and synthesize findings.",
-        "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
-        "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Confirm whether the Äskhult shelter fireplace has an explicit exemption from Äskhult reserve's general fire prohibition.",
+        "Confirm whether overnight use of Fjärås Bräcka Humlan/Biet shelters is explicitly allowed under Fjärås Bräcka reserve camping restrictions before importing them as N2 overnight facilities.",
+        "Verify Naturum/Café Bräckan and Äskhults by/Bengts Kaffestuga opening hours before publication/use.",
+        "Verify Äskhult parking water/toilet season close to publication; current research indicates April-September / winter closure.",
+        "Measure actual walking distance from Axtorp stop to the N2 endpoint/Äskhults by if precise access distance is needed.",
+        "Do not use official API line.geometry, Naturkartan linework, or OSM relation 3208832 as canonical N2 geometry without a later geometry audit.",
+        "No section-specific waste-bin coordinate was found; do not import waste records without a point."
       ]
     },
     "hallandsleden-askhults-by-stattared": {
@@ -62,19 +66,21 @@
       "sectionNumber": "N3",
       "name": "Äskhults by - Stättared",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-map-line-discovered-needs-gpx-cross-check",
-      "startEndCoordinateStatus": "official-map-line-endpoints-captured-needs-validation",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-initial-six-lane-synthesis",
+      "routeGeometryStatus": "complete-official-gpx-api-geo_json-verified-ignore-api-line_geometry-naturkartan-osm-caveats",
+      "startEndCoordinateStatus": "complete-high-confidence-official-gpx-api-naturkartan",
+      "commuteAccessStatus": "complete-with-vasttrafik-sparse-service-and-stattared-endpoint-distance-caveats",
+      "facilityResearchStatus": "complete-with-askhult-fire-seasonality-stattared-water-and-offroute-side-service-caveats",
+      "rulesSafetyStatus": "complete-with-askhult-lilla-askhult-stattared-and-dynamic-fire-ban-caveats",
+      "synthesisStatus": "complete",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
-        "Run six independent section research lanes and synthesize findings.",
-        "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
-        "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Verify exact boundary/designated-place status for Äskhult/Lilla Äskhult shelter fireplace and any tenting permission before publishing fire/tent copy.",
+        "Confirm whether Stättareds 4H water tap is available when farm buildings/cafe are unmanned.",
+        "Verify exact Stättared parking-lot coordinate if parking is imported as a point.",
+        "Decide whether off-route official places such as Idala kyrka, Rastplats vid Hornsjön, Torpet Dalen and side lodging/shops should be imported, suppressed, or represented as side-service metadata.",
+        "Do not use official API line.geometry, Naturkartan display distance, OSM declared distance, or stale Stensjön prose as canonical N3 import data.",
+        "No section-specific waste-bin coordinate was found; do not import waste records without a point."
       ]
     },
     "hallandsleden-stattared-veddige": {
@@ -798,47 +804,159 @@
       ],
       "completedAt": "2026-04-29T17:28:38.706Z",
       "synthesisFile": "sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json"
+    },
+    {
+      "batchId": "hallandsleden-naturum-fjaras-bracka-askhults-by-initial-6-lane-2026-04-29",
+      "sectionId": "hallandsleden-naturum-fjaras-bracka-askhults-by",
+      "startedAt": "2026-04-29T18:25:27Z",
+      "status": "completed-and-synthesized",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019dda7d-d22d-74a0-b200-3b2bda76f8ef",
+          "nickname": "Averroes"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019dda7d-d24d-7812-961a-ace151a24bb9",
+          "nickname": "Archimedes"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019dda7d-d27e-7ce3-8f23-74fb62560b0b",
+          "nickname": "Cicero"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019dda7d-d29f-7b61-b88d-7f0458109843",
+          "nickname": "Tesla"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019dda7d-d2b8-79b0-8634-cbdfe5134552",
+          "nickname": "Mill"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019dda7d-d300-77e3-ba5c-922ee3d8790a",
+          "nickname": "Nash"
+        }
+      ],
+      "requestedOutputs": [
+        "official facts",
+        "geometry verification",
+        "facilities",
+        "transit/access",
+        "field reports",
+        "rules/safety/currentness"
+      ],
+      "completedAt": "2026-04-29T18:33:48Z",
+      "synthesisFile": "sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json",
+      "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around Äskhult fire rules, seasonal Äskhult water/toilet access, Axtorp access distance, Stensjön off-section facility records, and non-canonical Naturkartan/OSM/API line.geometry clues."
+    },
+    {
+      "batchId": "hallandsleden-askhults-by-stattared-initial-6-lane-2026-04-29",
+      "sectionId": "hallandsleden-askhults-by-stattared",
+      "startedAt": "2026-04-29T18:37:17Z",
+      "status": "in-progress",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019dda88-f84a-7ce1-9fae-4d6931c62837",
+          "nickname": "Boyle"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019dda88-f903-75a2-995e-2c3edae1578e",
+          "nickname": "Halley"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019dda88-f992-7aa0-bc0b-6601dee0fe06",
+          "nickname": "Lagrange"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019dda88-f9f9-7aa1-88f2-e128610547da",
+          "nickname": "Schrodinger"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019dda88-fab8-72e3-ad39-f2213c05aa1d",
+          "nickname": "Sagan"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019dda88-fb43-7690-90b4-57be2c8f0927",
+          "nickname": "Bohr"
+        }
+      ],
+      "requestedOutputs": [
+        "official facts",
+        "geometry verification",
+        "facilities",
+        "transit/access",
+        "field reports",
+        "rules/safety/currentness"
+      ],
+      "completedAt": "2026-04-29T18:44:38Z",
+      "synthesisFile": "sections/hallandsleden-askhults-by-stattared.research.json",
+      "synthesisDecision": "Strong enough for research-ready section file with explicit caveats around Äskhult/Lilla Äskhult fire and tent rules, seasonal Äskhult water/toilet access, Stättared water and parking verification, sparse end-access transit, off-route side services, stale Stensjön prose, and non-canonical API line.geometry/Naturkartan/OSM distance clues."
     }
   ],
   "sourceCoverage": {
     "officialOverview": "complete-initial-pass",
     "officialSectionInventory": "complete-initial-pass-35-sections",
-    "officialGeometry": "partial-official-map-line-and-gpx-links-captured",
-    "municipalities": "overview-list-captured-from-official-footer-section-specific-pages-pending",
-    "protectedAreas": "complete-for-first-section-only",
-    "transitOperators": "complete-for-first-section-only",
-    "facilities": "complete-for-first-section-only",
-    "fieldReports": "complete-for-first-section-only",
-    "rulesSafety": "overview-pass-complete-section-specific-pending"
+    "officialGeometry": "complete-for-first-three-sections-with-api-line_geometry-caveats",
+    "municipalities": "overview-list-captured-from-official-footer-n1-n2-n3-section-specific-pages-reviewed",
+    "protectedAreas": "complete-for-first-three-sections",
+    "transitOperators": "complete-for-first-three-sections",
+    "facilities": "complete-for-first-three-sections",
+    "fieldReports": "complete-for-first-three-sections",
+    "rulesSafety": "overview-pass-complete-n1-n2-n3-section-specific-complete"
   },
   "knownGaps": [
-    "Only the overview and first section have been researched/synthesized per user change of plan; 34 remaining sections are intentionally deferred.",
+    "Only the overview and first three sections have been researched/synthesized; 32 remaining sections still need the six-lane workflow.",
     "Coastal Hallandsleden is incomplete by official statement; future import must model gaps instead of stitching a continuous coast.",
     "Older sources may report 435 km / 26 stages / 3 parts; live official source reports 612 km / 35 sections / 4 subtrails.",
     "Paper maps printed June 2022 are stale for 2024 rerouted sections.",
     "N1: official API line.geometry conflicts with official GPX/API geo_json and should not be used for import.",
     "N1: Fjärås Bräcka shelters/camping need rule clarification before public camping copy.",
-    "N1: Stensjön toilet season needs verification before normalization."
+    "N1: Stensjön toilet season needs verification before normalization.",
+    "N2: official API line.geometry conflicts with official GPX/API geo_json and should not be used for import.",
+    "N2: Naturkartan has matching endpoints but a materially different middle alignment; use official GPX/API geo_json as canonical.",
+    "N2: OSM relation 3208832 is a legacy/different Stensjön-Äskhult relation, not current N2.",
+    "N2: Äskhult shelter fireplace conflicts with Äskhult reserve's general fire prohibition; verify exemption/signage before public fire-use copy.",
+    "N2: Äskhult water/toilet should be treated as seasonal or conditional until confirmed otherwise.",
+    "N2: Axtorp access distance differs across sources; coordinate-derived straight-line distance is about 1.0-1.1 km, while Länsstyrelsen says 2 km.",
+    "N3: official API line.geometry conflicts with official GPX/API geo_json and should not be used for import.",
+    "N3: Naturkartan displays 15.0 km while the current official GPX/API geo_json is 17 km; use official GPX/API geo_json as canonical.",
+    "N3: official section prose appears to contain stale Stensjön shelter/toilet wording; current N3 places API and endpoint evidence support Lägerplats Stättared instead.",
+    "N3: Äskhult/Lilla Äskhult shelter fire and any tenting permission need exact boundary/designated-place verification.",
+    "N3: Stättared drinking water is at Stättareds 4H-gård, not the shelter, and all-hours tap access remains unverified.",
+    "N3: Stättared bus access is sparse and endpoint distances are measured differently by sources; use Stättaredsvägen/Backen with caveats."
   ],
   "nextActions": [
-    "Commit and push branch codex/hallandsleden-research for handoff.",
-    "On the next computer/thread, resume Phase 2 with hallandsleden-naturum-fjaras-bracka-askhults-by.",
+    "Continue Phase 2 with hallandsleden-stattared-veddige.",
     "For each remaining section, run the six-lane research workflow and update this progress file after each batch/synthesis.",
+    "When researching N4, pay special attention to the N3/N4 Stättared endpoint handoff and duplicate Stättared shelter, toilet, water, parking, and 4H side-service records.",
     "Keep edits confined to data/research/candidate-trails/hallandsleden/ until explicitly asked otherwise."
   ],
   "handoffNotes": [
-    "User changed plan on 2026-04-29: stop after overview plus first section, then push branch for handoff to another computer.",
-    "Worktree: /Users/joakim/Documents/codex/hike-trails-hallandsleden-research on branch codex/hallandsleden-research.",
+    "Work resumed on 2026-04-29 in /workspaces/hike-trails-codex-hallandsleden-research on branch codex/hallandsleden-research.",
     "Only files under data/research/candidate-trails/hallandsleden/ were written.",
     "Do not edit source/runtime/generated app data. Do not run forbidden generated-data/import commands.",
-    "Overview files are complete for Phase 1. First section file is sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json.",
-    "Next section to research: hallandsleden-naturum-fjaras-bracka-askhults-by."
+    "Overview files are complete for Phase 1.",
+    "Completed section files: sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json, sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json, and sections/hallandsleden-askhults-by-stattared.research.json.",
+    "Next section to research: hallandsleden-stattared-veddige."
   ],
   "filesWritten": [
     "README.md",
     "trail.research.json",
     "research-progress.json",
-    "sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json"
+    "sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json",
+    "sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json",
+    "sections/hallandsleden-askhults-by-stattared.research.json"
   ],
   "meaningfulPasses": [
     {
@@ -855,6 +973,26 @@
       "id": "phase-2-n1-six-lane-synthesis-complete-2026-04-29",
       "completedAt": "2026-04-29T17:28:38.706Z",
       "summary": "Synthesized six lane reports for N1 Älvsåker - naturum Fjärås Bräcka into a section research JSON. Stopping further section work per user request so branch can be pushed for handoff."
+    },
+    {
+      "id": "phase-2-n2-initial-agent-batch-started-2026-04-29",
+      "completedAt": "2026-04-29T18:25:27Z",
+      "summary": "Resumed Phase 2 and spawned six independent research/report agents for N2 naturum Fjärås Bräcka - Äskhults by. Main thread retained file-write ownership."
+    },
+    {
+      "id": "phase-2-n2-six-lane-synthesis-complete-2026-04-29",
+      "completedAt": "2026-04-29T18:33:48Z",
+      "summary": "Synthesized six lane reports and main-thread API/GPX checks for N2 into a section research JSON. Marked N2 research-ready with caveats around Äskhult fire rules, seasonal Äskhult water/toilet access, Axtorp access distance, Stensjön off-section records, and non-canonical geometry sources."
+    },
+    {
+      "id": "phase-2-n3-initial-agent-batch-started-2026-04-29",
+      "completedAt": "2026-04-29T18:37:17Z",
+      "summary": "Started Phase 2 six-lane research workflow for N3 Äskhults by - Stättared. Main thread retains file-write ownership and will synthesize agent reports into the section research JSON."
+    },
+    {
+      "id": "phase-2-n3-six-lane-synthesis-complete-2026-04-29",
+      "completedAt": "2026-04-29T18:44:38Z",
+      "summary": "Synthesized six lane reports and main-thread API/GPX/Naturkartan/Västtrafik checks for N3 into a section research JSON. Marked N3 research-ready with caveats around Äskhult/Lilla Äskhult fire and tent rules, seasonal Äskhult water/toilet access, Stättared water and parking verification, sparse end-access transit, stale Stensjön prose, and non-canonical geometry/distance sources."
     }
   ]
 }

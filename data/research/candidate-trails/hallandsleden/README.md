@@ -4,13 +4,15 @@ Status: research-only candidate trail packet. Do not import these files automati
 
 Trail ID: `hallandsleden`
 
-Phase 1 overview is complete from the live official Hallandsleden site/API as accessed 2026-04-29. Phase 2 has one completed section file for N1, then work paused by request for handoff to another computer.
+Phase 1 overview is complete from the live official Hallandsleden site/API as accessed 2026-04-29. Phase 2 has completed section files for N1, N2, and N3. Work should resume with N4.
 
 ## Files
 
 - `trail.research.json`: whole-trail overview, official source URLs, subtrail structure, section inventory, overview rules/currentness risks.
 - `research-progress.json`: resumable progress ledger for this trail.
 - `sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json`: N1 section research synthesized from the required six-lane agent batch.
+- `sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json`: N2 section research synthesized from the required six-lane agent batch.
+- `sections/hallandsleden-askhults-by-stattared.research.json`: N3 section research synthesized from the required six-lane agent batch.
 - `sections/*.research.json`: remaining section files, to be written after future section research batches.
 
 ## Official Overview
@@ -30,10 +32,12 @@ The inland route is branched rather than a single line. It meets Bohusleden at �
 - Official 2024 reroutes are in the digital map, while paper maps printed in June 2022 still contain old alignments.
 - Some official map API records have empty linework even though section GPX downloads exist, so section geometry needs GPX parsing and independent endpoint checks.
 
-## Completed Section
+## Completed Sections
 
 - N1 `hallandsleden-alvsaker-naturum-fjaras-bracka`: research-ready with caveats. Main caveats are the Fjärås Bräcka shelter/camping rule ambiguity, the Stensjön toilet season conflict, and a misleading official API `line.geometry` field that should not be used for import.
+- N2 `hallandsleden-naturum-fjaras-bracka-askhults-by`: research-ready with caveats. Main caveats are the Äskhult shelter fireplace versus reserve fire prohibition, seasonal Äskhult water/toilet access, Axtorp distance/service caveats, Stensjön off-section facility records, and non-canonical Naturkartan/OSM/API `line.geometry` clues.
+- N3 `hallandsleden-askhults-by-stattared`: research-ready with caveats. Main caveats are Äskhult/Lilla Äskhult fire and tent boundary rules, seasonal Äskhult water/toilet access, Stättared water and parking verification, sparse Stättared transit access, stale Stensjön prose, and non-canonical API `line.geometry`/Naturkartan/OSM distance clues.
 
 ## Next Safe Step
 
-Resume Phase 2 with `hallandsleden-naturum-fjaras-bracka-askhults-by`: spawn the six required research/report agents, synthesize their findings, write the section JSON, then update `research-progress.json`.
+Resume Phase 2 with `hallandsleden-stattared-veddige`: spawn the six required research/report agents, synthesize their findings, write the section JSON, then update `research-progress.json`. Pay attention to duplicate Stättared endpoint facilities from N3.
