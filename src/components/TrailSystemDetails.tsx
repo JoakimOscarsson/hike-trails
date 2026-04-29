@@ -49,6 +49,11 @@ function routePickerSectionLabel(section: Pick<TrailSection, "stageNumber" | "fr
   return `${section.stageNumber}. ${endpointLabel}`;
 }
 
+function sectionDescriptionText(description: TrailSection["description"]) {
+  if (typeof description === "string") return description;
+  return description.short ?? description.long ?? "";
+}
+
 function selectedRouteDescription({
   sections,
   distanceKm,
@@ -63,7 +68,7 @@ function selectedRouteDescription({
   lastSection: TrailSection;
 }) {
   const sectionSummaries = sections
-    .map((section) => `${sectionLabel(section)}: ${section.description}`)
+    .map((section) => `${sectionLabel(section)}: ${sectionDescriptionText(section.description)}`)
     .filter((summary) => !summary.endsWith(": "))
     .slice(0, 5);
   const remainingCount = Math.max(0, sections.length - sectionSummaries.length);
@@ -869,7 +874,9 @@ export function TrailSystemDetails({
           <InfoList
             title="Selected Sections"
             icon={<Info size={18} />}
-            items={detailedSelectedRouteSections.map((section) => `${section.name}: ${section.description || "Section detail is loading."}`)}
+            items={detailedSelectedRouteSections.map(
+              (section) => `${section.name}: ${sectionDescriptionText(section.description) || "Section detail is loading."}`
+            )}
           />
 
           <section className="info-block source-block">

@@ -147,7 +147,7 @@ export type TrailSection = {
   to: string;
   distanceKm: number;
   estimatedTime: string;
-  description: string;
+  description: TrailSectionDescription;
   utilities: string[];
   waterSources: string[];
   notes: string[];
@@ -161,6 +161,14 @@ export type TrailSection = {
   source: HikeSource;
   route: HikeRoute;
 };
+
+export type TrailSectionDescription =
+  | string
+  | {
+      short?: string;
+      long?: string;
+      doNotOverstate?: string[];
+    };
 
 export type TrailTransitStop = {
   id: string;
