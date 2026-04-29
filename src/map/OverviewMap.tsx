@@ -73,7 +73,7 @@ function overviewPointHitStyle(): L.CircleMarkerOptions {
 
 function tooltipText(properties: LibraryOverviewFeature["properties"]) {
   const distance = Number.isFinite(properties.distanceKm) ? `${properties.distanceKm} km` : "Distance unknown";
-  return `${properties.name} · ${distance} · ${properties.difficulty}`;
+  return `${properties.name} · ${distance}`;
 }
 
 function connectionOverlayFeatures(feature: LibraryOverviewFeature) {
