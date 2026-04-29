@@ -1,6 +1,6 @@
 # Data Pipeline And Implementation Status
 
-Last updated: 2026-04-28
+Last updated: 2026-04-29
 
 This document tracks the data-contract refactor in small implementation slices. It is intentionally explicit about what each slice has and has not changed so the next agent can continue without rereading every planning note.
 
@@ -8,7 +8,7 @@ This document tracks the data-contract refactor in small implementation slices. 
 
 Runtime data is now in a transitional hiking-plus-kayak public contract. The visible app loads hiking and kayaking records from the shared index. Kayaking has a typed overview/detail branch, compact kayak-specific filters, water/exposure/research-confidence filtering, linked facility rendering on kayak detail maps, and a live browser runtime-path/interaction/accessibility/print probe; richer overview facility layers and caveat-severity workflows remain future work.
 
-As of Slice 22, overview maps still initialize immediately because they are primary navigation surfaces. Non-overview route/detail maps defer on small screens until their reserved map area is near the viewport, reducing below-fold route-geometry and tile work without changing the desktop behavior or public data contract. As of Slice 23, trail-system detail maps render selected/context route geometry only; the hiking overview map remains the full-network orientation surface. As of Slices 24-28, map extraction has moved `DeferredMapMount`, standalone hike `RouteMap`, kayak `KayakTripMap`, and `TrailSystemMap` into `src/map/**`. As of Slice 31, trail-system route loading/drawing helpers live in `src/map/trailSystemRouteLayers.ts`; as of Slice 32, hiking facility marker rendering lives in `src/map/hikingFacilityMarkers.tsx`; as of Slice 33, hiking commute marker rendering lives in `src/map/hikingCommuteMarkers.tsx`; as of Slice 34, selected-route-first bounds fitting lives in `src/map/fitMapBounds.ts`; as of Slice 40, hiking detail maps and facility lists hide facilities marked off-route by the existing proximity metadata, and same-coordinate hiking facilities render as expandable map clusters. As of Slice 41, sidebar/detail view shells and filter contracts live outside `src/main.tsx`. As of Slice 42, overview routes use a generated deterministic color scale instead of a six-color palette. As of Slice 43, kayak validation derives source/runtime counts from `source-manifest.json` and source shards rather than first-import constants. As of Slice 44, route geometry caching is bounded by an LRU entry limit. As of Slice 45, the generated shared library index is composed from hiking and kayaking activity-owned fragments so scoped activity builds do not regenerate the other activity. As of Slice 46, legacy hiking compatibility index and all-in-one trail-system JSON outputs are no longer generated. As of Slice 47, Roslagsleden and Sörmlandsleden builders share common GPX, route-writing, section-cleanup, location, and persistence helpers. As of Slice 48, kayak trip start/end/waypoint/access details are normalized into typed public runtime shapes and validated before the app consumes them. As of Slice 49, top-level library loading, detail caching, filter derivation, selection/hover state, and starred-item persistence are extracted from `src/main.tsx` into focused hooks under `src/data/**`; `src/main.tsx` is now mostly app composition. As of Slice 50, local and CI-oriented testing includes a fast `npm test` unit layer, a no-write generated-data drift check, and a documented `npm run test:all` browser-capable suite.
+As of Slice 22, overview maps still initialize immediately because they are primary navigation surfaces. Non-overview route/detail maps defer on small screens until their reserved map area is near the viewport, reducing below-fold route-geometry and tile work without changing the desktop behavior or public data contract. As of Slice 23, trail-system detail maps render selected/context route geometry only; the hiking overview map remains the full-network orientation surface. As of Slices 24-28, map extraction has moved `DeferredMapMount`, standalone hike `RouteMap`, kayak `KayakTripMap`, and `TrailSystemMap` into `src/map/**`. As of Slice 31, trail-system route loading/drawing helpers live in `src/map/trailSystemRouteLayers.ts`; as of Slice 32, hiking facility marker rendering lives in `src/map/hikingFacilityMarkers.tsx`; as of Slice 33, hiking commute marker rendering lives in `src/map/hikingCommuteMarkers.tsx`; as of Slice 34, selected-route-first bounds fitting lives in `src/map/fitMapBounds.ts`; as of Slice 40, hiking detail maps and facility lists hide facilities marked off-route by the existing proximity metadata, and same-coordinate hiking facilities render as expandable map clusters. As of Slice 41, sidebar/detail view shells and filter contracts live outside `src/main.tsx`. As of Slice 42, overview routes use a generated deterministic color scale instead of a six-color palette. As of Slice 43, kayak validation derives source/runtime counts from `source-manifest.json` and source shards rather than first-import constants. As of Slice 44, route geometry caching is bounded by an LRU entry limit. As of Slice 45, the generated shared library index is composed from hiking and kayaking activity-owned fragments so scoped activity builds do not regenerate the other activity. As of Slice 46, legacy hiking compatibility index and all-in-one trail-system JSON outputs are no longer generated. As of Slice 47, Roslagsleden and Sörmlandsleden builders share common GPX, route-writing, section-cleanup, location, and persistence helpers. As of Slice 48, kayak trip start/end/waypoint/access details are normalized into typed public runtime shapes and validated before the app consumes them. As of Slice 49, top-level library loading, detail caching, filter derivation, selection/hover state, and starred-item persistence are extracted from `src/main.tsx` into focused hooks under `src/data/**`; `src/main.tsx` is now mostly app composition. As of Slice 50, local and CI-oriented testing includes a fast `npm test` unit layer, a no-write generated-data drift check, and a documented `npm run test:all` browser-capable suite. As of the 2026-04-29 SAT integration slices, trail-system shards can include `connections.json`; the app renders selected ferry, rowboat, bus, and walking handoffs on the map and in route details.
 
 Kayak `hasFollowup` is intentionally an internal audit/detail signal as of Slice 19. It stays in the compact public contract for validation and future editorial workflows, but it is not exposed as a sidebar filter because every current kayak route has follow-up/research notes and a visible filter would not narrow the list.
 
@@ -35,6 +35,7 @@ Completed and stable enough to build on:
 - Read-only hiking/kayak runtime validation, shared domain types, `data:validate`, `typecheck`, `ci:check`, `ci:check:browser`, and project-owned GitHub Actions checks.
 - Fast unit tests, no-write generated-output drift checking, and a documented local test matrix in `docs/testing.md`.
 - Hiking trail-system runtime shards and app runtime loading from `library-index.json` plus sharded trail-system data.
+- Stockholm Archipelago Trail source/runtime shards, normalized facilities, selected-route transfer connections, and SAT-specific validation for adjacent ferry/rowboat handoffs.
 - Bounded route geometry cache, per-route load resilience, and Leaflet lifecycle fixes.
 - Hiking and kayaking overview/detail runtime paths, kayak source import, kayak detail facility rendering, and compact kayak filters.
 - Activity-scoped generated index fragments: `library-index.hiking.json` and `library-index.kayaking.json` compose into the runtime `library-index.json`.
@@ -79,6 +80,7 @@ Current runtime output paths covered by validation:
 - `public/data/trail-systems/<trail-system-id>/manifest.json`
 - `public/data/trail-systems/<trail-system-id>/sections-index.json`
 - `public/data/trail-systems/<trail-system-id>/route-groups.json`
+- `public/data/trail-systems/<trail-system-id>/connections.json` when a trail system has ferry, rowboat, bus, or walking connection records.
 - `public/data/trail-systems/<trail-system-id>/presets.json`
 - `public/data/trail-systems/<trail-system-id>/sections/<section-id>.json`
 - `public/data/kayak-trips/<kayak-trip-id>.json`
@@ -113,12 +115,15 @@ public/data/trail-systems/<trail-system-id>/
   manifest.json
   sections-index.json
   route-groups.json
+  connections.json   # optional; ferry/rowboat/bus/walk transfer records
   presets.json
   sections/
     <section-id>.json
 ```
 
 Legacy all-in-one trail-system runtime JSON is no longer generated. Validation rejects `public/data/hikes-index.json` and root-level `public/data/trail-systems/<trail-system-id>.json` if they reappear.
+
+When `connections.json` is present, both the library index and manifest expose `connectionsPath`. Connection route geometry is stored separately under `public/routes/hiking/<trail-system-id>/connections/` and should be treated as planning-reference geometry unless the route record says otherwise.
 
 ## Slice 1: Validation And Shared Contract Foundation
 

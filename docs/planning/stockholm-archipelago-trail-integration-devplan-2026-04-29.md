@@ -4,7 +4,7 @@ Date: 2026-04-29
 
 Workspace target: `/Users/joakim/Documents/codex/hike-trails`
 
-Status: Slice 9 completed; Slice 10 not started.
+Status: Slice 10 completed; implementation plan completed.
 
 This is a living development plan for bringing Stockholm Archipelago Trail into the app. It is intentionally concrete: every slice has a scope, likely files, a definition of done, and validation notes. The trail is ferry-dependent, so ferry transfers are first-class route connections, not just text notes.
 
@@ -39,7 +39,7 @@ Important rule: the candidate research file is an input only. Runtime code must 
 - [x] Slice 7: Add build scripts and generated runtime outputs.
 - [x] Slice 8: Add validation and tests.
 - [x] Slice 9: Complete browser/product QA.
-- [ ] Slice 10: Update documentation and release notes.
+- [x] Slice 10: Update documentation and release notes.
 
 ## Product Goals
 
@@ -669,12 +669,28 @@ Work:
 - Add a short handoff note about known future follow-ups.
 - Update this plan's progress log as slices complete.
 
+Completed:
+
+- Updated `data/source/hiking/README.md` with SAT source-shard, connection-route, ferry volatility, and skipped metadata notes.
+- Updated `data/research/candidate-trails/stockholm-archipelago-trail/README.md` to mark the research packet as an input for the integrated source shards rather than an unintegrated trail.
+- Updated `docs/data-pipeline.md` with the optional `connections.json` runtime contract and SAT integration status.
+- Updated `docs/testing.md` with SAT connection validation and grouped facility-filter browser probe coverage.
+- Marked this devplan completed through Slice 10.
+
 Definition of done:
 
 - A future agent can tell which SAT data is source, generated runtime, candidate research, or temporary artifact.
 - The ferry connection model is documented outside the implementation code.
 - Known data caveats are recorded.
 - This plan's progress log matches reality.
+
+Completed validation:
+
+- `npm run data:validate`
+- `npm run runtime:probe`
+- `npm run typecheck`
+- `npm run build`
+- `git diff --check`
 
 ## Recommended Implementation Order
 

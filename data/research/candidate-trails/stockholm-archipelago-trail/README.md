@@ -1,6 +1,6 @@
 # Stockholm Archipelago Trail Research
 
-Status: research-only.
+Status: research input for an integrated trail system.
 
 Files:
 
@@ -8,7 +8,9 @@ Files:
 - `facility-normalization-audit.json`: deterministic Slice 0 audit of raw facility, POI, suppression, pending, access, and transfer records against the current app taxonomy.
 - `section-connection-plan.json`: deterministic Slice 2 plan for ferry, rowboat, bus/ferry, and walking connections between official SAT entries.
 
-This trail has not yet been split into per-section packets in this repository. Before integration, split or normalize it into the planned trail-system source contract and validate any route geometry and facility references.
+The app-owned SAT source now lives under `data/source/hiking/stockholm-archipelago-trail/`. Runtime code must use generated public shards under `public/data/trail-systems/stockholm-archipelago-trail/`; it must not read this research directory directly.
+
+This research packet remains useful for rebuilding audits, connection planning, and source shards, but it includes suppressed, pending, metadata-only, access-only, and transfer records that are not normal runtime facilities. `harbor_services` is intentionally skipped for the current app surface.
 
 Run the normalization audit with:
 
@@ -44,4 +46,17 @@ Check the committed source shards with:
 
 ```sh
 npm run data:sat:source-shards:check
+```
+
+After source shard changes, regenerate public runtime data with:
+
+```sh
+npm run data:build
+```
+
+Then run:
+
+```sh
+npm run data:validate
+npm run data:check
 ```
