@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-29T23:31:00Z",
-  "currentPhase": "Phase 2 section research ready to start hallandsleden-oskarstrom-gyltige",
+  "lastUpdated": "2026-04-29T23:59:30Z",
+  "currentPhase": "Phase 2 section research complete through hallandsleden-oskarstrom-gyltige; next section is hallandsleden-kvarnforsen-gyltige",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -19,7 +19,8 @@
     "hallandsleden-rydobruk-kvarnforsen",
     "hallandsleden-astad-vessigebro",
     "hallandsleden-vessigebro-frodeparken",
-    "hallandsleden-frodeparken-oskarstrom"
+    "hallandsleden-frodeparken-oskarstrom",
+    "hallandsleden-oskarstrom-gyltige"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -470,19 +471,23 @@
       "sectionNumber": "S2",
       "name": "Oskarström - Gyltige",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-map-line-discovered-needs-gpx-cross-check",
-      "startEndCoordinateStatus": "official-map-line-endpoints-captured-needs-validation",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-initial-six-lane",
+      "routeGeometryStatus": "complete-official-gpx-api-geojson-navigation-planning-grade",
+      "startEndCoordinateStatus": "complete-high-confidence-official-gpx-api-endpoints",
+      "commuteAccessStatus": "complete-start-strong-gyltige-public-transit-weak",
+      "facilityResearchStatus": "complete-with-water-toilet-conflicts-and-suppressions",
+      "rulesSafetyStatus": "complete-protected-areas-water-protection-fire-dog-hunting-forestry-currentness",
+      "synthesisStatus": "complete-section-json-written",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
-        "Run six independent section research lanes and synthesize findings.",
-        "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
-        "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Verify Oskarström public toilet/water current status because official water and toilet records conflict and the water record says temporarily closed due vandalism.",
+        "Verify Gyltige drinking-water and dry-toilet status because Destination Halmstad/OSM support them while adjacent Hallandsleden pages say no toilet at Gyltige.",
+        "Decide whether S1/S2 and Gyltige shared endpoints should be snapped to common nodes or preserved with official GPX gaps of 2.94 m, 1.47 m and 7.81 m.",
+        "Represent Gyltige as a graph junction where S2 Oskarström - Gyltige and S3 Kvarnforsen - Gyltige both end and S4 Gyltige - Simlångsdalen begins nearby.",
+        "Verify Hallandstrafiken current lines/stops/timetables for Oskarström and decide how to present weak Gyltige transit access.",
+        "Decide whether to include OSM-only Oskarström service candidates or limit services to official Hallandsleden POIs.",
+        "Confirm exact Keddaböke boundary relationship if protected-area display distinguishes route-inside from adjacent/beside.",
+        "Recheck Hallandsleden currentness, Länsstyrelsen reserve pages, Skogsstyrelsen felling notifications, Trafikverket Road 26 project, Hallandstrafiken schedules and fire status before publication/use."
       ]
     },
     "hallandsleden-kvarnforsen-gyltige": {
@@ -3206,6 +3211,315 @@
       ],
       "synthesizedAt": "2026-04-29T23:31:00Z",
       "synthesisSummary": "S1 synthesized into sections/hallandsleden-frodeparken-oskarstrom.research.json. No targeted follow-up batch was needed: official geometry, facilities, access and rules evidence are strong; remaining issues are explicit import caveats around Oskarström water/toilet status, weak Frodeparken access, stale Döbla/Ryet segmentation, dense Oskarström services and dynamic currentness checks."
+    },
+    {
+      "batchId": "hallandsleden-oskarstrom-gyltige-initial-6-lane-2026-04-29",
+      "sectionId": "hallandsleden-oskarstrom-gyltige",
+      "startedAt": "2026-04-29T23:34:00Z",
+      "status": "complete-synthesized",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "nickname": "Carson"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "nickname": "Darwin"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "nickname": "Beauvoir the 2nd"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "nickname": "Poincare the 2nd"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "nickname": "Rawls the 2nd"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "nickname": "Kuhn the 2nd"
+        }
+      ],
+      "requestedOutputs": [
+        "official facts",
+        "geometry verification",
+        "facilities",
+        "transit/access",
+        "field reports",
+        "rules/safety/currentness"
+      ],
+      "notes": [
+        "Focus on S1 Oskarström handoff, Oskarström water/toilet conflict, suspicious official overview map line start far east of Oskarström, old Ryet/Gyltige segmentation, Gyltige endpoint topology/access/facilities and S3/S4 shared context."
+      ],
+      "receivedReports": [
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "receivedAt": "2026-04-29T23:42:30Z",
+          "summary": "Found current boundary support from official Hallandsleden/Naturkartan/Sydsverige and no active S2 closure/reroute in searched official/Naturkartan/AllTrails/Komoot/Wikiloc/blog sources. Recent/dated evidence is mostly stale old Ryet-Gyltige segmentation: 2023 Wikiloc Ryet-Gyltige has no condition text, AllTrails Gyltige-Sennan reviews 2020-2022 include a 2020 good-markings note, and 2016 En Vandringssaga winter report notes snow-hidden markings, steep hills, red oak, Fylleån bridge and Gyltige shelters. Flagged Gyltige water/toilet conflict between Destination Halmstad and adjacent official Hallandsleden stages.",
+          "keySources": [
+            "https://hallandsleden.se/etapp/oskarstrom-gyltige",
+            "https://www.naturkartan.se/sv/hallands-lan/ryet-gyltige-hallandsleden",
+            "https://www.sydsverige.dk/?pageID=376",
+            "https://www.wikiloc.com/hiking-trails/11-11-ryet-gyltige-137906249",
+            "https://www.alltrails.com/en-gb/trail/sweden/halland/gyltige-till-sennan",
+            "https://www.bejegard.se/vandring/halland/hallandsleden/hallandsleden-ryet-gyltige-16-km/",
+            "https://www.destinationhalmstad.se/en/accommodation/stay-in-nature---shelters-and-tents",
+            "https://www.hallandsleden.se/en/etapp/kvarnforsen-gyltige",
+            "https://www.hallandsleden.se/etapp/gyltige-simlangsdalen"
+          ],
+          "conditionSignals": [
+            "AllTrails Gyltige to Sennan has reviews 2020-05-03, 2021-03-06, 2022-05-13 and 2022-07-24; 2020 review says good markings, route-app tags include partially paved, camping, forests, lakes, rivers and views. Endpoint is Sennan, not current official Oskarström.",
+            "2016 En Vandringssaga old Ryet-Gyltige winter report: snow-covered markings harder to see, medium difficulty, steep hills at beginning/end, red oak easy to miss, Fylleån bridge present, Gyltige two shelters/fireplace near parking/building. Stale for conditions.",
+            "2023 Wikiloc old Ryet-Gyltige has no substantive condition comments and should be used only as stale boundary evidence.",
+            "No current S2-specific closure, bridge outage or reroute found in searched sources."
+          ],
+          "contradictions": [
+            "Destination Halmstad shelter page updated 2026-01-27 says Gyltige has fireplace, drinking water, dry toilet and two shelters, while adjacent official Hallandsleden Kvarnforsen-Gyltige and Gyltige-Simlångsdalen pages say Gyltige has no toilet. Verify before importing toilet/water.",
+            "Naturkartan title says Oskarström-Gyltige but slug remains ryet-gyltige-hallandsleden; use title/current route, not slug."
+          ],
+          "importImpacts": [
+            "Use official Hallandsleden GPX/page as canonical current S2; do not use old Ryet-Gyltige sources for boundaries.",
+            "Add cautious terrain metadata: paved exit from Oskarström, forest roads/wide paths, short boardwalks and moderate slopes.",
+            "Import Gyltige shelter/fireplace if corroborated by facilities lane; water likely but needs verification; toilet conflicting and should remain pending unless stronger evidence appears.",
+            "No active closure/reroute warning from this lane."
+          ]
+        },
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "receivedAt": "2026-04-29T23:55:00Z",
+          "summary": "Canonical official identity confirmed as Oskarström - Gyltige, slug oskarstrom-gyltige, Södra delleden, global order 18/local Södra order 2, 22 km / API 22000 m, blue/medium difficulty and no official time. Official GPX Mellersta_Oskarstrom_Gyltige has timestamp 2025-06-23T09:29:25+02:00 and agrees with Hallandsleden geo_json endpoints 56.801466,12.976844 to 56.767366,13.182102. Official source lane also confirmed S2 and S3 both terminate at Gyltige and should be modeled as a junction, not a simple linear continuation.",
+          "keySources": [
+            "https://www.hallandsleden.se/en/etapp/oskarstrom-gyltige",
+            "https://www.hallandsleden.se/etapp/oskarstrom-gyltige",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Oskarstrom_Gyltige.gpx",
+            "https://www.hallandsleden.se/api/v2/track-segments?track=sodra-delleden&limit=20&order=ascending",
+            "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=oskarstrom-gyltige",
+            "https://www.hallandsleden.se/api/v2/places?trackSegment=oskarstrom-gyltige&limit=100",
+            "https://www.naturkartan.se/sv/hallands-lan/ryet-gyltige-hallandsleden",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/virsehatt.html",
+            "https://www.destinationhalmstad.se/boende/bo-i-naturen---vindskydd-och-talt"
+          ],
+          "findings": [
+            "Official description: paved-road exit from Oskarström, crossing Sennan, Virsehatt nature reserve, varied roads/forest terrain, red oak, Stora Ullasjön, Fylleån and Gyltige campsite.",
+            "Virsehatt nature reserve rules: no camping, no fire except designated place, dogs leashed, no riding and no motor vehicles; reserve has accessible dry toilet by parking.",
+            "Gyltige official camp has two shelters for 4-5 adults each and fireplace; Destination Halmstad additionally says drinking water and dry toilet, which conflicts with adjacent Hallandsleden stage text saying no toilet at Gyltige.",
+            "Hallandsleden currentness pages say digital maps are updated for 2024 reroutes while June 2022 paper maps are stale; listed reroutes do not name Oskarström-Gyltige."
+          ],
+          "contradictions": [
+            "Södra overview page says six sections/from Gyltige to Koarp, while official API returns nine Södra segments including Frodeparken-Oskarström, Oskarström-Gyltige and Kvarnforsen-Gyltige.",
+            "Oskarström water/toilet records conflict: Dricksvatten Oskarström says public toilet/water filling is temporarily closed due vandalism, while Toalett Oskarström still says public toilet with water exists.",
+            "Naturkartan URL slug still says ryet-gyltige-hallandsleden although title/current route is Oskarström-Gyltige; Destination Halmstad uses older/alternate names such as Gyltige-Ryet and Ryet-Döbla.",
+            "Official page/API distance is 22 km/22000 m while GPX description says Total: 21.6 km."
+          ],
+          "importImpacts": [
+            "Use canonical slug/name oskarstrom-gyltige / Oskarström - Gyltige and official display distance 22 km.",
+            "Use official GPX or matching Hallandsleden geo_json as import geometry; start 56.801466,12.976844 and end 56.767366,13.182102.",
+            "Represent Gyltige as graph_junction_at_gyltige.",
+            "Mark Gyltige shelter/fireplace high confidence; mark Gyltige water/toilet and Oskarström water/toilet as availability conflicts needing cautious import metadata."
+          ]
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "receivedAt": "2026-04-29T23:55:00Z",
+          "summary": "Official GPX and Hallandsleden geo_json are identical, fresh and continuous: 411 points, computed length 21.525 km, start 56.801466,12.976844, end 56.767366,13.182102, direction Oskarström to Gyltige. Naturkartan site 22047 is aligned to the same endpoints with a simplified 393-point/21.583 km shape. Hallandsleden line.geometry and OSM relation 7398310 are stale/partial old Ryet-Gyltige geometry and must not be imported for current S2.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/oskarstrom-gyltige",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Oskarstrom_Gyltige.gpx",
+            "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=oskarstrom-gyltige",
+            "https://www.naturkartan.se/sv/hallands-lan/ryet-gyltige-hallandsleden",
+            "https://api.naturkartan.se/v3.2/sites/22047",
+            "https://www.openstreetmap.org/relation/7398310",
+            "https://www.openstreetmap.org/relation/7392725"
+          ],
+          "geometryFindings": [
+            "Official GPX metadata name Mellersta_Oskarstrom_Gyltige, timestamp 2025-06-23T09:29:25+02:00, track name Oskarström - Gyltige, desc Total: 21.6 km.",
+            "Hallandsleden geo_json.geometry exact coordinate match to GPX, 411 points, 21.525 km.",
+            "Hallandsleden line.geometry is 983 points/15.486 km, starts 3386.18 m from official start and ends 468.77 m short of official end; classify stale/partial old Ryet-Gyltige.",
+            "Naturkartan API shapes are 393 points, 21.583 km, updated 2026-04-27T13:11:59, same endpoints, likely simplified/generalized.",
+            "OSM relation 7398310 is named Hallandsleden Etappen Ryet - Gyltige, distance tag 15, computed member-way length 16.257 km, starts about 3190 m from current S2 start and has poor relation continuity.",
+            "Adjacent handoffs: S1 end to S2 start 2.94 m; S2 end to S3 Gyltige end 1.47 m; S2 end to Gyltige-Simlångsdalen start 7.81 m."
+          ],
+          "contradictions": [
+            "Official APIs expose both correct current geo_json geometry and stale/partial line.geometry for the same section.",
+            "OSM relation still represents old Ryet-Gyltige stage, not current Oskarström-Gyltige."
+          ],
+          "importImpacts": [
+            "Geometry grade A-: use official GPX or Hallandsleden geo_json; preserve direction Oskarström to Gyltige.",
+            "Display distance 22 km; retain measured 21.525 km / GPX 21.6 km as geometry metadata.",
+            "Ignore Hallandsleden line.geometry and OSM relation 7398310 for full section import.",
+            "Snap S1/S2 and Gyltige shared endpoints only within small 2-10 m tolerances."
+          ]
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "receivedAt": "2026-04-29T23:55:00Z",
+          "summary": "Facilities lane built a candidate inventory against the official GPX. High-confidence import candidates include Gyltige shelter/campsite/fireplace, Oskarström Centrum bus stop, Oskarström station, ICA/Bykokerskan, Virsehatt reserve/toilet/parking/viewpoint, Vrenninge grave field, red oak, Hålväg and Fylleån. Several endpoint services need cautious import metadata due closure/conflict: Oskarström water/toilet, Gyltige water/dry toilet, Simlångsgården/Gyltige Camping and duplicate picnic/waste items.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/oskarstrom-gyltige",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Oskarstrom_Gyltige.gpx",
+            "https://www.naturkartan.se/en/hallands-lan/gyltige",
+            "https://www.naturkartan.se/en/hallands-lan/ryet-gyltige-hallandsleden",
+            "https://www.destinationhalmstad.se/en/accommodation/stay-in-nature---shelters-and-tents",
+            "https://www.hallandsleden.se/en/item/faq-vanliga-fragor-och-svar/v1j2h3khkboetb2p0d3zd2f2drj5x1yu",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/virsehatt.html",
+            "OSM/Overpass corridor query"
+          ],
+          "importCandidates": [
+            "Lägerplats Gyltige / Gyltige vindskydd 56.76735344,13.18214557, 3 m from route, shelter/campsite/fireplace/picnic endpoint facility, high confidence, import.",
+            "Gyltige drinking water 56.7673483,13.1830561, 58 m, OSM + Destination Halmstad, medium-high, access metadata rather than standalone until official conflict resolved.",
+            "Gyltige dry toilet 56.7673269,13.1830329, 57 m, OSM + Destination Halmstad, medium, access metadata/pending public status.",
+            "Gyltige parking 56.7670597,13.1833973, 86 m, OSM capacity 30, medium-high, import endpoint access.",
+            "Dricksvatten Oskarström 56.80178372,12.97687590, 35 m, official says temporarily closed due vandalism, high confidence closure metadata.",
+            "Toalett Oskarström 56.80181941,12.97691507, 40 m, official/OSM but conflicts with closure notice, pending/access metadata.",
+            "Hållplats Oskarström Centrum 56.80180288,12.97715063, high confidence endpoint access; Oskarströms tågstation 56.80648173,12.97194973, 632 m, high confidence rail endpoint access.",
+            "ICA Nära Oskarström 56.80207470,12.97530640, 116 m, high confidence resupply; Bykokerskan 56.80164000,12.97739000, high confidence eat/drink.",
+            "Virsehatts naturreservat 56.79470656,13.01934063, 8 m, high confidence reserve/nature POI; Toalett Virsehatt 56.79443492,13.01898266, 40 m, high confidence accessible dry toilet; Virsehatt parking/viewpoint high confidence.",
+            "Vrenninge gravfält 56.80339255,12.99684227, 244 m, high confidence heritage; Rödek utmed leden 56.78584813,13.09482336, 1 m, high confidence natural/tree POI; Hålväg 56.77781498,13.17072623, 2 m, high confidence heritage; Fylleån 56.77133517,13.17908764, 6 m, high confidence natural/protected river POI."
+          ],
+          "suppressOrPending": [
+            "Lurehus 56.81173883,13.20794821 is 4.27 km off route; suppress for S2 despite official API association.",
+            "Ryet shelter/old campsite is legacy-only with no current official coordinate; suppress unless field verified.",
+            "Svarta klippan shelter/firepit/parking are over 2 km off S2 route; suppress for S2.",
+            "Gyltige picnic site and waste basket may duplicate endpoint camp metadata; do not import as standalone unless later normalization wants separate access amenities.",
+            "Simlångsgården/Gyltige Camping has mixed OSM/camping-directory data and should remain pending as commercial/lodging context."
+          ],
+          "contradictions": [
+            "Oskarström water should be marked temporarily closed from official water POI despite separate toilet POI saying public toilet/water exists.",
+            "Gyltige water and dry toilet are supported by Destination Halmstad/OSM but not Hallandsleden water/toilet categories and conflict with adjacent stage text.",
+            "Virsehatt camping is prohibited despite reserve access/toilet/fireplace; camping should direct hikers to Gyltige, not Virsehatt."
+          ],
+          "importImpacts": [
+            "Import high-confidence official/on-route POIs with coordinates and route proximity; model endpoint transport and parking as access metadata where appropriate.",
+            "Use closure/status fields for Oskarström water/toilet and pending/access metadata for Gyltige water/toilet.",
+            "Suppress far off-route and legacy Ryet/Svarta klippan facilities for S2."
+          ]
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "receivedAt": "2026-04-29T23:55:00Z",
+          "summary": "Start access is strong: Oskarström Centrum bus stop is about 31 m from official start, Oskarström Sandgatan about 266 m and Oskarström station about 633 m. End access at Gyltige is mostly car/pickup: Gyltige parking is about 86 m from the endpoint, while no regular bus stop was found within 5 km; practical transit exit is to continue toward Simlångsdalen/Brearedsskolan, about 5.7-6.1 km away.",
+          "keySources": [
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Oskarstrom_Gyltige.gpx",
+            "https://www.openstreetmap.org/node/7889253457",
+            "https://moovitapp.com/index/en/public_transit-line-316-Stockholm-1083-3757429-172135262-1",
+            "https://busmaps.com/en/sweden/public_transit-line-937-724379538-4246144139",
+            "https://www.openstreetmap.org/node/3984344547",
+            "https://www.hallandstrafiken.se/nyheter/artiklar/2025-02-04-tips-pa-utflykter-att-gora-under-sportlovet",
+            "https://www.jlt.se/res-med-oss/linjer-hallplatser/hallplats/?id=3182",
+            "https://www.openstreetmap.org/node/12148860787",
+            "https://www.openstreetmap.org/way/1143160369",
+            "https://www.openstreetmap.org/way/366034182",
+            "https://www.openstreetmap.org/node/9913860866",
+            "https://transitapp.com/sv/region/halland/hallandstrafiken/bus-318",
+            "https://www.openstreetmap.org/node/1797668994",
+            "https://www.naturkartan.se/en/hallands-lan/halmstad-simlangsdalen-hallandsleden",
+            "https://www.hallandstrafiken.se/res-med-oss/sok-resa/hallplatser",
+            "https://www.hallandsleden.se/en/etapp/gyltige-simlangsdalen"
+          ],
+          "accessFindings": [
+            "Oskarström Centrum bus stop 56.801725,12.977043, 31 m from start, Hallandstrafiken, high confidence; line 316 appears regular and 937 limited/weekday-school style; verify live departures.",
+            "Oskarström Sandgatan bus stop 56.799112,12.977595, 266 m, high confidence fallback for line 316.",
+            "Oskarström station 56.806479,12.971913, 633 m, Krösatågen/JLT/Hallandstrafiken regional rail access, high confidence.",
+            "Oskarström trailhead parking 56.801790,12.976412, 45 m, OSM access=yes/fee=no, medium confidence; verify local time/overnight signage.",
+            "Virsehatt reserve parking approx 56.794444,13.019167, 2.7 km from start, useful mid-stage access with parking and toilet.",
+            "Gyltige parking 56.767060,13.183397, 86 m from end, OSM access=yes/fee=no/capacity 30, medium-high confidence; best car pickup/drop-off.",
+            "Brearedsskolan bus stop 56.722554,13.136846, 5.70 km, Hallandstrafiken line 318, medium confidence; closest mapped bus stop found but long walk.",
+            "Simlångsdalen bus stop 56.720754,13.130341, 6.07 km, Hallandstrafiken, high confidence for practical transit by continuing on trail; Naturkartan references bus 318 or 145 from Halmstad to Simlångsdalen.",
+            "Hule N reserve parking 56.725833,13.144444, 5.16 km, high confidence but on/near next section, not Gyltige endpoint."
+          ],
+          "caveats": [
+            "Hallandstrafiken says use planner/app for current stop-specific departures and arrive early because many bus stop times are approximate.",
+            "No ferry is useful directly for either endpoint; Halmstad-Grenaa ferry is not foot-passenger usable and Stena says route closes 2026-04-30.",
+            "If walking from Gyltige toward Simlångsdalen for transit, adjacent section warns to take great care crossing Highway 25."
+          ],
+          "importImpacts": [
+            "Start commute access can be high confidence with bus and rail options.",
+            "End commute access should be marked weak for public transit; primary endpoint access is parking/pickup at Gyltige, with continuation to Simlångsdalen as connection metadata.",
+            "Record live-timetable caveat for all Hallandstrafiken services."
+          ]
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "receivedAt": "2026-04-29T23:59:00Z",
+          "summary": "Rules lane found Virsehatt nature reserve/Natura 2000 intersects S2 around km 3.02-3.70, Keddaböke reserve clips/intersects or is boundary-adjacent around km 6.78-7.54, Sennadalen water-protection area overlaps portions around km 1.94-6.08, and Fylleån Natura 2000 is crossed near km 21.02. No current official S2-specific closure/reroute was found on the opened Hallandsleden section page. Dynamic caveats are needed for fire bans, dog leash, hunting season, forestry notifications, road walking out of Oskarström, Sennan/Fylleån crossings and future Road 26 work.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/oskarstrom-gyltige",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Oskarstrom_Gyltige.gpx",
+            "https://www.hallandsleden.se/item/viktig-information/i48rep1ncwkafz7wux50lp0dhxvboodp",
+            "https://hallandsleden.se/item/allemansratten/5fogqeoayrfqw4vcyz7lruickdh88ahe",
+            "https://hallandsleden.se/item/kolla-brandrisken-4/h1orikco24kzjjuuyczmerpw6s8fe3it",
+            "https://www.hallandsleden.se/item/vandra-under-jaktsasongen/fxm1j3j5ltmdkd65aqrztndfqhr3txnq",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/virsehatt.html",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/keddaboke.html",
+            "https://www.lansstyrelsen.se/halland/natur-och-landsbygd/aktiviteter-och-atgarder-i-naturen/tillstand-natura-2000-omrade.html",
+            "https://www.lansstyrelsen.se/halland/samhalle/sakerhet-och-beredskap/brandrisk-och-eldningsforbud.html",
+            "https://geodata.naturvardsverket.se/naturvardsregistret/wfs",
+            "https://geodata.naturvardsverket.se/n2000/wfs",
+            "https://www.halmstad.se/omsorgochstod/tryggochsaker/krisochberedskap/brandriskprognos.n1495.html",
+            "https://www.halmstad.se/omsorgochstod/tryggochsaker/krisochberedskap/eldningsforbud.n2027.html",
+            "https://www.halmstad.se/byggaboochmiljo/vattenochavlopp/vattenskyddsomraden.n3787.html",
+            "https://geodpags.skogsstyrelsen.se/arcgis/rest/services/Geodataportal/GeodataportalVisaSkogsbruk/MapServer/5",
+            "https://www.skogsstyrelsen.se/statistik/avverkning/avverkningsanmalningar/",
+            "https://www.trafikverket.se/vara-projekt/projekt-i-hallands-lan/vag-26-oskarstromlansgransen-faunapassager/"
+          ],
+          "protectedAreas": [
+            "Virsehatt nature reserve NVR 2001399 and Natura 2000 SE0510028 intersects route km 3.02-3.70; rules include no camping, no unleashed dogs, fire only at designated place, no damaging vegetation, no riding/motor traffic.",
+            "Keddaböke nature reserve NVR 2051221 clips/intersects official GPX around km 6.78-7.18 and 7.34-7.54, though Länsstyrelsen text describes Hallandsleden as beside/adjacent; treat as boundary-sensitive, no fire/unleashed dog/tree damage and avoid adding campsite/fireplace inside.",
+            "Område vid Virsehatt landscape protection area NVR 2005002 overlaps around km 2.68-2.96 and 3.60-4.20; mostly relevant to works/signage/installations.",
+            "Sennadalen/Sennandalen water-protection area NVR 2005045 overlaps portions around km 1.94-4.84 and 5.48-6.08; avoid contamination/washing/fuel/waste and check rules for works/events.",
+            "Fylleån Natura 2000 SE0510132 is crossed around km 21.02; mark bridge/water crossing and avoid in-stream disturbance if bridge/detour issues arise.",
+            "Ullasjöbäcken reserve/Natura nearby but not intersected; do not apply its rules to current S2 unless future reroute enters it."
+          ],
+          "currentnessAndRisks": [
+            "No S2-specific official closure/reroute found on opened Hallandsleden stage page as of 2026-04-29; absence of notice is medium confidence and should be rechecked before publication.",
+            "Use official digital GPX/API over older paper maps; Hallandsleden says June 2022 paper maps may still show old routes.",
+            "Trafikverket Road 26 Oskarström-länsgränsen faunapassage project is in road-plan stage with review spring 2026, construction start autumn 2027 and completion summer 2029; not an immediate 2026 trail closure but future access/traffic risk near Oskarström/väg 26 approaches.",
+            "Skogsstyrelsen felling notifications near/intersecting GPX include A 53642-2023 at km 8.78, A 50319-2024 at km 10.56, A 893-2022 at km 12.28, A 7639-2022 at km 14.50 and A 9149-2024 near km 21.04; notifications are not proof felling occurred or will occur."
+          ],
+          "rules": [
+            "Fire: use prepared fireplaces only and never during fire bans; Halmstad page said no assessment was being made at research date, but normal fire-risk assessment period is May-September. Do not store static fire-allowed status.",
+            "Dogs: Hallandsleden says dogs must always be on lead; Virsehatt and Keddaböke prohibit unleashed dogs; Naturvårdsverket seasonal wildlife period March 1-August 20 requires extra control.",
+            "Hunting: Hallandsleden warns hunting can occur August-January; use marked trail, bright clothing and leashed dogs where hunting is active.",
+            "Camping: general one-night allemansrätten caveat applies outside restricted areas, but Virsehatt prohibits camping; prefer official Gyltige campsite/shelter.",
+            "Livestock/gates: close gates and keep distance from livestock where pasture/grazing areas occur."
+          ],
+          "hazards": [
+            "Paved-road exposure out of Oskarström to roughly km 2.6 before Sennan/Virsehatt.",
+            "Sennan river crossing around km 2.6-2.8; no current official bridge warning found.",
+            "Short boardwalks are mentioned by official difficulty text; add wet/slippery caveat only, not closure.",
+            "Fylleån bridge/water crossing around km 21.02 before Gyltige; add flood/bridge-currentness check after storms."
+          ],
+          "importImpacts": [
+            "Add protected-area/water-protection/Natura metadata for Virsehatt, Keddaböke boundary, Sennadalen and Fylleån.",
+            "Keep S2 open/current but with recheck date and dynamic currentness dependencies.",
+            "Use forestry notifications and Trafikverket Road 26 only as currentness monitoring risks, not closures.",
+            "Use Gyltige official camp as preferred overnight node; prohibit/inhibit camping suggestions inside Virsehatt."
+          ]
+        }
+      ],
+      "mainThreadBaseline": {
+        "completedAt": "2026-04-29T23:39:00Z",
+        "summary": "Main thread checked S2 official page, GPX/API map, official places API, Naturkartan site 22047 and adjacent S1/S3 GPX continuity. Official GPX/API geo_json are a 411-point 21.525 km line from Oskarström 56.801466,12.976844 to Gyltige 56.767366,13.182102, with S1 gap 2.9 m and S2/S3 Gyltige endpoint gap 1.5 m. Hallandsleden API line.geometry is partial/stale: 983 points/15.486 km, starts 3.386 km from the GPX start near 56.801215,13.032459 and ends 468.8 m from the GPX end. Naturkartan title/shape are current but slug remains ryet-gyltige-hallandsleden. Official places API returned 15 records, including Oskarström start services and water/toilet conflict, Virsehatt, Gyltige shelter, Fylleån/Hålväg/Rödek and off-route Lurehus."
+      },
+      "completedAt": "2026-04-29T23:59:00Z",
+      "synthesizedAt": "2026-04-29T23:59:30Z",
+      "synthesisOutput": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-oskarstrom-gyltige.research.json",
+      "synthesisSummary": "S2 synthesized as research-ready-with-caveats. Official GPX/API geo_json is canonical; Hallandsleden line.geometry and OSM Ryet-Gyltige relation suppressed. Oskarström has strong access but water/toilet conflict. Gyltige has shelter/fireplace and parking/pickup access, weak public transit, and water/toilet conflict. Virsehatt/Keddaböke/Sennadalen/Fylleån rules/currentness recorded."
     }
   ],
   "sourceCoverage": {
@@ -3217,7 +3531,18 @@
     "transitOperators": "complete-for-first-seventeen-researched-sections-through-s1-with-s1-weak-frodeparken-start-access-and-strong-oskarstrom-end-bus-rail-access-caveats",
     "facilities": "complete-for-first-seventeen-researched-sections-through-s1-with-core-pending-suppress-decisions-oskarstrom-water-conflict-and-dense-service-filtering",
     "fieldReports": "complete-for-first-seventeen-researched-sections-through-s1-with-s1-field-report-waymarking-caveat-and-stale-legacy-boundary-context",
-    "rulesSafety": "overview-pass-complete-n1-n2-n3-n4-n5-n6-n7-n8-m1-m2-m3-m4-m5-m6-m7-m8-s1-section-specific-complete"
+    "rulesSafety": "overview-pass-complete-n1-n2-n3-n4-n5-n6-n7-n8-m1-m2-m3-m4-m5-m6-m7-m8-s1-section-specific-complete",
+    "hallandsleden-oskarstrom-gyltige": {
+      "overview": "complete from trail.research.json and main-thread baseline",
+      "officialSources": "complete from official-sources lane and main-thread official API/GPX/places pass",
+      "routeGeometry": "complete; official GPX/API geo_json preferred, stale line.geometry/OSM suppressed",
+      "endpointCoordinates": "complete; S1/S2, S2/S3 and S2/S4 endpoint gaps recorded",
+      "facilities": "complete with import/pending/suppress decisions",
+      "commuteAccess": "complete; start strong, Gyltige public transit weak",
+      "fieldReports": "complete; no current closure found, stale old Ryet-Gyltige context recorded",
+      "rulesSafety": "complete; protected areas, water protection, fire/dogs/hunting/forestry/currentness recorded",
+      "synthesis": "complete; section JSON written"
+    }
   },
   "knownGaps": [
     "Only the overview and first seventeen sections have been researched/synthesized; 18 later sections still need the six-lane workflow.",
@@ -3377,13 +3702,21 @@
     "S1: Frodeparken start has roadside/shelter access but no close public transit or confirmed formal parking; Oskarström endpoint has strong bus and nearby rail access.",
     "S1: rules/currentness include Frodeparken and Almeberget reserve/Natura 2000 spans, road 26 crossing, stiles/pasture/dog/hunting/fire caveats, forestry currentness risks and bridge/Nissan awareness.",
     "S1: 2024 field report indicates possible orange-waymarking gap/route-finding issue after Oskarström; add as caveat, not geometry change.",
-    "S1: filter dense Oskarström OSM services and off-route Slättåkra farm shop according to service import policy."
+    "S1: filter dense Oskarström OSM services and off-route Slättåkra farm shop according to service import policy.",
+    "S2: initial six-lane research started; unresolved topics include S1 Oskarström handoff, official GPX/API/Naturkartan/OSM geometry, suspicious overview map-line start, old Ryet/Gyltige segmentation, Gyltige endpoint access/facilities and protected/currentness context.",
+    "S2: overview official map line starts near 56.801215,13.032459 instead of the S1/S2 handoff near 56.801466,12.976844; geometry lane must determine whether GPX/API geo_json starts at Oskarström or whether line.geometry is stale/partial.",
+    "S2 Gyltige water/toilet availability remains contradictory across Destination Halmstad/OSM and Hallandsleden adjacent-stage text; likely access metadata/pending rather than standalone import.",
+    "S2 Oskarström water/toilet availability remains contradictory inside official Hallandsleden POIs; water point says temporarily closed due vandalism.",
+    "S2 Gyltige public-transit endpoint is weak: no regular stop found within 5 km; use parking/pickup or continue to Simlångsdalen with highway-crossing caveat.",
+    "S2 research-ready caveat: Oskarström water/toilet availability conflicts inside official Hallandsleden POIs; verify before import.",
+    "S2 research-ready caveat: Gyltige water/toilet availability conflicts across Destination Halmstad/OSM and Hallandsleden adjacent-stage text; verify before import.",
+    "S2 research-ready caveat: Gyltige public-transit endpoint is weak; model parking/pickup or continuation to Simlångsdalen rather than direct transit.",
+    "S2 research-ready caveat: Hallandsleden API line.geometry and OSM relation 7398310 are stale/partial old Ryet-Gyltige geometry and must be suppressed."
   ],
   "nextActions": [
-    "Commit S1 research files before starting the next section.",
-    "Start Phase 2 for hallandsleden-oskarstrom-gyltige (S2 Oskarström - Gyltige) with the required six parallel research/report agents after the S1 commit.",
-    "Record the S2 batch start and every returned lane in research-progress.json, then synthesize sections/hallandsleden-oskarstrom-gyltige.research.json.",
-    "Keep edits confined to data/research/candidate-trails/hallandsleden/ until explicitly asked otherwise."
+    "Validate S2 JSON/progress/README and commit Add Hallandsleden S2 research.",
+    "Start S3 hallandsleden-kvarnforsen-gyltige with six parallel lanes: official sources, route geometry, facilities, transit/access, field reports, rules/safety/currentness.",
+    "For S3, pay special attention to Kvarnforsen access, Gyltige shared endpoint topology/facilities, branch semantics and old Kvarnforsen/Sandsjön/Gyltige source risks."
   ],
   "handoffNotes": [
     "Work resumed on 2026-04-29 in /workspaces/hike-trails-codex-hallandsleden-research on branch codex/hallandsleden-research.",
@@ -3474,7 +3807,15 @@
     "S1: import core Frodeparken and Döbla shelter/toilet/fireplace records plus selected reserve/heritage/Oskarström service records; water at Oskarström remains closed/unverified due official status conflict.",
     "S1: access is weak at Frodeparken with no direct transit/formal parking; Oskarström endpoint has strong bus and rail access.",
     "S1: rules include Frodeparken and Almeberget reserve/Natura 2000 spans, road 26 crossing, forestry currentness risks, dog/stile/livestock/hunting/fire caveats and no official closure/reroute.",
-    "S1: next section is S2 hallandsleden-oskarstrom-gyltige after committing S1."
+    "S1: next section is S2 hallandsleden-oskarstrom-gyltige after committing S1.",
+    "S2 initial six-lane agent batch started 2026-04-29T23:34:00Z with agents Carson, Darwin, Beauvoir the 2nd, Poincare the 2nd, Rawls the 2nd and Kuhn the 2nd. Main thread retains all file-write ownership.",
+    "S2 main-thread baseline: use official GPX/API geo_json candidate 411-point 21.525 km Oskarström-Gyltige line pending geometry lane; API line.geometry starts 3.386 km east and ends 469 m short; Naturkartan slug remains ryet-gyltige despite current shape.",
+    "S2 field-report lane received: no active closure/reroute; old Ryet-Gyltige sources are stale boundary context; Gyltige shelter/fireplace likely, but water/toilet conflict needs verification.",
+    "For S2, prefer official GPX/Hallandsleden geo_json over Hallandsleden line.geometry and OSM relation 7398310, which represent stale/partial Ryet-Gyltige geometry.",
+    "For S2, do not treat Kvarnforsen-Gyltige as a continuation from S2 start; both S2 and S3 terminate at Gyltige.",
+    "S2 section JSON is written at data/research/candidate-trails/hallandsleden/sections/hallandsleden-oskarstrom-gyltige.research.json and is research-ready-with-caveats.",
+    "Commit S2 before starting S3 per user instruction to commit between sections.",
+    "S3 next target: hallandsleden-kvarnforsen-gyltige, official page https://www.hallandsleden.se/etapp/kvarnforsen-gyltige, official GPX Mellersta_Kvarnforsen_Gyltige.gpx, distance 24 km, medium; S3 geometry starts Kvarnforsen and ends at Gyltige."
   ],
   "filesWritten": [
     "README.md",
@@ -3973,6 +4314,21 @@
       "id": "phase-2-s1-synthesis-complete-2026-04-29",
       "completedAt": "2026-04-29T23:31:00Z",
       "summary": "Synthesized S1 into sections/hallandsleden-frodeparken-oskarstrom.research.json. Section is research-ready with caveats: official GPX/API geo_json canonical, stale Döbla/Ryet geometry suppressed, Oskarström water/toilet status conflict, weak Frodeparken access, reserve/road26/forestry/currentness caveats recorded."
+    },
+    {
+      "id": "phase-2-s2-initial-six-lane-batch-started-2026-04-29",
+      "completedAt": "2026-04-29T23:34:00Z",
+      "summary": "Started S2 Oskarström - Gyltige six-lane research batch with agents Carson, Darwin, Beauvoir the 2nd, Poincare the 2nd, Rawls the 2nd and Kuhn the 2nd. Main thread retains all file-write ownership."
+    },
+    {
+      "id": "phase-2-s2-main-thread-baseline-2026-04-29",
+      "completedAt": "2026-04-29T23:39:00Z",
+      "summary": "Main thread baseline for S2 checked official GPX/API, places API, Naturkartan and adjacent GPX continuity. Official GPX/API geo_json appears canonical; API line.geometry is partial/stale; Naturkartan shape is current but slug is stale; places feed has Oskarström, Virsehatt, Gyltige and off-route service records needing filtering."
+    },
+    {
+      "id": "phase-2-s2-field-report-lane-received-2026-04-29",
+      "completedAt": "2026-04-29T23:42:30Z",
+      "summary": "Received S2 field-report lane. It found no active S2 closure/reroute, mostly stale Ryet-Gyltige/Gyltige-Sennan condition sources, a 2020 good-markings note, 2016 winter snow/terrain/shelter context and a Gyltige water/toilet source conflict."
     }
   ]
 }
