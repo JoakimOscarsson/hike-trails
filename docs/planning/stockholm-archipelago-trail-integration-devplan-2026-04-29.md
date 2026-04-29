@@ -4,7 +4,7 @@ Date: 2026-04-29
 
 Workspace target: `/Users/joakim/Documents/codex/hike-trails`
 
-Status: Slice 7 completed; Slice 8 not started.
+Status: Slice 8 completed; Slice 9 not started.
 
 This is a living development plan for bringing Stockholm Archipelago Trail into the app. It is intentionally concrete: every slice has a scope, likely files, a definition of done, and validation notes. The trail is ferry-dependent, so ferry transfers are first-class route connections, not just text notes.
 
@@ -37,7 +37,7 @@ Important rule: the candidate research file is an input only. Runtime code must 
 - [x] Slice 5: Normalize and import facilities.
 - [x] Slice 6: Update access, detail, and route-builder UX for ferry-dependent sections.
 - [x] Slice 7: Add build scripts and generated runtime outputs.
-- [ ] Slice 8: Add validation and tests.
+- [x] Slice 8: Add validation and tests.
 - [ ] Slice 9: Complete browser/product QA.
 - [ ] Slice 10: Update documentation and release notes.
 
@@ -551,6 +551,15 @@ Work:
 - Add unit coverage for route-selection behavior when connections exist.
 - Add runtime probe coverage so missing connection geometry fails loudly.
 
+Completed:
+
+- Added SAT-specific validation that every adjacent mainline section transition has a connection decision.
+- Added SAT-specific validation requiring transfer connections to carry source URLs and `/routes/hiking/stockholm-archipelago-trail/connections/*.geojson` geometry.
+- Added SAT facility leak guards so internal normalization fields and disallowed trail-junction runtime facilities fail validation.
+- Tightened public library-index validation so systems with connection shards expose matching `connectionsPath` in both index and manifest.
+- Extended the runtime probe to verify SAT connection coverage and transfer route files.
+- Updated the browser runtime probe for grouped facility filters by exposing `data-facility-types` and testing the `Tent sites` group rather than the old single `Camping` chip.
+
 Definition of done:
 
 - Validation fails when a SAT section transition is missing a connection decision.
@@ -569,6 +578,23 @@ Validation:
 - `npm run typecheck`
 - `npm run build`
 - Browser-capable environments should also run `npm run runtime:browser-probe` and `npm run ui:smoke:artifact`.
+
+Completed validation:
+
+- `node --check scripts/validate-data.mjs`
+- `node --check scripts/probe-runtime-contract.mjs`
+- `node --check scripts/probe-browser-runtime.mjs`
+- `npm run data:build`
+- `npm run data:check`
+- `npm run data:validate`
+- `npm run test:unit`
+- `npm run runtime:probe`
+- `npm run runtime:cache-probe`
+- `npm run runtime:browser-probe`
+- `npm run ui:smoke:artifact` (0 findings; tracked report unchanged)
+- `npm run typecheck`
+- `npm run build`
+- `git diff --check`
 
 ## Slice 9: Browser And Product QA
 

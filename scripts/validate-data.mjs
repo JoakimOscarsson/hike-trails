@@ -36,6 +36,20 @@ const allowedOverviewGeometryStatuses = new Set(["ready", "single-point-only", "
 const allowedTrailTransitStopTypes = new Set(["bus", "train", "ferry"]);
 const allowedTrailConnectionModes = new Set(["same-island", "walk", "bus", "ferry", "rowboat", "none"]);
 const trailConnectionModesRequiringCoordinates = new Set(["walk", "bus", "ferry", "rowboat"]);
+const stockholmArchipelagoTrailId = "stockholm-archipelago-trail";
+const satTransferConnectionModes = new Set(["walk", "bus", "ferry", "rowboat"]);
+const satForbiddenFacilityTypes = new Set(["trail-junction"]);
+const satForbiddenFacilityRuntimeKeys = new Set([
+  "decision",
+  "importDecision",
+  "normalizedInto",
+  "normalizedType",
+  "rawFacilityType",
+  "rawType",
+  "renderPolicy",
+  "suppressed",
+  "taxonomy"
+]);
 const allowedFacilityTypes = new Set([
   "campsite",
   "shelter",
@@ -361,6 +375,16 @@ function validateTrailConnectionEndpoint(scope, label, endpoint, sectionIds, { c
   validateLatLon(scope, `${label}.coordinates`, endpoint.coordinates, { required: coordinatesRequired });
 }
 
+function validateHttpUrl(scope, field, value, { required = false } = {}) {
+  if (value == null) {
+    if (required) addError(scope, `${field} is required`);
+    return;
+  }
+  if (typeof value !== "string" || !/^https?:\/\/\S+$/i.test(value)) {
+    addError(scope, `${field} must be an absolute http(s) URL`);
+  }
+}
+
 async function validateTrailConnections(connections, scope, sectionIds, { runRouteAudits = true } = {}) {
   if (connections == null) return;
   if (!Array.isArray(connections)) {
@@ -410,6 +434,76 @@ async function validateTrailConnections(connections, scope, sectionIds, { runRou
         addError(connectionScope, `connection route file does not exist: ${connection.route.geojsonPath}`);
       } else if (runRouteAudits) {
         await loadRouteGeojson(connection.route.geojsonPath, connectionScope);
+      }
+    }
+  }
+}
+
+function connectionPairKey(fromSectionId, toSectionId) {
+  return `${fromSectionId}->${toSectionId}`;
+}
+
+function validateAdjacentConnectionCoverage(trailSystem, scope) {
+  const connections = Array.isArray(trailSystem.connections) ? trailSystem.connections : [];
+  const routeGroups = Array.isArray(trailSystem.routeGroups) ? trailSystem.routeGroups : [];
+  const connectionPairs = new Set();
+
+  for (const connection of connections) {
+    const fromSectionId = connection?.from?.sectionId;
+    const toSectionId = connection?.to?.sectionId;
+    if (typeof fromSectionId !== "string" || typeof toSectionId !== "string") continue;
+    connectionPairs.add(connectionPairKey(fromSectionId, toSectionId));
+    connectionPairs.add(connectionPairKey(toSectionId, fromSectionId));
+  }
+
+  for (const routeGroup of routeGroups.filter((group) => group?.kind === "mainline")) {
+    const sectionIds = Array.isArray(routeGroup.sectionIds) ? routeGroup.sectionIds : [];
+    for (let index = 0; index < sectionIds.length - 1; index += 1) {
+      const fromSectionId = sectionIds[index];
+      const toSectionId = sectionIds[index + 1];
+      if (typeof fromSectionId !== "string" || typeof toSectionId !== "string") continue;
+      if (!connectionPairs.has(connectionPairKey(fromSectionId, toSectionId))) {
+        addError(
+          `${scope} routeGroup ${routeGroup.id ?? "(missing id)"}`,
+          `missing connection decision between adjacent sections "${fromSectionId}" and "${toSectionId}"`
+        );
+      }
+    }
+  }
+}
+
+function validateStockholmArchipelagoTrailContract(trailSystem, scope) {
+  if (trailSystem?.id !== stockholmArchipelagoTrailId) return;
+
+  const connections = Array.isArray(trailSystem.connections) ? trailSystem.connections : [];
+  if (!connections.length) addError(scope, "Stockholm Archipelago Trail must include section connection records");
+  validateAdjacentConnectionCoverage(trailSystem, scope);
+
+  for (const connection of connections) {
+    const connectionScope = `${scope} connection ${connection?.id ?? "(missing id)"}`;
+    validateHttpUrl(connectionScope, "source.url", connection?.source?.url, { required: true });
+
+    if (!satTransferConnectionModes.has(connection?.mode)) continue;
+    if (!connection.route?.geojsonPath) {
+      addError(connectionScope, "SAT transfer connections must include route.geojsonPath");
+      continue;
+    }
+    if (!connection.route.geojsonPath.startsWith(`/routes/hiking/${stockholmArchipelagoTrailId}/connections/`)) {
+      addError(connectionScope, `SAT transfer route must stay inside /routes/hiking/${stockholmArchipelagoTrailId}/connections/`);
+    }
+    if (!connection.route.geojsonPath.endsWith(".geojson")) {
+      addError(connectionScope, "SAT transfer route.geojsonPath must point at a .geojson file");
+    }
+  }
+
+  for (const section of trailSystem.sections ?? []) {
+    for (const facility of section.facilities ?? []) {
+      const facilityScope = `${scope} section ${section.id ?? "(missing id)"} facility ${facility?.id ?? "(missing id)"}`;
+      if (satForbiddenFacilityTypes.has(facility?.type)) {
+        addError(facilityScope, `SAT facility type "${facility.type}" must not be imported as a runtime facility`);
+      }
+      for (const key of Object.keys(facility ?? {})) {
+        if (satForbiddenFacilityRuntimeKeys.has(key)) addError(facilityScope, `internal normalization field "${key}" must not leak into runtime facilities`);
       }
     }
   }
@@ -512,6 +606,7 @@ async function validateTrailSystem(trailSystem, scope, { runRouteAudits = true }
   }
 
   await validateTrailConnections(trailSystem.connections ?? [], scope, sectionIds, { runRouteAudits });
+  validateStockholmArchipelagoTrailContract(trailSystem, scope);
 
   for (const preset of trailSystem.presets ?? []) {
     const presetScope = `${scope} preset ${preset.id ?? "(missing id)"}`;
@@ -813,6 +908,12 @@ async function validateLibraryIndex() {
     if (!Array.isArray(sectionsIndex)) addError(itemScope, "sectionsIndexPath must point to an array");
     if (!Array.isArray(routeGroups)) addError(itemScope, "routeGroupsPath must point to an array");
     if (!Array.isArray(presets)) addError(itemScope, "presetsPath must point to an array");
+    if (item.connectionsPath && !manifest?.connectionsPath) {
+      addError(itemScope, "connectionsPath is present in library index but missing from manifest");
+    }
+    if (manifest?.connectionsPath && !item.connectionsPath) {
+      addError(itemScope, "connectionsPath must be present in library index when manifest has connectionsPath");
+    }
     if (item.connectionsPath && manifest?.connectionsPath && item.connectionsPath !== manifest.connectionsPath) {
       addError(itemScope, "connectionsPath differs between library index and manifest");
     }
@@ -1068,6 +1169,7 @@ async function validateTrailSystemShards() {
 
     validateUnique(scope, "sections-index IDs", sectionsIndex.map((section) => section.id));
     const sectionIds = new Set(sectionsIndex.map((section) => section.id));
+    const sectionDetails = [];
 
     for (const section of sectionsIndex) {
       if (!section.detailPath) addError(scope, `section ${section.id} is missing detailPath`);
@@ -1081,6 +1183,7 @@ async function validateTrailSystemShards() {
       if (detail?.trailSystemId !== entry.name) {
         addError(scope, `section ${section.id} trailSystemId "${detail.trailSystemId}" does not match "${entry.name}"`);
       }
+      sectionDetails.push(detail);
       for (const field of ["sections", "routeGroups", "presets"]) {
         if (field in (detail ?? {})) addError(scope, `section ${section.id} detail must not duplicate ${field}`);
       }
@@ -1104,6 +1207,15 @@ async function validateTrailSystemShards() {
     }
 
     await validateTrailConnections(Array.isArray(connections) ? connections : [], scope, sectionIds);
+    validateStockholmArchipelagoTrailContract(
+      {
+        id: entry.name,
+        sections: sectionDetails,
+        routeGroups: Array.isArray(routeGroups) ? routeGroups : [],
+        connections: Array.isArray(connections) ? connections : []
+      },
+      scope
+    );
   }
 }
 

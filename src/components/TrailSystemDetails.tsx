@@ -548,6 +548,7 @@ function FacilityMapFilters({
               onBlur={() => onHighlightGroupChange(null)}
               disabled={!group.count}
               data-facility-group={group.id}
+              data-facility-types={group.types.join(" ")}
               onFocus={() => onHighlightGroupChange(group.id)}
               onMouseEnter={() => onHighlightGroupChange(group.id)}
               onMouseLeave={() => onHighlightGroupChange(null)}

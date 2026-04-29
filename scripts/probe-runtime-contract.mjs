@@ -6,6 +6,8 @@ const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(parseRootArg(process.argv.slice(2)) ?? path.join(scriptDir, ".."));
 const publicRoot = path.join(projectRoot, "public");
 const errors = [];
+const stockholmArchipelagoTrailId = "stockholm-archipelago-trail";
+const satTransferConnectionModes = new Set(["walk", "bus", "ferry", "rowboat"]);
 const forbiddenRuntimePathPatterns = [
   { label: "research-only input", pattern: /(^|\/)research(\/|$)/ },
   { label: "app-owned source input", pattern: /(^|\/)data\/source\// },
@@ -79,6 +81,53 @@ function collectDuplicateIds(items) {
   return [...counts.entries()].filter(([, count]) => count > 1).map(([id]) => id);
 }
 
+function connectionPairKey(fromSectionId, toSectionId) {
+  return `${fromSectionId}->${toSectionId}`;
+}
+
+async function probeStockholmArchipelagoConnections({ item, routeGroups, connections, sectionIds, scope }) {
+  if (item.id !== stockholmArchipelagoTrailId) return;
+  if (!Array.isArray(connections) || !connections.length) {
+    addError(scope, "Stockholm Archipelago Trail must expose runtime connection records");
+    return;
+  }
+
+  const connectionPairs = new Set();
+  for (const connection of connections) {
+    const connectionScope = `${scope} connection ${connection?.id ?? "(missing id)"}`;
+    const fromSectionId = connection?.from?.sectionId;
+    const toSectionId = connection?.to?.sectionId;
+    if (typeof fromSectionId === "string" && typeof toSectionId === "string") {
+      connectionPairs.add(connectionPairKey(fromSectionId, toSectionId));
+      connectionPairs.add(connectionPairKey(toSectionId, fromSectionId));
+    }
+
+    if (!satTransferConnectionModes.has(connection?.mode)) continue;
+    const geojsonPath = connection.route?.geojsonPath;
+    if (typeof geojsonPath !== "string" || !geojsonPath.startsWith(`/routes/hiking/${stockholmArchipelagoTrailId}/connections/`)) {
+      addError(connectionScope, `SAT transfer route must stay inside /routes/hiking/${stockholmArchipelagoTrailId}/connections/`);
+      continue;
+    }
+    if (!geojsonPath.endsWith(".geojson")) addError(connectionScope, "SAT transfer route must point at a .geojson file");
+    if (!(await pathExists(publicPath(geojsonPath)))) {
+      addError(connectionScope, `SAT transfer route file is missing: ${geojsonPath}`);
+    }
+  }
+
+  for (const routeGroup of Array.isArray(routeGroups) ? routeGroups.filter((group) => group?.kind === "mainline") : []) {
+    const groupScope = `${scope} route group ${routeGroup?.id ?? "(missing id)"}`;
+    const routeSectionIds = Array.isArray(routeGroup.sectionIds) ? routeGroup.sectionIds : [];
+    for (let index = 0; index < routeSectionIds.length - 1; index += 1) {
+      const fromSectionId = routeSectionIds[index];
+      const toSectionId = routeSectionIds[index + 1];
+      if (!sectionIds.has(fromSectionId) || !sectionIds.has(toSectionId)) continue;
+      if (!connectionPairs.has(connectionPairKey(fromSectionId, toSectionId))) {
+        addError(groupScope, `missing SAT runtime connection between "${fromSectionId}" and "${toSectionId}"`);
+      }
+    }
+  }
+}
+
 function assertNoForbiddenRuntimePath(scope, field, value) {
   if (typeof value !== "string") return;
   for (const forbidden of forbiddenRuntimePathPatterns) {
@@ -115,6 +164,9 @@ async function probeTrailSystem(item) {
     if (aggregateField in (manifest ?? {})) {
       addError(scope, `manifest.json must not duplicate aggregate field "${aggregateField}"`);
     }
+  }
+  if (manifest?.connectionsPath && item.connectionsPath !== manifest.connectionsPath) {
+    addError(scope, "library-index connectionsPath must match manifest connectionsPath");
   }
   let connections = [];
   const connectionsPath = item.connectionsPath ?? manifest?.connectionsPath;
@@ -216,6 +268,8 @@ async function probeTrailSystem(item) {
       }
     }
   }
+
+  await probeStockholmArchipelagoConnections({ item, routeGroups, connections, sectionIds, scope });
 
   return {
     id: item.id,

@@ -604,11 +604,12 @@ async function readHikingMapHelperState(client) {
       const commuteClusterMarkers = [...document.querySelectorAll(".commute-cluster-marker")].length;
       const commuteSpiderMarkers = [...document.querySelectorAll(".commute-spider-marker")].length;
       const facilityMarkerPosition = getComputedStyle(document.querySelector(".facility-marker")).position;
-      const chip = chips.find((candidate) => candidate.getAttribute("aria-label")?.includes("Camping"));
-      const chipType = chip?.dataset.facilityType ?? "";
-      const activeToggledTypeMarkers = chipType
-        ? [...document.querySelectorAll(".facility-marker-" + CSS.escape(chipType) + ", .facility-cluster-has-" + CSS.escape(chipType))].length
-        : 0;
+      const chip = chips.find((candidate) => candidate.getAttribute("aria-label")?.includes("Tent sites"));
+      const chipTypes = (chip?.dataset.facilityTypes ?? "").split(/\\s+/).filter(Boolean);
+      const toggledTypeSelector = chipTypes
+        .flatMap((type) => [".facility-marker-" + CSS.escape(type), ".facility-cluster-has-" + CSS.escape(type)])
+        .join(", ");
+      const activeToggledTypeMarkers = toggledTypeSelector ? [...document.querySelectorAll(toggledTypeSelector)].length : 0;
       return {
         activeFacilityMarkers,
         activeToggledTypeMarkers,
@@ -619,7 +620,7 @@ async function readHikingMapHelperState(client) {
         commuteSpiderMarkers,
         facilityMarkerPosition,
         chipCount: chips.length,
-        chipType,
+        chipTypes,
         pressed: chip?.getAttribute("aria-pressed") ?? null,
         chipLabel: chip?.getAttribute("aria-label") ?? "",
         chipTitle: chip?.getAttribute("title") ?? ""
@@ -650,7 +651,7 @@ async function waitForStableHikingMapHelperState(client, { campingPressed, label
         state.commuteSpiderMarkers,
         state.facilityMarkerPosition,
         state.chipCount,
-        state.chipType,
+        state.chipTypes.join(","),
         state.pressed,
         state.chipLabel,
         state.chipTitle
@@ -681,7 +682,7 @@ async function assertHikingMapHelpers(client) {
 
   const before = await waitForStableHikingMapHelperState(client, {
     campingPressed: "true",
-    label: "stable hiking facility markers before toggling Camping"
+    label: "stable hiking facility markers before toggling Tent sites"
   });
 
   if (!before.activeFacilityMarkers) addError("browser hiking map helpers", "Facility markers were not rendered on the trail-system map.");
@@ -692,17 +693,17 @@ async function assertHikingMapHelpers(client) {
     addError("browser hiking map helpers", `Facility markers must keep Leaflet absolute positioning, got "${before.facilityMarkerPosition}".`);
   }
   if (!before.chipCount) addError("browser hiking map helpers", "Facility map filter chips were not rendered.");
-  if (!before.chipLabel.includes("Camping") || !before.chipTitle.includes("Camping")) {
-    addError("browser hiking map helpers", `Camping facility filter label/title was not rendered correctly: ${before.chipLabel} / ${before.chipTitle}`);
+  if (!before.chipLabel.includes("Tent sites") || !before.chipTitle.includes("Tent sites")) {
+    addError("browser hiking map helpers", `Tent sites facility filter label/title was not rendered correctly: ${before.chipLabel} / ${before.chipTitle}`);
   }
-  if (!before.chipType) {
-    addError("browser hiking map helpers", "Camping facility filter does not expose its facility type for deterministic checks.");
+  if (!before.chipTypes.length) {
+    addError("browser hiking map helpers", "Tent sites facility filter does not expose its facility types for deterministic checks.");
   }
   if (!before.activeToggledTypeMarkers) {
-    addError("browser hiking map helpers", `Camping facility filter had no visible markers or clusters for type "${before.chipType}".`);
+    addError("browser hiking map helpers", `Tent sites facility filter had no visible markers or clusters for types "${before.chipTypes.join(", ")}".`);
   }
   if (before.pressed !== "true") {
-    addError("browser hiking map helpers", `Camping facility filter should start pressed, got ${before.pressed}.`);
+    addError("browser hiking map helpers", `Tent sites facility filter should start pressed, got ${before.pressed}.`);
   }
 
   const expandedCluster = await evaluate(
@@ -799,7 +800,7 @@ async function assertHikingMapHelpers(client) {
   const toggle = await evaluate(
     client,
     `(() => {
-      const chip = [...document.querySelectorAll(".map-filter-chip")].find((candidate) => candidate.getAttribute("aria-label")?.includes("Camping"));
+      const chip = [...document.querySelectorAll(".map-filter-chip")].find((candidate) => candidate.getAttribute("aria-label")?.includes("Tent sites"));
       if (!chip) return { ok: false };
       chip.click();
       return { ok: true };
@@ -807,7 +808,7 @@ async function assertHikingMapHelpers(client) {
   );
 
   if (!toggle.ok) {
-    addError("browser hiking map helpers", "Could not toggle the Camping facility map filter chip.");
+    addError("browser hiking map helpers", "Could not toggle the Tent sites facility map filter chip.");
     return;
   }
 
@@ -816,29 +817,29 @@ async function assertHikingMapHelpers(client) {
       evaluate(
         client,
         `(() => {
-          const chip = [...document.querySelectorAll(".map-filter-chip")].find((candidate) => candidate.getAttribute("aria-label")?.includes("Camping"));
+          const chip = [...document.querySelectorAll(".map-filter-chip")].find((candidate) => candidate.getAttribute("aria-label")?.includes("Tent sites"));
           return chip?.getAttribute("aria-pressed") === "false";
         })()`
     ),
-    { timeoutMs: 6_000, label: "Camping facility filter toggle" }
+    { timeoutMs: 6_000, label: "Tent sites facility filter toggle" }
   );
   await settleBrowserRequests();
 
   const after = await waitForStableHikingMapHelperState(client, {
     campingPressed: "false",
-    label: "stable hiking facility markers after toggling Camping"
+    label: "stable hiking facility markers after toggling Tent sites"
   });
 
   if (after.pressed !== "false") {
-    addError("browser hiking map helpers", `Camping facility filter did not toggle aria-pressed to false, got ${after.pressed}.`);
+    addError("browser hiking map helpers", `Tent sites facility filter did not toggle aria-pressed to false, got ${after.pressed}.`);
   }
-  if (!after.chipTitle.includes("Show Camping")) {
-    addError("browser hiking map helpers", `Camping facility filter title did not update after toggle: ${after.chipTitle}`);
+  if (!after.chipTitle.includes("Show Tent sites")) {
+    addError("browser hiking map helpers", `Tent sites facility filter title did not update after toggle: ${after.chipTitle}`);
   }
   if (after.activeToggledTypeMarkers >= before.activeToggledTypeMarkers) {
     addError(
       "browser hiking map helpers",
-      `Camping marker visibility did not decrease after disabling ${before.chipType} (${before.activeToggledTypeMarkers} -> ${after.activeToggledTypeMarkers}).`
+      `Tent sites marker visibility did not decrease after disabling ${before.chipTypes.join(", ")} (${before.activeToggledTypeMarkers} -> ${after.activeToggledTypeMarkers}).`
     );
   }
   if (after.commuteMarkers !== before.commuteMarkers) {
