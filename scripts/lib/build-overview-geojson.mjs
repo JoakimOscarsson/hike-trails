@@ -1,8 +1,16 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 
-const simplifyTolerance = 0.0012;
-const maxPointsPerLine = 90;
+const defaultSimplifyOptions = {
+  tolerance: 0.0012,
+  maxPointsPerLine: 90
+};
+const trailSystemSimplifyOptions = {
+  "stockholm-archipelago-trail": {
+    tolerance: 0.00012,
+    maxPointsPerLine: 320
+  }
+};
 
 function publicFilePath(publicRoot, publicUrl) {
   if (typeof publicUrl !== "string" || !publicUrl.trim()) return null;
@@ -92,7 +100,7 @@ function roundCoordinate(coordinate) {
   return [Number(coordinate[0].toFixed(6)), Number(coordinate[1].toFixed(6))];
 }
 
-function simplifyLine(line) {
+function simplifyLine(line, { tolerance, maxPointsPerLine }) {
   const cleaned = [];
   for (const coordinate of line) {
     if (!isLonLatPair(coordinate)) continue;
@@ -101,18 +109,24 @@ function simplifyLine(line) {
     if (!previous || previous[0] !== rounded[0] || previous[1] !== rounded[1]) cleaned.push(rounded);
   }
   if (cleaned.length < 2) return [];
-  return sampleLine(ramerDouglasPeucker(cleaned, simplifyTolerance), maxPointsPerLine);
+  return sampleLine(ramerDouglasPeucker(cleaned, tolerance), maxPointsPerLine);
 }
 
-async function readRouteLines(publicRoot, publicUrl) {
+async function readRouteLines(publicRoot, publicUrl, simplifyOptions = defaultSimplifyOptions) {
   const filePath = publicFilePath(publicRoot, publicUrl);
   if (!filePath) return [];
   try {
     const geojson = JSON.parse(await readFile(filePath, "utf8"));
-    return collectLineStrings(geojson).map(simplifyLine).filter((line) => line.length >= 2);
+    return collectLineStrings(geojson)
+      .map((line) => simplifyLine(line, simplifyOptions))
+      .filter((line) => line.length >= 2);
   } catch {
     return [];
   }
+}
+
+function trailSystemOverviewSimplifyOptions(trailSystem) {
+  return trailSystemSimplifyOptions[trailSystem.id] ?? defaultSimplifyOptions;
 }
 
 function fallbackPoint(item) {
@@ -178,18 +192,23 @@ async function hikeFeature(hike, publicRoot) {
 }
 
 async function trailSystemFeature(trailSystem, publicRoot) {
+  const simplifyOptions = trailSystemOverviewSimplifyOptions(trailSystem);
   const sectionsById = new Map((trailSystem.sections ?? []).map((section) => [section.id, section]));
   const sections = overviewSectionIds(trailSystem)
     .map((sectionId) => sectionsById.get(sectionId))
     .filter(Boolean);
   const sectionLines = (
-    await Promise.all(sections.map((section) => (section.route?.geojsonPath ? readRouteLines(publicRoot, section.route.geojsonPath) : [])))
+    await Promise.all(
+      sections.map((section) =>
+        section.route?.geojsonPath ? readRouteLines(publicRoot, section.route.geojsonPath, simplifyOptions) : []
+      )
+    )
   ).flat();
   const connectionResults = (
     await Promise.all(
       (trailSystem.connections ?? []).map(async (connection) => ({
         connection,
-        lines: connection.route?.geojsonPath ? await readRouteLines(publicRoot, connection.route.geojsonPath) : []
+        lines: connection.route?.geojsonPath ? await readRouteLines(publicRoot, connection.route.geojsonPath, simplifyOptions) : []
       }))
     )
   ).filter((result) => result.lines.length);

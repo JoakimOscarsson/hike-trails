@@ -263,6 +263,50 @@ try {
     }
   });
 
+  test("keeps a higher-resolution overview trace for Stockholm Archipelago Trail", async () => {
+    const publicRoot = await mkdtemp(path.join(tmpdir(), "hiking-overview-"));
+    try {
+      await writeRouteFixture(publicRoot, "/routes/subtle-bends.geojson", [
+        [18, 59],
+        [18.001, 59.0004],
+        [18.002, 59],
+        [18.003, 59.0004],
+        [18.004, 59]
+      ]);
+
+      const overview = await buildHikingOverviewGeoJSON({
+        publicRoot,
+        trailSystems: [
+          {
+            id: "ordinary-trail",
+            name: "Ordinary Trail",
+            location: { label: "Test" },
+            sections: [{ id: "ordinary-section", route: { geojsonPath: "/routes/subtle-bends.geojson" } }],
+            routeGroups: [{ id: "main", kind: "mainline", sectionIds: ["ordinary-section"], connectsToSectionIds: [] }]
+          },
+          {
+            id: "stockholm-archipelago-trail",
+            name: "Stockholm Archipelago Trail",
+            location: { label: "Test" },
+            sections: [{ id: "sat-section", route: { geojsonPath: "/routes/subtle-bends.geojson" } }],
+            routeGroups: [{ id: "main", kind: "mainline", sectionIds: ["sat-section"], connectsToSectionIds: [] }]
+          }
+        ]
+      });
+
+      const ordinaryFeature = overview.features.find((candidate) => candidate.properties.id === "ordinary-trail");
+      const satFeature = overview.features.find((candidate) => candidate.properties.id === "stockholm-archipelago-trail");
+      assert.ok(ordinaryFeature);
+      assert.ok(satFeature);
+      assert.equal(ordinaryFeature.geometry.type, "LineString");
+      assert.equal(satFeature.geometry.type, "LineString");
+      assert.equal(ordinaryFeature.geometry.coordinates.length, 2);
+      assert.ok(satFeature.geometry.coordinates.length > ordinaryFeature.geometry.coordinates.length);
+    } finally {
+      await rm(publicRoot, { recursive: true, force: true });
+    }
+  });
+
   test("prefers curated trail-system presets when they match distance filters", () => {
     const trailSystem = {
       id: "trail-system",
