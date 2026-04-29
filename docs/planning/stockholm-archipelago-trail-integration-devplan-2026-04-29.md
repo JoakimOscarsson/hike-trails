@@ -4,7 +4,7 @@ Date: 2026-04-29
 
 Workspace target: `/Users/joakim/Documents/codex/hike-trails`
 
-Status: Slice 8 completed; Slice 9 not started.
+Status: Slice 9 completed; Slice 10 not started.
 
 This is a living development plan for bringing Stockholm Archipelago Trail into the app. It is intentionally concrete: every slice has a scope, likely files, a definition of done, and validation notes. The trail is ferry-dependent, so ferry transfers are first-class route connections, not just text notes.
 
@@ -38,7 +38,7 @@ Important rule: the candidate research file is an input only. Runtime code must 
 - [x] Slice 6: Update access, detail, and route-builder UX for ferry-dependent sections.
 - [x] Slice 7: Add build scripts and generated runtime outputs.
 - [x] Slice 8: Add validation and tests.
-- [ ] Slice 9: Complete browser/product QA.
+- [x] Slice 9: Complete browser/product QA.
 - [ ] Slice 10: Update documentation and release notes.
 
 ## Product Goals
@@ -618,6 +618,13 @@ Work:
 - Inspect mobile width for filter chips, map controls, transfer rows, and endpoint callouts.
 - Confirm ferry/currentness caveats are visible but not noisy.
 
+Completed:
+
+- Added `docs/test-reports/stockholm-archipelago-trail-ui-report-2026-04-29.md`.
+- Verified SAT search/list behavior, northern ferry-transfer builder state, rowboat preset transfer state, no-transfer single-section state, detail transfer cards, Arholma facilities, and fresh console logs in the in-app browser.
+- Re-ran the browser runtime probe after updating it for grouped `Tent sites` facility filters.
+- Re-ran the tracked smoke artifact; it passed with 0 findings and no report diff.
+
 Definition of done:
 
 - SAT can be opened from the app and selected sections render.
@@ -632,6 +639,13 @@ Validation:
 - `npm run runtime:browser-probe`
 - `npm run ui:smoke:artifact`
 - Save any notable screenshots or notes in an artifact or test report.
+
+Completed validation:
+
+- In-app browser manual inspection at `http://localhost:5173/`.
+- `npm run runtime:browser-probe`
+- `npm run ui:smoke:artifact`
+- `git diff --check`
 
 ## Slice 10: Documentation And Release Notes
 
