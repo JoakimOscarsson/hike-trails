@@ -4,7 +4,7 @@ Status: research-only candidate trail packet. Do not import these files automati
 
 Trail ID: `hallandsleden`
 
-Phase 1 overview is complete from the live official Hallandsleden site/API as accessed 2026-04-29. Phase 2 has completed section files for N1, N2, N3, N4, and N5. Work should resume with N6.
+Phase 1 overview is complete from the live official Hallandsleden site/API as accessed 2026-04-29. Phase 2 has completed section files for N1, N2, N3, N4, N5, and N6. Work should resume with N7.
 
 ## Files
 
@@ -15,6 +15,7 @@ Phase 1 overview is complete from the live official Hallandsleden site/API as ac
 - `sections/hallandsleden-askhults-by-stattared.research.json`: N3 section research synthesized from the required six-lane agent batch.
 - `sections/hallandsleden-stattared-veddige.research.json`: N4 section research synthesized from the required six-lane agent batch.
 - `sections/hallandsleden-veddige-nosslinge.research.json`: N5 section research synthesized from the required six-lane agent batch.
+- `sections/hallandsleden-nosslinge-akulla.research.json`: N6 section research synthesized from the required six-lane agent batch.
 - `sections/*.research.json`: remaining section files, to be written after future section research batches.
 
 ## Official Overview
@@ -41,7 +42,8 @@ The inland route is branched rather than a single line. It meets Bohusleden at �
 - N3 `hallandsleden-askhults-by-stattared`: research-ready with caveats. Main caveats are Äskhult/Lilla Äskhult fire and tent boundary rules, seasonal Äskhult water/toilet access, Stättared water and parking verification, sparse Stättared transit access, stale Stensjön prose, and non-canonical API `line.geometry`/Naturkartan/OSM distance clues.
 - N4 `hallandsleden-stattared-veddige`: research-ready with caveats. Main caveats are the 2024 reroute north of Veddige, stale Stättared-Dranstugan geometry in Naturkartan/OSM/API `line.geometry`, remote Stättared bus access, Stättared water/toilet normalization, and Dranstugan facilities being adjacent/legacy context rather than on-route current N4.
 - N5 `hallandsleden-veddige-nosslinge`: research-ready with caveats. Main caveats are the official GPX `desc` saying `Total: 8.6 km` despite the 28 km official section distance, the four-part MultiLineString/gap handling, the misleading overview API `line.geometry` starting near Dranstugan, the practical endpoint being at Gällarpesjön/Gällarp rather than Nösslinge church, Dranstugan/Nösslinge water verification, sparse Hallandstrafiken line 661 access, and Stora Neden-Mäsen water-protection context near the endpoint.
+- N6 `hallandsleden-nosslinge-akulla`: research-ready with caveats. Main caveats are the practical start being Gällarpesjön/Gällarp rather than Nösslinge church, official `geo_json`/GPX being canonical while API `line.geometry`/Naturkartan/OSM preserve older 18 km Åkulla linework, 2024 reroutes at Nedre Lia/Lilla Neten and Åkulla east of Yasjön, the Naturkartan Åkulla/banvallen/Yasjöhult bridge and missing-orange-marking advisory, seasonal Åkturen endpoint transit, Märkedalen/Åkullaboket reserve rules, Yasjön raft seasonality, and Långasjön rest-place coordinate verification.
 
 ## Next Safe Step
 
-Resume Phase 2 with `hallandsleden-nosslinge-akulla`: spawn the six required research/report agents, synthesize their findings, write the section JSON, then update `research-progress.json`. Pay attention to the Gällarpesjön/Nösslinge endpoint handoff, Märkedalen/Åkulla protected-area context, and Åkulla endpoint facilities/access.
+Resume Phase 2 with `hallandsleden-akulla-astad`: spawn the six required research/report agents, synthesize their findings, write the section JSON, then update `research-progress.json`. Pay attention to the Åkulla multi-section junction, Åkullaboket/Åkulla Bokskogar reserve context, the N6/N7 endpoint handoff, and Ästad endpoint facilities/access.
