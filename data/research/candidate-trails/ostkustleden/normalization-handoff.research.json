@@ -90,15 +90,19 @@
       "Official reserve/cultural-reserve rules where the source says the route passes through the area, such as Humlenäs and Stensjö by.",
       "Cabin-specific no-outdoor-fire/no-electricity/boil-water wording from current official cabin pages, with accessed dates."
     ],
-    "requiresGisOverlayBeforeRuleImport": [
+    "requiresGisOverlayBeforeRuleImport": [],
+    "completedGisOverlays": [
+      "Humlenäs reserve/Natura 2000",
       "Bråbygden Natura 2000",
-      "Krokshult reserve context",
-      "Misterhults skärgård reserve/Natura 2000 C-areas",
+      "Krokshult reserve/Natura 2000",
+      "Misterhults skärgård reserve",
+      "Tjustgöl reserve",
+      "Figeholm reserve/Natura 2000",
       "Stamsjövägen reserve",
-      "Fårbo water-protection area",
-      "Virån Natura 2000",
-      "biotopskydd SK 568-2007",
-      "other water-protection areas near route context"
+      "Stensjö by cultural reserve",
+      "Viråns vattensystem Natura 2000",
+      "Hummeln/Kristdala, Eckern/Djupeträsk, Fårbo, Bockara and Älvehult water-protection areas",
+      "biotopskydd SK 568-2007"
     ],
     "publicationTimeChecks": [
       "Fire bans and fire-risk warnings.",
@@ -109,7 +113,6 @@
       "Forestry and route passability."
     ],
     "unknowns": [
-      "unknown/recheck: boundary-sensitive rules after final normalized geometry.",
       "unknown/recheck: current KLT/Närtrafik, fire-risk, hunting, forestry and cabin/water status at publication time."
     ]
   },
@@ -153,13 +156,13 @@
     },
     {
       "scope": "geometry",
-      "status": "candidate-implementation-required",
-      "details": "Runtime import still needs an explicit import task, geometry implementation and visual QA."
+      "status": "resolved-by-candidate-geometry",
+      "details": "Research-only candidate GeoJSON exists for all eight Naturkartan GPX section sources; runtime import still needs an explicit import task and visual QA."
     },
     {
       "scope": "rules",
-      "status": "unknown/recheck",
-      "details": "Boundary-sensitive rules require GIS overlays against final normalized geometry."
+      "status": "resolved-by-candidate-gis-overlay",
+      "details": "Boundary-sensitive protected-area, Natura 2000, water-protection and biotopskydd checks are recorded in normalized-candidate/protected-area-overlays.research.json."
     },
     {
       "scope": "currentness",
@@ -189,13 +192,13 @@
     "Run visual QA against official PDF/map viewer for repaired multi-track sections.",
     "Confirm Etapp 8 closes the digital ring at the official GPX endpoint and does not silently snap to Lilla Hycklinge cabin.",
     "Review duplicate endpoint cabin/toilet/well/parking records before import rows.",
-    "Run GIS overlays for all ruleWarningPlan.requiresGisOverlayBeforeRuleImport entries before static rule import.",
+    "Review normalized-candidate/protected-area-overlays.research.json before static rule import and repeat overlays if route geometry or source boundaries change.",
     "Recheck fire bans, KLT/Närtrafik, cabin availability/fees, water, hunting signs/notices and forestry/passability before runtime publication.",
     "Keep all outputs research-only until the user explicitly requests runtime integration."
   ],
   "statusDetails": {
     "researchStatus": "normalization-plan-and-current-verification-complete-research-only",
-    "normalizationReadiness": "ready-for-candidate-normalization-planning",
+    "normalizationReadiness": "ready-for-runtime-import-planning-with-caveats",
     "runtimeImportReadiness": "not-ready-for-runtime-import",
     "sourceFiles": [
       "README.md",
@@ -208,7 +211,7 @@
     ],
     "notes": [
       "This handoff intentionally reuses normalization-plan.research.json rather than duplicating every repair instruction.",
-      "All eight sections are researched and static caveats now have a controlling policy, but runtime import still needs an explicit import task, geometry implementation, GIS overlays for boundary-sensitive rules, duplicate facility resolution and publication-time checks for unstable facts."
+      "All eight sections are researched and static caveats now have a controlling policy or generated candidate overlay, but runtime import still needs an explicit import task, visual geometry QA, duplicate facility resolution and publication-time checks for unstable facts."
     ]
   }
 }

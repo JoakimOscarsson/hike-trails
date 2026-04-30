@@ -20,7 +20,7 @@
   "generatedCounts": {
     "routeSections": 8,
     "geometrySections": 8,
-    "geometrySectionsWithCandidateGeojson": 0,
+    "geometrySectionsWithCandidateGeojson": 8,
     "routeTopologyDecisions": 2,
     "routeGroups": 1,
     "routeTopologyConnections": 1,
@@ -63,13 +63,13 @@
     },
     {
       "id": "geometry",
-      "status": "candidate-implementation-required",
-      "details": "Runtime import still needs an explicit import task, geometry implementation and visual QA."
+      "status": "resolved-by-candidate-geometry",
+      "details": "Research-only candidate GeoJSON exists for all eight Naturkartan GPX section sources; runtime import still needs an explicit import task and visual QA."
     },
     {
       "id": "rules",
-      "status": "unknown/recheck",
-      "details": "Boundary-sensitive rules require GIS overlays against final normalized geometry."
+      "status": "resolved-by-candidate-gis-overlay",
+      "details": "Boundary-sensitive protected-area, Natura 2000, water-protection and biotopskydd checks are recorded in normalized-candidate/protected-area-overlays.research.json."
     },
     {
       "id": "currentness",
@@ -106,21 +106,21 @@
       "id": "blocker-2",
       "itemType": "blocker",
       "sourceId": "geometry",
-      "status": "candidate-implementation-required",
-      "details": "Runtime import still needs an explicit import task, geometry implementation and visual QA.",
-      "disposition": "runtime-integration-task",
-      "owner": "runtime-import",
-      "action": "Handle when the candidate artifacts are selected for runtime import."
+      "status": "resolved-by-candidate-geometry",
+      "details": "Research-only candidate GeoJSON exists for all eight Naturkartan GPX section sources; runtime import still needs an explicit import task and visual QA.",
+      "disposition": "resolved-now",
+      "owner": "candidate-geometry",
+      "action": "Research-only candidate GeoJSON now exists for all 8 Ostkustleden sections from official Naturkartan GPX sources, preserving the Etapp 8 cabin gap as topology metadata."
     },
     {
       "id": "blocker-3",
       "itemType": "blocker",
       "sourceId": "rules",
-      "status": "unknown/recheck",
-      "details": "Boundary-sensitive rules require GIS overlays against final normalized geometry.",
-      "disposition": "fix-now",
+      "status": "resolved-by-candidate-gis-overlay",
+      "details": "Boundary-sensitive protected-area, Natura 2000, water-protection and biotopskydd checks are recorded in normalized-candidate/protected-area-overlays.research.json.",
+      "disposition": "resolved-now",
       "owner": "candidate-gis",
-      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+      "action": "Candidate protected-area-overlays.research.json now records computed protected-area, Natura 2000, water-protection and biotopskydd checks against all generated Ostkustleden route geometry and facility points."
     },
     {
       "id": "blocker-4",
@@ -164,12 +164,31 @@
     }
   ],
   "triageSummary": {
-    "runtime-integration-task": 2,
-    "fix-now": 1,
-    "defer-publication-time": 1,
-    "resolved-now": 3
+    "runtime-integration-task": 1,
+    "resolved-now": 5,
+    "defer-publication-time": 1
   },
   "fixesAppliedNow": [
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "geometry",
+      "status": "resolved-by-candidate-geometry",
+      "details": "Research-only candidate GeoJSON exists for all eight Naturkartan GPX section sources; runtime import still needs an explicit import task and visual QA.",
+      "disposition": "resolved-now",
+      "owner": "candidate-geometry",
+      "action": "Research-only candidate GeoJSON now exists for all 8 Ostkustleden sections from official Naturkartan GPX sources, preserving the Etapp 8 cabin gap as topology metadata."
+    },
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "rules",
+      "status": "resolved-by-candidate-gis-overlay",
+      "details": "Boundary-sensitive protected-area, Natura 2000, water-protection and biotopskydd checks are recorded in normalized-candidate/protected-area-overlays.research.json.",
+      "disposition": "resolved-now",
+      "owner": "candidate-gis",
+      "action": "Candidate protected-area-overlays.research.json now records computed protected-area, Natura 2000, water-protection and biotopskydd checks against all generated Ostkustleden route geometry and facility points."
+    },
     {
       "id": "open-decision-5",
       "itemType": "open-decision",
@@ -201,18 +220,7 @@
       "action": "Route topology now keeps the Etapp 8 cabin gap as metadata and approves candidate-only prototype work."
     }
   ],
-  "fixNowBeforeRuntimeImport": [
-    {
-      "id": "blocker-3",
-      "itemType": "blocker",
-      "sourceId": "rules",
-      "status": "unknown/recheck",
-      "details": "Boundary-sensitive rules require GIS overlays against final normalized geometry.",
-      "disposition": "fix-now",
-      "owner": "candidate-gis",
-      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
-    }
-  ],
+  "fixNowBeforeRuntimeImport": [],
   "runtimeSchemaNeeded": [],
   "deferredBeforeRuntimeImport": [
     {
@@ -221,16 +229,6 @@
       "sourceId": "runtime-import",
       "status": "blocked-until-explicit-import-task",
       "details": "Ready for normalization planning, not runtime import.",
-      "disposition": "runtime-integration-task",
-      "owner": "runtime-import",
-      "action": "Handle when the candidate artifacts are selected for runtime import."
-    },
-    {
-      "id": "blocker-2",
-      "itemType": "blocker",
-      "sourceId": "geometry",
-      "status": "candidate-implementation-required",
-      "details": "Runtime import still needs an explicit import task, geometry implementation and visual QA.",
       "disposition": "runtime-integration-task",
       "owner": "runtime-import",
       "action": "Handle when the candidate artifacts are selected for runtime import."
@@ -254,14 +252,12 @@
     "Run visual QA against official PDF/map viewer for repaired multi-track sections.",
     "Confirm Etapp 8 closes the digital ring at the official GPX endpoint and does not silently snap to Lilla Hycklinge cabin.",
     "Review duplicate endpoint cabin/toilet/well/parking records before import rows.",
-    "Run GIS overlays for all ruleWarningPlan.requiresGisOverlayBeforeRuleImport entries before static rule import.",
+    "Review normalized-candidate/protected-area-overlays.research.json before static rule import and repeat overlays if route geometry or source boundaries change.",
     "Recheck fire bans, KLT/Närtrafik, cabin availability/fees, water, hunting signs/notices and forestry/passability before runtime publication.",
     "Keep all outputs research-only until the user explicitly requests runtime integration."
   ],
   "unresolvedBeforeRuntimeImport": [
     "runtime-integration-task: Ready for normalization planning, not runtime import.",
-    "runtime-integration-task: Runtime import still needs an explicit import task, geometry implementation and visual QA.",
-    "fix-now: Boundary-sensitive rules require GIS overlays against final normalized geometry.",
     "defer-publication-time: Cabin availability/fees, water reliability/quality, KLT/Närtrafik, fire risk, hunting signs/notices, forestry and route passability are publication-time checks."
   ],
   "nextActions": [

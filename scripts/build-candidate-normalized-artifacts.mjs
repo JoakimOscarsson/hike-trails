@@ -316,7 +316,9 @@ const topologyDecisionConfig = {
         importPolicy: "Do not add an access leg to the default route until separately sourced."
       }
     ],
-    remainingGeometryWork: ["Run boundary-sensitive GIS overlays against final normalized ring geometry."],
+    remainingGeometryWork: [
+      "Review generated protected-area overlays before runtime import and repeat them if route geometry or protected-area source boundaries change."
+    ],
     triageResolvedSourceIds: ["decision-1", "decision-3"],
     triageResolvedAction: "Route topology now keeps the Etapp 8 cabin gap as metadata and approves candidate-only prototype work."
   },
@@ -498,6 +500,11 @@ const generatedGeometryResolutionConfig = {
     triageResolvedSourceIds: ["geometry"],
     action:
       "Research-only candidate GeoJSON now exists for all 8 Västra Vätterleden stages, including explicit stage-1 direct/Källebacken variants, stage-2 Skackastugan alternate, stages 3-5 assembled/reversed segments, stage-7 Fagerhult access connector and stage-8 child GPX components."
+  },
+  ostkustleden: {
+    triageResolvedSourceIds: ["geometry"],
+    action:
+      "Research-only candidate GeoJSON now exists for all 8 Ostkustleden sections from official Naturkartan GPX sources, preserving the Etapp 8 cabin gap as topology metadata."
   }
 };
 
@@ -524,6 +531,11 @@ const protectedAreaOverlayResolutionConfig = {
     triageResolvedSourceIds: ["rules"],
     action:
       "Candidate protected-area-overlays.research.json now records computed NVR/Natura 2000 polygon checks against final normalized candidate route geometry and facility points for Västra Vätterleden rule scoping."
+  },
+  ostkustleden: {
+    triageResolvedSourceIds: ["rules"],
+    action:
+      "Candidate protected-area-overlays.research.json now records computed protected-area, Natura 2000, water-protection and biotopskydd checks against all generated Ostkustleden route geometry and facility points."
   }
 };
 
