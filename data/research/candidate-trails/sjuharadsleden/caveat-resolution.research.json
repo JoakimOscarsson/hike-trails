@@ -1,0 +1,422 @@
+{
+  "schemaVersion": "candidate-trail-caveat-resolution-v1",
+  "trailId": "sjuharadsleden",
+  "lastUpdated": "2026-04-30T00:00:00Z",
+  "researchOnly": true,
+  "doNotImportDirectly": true,
+  "scope": "Normalization-readiness caveat resolution for the already researched Sjuhäradsleden candidate files. This pass resolves import policy decisions and reduces source uncertainty, but does not integrate runtime data.",
+  "status": "caveats-addressed-for-normalization-review-with-dynamic-import-checks-remaining",
+  "method": {
+    "summary": "Reviewed the section-level caveats, made normalization policy decisions for endpoint/access clusters, geometry source precedence, facility import/suppress/pending actions, water/fire/transit handling, and ran targeted official-source checks for protected-area clipping and current fire status.",
+    "accessedDate": "2026-04-30",
+    "writeScope": "data/research/candidate-trails/sjuharadsleden/",
+    "commandsAvoided": [
+      "npm run data:build",
+      "npm run data:build:hiking",
+      "npm run data:kayak:import",
+      "npm run import:naturkartan",
+      "runtime app data edits"
+    ]
+  },
+  "normalizationPolicies": {
+    "routeGeometry": {
+      "primarySource": "Naturkartan per-section GPX/API for all sections, preserving official stage order and section-to-section continuity.",
+      "secondarySource": "OSM relations are cross-checks for topology, endpoint sanity and related-route overlaps. Do not replace Naturkartan geometry with OSM unless an explicit geometry QA task decides to do so.",
+      "sectionSpecificActions": [
+        {
+          "sectionId": "sjuharadsleden-etapp-6-karlsaflogarna-blackered",
+          "decision": "Normalize the Rölle duplicate/parallel/spur artifacts into one mainline before import. Do not use the Rölle partial-segment coordinate as an endpoint.",
+          "status": "resolved-as-import-action"
+        },
+        {
+          "sectionId": "sjuharadsleden-etapp-7-blackered-prangens-camping",
+          "decision": "Densify/resample the known 838.6 m simplified chord before import. Keep the Naturkartan official route corridor and do not snap endpoint display directly to Prångens Camping access objects.",
+          "status": "resolved-as-import-action"
+        },
+        {
+          "sectionId": "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka",
+          "decision": "Preserve or explicitly bridge the three Naturkartan GPX components and reverse OSM if used. Treat the Borås stage-8 Böne easting 4120226 as a typo and use 412026 for Borås-derived Böne metadata.",
+          "status": "resolved-as-import-action"
+        },
+        {
+          "sectionId": "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo",
+          "decision": "Use Naturkartan GPX/API as planning-grade primary geometry. OSM relation 5607240 is continuous but stored in reverse order and locally deviates from Naturkartan by up to about 100 m; reverse and use only as cross-check/overlap source.",
+          "status": "resolved-as-import-action"
+        }
+      ]
+    },
+    "endpointAndAccessClusters": {
+      "defaultPolicy": "Keep route-line endpoints from Naturkartan for geometry continuity. Model named trailheads, parking, clubhouses, hotels, campgrounds, churches and transit stops as separate access/facility clusters with route-proximity metadata.",
+      "clusters": [
+        {
+          "clusterId": "hindas-start",
+          "sections": [
+            1
+          ],
+          "displayLabel": "Hindås station",
+          "decision": "Use station/access cluster for user-facing start services; use GPX vertex for route geometry."
+        },
+        {
+          "clusterId": "hestrafors-if-bollevi",
+          "sections": [
+            1,
+            2
+          ],
+          "displayLabel": "Hestrafors IF / Bollevi",
+          "decision": "Do not force the route endpoint to the access coordinate. Keep GPX endpoint near Brandshed for continuity and show Hestrafors IF/Bollevi as practical access cluster with weak transit caveat."
+        },
+        {
+          "clusterId": "ik-omega-omegastugan",
+          "sections": [
+            2,
+            3
+          ],
+          "displayLabel": "IK Omega",
+          "decision": "Use IK Omega as official route boundary. Model Omegastugan/Olsfors lower access as separate access metadata, not as the section boundary."
+        },
+        {
+          "clusterId": "sok-stugan-nordtorp",
+          "sections": [
+            3,
+            4
+          ],
+          "displayLabel": "SOK-stugan",
+          "decision": "Use Naturkartan section-continuity vertex for geometry; model SOK-stugan/Nordtorp clubhouse and parking as practical access/facility cluster about 190-200 m away."
+        },
+        {
+          "clusterId": "rya-asar-bjorbobacken",
+          "sections": [
+            4,
+            5
+          ],
+          "displayLabel": "Rya åsar",
+          "decision": "Use Naturkartan continuity vertex for geometry; model Rya åsar/Björbobacken/Björbostugan/Ramshulan as a deduplicated reserve access/facility cluster."
+        },
+        {
+          "clusterId": "karlsaflogarna-toarp",
+          "sections": [
+            5,
+            6
+          ],
+          "displayLabel": "Karlsaflogarna",
+          "decision": "Keep Naturkartan endpoint for route continuity and model Karlsaflogarna/Häljaredsvägen/Toarp kyrka as nearby access/service metadata."
+        },
+        {
+          "clusterId": "blackered",
+          "sections": [
+            6,
+            7
+          ],
+          "displayLabel": "Blackered",
+          "decision": "Use the section 6/7 continuity point as route boundary. Treat direct public transport as weak; do not import Komskälet/Kommskälet as a current confirmed stop."
+        },
+        {
+          "clusterId": "prangens-camping",
+          "sections": [
+            7,
+            8
+          ],
+          "displayLabel": "Prångens Camping",
+          "decision": "Keep route-line endpoint and Prångens Camping/badplats/parking/toilet/service objects deduplicated but separate from nearby Ulricehamn town-service metadata."
+        },
+        {
+          "clusterId": "bone-kyrka",
+          "sections": [
+            8,
+            9
+          ],
+          "displayLabel": "Böne kyrka",
+          "decision": "Use the corrected Borås/SWEREF easting 412026 when deriving Böne access metadata. Model Böne kyrka and parking as heritage/access cluster; suppress potable-water and toilet/open-church service claims."
+        },
+        {
+          "clusterId": "aras-sateri-kvarn",
+          "sections": [
+            9,
+            10
+          ],
+          "displayLabel": "Årås säteri",
+          "aliases": [
+            "Årås kvarn",
+            "Årås Säteri & Trädgårdar",
+            "STF Årås Säteri"
+          ],
+          "decision": "Use Årås säteri as official section label and store Årås kvarn/Årås Säteri aliases in one endpoint service/heritage cluster. Do not duplicate section 9 and 10 Årås facilities."
+        },
+        {
+          "clusterId": "hotell-mullsjo",
+          "sections": [
+            10
+          ],
+          "displayLabel": "Hotell Mullsjö",
+          "aliases": [
+            "Hotel Mullsjö",
+            "Mullsjö Hotell & Konferens",
+            "Mullsjö Friluftshotellet"
+          ],
+          "decision": "Use Hotell Mullsjö as official endpoint label. Keep hotel building, ledentré, bus stop, bathing place and Mullsjö C access trail as separate endpoint access/service records."
+        }
+      ]
+    },
+    "water": {
+      "defaultPolicy": "Do not import springs, church taps, lake water or service-facility water as potable unless a current source explicitly confirms public drinking-water access. Natural water can be mapped as natural/bathing/rest context only.",
+      "resolvedActions": [
+        "Böne kyrka water: suppress as potable; 2025 field report says signed not drinkable.",
+        "Jordkulan spring: suppress as reliable potable; field report found Rabbaberget/Jordkulan-area water empty/unreliable and OSM does not prove potability.",
+        "Raska-Minas källa: keep pending/non-potable until exact coordinate and potability are confirmed.",
+        "Årås water: model only as guest/customer/service metadata.",
+        "Mullsjö Hotell tap: keep pending until exact coordinate and public access are confirmed.",
+        "Ryfors Golfklubb and Mullsjö Camping water: service/guest metadata only."
+      ]
+    },
+    "fireAndCamping": {
+      "defaultPolicy": "Current fire-ban status is dynamic and must be checked on import/publication day. Reserve-specific rules override municipal no-fire-ban status.",
+      "currentFireStatusChecked": {
+        "accessedDate": "2026-04-30",
+        "sourceUrl": "https://ext-geodata-nationella-visning.lansstyrelsen.se/arcgis/rest/services/LST/LST_eldningsforbud_EXT/MapServer/0/query?where=KKOD%3D%270642%27%20OR%20KKOD%3D%271401%27%20OR%20KKOD%3D%271443%27%20OR%20KKOD%3D%271490%27%20OR%20KKOD%3D%271491%27&outFields=KOMMUNNAMN,LANSNAMN,KKOD,STATUS,STARTDATUM,BESL_MYND,URL,REVDATUM&returnGeometry=false&f=pjson",
+        "municipalityStatuses": [
+          {
+            "municipality": "Borås",
+            "status": "Inget eldningsförbud"
+          },
+          {
+            "municipality": "Bollebygd",
+            "status": "Inget eldningsförbud"
+          },
+          {
+            "municipality": "Härryda",
+            "status": "Inget eldningsförbud"
+          },
+          {
+            "municipality": "Mullsjö",
+            "status": "Inget eldningsförbud"
+          },
+          {
+            "municipality": "Ulricehamn",
+            "status": "Inget eldningsförbud"
+          }
+        ],
+        "importImpact": "Do not store this as a stable no-fire-ban fact. It only confirms the status observed during this caveat pass."
+      },
+      "resolvedActions": [
+        "Suppress Struntfiskeboa firepit unless a later authority source explicitly permits it; official protected-area clipping places it inside Årås naturreservat, where fires are forbidden.",
+        "Keep Struntfiskeboa shelter pending as an unofficial shelter inside Årås reserve; no fire claim should accompany it.",
+        "Import Trollsjön rastplats as rest area and only show fireplace/grill if it is treated as an official designated place under Stråkens strandskogar rules.",
+        "Keep Grillplats nära Mullsjö pending; clipping places it inside Stråkens strandskogar and the source is unofficial, so fire/camping claims need authority confirmation.",
+        "For Ryfors, separate official parking/toilet/rest access from no-fire/no-camping claims and clip exact objects before applying Ryfors versus Stråkens rules."
+      ]
+    },
+    "transit": {
+      "defaultPolicy": "Treat schedules and stop service as dynamic. This pass resolves which stops are suitable to import as confirmed access metadata versus weak/pending references.",
+      "resolvedActions": [
+        "Holmens bro remains the section-1 weak end-access fallback; do not present Hestrafors IF as strong transit.",
+        "Komskälet/Kommskälet remains suppressed as a current stop; it was not found through checked Västtrafik sources/search on 2026-04-30.",
+        "Böne and Årås remain weak fixed-route endpoints; use parking/drop-off or pre-booked Västtrafik Närtrafik only as caveated access metadata.",
+        "Mullsjö Friluftshotellet is confirmed access metadata for section 10; JLT line 116 currently lists Mullsjö Friluftshotellet and a current timetable period 2025-08-11 to 2026-06-14."
+      ],
+      "sourceUrls": [
+        "https://www.vasttrafik.se/reseplanering/hallplatslista/",
+        "https://www.vasttrafik.se/reseplanering/anropsstyrd-trafik/nartrafik/ulricehamn/",
+        "https://www.jlt.se/res-med-oss/linjer-hallplatser/hallplats/?id=24047",
+        "https://www.jlt.se/res-med-oss/linjer-hallplatser/linje/?id=116",
+        "https://www.mullsjo.se/boende-miljo-och-trafik/gator-och-trafik/kollektivtrafik"
+      ]
+    }
+  },
+  "protectedAreaClipChecks": [
+    {
+      "areaName": "Klippan naturreservat",
+      "nvrid": "2000802",
+      "sourceUrl": "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr:PS.ProtectedSites.NR&outputFormat=application/json&srsName=EPSG:4326&CQL_FILTER=nvrid=%272000802%27",
+      "checkedAgainst": "Naturkartan Etapp 1 GPX",
+      "result": "No GPX vertices and no route segments intersected the Klippan naturreservat polygon in this check. Closest sampled route point was approximately 16 m from the reserve boundary.",
+      "importImpact": "Do not attach Klippan reserve rules to section 1 as a route-overlap rule. Keep a proximity note only if desired.",
+      "confidence": "medium-high",
+      "caveat": "This is a computational check against current NVR WFS geometry and GPX vertices/segments; a future GIS pipeline can repeat it with production geometry."
+    },
+    {
+      "areaName": "Årås naturreservat",
+      "nvrid": "2013532",
+      "sourceUrl": "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr:PS.ProtectedSites.NR&outputFormat=application/json&srsName=EPSG:4326&CQL_FILTER=nvrid=%272013532%27",
+      "officialRulesSourceUrl": "https://www.lansstyrelsen.se/vastra-gotaland/besoksmal/naturreservat/aras.html",
+      "pointsInside": [
+        "Årås route/start",
+        "Årås parking",
+        "Struntfiskeboa shelter",
+        "Struntfiskeboa firepit"
+      ],
+      "result": "Årås route/start and Struntfiskeboa shelter/firepit coordinates fall inside Årås naturreservat.",
+      "importImpact": "Apply Årås reserve context to the endpoint cluster. Suppress Struntfiskeboa firepit under the reserve no-fire rule; keep shelter overnight/use status pending.",
+      "confidence": "high"
+    },
+    {
+      "areaName": "Ryfors naturreservat / Ryfors gammelskog",
+      "nvrid": "2001381",
+      "sourceUrl": "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr:PS.ProtectedSites.NR&outputFormat=application/json&srsName=EPSG:4326&CQL_FILTER=nvrid=%272001381%27",
+      "officialRulesSourceUrl": "https://www.lansstyrelsen.se/jonkoping/besoksmal/naturreservat/ryfors-gammelskog.html",
+      "pointsInside": [],
+      "result": "Checked section-10 candidate coordinates did not fall inside the NVR Ryfors polygon in this point check, although the trail/facility context remains adjacent and the Länsstyrelsen page lists Ryfors visitor services.",
+      "importImpact": "Do not blanket-apply Ryfors rules to every Ryfors-area facility without object-level clipping. Keep Ryfors reserve rules as nearby/protected-area context and apply to objects only when the production spatial check confirms overlap.",
+      "confidence": "medium"
+    },
+    {
+      "areaName": "Stråkens strandskogar naturreservat",
+      "nvrid": "2065122",
+      "sourceUrl": "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr:PS.ProtectedSites.NR&outputFormat=application/json&srsName=EPSG:4326&CQL_FILTER=nvrid=%272065122%27",
+      "officialRulesSourceUrl": "https://www.lansstyrelsen.se/jonkoping/besoksmal/naturreservat/strakens-strandskogar.html",
+      "pointsInside": [
+        "Ryfors reserve entrance",
+        "Trollsjön rastplats",
+        "Stråken naturbad",
+        "Grillplats nära Mullsjö"
+      ],
+      "result": "Several section-10 final-corridor facility candidates fall inside Stråkens strandskogar. The reserve allows fires only at designated places and with brought firewood.",
+      "importImpact": "Trollsjön fireplace can be shown only if treated as an official designated place; Grillplats nära Mullsjö remains pending because its evidence is unofficial. Do not import free camping claims.",
+      "confidence": "high for point-in-polygon; medium for exact fire-object legality until authority facility designation is confirmed"
+    }
+  ],
+  "sectionDecisions": [
+    {
+      "sectionId": "sjuharadsleden-etapp-1-hindas-station-hestrafors-if",
+      "decisions": [
+        "Klippan reserve overlap caveat reduced: current WFS/GPX check found no route intersection, only about 16 m proximity.",
+        "Keep Hestrafors IF/Bollevi as access cluster separate from the GPX endpoint.",
+        "Keep Hindås/Hindåsgården winter ski-track and seasonal facility access as publication-time warnings; no runtime integration until confirmed."
+      ],
+      "remainingDynamicChecks": [
+        "Holmens bro / line 122 schedule freshness",
+        "Hindås/Hestrafors facility opening and potable-water availability"
+      ]
+    },
+    {
+      "sectionId": "sjuharadsleden-etapp-2-hestrafors-if-ik-omega",
+      "decisions": [
+        "Keep Hestrafors and IK Omega/Omegastugan access semantics as already researched: route boundary at IK Omega, access cluster at Omegastugan/Olsfors.",
+        "Abborrsjön/Slätthult shelter and toilet remain pending-currentness rather than blockers; import with conservative currentness caveat or suppress until field/source confirmation."
+      ],
+      "remainingDynamicChecks": [
+        "Abborrsjön shelter/toilet maintenance",
+        "Västtrafik line 122/402 schedule freshness"
+      ]
+    },
+    {
+      "sectionId": "sjuharadsleden-etapp-3-ik-omega-sok-stugan",
+      "decisions": [
+        "Use Naturkartan endpoint for section 3/4 route continuity and model SOK-stugan/Nordtorp separately.",
+        "Represent Hultafors Vindskydd as one facility cluster with old/new shelter caveat instead of duplicate shelter records.",
+        "Suppress SOK-stugan clubhouse toilets/showers/sauna as public hiker services unless current public opening is verified."
+      ],
+      "remainingDynamicChecks": [
+        "Hultafors old/new shelter current condition",
+        "SOK-stugan public opening/service access"
+      ]
+    },
+    {
+      "sectionId": "sjuharadsleden-etapp-4-sok-stugan-rya-asar",
+      "decisions": [
+        "Use Naturkartan route-continuity endpoints; model SOK-stugan and Rya åsar/Björbobacken/Ramshulan as access/facility clusters.",
+        "Deduplicate Högplatån/Björbobacken/Sjötorp/Rya åsar objects into the Rya åsar access/facility cluster.",
+        "Ramshulan water remains non-potable/unconfirmed service water; do not import as drinking water."
+      ],
+      "remainingDynamicChecks": [
+        "Rya åsar reserve fire status and designated-place rules",
+        "SOK-stugan public utility access"
+      ]
+    },
+    {
+      "sectionId": "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna",
+      "decisions": [
+        "Use Naturkartan/Västsverige geometry; keep Rya åsar and Karlsaflogarna practical access clusters separate from route vertices.",
+        "Deduplicate Kypesjön/Kypegården as one main facility cluster with separate south-side grillstuga only if the app supports distinct nearby objects.",
+        "Ymergården services are conditional/opening-hour metadata; do not present water/toilet/cafe as guaranteed.",
+        "Pending heritage/facility POIs without coordinates should be suppressed from import until coordinates are verified."
+      ],
+      "remainingDynamicChecks": [
+        "Ymergården opening/service status",
+        "Karlsaflogarna shelter overnight status",
+        "Exact coordinates for optional heritage POIs"
+      ]
+    },
+    {
+      "sectionId": "sjuharadsleden-etapp-6-karlsaflogarna-blackered",
+      "decisions": [
+        "Normalize Rölle duplicate/spur geometry before route import.",
+        "Suppress Komskälet/Kommskälet as confirmed public transport until a live Västtrafik planner lookup proves it.",
+        "Import Raska-Minas stuga as day-use heritage/rest POI and Raska-Minas vindskydd as shelter with coordinate/currentness caveat.",
+        "Keep Raska-Minas spring non-potable/pending and grill as clustered pending object unless exact points are verified.",
+        "Treat Magsjön shelter/fireplace as day-use/pending until current condition and overnight status are verified."
+      ],
+      "remainingDynamicChecks": [
+        "Blackered access stop/walking route",
+        "Raska-Minas spring/grill/cup-mark exact coordinates",
+        "Magsjön current condition"
+      ]
+    },
+    {
+      "sectionId": "sjuharadsleden-etapp-7-blackered-prangens-camping",
+      "decisions": [
+        "Densify the 838.6 m simplified chord before geometry import.",
+        "Use route endpoint for continuity; model Prångens Camping, Prången badplats, parking/toilet and Ulricehamn services as deduplicated access/service clusters.",
+        "Suppress Komskälet/Kommskälet unless reverified; Blackered remains weak transit.",
+        "Keep Brunns kyrkoruin detailed access/safety claims pending until current signage/access is confirmed."
+      ],
+      "remainingDynamicChecks": [
+        "Bredaslätt/other Blackered-side transit freshness",
+        "Brunns kyrkoruin access/safety signage"
+      ]
+    },
+    {
+      "sectionId": "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka",
+      "decisions": [
+        "Böne coordinate caveat resolved: use easting 412026, not the stage-8 printed 4120226.",
+        "Use Naturkartan endpoints for geometry; model Prångens and Böne access clusters separately.",
+        "Import Jordkulan as heritage/rest cluster with shelter/fireplace/toilet/picnic/waste caveats, but mark spring as non-potable/unreliable and shelter overnight status as caveated.",
+        "Suppress Böne kyrka potable-water, toilet and open-church service claims."
+      ],
+      "remainingDynamicChecks": [
+        "Jordkulan maintenance/seasonality",
+        "Böne access transit/Närtrafik freshness"
+      ]
+    },
+    {
+      "sectionId": "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri",
+      "decisions": [
+        "Use one Årås endpoint cluster shared with section 10.",
+        "Struntfiskeboa firepit caveat resolved to suppress under Årås no-fire rule unless a later authority source overrides it.",
+        "Keep Struntfiskeboa shelter pending/unofficial inside Årås reserve.",
+        "Import Varpaledet as one bathing/rest cluster; do not split toilet/grill/changing/jetties until exact per-object coordinates are verified.",
+        "Suppress public potable-water claims for Böne, Varpaledet/Jogen and Årås."
+      ],
+      "remainingDynamicChecks": [
+        "Årås lodging/cafe season and booking status",
+        "Varpaledet per-object coordinates if the app needs split facilities"
+      ]
+    },
+    {
+      "sectionId": "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo",
+      "decisions": [
+        "Use one Årås endpoint cluster shared with section 9 and one Hotell Mullsjö endpoint cluster with separate hotel, ledentré, bus stop, bathing place and Mullsjö C access records.",
+        "Use Naturkartan GPX/API primary geometry; reverse OSM only as cross-check.",
+        "Use JLT Mullsjö Friluftshotellet and Mullsjö Resecentrum as confirmed endpoint access metadata, subject to live schedule refresh.",
+        "Treat Ryfors Golfklubb, Mullsjö Camping and Hotell Mullsjö water as guest/service metadata; keep Mullsjö Hotell tap pending exact public access verification.",
+        "Apply Stråkens designated-fireplace rule to Trollsjön and suppress/pending unofficial Grillplats nära Mullsjö fire/camping claims."
+      ],
+      "remainingDynamicChecks": [
+        "JLT line 116 schedule at import/publication time",
+        "Ryfors Golfklubb public hiker access",
+        "Mullsjö Hotell tap exact coordinate/public status"
+      ]
+    }
+  ],
+  "remainingImportDayChecks": [
+    "Refresh fire-ban status for Härryda, Bollebygd, Borås, Ulricehamn and Mullsjö immediately before publication; reserve rules still override.",
+    "Refresh Västtrafik/JLT schedules and stop active status immediately before publication.",
+    "Run the production GIS pipeline to clip all facility points and route segments against protected-area polygons.",
+    "Verify public access/opening status for service facilities before exposing water/toilet/cafe/lodging as reliable hiker services.",
+    "Run geometry normalization/densification for section 6 and section 7 before any runtime route import."
+  ],
+  "importReadinessAfterThisPass": {
+    "status": "ready-for-normalization-planning-not-runtime-import",
+    "summary": "The caveats now have explicit import decisions or dynamic-check deferrals. The remaining work is normalization execution, not broad research: endpoint/facility deduplication, geometry cleaning, production protected-area clipping, and publication-day live status refreshes.",
+    "safeNextStep": "Use this caveat-resolution file as the normalization checklist. Keep all work in candidate data until a separate explicit import task is approved."
+  }
+}

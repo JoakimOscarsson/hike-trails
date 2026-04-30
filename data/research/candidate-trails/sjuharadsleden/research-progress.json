@@ -1,7 +1,7 @@
 {
   "trailId": "sjuharadsleden",
-  "lastUpdated": "2026-04-29T21:35:00Z",
-  "currentPhase": "all-sections-researched-ready-for-normalization-review",
+  "lastUpdated": "2026-04-30T00:00:00Z",
+  "currentPhase": "caveats-addressed-ready-for-normalization-planning",
   "completedSections": [
     "sjuharadsleden-etapp-1-hindas-station-hestrafors-if",
     "sjuharadsleden-etapp-2-hestrafors-if-ik-omega",
@@ -1048,6 +1048,23 @@
         "sections/sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo.research.json"
       ],
       "synthesisDecision": "Section 10 is strong enough for normalization review with caveats. No second agent batch needed; remaining gaps are endpoint alias/deduplication, Naturkartan-vs-OSM geometry review, OSM reverse-order handling, protected-area clipping for fire/shelter/camping objects, public-water/service access verification and live transit/fire refreshes."
+    },
+    {
+      "id": "caveat-resolution-main-thread-pass-1",
+      "sectionId": null,
+      "startedAt": "2026-04-30T00:00:00Z",
+      "completedAt": "2026-04-30T00:00:00Z",
+      "lanes": [
+        "main-thread-normalization-readiness"
+      ],
+      "summary": "Addressed outstanding caveats as normalization decisions and import-day deferrals. Added caveat-resolution.research.json with endpoint/access cluster policy, geometry precedence and section-specific geometry actions, protected-area WFS clip checks for Klippan, Årås, Ryfors and Stråkens strandskogar, fire and transit policy, water suppression/pending decisions and section-by-section facility handling.",
+      "outputs": [
+        "caveat-resolution.research.json",
+        "README.md",
+        "trail.research.json",
+        "research-progress.json"
+      ],
+      "synthesisDecision": "Caveats are addressed enough for normalization planning. Remaining items are execution checks, not broad research: route geometry cleanup/densification, production GIS clipping, public service verification and publication-day fire/transit refresh."
     }
   ],
   "sourceCoverage": {
@@ -1058,13 +1075,14 @@
     "facilities": "sections-1-through-10-complete-with-pending-verification-items",
     "commuteAccess": "sections-1-through-10-complete-with-weak/limited-transit-caveats; section-10-has-strong-mullsjo-end-access-but-weak-aras-fixed-transit",
     "fieldReports": "sections-1-through-10-complete",
-    "rulesSafety": "sections-1-through-10-complete-with-trailwide-qa/fire/water/protected-area-caveats"
+    "rulesSafety": "sections-1-through-10-complete-with-trailwide-qa/fire/water/protected-area-caveats; caveat-resolution pass added endpoint/geometry/facility/water/fire/transit decisions and protected-area clip checks"
   },
   "knownGaps": [
-    "Sections 1 through 10 have synthesized section JSON packets and are ready for normalization review with caveats, not runtime import.",
+    "Sections 1 through 10 have synthesized section JSON packets and caveat-resolution.research.json now records explicit normalization decisions or import-day deferrals for the outstanding caveats. The candidate remains not runtime import-ready.",
+    "Remaining work is normalization execution, not broad research: geometry cleanup/densification, endpoint/facility deduplication, production protected-area clipping, public service verification and live fire/transit refreshes.",
     "Section 1 end access remains weak: closest transit is Holmens bro, about 2 km away, served by limited/preordered Västtrafik line 122.",
     "Section 1 route endpoint and Hestrafors IF/Bollevi official access coordinate differ by about 350-400 m; model separately unless confirmed by trail manager.",
-    "Section 1 Klippan naturreservat overlap and winter ski-track access near Hindås/Hindåsgården remain unresolved.",
+    "Section 1 Klippan naturreservat overlap was addressed in caveat-resolution.research.json: current WFS/GPX check found no route intersection, only close proximity; winter ski-track access near Hindås/Hindåsgården remains a publication-time caveat.",
     "Section 1 facilities needing coordinate/currentness verification include Hindås potable tap, Västra Nedsjön seasonal toilet/grill, Hindås Camping, Petaredbackens picnic shelter, and Hestrafors IF public toilet/access.",
     "Section 2 Abborrsjön/Slätthult shelter and toilet currentness needs verification before final import.",
     "Section 2 access semantics remain important: keep IK Omega route endpoint separate from lower Omegastugan/Start etapp 3 access cluster unless trail manager confirms otherwise.",
@@ -1085,11 +1103,11 @@
     "Section 10 endpoint semantics remain important: use Årås säteri as the official label with Årås kvarn/Årås Säteri aliases, and use Hotell Mullsjö as the official endpoint while keeping hotel, ledentré, bus stop, bathing place and Mullsjö C access as separate records.",
     "Section 10 geometry is planning-grade: Naturkartan GPX/API is primary, while OSM relation 5607240 is continuous but stored in reverse order and differs locally from Naturkartan by up to about 100 m.",
     "Section 10 Årås fixed-route transit is weak and depends on parking/drop-off or pre-booked Västtrafik Närtrafik if the address is accepted; Hotell Mullsjö/Mullsjö C access is good but JLT schedules still need live refresh.",
-    "Section 10 fire/camping/shelter candidates must be clipped against Årås, Ryfors gammelskog and Stråkens strandskogar rules before import; Årås and Ryfors prohibit fires, and Stråkens allows fire only at designated places with brought firewood.",
+    "Section 10 fire/camping/shelter candidates have first-pass WFS point clipping in caveat-resolution.research.json; production clipping is still needed before import. Årås and Ryfors prohibit fires, and Stråkens allows fire only at designated places with brought firewood.",
     "Section 10 public potable water is not confirmed on the road section; Årås, Ryfors Golfklubb, Mullsjö Camping and Hotell Mullsjö water are guest/customer/seasonal or pending exact tap/access verification.",
-    "Section 10 pending facility/currentness items include Struntfiskeboa shelter/firepit legality, EJ Farm and VIP opening/currentness, Ryfors Golfklubb public hiker access, Trollsjön/Grillplats nära Mullsjö fire legality, and exact Mullsjö Hotell water tap coordinates.",
+    "Section 10 pending facility/currentness items after caveat resolution include EJ Farm and VIP opening/currentness, Ryfors Golfklubb public hiker access, Trollsjön/Grillplats nära Mullsjö authority/designated-fire status, and exact Mullsjö Hotell water tap coordinates.",
     "Section 9 Årås säteri/Årås kvarn/Årås Säteri & Trädgårdar endpoint aliases must be deduplicated before import.",
-    "Section 9 Struntfiskeboa shelter/firepit must be clipped against Årås reserve boundaries and fire/camping rules before import; do not assume fire use is permitted.",
+    "Section 9 Struntfiskeboa was clipped inside Årås reserve in caveat-resolution.research.json; suppress the firepit under Årås no-fire rules and keep the shelter pending/unofficial.",
     "Section 9 Varpaledet badplats can be imported as a cluster, but exact toilet/grill/changing-room/jetties coordinates need verification before splitting into separate facilities.",
     "Section 9 has no confirmed public potable water; Böne water was reported not drinkable in 2025 and Årås water appears guest/customer-only.",
     "Section 9 Årås cafe/lodging services require season/booking/currentness verification before displaying availability.",
@@ -1105,13 +1123,14 @@
     "Section 8 Prångens start services need deduplication with section 7 Prångens Camping/badplats records."
   ],
   "nextActions": [
-    "Run a normalization-readiness review inside data/research/candidate-trails/sjuharadsleden only; do not integrate runtime data.",
-    "Before any later import, resolve endpoint aliases, geometry caveats, protected-area clipping, public-water verification, facility import/suppress/pending decisions and live transit/fire status."
+    "Use caveat-resolution.research.json as the normalization checklist inside data/research/candidate-trails/sjuharadsleden only; do not integrate runtime data.",
+    "Before any later import, execute the recorded geometry cleanup, endpoint/facility deduplication, production protected-area clipping, public-service verification and live transit/fire status refreshes."
   ],
   "handoffNotes": [
     "Write only under data/research/candidate-trails/sjuharadsleden/.",
     "Do not run generated-data build/import commands.",
     "The worktree branch is codex/sjuharadsleden-research at /workspaces/hike-trails-codex-sjuharadsleden-research.",
+    "Caveat resolution file is caveat-resolution.research.json and should be treated as the current handoff for normalization decisions.",
     "Section 1 file is sections/sjuharadsleden-etapp-1-hindas-station-hestrafors-if.research.json and is ready for normalization review with caveats, not runtime import.",
     "Section 2 file is sections/sjuharadsleden-etapp-2-hestrafors-if-ik-omega.research.json and is ready for normalization review with caveats, not runtime import.",
     "Section 3 file is sections/sjuharadsleden-etapp-3-ik-omega-sok-stugan.research.json and is ready for normalization review with caveats, not runtime import.",
