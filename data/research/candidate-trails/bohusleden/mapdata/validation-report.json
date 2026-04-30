@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "candidate-trail-mapdata-validation/v1",
+  "trailId": "bohusleden",
+  "validatedAt": "2026-04-30T06:19:25Z",
+  "scope": [
+    "data/research/candidate-trails/bohusleden/mapdata/index.json",
+    "data/research/candidate-trails/bohusleden/mapdata/bohusleden-candidate-section-geometries.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/*.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/reference/*.geojson"
+  ],
+  "checks": [
+    {
+      "id": "json-parse",
+      "status": "passed",
+      "details": "All candidate mapdata JSON and GeoJSON files parse successfully."
+    },
+    {
+      "id": "section-geojson-shape",
+      "status": "passed",
+      "details": "All 27 section mapdata files are GeoJSON Feature objects with LineString geometries, at least two coordinates, valid longitude/latitude numeric ranges, and no consecutive duplicate coordinates."
+    },
+    {
+      "id": "combined-feature-collection",
+      "status": "passed",
+      "details": "Combined candidate geometry file is a FeatureCollection with 27 features."
+    },
+    {
+      "id": "stage-21-reference-shape",
+      "status": "passed",
+      "details": "Stage 21 OSM old/unblazed reference file is a GeoJSON Feature LineString and is marked do-not-import."
+    },
+    {
+      "id": "official-gpx-source-urls",
+      "status": "passed",
+      "details": "All 27 official WST/Hoodin GPX source URLs recorded in mapdata/index.json returned HTTP 200 with GPX content when checked with HTTP HEAD on 2026-04-30."
+    }
+  ],
+  "geometrySummary": {
+    "officialSections": 27,
+    "candidateSectionFiles": 27,
+    "combinedFeatures": 27,
+    "fullOfficialGeometryCount": 26,
+    "partialOfficialGeometryCount": 1,
+    "navigationReadyForNormalizationCount": 26,
+    "blockedForCompleteRouteImportCount": 1
+  },
+  "continuityFindings": [
+    {
+      "fromSectionId": "bohusleden-stage-8-grandalen-bottenstugan",
+      "toSectionId": "bohusleden-stage-9-bottenstugan-lysevatten",
+      "gapMeters": 49.4,
+      "status": "small-known-gap",
+      "recommendation": "Review before route-chain import; do not silently snap without a normalization decision."
+    },
+    {
+      "fromSectionId": "bohusleden-stage-21-flotemarkson-porsas",
+      "toSectionId": "bohusleden-stage-22-porsas-nornas",
+      "gapMeters": 4296.3,
+      "status": "blocking-or-intentional-gap",
+      "recommendation": "Known Stage 21 partial-geometry/self-navigation gap; do not stitch automatically."
+    }
+  ],
+  "blockedMapdata": [
+    {
+      "sectionId": "bohusleden-stage-21-flotemarkson-porsas",
+      "sectionNumber": 21,
+      "geometryCompleteness": "partial-official",
+      "officialDistanceKm": 14,
+      "computedDistanceKm": 4.389,
+      "reason": "Official WST/Hoodin GPX, Naturkartan, and current OSM linework cover only the marked Flötemarksön-to-Holmen segment. Official text says the middle requires self-navigation with map and compass.",
+      "recommendation": "Do not import as a complete stage. Obtain authoritative full route corridor from Tanum municipality/WST or model the stage deliberately as partial/self-navigation metadata."
+    }
+  ],
+  "sourceUrlNotes": [
+    "Stage 24 GPX source URL uses the working official casing `Etapp24_Vassbotten_havedalen.gpx`; the previously recorded capital-H variant is not used in the mapdata package.",
+    "Stage 27 official GPX filename remains `Etapp27_Krokstrand_stromstad.gpx`; section research records this as a stale filename caveat because the current official stage identity is Högstad-Strömstad."
+  ],
+  "normalizationInstructions": [
+    "Use only the files under this mapdata directory for later candidate normalization; do not treat them as runtime app data.",
+    "Stages 1-20 and 22-27 can proceed to later normalization with the caveats in their section research files.",
+    "Exclude Stage 21 from complete-route import until authoritative full-stage geometry exists or the app has an explicit partial/self-navigation model.",
+    "Run final GIS overlays and live source checks before public protected-area, fire, transit, and seasonal-service warnings are generated."
+  ]
+}
