@@ -1,8 +1,15 @@
 # Bohusleden Research
 
-Status: research-only candidate. Do not import into runtime app data yet.
+Status: imported to runtime data with explicit Stage 21 partial/self-navigation handling.
 
-Handoff status on 2026-04-30: whole-trail overview plus Stages 1-27 research are complete enough for a later normalization pass, except Stage 21 is explicitly blocked for normal route import until full-stage geometry is resolved.
+Handoff status on 2026-04-30: whole-trail overview plus Stages 1-27 research are complete. Stage 21 remains blocked for normal complete-route treatment, so runtime import keeps it as a separate partial/self-navigation entry using only the official mapped partial line.
+
+2026-04-30 import decision:
+
+- West Sweden Trails says Stage 21 is not a continuous marked stage: marking exists from Flötemarksön to Holmen and from road 164 to Porsås, and hikers must self-navigate the middle with map and compass.
+- The runtime model imports the southern, middle and northern Bohusleden chains separately, plus a selectable Stage 21 partial/self-navigation entry.
+- Stage 21 route status is `manual` even though the official partial geometry is retained for context; it must not be treated as a complete navigable 14 km route.
+- A normalization bug that mapped `cleanup_station` shelter/service clusters to `transit` was fixed before import.
 
 Files:
 

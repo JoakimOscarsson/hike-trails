@@ -38,7 +38,7 @@ Candidate artifact commands:
 
 | Trail ID | Name | Files | Readiness | Notes |
 | --- | --- | ---: | --- | --- |
-| `bohusleden` | Bohusleden | 27 sections | Candidate artifacts generated | Mapdata exists for 26 full stages; Stage 21 remains a partial/self-navigation geometry blocker. |
+| `bohusleden` | Bohusleden | 27 sections | Imported to runtime data | Runtime source/public shards and 27 section route files exist; Stage 21 is deliberately a separate partial/self-navigation entry because official sources say the marked stage is not continuous. |
 | `hallandsleden` | Hallandsleden | 35 sections | Imported to runtime data | Runtime source/public shards and 35 section route files exist; 9 selectable chains preserve the branched inland network and the official coastal gap. |
 | `hogakustenleden` | Höga Kustenleden | 9 sections | Imported to runtime data | Runtime source/public shards and 9 section route files exist; section 2 distance and section 7 difficulty caveats are retained in notes. |
 | `hoglandsleden` | Höglandsleden | 23 sections | Imported to runtime data | Runtime source/public shards and 23 section route files exist; 3 selectable chains preserve the primary loop and official branch topology. |

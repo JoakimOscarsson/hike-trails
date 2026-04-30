@@ -284,6 +284,47 @@ const importConfigs = {
       url: "https://www.visitroslagen.se/vikingaleden",
       lastFetchedAt: "2026-04-30"
     }
+  },
+  bohusleden: {
+    name: "Bohusleden",
+    region: "Västra Götalands län / Hallands län",
+    country: "Sweden",
+    difficulty: "Varied",
+    estimatedTime: "27 stages",
+    season: "April-October",
+    routeType: "Long-distance trail with explicit self-navigation gap",
+    description:
+      "A long-distance trail through Bohuslän from Älvsåker toward Strömstad, with forest, lakes, coast-adjacent towns and an official Stage 21 self-navigation gap where the marked trail is not continuous.",
+    gettingThere:
+      "Use the selected chain and section endpoints for access planning. Gothenburg-area stages, Uddevalla, Munkedal and Strömstad have the strongest public-transport context; northern rural endpoints often require current timetable, pickup or private-access checks.",
+    utilities: [
+      "Services are dense near towns and outdoor centres, but sparse on the northern forest stages.",
+      "Stage 21 is not a normal continuous marked stage; follow the official self-navigation warning and check current Tanum/Västkuststiftelsen guidance before relying on it."
+    ],
+    waterSources: [
+      "Use only listed verified water points as refill context.",
+      "Natural water, springs and uncertain taps should be treated or verified before use."
+    ],
+    notes: [
+      "Imported from normalized candidate research on 2026-04-30.",
+      "West Sweden Trails confirms Stage 21 is not a continuous marked stage: marking exists from Flötemarksön to Holmen and from road 164 to Porsås, while the middle requires map-and-compass self-navigation.",
+      "Stage 21 runtime geometry uses only the official mapped partial line; do not treat it as a complete 14 km navigable route.",
+      "The app imports Bohusleden as separate selectable chains around Stage 21 plus a separate Stage 21 partial/self-navigation entry.",
+      "The 49 m Stage 8-to-Stage 9 Bottenstugan handoff is modeled as an explicit reviewed walk connection.",
+      "Fire rules, forestry/windfall notices, bridge/raft status, transit and seasonal services remain publication-time checks."
+    ],
+    selectableRouteGroupKinds: ["mainline", "branch"],
+    routeGroupNames: {
+      "bohusleden-southern-chain": "Southern chain: Älvsåker-Bottenstugan",
+      "bohusleden-middle-chain": "Middle chain: Bottenstugan-Flötemarksön",
+      "bohusleden-northern-chain": "Northern chain: Porsås-Strömstad",
+      "bohusleden-stage-21-partial": "Stage 21 partial/self-navigation"
+    },
+    source: {
+      provider: "west-sweden-trails/hoodin-candidate-research",
+      url: "https://www.westswedentrails.com/en/delled/bohusleden",
+      lastFetchedAt: "2026-04-30"
+    }
   }
 };
 
@@ -366,7 +407,7 @@ async function buildTrailSystem(trailId, config) {
 function toRuntimeSection(trailId, section, geometryRecord, normalFacilities) {
   const routePath = `/routes/hiking/${trailId}/sections/${section.sectionId}.geojson`;
   const timingNotes = estimatedTimeNotes(section.estimatedTime);
-  const caveatNotes = uniqueStrings([...(section.caveats ?? []), ...timingNotes]).slice(0, 6);
+  const caveatNotes = uniqueStrings([...geometryStatusNotes(geometryRecord), ...(section.caveats ?? []), ...timingNotes]).slice(0, 6);
   const endpointCoordinates = {
     source: "candidate-normalized-route",
     start: endpointLatLon(section.endpoints, "start"),
@@ -391,12 +432,27 @@ function toRuntimeSection(trailId, section, geometryRecord, normalFacilities) {
       lastFetchedAt: "2026-04-30"
     },
     route: {
-      status: geometryRecord?.candidateGeojsonFiles?.length ? "ready" : "manual",
+      status: runtimeRouteStatus(geometryRecord),
       sourceFormat: "geojson",
       geojsonPath: routePath
     },
     endpointCoordinates
   };
+}
+
+function runtimeRouteStatus(geometryRecord) {
+  if (!geometryRecord?.candidateGeojsonFiles?.length) return "manual";
+  const text = `${geometryRecord.status ?? ""} ${geometryRecord.sourceSummary?.classification ?? ""}`.toLowerCase();
+  return text.includes("blocked") || text.includes("partial") ? "manual" : "ready";
+}
+
+function geometryStatusNotes(geometryRecord) {
+  const text = `${geometryRecord?.status ?? ""} ${geometryRecord?.sourceSummary?.classification ?? ""}`.toLowerCase();
+  if (!text.includes("blocked") && !text.includes("partial")) return [];
+  return [
+    "Route geometry is partial or policy-blocked in the candidate research; inspect the section caveats before treating it as a navigable route.",
+    ...(geometryRecord?.blockedGeometry ?? []).map((item) => item.resolutionRequired).filter(Boolean)
+  ];
 }
 
 function groupNormalFacilities(records) {

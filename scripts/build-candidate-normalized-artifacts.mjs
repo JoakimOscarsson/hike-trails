@@ -1667,7 +1667,8 @@ function normalizeTypes(rawTypes) {
   const mapped = rawTypes.flatMap((value) => {
     const clean = String(value).trim().toLowerCase();
     if (!clean) return [];
-    if (clean.includes("bus") || clean.includes("train") || clean.includes("transit") || clean.includes("station")) return ["transit"];
+    if (clean.includes("bus") || clean.includes("train") || clean.includes("transit")) return ["transit"];
+    if (/\b(railway|coach|tram|metro|ferry)\s+station\b/.test(clean) || /\bstop\b/.test(clean)) return ["transit"];
     if (clean.includes("ferry") || clean.includes("boat") || clean.includes("helicopter") || clean.includes("pickup") || clean.includes("dropoff")) return ["transit"];
     if (clean.includes("parking") || clean.includes("parkering")) return ["parking"];
     if (clean.includes("water") || clean.includes("vatten") || clean.includes("tap") || clean.includes("well") || clean.includes("pump")) {
