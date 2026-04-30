@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-30T07:30:00Z",
-  "currentPhase": "Phase 2 K2 complete and validated; ready to commit before starting hallandsleden-tjoloholm-asa",
+  "lastUpdated": "2026-04-30T08:35:00Z",
+  "currentPhase": "Phase 2 K3 complete and validated; ready to commit before starting hallandsleden-asa-frillesas",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -29,7 +29,8 @@
     "hallandsleden-knared-ekegarden",
     "hallandsleden-ekegarden-koarp",
     "hallandsleden-sandsjobacka-kungsbacka-c",
-    "hallandsleden-kungsbacka-c-tjoloholm"
+    "hallandsleden-kungsbacka-c-tjoloholm",
+    "hallandsleden-tjoloholm-asa"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -888,19 +889,44 @@
       "sectionNumber": "K3",
       "name": "Tjolöholm - Åsa",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-gpx-discovered-map-api-line-empty-or-sparse-needs-parsing",
-      "startEndCoordinateStatus": "not-yet-validated-gpx-endpoints-needed",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-official-source-lane-and-main-thread-baseline",
+      "routeGeometryStatus": "complete-official-gpx-api-geojson-canonical-multilinestring-gaps-naturkartan-osm-suppressed",
+      "startEndCoordinateStatus": "main-thread-baseline-complete-official-gpx-api-endpoints-high-confidence-k2-handoff-0m-k4-handoff-0m",
+      "commuteAccessStatus": "complete-start-tjoloholm-parking-torpa-smedja-lekarekulle-end-asa-idrottsplats-asa-station-caveats",
+      "facilityResearchStatus": "complete-core-facilities-ready-tjoloholm-garda-brygga-nasbokrok-vita-sand-asa-caveats",
+      "rulesSafetyStatus": "complete-tjoloholm-kungsbackafjorden-nasbokrok-rules-no-active-closure",
+      "synthesisStatus": "complete-section-json-written-and-validation-passed",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
         "Run six independent section research lanes and synthesize findings.",
         "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
         "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision.",
+        "K3 batch started using six research lanes.",
+        "Pay special attention to the exact K2/K3 Tjolöholm handoff, official GPX Kust_Tjoloholm_Asa.gpx, official 29 km easy route, Tjolöholm reserve/Kungsbackafjorden continuation, Åsa endpoint transit/access, coastal-route topology, long-section water/facility gaps and dynamic restrictions/currentness caveats.",
+        "Main-thread baseline found the official GPX Kust_Tjoloholm_Asa.gpx is HTTP 200, Last-Modified Tue, 01 Jul 2025 12:39:21 GMT, ETag a16cbda0a8a943a8b46f8cfb850c97a8, content length 33730, metadata name Kust_Tjoloholm_Asa, metadata time 2025-06-23T09:31:08+02:00, track name Tjolöholm - Åsa, desc Total: 28.7 km, 432 points, start 57.403121,12.106944 and end 57.346603,12.121927.",
+        "Main-thread baseline found Hallandsleden section-specific API geo_json is a Feature/MultiLineString matching the official GPX track segments: three segments with 300, 129 and 3 points; segment-sum distance about 28.474 km, flattened distance including two gaps about 28.787 km, API length 29000 m, easy/Grön difficulty and no official time.",
+        "Main-thread baseline found K3 official MultiLineString gaps of about 202.56 m between 57.353689,12.078167 and 57.352141,12.076387 near Näsungevägen/Mor Annas väg, plus about 110.67 m between 57.347440,12.117601 and 57.346961,12.119218 near Badviksvägen/Åsa beach. Treat these as official segment gaps needing synthesis before navigation-grade import.",
+        "Main-thread baseline found Hallandsleden API line object has only properties and no line.geometry for K3; treat GPX/API geo_json as canonical candidate pending geometry lane synthesis.",
+        "Main-thread baseline verified endpoint handoffs: K2 GPX end 57.403123,12.106947 to K3 GPX start 57.403121,12.106944 is about 0.29 m, and K3 GPX end 57.346603,12.121927 to K4 GPX start 57.346603,12.121927 is 0 m.",
+        "Official page baseline: K3 follows paths in Storeskog with old oaks and viewpoints, gives views toward Tjolöholm castle from the beach, follows the coast then turns inland because of bird-protection area south of Tjolöholm, crosses agricultural landscape, reaches the sea again at Gårda brygga, passes Näsbokrok nature reserve with picnic/rest places, then follows small roads and Åsa kustpromenad to the Åsa/Vita Sand beach endpoint.",
+        "Official places API baseline returned 20 K3 records: Dahls Bageributik Åsa, Djäknegårdens Honung Butik & Café, HamraGård, Hållplats Asserlundsvägen, Hållplats Brinkens väg, Hållplats Flamsnäs, Hållplats Torpa smedja, Hållplats Åsa idrottsplats, ICA Supermarket Åsa, Rocky Point Brewery, Strandbaren - Åsa Vitasand, Tjolöholms Slott - bo på godset, Toalett Gårda Brygga, Toalett Näsbokroks Naturreservat, Toalett Tjolöholm, Toalett Vita Sand Åsa, Vita Sand badplats, Åsa Camping & Havsbad, Åsa Glasscafé and Åsa Gästis.",
+        "Facility baseline route-proximity check: Tjolöholm lodging is about 63 m from the K3 start, Toalett Tjolöholm about 6 m from route km 5.49, Asserlundsvägen bus about 9 m from km 9.87, Djäknegården about 134 m from km 12.52, Flamsnäs bus about 137 m from km 15.38, Gårda Brygga toilet about 7 m from km 19.02, Näsbokrok toilet about 8 m from km 24.20, Brinkens väg bus about 1 m from km 25.48, and Vita Sand/Åsa endpoint services 14-330 m from the end.",
+        "Access baseline: K3 start shares Tjolöholm access with K2. Public transport uses Västtrafik 732 to Torpa Smedja plus about 3.5 km walking to Tjolöholm, while estate parking is close and fee-based. K3 end has Hållplats Åsa idrottsplats about 318-354 m from the endpoint, official Åsa idrottsplats place at 57.34769057,12.12705016 about 330 m away, and Åsa station rail/bus about 2.0 km from the endpoint.",
+        "Transit baseline: Västtrafik line 732 page says Frillesås - Åsa - Fjärås - Kungsbacka and timetable validity 2025-12-14 to 2026-12-12; Kungsbacka municipality says Åsa station is an interchange point and travelers choose Västtrafik northward or Hallandstrafiken southward.",
+        "Protected-area/currentness baseline: Tjolöholm reserve rules from K2 continue at the start; Kungsbackafjorden/bird-protection context is explicit in official K3 prose because the route turns inland south of Tjolöholm; Näsbokrok official Länsstyrelsen page confirms reserve facilities, accessible toilet/rest areas, Brinkens väg public transport, parking GPS 57.344167,12.071389 and rules forbidding camping/caravans, fires, off-leash dogs, off-road motor vehicles/parking and disturbing wildlife/damaging vegetation.",
+        "Åsa/Vita Sand baseline: Kungsbacka municipality and Visit Kungsbacka confirm Sörvik/Vita Sand is a child-friendly sand beach with toilet, kiosk/camping/handicap ramp/beachvolleyball context and parking; official Hallandsleden places record Toalett Vita Sand Åsa says toilet and drinking water, accessible, shower and foot shower.",
+        "OSM baseline found no exact Hallandsleden K3 hiking relation in the corridor; local Tjolöholm hiking loops Jägarens stig/Grevens runda and Näsbokrok local loops are context only, not K3 geometry.",
+        "Official-source lane confirmed K3 identity/order/distance/difficulty/no-time, official Swedish/English description, GPX/API metadata, official places/facilities feed, Tjolöholm/Kungsbackafjorden/Näsbokrok protected-area source context, Kusten currentness, no visible closure and contradictions around distance/API line.geometry/API difficulty.",
+        "Route-geometry lane confirmed official GPX/API geo_json as canonical, exact point-for-point match, 432 points, 28.787 km flattened, MultiLineString segments and gaps of about 202.6 m and 110.7 m, K2 handoff 0.286 m, K4 handoff 0 m, no exact Naturkartan K3 line and no current OSM K3 relation.",
+        "Facilities lane classified core records for Tjolöholm lodging/parking/toilets, Kafe Manegen, Gårda Brygga toilet/water/beach/parking, Näsbokrok toilet/parking/reserve, Vita Sand toilet/water/badplats, Åsa Camping, Strandbaren and selected Åsa services; it marked Tjolöholm water OSM-only, Åsa endpoint urban services, Åsa Jutegård, HamraGård and other side records as pending/side/suppress as appropriate.",
+        "Transit-access lane confirmed Tjolöholm start access by visitor parking plus official Torpa Smedja/Västtrafik 732 and about 3.5 km walking, Lekarekulle as closer but non-official fallback, Åsa idrottsplats as closest endpoint bus about 318-354 m away, Åsa station rail/bus about 2.0 km away, and no ferry/boat/rowboat/demand-responsive access found.",
+        "Field-report lane found no active K3-specific closure/reroute, recent 2024-2025 Tjolöholm local-loop reports with rocky/steep/slippery/route-choice caveats, older Näsbokrok/Åsa local reports supporting easy coastal walking, Komoot regional/currentness context and no recent exact full-section condition report.",
+        "Rules-safety lane found no active official K3 closure, mapped active Tjolöholm reserve spans at/after the start, Kungsbackafjorden reserve/Natura edge/nearby spans, Näsbokrok reserve span around km 21.20-24.19, active Tjolöholm legal rules from 2025-12-20, Kungsbackafjorden bird-protection restrictions nearby 1 Mar-30 Jun, Näsbokrok no-camping/no-fire/leashed-dog rules, dynamic fire-ban policy and no confirmed route-specific forestry closure.",
+        "Main thread resolved the official places count discrepancy: the default places API call returned 20 records, but limit=100 returns 21 records including Åsa Jutegård Bed & Breakfast. Use the 21-record official places set for synthesis.",
+        "All six K3 lane reports are in. Main thread decided no targeted follow-up batch is needed before synthesis because remaining issues are import/currentness caveats rather than research blockers: official multipart geometry gaps, exact protected-area subarea bird-ban overlay, Tjolöholm water OSM-only status, side-service filtering, seasonal toilets/water and live transit/fire/currentness checks.",
+        "K3 synthesis complete: section JSON written at sections/hallandsleden-tjoloholm-asa.research.json. It is research-ready with caveats around official multipart GPX/API geometry gaps, missing line.geometry, no exact OSM/Naturkartan K3 linework, exact K2/K4 handoffs, official places API pagination, Tjolöholm start dedupe, OSM-only Tjolöholm water, seasonal official water at Gårda Brygga and Vita Sand, no free shelter/camp/fireplace, protected-area rules and dynamic currentness checks.",
+        "Full Hallandsleden candidate JSON validation and git diff --check passed for K3 before commit."
       ]
     },
     "hallandsleden-asa-frillesas": {
@@ -1053,10 +1079,48 @@
   },
   "agentBatches": [
     {
+      "batchId": "hallandsleden-tjoloholm-asa-initial-6-lane-2026-04-30",
+      "sectionId": "hallandsleden-tjoloholm-asa",
+      "startedAt": "2026-04-30T07:35:00Z",
+      "status": "completed-and-synthesized",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "nickname": "Carson"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "nickname": "Darwin"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "nickname": "Beauvoir the 2nd"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "nickname": "Poincare the 2nd"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "nickname": "Rawls the 2nd"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "nickname": "Kuhn the 2nd"
+        }
+      ]
+    },
+    {
       "batchId": "hallandsleden-kungsbacka-c-tjoloholm-initial-6-lane-2026-04-30",
       "sectionId": "hallandsleden-kungsbacka-c-tjoloholm",
       "startedAt": "2026-04-30T06:15:00Z",
-      "status": "completed-targeted-follow-up-complete-synthesis-underway",
+      "status": "completed-and-synthesized",
       "agents": [
         {
           "lane": "official-sources",
@@ -5532,10 +5596,27 @@
       "fieldReports": "complete from field-report lane; no active closure found, partial 2026 field report and Tjoloholm local-loop condition caveats recorded",
       "rulesSafety": "complete from rules-safety-currentness lane and targeted boundary follow-up; Tjoloholm active reserve rules, Kungsbackafjorden seasonal warning caveat and no-active-closure finding are recorded",
       "synthesis": "complete; section JSON written and validation passed before commit"
+    },
+    "hallandsleden-tjoloholm-asa": {
+      "overview": "complete from trail.research.json overview pass",
+      "officialSources": "complete from official-source lane and main-thread official page/API/GPX/places/protected-area baseline",
+      "routeGeometry": "complete from route-geometry lane and main-thread baseline; official GPX/API geo_json canonical candidate is a 432-point, three-segment MultiLineString with two gaps, API line.geometry empty, OSM/Naturkartan exact K3 relation missing",
+      "endpointCoordinates": "main-thread baseline complete from official GPX/API endpoints; K2 handoff about 0.29 m and K4 handoff 0 m",
+      "facilities": "complete from facilities lane and main-thread baseline; 21 official places, core Tjolöholm/Gårda Brygga/Näsbokrok/Vita Sand/Åsa records and side/suppress decisions recorded",
+      "commuteAccess": "complete from transit lane and main-thread baseline; Tjolöholm start parking/Torpa Smedja/Lekarekulle access and Åsa endpoint bus/rail/parking caveats recorded",
+      "fieldReports": "complete from field-report lane; no active closure found, local Tjolöholm and Näsbokrok/Åsa condition caveats and stale route-app risks recorded",
+      "rulesSafety": "complete from rules-safety-currentness lane and main-thread baseline; Tjolöholm, Kungsbackafjorden, Näsbokrok, dog/fire/camping/currentness caveats recorded",
+      "synthesis": "complete; section JSON written and validation passed before commit"
     }
   },
   "knownGaps": [
-    "Only the overview and first twenty-seven sections have been researched/synthesized; K3-K10 still need the six-lane workflow.",
+    "Only the overview and first twenty-eight sections have been researched/synthesized; K4-K10 still need the six-lane workflow.",
+    "K3: initial six-lane research is running; main-thread baseline found official GPX/API geo_json is a three-segment MultiLineString with 432 points, official distance 29 km, GPX desc 28.7 km, segment-sum 28.474 km and flattened 28.787 km.",
+    "K3: official MultiLineString has two short gaps of about 203 m near Näsungevägen/Mor Annas väg and about 111 m near Badviksvägen/Åsa beach; synthesis must decide whether to preserve, bridge, or flag these gaps before navigation-grade import.",
+    "K3: official places API returns 21 records including Tjolöholm shared-start services, Näsbokrok/Gårda Brygga toilets, Åsa endpoint services, Åsa Jutegård and some side/urban services; synthesis must filter food/lodging/camping and avoid dense service over-inclusion.",
+    "K3: start access is Tjolöholm parking/Torpa Smedja plus walking, while Åsa endpoint has close bus at Åsa idrottsplats and rail at Åsa station about 2.0 km away; transit lane must verify current operator details and best endpoint stop modeling.",
+    "K3: Tjolöholm/Kungsbackafjorden bird-protection continuation and Näsbokrok reserve rules are high-priority section rules; verify exact protected-area spans and whether any seasonal access restriction directly intersects the official route.",
+    "K3: long-section water/service gap needs synthesis. Official water is clearly indicated at Toalett Gårda Brygga and Toalett Vita Sand Åsa; Tjolöholm water is OSM-only/pending and natural/coastal water should not be treated as potable without facility-lane confirmation.",
     "K2: official GPX/API geo_json is canonical with 281 points and 22.140 km computed; Hallandsleden line.geometry is missing and no exact OSM K2 relation was found in the corridor.",
     "K2: official places API returns 19 records, including many urban Kungsbacka and side/service records; synthesis must filter dense city services, off-route Fjärås services and endpoint Tjolöholm facilities carefully.",
     "K2: Tjolöholm endpoint access is strong by car/parking but public transport requires Västtrafik bus 732 to Torpa Smedja plus about 3.5 km walking unless the transit lane finds a better live option.",
@@ -5749,9 +5830,9 @@
     "S6 research-ready caveat: old Assman-Mästocka 16-17 km route-app/tourism sources are stale and must be suppressed."
   ],
   "nextActions": [
-    "Commit K2 research files before starting K3.",
-    "Start K3 hallandsleden-tjoloholm-asa six-lane workflow after K2 commit.",
-    "For K3, pay attention to the exact K2/K3 handoff, official page https://www.hallandsleden.se/etapp/tjoloholm-asa, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Tjoloholm_Asa.gpx, official 29 km easy route, Tjolöholm reserve/Kungsbackafjorden continuation, Åsa endpoint transit/access, coastal-route topology, long-section water/facility gaps and dynamic restrictions/currentness caveats."
+    "Commit K3 research files before starting K4.",
+    "Start K4 hallandsleden-asa-frillesas six-lane workflow after K3 commit.",
+    "For K4, pay attention to the exact K3/K4 Åsa handoff, official page https://www.hallandsleden.se/etapp/asa-frillesas, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Asa_Frillesas.gpx, official 8.9 km easy route, Åsa endpoint service/access dedupe, Frillesås endpoint transit/access, coastal-route topology, route geometry continuity, water/facility filtering, protected/coastal rules and dynamic currentness caveats."
   ],
   "handoffNotes": [
     "Work resumed on 2026-04-29 in /workspaces/hike-trails-codex-hallandsleden-research on branch codex/hallandsleden-research.",
@@ -6621,6 +6702,31 @@
       "id": "phase-2-k2-validation-passed-2026-04-30",
       "completedAt": "2026-04-30T07:30:00Z",
       "summary": "Validated all Hallandsleden candidate JSON files with jq and checked whitespace with git diff --check before committing K2."
+    },
+    {
+      "id": "phase-2-k3-initial-six-lane-batch-started-2026-04-30",
+      "completedAt": "2026-04-30T07:35:00Z",
+      "summary": "Committed K2 as 74f600a, then started K3 Tjolöholm - Åsa six-lane research batch with agents Carson, Darwin, Beauvoir the 2nd, Poincare the 2nd, Rawls the 2nd and Kuhn the 2nd. Main thread retains all file-write ownership."
+    },
+    {
+      "id": "phase-2-k3-main-thread-baseline-2026-04-30",
+      "completedAt": "2026-04-30T07:55:00Z",
+      "summary": "Main thread baseline for K3 checked official page/API/GPX/places, K2 and K4 endpoint continuity, OSM, Näsbokrok Länsstyrelsen source, Tjolöholm/Kungsbackafjorden carried-forward rules context, Västtrafik line 732, Kungsbacka/Visit Kungsbacka Vita Sand context and Åsa endpoint access. Official GPX/API geo_json is canonical candidate at 432 points/28.787 km flattened, but it is a three-segment MultiLineString with two short official gaps. Official places, Åsa idrottsplats and Åsa station access, Näsbokrok reserve rules and Vita Sand water/toilet context are captured while agent lanes continue."
+    },
+    {
+      "id": "phase-2-k3-six-lane-reports-complete-synthesis-started-2026-04-30",
+      "completedAt": "2026-04-30T08:15:00Z",
+      "summary": "Received usable K3 reports from all six lanes and resolved the official places count discrepancy by using the limit=100 API response with 21 records. Reports confirm canonical official GPX/API geo_json as multipart geometry with two short gaps, exact K2/K4 handoffs, core Tjolöholm/Gårda Brygga/Näsbokrok/Vita Sand facilities, Tjolöholm start access and Åsa endpoint bus/rail access, no active official closure, protected-area/fire/dog/camping/currentness caveats and stale/partial third-party source risks. Main thread decided no targeted follow-up batch is needed before synthesis."
+    },
+    {
+      "id": "phase-2-k3-six-lane-synthesis-complete-2026-04-30",
+      "completedAt": "2026-04-30T08:30:00Z",
+      "summary": "Synthesized K3 Tjolöholm - Åsa into sections/hallandsleden-tjoloholm-asa.research.json after all six lane reports plus main-thread official/API/GPX/places/access/rules checks. Marked K3 research-ready with caveats around canonical official multipart GPX/API geo_json with two source gaps, missing line.geometry, no exact Naturkartan/OSM K3 linework, exact K2/K4 handoffs, official places API pagination, Tjolöholm dedupe and OSM-only water, seasonal official water at Gårda Brygga and Vita Sand, no free shelter/camp/fireplace, protected-area rules and dynamic currentness checks."
+    },
+    {
+      "id": "phase-2-k3-validation-passed-2026-04-30",
+      "completedAt": "2026-04-30T08:35:00Z",
+      "summary": "Validated all Hallandsleden candidate JSON files with jq and checked whitespace with git diff --check before committing K3."
     }
   ]
 }
