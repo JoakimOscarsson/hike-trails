@@ -506,6 +506,11 @@ const generatedGeometryResolutionConfig = {
     action:
       "Research-only candidate GeoJSON now exists for all 8 Ostkustleden sections from official Naturkartan GPX sources, preserving the Etapp 8 cabin gap as topology metadata."
   },
+  kungsleden: {
+    triageResolvedSourceIds: ["blocker-2"],
+    action:
+      "Research-only candidate GeoJSON now exists for all 27 Kungsleden sections from official Naturvardsverket/Lansstyrelsen Leder EPSG:3006 WFS features, transformed to WGS84, anchor-routed through multipart official linework, clipped/split by researched section anchors, simplified conservatively, and preserving boat/rowboat/road/service-zone gaps as connector metadata rather than invented hiking linework."
+  },
   hoglandsleden: {
     triageResolvedSourceIds: [],
     action:

@@ -20,7 +20,7 @@
   "generatedCounts": {
     "routeSections": 27,
     "geometrySections": 27,
-    "geometrySectionsWithCandidateGeojson": 0,
+    "geometrySectionsWithCandidateGeojson": 27,
     "routeTopologyDecisions": 1,
     "routeGroups": 1,
     "routeTopologyConnections": 0,
@@ -56,12 +56,12 @@
     {
       "id": "blocker-1",
       "status": "unresolved",
-      "details": "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds and field-report metadata."
+      "details": "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds, field-report metadata and generated research-only candidate GeoJSON."
     },
     {
       "id": "blocker-2",
       "status": "unresolved",
-      "details": "Importer must transform EPSG:3006 official geometry to WGS84, assemble multi-part official lines, split/clip grouped features, reverse directions where needed, simplify geometry and apply endpoint-zone snapping policy."
+      "details": "Research-only candidate geometry now exists, but runtime import must still approve whether to consume the generated GeoJSON or rebuild from official WFS with the same EPSG:3006 transformation, assembly, clipping/splitting, direction, simplification and endpoint-zone policies."
     },
     {
       "id": "blocker-3",
@@ -112,7 +112,7 @@
       "itemType": "blocker",
       "sourceId": "blocker-1",
       "status": "unresolved",
-      "details": "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds and field-report metadata.",
+      "details": "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds, field-report metadata and generated research-only candidate GeoJSON.",
       "disposition": "external-source-approval",
       "owner": "source-review",
       "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
@@ -122,10 +122,10 @@
       "itemType": "blocker",
       "sourceId": "blocker-2",
       "status": "unresolved",
-      "details": "Importer must transform EPSG:3006 official geometry to WGS84, assemble multi-part official lines, split/clip grouped features, reverse directions where needed, simplify geometry and apply endpoint-zone snapping policy.",
-      "disposition": "fix-now",
-      "owner": "candidate-gis",
-      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+      "details": "Research-only candidate geometry now exists, but runtime import must still approve whether to consume the generated GeoJSON or rebuild from official WFS with the same EPSG:3006 transformation, assembly, clipping/splitting, direction, simplification and endpoint-zone policies.",
+      "disposition": "resolved-now",
+      "owner": "candidate-geometry",
+      "action": "Research-only candidate GeoJSON now exists for all 27 Kungsleden sections from official Naturvardsverket/Lansstyrelsen Leder EPSG:3006 WFS features, transformed to WGS84, anchor-routed through multipart official linework, clipped/split by researched section anchors, simplified conservatively, and preserving boat/rowboat/road/service-zone gaps as connector metadata rather than invented hiking linework."
     },
     {
       "id": "blocker-3",
@@ -220,13 +220,22 @@
   ],
   "triageSummary": {
     "external-source-approval": 2,
-    "fix-now": 1,
+    "resolved-now": 3,
     "runtime-schema-needed": 4,
-    "resolved-now": 2,
     "defer-publication-time": 1,
     "runtime-integration-task": 1
   },
   "fixesAppliedNow": [
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "blocker-2",
+      "status": "unresolved",
+      "details": "Research-only candidate geometry now exists, but runtime import must still approve whether to consume the generated GeoJSON or rebuild from official WFS with the same EPSG:3006 transformation, assembly, clipping/splitting, direction, simplification and endpoint-zone policies.",
+      "disposition": "resolved-now",
+      "owner": "candidate-geometry",
+      "action": "Research-only candidate GeoJSON now exists for all 27 Kungsleden sections from official Naturvardsverket/Lansstyrelsen Leder EPSG:3006 WFS features, transformed to WGS84, anchor-routed through multipart official linework, clipped/split by researched section anchors, simplified conservatively, and preserving boat/rowboat/road/service-zone gaps as connector metadata rather than invented hiking linework."
+    },
     {
       "id": "blocker-4",
       "itemType": "blocker",
@@ -248,18 +257,7 @@
       "action": "Shared trail-specific decisions now define the Kungsleden facility taxonomy for hut clusters, child amenities, transport, services, water, bridges, viewpoints, Naturum, parking and pending unverified subfacilities."
     }
   ],
-  "fixNowBeforeRuntimeImport": [
-    {
-      "id": "blocker-2",
-      "itemType": "blocker",
-      "sourceId": "blocker-2",
-      "status": "unresolved",
-      "details": "Importer must transform EPSG:3006 official geometry to WGS84, assemble multi-part official lines, split/clip grouped features, reverse directions where needed, simplify geometry and apply endpoint-zone snapping policy.",
-      "disposition": "fix-now",
-      "owner": "candidate-gis",
-      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
-    }
-  ],
+  "fixNowBeforeRuntimeImport": [],
   "runtimeSchemaNeeded": [
     {
       "id": "blocker-3",
@@ -308,7 +306,7 @@
       "itemType": "blocker",
       "sourceId": "blocker-1",
       "status": "unresolved",
-      "details": "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds and field-report metadata.",
+      "details": "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds, field-report metadata and generated research-only candidate GeoJSON.",
       "disposition": "external-source-approval",
       "owner": "source-review",
       "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
@@ -348,12 +346,12 @@
     "Parse trail.research.json, research-progress.json, geometry-qa-2026-04-30.research.json, caveat-resolution-2026-04-29.research.json and all sections/*.research.json as JSON.",
     "Confirm section count remains 27 and every section listed in officialSectionOrder has a matching sections/*.research.json file.",
     "Confirm no files outside data/research/candidate-trails/kungsleden/ are changed by the normalization-handoff task.",
-    "Before runtime work, run geometry transformation QA from EPSG:3006 to WGS84 and route simplification QA against final selected lines.",
+    "Rebuild Kungsleden candidate geometry with npm run data:candidate-geometry:kungsleden and review normalized-candidate/route-geometry-build.research.json before runtime work.",
+    "Confirm all 27 generated section GeoJSON files exist under geometry/candidate/sections/ and that boat/rowboat/road/service-zone gaps remain connector metadata rather than invented hiking linework.",
     "Before publication/runtime import, recheck trail/bridge notices, closures, fire bans, weather, hut seasons, boat operators, bus timetables, protected-area rules, reindeer/hunting/fishing and parking rules."
   ],
   "unresolvedBeforeRuntimeImport": [
-    "external-source-approval: Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds and field-report metadata.",
-    "fix-now: Importer must transform EPSG:3006 official geometry to WGS84, assemble multi-part official lines, split/clip grouped features, reverse directions where needed, simplify geometry and apply endpoint-zone snapping policy.",
+    "external-source-approval: Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds, field-report metadata and generated research-only candidate GeoJSON.",
     "runtime-schema-needed: Typed connector model must be implemented for boats, rowboats, ferry/water lines and road/bus transfers before runtime geometry is generated.",
     "defer-publication-time: Live currentness refresh is still required for trail/bridge notices, closures, fire bans, weather, hut seasons, boat operators, bus timetables, protected-area rules, reindeer/hunting/fishing and parking rules.",
     "runtime-integration-task: Generated app outputs and source hiking runtime data have intentionally not been edited.",

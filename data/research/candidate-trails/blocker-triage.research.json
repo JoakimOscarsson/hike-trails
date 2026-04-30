@@ -14,16 +14,15 @@
     "scope-limitation": "Accepted scope boundary for this candidate import model."
   },
   "summary": {
-    "resolved-now": 59,
+    "resolved-now": 60,
     "runtime-integration-task": 6,
     "defer-publication-time": 20,
     "external-source-approval": 5,
     "runtime-schema-needed": 14,
-    "fix-now": 1,
     "scope-limitation": 3
   },
-  "fixNowCount": 1,
-  "resolvedNowCount": 59,
+  "fixNowCount": 0,
+  "resolvedNowCount": 60,
   "trails": [
     {
       "trailId": "bohusleden",
@@ -895,13 +894,22 @@
       "trailId": "kungsleden",
       "triageSummary": {
         "external-source-approval": 2,
-        "fix-now": 1,
+        "resolved-now": 3,
         "runtime-schema-needed": 4,
-        "resolved-now": 2,
         "defer-publication-time": 1,
         "runtime-integration-task": 1
       },
       "fixesAppliedNow": [
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "blocker-2",
+          "status": "unresolved",
+          "details": "Research-only candidate geometry now exists, but runtime import must still approve whether to consume the generated GeoJSON or rebuild from official WFS with the same EPSG:3006 transformation, assembly, clipping/splitting, direction, simplification and endpoint-zone policies.",
+          "disposition": "resolved-now",
+          "owner": "candidate-geometry",
+          "action": "Research-only candidate GeoJSON now exists for all 27 Kungsleden sections from official Naturvardsverket/Lansstyrelsen Leder EPSG:3006 WFS features, transformed to WGS84, anchor-routed through multipart official linework, clipped/split by researched section anchors, simplified conservatively, and preserving boat/rowboat/road/service-zone gaps as connector metadata rather than invented hiking linework."
+        },
         {
           "id": "blocker-4",
           "itemType": "blocker",
@@ -923,25 +931,14 @@
           "action": "Shared trail-specific decisions now define the Kungsleden facility taxonomy for hut clusters, child amenities, transport, services, water, bridges, viewpoints, Naturum, parking and pending unverified subfacilities."
         }
       ],
-      "nextFixNow": [
-        {
-          "id": "blocker-2",
-          "itemType": "blocker",
-          "sourceId": "blocker-2",
-          "status": "unresolved",
-          "details": "Importer must transform EPSG:3006 official geometry to WGS84, assemble multi-part official lines, split/clip grouped features, reverse directions where needed, simplify geometry and apply endpoint-zone snapping policy.",
-          "disposition": "fix-now",
-          "owner": "candidate-gis",
-          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
-        }
-      ],
+      "nextFixNow": [],
       "deferred": [
         {
           "id": "blocker-1",
           "itemType": "blocker",
           "sourceId": "blocker-1",
           "status": "unresolved",
-          "details": "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds and field-report metadata.",
+          "details": "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds, field-report metadata and generated research-only candidate GeoJSON.",
           "disposition": "external-source-approval",
           "owner": "source-review",
           "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
@@ -1025,7 +1022,7 @@
           "itemType": "blocker",
           "sourceId": "blocker-1",
           "status": "unresolved",
-          "details": "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds and field-report metadata.",
+          "details": "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds, field-report metadata and generated research-only candidate GeoJSON.",
           "disposition": "external-source-approval",
           "owner": "source-review",
           "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
@@ -1035,10 +1032,10 @@
           "itemType": "blocker",
           "sourceId": "blocker-2",
           "status": "unresolved",
-          "details": "Importer must transform EPSG:3006 official geometry to WGS84, assemble multi-part official lines, split/clip grouped features, reverse directions where needed, simplify geometry and apply endpoint-zone snapping policy.",
-          "disposition": "fix-now",
-          "owner": "candidate-gis",
-          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+          "details": "Research-only candidate geometry now exists, but runtime import must still approve whether to consume the generated GeoJSON or rebuild from official WFS with the same EPSG:3006 transformation, assembly, clipping/splitting, direction, simplification and endpoint-zone policies.",
+          "disposition": "resolved-now",
+          "owner": "candidate-geometry",
+          "action": "Research-only candidate GeoJSON now exists for all 27 Kungsleden sections from official Naturvardsverket/Lansstyrelsen Leder EPSG:3006 WFS features, transformed to WGS84, anchor-routed through multipart official linework, clipped/split by researched section anchors, simplified conservatively, and preserving boat/rowboat/road/service-zone gaps as connector metadata rather than invented hiking linework."
         },
         {
           "id": "blocker-3",

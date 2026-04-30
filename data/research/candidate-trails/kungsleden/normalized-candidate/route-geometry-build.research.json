@@ -1,0 +1,2037 @@
+{
+  "schemaVersion": "candidate-kungsleden-geometry-build/v1",
+  "trailId": "kungsleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-geometry-generated-research-only",
+  "runtimeImportApproved": false,
+  "sourceArtifact": "kungsleden/geometry-qa-2026-04-30.research.json",
+  "method": "Fetched official Naturvardsverket/Lansstyrelsen Leder WFS features in EPSG:3006 by Led_ID, transformed SWEREF99 TM coordinates to WGS84, assembled multipart state-trail linework, clipped grouped features to researched Kungsleden section anchors, reversed output where needed, preserved non-hiking/transport gaps as MultiLineString breaks, and applied conservative 5 m Douglas-Peucker simplification.",
+  "summary": {
+    "sections": 27,
+    "sectionsWithCandidateGeojson": 27,
+    "sourceLedIds": 19,
+    "multiPartSections": 2,
+    "totalLengthKm": 430.784,
+    "simplificationToleranceMeters": 5
+  },
+  "sourceDownloads": [
+    {
+      "ledId": "30361077",
+      "statligLedIds": [
+        "BD 21"
+      ],
+      "ledNames": [
+        "Kungsleden, Nordkalottleden, Dag Hammarskjöldleden"
+      ],
+      "outputPath": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30361077-epsg3006.geojson",
+      "featureCount": 4,
+      "sourceLineCount": 4
+    },
+    {
+      "ledId": "30466790",
+      "statligLedIds": [
+        "BD 26"
+      ],
+      "ledNames": [
+        "Vandringsled BD26 mellan Abiskojaure och Alesjaure"
+      ],
+      "outputPath": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466790-epsg3006.geojson",
+      "featureCount": 4,
+      "sourceLineCount": 4
+    },
+    {
+      "ledId": "30466819",
+      "statligLedIds": [
+        "BD 31"
+      ],
+      "ledNames": [
+        "Vandringsled BD31 mellan Alesjaure och Sälka"
+      ],
+      "outputPath": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466819-epsg3006.geojson",
+      "featureCount": 1,
+      "sourceLineCount": 1
+    },
+    {
+      "ledId": "30442476",
+      "statligLedIds": [
+        "BD 38"
+      ],
+      "ledNames": [
+        "Vandringsled BD38 mellan Sälka och Singi"
+      ],
+      "outputPath": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30442476-epsg3006.geojson",
+      "featureCount": 2,
+      "sourceLineCount": 2
+    },
+    {
+      "ledId": "30466867",
+      "statligLedIds": [
+        "BD 46"
+      ],
+      "ledNames": [
+        "Vandringsled BD46 mellan Singi och Kaitumjaure"
+      ],
+      "outputPath": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466867-epsg3006.geojson",
+      "featureCount": 1,
+      "sourceLineCount": 1
+    },
+    {
+      "ledId": "30466872",
+      "statligLedIds": [
+        "BD 49"
+      ],
+      "ledNames": [
+        "Kungsleden, Vandringsled BD49 mellan Gáidumjávri och Dievssájávri"
+      ],
+      "outputPath": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466872-epsg3006.geojson",
+      "featureCount": 1,
+      "sourceLineCount": 1
+    },
+    {
+      "ledId": "30466874",
+      "statligLedIds": [
+        "BD 50"
+      ],
+      "ledNames": [
+        "Kungsleden, Vandringsled BD50 mellan Dievssájávri och Vákudavárre"
+      ],
+      "outputPath": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466874-epsg3006.geojson",
+      "featureCount": 1,
+      "sourceLineCount": 1
+    },
+    {
+      "ledId": "30466917",
+      "statligLedIds": [
+        "BD 62"
+      ],
+      "ledNames": [
+        "Vandringsled BD62 mellan Saltoluokta och Sitojaure"
+      ],
+      "outputPath": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466917-epsg3006.geojson",
+      "featureCount": 2,
+      "sourceLineCount": 2
+    },
+    {
+      "ledId": "30466925",
+      "statligLedIds": [
+        "BD 63"
+      ],
+      "ledNames": [
+        "Vandringsled BD63 mellan Sitojaure och Aktse"
+      ],
+      "outputPath": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466925-epsg3006.geojson",
+      "featureCount": 2,
+      "sourceLineCount": 2
+    },
+    {
+      "ledId": "30466940",
+      "statligLedIds": [
+        "BD 65"
+      ],
+      "ledNames": [
+        "Kungsleden, Vandringsled BD65 mellan Aktse och Pårtestugan"
+      ],
+      "outputPath": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466940-epsg3006.geojson",
+      "featureCount": 1,
+      "sourceLineCount": 1
+    },
+    {
+      "ledId": "30413122",
+      "statligLedIds": [
+        "BD 66"
+      ],
+      "ledNames": [
+        "Vandringsled BD66 mellan Pårtestugan och Kvickjokk"
+      ],
+      "outputPath": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30413122-epsg3006.geojson",
+      "featureCount": 1,
+      "sourceLineCount": 1
+    },
+    {
+      "ledId": "30424088",
+      "statligLedIds": [
+        "BD 77"
+      ],
+      "ledNames": [
+        "Vandringsled BD77 mellan Kvikkjokk och Västerfjäll"
+      ],
+      "outputPath": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30424088-epsg3006.geojson",
+      "featureCount": 1,
+      "sourceLineCount": 1
+    },
+    {
+      "ledId": "30466987",
+      "statligLedIds": [
+        "BD 78"
+      ],
+      "ledNames": [
+        "Vandringsled BD78 mellan Västerfjäll och Jäkkvik"
+      ],
+      "outputPath": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466987-epsg3006.geojson",
+      "featureCount": 3,
+      "sourceLineCount": 3
+    },
+    {
+      "ledId": "30467009",
+      "statligLedIds": [
+        "BD 87"
+      ],
+      "ledNames": [
+        "Vandringsled BD87 mellan Jäkkvik och Adolfström"
+      ],
+      "outputPath": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30467009-epsg3006.geojson",
+      "featureCount": 2,
+      "sourceLineCount": 2
+    },
+    {
+      "ledId": "30467012",
+      "statligLedIds": [
+        "BD 88"
+      ],
+      "ledNames": [
+        "Vandringsled BD88 mellan Adolfström och Länsgränsen"
+      ],
+      "outputPath": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30467012-epsg3006.geojson",
+      "featureCount": 3,
+      "sourceLineCount": 3
+    },
+    {
+      "ledId": "30455122",
+      "statligLedIds": [
+        "AC 20"
+      ],
+      "ledNames": [
+        "Norrbottensgränsen - Ammarnäs (Kungsleden) (AC 20)"
+      ],
+      "outputPath": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30455122-epsg3006.geojson",
+      "featureCount": 6,
+      "sourceLineCount": 6
+    },
+    {
+      "ledId": "30454750",
+      "statligLedIds": [
+        "AC 16"
+      ],
+      "ledNames": [
+        "Tärnasjöstugorna - Servestugan - Aigertstugan - Ammarnäs (Kungsleden) (AC 16)"
+      ],
+      "outputPath": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30454750-epsg3006.geojson",
+      "featureCount": 1,
+      "sourceLineCount": 1
+    },
+    {
+      "ledId": "30448885",
+      "statligLedIds": [
+        "AC 2"
+      ],
+      "ledNames": [
+        "Tärnasjöstugorna - Syterstugorna (Kungsleden) (AC 2)"
+      ],
+      "outputPath": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30448885-epsg3006.geojson",
+      "featureCount": 1,
+      "sourceLineCount": 1
+    },
+    {
+      "ledId": "30454909",
+      "statligLedIds": [
+        "AC 3"
+      ],
+      "ledNames": [
+        "Syterstugorna - Viterskalstugan - Hemavan (AC 3)"
+      ],
+      "outputPath": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30454909-epsg3006.geojson",
+      "featureCount": 1,
+      "sourceLineCount": 1
+    }
+  ],
+  "sectionRecords": [
+    {
+      "sectionId": "kungsleden-section-01-abisko-abiskojaure",
+      "sectionNumber": 1,
+      "name": "Abisko-Abiskojaure",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-01-abisko-abiskojaure.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 13.76,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30361077",
+          "statligLedId": "BD 21",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30361077-epsg3006.geojson",
+          "sourceFeatureCount": 4,
+          "sourcePartCount": 4,
+          "startAnchor": {
+            "lat": 68.358896048,
+            "lon": 18.779224884
+          },
+          "endAnchor": {
+            "lat": 68.286000203,
+            "lon": 18.590492322
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 68.358896048,
+              "lon": 18.779224884
+            },
+            "sourceLineIndex": 1,
+            "snappedPoint": [
+              18.7789461,
+              68.3587867
+            ],
+            "distanceMeters": 16.7,
+            "measureKm": 0.082
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 68.286000203,
+              "lon": 18.590492322
+            },
+            "sourceLineIndex": 2,
+            "snappedPoint": [
+              18.5904923,
+              68.2860002
+            ],
+            "distanceMeters": 0,
+            "measureKm": 0.255
+          },
+          "direction": "anchor-routed",
+          "outputLineParts": 1,
+          "originalPointCount": 751,
+          "simplifiedPointCount": 189,
+          "lengthKm": 13.76,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "sectionId": "kungsleden-section-02-abiskojaure-alesjaure",
+      "sectionNumber": 2,
+      "name": "Abiskojaure-Alesjaure",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-02-abiskojaure-alesjaure.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 20.414,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30466790",
+          "statligLedId": "BD 26",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466790-epsg3006.geojson",
+          "sourceFeatureCount": 4,
+          "sourcePartCount": 4,
+          "startAnchor": {
+            "lat": 68.286000202,
+            "lon": 18.590492322
+          },
+          "endAnchor": {
+            "lat": 68.136794344,
+            "lon": 18.413779339
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 68.286000202,
+              "lon": 18.590492322
+            },
+            "sourceLineIndex": 3,
+            "snappedPoint": [
+              18.5904923,
+              68.2860002
+            ],
+            "distanceMeters": 0,
+            "measureKm": 0.255
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 68.136794344,
+              "lon": 18.413779339
+            },
+            "sourceLineIndex": 2,
+            "snappedPoint": [
+              18.4137793,
+              68.1367943
+            ],
+            "distanceMeters": 0,
+            "measureKm": 0
+          },
+          "direction": "anchor-routed",
+          "outputLineParts": 1,
+          "originalPointCount": 2021,
+          "simplifiedPointCount": 192,
+          "lengthKm": 20.414,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "sectionId": "kungsleden-section-03-alesjaure-tjaktja",
+      "sectionNumber": 3,
+      "name": "Alesjaure-Tjaktja",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-03-alesjaure-tjaktja.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 12.457,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30466819",
+          "statligLedId": "BD 31",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466819-epsg3006.geojson",
+          "sourceFeatureCount": 1,
+          "sourcePartCount": 1,
+          "startAnchor": {
+            "lat": 68.136673,
+            "lon": 18.414793
+          },
+          "endAnchor": {
+            "lat": 68.051648,
+            "lon": 18.241082
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 68.136673,
+              "lon": 18.414793
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              18.415542,
+              68.1349955
+            ],
+            "distanceMeters": 189.1,
+            "measureKm": 25.075
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 68.051648,
+              "lon": 18.241082
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              18.2463899,
+              68.0513863
+            ],
+            "distanceMeters": 222.5,
+            "measureKm": 12.541
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 1072,
+          "simplifiedPointCount": 140,
+          "lengthKm": 12.457,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": [
+        "Endpoint anchor is far from selected official line on part 1: start 189.1 m, end 222.5 m. Treat as endpoint-zone/access metadata, not final navigation-grade snapping."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-04-tjaktja-salka",
+      "sectionNumber": 4,
+      "name": "Tjaktja-Salka",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-04-tjaktja-salka.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 12.194,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30466819",
+          "statligLedId": "BD 31",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466819-epsg3006.geojson",
+          "sourceFeatureCount": 1,
+          "sourcePartCount": 1,
+          "startAnchor": {
+            "lat": 68.0491235,
+            "lon": 18.2451408
+          },
+          "endAnchor": {
+            "lat": 67.9464348,
+            "lon": 18.2821849
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 68.0491235,
+              "lon": 18.2451408
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              18.2452376,
+              68.0491164
+            ],
+            "distanceMeters": 4.1,
+            "measureKm": 12.282
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 67.9464348,
+              "lon": 18.2821849
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              18.2823931,
+              67.9464692
+            ],
+            "distanceMeters": 9.5,
+            "measureKm": 0.008
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 760,
+          "simplifiedPointCount": 107,
+          "lengthKm": 12.194,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "sectionId": "kungsleden-section-05-salka-singi",
+      "sectionNumber": 5,
+      "name": "Salka-Singi",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-05-salka-singi.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 11.806,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30442476",
+          "statligLedId": "BD 38",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30442476-epsg3006.geojson",
+          "sourceFeatureCount": 2,
+          "sourcePartCount": 2,
+          "startAnchor": {
+            "lat": 67.9464348,
+            "lon": 18.2821849
+          },
+          "endAnchor": {
+            "lat": 67.8510154,
+            "lon": 18.3166667
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 67.9464348,
+              "lon": 18.2821849
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              18.2824922,
+              67.946409
+            ],
+            "distanceMeters": 13.1,
+            "measureKm": 3.93
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 67.8510154,
+              "lon": 18.3166667
+            },
+            "sourceLineIndex": 1,
+            "snappedPoint": [
+              18.3164048,
+              67.8509465
+            ],
+            "distanceMeters": 13.4,
+            "measureKm": 0.007
+          },
+          "direction": "anchor-routed",
+          "outputLineParts": 1,
+          "originalPointCount": 1064,
+          "simplifiedPointCount": 146,
+          "lengthKm": 11.806,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "sectionId": "kungsleden-section-06-singi-kaitumjaure",
+      "sectionNumber": 6,
+      "name": "Singi-Kaitumjaure",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-06-singi-kaitumjaure.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 12.309,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30466867",
+          "statligLedId": "BD 46",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466867-epsg3006.geojson",
+          "sourceFeatureCount": 1,
+          "sourcePartCount": 1,
+          "startAnchor": {
+            "lat": 67.851109,
+            "lon": 18.31606
+          },
+          "endAnchor": {
+            "lat": 67.746527,
+            "lon": 18.295671
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 67.851109,
+              "lon": 18.31606
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              18.3165049,
+              67.8508938
+            ],
+            "distanceMeters": 30.3,
+            "measureKm": 0
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 67.746527,
+              "lon": 18.295671
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              18.2960615,
+              67.7464204
+            ],
+            "distanceMeters": 20.3,
+            "measureKm": 12.418
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 1471,
+          "simplifiedPointCount": 148,
+          "lengthKm": 12.309,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "sectionId": "kungsleden-section-07-kaitumjaure-teusajaure",
+      "sectionNumber": 7,
+      "name": "Kaitumjaure-Teusajaure",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-07-kaitumjaure-teusajaure.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 8.78,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30466872",
+          "statligLedId": "BD 49",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466872-epsg3006.geojson",
+          "sourceFeatureCount": 1,
+          "sourcePartCount": 1,
+          "startAnchor": {
+            "lat": 67.746527,
+            "lon": 18.295671
+          },
+          "endAnchor": {
+            "lat": 67.694756,
+            "lon": 18.155433
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 67.746527,
+              "lon": 18.295671
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              18.2960351,
+              67.7464064
+            ],
+            "distanceMeters": 20.4,
+            "measureKm": 8.908
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 67.694756,
+              "lon": 18.155433
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              18.1561249,
+              67.6946733
+            ],
+            "distanceMeters": 30.6,
+            "measureKm": 0.048
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 688,
+          "simplifiedPointCount": 116,
+          "lengthKm": 8.78,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "sectionId": "kungsleden-section-08-teusajaure-vakkotavare",
+      "sectionNumber": 8,
+      "name": "Teusajaure-Vakkotavare",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-08-teusajaure-vakkotavare.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 13.741,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30466874",
+          "statligLedId": "BD 50",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466874-epsg3006.geojson",
+          "sourceFeatureCount": 1,
+          "sourcePartCount": 1,
+          "startAnchor": {
+            "lat": 67.694756,
+            "lon": 18.155433
+          },
+          "endAnchor": {
+            "lat": 67.58169,
+            "lon": 18.100371
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 67.694756,
+              "lon": 18.155433
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              18.1419102,
+              67.6891069
+            ],
+            "distanceMeters": 848.7,
+            "measureKm": 13.849
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 67.58169,
+              "lon": 18.100371
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              18.1002859,
+              67.5817013
+            ],
+            "distanceMeters": 3.8,
+            "measureKm": 0.011
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 881,
+          "simplifiedPointCount": 169,
+          "lengthKm": 13.741,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": [
+        "Endpoint anchor is far from selected official line on part 1: start 848.7 m, end 3.8 m. Treat as endpoint-zone/access metadata, not final navigation-grade snapping."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-09-saltoluokta-sitojaure",
+      "sectionNumber": 9,
+      "name": "Saltoluokta-Sitojaure",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-09-saltoluokta-sitojaure.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 19.249,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30466917",
+          "statligLedId": "BD 62",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466917-epsg3006.geojson",
+          "sourceFeatureCount": 2,
+          "sourcePartCount": 2,
+          "startAnchor": {
+            "lat": 67.3940893,
+            "lon": 18.5207608
+          },
+          "endAnchor": {
+            "lat": 67.232681,
+            "lon": 18.440723
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 67.3940893,
+              "lon": 18.5207608
+            },
+            "sourceLineIndex": 1,
+            "snappedPoint": [
+              18.5207145,
+              67.3941247
+            ],
+            "distanceMeters": 4.4,
+            "measureKm": 1.009
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 67.232681,
+              "lon": 18.440723
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              18.4410858,
+              67.2326673
+            ],
+            "distanceMeters": 15.7,
+            "measureKm": 0.193
+          },
+          "direction": "anchor-routed",
+          "outputLineParts": 1,
+          "originalPointCount": 1139,
+          "simplifiedPointCount": 181,
+          "lengthKm": 19.249,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "sectionId": "kungsleden-section-10-sitojaure-aktse",
+      "sectionNumber": 10,
+      "name": "Sitojaure-Aktse",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-10-sitojaure-aktse.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 8.309,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30466925",
+          "statligLedId": "BD 63",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466925-epsg3006.geojson",
+          "sourceFeatureCount": 2,
+          "sourcePartCount": 2,
+          "startAnchor": {
+            "lat": 67.232681,
+            "lon": 18.440723
+          },
+          "endAnchor": {
+            "lat": 67.148672,
+            "lon": 18.305904
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 67.232681,
+              "lon": 18.440723
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              18.4219269,
+              67.2039548
+            ],
+            "distanceMeters": 3295.1,
+            "measureKm": 8.563
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 67.148672,
+              "lon": 18.305904
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              18.3059029,
+              67.1487577
+            ],
+            "distanceMeters": 9.5,
+            "measureKm": 0.251
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 90,
+          "simplifiedPointCount": 68,
+          "lengthKm": 8.309,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": [
+        "Endpoint anchor is far from selected official line on part 1: start 3295.1 m, end 9.5 m. Treat as endpoint-zone/access metadata, not final navigation-grade snapping."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-11-aktse-parte",
+      "sectionNumber": 11,
+      "name": "Aktse-Pårte",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-11-aktse-parte.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 19.61,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30466940",
+          "statligLedId": "BD 65",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466940-epsg3006.geojson",
+          "sourceFeatureCount": 1,
+          "sourcePartCount": 1,
+          "startAnchor": {
+            "lat": 67.148672,
+            "lon": 18.305904
+          },
+          "endAnchor": {
+            "lat": 67.042306,
+            "lon": 17.942996
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 67.148672,
+              "lon": 18.305904
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              18.2894242,
+              67.1174995
+            ],
+            "distanceMeters": 3538.6,
+            "measureKm": 19.682
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 67.042306,
+              "lon": 17.942996
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              17.9428731,
+              67.0423456
+            ],
+            "distanceMeters": 6.9,
+            "measureKm": 0
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 835,
+          "simplifiedPointCount": 240,
+          "lengthKm": 19.61,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": [
+        "Endpoint anchor is far from selected official line on part 1: start 3538.6 m, end 6.9 m. Treat as endpoint-zone/access metadata, not final navigation-grade snapping."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-12-parte-kvikkjokk",
+      "sectionNumber": 12,
+      "name": "Pårte-Kvikkjokk",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-12-parte-kvikkjokk.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 15.682,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30413122",
+          "statligLedId": "BD 66",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30413122-epsg3006.geojson",
+          "sourceFeatureCount": 1,
+          "sourcePartCount": 1,
+          "startAnchor": {
+            "lat": 67.042306,
+            "lon": 17.942996
+          },
+          "endAnchor": {
+            "lat": 66.953702,
+            "lon": 17.71952
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 67.042306,
+              "lon": 17.942996
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              17.9428731,
+              67.0423456
+            ],
+            "distanceMeters": 6.9,
+            "measureKm": 0
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 66.953702,
+              "lon": 17.71952
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              17.7197861,
+              66.9537152
+            ],
+            "distanceMeters": 11.7,
+            "measureKm": 15.8
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 1356,
+          "simplifiedPointCount": 231,
+          "lengthKm": 15.682,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "sectionId": "kungsleden-section-13-kvikkjokk-tsielekjakkstugan",
+      "sectionNumber": 13,
+      "name": "Kvikkjokk-Tsielekjåkkstugan",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-13-kvikkjokk-tsielekjakkstugan.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 12.137,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30424088",
+          "statligLedId": "BD 77",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30424088-epsg3006.geojson",
+          "sourceFeatureCount": 1,
+          "sourcePartCount": 1,
+          "startAnchor": {
+            "lat": 66.953702,
+            "lon": 17.71952
+          },
+          "endAnchor": {
+            "lat": 66.8449219,
+            "lon": 17.589259
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 66.953702,
+              "lon": 17.71952
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              17.7188369,
+              66.9260393
+            ],
+            "distanceMeters": 3076.1,
+            "measureKm": 0
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 66.8449219,
+              "lon": 17.589259
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              17.588363,
+              66.8449994
+            ],
+            "distanceMeters": 40.1,
+            "measureKm": 12.242
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 1403,
+          "simplifiedPointCount": 174,
+          "lengthKm": 12.137,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": [
+        "Endpoint anchor is far from selected official line on part 1: start 3076.1 m, end 40.1 m. Treat as endpoint-zone/access metadata, not final navigation-grade snapping."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-14-tsielekjakkstugan-pitealven",
+      "sectionNumber": 14,
+      "name": "Tsielekjåhkå-Piteälven",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-14-tsielekjakkstugan-pitealven.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 32.58,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30424088",
+          "statligLedId": "BD 77",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30424088-epsg3006.geojson",
+          "sourceFeatureCount": 1,
+          "sourcePartCount": 1,
+          "startAnchor": {
+            "lat": 66.92603931,
+            "lon": 17.71883692
+          },
+          "endAnchor": {
+            "lat": 66.71854496,
+            "lon": 17.34937659
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 66.92603931,
+              "lon": 17.71883692
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              17.7188369,
+              66.9260393
+            ],
+            "distanceMeters": 0,
+            "measureKm": 0
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 66.71854496,
+              "lon": 17.34937659
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              17.3493766,
+              66.718545
+            ],
+            "distanceMeters": 0,
+            "measureKm": 32.906
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 3993,
+          "simplifiedPointCount": 438,
+          "lengthKm": 32.58,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "sectionId": "kungsleden-section-15-pitealven-gasaklahko",
+      "sectionNumber": 15,
+      "name": "Piteälven-Gásakláhko",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-15-pitealven-gasaklahko.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 18.802,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30466987",
+          "statligLedId": "BD 78",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466987-epsg3006.geojson",
+          "sourceFeatureCount": 3,
+          "sourcePartCount": 3,
+          "startAnchor": {
+            "lat": 66.71854496,
+            "lon": 17.34937659
+          },
+          "endAnchor": {
+            "lat": 66.5839492,
+            "lon": 17.2754676
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 66.71854496,
+              "lon": 17.34937659
+            },
+            "sourceLineIndex": 2,
+            "snappedPoint": [
+              17.3493766,
+              66.718545
+            ],
+            "distanceMeters": 0,
+            "measureKm": 0
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 66.5839492,
+              "lon": 17.2754676
+            },
+            "sourceLineIndex": 2,
+            "snappedPoint": [
+              17.2754676,
+              66.5839492
+            ],
+            "distanceMeters": 0,
+            "measureKm": 19
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 2341,
+          "simplifiedPointCount": 250,
+          "lengthKm": 18.802,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "sectionId": "kungsleden-section-16-gasaklahko-vuonatjviken",
+      "sectionNumber": 16,
+      "name": "Gásakláhko-Vuonatjviken",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-16-gasaklahko-vuonatjviken.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 11.625,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30466987",
+          "statligLedId": "BD 78",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466987-epsg3006.geojson",
+          "sourceFeatureCount": 3,
+          "sourcePartCount": 3,
+          "startAnchor": {
+            "lat": 66.5839492,
+            "lon": 17.2754676
+          },
+          "endAnchor": {
+            "lat": 66.4904687,
+            "lon": 17.2417888
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 66.5839492,
+              "lon": 17.2754676
+            },
+            "sourceLineIndex": 2,
+            "snappedPoint": [
+              17.2754676,
+              66.5839492
+            ],
+            "distanceMeters": 0,
+            "measureKm": 19
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 66.4904687,
+              "lon": 17.2417888
+            },
+            "sourceLineIndex": 2,
+            "snappedPoint": [
+              17.2417888,
+              66.4904687
+            ],
+            "distanceMeters": 0,
+            "measureKm": 30.681
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 566,
+          "simplifiedPointCount": 134,
+          "lengthKm": 11.625,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "sectionId": "kungsleden-section-17-vuonatjviken-jackvik",
+      "sectionNumber": 17,
+      "name": "Vuonatjviken-Jäckvik",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-17-vuonatjviken-jackvik.geojson",
+      "geometryType": "MultiLineString",
+      "lineParts": 2,
+      "lengthKm": 17.539,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30466987",
+          "statligLedId": "BD 78",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466987-epsg3006.geojson",
+          "sourceFeatureCount": 3,
+          "sourcePartCount": 3,
+          "startAnchor": {
+            "lat": 66.4876469,
+            "lon": 17.1225075
+          },
+          "endAnchor": {
+            "lat": 66.4259128,
+            "lon": 16.9509581
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 66.4876469,
+              "lon": 17.1225075
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              17.1225074,
+              66.4876469
+            ],
+            "distanceMeters": 0,
+            "measureKm": 0
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 66.4259128,
+              "lon": 16.9509581
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              16.9509581,
+              66.4259128
+            ],
+            "distanceMeters": 0,
+            "measureKm": 11.381
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 886,
+          "simplifiedPointCount": 134,
+          "lengthKm": 11.295,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": "Land-only candidate from the Riebnes west landing to the Kapellstrommarna north-side rowboat landing; the required Riebnes motorboat connector remains transport metadata."
+        },
+        {
+          "partIndex": 2,
+          "ledId": "30466987",
+          "statligLedId": "BD 78",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466987-epsg3006.geojson",
+          "sourceFeatureCount": 3,
+          "sourcePartCount": 3,
+          "startAnchor": {
+            "lat": 66.4229995,
+            "lon": 16.9509461
+          },
+          "endAnchor": {
+            "lat": 66.3834846,
+            "lon": 16.9604305
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 66.4229995,
+              "lon": 16.9509461
+            },
+            "sourceLineIndex": 1,
+            "snappedPoint": [
+              16.9509461,
+              66.4229995
+            ],
+            "distanceMeters": 0,
+            "measureKm": 0
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 66.3834846,
+              "lon": 16.9604305
+            },
+            "sourceLineIndex": 1,
+            "snappedPoint": [
+              16.9604305,
+              66.3834846
+            ],
+            "distanceMeters": 0,
+            "measureKm": 6.347
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 1576,
+          "simplifiedPointCount": 92,
+          "lengthKm": 6.244,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": "Land-only candidate from the Kapellstrommarna south-side rowboat landing to the official WFS Jackvik foot-line endpoint; the rowboat crossing and Jackvik service-zone offset remain connector/access metadata."
+        }
+      ],
+      "warnings": [
+        "Section is assembled from multiple clipped official land/walking parts; preserve transport or endpoint gaps as metadata/connectors."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-18-jackvik-adolfstrom",
+      "sectionNumber": 18,
+      "name": "Jäckvik-Adolfström",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-18-jackvik-adolfstrom.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 20.651,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30467009",
+          "statligLedId": "BD 87",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30467009-epsg3006.geojson",
+          "sourceFeatureCount": 2,
+          "sourcePartCount": 2,
+          "startAnchor": {
+            "lat": 66.3834847,
+            "lon": 16.9604305
+          },
+          "endAnchor": {
+            "lat": 66.2777724,
+            "lon": 16.6600828
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 66.3834847,
+              "lon": 16.9604305
+            },
+            "sourceLineIndex": 1,
+            "snappedPoint": [
+              16.9577285,
+              66.3838776
+            ],
+            "distanceMeters": 128,
+            "measureKm": 20.865
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 66.2777724,
+              "lon": 16.6600828
+            },
+            "sourceLineIndex": 1,
+            "snappedPoint": [
+              16.6600828,
+              66.2777724
+            ],
+            "distanceMeters": 0,
+            "measureKm": 0
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 1774,
+          "simplifiedPointCount": 316,
+          "lengthKm": 20.651,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "sectionId": "kungsleden-section-19-adolfstrom-sjnulttjie",
+      "sectionNumber": 19,
+      "name": "Adolfström-Sjnulttjie raststuga",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-19-adolfstrom-sjnulttjie.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 22.304,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30467012",
+          "statligLedId": "BD 88",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30467012-epsg3006.geojson",
+          "sourceFeatureCount": 3,
+          "sourcePartCount": 3,
+          "startAnchor": {
+            "lat": 66.278394,
+            "lon": 16.649013
+          },
+          "endAnchor": {
+            "lat": 66.21104,
+            "lon": 16.38408
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 66.278394,
+              "lon": 16.649013
+            },
+            "sourceLineIndex": 1,
+            "snappedPoint": [
+              16.6490127,
+              66.2783945
+            ],
+            "distanceMeters": 0.1,
+            "measureKm": 22.614
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 66.21104,
+              "lon": 16.38408
+            },
+            "sourceLineIndex": 2,
+            "snappedPoint": [
+              16.3839067,
+              66.2109839
+            ],
+            "distanceMeters": 10,
+            "measureKm": 12.99
+          },
+          "direction": "anchor-routed",
+          "outputLineParts": 1,
+          "originalPointCount": 3444,
+          "simplifiedPointCount": 322,
+          "lengthKm": 22.304,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": "Uses the official BD88 mainline between the Adolfstrom harbor/line endpoint and Sjnulttjie mainline junction; the village/service endpoint and shelter spur stay endpoint/access metadata."
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "sectionId": "kungsleden-section-20-sjnulttjie-ravfallsstugan",
+      "sectionNumber": 20,
+      "name": "Sjnulttjie raststuga-Rävfallsstugan",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-20-sjnulttjie-ravfallsstugan.geojson",
+      "geometryType": "MultiLineString",
+      "lineParts": 2,
+      "lengthKm": 26.782,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30467012",
+          "statligLedId": "BD 88",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30467012-epsg3006.geojson",
+          "sourceFeatureCount": 3,
+          "sourcePartCount": 3,
+          "startAnchor": {
+            "lat": 66.21104,
+            "lon": 16.38408
+          },
+          "endAnchor": {
+            "lat": 66.1095956,
+            "lon": 16.327757
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 66.21104,
+              "lon": 16.38408
+            },
+            "sourceLineIndex": 2,
+            "snappedPoint": [
+              16.3839067,
+              66.2109839
+            ],
+            "distanceMeters": 10,
+            "measureKm": 12.99
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 66.1095956,
+              "lon": 16.327757
+            },
+            "sourceLineIndex": 2,
+            "snappedPoint": [
+              16.327757,
+              66.1095956
+            ],
+            "distanceMeters": 0,
+            "measureKm": 0
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 1442,
+          "simplifiedPointCount": 106,
+          "lengthKm": 12.888,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": "BD88 mainline from Sjnulttjie junction to the Norrbotten/Vasterbotten handoff zone."
+        },
+        {
+          "partIndex": 2,
+          "ledId": "30455122",
+          "statligLedId": "AC 20",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30455122-epsg3006.geojson",
+          "sourceFeatureCount": 6,
+          "sourcePartCount": 6,
+          "startAnchor": {
+            "lat": 66.11148,
+            "lon": 16.3323759
+          },
+          "endAnchor": {
+            "lat": 66.0954332,
+            "lon": 16.1206686
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 66.11148,
+              "lon": 16.3323759
+            },
+            "sourceLineIndex": 2,
+            "snappedPoint": [
+              16.3321066,
+              66.1110643
+            ],
+            "distanceMeters": 47.8,
+            "measureKm": 10.759
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 66.0954332,
+              "lon": 16.1206686
+            },
+            "sourceLineIndex": 1,
+            "snappedPoint": [
+              16.1206674,
+              66.0954349
+            ],
+            "distanceMeters": 0.2,
+            "measureKm": 23.316
+          },
+          "direction": "anchor-routed",
+          "outputLineParts": 1,
+          "originalPointCount": 387,
+          "simplifiedPointCount": 158,
+          "lengthKm": 13.894,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": "AC20 mainline from the county-boundary handoff zone to the Ravfallsstugan route-line endpoint; the ca 295 m handoff gap remains explicit."
+        }
+      ],
+      "warnings": [
+        "Section is assembled from multiple official state-trail Led_ID features; preserve inter-feature handoff gaps as metadata/connectors."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-21-ravfallsstugan-ammarnas",
+      "sectionNumber": 21,
+      "name": "Rävfallsstugan-Ammarnäs",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-21-ravfallsstugan-ammarnas.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 23.291,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30455122",
+          "statligLedId": "AC 20",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30455122-epsg3006.geojson",
+          "sourceFeatureCount": 6,
+          "sourcePartCount": 6,
+          "startAnchor": {
+            "lat": 66.09542121,
+            "lon": 16.12105534
+          },
+          "endAnchor": {
+            "lat": 65.95193837,
+            "lon": 16.20263462
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 66.09542121,
+              "lon": 16.12105534
+            },
+            "sourceLineIndex": 5,
+            "snappedPoint": [
+              16.1210553,
+              66.0954212
+            ],
+            "distanceMeters": 0,
+            "measureKm": 0
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 65.95193837,
+              "lon": 16.20263462
+            },
+            "sourceLineIndex": 1,
+            "snappedPoint": [
+              16.2026346,
+              65.9519384
+            ],
+            "distanceMeters": 0,
+            "measureKm": 0
+          },
+          "direction": "anchor-routed",
+          "outputLineParts": 1,
+          "originalPointCount": 430,
+          "simplifiedPointCount": 254,
+          "lengthKm": 23.291,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "sectionId": "kungsleden-section-22-ammarnas-aigert",
+      "sectionNumber": 22,
+      "name": "Ammarnäs-Aigert",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-22-ammarnas-aigert.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 6.349,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30454750",
+          "statligLedId": "AC 16",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30454750-epsg3006.geojson",
+          "sourceFeatureCount": 1,
+          "sourcePartCount": 1,
+          "startAnchor": {
+            "lat": 65.95193837,
+            "lon": 16.20263462
+          },
+          "endAnchor": {
+            "lat": 65.94130697,
+            "lon": 16.09446005
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 65.95193837,
+              "lon": 16.20263462
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              16.2026346,
+              65.9519384
+            ],
+            "distanceMeters": 0,
+            "measureKm": 39.335
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 65.94130697,
+              "lon": 16.09446005
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              16.09446,
+              65.941307
+            ],
+            "distanceMeters": 0,
+            "measureKm": 32.971
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 161,
+          "simplifiedPointCount": 91,
+          "lengthKm": 6.349,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "sectionId": "kungsleden-section-23-aigert-serve",
+      "sectionNumber": 23,
+      "name": "Aigert-Serve",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-23-aigert-serve.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 19.283,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30454750",
+          "statligLedId": "AC 16",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30454750-epsg3006.geojson",
+          "sourceFeatureCount": 1,
+          "sourcePartCount": 1,
+          "startAnchor": {
+            "lat": 65.94130697,
+            "lon": 16.09446005
+          },
+          "endAnchor": {
+            "lat": 65.97304623,
+            "lon": 15.76438172
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 65.94130697,
+              "lon": 16.09446005
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              16.09446,
+              65.941307
+            ],
+            "distanceMeters": 0,
+            "measureKm": 32.971
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 65.97304623,
+              "lon": 15.76438172
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              15.7643817,
+              65.9730462
+            ],
+            "distanceMeters": 0,
+            "measureKm": 13.652
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 347,
+          "simplifiedPointCount": 159,
+          "lengthKm": 19.283,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "sectionId": "kungsleden-section-24-serve-tarnasjo",
+      "sectionNumber": 24,
+      "name": "Serve-Tarnasjo",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-24-serve-tarnasjo.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 13.629,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30454750",
+          "statligLedId": "AC 16",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30454750-epsg3006.geojson",
+          "sourceFeatureCount": 1,
+          "sourcePartCount": 1,
+          "startAnchor": {
+            "lat": 65.97304622,
+            "lon": 15.76438172
+          },
+          "endAnchor": {
+            "lat": 65.98871504,
+            "lon": 15.49693198
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 65.97304622,
+              "lon": 15.76438172
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              15.7643817,
+              65.9730462
+            ],
+            "distanceMeters": 0,
+            "measureKm": 13.652
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 65.98871504,
+              "lon": 15.49693198
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              15.496932,
+              65.988715
+            ],
+            "distanceMeters": 0,
+            "measureKm": 0
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 281,
+          "simplifiedPointCount": 139,
+          "lengthKm": 13.629,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "sectionNumber": 25,
+      "name": "Tarnasjo-Syter",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-25-tarnasjo-syter.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 14.421,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30448885",
+          "statligLedId": "AC 2",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30448885-epsg3006.geojson",
+          "sourceFeatureCount": 1,
+          "sourcePartCount": 1,
+          "startAnchor": {
+            "lat": 65.98871504,
+            "lon": 15.49693198
+          },
+          "endAnchor": {
+            "lat": 65.89270384,
+            "lon": 15.39652283
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 65.98871504,
+              "lon": 15.49693198
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              15.496932,
+              65.988715
+            ],
+            "distanceMeters": 0,
+            "measureKm": 14.457
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 65.89270384,
+              "lon": 15.39652283
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              15.3965228,
+              65.8927038
+            ],
+            "distanceMeters": 0,
+            "measureKm": 0
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 432,
+          "simplifiedPointCount": 182,
+          "lengthKm": 14.421,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "sectionNumber": 26,
+      "name": "Syter-Viterskalet",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-26-syter-viterskalet.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 12.573,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30454909",
+          "statligLedId": "AC 3",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30454909-epsg3006.geojson",
+          "sourceFeatureCount": 1,
+          "sourcePartCount": 1,
+          "startAnchor": {
+            "lat": 65.892703838,
+            "lon": 15.396522835
+          },
+          "endAnchor": {
+            "lat": 65.884911664,
+            "lon": 15.157951153
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 65.892703838,
+              "lon": 15.396522835
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              15.3965228,
+              65.8927038
+            ],
+            "distanceMeters": 0,
+            "measureKm": 0
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 65.884911664,
+              "lon": 15.157951153
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              15.1579512,
+              65.8849117
+            ],
+            "distanceMeters": 0,
+            "measureKm": 12.595
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 210,
+          "simplifiedPointCount": 114,
+          "lengthKm": 12.573,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "sectionId": "kungsleden-section-27-viterskalet-hemavan",
+      "sectionNumber": 27,
+      "name": "Viterskalet-Hemavan",
+      "outputGeojson": "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-27-viterskalet-hemavan.geojson",
+      "geometryType": "LineString",
+      "lineParts": 1,
+      "lengthKm": 10.507,
+      "sourceParts": [
+        {
+          "partIndex": 1,
+          "ledId": "30454909",
+          "statligLedId": "AC 3",
+          "sourceDownload": "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30454909-epsg3006.geojson",
+          "sourceFeatureCount": 1,
+          "sourcePartCount": 1,
+          "startAnchor": {
+            "lat": 65.884911665,
+            "lon": 15.157951153
+          },
+          "endAnchor": {
+            "lat": 65.814929,
+            "lon": 15.104844
+          },
+          "startSnap": {
+            "anchor": {
+              "lat": 65.884911665,
+              "lon": 15.157951153
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              15.1579512,
+              65.8849117
+            ],
+            "distanceMeters": 0,
+            "measureKm": 12.595
+          },
+          "endSnap": {
+            "anchor": {
+              "lat": 65.814929,
+              "lon": 15.104844
+            },
+            "sourceLineIndex": 0,
+            "snappedPoint": [
+              15.104844,
+              65.814929
+            ],
+            "distanceMeters": 0,
+            "measureKm": 23.129
+          },
+          "direction": "same-source-line",
+          "outputLineParts": 1,
+          "originalPointCount": 243,
+          "simplifiedPointCount": 138,
+          "lengthKm": 10.507,
+          "preservedBreaks": 0,
+          "assemblyGaps": [],
+          "notes": null
+        }
+      ],
+      "warnings": []
+    }
+  ]
+}

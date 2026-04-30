@@ -41,10 +41,10 @@
     ]
   },
   "geometryPlan": {
-    "status": "complete at research level; runtime/source-policy decisions still required",
+    "status": "candidate section geometry generated at research level; runtime/source-policy decisions still required",
     "authoritativeResearchPacket": "geometry-qa-2026-04-30.research.json",
     "sourcePolicyFromGeometryQa": "Use official Naturvardsverket/Lansstyrelsen state-trail linework (Leder.geojson/WFS/REST) as primary master geometry wherever a matching summer hiking feature exists. Use Naturkartan GPX/API as official-presented corroboration or fallback. Use OSM/Waymarked only for QA, gap detection, side-route clues, or fallback where official geometry is absent and source policy allows it.",
-    "gradePolicyFromGeometryQa": "Research files should now treat the selected master geometry as high-quality planning-grade. Do not call it final navigation-grade until the runtime importer applies source/licensing approval, coordinate transformation, clipping/splitting, simplification, endpoint snapping, connector modeling and QA overlays.",
+    "gradePolicyFromGeometryQa": "Research files should now treat the selected master geometry and generated candidate GeoJSON as high-quality planning-grade. Do not call it final navigation-grade until the runtime importer applies source/licensing approval, endpoint snapping, connector modeling and QA overlays.",
     "endpointPolicyFromGeometryQa": "Use route-line coordinates for route geometry and model huts, Naturum, trail portals, bus stops, village services and parking as endpoint/access/facility metadata. Do not bend the main route line to a hut centroid, bus stop or village service unless the official route line does so. If a hut is 20-300 m from the through-line, model a hut-spur/access connector or endpoint zone in normalization.",
     "splitPolicyFromGeometryQa": "Split official features at researched section boundaries rather than importing long grouped lines: BD31 into sections 3-4, BD77 into sections 13-14, BD78 into sections 15-17, BD88/AC20 into sections 19-21, AC16 into sections 22-24 and AC3 into sections 26-27.",
     "directionPolicyFromGeometryQa": "Normalize every section to official section order. Reverse source geometries when stored opposite official order, especially Naturkartan/GPX lines and AC16/AC2/AC3 sublines where noted in section files.",
@@ -52,8 +52,8 @@
     "sideRoutePolicyFromGeometryQa": "Suppress side-route linework from the main Kungsleden section geometry unless the app has an explicit alternate/connector model. This applies to Singi-Kebnekaise/Nikkaluokta, Norra Sytertoppen AC8, Hemavan AC9/AC10/Drottningleden/Lapplandsleden/Fjallfinakatan and local lift/gondola access routes.",
     "knownGeometryCaveats": [
       "Source/licensing approval for using Naturvardsverket, Naturkartan, OSM/Waymarked, GTFS/transit and field-report-derived metadata in runtime outputs.",
-      "Implementation of coordinate transformation from EPSG:3006 to WGS84 for Naturvardsverket geometry and consistent route simplification policy.",
-      "Exact clipping/splitting points for grouped official features and route-line versus hut/POI endpoint snapping.",
+      "Runtime importer/source-policy decision on whether to consume the generated research-only candidate GeoJSON or rebuild from official WFS at import time.",
+      "Route-line versus hut/POI/service-zone endpoint snapping remains a runtime presentation and connector decision.",
       "Typed connector implementation for boats, rowboats, ferry/water lines and road/bus transfers, with current operator/timetable refresh.",
       "GIS overlay pass for national parks, reserves, Natura 2000, bird-protection zones and other protected-area rules against final selected geometry."
     ]
@@ -88,7 +88,7 @@
       "phase": "preflight",
       "actions": [
         "Confirm source/licensing approval for Naturvardsverket/Lansstyrelsen, Naturkartan, OSM/Waymarked, transit feeds and field-report metadata.",
-        "Implement EPSG:3006 to WGS84 transformation, official feature assembly, section clipping/splitting, direction normalization, endpoint-zone handling, typed boat/rowboat/road connectors and route simplification."
+        "Use the generated research-only candidate GeoJSON and route-geometry-build.research.json for geometry QA; runtime import still needs source approval, endpoint-zone handling and typed boat/rowboat/road connectors."
       ]
     },
     {
@@ -140,8 +140,8 @@
     }
   ],
   "blockers": [
-    "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds and field-report metadata.",
-    "Importer must transform EPSG:3006 official geometry to WGS84, assemble multi-part official lines, split/clip grouped features, reverse directions where needed, simplify geometry and apply endpoint-zone snapping policy.",
+    "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds, field-report metadata and generated research-only candidate GeoJSON.",
+    "Research-only candidate geometry now exists, but runtime import must still approve whether to consume the generated GeoJSON or rebuild from official WFS with the same EPSG:3006 transformation, assembly, clipping/splitting, direction, simplification and endpoint-zone policies.",
     "Typed connector model must be implemented for boats, rowboats, ferry/water lines and road/bus transfers before runtime geometry is generated.",
     "Facility taxonomy and deduplication must be applied to shared huts, shelters, bridges, toilets, help phones, shops, saunas, water, waste, viewpoints, Naturum, parking, lodging and village services.",
     "Live currentness refresh is still required for trail/bridge notices, closures, fire bans, weather, hut seasons, boat operators, bus timetables, protected-area rules, reindeer/hunting/fishing and parking rules.",
@@ -158,7 +158,8 @@
     "Parse trail.research.json, research-progress.json, geometry-qa-2026-04-30.research.json, caveat-resolution-2026-04-29.research.json and all sections/*.research.json as JSON.",
     "Confirm section count remains 27 and every section listed in officialSectionOrder has a matching sections/*.research.json file.",
     "Confirm no files outside data/research/candidate-trails/kungsleden/ are changed by the normalization-handoff task.",
-    "Before runtime work, run geometry transformation QA from EPSG:3006 to WGS84 and route simplification QA against final selected lines.",
+    "Rebuild Kungsleden candidate geometry with npm run data:candidate-geometry:kungsleden and review normalized-candidate/route-geometry-build.research.json before runtime work.",
+    "Confirm all 27 generated section GeoJSON files exist under geometry/candidate/sections/ and that boat/rowboat/road/service-zone gaps remain connector metadata rather than invented hiking linework.",
     "Before publication/runtime import, recheck trail/bridge notices, closures, fire bans, weather, hut seasons, boat operators, bus timetables, protected-area rules, reindeer/hunting/fishing and parking rules."
   ],
   "statusDetails": {
