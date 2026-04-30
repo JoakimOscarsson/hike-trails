@@ -47,7 +47,7 @@ Candidate artifact commands:
 | `ostkustleden` | Ostkustleden | 8 sections | Imported to runtime data | Runtime source/public shards and 8 section route files exist; opening/service caveats are retained in notes and descriptions. |
 | `padjelantaleden` | Padjelantaleden | 10 sections | Candidate artifacts generated | Needs remote access, hut cluster, and seasonal bridge/boat policies during import. |
 | `sjuharadsleden` | Sjuhäradsleden | 10 sections | Imported to runtime data | Runtime source/public shards and 10 section route files exist; estimated-time details are normalized into section notes. |
-| `tjustleden` | Tjustleden | 9 sections | Candidate artifacts generated | Requires importer support for official/computed distance, tails/connectors, direction reversal, and pending/suppress states. |
+| `tjustleden` | Tjustleden | 9 sections | Imported to runtime data | Runtime source/public shards and 9 mainline section route files exist; official loop/connector extras remain caveated outside the selected runtime route. |
 | `vastra-vatterleden` | Västra Vätterleden | 8 sections | Imported to runtime data | Runtime source/public shards and 8 primary section route files exist; alternate/access variants remain caveated outside the selected runtime geometry. |
 | `vikingaleden` | Vikingaleden | 12 sections | Candidate artifacts generated | Needs Upplandsleden overlap dedupe for sections 7-12. |
 | `stockholm-archipelago-trail` | Stockholm Archipelago Trail | 1 summary | Research-only / existing app work | Whole-trail research file; separate from the current 12-trail prep batch. |
