@@ -1,0 +1,257 @@
+{
+  "schemaVersion": "trail-normalization-decisions-v1",
+  "trailId": "tjustleden",
+  "lastUpdated": "2026-04-30T00:00:00+00:00",
+  "scope": "Research-only blocker triage for later normalization/import. These decisions do not integrate Tjustleden into runtime app data.",
+  "sourceChecks": [
+    {
+      "url": "https://tjust.naturskyddsforeningen.se/akutinformation/",
+      "accessed": "2026-04-30",
+      "finding": "Current acute information still lists Etapp 6 notices dated 2026-03-13, 2026-04-03, and 2026-04-17; no Etapp 9 acute notice was visible in the checked page text."
+    },
+    {
+      "url": "https://www.lansstyrelsen.se/kalmar/samhalle/sakerhet-och-beredskap/om-eldningsforbud.html",
+      "accessed": "2026-04-30",
+      "finding": "Lansstyrelsen describes live map-based fire-ban status and two levels of fire ban. Fire-ban status remains dynamic and must be checked on publication/import day."
+    },
+    {
+      "url": "https://www.vastervik.se/Uppleva-och-gora/Idrott-motion-och-friluftsliv/Friluftsliv-och-motion/Vandringsleder-och-motion/tjustleden/tjustleden-etapp-9-lermon--kolsebro--falerum/",
+      "accessed": "2026-04-30",
+      "finding": "Municipal Etapp 9 page remains an official endpoint/distance source for Lermon-Kolsebro-Falerum."
+    },
+    {
+      "url": "https://www.naturkartan.se/sv/kalmar-lan/tjustleden-etapp-9-lermon-kolsebro-falerum",
+      "accessed": "2026-04-30",
+      "finding": "Naturkartan remains the official GPX source for raw Etapp 9 geometry."
+    }
+  ],
+  "globalPolicies": {
+    "distanceDisplay": {
+      "decision": "Use the current official section distance as the primary public/display distance. Store computed GPX length separately as geometryDerivedDistanceKm and use it for QA, not as an automatic replacement for official section distance.",
+      "rationale": "Multiple official Tjustleden pages publish rounded section distances, while official GPX linework often measures shorter or longer because of endpoint/tail/generalization differences. Replacing official distances with computed lengths would silently conflict with the trail owner's stage identity.",
+      "affectedSections": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn",
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall",
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen",
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon",
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "importInstruction": "Importers should keep both values where supported: officialDistanceKm for user-facing stage facts and computedGeometryDistanceKm for route QA/metadata. Add a source-contradiction note when the difference is material."
+    },
+    "geometryDirection": {
+      "decision": "Keep source GPX direction metadata, but normalize displayed/imported section geometry to official written order.",
+      "affectedSections": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall",
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "importInstruction": "Reverse Sections 4 and 6 during later route normalization; do not edit the raw research facts to pretend the source file was stored in official order."
+    },
+    "endpointSnapping": {
+      "decision": "Do not silently snap GPX endpoints to shelters, transit stops, parking, or nearby OSM topology. Preserve official GPX endpoints and model nearby shelters, stations, stops, parking, tails, or access paths as endpoint cluster metadata or explicit connector/tail records.",
+      "rationale": "Several endpoint discrepancies are legitimate source semantics rather than errors, including Lermon terminal-tail topology and the Falerum/Östgötaleden handoff.",
+      "importInstruction": "A later importer may create visual endpoint clusters or access connectors, but should retain the measured source gaps and provenance."
+    },
+    "facilityImport": {
+      "decision": "Only high-confidence on-route facilities with exact coordinates should be normalized as import candidates. Facilities with approximate coordinates, commercial currentness risk, or off-route connector semantics should stay pending or access metadata.",
+      "importInstruction": "Pending facility records do not block route normalization. They block only facility import for the affected POI."
+    },
+    "transitAccess": {
+      "decision": "Rural stops with sparse or school-calendar service should be retained as caveated access candidates, not promoted to primary public-transit guidance until trip-date verification is performed.",
+      "importInstruction": "For app copy, prefer strong nodes such as Falerum station or established connector hubs; label weak access as extra-walk/schedule-dependent."
+    },
+    "dynamicCurrentness": {
+      "decision": "Acute trail notices, fire bans, SMHI fire risk, forestry passability, service opening hours, and timetables remain import-day checks rather than static research blockers.",
+      "importInstruction": "Do not encode 'no current issue' as durable trail data. Store the source URL and require recheck at publication/import time."
+    }
+  },
+  "blockers": [
+    {
+      "id": "B1",
+      "title": "Etapp 9 Falerum endpoint geometry",
+      "status": "resolved-for-normalization",
+      "affectedSections": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "decision": "Use the raw official Etapp 9 GPX as canonical Tjustleden stage linework from Lermon to the Östgötaleden/länsgränsen handoff. Model the Falerum continuation as a documented endpoint access tail/connector sourced from official Rundslinga Falerum and Östgötaleden material, not as an unlabelled mutation of the Etapp 9 GPX.",
+      "facts": {
+        "officialDistanceKm": 13,
+        "rawEtapp9GpxDistanceKm": 10.446591,
+        "falerumTailDistanceKmFromOfficialLoop": 2.614598,
+        "rawEtapp9PlusTailKm": 13.061188,
+        "rawEndInterpretation": "Östgötaleden/länsgränsen handoff east of Falerum station/startplats"
+      },
+      "remainingPreImportChecks": [
+        "If the app requires a single polyline ending at Falerum, generate a composite route with two provenance segments: raw Etapp 9 GPX plus official Falerum tail.",
+        "Verify final snapping around Falerum station/startplats and Åkervristen against the chosen connector/tail representation."
+      ]
+    },
+    {
+      "id": "B2",
+      "title": "Etapp 8/9 Lermon terminal-tail topology",
+      "status": "resolved-for-normalization",
+      "affectedSections": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon",
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "decision": "Keep Etapp 8 official GPX including its final 111.4 m Lermon shelter/end tail. Keep Etapp 9 start at the shared earlier Etapp 8 vertex. Treat the 111.4 m segment as an Etapp 8 terminal/facility tail, not as a gap and not as duplicate Etapp 9 mainline geometry.",
+      "facts": {
+        "section9StartMatchesSection8VertexMeters": 0.0035,
+        "section8FinalEndpointToSection9StartMeters": 101.685,
+        "section8TerminalTailMeters": 111.405
+      },
+      "remainingPreImportChecks": [
+        "Coordinate-verify Lermon toilet, fireplace, swimming/shore access, and parking before importing those as separate facilities.",
+        "If the app needs a continuous through-route graph, connect Sections 8 and 9 at the shared vertex and attach the shelter tail as endpoint spur metadata."
+      ]
+    },
+    {
+      "id": "B3",
+      "title": "Official distance versus computed GPX distance",
+      "status": "resolved-for-normalization",
+      "affectedSections": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom",
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn",
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall",
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen",
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon",
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "decision": "Use officialDistanceKm for stage identity and primary display; retain computed GPX distances for QA and metadata. Where the difference is material, show a contradiction/caveat rather than overriding either source.",
+      "remainingPreImportChecks": [
+        "Confirm app schema can store both official and computed distances.",
+        "Avoid using computed GPX length alone for public copy unless a later product decision explicitly chooses that behavior."
+      ]
+    },
+    {
+      "id": "B4",
+      "title": "Reversed official GPX files",
+      "status": "resolved-for-normalization",
+      "affectedSections": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall",
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "decision": "Reverse source geometry during route normalization so display/import order follows the official written section order.",
+      "remainingPreImportChecks": [
+        "Preserve sourceDirection and directionRelativeToOfficialOrder metadata so the reversal is auditable."
+      ]
+    },
+    {
+      "id": "B5",
+      "title": "Endpoint gaps and overlapping tails",
+      "status": "resolved-as-cluster-policy",
+      "affectedSections": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom",
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn",
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall",
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg",
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi",
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon",
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "decision": "Preserve official GPX endpoints and record small endpoint gaps/overlaps as endpoint-cluster metadata. Do not trim, extend, or snap geometry silently.",
+      "examples": [
+        "Etapp 2 extra 0.29 km beyond Svarteström shelter should be retained as official-GPX tail/overlap metadata unless route-normalization explicitly trims with provenance.",
+        "Section 3/4 Valstad and Section 4/5 Törnsfall handoff gaps should be represented as endpoint clusters.",
+        "Section 6 Kyrksjön shelter gap should stay as endpoint facility cluster metadata."
+      ],
+      "remainingPreImportChecks": [
+        "If the runtime graph requires exact continuity, create explicit connector/tail records with source and distance rather than mutating the section GPX silently."
+      ]
+    },
+    {
+      "id": "B6",
+      "title": "OSM relation quality and contamination",
+      "status": "resolved-for-normalization",
+      "affectedSections": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon",
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "decision": "Use official Naturkartan/Västervik Outdoor GPX as primary geometry. Treat polluted or mislabeled OSM relations as QA-only evidence, never direct import geometry.",
+      "remainingPreImportChecks": [
+        "Use OSM only for optional densification or POI context after relation components are manually filtered."
+      ]
+    },
+    {
+      "id": "B7",
+      "title": "Weak transit and parking endpoints",
+      "status": "converted-to-pre-import-check",
+      "affectedSections": [
+        "all"
+      ],
+      "decision": "Do not block route normalization on weak transit/parking evidence. Keep each stop/parking record with confidence, caveats, and access distance. Promote only high-confidence rail/regular-service nodes to primary access copy.",
+      "remainingPreImportChecks": [
+        "Run KLT, Östgötatrafiken, Krösatågen, and heritage-rail trip-date checks before publication.",
+        "Verify legal/public parking before importing parking POIs."
+      ]
+    },
+    {
+      "id": "B8",
+      "title": "Facility coordinate verification",
+      "status": "converted-to-facility-import-check",
+      "affectedSections": [
+        "all"
+      ],
+      "decision": "Normalize high-confidence facility candidates only. Records marked pending, suppress, or access/connection metadata should not block route import.",
+      "remainingPreImportChecks": [
+        "Coordinate-verify pending shelters, toilets, water taps, parking, commercial services, viewpoints, heritage points, and swimming places before facility import.",
+        "Suppress natural water, waste bins, and commercial services where current or official evidence is insufficient."
+      ]
+    },
+    {
+      "id": "B9",
+      "title": "Water and waste contradictions",
+      "status": "resolved-for-normalization",
+      "affectedSections": [
+        "all"
+      ],
+      "decision": "Default Tjustleden main-stage potable water and trail waste facilities to suppressed unless a section file has exact, current, official point-source evidence. Natural water used in field reports is not potable evidence.",
+      "remainingPreImportChecks": [
+        "Verify exact tap coordinates and seasonality before importing water.",
+        "Do not import old trash-bin claims without current trail-owner confirmation."
+      ]
+    },
+    {
+      "id": "B10",
+      "title": "Protected-area and water-protection overlays",
+      "status": "converted-to-import-grade-gis-check",
+      "affectedSections": [
+        "all"
+      ],
+      "decision": "Keep section-level protected-area findings as research evidence, but require import-grade overlay with final normalized geometry before applying segment-specific reserve or water-protection warnings.",
+      "remainingPreImportChecks": [
+        "Run final overlays after deciding endpoint tails/connectors and geometry reversal.",
+        "Apply reserve rules only to affected route segments."
+      ]
+    },
+    {
+      "id": "B11",
+      "title": "Acute trail notices, fire bans, and seasonal currentness",
+      "status": "converted-to-live-publication-check",
+      "affectedSections": [
+        "all"
+      ],
+      "decision": "Treat currentness as live data. The 2026-04-30 recheck confirmed visible acute notices are still Etapp 6-specific, but this must be checked again before import/publication.",
+      "remainingPreImportChecks": [
+        "Recheck the trail-owner acute page, Länsstyrelsen fire-ban map/service, SMHI fire-risk warnings, and any relevant municipal emergency pages immediately before publication."
+      ]
+    }
+  ],
+  "sectionsReadyForNormalizationAfterThisTriage": [
+    "tjustleden-etapp-1-mortfors-getterum-getgolen",
+    "tjustleden-etapp-2-getgolen-hjorted-svartestrom",
+    "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn",
+    "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall",
+    "tjustleden-etapp-5-tornsfall-almvik-hallingeberg",
+    "tjustleden-etapp-6-hallingeberg-karrum-odensvi",
+    "tjustleden-etapp-7-odensvi-dalhem-bjorndalen",
+    "tjustleden-etapp-8-bjorndalen-mockelhult-lermon",
+    "tjustleden-etapp-9-lermon-kolsebro-falerum"
+  ],
+  "remainingNotImportReadyReasons": [
+    "Runtime schema/importer must support officialDistanceKm plus computedGeometryDistanceKm before distance contradictions can be represented cleanly.",
+    "Final normalized geometry decisions must be applied before segment-level reserve/water-protection overlays.",
+    "Facility POIs marked pending still need coordinate/currentness verification before facility import.",
+    "Transit schedules, parking legality, acute trail notices, fire bans, forestry passability, and commercial-service currentness remain date-dependent checks."
+  ],
+  "recommendedNextSafeStep": "Proceed to a normalization-design pass that reads only the candidate files and proposes a runtime schema/import mapping for official distances, computed geometry distances, endpoint tails, connectors, access metadata, and pending/suppressed facility states. Do not import into data/source or public outputs yet."
+}
