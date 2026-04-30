@@ -1,0 +1,1788 @@
+{
+  "trailId": "bohusleden",
+  "lastUpdated": "2026-04-30T06:19:25Z",
+  "currentPhase": "Phase 2 + geometry hardening complete: all 27 official Bohusleden stages have section research packets; research-only candidate mapdata has been generated and audited. Stage 21 remains blocked for complete route import because authoritative full-stage geometry is unavailable.",
+  "completedSections": [
+    "bohusleden-stage-1-alvsaker-stensjon",
+    "bohusleden-stage-2-stensjon-skatas",
+    "bohusleden-stage-3-skatas-kasjon",
+    "bohusleden-stage-4-kasjon-jonsered",
+    "bohusleden-stage-5-jonsered-angereds-kyrka",
+    "bohusleden-stage-6-angereds-kyrka-fontin",
+    "bohusleden-stage-7-fontin-grandalen",
+    "bohusleden-stage-8-grandalen-bottenstugan",
+    "bohusleden-stage-9-bottenstugan-lysevatten",
+    "bohusleden-stage-10-lysevatten-hasterod",
+    "bohusleden-stage-11-hasterod-vassbovik",
+    "bohusleden-stage-12-vassbovik-glimmingen",
+    "bohusleden-stage-13-glimmingen-bjursjon",
+    "bohusleden-stage-14-bjursjon-metsjo",
+    "bohusleden-stage-15-metsjo-kaserna",
+    "bohusleden-stage-16-kaserna-borgmastarbruket",
+    "bohusleden-stage-17-borgmastarbruket-kyrkoryr",
+    "bohusleden-stage-18-kyrkoryr-kynnefjalls-natur",
+    "bohusleden-stage-19-kynnefjalls-natur-vaktarekullen",
+    "bohusleden-stage-20-vaktarekullen-flotemarkson",
+    "bohusleden-stage-21-flotemarkson-porsas",
+    "bohusleden-stage-22-porsas-nornas",
+    "bohusleden-stage-23-nornas-vassbotten",
+    "bohusleden-stage-24-vassbotten-havedalen",
+    "bohusleden-stage-25-havedalen-krokstrand",
+    "bohusleden-stage-26-krokstrand-hogstad",
+    "bohusleden-stage-27-hogstad-stromstad"
+  ],
+  "inProgressSections": [],
+  "blockedSections": [
+    "bohusleden-stage-21-flotemarkson-porsas"
+  ],
+  "sectionStatusById": {
+    "bohusleden-stage-1-alvsaker-stensjon": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 7 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; official West Sweden Trails / Hoodin GPX or official map API GeoJSON; navigation-grade after consecutive duplicate coordinate de-duplication",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 2 start-side and 3 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 33 candidate facility records and 4 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        "Run official GPX against Skyddad Natur/Naturvårdsverket protected-area polygons for Hårssjön-Rambo, Gunnebo kulturreservat, and Rådasjön before normalization.",
+        "Confirm exact authorized firepit coordinates in Hårssjön-Rambo, Gunnebo, and Rådasjön.",
+        "Confirm Herkulesgården water/toilet opening hours before marking water as reliable rather than time-dependent.",
+        "Resolve Stora Hassungaredssjön toilet/swimming/shelter claim with map/field/official facility source before importing those types.",
+        "Before import/publication, re-query fire-ban map, SMHI/RSG fire risk, Västtrafik planner, and commercial opening hours.",
+        "If normalizing from official WST API/GPX, de-duplicate consecutive coordinates and preserve selected geometry provenance in the import notes."
+      ]
+    },
+    "bohusleden-stage-2-stensjon-skatas": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 9 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; official West Sweden Trails / Hoodin GPX; navigation-grade after consecutive duplicate coordinate de-duplication",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 2 start-side and 3 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 25 candidate facility records and 4 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        {
+          "question": "Does the official Stage 2 GPX cross Gunnebo cultural reserve or Rådasjön nature reserve polygons, or only pass adjacent/access areas?",
+          "priority": "medium",
+          "recommendedFollowup": "Run official GPX against protected-area polygons before assigning reserve-specific rules to subsegments."
+        },
+        {
+          "question": "Why does WST access text name Kristinedal when current transit research supports Gunnebo Park for the Stensjön start?",
+          "priority": "medium",
+          "recommendedFollowup": "Recheck Västtrafik stop inventory and WST map-planner transport layer before import; keep Gunnebo Park primary unless Kristinedal is verified near the trailhead."
+        },
+        {
+          "question": "Which Delsjöbadet cluster records should be separate markers versus clustered/merged facilities?",
+          "priority": "medium",
+          "recommendedFollowup": "Normalize same-cluster facilities carefully to avoid duplicate user-facing markers."
+        },
+        {
+          "question": "Are Norra Långevattnet shelter/rest-area coordinates in a zone where overnight shelter use is compatible with protected-area rules?",
+          "priority": "medium",
+          "recommendedFollowup": "Check reserve boundary and local signage before importing as overnight shelter."
+        },
+        {
+          "question": "Are Stensjö center, Stensjöns Livs, Kaffestugan Lyckan, Torpet Mon, Lisebergsbyn and Skatås services open and current at publication time?",
+          "priority": "low",
+          "recommendedFollowup": "Live-check commercial/seasonal opening hours before user-facing import."
+        },
+        {
+          "question": "Are there any temporary Delsjön pier/bathing-area closures affecting facilities?",
+          "priority": "low",
+          "recommendedFollowup": "Recheck Göteborg/Mölndal notices and current field reports; the 2026-04-21 Reddit report is not enough to mark a closure."
+        }
+      ]
+    },
+    "bohusleden-stage-3-skatas-kasjon": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 10 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; official West Sweden Trails / Hoodin GPX; navigation-grade after consecutive duplicate coordinate de-duplication",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 2 start-side and 3 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 15 candidate facility records and 3 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        {
+          "question": "Where exactly does the official GPX enter/exit Delsjöområdet and Knipeflågsbergen reserve polygons?",
+          "priority": "medium",
+          "recommendedFollowup": "Run official GPX against protected-area polygons before assigning rule warnings to subsegments."
+        },
+        {
+          "question": "Does the full Knipeflågsbergen reserve decision or on-site signage restrict tenting, or only caravans as summarized?",
+          "priority": "medium",
+          "recommendedFollowup": "Check full reserve decision PDF/signage before encoding tenting restrictions."
+        },
+        {
+          "question": "Which Härlanda tjärn and Getryggen duplicate/variant facility points should be clustered or imported separately?",
+          "priority": "medium",
+          "recommendedFollowup": "Normalize same-cluster facilities carefully to avoid duplicate markers."
+        },
+        {
+          "question": "Should Kåsjöbadet be modeled as Stage 3 endpoint facility, nearby service, or access detour?",
+          "priority": "medium",
+          "recommendedFollowup": "Decide during normalization because it is a well-supported endpoint-area facility but about 614 m from the official endpoint."
+        },
+        {
+          "question": "Are Skatås, Härlanda tjärn and Kåsjön toilets/kiosk/water available on the publication date?",
+          "priority": "low",
+          "recommendedFollowup": "Live-check seasonal/opening-hours services before user-facing import."
+        },
+        {
+          "question": "Are there any current temporary works or route-marking changes near Skatås/Getryggen/Kåsjön?",
+          "priority": "low",
+          "recommendedFollowup": "Recheck WST/Naturkartan/current reports; historical 2020 Kåsjön closure and older wayfinding comments are stale but worth remembering."
+        }
+      ]
+    },
+    "bohusleden-stage-4-kasjon-jonsered": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 11 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; Official West Sweden Trails/Hoodin GPX; navigation-grade after consecutive duplicate coordinate de-duplication",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 3 start-side and 3 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 19 candidate facility records and 2 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        {
+          "question": "Exactly where does the official GPX enter/exit Kåsjön water-protection zones, Maderna-Haketjärn Natura 2000 and Jonsereds strömmar reserve/Natura 2000?",
+          "priority": "medium",
+          "recommendedFollowup": "Run final official GPX against authoritative protected-area and water-protection polygons before assigning subsegment rule warnings."
+        },
+        {
+          "question": "Which legal/current wording controls camping or overnight parking at Kåsjöbadet parking areas after the reported 2024-10-25 repeal note?",
+          "priority": "medium",
+          "recommendedFollowup": "Check current Partille local-order text and on-site signs before encoding a Kåsjöbadet camping/parking restriction."
+        },
+        {
+          "question": "Should Maderna/Madern duplicate shelter records and Råhult facilities be imported as single clusters or separate shelter/fireplace/rest points?",
+          "priority": "medium",
+          "recommendedFollowup": "Normalize cluster records carefully to avoid duplicate markers."
+        },
+        {
+          "question": "Should Stora stenen be imported as an attraction/viewpoint, a shelter candidate, or kept pending?",
+          "priority": "low",
+          "recommendedFollowup": "Verify with official/local source or field evidence before runtime import."
+        },
+        {
+          "question": "Are Jonsered cafés/restaurants/grocery, Kåsjöbadet kiosk/toilets and Jonsereds Trädgårdar open on the publication date?",
+          "priority": "low",
+          "recommendedFollowup": "Live-check opening hours/seasonal status before user-facing import."
+        },
+        {
+          "question": "Are there any current temporary works, forestry/hunting notices or route-marking changes around the Jonsered descent or E20 crossing?",
+          "priority": "low",
+          "recommendedFollowup": "Recheck WST/Naturkartan/Partille and recent field reports; no current Stage 4 closure was found on 2026-04-29."
+        }
+      ]
+    },
+    "bohusleden-stage-5-jonsered-angereds-kyrka": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 12 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; Official West Sweden Trails/Hoodin GPX main line; navigation-grade for official main line after consecutive duplicate coordinate de-duplication",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 3 start-side and 2 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 16 candidate facility records and 3 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        {
+          "question": "How should the Jonsered-Freden shortcut be represented: alternate route geometry, access/connection metadata, or prose-only planning note?",
+          "priority": "high",
+          "recommendedFollowup": "Use WST prose and OSM relation 1670963 as evidence, but avoid automatic import as official geometry until normalization supports alternates or an official WST alternate geometry is found."
+        },
+        {
+          "question": "Exactly where do the official route and shortcut enter/exit Bokedalen and Björnareåsen reserve polygons?",
+          "priority": "medium",
+          "recommendedFollowup": "Run official WST main-line GPX and any chosen alternate geometry against protected-area polygons before assigning rule warnings to subsegments."
+        },
+        {
+          "question": "What is the current potable-water reliability at Torpet Freden?",
+          "priority": "medium",
+          "recommendedFollowup": "Ask/check Friluftsfrämjandet Partille or on-site signage before marking Freden water as guaranteed potable."
+        },
+        {
+          "question": "What is the exact current routing/signage at Ramsjön around the new and old bridges?",
+          "priority": "medium",
+          "recommendedFollowup": "Recheck WST alert, Partille page and on-site signage before publication; retain warning that old bridge is closed/unsafe."
+        },
+        {
+          "question": "Should Humlebadet be treated as on-main-line, variant-side facility or nearby service?",
+          "priority": "medium",
+          "recommendedFollowup": "Compare chosen WST main-line geometry and alternate/variant routing before final facility-route association."
+        },
+        {
+          "question": "Should Angereds kyrka endpoint snap use WST endpoint, church building, bus stop or OSM Stage 5/6 relation endpoint?",
+          "priority": "medium",
+          "recommendedFollowup": "Use official WST endpoint for route snapping, but cluster church, bus stop, parking and services as endpoint access facilities."
+        },
+        {
+          "question": "Are 2026 rail works still affecting Jonsered station and replacement-bus access on the publication date?",
+          "priority": "medium",
+          "recommendedFollowup": "Live-check Västtrafik before publication or travel; station status changes across 2026."
+        },
+        {
+          "question": "Are Freden waffle café, Jonsered services, Humlebadet toilets/kiosk and ICA/open water available on the publication date?",
+          "priority": "low",
+          "recommendedFollowup": "Live-check opening hours/seasonal status and operator pages before user-facing import."
+        }
+      ]
+    },
+    "bohusleden-stage-6-angereds-kyrka-fontin": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 17 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; Official West Sweden Trails/Hoodin GPX; navigation-grade after consecutive duplicate coordinate de-duplication",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 3 start-side and 5 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 25 candidate facility records and 5 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        {
+          "question": "Where exactly does the official route intersect Larjean, Vattlefjall, Gota och Nordre alvs dalgang and Fontin protected-area polygons?",
+          "priority": "high",
+          "recommendedFollowup": "Run GIS overlay against official WST GPX before assigning subsegment-specific rule warnings."
+        },
+        {
+          "question": "Is Gaddvattnet tenting allowed at/near the shelters, or should the records remain rest/shelter-only?",
+          "priority": "high",
+          "recommendedFollowup": "Check Vattlefjall manager guidance and on-site signage before import."
+        },
+        {
+          "question": "Are Fontin/Kotten drinking water, showers, cafe and sauna available on publication date?",
+          "priority": "medium",
+          "recommendedFollowup": "Live-check Kungalv Motionscentralen Kotten hours/fees and any seasonal notices."
+        },
+        {
+          "question": "Should Stora Kroksjon shelters, Kolebacka cabin, Surdegskungen/Gustus Gastrobar and other off-route service POIs be modeled as detour/nearby-service metadata?",
+          "priority": "medium",
+          "recommendedFollowup": "Decide at normalization time based on app support for side-trip and endpoint-service layers."
+        },
+        {
+          "question": "Can OSM-only Angered water, Skyrjon west shelters and Fontin viewpoint/grill be verified?",
+          "priority": "medium",
+          "recommendedFollowup": "Use municipal/Naturkartan/on-site/Mapillary or future field-source verification before import."
+        },
+        {
+          "question": "Are there current windfalls, bridge/road works, fire bans, bathing algae warnings or transit changes at publication time?",
+          "priority": "high",
+          "recommendedFollowup": "Live-check WST, Vastkuststiftelsen, MSB/RSG, bathing-water pages and Vasttrafik immediately before public import."
+        }
+      ]
+    },
+    "bohusleden-stage-7-fontin-grandalen": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 27 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; Official West Sweden Trails/Hoodin GPX; official-primary-high-confidence-deduped",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 4 start-side and 2 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 22 candidate facility records and 4 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        {
+          "question": "Exactly where does the Stage 7 route enter/exit Fontin, Svartedalen and Lysegarden water-protection polygons?",
+          "priority": "high",
+          "recommendedFollowup": "Run official WST GPX against protected-area and water-protection polygons before assigning subsegment-specific rule warnings."
+        },
+        {
+          "question": "Is Avverkning Romelanda still active, and has WST added a reroute or passability detail?",
+          "priority": "high",
+          "recommendedFollowup": "Live-check WST map/API before public import or departure."
+        },
+        {
+          "question": "Can Dalen water be treated as reliable potable water?",
+          "priority": "high",
+          "recommendedFollowup": "Verify with manager/on-site signage or current municipal/source record before marking always-open potable water."
+        },
+        {
+          "question": "What exact camping/tenting rules apply at Grandalen if a hiker stops near the Stage 7 end?",
+          "priority": "medium-high",
+          "recommendedFollowup": "Overlay Svartedalen sub-areas and check Grandalen signage before encoding endpoint camping warnings."
+        },
+        {
+          "question": "Should Aleklatten, Karleksstigen, Dyröds gard, Diserod services and other off-route points be imported as detour/nearby-service metadata?",
+          "priority": "medium",
+          "recommendedFollowup": "Decide during normalization based on app support for side-trip and nearby-service layers."
+        },
+        {
+          "question": "Are Kotten services, Romesjon bathing facilities, Grandalen bus service and rural stops available on publication date?",
+          "priority": "medium",
+          "recommendedFollowup": "Live-check operator pages, bathing-water status and Vasttrafik journey planner before public import."
+        }
+      ]
+    },
+    "bohusleden-stage-8-grandalen-bottenstugan": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 14 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; Official West Sweden Trails/Hoodin GPX; A-",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 2 start-side and 2 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 21 candidate facility records and 3 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        "Before final import, recheck the WST forestry/gravel-road status between Ovre and Nedre Langevatten and the Svartedalen storm-damage notice.",
+        "During Stage 9 synthesis, decide how to handle the 49.4 m official WST/Naturkartan continuity gap at Bottenstugan.",
+        "Field-check Bottenstugan water signage and seasonality before marking it as reliable drinking water.",
+        "Cluster Bottenstugan north/south shelters, fireplace, dry toilet, tent place, water tap, information board and possible grillkata/access shelter to avoid duplicate records.",
+        "Verify whether Anvik has any practical fixed-route service at publication time; otherwise keep it as demand-responsive/check-ahead access only.",
+        "Confirm exact Svartedalen sub-area signs at Grandalen/Bottenstugan and Lysegarden water-protection subzone before encoding public rule warnings.",
+        "Keep Nedre Langevatten wind shelter, Bottenstugan waste basket and possible grillkata/access shelter pending until coordinate/existence verification."
+      ]
+    },
+    "bohusleden-stage-9-bottenstugan-lysevatten": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 14 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; Official WST/Hoodin GPX or WST map API; A-",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 3 start-side and 2 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 13 candidate facility records and 3 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        "Before final import, resolve or explicitly document the 49.432 m official WST/Naturkartan gap between Stage 8 end and Stage 9 start.",
+        "Live-check the 2026-04-09 Svartedalen storm/windfall advisory and any WST Stage 9 status items before publication.",
+        "Spatially verify whether the storm-damaged Stora Aggdalssjon shelter is close enough to Stage 9 to mention as a Stage 9 POI or only as reserve-wide caution.",
+        "Cluster Bottenstugan facilities carefully: water, dry toilet, tent site, north/south shelters, possible third shelter/rest hut, fireplaces/grills, parking, information board, waste and building-closure context.",
+        "Import Bottenstugan water only as summer-half-year/check-ahead, and suppress the building as lodging until reopened.",
+        "Cluster Harsvattnet/Nellys shelter records, three OSM shelters, fire/bbq and pasholk to avoid duplicate records.",
+        "Verify Lysevatten rest area/fire/swim coordinates and whether any toilet or drinking water exists before importing endpoint amenities beyond board/parking.",
+        "Recheck Vasttrafik timetables after 2026-06-14 and on travel date; retain no-weekend-service caveat unless newer schedules differ.",
+        "Confirm exact Svartedalen reserve sub-area boundaries and signs before encoding public rule warnings or camping restrictions by subsegment.",
+        "Keep OSM-only side facilities near Stora Hastevatten, Aggdals Klarevatten and Lysevatten firepit pending until coordinate/existence verification."
+      ]
+    },
+    "bohusleden-stage-10-lysevatten-hasterod": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 13 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; A-",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 3 start-side and 4 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 13 candidate facility records and 2 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        "Before final import, live-check WST Djupevatten notice to confirm whether the unauthorized adjacent structure has been removed.",
+        "Use WST linked GPX/API, not OSM relation 125070, unless the Hasterod boundary mismatch is explicitly resolved.",
+        "Run final protected-area and water-protection line-buffer overlay; current rules lane found no direct protected-area/Natura intersection but used a screening pass.",
+        "Confirm whether any Stage 10 route segment intersects Bredfjallet after the official Stage 10/11 boundary or only after Stage 10 ends.",
+        "Verify Djupevatten child amenities if importing separate fireplace/waste/swim records rather than a single cluster.",
+        "Do not mark any drinking water or toilet on Stage 10 unless a future official source adds one.",
+        "Confirm exact Hasterod Nartrafik pickup/address and any practical walking route to Gransen before exposing them as access options.",
+        "Recheck Vasttrafik 333/332 timetables after 2026-06-14 and Lilla Edet storm-felled-tree warning before publication.",
+        "Keep OSM-only picnic/firepit records pending until official or field verification."
+      ]
+    },
+    "bohusleden-stage-11-hasterod-vassbovik": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 38 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; A-",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 3 start-side and 4 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 15 candidate facility records and 3 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        "Live-check WST status/deviation widgets, forestry/storm notices, Länsstyrelsen current news and fire-ban/fire-risk status before publication.",
+        "Confirm on-site or manager guidance for Store Vaktor grill/fireplace; reserve rules currently mean it must not be modeled as fire allowed.",
+        "Verify Vargfjallet current opening/access terms, owner contact expectations and whether water/toilet/shower are reliably available to hikers.",
+        "Keep OSM-only old spring pending until field/signage/source verification confirms flow and suitability; do not expose as reliable water.",
+        "Run final GIS line-buffer overlay during normalization to assign exact Bredfjallet, Bredfjallet ostra, Natura 2000 and Koperodssjoarna subsegments.",
+        "Confirm whether the Vassbovik/Ivarsbosjon road-walk/clear-cut finish has any newer official explanatory notice, and preserve current 22 km geometry over stale short route-app variants.",
+        "Verify practical road walking from Raane bro/Underas/Gransen and exact Nartrafik pickup constraints before exposing them as user-facing access recommendations.",
+        "Cluster Hasterod and Vassbovik guidepost/info-board OSM records before import, and avoid importing distant Lilla Edet/Ljungskile services as on-route facilities."
+      ]
+    },
+    "bohusleden-stage-12-vassbovik-glimmingen": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 43 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; exact Naturkartan API/GPX match; A",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 3 start-side and 1 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 11 candidate facility records and 2 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        "Live-check WST status/deviation widgets, Naturkartan route note, Uddevalla notices and fire-ban/fire-risk status before publication.",
+        "Run final GIS line-buffer overlay during normalization to assign the exact Koperodssjoarna water-protection subsegment and confirm nearby Högalidsberget/Bäveån Nedre non-intersection.",
+        "Resolve Stenshult shelter coordinate choice between WST and OSM and cluster shelter, water, toilet, firepit and benches before runtime import.",
+        "Verify Stenshult water/toilet current availability and seasonal/access status before public import.",
+        "Do not import Stenshult firepit as guaranteed usable fire facility until current fire-ban and local signage/manager guidance are checked.",
+        "Confirm whether Vassbovik exact trailhead is eligible for Uddevalla Nartrafik; otherwise model only as taxi/private drop-off and weak access.",
+        "Use exact-date Västtrafik planner for Glimmingen bus lines 670/679/680 and any school-day/holiday exceptions.",
+        "Keep Bäveån Nedre as adjacent/Stage 13 context rather than Stage 12 route restriction unless later GIS says otherwise.",
+        "Avoid importing off-route Brödbacken/Kuröd/Groröd service candidates as on-route Stage 12 facilities."
+      ]
+    },
+    "bohusleden-stage-13-glimmingen-bjursjon": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 38 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; exact Naturkartan API/GPX match; A",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 3 start-side and 4 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 13 candidate facility records and 6 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        "Live-check WST status/deviation widgets, Lansstyrelsen pages, Uddevalla forestry notices and fire-ban/fire-risk status before publication.",
+        "Run final GIS line-buffer overlay during normalization to assign exact Bavean nedre, Kurods skalbankar and Koperodssjoarna subsegments and water-protection zone details.",
+        "Resolve or document OSM relation 1899756 local divergence near [58.3759682,11.9655062] before using OSM for anything beyond QA.",
+        "Verify current opening/access status for Bjursjostugan water/toilet/cafe and Skalbanksmuseet toilet/tap water before user-facing import.",
+        "Do not mark Stage 13 as generally tent-friendly; confirm shelter/spur signage at Koperodssjon if overnight guidance will be user-facing.",
+        "Do not import Bavean OSM-only firepit as usable fire facility without manager/on-site confirmation.",
+        "Live-check Vasttrafik planner for Glimmingen, Grorod, Kurod/Skalbanksmuseet and Kopperods viadukt, especially line 738 summer periods and any Nartrafik eligibility for Bjursjon.",
+        "Field or manager verification would improve Koperodssjon shelter coordinate, spur access, water status and nearby shooting-range noise caveat.",
+        "Treat 2023 Bjursjon portable-toilet/jetty-camping blog report as dated context only until current official confirmation exists.",
+        "Commercial/service opening hours at Valkommen in/Shell/7-Eleven and any Uddevalla centre services need live checks if exposed."
+      ]
+    },
+    "bohusleden-stage-14-bjursjon-metsjo": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 34 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; Naturkartan GPX exact duplicate; A",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 4 start-side and 3 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 14 candidate facility records and 4 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        "Live-check WST status/deviation widgets, Länsstyrelsen pages, Uddevalla notices and fire-ban/fire-risk status before publication.",
+        "Run final GIS line-buffer overlay during normalization to assign exact Köperödssjöarna, Herrestadsfjället II and Herrestadsfjället subsegments and to verify any tiny edge-touch cases missed by point sampling.",
+        "Decide whether to model the OSM Metsjö endpoint continuation of about 205 m as an alternate/connection, access metadata or suppress it in favor of official WST endpoint.",
+        "Verify current booking/open-host/access status for Hällerstugan, Krokestugan, Ålslån and Kåtan before exposing lodging/shelter details.",
+        "Verify water pump current function and potability at Ålslån and Hällerstugan; do not mark guaranteed potable without current confirmation.",
+        "Live-check Bjursjön/Bjursjöstugan water, toilet, shower/sauna, cafe/serving and bathing-place seasonal details before public import.",
+        "Use exact-date Västtrafik planner for Lillmossegatan, Dalaberg, Skredsvik/Högstorp and Närtrafik eligibility; endpoints themselves should remain no-public-transport.",
+        "Verify forest-road legality/condition and winter access for Säterbo/Mållsjön and Ålslån/Naturskola mid-stage pickup points.",
+        "Do not import off-route Mållsjön, Pölevattnet, Abborresjön, Kärrevattnet/Herrestadsfjället vindskydd or Kölnestugan as on-route Stage 14 facilities unless side-spur/wider-reserve POIs are intentionally supported.",
+        "Keep fire/grill records restricted to designated places and live fire-ban/local-signage checks.",
+        "Do not present free tenting throughout Stage 14; check reserve signage/municipality before any tenting guidance."
+      ]
+    },
+    "bohusleden-stage-15-metsjo-kaserna": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 26 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; Naturkartan GPX exact duplicate; A",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 3 start-side and 4 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 20 candidate facility records and 4 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        "Live-check WST status and Västkuststiftelsen before publication to confirm whether the Strömmarna raft is operating and whether any bridge replacement has changed route instructions.",
+        "Live-check the Kaserna bridge/reconstruction status and exact temporary access/parking arrangements.",
+        "Perform final GIS line/polygon overlay to get exact route-km ranges for Herrestadsfjället, Vågsäter and Strömmarna reserve segments.",
+        "Verify Modalenstugan booking/opening/toilet and whether any water there is safe without treatment.",
+        "Verify Viksjön toilet condition after the 2026 field report noted damage/awkward handling.",
+        "Confirm whether Kärrevattnet/Övre Trästickeln water candidates should be imported at all; current evidence supports only untreated/unknown water.",
+        "Live-check Västtrafik exact-date timetables for line 836 bailouts and lines 830/835 near Kaserna before exposing transit recommendations.",
+        "Decide whether off-route Krokestugan/Kåta Västra Krokevattnet should stay attached to Stage 14, Stage 15, a side-spur model or a wider Herrestadsfjället facility layer.",
+        "Cluster the two Strömmarna grill/fireplace coordinates to avoid duplicate imports unless they are confirmed separate prepared sites.",
+        "Decide whether to model Transportflotte as route geometry/crossing metadata, facility metadata, or condition/status overlay."
+      ]
+    },
+    "bohusleden-stage-16-kaserna-borgmastarbruket": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 21 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; Naturkartan GPX mirrored; B+",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 4 start-side and 3 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 17 candidate facility records and 3 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        "Live-check WST and Munkedal municipality before publication to reconcile the yearless WST Kaserna bridge status with the 2025-11-28 municipal reopening notice.",
+        "Run final GIS line/polygon overlay for Örekilsälven nature reserve and Natura 2000 SE0520163 to assign exact subsegments.",
+        "Verify Kaserna outdoor toilet, parking capacity and staffed water before surfacing as reliable services.",
+        "Confirm Brålands Gård fees, season, opening, water/toilet/waste availability and exact access route before exposing as nearby service.",
+        "Confirm whether the Fura shelter cluster and pond firepit/picnic records are real/current and public before import.",
+        "Decide whether Gamla Bruket/Kaffestuga and Munkedal town services should be represented as off-route services or suppressed from Stage 16 core.",
+        "Use WST Borgmästarbruket as canonical endpoint name, but preserve Borgmästarebruket/Bogmästarbruket variants for search/matching.",
+        "Do not apply Södra Harska no-camping/no-fire rules to Stage 16 unless an import geometry or side-route extends beyond Borgmästarbruket toward Harska/Kärnsjön.",
+        "Live-check Västtrafik exact-date schedules for buses 835/836 and Bohusbanan replacement-bus effects.",
+        "Consider topology/matching QA against OSM relation 4489478 if high-precision navigation geometry is later required."
+      ]
+    },
+    "bohusleden-stage-17-borgmastarbruket-kyrkoryr": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 24 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; Naturkartan GPX exact duplicate; A-",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 3 start-side and 2 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 12 candidate facility records and 2 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        "Run final GIS line/polygon overlay for Södra Harska reserve, Kärnsjön water-protection area and Örekilsälven Natura 2000 context to assign exact subsegments.",
+        "Verify whether the OSM Harska firepit has any legal designated-fireplace exception despite Södra Harska no-fire rule; suppress until verified.",
+        "Verify Harska spring potability or keep it as natural untreated water only.",
+        "Confirm Harska shelter current condition, exact coordinate clustering between WST and OSM, and no toilet/no waste before public import.",
+        "Live-check WST/Västkuststiftelsen and Munkedal before publication for any changes after the reroute.",
+        "Live-check Västtrafik exact-date timetables for line 836 at Smedbergskrysset and line 834 around Hagaskog/Svarteborg östra.",
+        "Decide whether distant Svarteborg/Dingle services and Gadderöd/Svarteborg stops should be suppressed or modeled as off-route access/resupply metadata.",
+        "Preserve Borgmästarebruket spelling as alias for OSM matching while using WST Borgmästarbruket as canonical."
+      ]
+    },
+    "bohusleden-stage-18-kyrkoryr-kynnefjalls-natur": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 19 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; Naturkartan GPX exact duplicate; B+",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 3 start-side and 2 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 15 candidate facility records and 2 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        "Should final import preserve the official WST/Naturkartan Kynnefjälls natur endpoint [58.618192, 11.690120] or snap to the OSM/facility cluster around [58.618528, 11.689299]? Field/signage verification is needed before snapping.",
+        "Which exact Stage 18 subsegments, if any, intersect Kynnefjäll nature reserve, Kynnefjäll Natura 2000 and Kärnsjön water-protection zones? Run GIS line/polygon overlay before final rule warnings.",
+        "Are the OSM-only firepits near Skrapeland/Kärnsjön legally designated fireplaces? Keep pending until local signage/manager confirmation.",
+        "Is KynnefjällsNatur water/toilet/food available to non-guests and outside staffed hours? Keep access metadata conservative until confirmed.",
+        "Can Kyrkoryr support any legal public parking/drop-off? No official parking evidence found in this pass.",
+        "Exact-date Västtrafik line 834 and Närtrafik checks are required before publication.",
+        "Live-check 2026 Kynnefjäll planned burn and Västkuststiftelsen windfall notices before publication."
+      ]
+    },
+    "bohusleden-stage-19-kynnefjalls-natur-vaktarekullen": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 19 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; Naturkartan GPX/API exact duplicate; A-",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 4 start-side and 4 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 19 candidate facility records and 3 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        "Run GIS line/polygon overlay for Kynnefjäll A/B/Sätret, Natura 2000 SE0520141, Bredmossen adjacency and possible Kärnsjön/water-protection context before final rule normalization.",
+        "Keep Lunden - Vaktarekullen as legacy alias and decide whether Lunden/Vaktarestugan detour data belongs in a connector layer.",
+        "Reconcile Säveleken shelter WST versus OSM coordinate mismatch of about 120 m before final facility import.",
+        "Decide whether Kasebo, Kasebo rest shelter, Lilla Holmevatten and Stora Holmevatten are imported only as connector/detour/Stage 20-adjacent metadata.",
+        "Verify Vaktarekullen spring availability and condition shortly before publication; keep boil/treat and carry-backup warning.",
+        "Live-check planned Kynnefjäll 2026 burns, windthrow cleanup, fire bans and WST/Västkuststiftelsen status before publication.",
+        "Exact-date checks needed for Västtrafik line 834, line 835 and Närtrafik before any public access guidance."
+      ]
+    },
+    "bohusleden-stage-20-vaktarekullen-flotemarkson": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 17 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; Naturkartan GPX exact duplicate; A-",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 5 start-side and 6 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 14 candidate facility records and 5 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        "Run GIS line/polygon overlay for Kynnefjäll A/B/Sätret and Natura 2000 SE0520141 before final rule normalization.",
+        "Run authoritative water-protection-area overlay; no named Stage 20 vattenskyddsområde was confirmed by page search alone.",
+        "Reconcile Kasebo access/parking coordinates before importing connector or access metadata.",
+        "Decide whether Kasebo, Mickelskogen, Flötemarksön bridge parking, Flötemarkens Vildmarkscamp and Viking Republic/Hinterland belong in access/private-service metadata rather than core Stage 20 facility import.",
+        "Verify Vaktarekullen spring/well availability and condition shortly before publication; keep boil/treat and carry-backup warning.",
+        "Confirm whether Götbergshagen should be imported as a rest/weather shelter if the taxonomy distinguishes non-overnight shelters.",
+        "Verify OSM-only Sälesjön viewpoint and unnamed Flötemarksön firepit before final facility import.",
+        "Live-check planned Kynnefjäll 2026 burns, windthrow cleanup, fire bans and WST/Västkuststiftelsen status before publication.",
+        "Exact-date checks needed for Västtrafik line 882, rural bus hubs, and Munkedal/Tanum Närtrafik eligibility before any public access guidance.",
+        "Carry the Stage 21 not-continuously-marked / partial-geometry warning into Stage 21 research; do not merge Stage 20 and Stage 21 geometry."
+      ]
+    },
+    "bohusleden-stage-21-flotemarkson-porsas": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 16 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; Official WST/Hoodin GPX or WST map API; Naturkartan GPX exact duplicate; D for full-stage import / B for mapped first segment after de-duplication",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 6 start-side and 5 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 11 candidate facility records and 3 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "not-ready-full-stage-geometry-blocked",
+      "remainingQuestions": [
+        "Obtain or create an authoritative full 14 km Stage 21 route before any standard route import; current WST/Naturkartan/OSM geometry is only about 4.4 km.",
+        "Verify the exact intended self-navigation corridor between Holmen bridge and road 164 and the marked road 164-to-Porsås segment with Tanum municipality or field survey.",
+        "Do not bridge the 4.296 km Stage 21-to-Stage 22 gap by straight line or automatic snapping.",
+        "Verify whether Kynne älv bird-protection access restrictions affect the road/trail bridge or only water/shore/boat traffic; reconcile 15 June versus 15 July restriction dates.",
+        "Run GIS overlay for Kynne älv, Bredmossen Fiskelössjön and any corrected full Stage 21 route corridor before final rule warnings.",
+        "Verify WST Loviseholm bus note directly with Västtrafik/GTFS before importing it as a commute stop.",
+        "Verify Flötemarksön start parking exact coordinate/legal status and capacity.",
+        "Verify Roslund shelter/toilet/fire condition and official status before final import.",
+        "Check whether Viking Republic Nature Camp duplicates or supersedes Flötemarkens Vildmarkscamp before service import.",
+        "Suppress Daletjärnen ruined shelter as overnight lodging unless fresh field evidence shows usable facilities.",
+        "Live-check WST/Naturkartan deviation widgets, fire bans, forestry notices and hunting/seasonal warnings before publication."
+      ]
+    },
+    "bohusleden-stage-22-porsas-nornas": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 10 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; Official WST/Hoodin GPX or WST map API; Naturkartan GPX exact duplicate; A- for Stage 22 import after consecutive duplicate collapse",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 5 start-side and 5 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 7 candidate facility records and 3 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        "Retain the 4.296 km Stage 21-to-Stage 22 official geometry gap as a Stage 21 self-navigation/gap warning; do not bridge, snap or straight-line it during import.",
+        "Verify WST Loviseholm bus wording against a live Västtrafik planner/GTFS before importing it as fixed public transport.",
+        "Verify exact Norane/road 166 parking, walking route, private-road signs and possible Närtrafik/address eligibility before importing Nornäs access metadata.",
+        "Run final GIS polygon-on-line overlay for Stage 22 before public rule warnings, especially around Noraneälven nearby context, even though no direct protected-area intersection was found in source screens.",
+        "Cluster Nornäs shelter/toilet/firepit/waste/map/swim objects before runtime import.",
+        "Verify Nornäs wood availability, toilet maintenance and tenting practicality before public trip-planning copy.",
+        "Decide whether Porsås historic cairn is in scope for hiking app attraction import.",
+        "Keep DANO 1 Lövön Mellan as pending/off-route unless the app supports paid/permit lake-service metadata.",
+        "Live-check WST/Naturkartan deviation widgets, Tanum fire-ban status, Västtrafik timetables and on-demand traffic rules before publication."
+      ]
+    },
+    "bohusleden-stage-23-nornas-vassbotten": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 12 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; Official WST/Hoodin GPX or WST map API; Naturkartan GPX exact duplicate; A- for Stage 23 import after consecutive duplicate collapse",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 3 start-side and 4 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 11 candidate facility records and 4 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        "Run final Skyddad Natur/Naturvårdsregistret/VISS polygon-on-line overlay for Stage 23 before public protected-area or water-protection warnings.",
+        "Verify Vassbotten line 952 in live Västtrafik planner/GTFS before importing it as usable fixed transit.",
+        "Verify Holtet/line 302 cross-border access, ticketing and Norwegian-side access/protected-area rules before recommending it as a standard app access point.",
+        "Verify exact Norane/road 166 parking/walking route, private-road signs and possible public-transport/on-demand status before importing Nornäs access metadata.",
+        "Cluster Nornäs shelter/toilet/firepit/waste/map/swim objects before runtime import.",
+        "Cluster Älgafallet/Elgåfossen WST and OSM waterfall records and decide whether Swedish-side parking and Enningsdalen rest area are core POIs or access metadata.",
+        "Verify Djupvik croft ruin information board, viewpoint spur after Nornäs and picnic ledge between Abborrtjärnen and Bockögat before importing those as POIs.",
+        "Verify Bullarebygdens/Jill's Diner/Högens gård current operations, names, coordinates, seasonality and customer access before importing commercial services.",
+        "Do not import campground taps or natural water as public trail drinking water.",
+        "Live-check WST/Naturkartan deviation widgets, Tanum fire-ban status, Västtrafik timetables and Bohusbanan/replacement-bus constraints before publication."
+      ]
+    },
+    "bohusleden-stage-24-vassbotten-havedalen": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 12 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; official WST/Hoodin GPX or identical WST map API GeoJSON; navigation-grade after removing consecutive duplicate points",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 4 start-side and 4 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 14 candidate facility records and 2 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        {
+          "question": "Run final GIS overlay for protected areas, Natura 2000, water-protection areas and any local access restrictions before public rule warnings.",
+          "priority": "medium",
+          "status": "normalization-time task"
+        },
+        {
+          "question": "Live-check Västtrafik/Entur timetables for Vassbotten, Holtet, Holkekärr, Allemarksvägen and Håvedalen before publication.",
+          "priority": "high",
+          "status": "normalization-time task"
+        },
+        {
+          "question": "Verify coordinate-backed public parking for text-only parking references near Stora Åseröd/Nordre Vammen, southeast Ejgdesjön and Ekelidvattnet.",
+          "priority": "medium",
+          "status": "pending"
+        },
+        {
+          "question": "Deduplicate and cluster Allemarken shelter amenities and Ekelidsvattnet rest/rock-shelter/fireplace records before runtime import.",
+          "priority": "medium",
+          "status": "normalization-time task"
+        },
+        {
+          "question": "Check WST/Naturkartan live status and Skogsstyrelsen forestry notifications again immediately before publication.",
+          "priority": "high",
+          "status": "normalization-time task"
+        },
+        {
+          "question": "Confirm whether Tolvmanstegen OSM-only information boards are in import scope and still present on site.",
+          "priority": "low",
+          "status": "pending"
+        }
+      ]
+    },
+    "bohusleden-stage-25-havedalen-krokstrand": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 10 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; official WST/Hoodin GPX or identical WST map API GeoJSON; navigation-grade after removing consecutive duplicate points",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 3 start-side and 4 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 14 candidate facility records and 3 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        {
+          "question": "Run final GIS overlay for protected areas, Natura 2000, water-protection areas and local access restrictions before public rule warnings.",
+          "priority": "medium",
+          "status": "normalization-time task"
+        },
+        {
+          "question": "Live-check Västtrafik timetables for Allemarksvägen, Håvedalen, Björneröd, Björnerödsgården, Krokstrand and Skog before publication, especially after 2026-06-15 timetable changes.",
+          "priority": "high",
+          "status": "normalization-time task"
+        },
+        {
+          "question": "Verify Håvedalen start parking coordinates and Krokstrand/Björneröd parking access/fee/overnight status before importing parking details.",
+          "priority": "medium",
+          "status": "pending"
+        },
+        {
+          "question": "Cluster Sandvatten shelter/toilet/fire/tent/swim context and decide whether to model it as a detour/nearby facility rather than on-route.",
+          "priority": "medium",
+          "status": "normalization-time task"
+        },
+        {
+          "question": "Recheck Krokstrand commercial services such as Stenhoggern/Folkets Hus before presenting food/service availability.",
+          "priority": "medium",
+          "status": "pending"
+        },
+        {
+          "question": "Recheck WST/Naturkartan live status, Strömstad fire bans and adjacent forestry notice A 40652-2024 immediately before publication.",
+          "priority": "high",
+          "status": "normalization-time task"
+        }
+      ]
+    },
+    "bohusleden-stage-26-krokstrand-hogstad": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 11 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; official WST/Hoodin GPX or identical WST map API GeoJSON; navigation-grade after removing consecutive duplicate points",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 4 start-side and 2 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 12 candidate facility records and 2 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        {
+          "question": "Run final GIS overlay for protected areas, Natura 2000, Ramsar, water-protection areas and local access restrictions before public rule warnings.",
+          "priority": "medium",
+          "status": "normalization-time task"
+        },
+        {
+          "question": "Live-check Västtrafik line 893, 963/964 context, prebooking requirements and the 2026-06-15 timetable change before publication.",
+          "priority": "high",
+          "status": "normalization-time task"
+        },
+        {
+          "question": "Reconcile Björnerödspiggen shelter coordinate cluster and Björneröd stop coordinate differences before runtime import.",
+          "priority": "high",
+          "status": "normalization-time task"
+        },
+        {
+          "question": "Verify Björnerödspiggen and Högstad parking coordinates, capacity, access and overnight rules before importing parking details.",
+          "priority": "medium",
+          "status": "pending"
+        },
+        {
+          "question": "Verify OSM-only pit toilet cluster near km ~4-5 before importing any toilet record.",
+          "priority": "medium",
+          "status": "pending"
+        },
+        {
+          "question": "Recheck WST/Naturkartan live status, Strömstad fire bans and any forestry updates immediately before publication.",
+          "priority": "high",
+          "status": "normalization-time task"
+        }
+      ]
+    },
+    "bohusleden-stage-27-hogstad-stromstad": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; 10 official/partner/context sources recorded in section research JSON",
+      "routeGeometryStatus": "complete; official WST/Hoodin GPX or identical WST map API GeoJSON; navigation-grade after removing consecutive duplicate points",
+      "startEndCoordinateStatus": "complete; endpoint coordinates recorded with source/confidence in section research JSON",
+      "commuteAccessStatus": "complete; 2 start-side and 2 end-side access records or notes recorded with caveats",
+      "facilityResearchStatus": "complete; 20 candidate facility records and 3 water-source records recorded with import actions",
+      "rulesSafetyStatus": "complete; rules/safety/currentness notes recorded with live-check and GIS-overlay caveats",
+      "synthesisStatus": "complete; section research JSON written and used as source of truth",
+      "importReadiness": "ready-for-normalization-with-caveats",
+      "remainingQuestions": [
+        "Before import, refresh WST status API and Naturkartan page for any Stage 27 deviation or closure.",
+        "Before publication, recheck Krisinformation/Länsstyrelsen/Strömstad fire-ban status because the no-ban finding is only valid for 2026-04-30T02:06:00Z.",
+        "Verify whether Skogsstyrelsen notification A 60768-2022 near Högstad is completed, inactive or affecting trail passability.",
+        "Confirm exact coordinate/legal status/capacity for the small Högstad-side parking mentioned by Västsverige.",
+        "Verify endpoint OSM water taps and public toilet/waste candidates for seasonality and actual public hiker access.",
+        "Decide during normalization how much Strömstad endpoint city service data to include without overwhelming the core trail facility layer.",
+        "Run final GIS line-buffer overlay against protected-area and water-protection polygons before generating public rule warnings."
+      ]
+    }
+  },
+  "agentBatches": [
+    {
+      "batchId": "stage-1-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-1-alvsaker-stensjon",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 1 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-1-alvsaker-stensjon.research.json",
+        "decision": "Completed section synthesis recorded in section research JSON."
+      }
+    },
+    {
+      "batchId": "stage-2-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-2-stensjon-skatas",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 2 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-2-stensjon-skatas.research.json",
+        "decision": "Stage 2 is ready for later normalization with caveats. No targeted second agent batch needed because geometry, endpoint coordinates, access, rules, field reports and high-priority facilities are all well-supported. Remaining caveats are normal pre-import QA: reserve polygon overlay, live fire/closure/timetable checks, and facility opening/season verification."
+      }
+    },
+    {
+      "batchId": "stage-3-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-3-skatas-kasjon",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 3 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-3-skatas-kasjon.research.json",
+        "decision": "Stage 3 is ready for later normalization with caveats. No targeted second agent batch needed because geometry, endpoints, access, rules, field reports and core facilities are well-supported. Remaining caveats are pre-import QA: protected-area polygon overlay, Knipeflågsbergen full rule/sign check for tenting, service season checks and route-overlap dedupe."
+      }
+    },
+    {
+      "batchId": "stage-4-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-4-kasjon-jonsered",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 4 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-4-kasjon-jonsered.research.json",
+        "decision": "Stage 4 is ready for later normalization with caveats. No targeted second agent batch needed because official facts, geometry, endpoints, access, field conditions, rules and core facilities are well-supported. Remaining issues are normal pre-import QA: protected-area polygon refinement, source freshness/current checks, facility clustering and seasonal service verification."
+      }
+    },
+    {
+      "batchId": "stage-5-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-5-jonsered-angereds-kyrka",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 5 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-5-jonsered-angereds-kyrka.research.json",
+        "decision": "Stage 5 is ready for later normalization with caveats. No targeted second agent batch needed because official facts, main-line geometry, alternate-route context, current bridge warning, access, facilities, rules and field reports are well-supported. Remaining caveats are pre-import QA: reserve polygon subsegments, shortcut geometry modeling, Ramsjön signage recheck, Freden water reliability, 2026 transit disruption checks and facility clustering."
+      }
+    },
+    {
+      "batchId": "stage-6-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-6-angereds-kyrka-fontin",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 6 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-6-angereds-kyrka-fontin.research.json",
+        "decision": "Stage 6 is strong enough for research-ready normalization with caveats. No targeted follow-up agent batch is needed before continuing to Stage 7; remaining caveats are normal pre-import GIS/live-status QA."
+      }
+    },
+    {
+      "batchId": "stage-7-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-7-fontin-grandalen",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 7 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-7-fontin-grandalen.research.json",
+        "decision": "Stage 7 is strong enough for research-ready normalization with caveats. No targeted follow-up agent batch is needed before continuing to Stage 8; remaining caveats are normal pre-import GIS/live-status QA."
+      }
+    },
+    {
+      "batchId": "stage-8-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-8-grandalen-bottenstugan",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 8 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-8-grandalen-bottenstugan.research.json",
+        "decision": "Stage 8 is strong enough for research-ready normalization with caveats. No targeted follow-up agent batch is needed before continuing to Stage 9; remaining caveats are normal pre-import live-status, GIS/sub-area and facility-clustering QA."
+      }
+    },
+    {
+      "batchId": "stage-9-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-9-bottenstugan-lysevatten",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 9 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-9-bottenstugan-lysevatten.research.json",
+        "decision": "Initial six-lane batch was strong except for failed rules/safety lane; a replacement targeted rules/safety batch was required before Stage 9 synthesis."
+      }
+    },
+    {
+      "batchId": "stage-9-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-9-bottenstugan-lysevatten",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 9 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-9-bottenstugan-lysevatten.research.json",
+        "decision": "Stage 9 is strong enough for research-ready normalization with caveats. No further targeted batch is needed before continuing to Stage 10; remaining caveats are normal pre-import live-status, GIS/sub-area, transit and facility-clustering QA."
+      }
+    },
+    {
+      "batchId": "stage-10-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-10-lysevatten-hasterod",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 10 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-10-lysevatten-hasterod.research.json",
+        "decision": "Stage 10 is strong enough for research-ready normalization with caveats. No targeted follow-up agent batch is needed before continuing to Stage 11; remaining caveats are normal pre-import live-status, GIS overlay, transit and facility-clustering QA."
+      }
+    },
+    {
+      "batchId": "stage-11-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-11-hasterod-vassbovik",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 11 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-11-hasterod-vassbovik.research.json",
+        "decision": "Stage 11 is strong enough for research-ready normalization with caveats. No targeted follow-up agent batch is needed before continuing to Stage 12; remaining caveats are normal pre-import live-status, signage, transit, protected-area subsegment and facility-clustering QA."
+      }
+    },
+    {
+      "batchId": "stage-12-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-12-vassbovik-glimmingen",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 12 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-12-vassbovik-glimmingen.research.json",
+        "decision": "Stage 12 is strong enough for research-ready normalization with caveats. No targeted follow-up agent batch is needed before continuing to Stage 13; remaining caveats are normal pre-import live-status, facility clustering, exact water-protection subsegment and transit-date QA."
+      }
+    },
+    {
+      "batchId": "stage-13-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-13-glimmingen-bjursjon",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 13 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-13-glimmingen-bjursjon.research.json",
+        "decision": "Stage 13 is strong enough for later normalization with caveats; no second targeted batch needed now."
+      }
+    },
+    {
+      "batchId": "stage-14-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-14-bjursjon-metsjo",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 14 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-14-bjursjon-metsjo.research.json",
+        "decision": "Stage 14 is strong enough for later normalization with caveats; no second targeted batch needed now."
+      }
+    },
+    {
+      "batchId": "stage-15-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-15-metsjo-kaserna",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 15 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-15-metsjo-kaserna.research.json",
+        "decision": "Stage 15 is strong enough for later normalization with caveats. No additional targeted agent batch needed before moving to Stage 16 because official geometry is strong, protected-area rules are identified, commute/access has workable candidates, and the main open issues are live-currentness checks rather than missing research paths."
+      }
+    },
+    {
+      "batchId": "stage-16-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-16-kaserna-borgmastarbruket",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 16 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-16-kaserna-borgmastarbruket.research.json",
+        "decision": "Stage 16 is strong enough for later normalization with caveats. No targeted follow-up batch needed before moving to Stage 17; remaining questions are live-currentness checks, GIS overlay and facility/service verification."
+      }
+    },
+    {
+      "batchId": "stage-17-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-17-borgmastarbruket-kyrkoryr",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 17 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-17-borgmastarbruket-kyrkoryr.research.json",
+        "decision": "Stage 17 is strong enough for later normalization with caveats. No targeted follow-up batch needed before moving to Stage 18; remaining issues are GIS overlay, water/fire legality verification and live transit/currentness checks."
+      }
+    },
+    {
+      "batchId": "stage-18-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-18-kyrkoryr-kynnefjalls-natur",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 18 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-18-kyrkoryr-kynnefjalls-natur.research.json",
+        "decision": "Stage 18 is strong enough for later normalization with caveats. No targeted follow-up batch needed before moving to Stage 19; remaining issues are normal import QA: Kynnefjäll endpoint/signage offset, protected-area polygon overlay, exact-date line 834 service, and KynnefjällsNatur service/public-access confirmation."
+      }
+    },
+    {
+      "batchId": "stage-19-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-19-kynnefjalls-natur-vaktarekullen",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 19 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-19-kynnefjalls-natur-vaktarekullen.research.json",
+        "decision": "Stage 19 is strong enough for later normalization with caveats. No targeted follow-up batch needed before moving to Stage 20; remaining issues are GIS overlay, Lunden alias handling, Kasebo connector modeling, Säveleken coordinate reconciliation, Vaktarekullen spring currentness and live burn/fire/transit checks."
+      }
+    },
+    {
+      "batchId": "stage-20-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-20-vaktarekullen-flotemarkson",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 20 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-20-vaktarekullen-flotemarkson.research.json",
+        "decision": "Stage 20 is strong enough for later normalization with caveats. No targeted follow-up batch needed before moving to Stage 21; remaining issues are GIS overlay, Kasebo coordinate reconciliation, access connector modeling, water currentness, fire/burn/windfall live checks and Stage 21 partial-geometry handling."
+      }
+    },
+    {
+      "batchId": "stage-21-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-21-flotemarkson-porsas",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 21 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-21-flotemarkson-porsas.research.json",
+        "decision": "Stage 21 is researched enough to write a candidate packet, but it is not ready for normal route import because full-stage geometry is missing/blocking. No second broad batch is needed before moving to Stage 22; remaining work requires authoritative geometry/field/municipal resolution, not more general source gathering."
+      }
+    },
+    {
+      "batchId": "stage-22-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-22-porsas-nornas",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 22 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-22-porsas-nornas.research.json",
+        "decision": "Stage 22 is researched enough for a candidate packet and ready for later normalization with caveats. No second broad batch is needed: geometry is strong, facilities/access/rules have documented caveats, and the main unresolved issue is the adjacent Stage 21 gap plus import-time verification of Loviseholm/Norane access and live fire/deviation status."
+      }
+    },
+    {
+      "batchId": "stage-23-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-23-nornas-vassbotten",
+      "startedAt": "2026-04-29",
+      "purpose": "Reconstructed Stage 23 research iteration from section JSON.",
+      "agents": [],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-23-nornas-vassbotten.research.json",
+        "decision": "Stage 23 is researched enough for a candidate packet and ready for later normalization with caveats. No second broad batch is needed: official geometry is strong with exact adjacent joins, core facilities/access are documented, and remaining questions are import-time verification of Vassbotten service, protected-area GIS overlay, live fire/deviation status and commercial-service currentness."
+      }
+    },
+    {
+      "batchId": "stage-24-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-24-vassbotten-havedalen",
+      "startedAt": "2026-04-30",
+      "purpose": "six independent research lanes: official sources, route geometry, facilities, transit/access, field reports and rules/safety/currentness",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "status": "completed",
+          "keyFindings": [
+            "WST canonical stage identity is Vassbotten - Håvedalen, 19 km, 7-8 h, hard/red.",
+            "Naturkartan 19.1 km/480 min/red and Västsverige page corroborate stage facts with minor spelling/distance variance.",
+            "Official endpoints match adjacent stages exactly.",
+            "Official POIs include Snarsmon, Ejgdesjön/Ekelidsvattnet/Tolvmanstegen context, Allemarken shelter and access/parking records.",
+            "No official drinking-water or campsite category found."
+          ]
+        },
+        {
+          "lane": "route-geometry",
+          "status": "completed",
+          "keyFindings": [
+            "WST/Hoodin GPX/API, Naturkartan GPX and Västsverige KMZ are exact-match navigation-grade geometry after de-duplication.",
+            "Official geometry computes about 19.113 km and has exact Stage 23/25 joins.",
+            "OSM relation 4487796 is QA-only due endpoint mismatch, excursion members and longer line."
+          ]
+        },
+        {
+          "lane": "facilities",
+          "status": "completed",
+          "keyFindings": [
+            "Import candidates: Eigdesjön rest, Snarsmon, Ekelidsvattnet detour rest/rock shelter/fire context, Tolvmanstegen map boards and Allemarken/Håvedalen shelter cluster.",
+            "Access/off-route: Eigde and Älgafallet parking, Älgafallet cluster, Bullarebygdens, Villa chez KoS and bus stops.",
+            "No reliable public potable water, reliable food, on-route lodging/campsite or coordinate-backed extra parking found."
+          ]
+        },
+        {
+          "lane": "transit-access",
+          "status": "completed",
+          "keyFindings": [
+            "Vassbotten stop is trailhead-adjacent but line 952 had no current timetable.",
+            "Holkekärr/Hovsäter and Holtet provide sparse fallback access on Swedish/Norwegian sides.",
+            "Allemarksvägen is the best north endpoint stop and is near the official endpoint.",
+            "No ferry or rowboat is involved."
+          ]
+        },
+        {
+          "lane": "field-reports",
+          "status": "completed",
+          "keyFindings": [
+            "No current independent closure/reroute/impassable report found.",
+            "AllTrails and 2024-2025 activity show continued use.",
+            "Field reports emphasize hard terrain, wind-farm/road walking, sparse water/resupply and seasonal dryness."
+          ]
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "status": "completed",
+          "keyFindings": [
+            "No direct protected-area/Natura/water-protection/bird-access restriction found on official GPX in this pass.",
+            "Nearby protected/water areas should not be attached without GIS proof.",
+            "Five Skogsstyrelsen forestry-notification polygons intersect the route and should be retained as currentness cautions.",
+            "Tanum/Strömstad fire-ban status checked as no ban on 2026-04-30, but status is volatile."
+          ]
+        }
+      ],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-24-vassbotten-havedalen.research.json",
+        "decision": "Stage 24 is ready for later normalization with caveats. No second research batch required because all major categories have official or corroborated evidence; remaining work is normalization-time GIS/live-timetable verification."
+      }
+    },
+    {
+      "batchId": "stage-25-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-25-havedalen-krokstrand",
+      "startedAt": "2026-04-30",
+      "purpose": "six independent research lanes: official sources, route geometry, facilities, transit/access, field reports and rules/safety/currentness",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "status": "completed",
+          "keyFindings": [
+            "WST canonical identity is Håvedalen - Krokstrand, 11 km, 3-4 h, hard/red.",
+            "Official endpoints and adjacent-stage joins are exact.",
+            "WST place API includes Sandvatten, Idefjorden, Krokstrand and nearby/off-route POIs but no official water/campsite results.",
+            "No official closure/deviation found; source contradictions include distance, difficulty wording, Krogstrand slug and old Västsverige KMZ."
+          ]
+        },
+        {
+          "lane": "route-geometry",
+          "status": "completed",
+          "keyFindings": [
+            "WST/Hoodin GPX/API and Naturkartan GPX/API are exact-match navigation-grade geometry after de-duplication.",
+            "Official line has 1812 raw points, 604 effective vertices and computed length about 10.880 km.",
+            "Official joins to Stages 24 and 26 are exact.",
+            "Västsverige KMZ and OSM relation 4487258 are not primary because they miss official endpoint approaches."
+          ]
+        },
+        {
+          "lane": "facilities",
+          "status": "completed",
+          "keyFindings": [
+            "Import candidates are Sandvatten shelter/toilet/fire/swim context, Utsikt Idefjorden, Grillplats Krokstrand and endpoint parking/access.",
+            "OSM picnic tables and guideposts are pending or access metadata.",
+            "Allemarken, Villa chez KoS, Björnerödspiggen, Bakke Camping and Stenhoggern are off-route/commercial/pending depending on scope.",
+            "No public potable water or formal public campsite was found."
+          ]
+        },
+        {
+          "lane": "transit-access",
+          "status": "completed",
+          "keyFindings": [
+            "Allemarksvägen is the best start stop, about 17 m from the official endpoint.",
+            "Björneröd is the best end stop, about 191 m from the official endpoint; Krokstrand and Björnerödsgården are alternatives.",
+            "Strömstad station is the main practical hub for line 893.",
+            "Timetables must be rechecked live, especially after 2026-06-15."
+          ]
+        },
+        {
+          "lane": "field-reports",
+          "status": "completed",
+          "keyFindings": [
+            "No recent closure/reroute/impassable report found.",
+            "2024 field reports support passability but note water stress and non-potable shelter/lake water.",
+            "2024 field report notes mud, fallen trees and steep awkward descent near Idefjorden/Sandviken.",
+            "AllTrails 2024 review says good conditions/views/not crowded."
+          ]
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "status": "completed",
+          "keyFindings": [
+            "No direct protected-area, Natura, water-protection, reserve-access or direct forestry-notice intersection found.",
+            "Nearby Flåghult/Näsinge water-protection areas and adjacent forestry notice A 40652-2024 are context/cautions only.",
+            "No official WST deviation/closure found and no official drinking-water POI found.",
+            "Fire, dog, hunting/livestock and water-treatment policies captured."
+          ]
+        }
+      ],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-25-havedalen-krokstrand.research.json",
+        "decision": "Stage 25 is ready for later normalization with caveats. No second research batch required because all major categories have official or corroborated evidence; remaining work is normalization-time GIS/live-timetable/service verification."
+      }
+    },
+    {
+      "batchId": "stage-26-iteration-1-reconstructed-from-section-json",
+      "sectionId": "bohusleden-stage-26-krokstrand-hogstad",
+      "startedAt": "2026-04-30",
+      "purpose": "six independent research lanes: official sources, route geometry, facilities, transit/access, field reports and rules/safety/currentness",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "status": "completed",
+          "keyFindings": [
+            "WST canonical identity is Krokstrand - Högstad, 13 km, 5-6 h, hard/red.",
+            "Current WST geometry start is near Björneröd/Björnerödspiggen parking, not Krokstrand village center.",
+            "Route narrative centers on Björnerödspiggen, Massleberg/Jörlov cultural sites and Högstad.",
+            "WST status empty and WST water/campsite category results zero.",
+            "Västsverige 17 km/medium/4-5 h is a stale-source contradiction."
+          ]
+        },
+        {
+          "lane": "route-geometry",
+          "status": "completed",
+          "keyFindings": [
+            "WST/Hoodin GPX/API are byte-for-byte equivalent navigation-grade geometry after de-duplication.",
+            "Official geometry computes about 13.293 km, has 630 effective vertices and exact joins to Stages 25 and 27.",
+            "Naturkartan, Västsverige and OSM are useful QA but not primary."
+          ]
+        },
+        {
+          "lane": "facilities",
+          "status": "completed",
+          "keyFindings": [
+            "Core candidates: Björnerödspiggen shelter/fire/view tower, Björnerödspiggen parking, Högstad board, Påsholk Högstad and Massleberg/Jörlov rock carvings.",
+            "OSM pit toilets are pending due fixme/duplicate concerns.",
+            "Krokstrand village and Stage 25 POIs should be off-route/suppressed for core Stage 26."
+          ]
+        },
+        {
+          "lane": "transit-access",
+          "status": "completed",
+          "keyFindings": [
+            "Björneröd is the closest start stop; Högstad is the endpoint stop about 0.53 km from the official end.",
+            "Line 893 is the main public transport thread; service is sparse and may require prebooking.",
+            "Skee and Strömstad stations are hubs; no ferry/boat access."
+          ]
+        },
+        {
+          "lane": "field-reports",
+          "status": "completed",
+          "keyFindings": [
+            "No recent closure/reroute/impassability report found.",
+            "Field reports support steep/rocky/wet terrain, small parking and private-road GPS caution near Björneröd.",
+            "2024 shelter photos support Björnerödspiggen facility currency but not potable water."
+          ]
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "status": "completed",
+          "keyFindings": [
+            "No direct protected-area/Natura/Ramsar/water-protection/forestry-notice intersection found.",
+            "WST status empty on 2026-04-30 01:49 UTC.",
+            "Fire/dog/livestock/hunting and dry-stage/no-water policies captured."
+          ]
+        }
+      ],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-26-krokstrand-hogstad.research.json",
+        "decision": "Stage 26 is ready for later normalization with caveats. No second research batch required because all major categories have official or corroborated evidence; remaining work is normalization-time coordinate reconciliation, GIS overlay and live transit/status checks."
+      }
+    },
+    {
+      "batchId": "stage-27-initial-six-lane-batch-2026-04-30",
+      "sectionId": "bohusleden-stage-27-hogstad-stromstad",
+      "startedAt": "2026-04-30T01:59:30Z",
+      "purpose": "Initial six-lane independent research for Stage 27.",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddc1c-2c1b-7eb1-92cb-8df7332b4acf",
+          "nickname": "Descartes the 2nd",
+          "status": "completed",
+          "completedAt": "2026-04-30T02:10:30Z",
+          "keyFindings": [
+            "Canonical official identity is Stage 27 Högstad - Strömstad, direction Högstad to Strömstad, but official copy says it can also be walked as first/last stage.",
+            "Distance 15 km is confirmed by WST, Naturkartan, Västsverige, PDF and Strömstad ArcGIS; ArcGIS precise length is 14976.217 m.",
+            "Use WST/API time 5 h and difficulty medium/blue; Västsverige/PDF say about 4-5 h and moderate.",
+            "WST GPX/API endpoints match seed: Högstad [58.951745,11.302371] and Strömstad [58.937119,11.174108].",
+            "Official exports include WST GPX/API, Strömstad municipal ArcGIS line/endpoints and Naturkartan site 21746; no official KML found.",
+            "WST GPX filename is Etapp27_Krokstrand_stromstad.gpx, a stale filename caveat, but geometry and page identity are Högstad-Strömstad."
+          ]
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddc1c-2cb1-7dc2-afc1-8dde30909498",
+          "nickname": "Dewey the 2nd",
+          "status": "completed",
+          "completedAt": "2026-04-30T02:13:00Z",
+          "keyFindings": [
+            "WST/Hoodin GPX and API are byte-for-coordinate identical; official-order Högstad to Strömstad endpoints are [58.951745,11.302371] to [58.937119,11.174108].",
+            "WST stored point count is 1983 with 1322 consecutive duplicate segments and 661 effective vertices; computed length after dedupe is about 14.935 km versus advertised 15 km.",
+            "Stage 26 endpoint to Stage 27 start gap is 0.00 m.",
+            "Naturkartan site 21746 has one simplified line with 434 points, exact endpoints, computed 14.931 km and under 1 m deviation from WST deduped line.",
+            "Västsverige/Google My Maps/KMZ is incomplete/stale for geometry: 449 points, computed 10.009 km, starts about 5.304 km along the official route and ends about 292 m from the WST endpoint.",
+            "OSM relation 1695270 is connected and useful QA: about 15.091 km non-excursion geometry, endpoint gaps 0.46 m and 5.84 m; exclude duplicated role=excursion side spur from main line."
+          ]
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddc1c-2d17-7711-bc7a-aca2f6b02303",
+          "nickname": "Sagan the 2nd",
+          "status": "completed",
+          "completedAt": "2026-04-30T02:16:30Z",
+          "keyFindings": [
+            "No official WST/Naturkartan/Västsverige potable dricksvatten POI or free trail campsite was found for Stage 27.",
+            "Importable core candidates: Etapptavla Högstad and Påsholk Högstad at route start, Vindskydd Rogstad/Hillern shelter-fire-view cluster around km 4.8, and Informationstavla Ekemyr around km 12.4.",
+            "Rogstad rainwater barrel exists but should be suppressed as drinking water because quality/reliability are unknown.",
+            "Endpoint/service candidates in Strömstad include station access, tourist info, Koster waiting-hall toilet, harbour services, public/OSM water taps pending verification, swimming, food, lodging and commercial camping.",
+            "Daftö Resort and Lagunen Camping are several kilometers off-route and should not be core Stage 27 facilities; keep only as regional access metadata if needed.",
+            "Blomsholm and Massleberg/Jörlov are heritage detours/context, not core Lane 3 facilities for the route line."
+          ]
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddc1c-2d4a-78b1-b4c8-be06f0bf492e",
+          "nickname": "Boole the 2nd",
+          "status": "completed",
+          "completedAt": "2026-04-30T02:08:30Z",
+          "keyFindings": [
+            "Start access: Högstad, Strömstad bus stop at 58.947386,11.298669 is about 529 m from the official start; Västtrafik line 893 serves Högstad but rural service must be checked same day.",
+            "End access: Strömstad station at 58.936612,11.173807 is about 59 m from the official end and provides Västtrafik bus plus Västtågen rail service.",
+            "Onward ferry context: Strömstad norra hamnen/Torget is about 322 m from the official end and serves Koster boats line 899; useful onward access but not required for Stage 27.",
+            "Official and regional sources also mention Blomsholmsmotet along the stage, small parking a little into the stage after the country road, and Strömstad city parking constraints.",
+            "Timetables for line 893/963 and Västtågen need recheck after their 2026 schedule-validity dates; Närtrafik is prebooked and limited to authorized areas/time windows."
+          ]
+        },
+        {
+          "lane": "field-reports-current-conditions",
+          "agentId": "019ddc1c-2d6a-7930-8d60-375b52456891",
+          "nickname": "Socrates the 2nd",
+          "status": "completed",
+          "completedAt": "2026-04-30T02:03:30Z",
+          "keyFindings": [
+            "Recent AllTrails reports through 2025-08-07 are positive, with good conditions/views and no crowding noted; no recent closure/reroute/blocked-route condition report found.",
+            "Wikiloc 2025 track is a West Sweden Trails-derived 14.93 km one-way activity with 1983 coordinates, useful only as community corroboration, not primary geometry.",
+            "An older 2021 AllTrails comment says the route is not a trail half of the time; preserve as possible road-walk/wayfinding friction but weight lower than 2024-2025 positive reports.",
+            "Strömstad/Västsverige context says local Bohusleden sections lack natural water source or drinking water; treat Stage 27 as carry-water despite Strömstad endpoint services.",
+            "Rogstad Hillern shelter/fireplace/wood-storage context was found from Strömstad/Västsverige grill-place sources."
+          ]
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddc1c-2db6-7ff1-b573-051274d41558",
+          "nickname": "Ramanujan the 2nd",
+          "status": "completed",
+          "completedAt": "2026-04-30T02:19:00Z",
+          "keyFindings": [
+            "WST status API returned [] at HTTP date Thu, 30 Apr 2026 02:07:50 GMT; no official closure/reroute/deviation found for Stage 27 at query time.",
+            "Official route geometry did not directly intersect checked nature reserve, Natura 2000, water-protection, animal/plant protection, cultural reserve or interim-protection layers.",
+            "Nearby but non-intersecting context includes Färingen water-protection area about 467 m away, Nötholmen reserve about 758 m away and Strömsvattnet reserve/Natura 2000 about 1.2 km away.",
+            "Länsstyrelsen fire-ban layer returned Inget eldningsförbud for Strömstad at query time; fire-ban status must be live-checked before use.",
+            "Stage 27 was within the 1 March-20 August strict dog-control period on 2026-04-30; agricultural/farmland sections make livestock caution relevant.",
+            "One Skogsstyrelsen forestry notification intersects near Högstad: A 60768-2022, 10 ha föryngringsavverkning, received 2022-12-12; not a trail closure but a field/currentness caution.",
+            "No stage-specific hunting closure or warning found; Blomsholm detour has private-land, designated-parking, no-littering and sheep-grazing conduct notes."
+          ]
+        }
+      ],
+      "status": "completed",
+      "synthesis": {
+        "status": "completed",
+        "outputFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-27-hogstad-stromstad.research.json",
+        "decision": "Stage 27 is ready for later normalization with caveats. No second research batch required; remaining work is normalization-time geometry de-duplication, endpoint service filtering, live checks and final GIS overlay."
+      },
+      "completedAt": "2026-04-30T02:26:00Z"
+    },
+    {
+      "batchId": "all-stages-mapdata-hardening-2026-04-30",
+      "sectionId": "all-bohusleden-stages",
+      "startedAt": "2026-04-30T03:00:00Z",
+      "completedAt": "2026-04-30T06:19:25Z",
+      "purpose": "Generate and audit research-only candidate mapdata from primary official WST/Hoodin GPX sources for every completed Bohusleden stage.",
+      "status": "completed",
+      "keyFindings": [
+        "Generated 27 section GeoJSON files and one combined FeatureCollection under mapdata/.",
+        "26 stages have full official candidate geometry ready for later normalization with caveats.",
+        "Stage 21 has partial official geometry only, about 4.389 km versus official 14 km, and remains blocked for complete route import.",
+        "Continuity audit found exact/negligible joins except Stage 8 to 9 at 49.4 m and Stage 21 to 22 at 4296.3 m.",
+        "All 27 official GPX source URLs returned HTTP 200; Stage 24 corrected URL casing resolved successfully.",
+        "No runtime app/source/generated data was touched."
+      ],
+      "outputs": [
+        "data/research/candidate-trails/bohusleden/mapdata/index.json",
+        "data/research/candidate-trails/bohusleden/mapdata/bohusleden-candidate-section-geometries.geojson",
+        "data/research/candidate-trails/bohusleden/mapdata/sections/*.geojson",
+        "data/research/candidate-trails/bohusleden/mapdata/reference/bohusleden-stage-21-osm-old-unblazed-reference.geojson",
+        "data/research/candidate-trails/bohusleden/mapdata/validation-report.json"
+      ]
+    }
+  ],
+  "sourceCoverage": {
+    "officialOverview": [
+      "West Sweden Trails overview page",
+      "West Sweden Trails track-segments API",
+      "trail.research.json overview packet"
+    ],
+    "officialRules": [
+      "West Sweden Trails Allemansratten",
+      "West Sweden Trails dog guidance",
+      "West Sweden Trails fire/fishing guidance"
+    ],
+    "naturkartan": [
+      "Captured per completed section where available; section files are source of truth."
+    ],
+    "osm": [
+      "Captured per completed section where relevant; section files are source of truth."
+    ],
+    "transit": [
+      "Captured per completed section with live timetable caveats; section files are source of truth."
+    ],
+    "fieldReports": [
+      "Captured per completed section from blogs/forums/route apps/local reports where available; section files are source of truth."
+    ],
+    "protectedAreas": [
+      "Captured per completed section with final GIS overlay still required before import."
+    ],
+    "stage-1": {
+      "officialSources": "complete; West Sweden Trails: 1. Älvsåker - Stensjön; West Sweden Trails / Hoodin official GPX: Bohusleden_etapp1.gpx; West Sweden Trails map API GeoJSON for Stage 1; additional sources in section JSON",
+      "routeGeometry": "complete; official West Sweden Trails / Hoodin GPX or official map API GeoJSON; navigation-grade after consecutive duplicate coordinate de-duplication",
+      "facilities": "complete; 33 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 2 start-side and 3 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-2": {
+      "officialSources": "complete; West Sweden Trails: 2. Stensjön - Skatås; West Sweden Trails / Hoodin official GPX: Bohusleden_etapp2.gpx; West Sweden Trails map API GeoJSON for Stage 2; additional sources in section JSON",
+      "routeGeometry": "complete; official West Sweden Trails / Hoodin GPX; navigation-grade after consecutive duplicate coordinate de-duplication",
+      "facilities": "complete; 25 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 2 start-side and 3 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-3": {
+      "officialSources": "complete; West Sweden Trails: 3. Skatås - Kåsjön; West Sweden Trails / Hoodin official GPX: Etapp3_skatas_kasjon.gpx; West Sweden Trails map API GeoJSON for Stage 3; additional sources in section JSON",
+      "routeGeometry": "complete; official West Sweden Trails / Hoodin GPX; navigation-grade after consecutive duplicate coordinate de-duplication",
+      "facilities": "complete; 15 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 2 start-side and 3 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-4": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: 4. Kåsjön - Jonsered; Official WST/Hoodin GPX: Etapp4_Kasjon_jonsered.gpx; West Sweden Trails map API pattern; additional sources in section JSON",
+      "routeGeometry": "complete; Official West Sweden Trails/Hoodin GPX; navigation-grade after consecutive duplicate coordinate de-duplication",
+      "facilities": "complete; 19 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 3 start-side and 3 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-5": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: 5. Jonsered - Angereds kyrka; Official WST/Hoodin GPX: Etapp5_Jonsered_angeredskyrka.gpx; West Sweden Trails map API pattern; additional sources in section JSON",
+      "routeGeometry": "complete; Official West Sweden Trails/Hoodin GPX main line; navigation-grade for official main line after consecutive duplicate coordinate de-duplication",
+      "facilities": "complete; 16 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 3 start-side and 2 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-6": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: 6. Angereds kyrka - Fontin; Official WST/Hoodin GPX: 6.-Angereds-kyrka---Fontin.gpx; West Sweden Trails map API pattern; additional sources in section JSON",
+      "routeGeometry": "complete; Official West Sweden Trails/Hoodin GPX; navigation-grade after consecutive duplicate coordinate de-duplication",
+      "facilities": "complete; 25 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 3 start-side and 5 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-7": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: 7. Fontin - Grandalen; Official WST/Hoodin GPX: Etapp-7-Fontin-Grandalen_2024.gpx; West Sweden Trails map API pattern; additional sources in section JSON",
+      "routeGeometry": "complete; Official West Sweden Trails/Hoodin GPX; official-primary-high-confidence-deduped",
+      "facilities": "complete; 22 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 4 start-side and 2 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-8": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: 8. Grandalen - Bottenstugan; Official WST/Hoodin GPX: Etapp8_Grandalen_bottenstugan.gpx; West Sweden Trails map API pattern; additional sources in section JSON",
+      "routeGeometry": "complete; Official West Sweden Trails/Hoodin GPX; A-",
+      "facilities": "complete; 21 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 2 start-side and 2 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-9": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: 9. Bottenstugan - Lysevatten; Official WST/Hoodin GPX: Bohusleden_etapp9.gpx; West Sweden Trails map API pattern; additional sources in section JSON",
+      "routeGeometry": "complete; Official WST/Hoodin GPX or WST map API; A-",
+      "facilities": "complete; 13 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 3 start-side and 2 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-10": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: 10. Lysevatten - Hasteröd; Official WST/Hoodin GPX: etapp10.gpx; West Sweden Trails map API pattern; additional sources in section JSON",
+      "routeGeometry": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; A-",
+      "facilities": "complete; 13 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 3 start-side and 4 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-11": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: 11. Hasteröd - Vassbovik; Official WST/Hoodin GPX: bohusleden_etapp11.gpx; West Sweden Trails map API pattern; additional sources in section JSON",
+      "routeGeometry": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; A-",
+      "facilities": "complete; 15 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 3 start-side and 4 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-12": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: 12. Vassbovik - Glimmingen; Official WST/Hoodin GPX: Etapp12_Vassbovik_glimmingen.gpx; West Sweden Trails map API pattern; additional sources in section JSON",
+      "routeGeometry": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; exact Naturkartan API/GPX match; A",
+      "facilities": "complete; 11 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 3 start-side and 1 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-13": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: 13. Glimmingen - Bjursjon; Official WST/Hoodin GPX: Etapp13_Glimmingen_bjursjon.gpx; West Sweden Trails map API pattern; additional sources in section JSON",
+      "routeGeometry": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; exact Naturkartan API/GPX match; A",
+      "facilities": "complete; 13 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 3 start-side and 4 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-14": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: 14. Bjursjön - Metsjö; Official WST/Hoodin GPX: Etapp14_Bjursjon_metsjo.gpx; West Sweden Trails map API pattern; additional sources in section JSON",
+      "routeGeometry": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; Naturkartan GPX exact duplicate; A",
+      "facilities": "complete; 14 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 4 start-side and 3 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-15": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: 15. Metsjö - Kaserna; Official WST/Hoodin GPX: etapp15.gpx; West Sweden Trails map API pattern; additional sources in section JSON",
+      "routeGeometry": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; Naturkartan GPX exact duplicate; A",
+      "facilities": "complete; 20 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 3 start-side and 4 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-16": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: 16. Kaserna - Borgmästarbruket; Official WST/Hoodin GPX: Etapp16_Kaserna_borgmastbruket.gpx; West Sweden Trails map API pattern; additional sources in section JSON",
+      "routeGeometry": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; Naturkartan GPX mirrored; B+",
+      "facilities": "complete; 17 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 4 start-side and 3 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-17": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: 17. Borgmästarbruket-Kyrkoryr; Official WST/Hoodin GPX: Etapp17_Borgmastarbruket_kyrkoryr.gpx; West Sweden Trails map API pattern; additional sources in section JSON",
+      "routeGeometry": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; Naturkartan GPX exact duplicate; A-",
+      "facilities": "complete; 12 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 3 start-side and 2 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-18": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: Stage 18 Kyrkoryr - Kynnefjälls natur; Official WST/Hoodin GPX: Etapp18_Kyrkoryr_kynnefjallsnatur.gpx; West Sweden Trails map API pattern; additional sources in section JSON",
+      "routeGeometry": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; Naturkartan GPX exact duplicate; B+",
+      "facilities": "complete; 15 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 3 start-side and 2 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-19": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: Stage 19 Kynnefjälls natur - Vaktarekullen; Official WST/Hoodin GPX: Etapp19_Kynnefjallsnatur_vaktarekullen.gpx; West Sweden Trails map API pattern; additional sources in section JSON",
+      "routeGeometry": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; Naturkartan GPX/API exact duplicate; A-",
+      "facilities": "complete; 19 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 4 start-side and 4 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-20": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: Stage 20 Vaktarekullen - Flötemarksön; Official WST/Hoodin GPX: Etapp20_Vaktarekullen_flotemarkssjon.gpx; West Sweden Trails map API pattern; additional sources in section JSON",
+      "routeGeometry": "complete; Official West Sweden Trails/Hoodin GPX or WST map API; Naturkartan GPX exact duplicate; A-",
+      "facilities": "complete; 14 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 5 start-side and 6 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-21": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: Stage 21 Flötemarksön - Porsås; Official WST/Hoodin GPX: Etapp21_Flotemarkssjon_porsas.gpx; West Sweden Trails map API pattern; additional sources in section JSON",
+      "routeGeometry": "complete; Official WST/Hoodin GPX or WST map API; Naturkartan GPX exact duplicate; D for full-stage import / B for mapped first segment after de-duplication",
+      "facilities": "complete; 11 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 6 start-side and 5 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-22": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: Stage 22 Porsås - Nornäs; Official WST/Hoodin GPX: Etapp22_Porsas_nornas.gpx; West Sweden Trails map API pattern; additional sources in section JSON",
+      "routeGeometry": "complete; Official WST/Hoodin GPX or WST map API; Naturkartan GPX exact duplicate; A- for Stage 22 import after consecutive duplicate collapse",
+      "facilities": "complete; 7 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 5 start-side and 5 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-23": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: Stage 23 Nornäs - Vassbotten; West Sweden Trails Swedish Stage 23; Official WST/Hoodin GPX: Etapp23_Nornas_vassbotten.gpx; additional sources in section JSON",
+      "routeGeometry": "complete; Official WST/Hoodin GPX or WST map API; Naturkartan GPX exact duplicate; A- for Stage 23 import after consecutive duplicate collapse",
+      "facilities": "complete; 11 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 3 start-side and 4 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-24": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: Stage 24 Vassbotten - Håvedalen; West Sweden Trails Swedish Stage 24; Västsverige: Bohusleden stage 24 Vassbotten-Håvedalen; additional sources in section JSON",
+      "routeGeometry": "complete; official WST/Hoodin GPX or identical WST map API GeoJSON; navigation-grade after removing consecutive duplicate points",
+      "facilities": "complete; 14 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 4 start-side and 4 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-25": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: Stage 25 Håvedalen - Krokstrand; West Sweden Trails Swedish Stage 25; Västsverige: Bohus Path Section 25 / Bohusleden etapp 25; additional sources in section JSON",
+      "routeGeometry": "complete; official WST/Hoodin GPX or identical WST map API GeoJSON; navigation-grade after removing consecutive duplicate points",
+      "facilities": "complete; 14 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 3 start-side and 4 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-26": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: Stage 26 Krokstrand - Högstad; West Sweden Trails English Stage 26; Official WST/Hoodin GPX: Etapp26_Krokstrand_hogstad.gpx; additional sources in section JSON",
+      "routeGeometry": "complete; official WST/Hoodin GPX or identical WST map API GeoJSON; navigation-grade after removing consecutive duplicate points",
+      "facilities": "complete; 12 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 4 start-side and 2 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "stage-27": {
+      "officialSources": "complete; West Sweden Trails / Bohusleden: Stage 27 Högstad - Strömstad; West Sweden Trails English Stage 27; Official WST/Hoodin GPX: Etapp27_Krokstrand_stromstad.gpx; additional sources in section JSON",
+      "routeGeometry": "complete; official WST/Hoodin GPX or identical WST map API GeoJSON; navigation-grade after removing consecutive duplicate points",
+      "facilities": "complete; 20 candidate records with import/suppress/pending recommendations",
+      "transitAccess": "complete; 2 start-side and 2 end-side access records or notes",
+      "fieldReports": "complete; condition/currentness reports recorded in conditionReports with dated sources where found",
+      "rulesSafety": "complete; rules/safety/currentness recorded with source URLs and caveats"
+    },
+    "mapdata": {
+      "status": "complete; research-only mapdata generated and validated on 2026-04-30",
+      "files": [
+        "mapdata/index.json",
+        "mapdata/bohusleden-candidate-section-geometries.geojson",
+        "mapdata/sections/*.geojson",
+        "mapdata/reference/bohusleden-stage-21-osm-old-unblazed-reference.geojson",
+        "mapdata/validation-report.json"
+      ],
+      "primaryGeometrySource": "West Sweden Trails / Hoodin official GPX URLs recorded in each section research packet and mapdata/index.json",
+      "validationSummary": "All 27 section mapdata files are GeoJSON Feature LineStrings with valid lon/lat coordinates and no consecutive duplicate coordinates; combined FeatureCollection has 27 features; all 27 official GPX source URLs returned HTTP 200 on 2026-04-30.",
+      "importPosition": "Stages 1-20 and 22-27 have full official candidate geometry ready for later normalization with caveats. Stage 21 has partial official geometry only and must not be imported as a complete stage."
+    }
+  },
+  "knownGaps": [
+    "All 27 Bohusleden official stages now have completed section research JSON files and research-only candidate mapdata files under data/research/candidate-trails/bohusleden/mapdata/.",
+    "Stages 1-20 and 22-27 have full official WST/Hoodin candidate geometry ready for later normalization with caveats; section research JSON files remain the source of truth for facilities, access, rules, contradictions and import actions.",
+    "Stage 21 remains the only hard geometry block. Official WST/Hoodin GPX, Naturkartan and current OSM linework cover only about 4.389 km while the official stage is 14 km, and official text says the middle requires self-navigation. Do not bridge, snap or auto-route the 4.296 km gap to Stage 22.",
+    "Stage 21 OSM relation 14328643 is retained only as mapdata/reference/bohusleden-stage-21-osm-old-unblazed-reference.geojson because the relation itself describes an old route that is no longer blazed. It is not importable as the current official Stage 21 route.",
+    "Stage 8 to Stage 9 has a small official continuity gap of about 49.4 m at Bottenstugan. Review during route-chain normalization rather than silently snapping.",
+    "Stage 24 GPX URL casing was corrected to Etapp24_Vassbotten_havedalen.gpx and the corrected URL returned HTTP 200 during the 2026-04-30 source URL check.",
+    "All generated mapdata uses GeoJSON coordinate order [longitude, latitude]. Consecutive duplicate WST GPX coordinates were removed; no simplification, snapping or routing was applied.",
+    "All completed sections still need import-time live checks for fire bans, WST status/deviation widgets, transit timetables, commercial opening hours and seasonal services.",
+    "All completed sections need final GIS line-buffer overlay before public protected-area/water-protection rule warnings are generated.",
+    "Facility records needing coordinate verification remain recorded in their section files; notable examples include Stora Hassungaredssjön/Stage 1, Stenshult/Stage 12, Säveleken/Stage 19, Kasebo/Stage 20, Björnerödspiggen/Stage 26 and endpoint service clusters in Strömstad/Stage 27.",
+    "Remote northern access remains weak in several sections, especially Stages 21-24 and the Vaktarekullen/Flötemarksön/Porsås/Nornäs corridor; section commuteAccess records include caveats and must be live-checked before publication.",
+    "No runtime app data, source hiking data, public data, routes, generated outputs, package.json or shared scripts were intentionally edited by this research/mapdata pass."
+  ],
+  "nextActions": [
+    "Do not run generated-data/import commands and do not integrate these files into runtime app data yet.",
+    "For the next safe normalization task, use data/research/candidate-trails/bohusleden/mapdata/index.json plus mapdata/sections/*.geojson for Stages 1-20 and 22-27, carrying over each section file caveat.",
+    "Exclude Stage 21 from complete-route import until Tanum municipality/WST provides authoritative full-stage geometry or the app deliberately supports a partial/self-navigation stage model.",
+    "Review the 49.4 m Stage 8-to-Stage 9 Bottenstugan continuity gap before chaining routes.",
+    "Run final GIS overlays for protected areas, water-protection zones and restriction subsegments before generating public rule warnings.",
+    "Live-check WST status/deviations, fire bans, transit timetables, seasonal water/toilet/service availability and known bridge/raft/forestry notices immediately before publication.",
+    "During facility normalization, verify pending coordinate clusters and keep off-route/commercial/private services as access metadata unless the section file marks them importable."
+  ],
+  "handoffNotes": [
+    "Mapdata hardening completed on 2026-04-30T06:19:25Z: mapdata/ now contains 27 section GeoJSON files, a combined QA FeatureCollection, index.json, validation-report.json and the Stage 21 old/unblazed OSM reference file.",
+    "Validation completed on 2026-04-30T06:19:25Z: all candidate mapdata JSON/GeoJSON parsed, every section file is a Feature LineString with valid lon/lat coordinates and no consecutive duplicate coordinates, and all 27 WST/Hoodin GPX source URLs returned HTTP 200.",
+    "Stage 21 resolution result: no authoritative full official/current route geometry was found. Keep only the partial official marked segment and do not substitute straight-line routing, automatic routing or old/unblazed OSM relation 14328643.",
+    "Stage 24 source-risk fix: all section/mapdata references now use the working official GPX URL casing Etapp24_Vassbotten_havedalen.gpx.",
+    "README.md updated on 2026-04-30T02:26:00Z to mark Stages 1-27 complete and add Stage 27 caveats.",
+    "All 27 Bohusleden official stages now have section research JSON files; Stage 21 remains researched but blocked for normal full-route import because authoritative full-stage geometry is missing.",
+    "Stage 27 completed on 2026-04-30T02:26:00Z: sections/bohusleden-stage-27-hogstad-stromstad.research.json is written and JSON-valid; import readiness is ready-for-normalization-with-caveats.",
+    "Stage 27 rules/safety lane completed on 2026-04-30T02:19:00Z; progress updated with empty WST status, no direct protected-area/water-protection overlap, fire/dog/livestock rules and forestry-notification caveat.",
+    "Stage 27 facilities lane completed on 2026-04-30T02:16:30Z; progress updated with Högstad, Rogstad/Hillern, Ekemyr and Strömstad endpoint facility candidates plus no-official-water/no-free-campsite caveats.",
+    "Stage 27 route-geometry lane completed on 2026-04-30T02:13:00Z; progress updated with WST/Hoodin primary geometry, Naturkartan/OSM corroboration, exact Stage 26 join and incomplete Västsverige KMZ warning.",
+    "Stage 27 official-sources lane completed on 2026-04-30T02:10:30Z; progress updated with canonical identity, 15 km/5 h/medium, WST/Naturkartan/Västsverige/PDF/ArcGIS sources and stale GPX filename caveat.",
+    "Stage 27 transit/access lane completed on 2026-04-30T02:08:30Z; progress updated with Högstad stop, Strömstad station, Koster ferry context, parking and timetable caveats.",
+    "Progress file refreshed on 2026-04-30T02:06:30Z from completed section research JSON files; section JSON files and README retain the detailed research findings.",
+    "Stage 27 field-reports lane completed on 2026-04-30T02:03:30Z; progress updated with recent good-condition reports, older road/path warning, no-current-closure finding, Rogstad Hillern context and dry-stage warning.",
+    "Stage 27 initial six-lane batch started on 2026-04-30T01:59:30Z; coordinator owns research-progress.json and final section JSON.",
+    "Stage 26 completed on 2026-04-30T01:56:21Z: sections/bohusleden-stage-26-krokstrand-hogstad.research.json is written and JSON-valid; import readiness is ready-for-normalization-with-caveats.",
+    "Stage 25 completed on 2026-04-30T01:41:02Z: sections/bohusleden-stage-25-havedalen-krokstrand.research.json is written and JSON-valid; import readiness is ready-for-normalization-with-caveats.",
+    "Stage 24 completed on 2026-04-30T01:22:28Z: sections/bohusleden-stage-24-vassbotten-havedalen.research.json is written and JSON-valid; import readiness is ready-for-normalization-with-caveats.",
+    "Stages 1-26 output files are complete; Stage 21 remains not ready for normal route import due missing full-stage geometry.",
+    "No runtime app/source/generated data was modified."
+  ]
+}
