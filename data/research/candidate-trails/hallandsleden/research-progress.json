@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-30T04:05:00Z",
-  "currentPhase": "Phase 2 S8 complete and validated; ready to start hallandsleden-ekegarden-koarp",
+  "lastUpdated": "2026-04-30T05:10:00Z",
+  "currentPhase": "Phase 2 S9 complete and validated; ready to start hallandsleden-sandsjobacka-kungsbacka-c",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -26,7 +26,8 @@
     "hallandsleden-simlangsdalen-halmstad",
     "hallandsleden-simlangsdalen-mastocka",
     "hallandsleden-mastocka-knared",
-    "hallandsleden-knared-ekegarden"
+    "hallandsleden-knared-ekegarden",
+    "hallandsleden-ekegarden-koarp"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -755,19 +756,40 @@
       "sectionNumber": "S9",
       "name": "Ekegården - Koarp",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-map-line-discovered-needs-gpx-cross-check",
-      "startEndCoordinateStatus": "official-map-line-endpoints-captured-needs-validation",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-official-source-lane-and-main-thread-baseline",
+      "routeGeometryStatus": "complete-official-gpx-api-geojson-canonical-line-naturkartan-osm-suppressed",
+      "startEndCoordinateStatus": "complete-official-gpx-api-endpoints-high-confidence-s8-handoff-exact-koarp-skaneleden-continuation-validated",
+      "commuteAccessStatus": "complete-weak-rural-endpoint-transit-distant-fallbacks-parking-unverified",
+      "facilityResearchStatus": "complete-core-facilities-ready-shared-endpoint-and-side-service-filtering-needed",
+      "rulesSafetyStatus": "complete-no-active-closure-road24-fire-dog-hunting-forestry-musikedalen-source-conflict-caveats",
+      "synthesisStatus": "complete-section-json-written-and-validation-passed",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
         "Run six independent section research lanes and synthesize findings.",
         "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
         "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision.",
+        "S9 batch started using six research lanes.",
+        "Pay special attention to the Ekegården S8/S9 handoff, Koarp as the Södra endpoint and Skåneleden connection, official 13 km medium route, official GPX Sodra_Ekegarden_Koarp.gpx, weak rural access, water/camping/fire/toilet evidence, endpoint facilities, protected-area/rules/currentness and stale source risks.",
+        "Main-thread baseline found the official GPX Sodra_Ekegarden_Koarp.gpx is HTTP 200, Last-Modified 2025-06-23, ETag c6bb314250f85207133d21ad3a36217c, name Ekegården - Koarp, metadata name Sodra_Ekegarden_Koarp, metadata time 2025-06-23T09:26:49+02:00, desc Total: 12.8 km, 457 points, computed 12.770 km, start 56.425017,13.199396 and end 56.356602,13.107095.",
+        "Main-thread baseline found Hallandsleden API geo_json matches the official GPX exactly: 457 points, computed 12.770 km, start 56.425017,13.199396, end 56.356602,13.107095, official rounded length 13 km, medium difficulty and no official time.",
+        "Main-thread baseline found Hallandsleden API line.geometry is not endpoint-exact: 554 points, computed 13.546 km, start 56.42667509615421,13.20307295769453 about 291.7 m from the GPX start and end 56.35651873424649,13.10737894847989 about 19.8 m from the GPX end; treat line.geometry as planning/legacy corroboration pending route-geometry lane.",
+        "Main-thread baseline verified S8/S9 handoff: S8 GPX end 56.425017,13.199396 to S9 GPX start 56.425017,13.199396 is 0 m.",
+        "Official page baseline: section alternates forest road, road and natural path, crosses Smedjeån and Stensån, passes a slipränna about 100 m downstream from the Smedjeån bridge, continues through an ice-age shaped hilly landscape and villages, crosses a stone bridge at Klippebäcken, continues through beech forest to Koarp, and warns to take great care crossing road 24.",
+        "Official difficulty/accommodation baseline: difficulty is blue/medium; most of the section is easy roads/paths, last part climbs Hallandsåsen with mostly moderate hills and a few steeper hills before Koarp. Official page says Ekegården and Koarp both have camps/rest places with shelter, fireplace with firewood and dry toilet; Koarp has two shelters and drinking water.",
+        "Official places API baseline returned 20 records when queried with output-template=trails.placeItem and trackSegment=ekegarden-koarp. Core/likely S9 candidates include Lägerplats Ekegården, Dricksvatten Skråmered, Sliprännor i Smedjeån, Istidslandskap, Stenbro över Klippebäcken, Dricksvatten vid Koarp and Lägerplats Koarp; it also includes Horsabäck/Smedjeån carryover near the start and Våxtorp/side-service records to filter.",
+        "Facility baseline route-proximity check: Lägerplats Ekegården is about 93 m from the S9 start, Dricksvatten Skråmered about 20 m from route km 2.91, Sliprännor i Smedjeån about 19 m from route km 3.18, Istidslandskap about 3 m from route km 7.82, Stenbro över Klippebäcken about 50 m from route km 10.65, Dricksvatten vid Koarp about 20 m from route end and Lägerplats Koarp about 38 m from route end. Våxtorp stop/services are about 2 km off route around km 3.3 and likely side/access metadata.",
+        "Naturkartan baseline found site 22053 title Ekegården - Koarp, visible length 13.0 km and GPX with 633 points/computed 13.072 km in reverse from Koarp 56.3565246,13.1070159 to near Ekegården/Horsabäck 56.4267837,13.2029409; start matches official Koarp end within about 10 m but Ekegården side ends about 293 m from official GPX start, similar to Hallandsleden line.geometry.",
+        "OSM baseline found relation 7396991 named Hallandsleden Etappen Ekegården - Koarp, distance tag 13, from Ekegården to Koarp, network nwn, orange symbol and website Hallandsleden; use as validation only pending full geometry ordering and lane report.",
+        "Official-source lane confirmed canonical identity/order/distance/difficulty/no-time, route description, official GPX/API/places evidence, road 24 warning, Koarp Skåneleden continuation, Musikedalen endpoint context and Koarp water-tap currentness caveat with temporary 20-liter water container.",
+        "Route-geometry lane confirmed official GPX/API geo_json point count 457 and computed length 12.771 km, exact direction Ekegården to Koarp, exact S8/S9 handoff, Koarp/Skåneleden continuation within about 2.9 m, and suppression of line.geometry, Naturkartan and OSM as direct import geometry.",
+        "Transit-access lane confirmed Ekegården and Koarp have no close public transport; Sandvad about 6.02 km and Storegård Aggarpsvägen about 8.08 km are distant fallbacks only; endpoint service-road/parking access remains unverified.",
+        "Field-report lane found no active S9 closure/reroute, supported terrain/road 24/wet-weather caveats, and flagged recent Skåneleden Koarp-Brammarp bridge/clearcut issues as adjacent continuation context only.",
+        "Facilities lane classified core import candidates at shared Ekegården, Skråmered water, Smedjeån sliprännor, Istidslandskap, Klippebäcken stone bridge and shared Koarp camp/water; it flagged Koarp water tap/currentness issue, no Ekegården water, S8/Horsabäck side-connection records, Våxtorp side services and OSM subnode dedupe/suppression.",
+        "Rules-safety lane found no active S9 closure/reroute, no direct NVR/Natura 2000 intersection from registry geometry checks, a Musikedalen source conflict, unverified Skogaby water-protection context, three forestry advisories near route km 1.06-1.39, road 24/water-crossing/final-climb safety notes and dynamic fire/dog/hunting guidance.",
+        "All six S9 lane reports are in. Main thread decided no targeted follow-up batch is needed before synthesis because remaining issues are import/currentness caveats: Koarp water currentness, Musikedalen/GIS overlay, Skogaby VSO polygon, endpoint parking/access and side-service filtering.",
+        "S9 synthesis complete: section JSON written at sections/hallandsleden-ekegarden-koarp.research.json. It is research-ready with caveats around canonical GPX/API geometry versus line.geometry/Naturkartan/OSM suppression, weak endpoint access, Koarp water currentness, no Ekegården water, side-service filtering, Musikedalen/Skogaby overlay questions, forestry/currentness and dynamic fire/transit checks.",
+        "Full Hallandsleden candidate JSON validation and git diff --check passed for S9 before commit."
       ]
     },
     "hallandsleden-sandsjobacka-kungsbacka-c": {
@@ -4908,6 +4930,197 @@
       "synthesizedAt": "2026-04-30T04:00:00Z",
       "synthesisOutput": "sections/hallandsleden-knared-ekegarden.research.json",
       "synthesisSummary": "Synthesized S8 Knäred - Ekegården into a research-ready section JSON after all six lane reports plus main-thread official/API/GPX/Naturkartan/OSM/places/rules checks. Canonical geometry is the official GPX/API geo_json, 342 points and 25.057 km computed, with exact/strong S7 and S9 handoffs. Hallandsleden line.geometry, Naturkartan visible 18 km metadata and OSM relation 7396990 preserve stale Västralt-Ekegården-era evidence and must be suppressed. Knäred transit is strong; Ekegården transit is weak and access relies on shelter/road/pickup/continuation caveats. Core Gula villan/Västralt/Vippentorpet/Smedjeån/Ekegården records are ready with water, side-facility, protected-area, 2024 reroute, forestry and dynamic fire/currentness caveats."
+    },
+    {
+      "batchId": "hallandsleden-ekegarden-koarp-initial-6-lane-2026-04-30",
+      "sectionId": "hallandsleden-ekegarden-koarp",
+      "startedAt": "2026-04-30T04:10:00Z",
+      "status": "synthesized-section-json-written",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "nickname": "Carson"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "nickname": "Darwin"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "nickname": "Beauvoir the 2nd"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "nickname": "Poincare the 2nd"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "nickname": "Rawls the 2nd"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "nickname": "Kuhn the 2nd"
+        }
+      ],
+      "requestedOutputs": [
+        "official facts",
+        "geometry verification",
+        "facilities",
+        "transit/access",
+        "field reports",
+        "rules/safety/currentness"
+      ],
+      "notes": [
+        "Research only; agents must not edit files. Main thread owns final JSON/progress writes.",
+        "Focus on Ekegården S8/S9 handoff, current official Ekegården-Koarp naming, official GPX/API/overview linework consistency, Koarp final Södra endpoint and Skåneleden connection, endpoint access/transit at Ekegården and Koarp, facilities/water/camping/fire/toilet evidence, protected-area/currentness and stale source risks."
+      ],
+      "receivedReports": [
+        {
+          "lane": "official-sources",
+          "receivedAt": "2026-04-30T04:35:00Z",
+          "summary": "Confirmed canonical S9 identity/order/distance/difficulty/no-time, route description, official GPX/API metadata, official facilities/places, road 24 warning, Koarp Skåneleden continuation, Musikedalen endpoint/continuation context, dynamic fire guidance and source risks. Noted Lägerplats Koarp has an active water-tap problem with a temporary 20-liter water container, so Koarp water needs currentness caveat.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/ekegarden-koarp",
+            "https://www.hallandsleden.se/en/etapp/ekegarden-koarp",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Ekegarden_Koarp.gpx",
+            "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=ekegarden-koarp&token=<public-page-token>",
+            "https://www.hallandsleden.se/api/v2/places?trackSegment=ekegarden-koarp&token=<public-page-token>",
+            "https://www.naturkartan.se/sv/hallands-lan/ekegarden-koarp-hallandsleden",
+            "https://skaneleden.se/en/etapp/14-koarp-brammarp",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/musikedalen.html"
+          ],
+          "importImpacts": [
+            "Use official S9 identity, distance 13 km, medium/blue difficulty and null time.",
+            "Use official GPX first/last points for endpoints and geometry unless geometry synthesis finds a stronger reason otherwise.",
+            "Import Ekegården and Koarp campsites, Skråmered and Koarp water with Koarp water-currentness caveat.",
+            "Model Koarp as Hallandsleden terminus and Skåneleden continuation node.",
+            "Filter Våxtorp and other off-route services before import."
+          ]
+        },
+        {
+          "lane": "route-geometry",
+          "receivedAt": "2026-04-30T04:35:00Z",
+          "summary": "Confirmed official GPX/API geo_json as canonical navigation-grade geometry: 457 points, 12.771 km computed, start Ekegården 56.425017,13.199396, end Koarp 56.356602,13.107095, exact S8 handoff. Hallandsleden line.geometry is 554 points/13.546 km with a 291.7 m Ekegården start offset; Naturkartan is reverse/planning-grade and about 293 m short at Ekegården; OSM relation 7396991 labels are current but member ordering is gap-heavy. Skåneleden continuation near Koarp validates within about 2.9 m.",
+          "keySources": [
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Ekegarden_Koarp.gpx",
+            "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=ekegarden-koarp&token=<public-page-token>",
+            "https://www.naturkartan.se/sv/hallands-lan/ekegarden-koarp-hallandsleden",
+            "https://api.naturkartan.se/v3.2/sites/22053",
+            "https://www.naturkartan.se/sv/hallands-lan/ekegarden-koarp-hallandsleden.gpx",
+            "https://www.openstreetmap.org/relation/7396991",
+            "https://www.openstreetmap.org/relation/4430436"
+          ],
+          "importImpacts": [
+            "Import official GPX/API geo_json as navigation-grade canonical geometry.",
+            "Suppress Hallandsleden line.geometry, Naturkartan and OSM as direct import geometry; use them for QA only.",
+            "Preserve Ekegården to Koarp direction and exact S8 handoff.",
+            "Model Koarp as Hallandsleden terminus / Skåneleden continuation node."
+          ]
+        },
+        {
+          "lane": "transit-access",
+          "receivedAt": "2026-04-30T04:35:00Z",
+          "summary": "Confirmed both endpoints have weak/no close public transport. Ekegården nearest mapped transit fallback is Sandvad about 6.02 km away on Hallandstrafiken line 227; Koarp nearest mapped stop is Storegård Aggarpsvägen about 8.08 km away on Skånetrafiken line 511. Ekegården and Koarp shelter/campsite clusters are within 20-30 m of endpoints; service-road access exists but public parking is unconfirmed. No ferry/boat/rowboat applies.",
+          "keySources": [
+            "https://www.openstreetmap.org/node/288613908",
+            "https://transitapp.com/en/region/halland/hallandstrafiken/bus-227",
+            "https://www.openstreetmap.org/node/294842638",
+            "https://www.skanetrafiken.se/gw-timetables/Regionbuss/251214_260613/Regionbuss_511_251214_260613.pdf",
+            "https://www.openstreetmap.org/node/3042769541",
+            "https://www.openstreetmap.org/node/1994382919",
+            "https://www.openstreetmap.org/node/9038054841"
+          ],
+          "importImpacts": [
+            "Model Ekegården and Koarp as trail-facility/pickup/continuation access, not direct transit-accessible endpoints.",
+            "Use Sandvad and Storegård Aggarpsvägen only as distant fallback transit records with strong caveats.",
+            "Do not import close endpoint parking unless separately verified.",
+            "Add road 24 crossing caution."
+          ]
+        },
+        {
+          "lane": "field-reports",
+          "receivedAt": "2026-04-30T04:35:00Z",
+          "summary": "Found no active S9-specific closure or reroute. Current/near-current partner and route-app evidence confirms Ekegården-Koarp 13 km, Hallandsåsen climb, Smedjeån/Stensån/Klippebäcken context and no Naturkartan reviews. Historical 2015 field report supports wet-weather puddles/rocky awkward footing and shelter amenities but is stale. Recent Skåneleden Koarp-Brammarp bridge/clearcut issues belong to the adjacent continuation and should not be imported as S9 conditions.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/ekegarden-koarp",
+            "https://www.hallandsleden.se/report/ekegarden-koarp",
+            "https://www.naturkartan.se/sv/hallands-lan/ekegarden-koarp-hallandsleden",
+            "https://www.mypacer.com/ru/routes/oi0ete/halllandsleden-stage-ekeg%C3%A5rden-koarp-%D0%BF%D0%BE%D1%85%D0%BE%D0%B4-%D1%82%D1%80%D0%BE%D0%BF%D0%B0-%D1%85%D0%B0%D0%BB%D0%BB%D0%B0%D0%BD%D0%B4%D1%81-%D0%BB%D0%B5%D0%BD",
+            "https://www.alltrails.com/sv-se/led/sweden/halland/mot-on-via-hallandsleden",
+            "https://www.bejegard.se/vandring/halland/hallandsleden/hallandsleden-ekegarden-koarp-13-km/",
+            "https://www.skaneleden.se/en/etapp/14-koarp-brammarp"
+          ],
+          "importImpacts": [
+            "Do not import active closure/reroute.",
+            "Import road 24 warning and terrain/seasonal wet footing caveat.",
+            "Do not attach adjacent Skåneleden Koarp-Brammarp bridge/clearcut reports to S9.",
+            "Do not infer Ekegården potable water from stale field report; verify against official place evidence."
+          ]
+        },
+        {
+          "lane": "facilities",
+          "receivedAt": "2026-04-30T04:45:00Z",
+          "summary": "Classified core import candidates: shared Lägerplats Ekegården, Dricksvatten Skråmered, Sliprännor i Smedjeån, Istidslandskap, Stenbro över Klippebäcken, shared Lägerplats Koarp and Dricksvatten vid Koarp. Marked Horsabäck/Smedjeån POIs as S8/shared-start side connection, Våxtorp/Vallåsens/Våxtorps Camping/Vallens/SimpleLiving services as side or pending, and OSM subnodes as merge/suppress records. Confirmed no Ekegården drinking water and Koarp water season/current tap issue.",
+          "keySources": [
+            "https://www.hallandsleden.se/plats/lagerplats-ekegarden",
+            "https://www.hallandsleden.se/plats/dricksvatten-skramered",
+            "https://www.hallandsleden.se/plats/sliprannor-i-smedjean",
+            "https://www.hallandsleden.se/plats/istidslandskap",
+            "https://www.hallandsleden.se/plats/stenbro-over-klippebacken",
+            "https://www.hallandsleden.se/plats/lagerplats-koarp",
+            "https://www.hallandsleden.se/plats/dricksvatten-vid-koarp",
+            "https://vindskyddskartan.se/en/places/78/Koarp%20Vindskydd",
+            "https://www.openstreetmap.org/node/1994382919",
+            "https://www.openstreetmap.org/node/3042769541"
+          ],
+          "importImpacts": [
+            "Import Ekegården and Koarp as shared endpoint facility clusters with merged subfacility evidence.",
+            "Import Skråmered water and Koarp seasonal water; attach private-service caveat at Skråmered and current tap/temporary-container caveat at Koarp.",
+            "Do not import Ekegården drinking water without stronger evidence.",
+            "Import Smedjeån sliprännor, Istidslandskap and Klippebäcken stone bridge as core POIs.",
+            "Keep Våxtorp and other service records as side/pending rather than core S9 facilities."
+          ]
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "receivedAt": "2026-04-30T04:55:00Z",
+          "summary": "Found no active S9 closure/reroute or adjacent Skåneleden connection closure. No direct NVR/Natura 2000 intersection found from registry geometry checks, but Musikedalen has a source conflict: Länsstyrelsen says Hallandsleden goes through the reserve while GPX/NVR check placed it about 329 m away near km 11.56. Skogaby water-protection intersection is unverified. Recorded fire, dog, hunting, camping, road 24, water crossings, final Hallandsåsen climb and three Skogsstyrelsen forestry notifications near early route km 1.06-1.39.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/ekegarden-koarp",
+            "https://www.hallandsleden.se/item/viktig-information/i48rep1ncwkafz7wux50lp0dhxvboodp",
+            "https://geodata.naturvardsverket.se/naturvardsregistret/wfs",
+            "https://geodata.naturvardsverket.se/n2000/wfs",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/musikedalen.html",
+            "https://hallandsleden.se/item/allemansratten/5fogqeoayrfqw4vcyz7lruickdh88ahe",
+            "https://www.hallandsleden.se/item/vandra-med-hund/gkvddie3ttmazifzlnqae9q4phuhj32b",
+            "https://www.hallandsleden.se/item/vandra-under-jaktsasongen/fxm1j3j5ltmdkd65aqrztndfqhr3txnq",
+            "https://geodpags.skogsstyrelsen.se/arcgis/rest/services/Geodataportal/GeodataportalVisaSkogsbruk/MapServer/5",
+            "https://www.skogsstyrelsen.se/bruka-skog/avverkning/anmalan-om-avverkning/"
+          ],
+          "importImpacts": [
+            "Do not import active closure/reroute.",
+            "Import road 24 high-priority safety warning, water-crossing notes and final Hallandsåsen climb caution.",
+            "Treat Musikedalen as a nearby/source-conflict open question, not a confirmed S9 protected-area span until GIS overlay resolves it.",
+            "Do not import Skogaby water-protection area as confirmed until polygon verification.",
+            "Import forestry advisories near km 1.06-1.39 as currentness notes, not closures.",
+            "Attach dynamic fire, dog and hunting advisories."
+          ]
+        }
+      ],
+      "mainThreadBaseline": {
+        "completedAt": "2026-04-30T04:25:00Z",
+        "summary": "Main thread checked S9 official page, official GPX, Hallandsleden API map/places, Naturkartan page/GPX, OSM relation tags and S8 endpoint continuity. Official GPX/API geo_json appears canonical: 457 points, 12.770 km computed, start Ekegården 56.425017,13.199396 and end Koarp 56.356602,13.107095, exact S8 handoff, official 13 km/medium/no-time metadata. Hallandsleden API line.geometry and Naturkartan GPX are endpoint-near but not start-exact at Ekegården, both ending/starting around 292-293 m from the official GPX start on the Horsabäck/Smedjeån cluster. Official places API returned 20 records with core S9 candidates at Ekegården, Skråmered water, Smedjeån sliprännor, Istidslandskap, Klippebäcken stone bridge, Koarp water and Koarp campsite, plus Horsabäck/S8 carryover and Våxtorp side-service records to filter. Official page records road 24 crossing caution, Hallandsåsen climb/steeper hills before Koarp, and Koarp connection to Skåneleden Koarp-Brammarp."
+      },
+      "completedAt": "2026-04-30T04:55:00Z",
+      "synthesizedAt": "2026-04-30T05:05:00Z",
+      "synthesisOutput": "sections/hallandsleden-ekegarden-koarp.research.json",
+      "synthesisSummary": "Synthesized S9 Ekegården - Koarp into a research-ready section JSON after all six lane reports plus main-thread official/API/GPX/Naturkartan/OSM/places/rules checks. Canonical geometry is official GPX/API geo_json, 457 points and 12.770 km computed, with exact S8 handoff and Koarp/Skåneleden continuation. Hallandsleden line.geometry, Naturkartan and OSM relation 7396991 are suppressed as direct import geometry. Endpoint transit is weak, Koarp water has seasonal/current tap caveats, Ekegården has no confirmed drinking water, side services need filtering, and Musikedalen/Skogaby overlays remain import-time open questions."
     }
   ],
   "sourceCoverage": {
@@ -4996,10 +5209,26 @@
       "fieldReports": "complete from field-report lane; no active closure found, 2024 reroute/stale map warning and condition context recorded",
       "rulesSafety": "complete from rules-safety-currentness lane; Knäreds VV/Smedjeån Skönhult/reserve/fire/forestry/currentness caveats recorded",
       "synthesis": "complete; section JSON written and validation passed before commit"
+    },
+    "hallandsleden-ekegarden-koarp": {
+      "overview": "complete from trail.research.json overview pass",
+      "officialSources": "complete from official-source lane and main-thread official page/API/GPX/places baseline",
+      "routeGeometry": "complete from route-geometry lane and main-thread baseline; official GPX/API geo_json canonical, API line.geometry/Naturkartan/OSM suppressed as direct geometry",
+      "endpointCoordinates": "complete from official GPX/API endpoints and route-geometry lane; exact S8 handoff and Koarp Skåneleden continuation validated",
+      "facilities": "complete from facilities lane and main-thread official places/proximity checks; import/pending/suppress decisions ready for synthesis",
+      "commuteAccess": "complete from transit/access lane; both endpoints weak for public transport, distant fallback stops and unverified parking/access caveats recorded",
+      "fieldReports": "complete from field-report lane; no active closure found, terrain/wet-footing/adjacent-Skåneleden caveats recorded",
+      "rulesSafety": "complete from rules-safety-currentness lane; no active closure, road 24/fire/dog/hunting/forestry/currentness caveats and Musikedalen/Skogaby open questions recorded",
+      "synthesis": "complete; section JSON written and validation passed before commit"
     }
   },
   "knownGaps": [
-    "Only the overview and first twenty-four sections have been researched/synthesized; 11 later sections still need the six-lane workflow.",
+    "Only the overview and first twenty-five sections have been researched/synthesized; 10 coastal sections still need the six-lane workflow.",
+    "S9: official GPX/API geo_json is canonical; Hallandsleden line.geometry, Naturkartan and OSM relation 7396991 should be suppressed as direct import geometry because they are offset, reverse or gap-heavy.",
+    "S9: both endpoints have weak/no close public transport; Ekegården and Koarp should be modeled as shelter/trail-junction/road-access/pickup/continuation access with distant bus fallbacks only.",
+    "S9: Koarp water is official and seasonal but currently has a tap-problem/temporary-container note; Ekegården has no confirmed drinking water.",
+    "S9: Musikedalen reserve and Skogaby water-protection area require final GIS overlay before import; do not attach confirmed spans yet.",
+    "S9: Koarp is a Hallandsleden terminus and Skåneleden connection; dedupe endpoint facilities and keep adjacent Skåneleden condition reports separate.",
     "S8: official GPX/API geo_json is canonical; Hallandsleden line.geometry, Naturkartan visible metadata and OSM relation 7396990 preserve stale/partial Västralt-Ekegården/18 km evidence and should be suppressed for current S8 import.",
     "S8: Ekegården endpoint has weak/no close public transit; model as shelter/road-access/pickup/continuation access unless later vehicle/parking/transit research improves it.",
     "S8: Gula villan is the only official drinking-water point found and is seasonal 15 Apr-15 Oct; do not promise water at Västralt or Ekegården without stronger evidence.",
@@ -5198,9 +5427,9 @@
     "S6 research-ready caveat: old Assman-Mästocka 16-17 km route-app/tourism sources are stale and must be suppressed."
   ],
   "nextActions": [
-    "Commit S8 research files before starting S9.",
-    "Start S9 six-lane workflow for hallandsleden-ekegarden-koarp after the S8 commit.",
-    "For S9, pay attention to Ekegården S8/S9 handoff, Koarp final Södra endpoint and Skåneleden connection, official GPX Sodra_Ekegarden_Koarp.gpx, weak rural access, water/camping/fire/toilet evidence, endpoint facilities, protected-area/rules/currentness and stale source risks."
+    "Commit S9 research files before starting K1.",
+    "Start K1 six-lane workflow for hallandsleden-sandsjobacka-kungsbacka-c after the S9 commit.",
+    "For K1, pay attention to the coastal-route topology, official GPX Kust_Sandsjobacka_Kungsbacka.gpx, empty/sparse official map API linework, Sandsjöbacka/Kungsbacka C endpoint access, Kungsbacka transit/services, protected-area/rules/currentness, and any coast-route incompleteness or future-build caveats."
   ],
   "handoffNotes": [
     "Work resumed on 2026-04-29 in /workspaces/hike-trails-codex-hallandsleden-research on branch codex/hallandsleden-research.",
@@ -5325,7 +5554,8 @@
     "S7: Knäred endpoint transit is strong through official Hållplats Knäred/OSM Smedjebacken, but Mästocka start transit is weak and should be modeled as parking/pickup/continuation access.",
     "S7: import core Mästocka, Bollaltebygget, Krokån and Knäred endpoint facilities; keep Västralt, Gula villan and Flammabadet as side/connection/next-section context pending policy.",
     "S8 synthesized into sections/hallandsleden-knared-ekegarden.research.json; validate and commit before starting S9.",
-    "S9 next target: hallandsleden-ekegarden-koarp, official page https://www.hallandsleden.se/etapp/ekegarden-koarp, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Ekegarden_Koarp.gpx, distance 13 km, medium; starts Ekegården and ends Koarp."
+    "S9 synthesized into sections/hallandsleden-ekegarden-koarp.research.json and validation passed; commit before starting K1.",
+    "K1 next target: hallandsleden-sandsjobacka-kungsbacka-c, official page https://www.hallandsleden.se/etapp/sandsjobacka-kungsbacka-c, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Sandsjobacka_Kungsbacka.gpx, distance 8.7 km, medium; starts Sandsjöbacka and ends Kungsbacka C."
   ],
   "filesWritten": [
     "README.md",
@@ -5354,7 +5584,8 @@
     "sections/hallandsleden-simlangsdalen-halmstad.research.json",
     "sections/hallandsleden-simlangsdalen-mastocka.research.json",
     "sections/hallandsleden-mastocka-knared.research.json",
-    "sections/hallandsleden-knared-ekegarden.research.json"
+    "sections/hallandsleden-knared-ekegarden.research.json",
+    "sections/hallandsleden-ekegarden-koarp.research.json"
   ],
   "meaningfulPasses": [
     {
@@ -5951,6 +6182,61 @@
       "id": "phase-2-s8-validation-passed-2026-04-30",
       "completedAt": "2026-04-30T04:05:00Z",
       "summary": "Validated all Hallandsleden candidate JSON files with jq and checked whitespace with git diff --check before committing S8."
+    },
+    {
+      "id": "phase-2-s9-initial-six-lane-batch-started-2026-04-30",
+      "completedAt": "2026-04-30T04:10:00Z",
+      "summary": "Started S9 Ekegården - Koarp six-lane research batch with agents Carson, Darwin, Beauvoir the 2nd, Poincare the 2nd, Rawls the 2nd and Kuhn the 2nd. Main thread retains all file-write ownership."
+    },
+    {
+      "id": "phase-2-s9-main-thread-baseline-2026-04-30",
+      "completedAt": "2026-04-30T04:25:00Z",
+      "summary": "Main thread baseline for S9 checked official page/API/GPX/places, Naturkartan, OSM relation tags and S8 continuity. Official GPX/API geo_json appears canonical at 457 points/12.770 km with exact S8 handoff; API line.geometry and Naturkartan are endpoint-near but not start-exact at Ekegården. Official places and road 24/Hallandsåsen/Koarp-Skåneleden caveats are captured while agent lanes continue."
+    },
+    {
+      "id": "phase-2-s9-official-source-lane-received-2026-04-30",
+      "completedAt": "2026-04-30T04:35:00Z",
+      "summary": "Confirmed canonical S9 identity/order/distance/difficulty/no-time, route description, official GPX/API metadata, official facilities/places, road 24 warning, Koarp Skåneleden continuation, Musikedalen endpoint/continuation context, dynamic fire guidance and source risks. Noted Lägerplats Koarp has an active water-tap problem with a temporary 20-liter water container, so Koarp water needs currentness caveat."
+    },
+    {
+      "id": "phase-2-s9-route-geometry-lane-received-2026-04-30",
+      "completedAt": "2026-04-30T04:35:00Z",
+      "summary": "Confirmed official GPX/API geo_json as canonical navigation-grade geometry: 457 points, 12.771 km computed, start Ekegården 56.425017,13.199396, end Koarp 56.356602,13.107095, exact S8 handoff. Hallandsleden line.geometry is 554 points/13.546 km with a 291.7 m Ekegården start offset; Naturkartan is reverse/planning-grade and about 293 m short at Ekegården; OSM relation 7396991 labels are current but member ordering is gap-heavy. Skåneleden continuation near Koarp validates within about 2.9 m."
+    },
+    {
+      "id": "phase-2-s9-transit-access-lane-received-2026-04-30",
+      "completedAt": "2026-04-30T04:35:00Z",
+      "summary": "Confirmed both endpoints have weak/no close public transport. Ekegården nearest mapped transit fallback is Sandvad about 6.02 km away on Hallandstrafiken line 227; Koarp nearest mapped stop is Storegård Aggarpsvägen about 8.08 km away on Skånetrafiken line 511. Ekegården and Koarp shelter/campsite clusters are within 20-30 m of endpoints; service-road access exists but public parking is unconfirmed. No ferry/boat/rowboat applies."
+    },
+    {
+      "id": "phase-2-s9-field-report-lane-received-2026-04-30",
+      "completedAt": "2026-04-30T04:35:00Z",
+      "summary": "Found no active S9-specific closure or reroute. Current/near-current partner and route-app evidence confirms Ekegården-Koarp 13 km, Hallandsåsen climb, Smedjeån/Stensån/Klippebäcken context and no Naturkartan reviews. Historical 2015 field report supports wet-weather puddles/rocky awkward footing and shelter amenities but is stale. Recent Skåneleden Koarp-Brammarp bridge/clearcut issues belong to the adjacent continuation and should not be imported as S9 conditions."
+    },
+    {
+      "id": "phase-2-s9-facilities-lane-received-2026-04-30",
+      "completedAt": "2026-04-30T04:45:00Z",
+      "summary": "Classified core import candidates: shared Lägerplats Ekegården, Dricksvatten Skråmered, Sliprännor i Smedjeån, Istidslandskap, Stenbro över Klippebäcken, shared Lägerplats Koarp and Dricksvatten vid Koarp. Marked Horsabäck/Smedjeån POIs as S8/shared-start side connection, Våxtorp/Vallåsens/Våxtorps Camping/Vallens/SimpleLiving services as side or pending, and OSM subnodes as merge/suppress records. Confirmed no Ekegården drinking water and Koarp water season/current tap issue."
+    },
+    {
+      "id": "phase-2-s9-rules-safety-lane-received-2026-04-30",
+      "completedAt": "2026-04-30T04:55:00Z",
+      "summary": "Found no active S9 closure/reroute or adjacent Skåneleden connection closure. No direct NVR/Natura 2000 intersection found from registry geometry checks, but Musikedalen has a source conflict: Länsstyrelsen says Hallandsleden goes through the reserve while GPX/NVR check placed it about 329 m away near km 11.56. Skogaby water-protection intersection is unverified. Recorded fire, dog, hunting, camping, road 24, water crossings, final Hallandsåsen climb and three Skogsstyrelsen forestry notifications near early route km 1.06-1.39."
+    },
+    {
+      "id": "phase-2-s9-six-lane-reports-complete-synthesis-started-2026-04-30",
+      "completedAt": "2026-04-30T04:55:00Z",
+      "summary": "All six S9 lane reports are in. Main thread decided no targeted follow-up batch is needed because remaining issues are import/currentness caveats rather than research blockers; synthesis of the S9 section research JSON is underway."
+    },
+    {
+      "id": "phase-2-s9-six-lane-synthesis-complete-2026-04-30",
+      "completedAt": "2026-04-30T05:05:00Z",
+      "summary": "Synthesized S9 Ekegården - Koarp into sections/hallandsleden-ekegarden-koarp.research.json after all six lane reports plus main-thread official/API/GPX/Naturkartan/OSM/places/rules checks. Marked S9 research-ready with caveats around canonical official GPX/API geo_json versus line.geometry/Naturkartan/OSM suppression, weak endpoint access, Koarp water currentness, no Ekegården water, core/side facility filtering, Koarp Skåneleden connection, Musikedalen/Skogaby overlay questions, forestry/currentness and dynamic fire/transit checks."
+    },
+    {
+      "id": "phase-2-s9-validation-passed-2026-04-30",
+      "completedAt": "2026-04-30T05:10:00Z",
+      "summary": "Validated all Hallandsleden candidate JSON files with jq and checked whitespace with git diff --check before committing S9."
     }
   ]
 }
