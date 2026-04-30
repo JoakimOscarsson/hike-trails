@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-30T02:05:00Z",
-  "currentPhase": "Phase 2 section research complete through hallandsleden-simlangsdalen-mastocka; next section is hallandsleden-mastocka-knared",
+  "lastUpdated": "2026-04-30T03:08:00Z",
+  "currentPhase": "Phase 2 S7 complete; ready to start hallandsleden-knared-ekegarden",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -24,7 +24,8 @@
     "hallandsleden-kvarnforsen-gyltige",
     "hallandsleden-gyltige-simlangsdalen",
     "hallandsleden-simlangsdalen-halmstad",
-    "hallandsleden-simlangsdalen-mastocka"
+    "hallandsleden-simlangsdalen-mastocka",
+    "hallandsleden-mastocka-knared"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -481,7 +482,7 @@
       "commuteAccessStatus": "complete-start-strong-gyltige-public-transit-weak",
       "facilityResearchStatus": "complete-with-water-toilet-conflicts-and-suppressions",
       "rulesSafetyStatus": "complete-protected-areas-water-protection-fire-dog-hunting-forestry-currentness",
-      "synthesisStatus": "complete-section-json-written",
+      "synthesisStatus": "complete-section-json-written-and-validation-passed",
       "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
         "Verify Oskarström public toilet/water current status because official water and toilet records conflict and the water record says temporarily closed due vandalism.",
@@ -677,19 +678,33 @@
       "sectionNumber": "S7",
       "name": "Mästocka - Knäred",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-map-line-discovered-needs-gpx-cross-check",
-      "startEndCoordinateStatus": "official-map-line-endpoints-captured-needs-validation",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-official-source-lane-and-main-thread-baseline",
+      "routeGeometryStatus": "complete-official-gpx-api-geojson-canonical-stale-line-naturkartan-osm-suppressed",
+      "startEndCoordinateStatus": "complete-official-gpx-api-endpoints-high-confidence-s6-and-s8-continuity",
+      "commuteAccessStatus": "complete-strong-knared-transit-weak-mastocka-transit-parking-pickup-caveats",
+      "facilityResearchStatus": "complete-core-facilities-ready-side-connection-filtering-needed",
+      "rulesSafetyStatus": "complete-bollaltebygget-prastaskogen-mastocka-ljunghed-currentness-caveats",
+      "synthesisStatus": "complete-section-json-written",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
-        "Run six independent section research lanes and synthesize findings.",
-        "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
-        "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Main-thread baseline found the official GPX Sodra_Mastocka_Knared.gpx is HTTP 200, Last-Modified 2025-07-02, name Mästocka - Knäred, desc Total: 17.2km, 294 points, computed 17.152 km, start 56.607910,13.245416 and end 56.520666,13.316460.",
+        "Main-thread baseline found the Hallandsleden API geo_json agrees with the GPX: 300 points, computed 17.183 km, start 56.607910,13.245416, end 56.520666,13.316460, official rounded length 17 km and medium difficulty.",
+        "Main-thread baseline found Hallandsleden API line.geometry is likely stale/suspect for S7: 833 points, computed 19.802 km, start 56.60929857753217,13.248396255075932 and end 56.51197914965451,13.300674268975854 rather than the endpoint-aligned official GPX/API geo_json.",
+        "Main-thread baseline verified adjacent handoffs: S6 end to S7 GPX start is about 0.89 m and S7 GPX end to S8 GPX start is about 5.34 m.",
+        "Official section page baseline: 17 km, blue/medium, route passes Mästocka/Killebergssjön/Mejeribacken/Bollaltebygget, older stone bridge, rullstensåsar, Dödsröset, Krokån suspension bridge, Prästaskogen, Kvarnen/Krokån and ends at the Knäred center bus stop; wet mire stretch after Bollaltebygget needs caveat.",
+        "Official places API baseline returned 21 S7 records, including Mästocka start campsite/water, Mejeribacken, Bollaltebygget/toilet, Äldre stenbro, Rullstensås, Dödsröset, Toalett vid Krokån, Lägerplats Krokån, Slipränna vid Krokån, Knäreds kyrkoruin, Hållplats Knäred, endpoint services and side/adjacent records for Västralt/Gula villan/Flammabadet.",
+        "Facility baseline route-proximity check marks core on-route candidates: Dricksvatten/Lägerplats Mästocka, Mejeribacken, Bollaltebygget, Toalett vid Bollaltebygget, Äldre stenbro, Rullstensås, Dödsröset, Toalett vid Krokån, Lägerplats Krokån, Kvarnen i Knäred, Slipränna vid Krokån, Knäreds kyrkoruin and Hållplats Knäred; Västralt, Gula villan and Flammabadet need side-service or adjacent-stage handling.",
+        "Naturkartan baseline found site 22051 with title Mästocka - Knäred but stale slug mastocka-vastralt-hallandsleden, visible 19.0 km and a reverse 827-point GPX computed 19.777 km from 56.5119786741735,13.3006745263468 to 56.6092677819402,13.2484199432888; suppress as current S7 canonical geometry unless geometry lane proves otherwise.",
+        "OSM baseline found stale route relations 7396989 Mästocka - Västralt and 7396990 Västralt - Ekegården, not current S7/S8 segmentation; use only as validation/stale-source context.",
+        "Access baseline: Knäred endpoint has strong transit evidence, official Hållplats Knäred at 56.5206857,13.31621876 with line 223 and OSM stop pair Smedjebacken A/B within about 5-42 m of the GPX endpoint; Mästocka start access is inherited as weak transit / campsite-parking-car-pickup context from S6.",
+        "Rules baseline: Prästaskogen reserve at Krokån has Länsstyrelsen service evidence for fireplace, parking, shelter/rest wind shelter, toilet and public transport; rules include fire only at designated places, no unleashed dogs, no tenting more than two nights, park only designated places and no caravan/RV parking 22-06; no current reserve news notice was found in the main-thread pass.",
+        "Official-source lane confirmed current official identity/order/distance/difficulty, page description, no official estimated time, official GPX/API metadata, 21 official places and stale Mästocka-Västralt alias/distance risks.",
+        "Route-geometry lane confirmed GPX/API geo_json point count 300 and computed length 17.183 km, exact official direction Mästocka to Knäred, clean S6/S7 and S7/S8 handoffs, and suppression of Hallandsleden line.geometry, Naturkartan and OSM relation 7396989 as stale/overlong full-stage geometry.",
+        "Facilities lane classified core import candidates at Mästocka, Mejeribacken, Bollaltebygget, Toalett vid Bollaltebygget, Äldre stenbro, Rullstensås, Dödsröset, Krokån, Knäred endpoint/services, and side/access candidates at Gula villan, Västralt, Flammabadet, Prästaskogen parking and Knäred urban amenities.",
+        "Transit-access lane found the closest practical public transport at Knäred/Smedjebacken about 5 m from the endpoint; Mästocka has no close useful bus stop and should be treated as parking/pickup access via Mästocka ljunghed or tentative closer local parking.",
+        "Field-report lane found no active S7 closure/reroute, supported wet marsh/boardwalk caution after Bollaltebygget, local Knäred/Krokån maintained-condition signals through 2025/2026, and flagged 19-20 km Mästocka-Västralt route-app/blog sources as stale.",
+        "Rules-safety lane found no active S7 closure/reroute, mapped Bollaltebygget and Prästaskogen route-contact protected areas, Mästocka ljunghed as boundary-adjacent start context, Knäreds VV as nearby not intersecting, future Markarydsbanan/Knäred project watch, and several forestry notifications as advisory rather than closures.",
+        "S7 synthesis complete: section JSON written and marked research-ready-with-caveats. Remaining import caveats are stale line.geometry/Naturkartan/OSM suppression, Västralt/Gula villan/Flammabadet side/connection modeling, Knäred stop-name normalization, weak Mästocka transit, Mästocka shared endpoint dedupe, Krokån water/toilet currentness, protected-area boundary overlays and dynamic fire/transit/forestry/currentness checks."
       ]
     },
     "hallandsleden-knared-ekegarden": {
@@ -4692,6 +4707,96 @@
       "synthesizedAt": "2026-04-30T02:05:00Z",
       "synthesisOutput": "sections/hallandsleden-simlangsdalen-mastocka.research.json",
       "synthesisSummary": "Synthesized S6 Simlångsdalen - Mästocka into a research-ready section JSON after all six lane reports plus main-thread official/API/GPX/Naturkartan/places/OSM/reserve checks. Canonical geometry is official GPX/API geo_json 550 points/24.990 km computed, official 26 km, with exact Simlångsdalen branch and Mästocka S7 handoffs. Hallandsleden line.geometry is a stale 16.658 km Assman-Mästocka partial line to suppress; Naturkartan corroborates endpoints despite old slug; OSM is validation only. Start transit is strong, Mästocka transit is weak. Mästocka campsite/seasonal water and reserve/rules/currentness caveats are recorded."
+    },
+    {
+      "batchId": "hallandsleden-mastocka-knared-initial-6-lane-2026-04-30",
+      "sectionId": "hallandsleden-mastocka-knared",
+      "startedAt": "2026-04-30T02:06:00Z",
+      "status": "synthesized-section-json-written",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "nickname": "Carson"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "nickname": "Darwin"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "nickname": "Beauvoir the 2nd"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "nickname": "Poincare the 2nd"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "nickname": "Rawls the 2nd"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "nickname": "Kuhn the 2nd"
+        }
+      ],
+      "requestedOutputs": [
+        "official facts",
+        "geometry verification",
+        "facilities",
+        "transit/access",
+        "field reports",
+        "rules/safety/currentness"
+      ],
+      "notes": [
+        "Research only; agents must not edit files. Main thread owns final JSON/progress writes.",
+        "Focus on Mästocka/Björsjön S6 handoff and dedupe, current official Mästocka-Knäred naming versus stale Mästocka-Västralt sources, official GPX/API/overview linework consistency, Knäred endpoint access/transit/services, facilities/water/camping/fire/toilet evidence, protected-area/currentness and S8 handoff."
+      ],
+      "receivedReports": [
+        {
+          "lane": "official-sources",
+          "receivedAt": "2026-04-30T02:42:00Z",
+          "summary": "Confirmed S7 official order 23 / Södra local order 7, canonical Mästocka - Knäred name, 17 km, blue/medium, no estimated time, official page/API/GPX identity, 21 official place records, Krokån and Mästocka facility evidence, Knäred endpoint bus-stop evidence, Bollaltebygget/Prästaskogen/Mästocka source context and old Mästocka-Västralt alias/distance risks."
+        },
+        {
+          "lane": "route-geometry",
+          "receivedAt": "2026-04-30T02:42:00Z",
+          "summary": "Confirmed official GPX/API geo_json as navigation-grade canonical geometry: 300 points, computed 17.183 km, start 56.607910,13.245416, end 56.520666,13.316460, direction Mästocka to Knäred. Hallandsleden line.geometry, Naturkartan site/API/GPX and OSM relation 7396989 are overlong/stale Mästocka-Västralt-era sources to suppress. Endpoint handoffs to S6 and S8 are 0.9 m and 5.3 m."
+        },
+        {
+          "lane": "facilities",
+          "receivedAt": "2026-04-30T02:42:00Z",
+          "summary": "Classified core import candidates: shared Lägerplats/Dricksvatten Mästocka, Mejeribacken, Bollaltebygget and toilet, Äldre stenbro, Rullstensås, Dödsröset, Lägerplats/Toalett/Kvarnen/Slipränna Krokån, Knäreds kyrkoruin, Hållplats Knäred, Coop Knäred, Hotell 1613/Freden and Knäreds Pizzeria. Gula villan, Västralt and Flammabadet are side/connection candidates; generic urban noise and bus shelters should be suppressed."
+        },
+        {
+          "lane": "transit-access",
+          "receivedAt": "2026-04-30T02:42:00Z",
+          "summary": "Confirmed Mästocka has no close practical bus access; Uddared/Kattarp stops are about 9.12 km fallbacks only. Primary start access is Mästocka ljunghed official parking about 0.55 km from the start, with a closer unlabeled OSM parking candidate about 257 m requiring signage verification. Knäred/Smedjebacken bus stop is about 5 m from the endpoint and central parking is within about 68-101 m."
+        },
+        {
+          "lane": "field-reports",
+          "receivedAt": "2026-04-30T02:42:00Z",
+          "summary": "Found no active S7 closure/reroute in official, Naturkartan, Laholm, AllTrails, Wikiloc or Pacer sources. Recent local Knäred/Krokån/Prästaskogen route-app signals through 2025/2026 are generally good/maintained with bathrooms/parking, but some local-loop overgrowth/noise reports should not be generalized to S7. Durable terrain notes support varied roads/paths, narrow paths, esker climbs, boardwalks and wet marsh after Bollaltebygget. Route-app/blog sources using Mästocka-Västralt and 19-20 km are stale."
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "receivedAt": "2026-04-30T02:42:00Z",
+          "summary": "Found no active S7 closure/reroute or reserve closure. Mapped Bollaltebygget culture reserve contact around km 7.38 and 7.98-8.08, Prästaskogen reserve around km 15.85-16.14 with nearby Natura context, Mästocka ljunghed as boundary-adjacent start caution, Knäreds VV water-protection nearby but not intersecting and Västralt as off-route context. Recorded fire, dog, tenting, livestock, hunting, road/water crossing, future Markarydsbanan and forestry-notification caveats."
+        }
+      ],
+      "mainThreadBaseline": {
+        "completedAt": "2026-04-30T02:20:00Z",
+        "summary": "Main thread checked S7 official page, official GPX, Hallandsleden API map/places, Naturkartan, OSM route/access/facility data and Länsstyrelsen Prästaskogen. Official GPX/API geo_json is the likely canonical current S7 geometry: GPX Last-Modified 2025-07-02, 294 points, computed 17.152 km, start 56.607910,13.245416, end 56.520666,13.316460; API geo_json has 300 points/17.183 km and matching endpoints. Hallandsleden API line.geometry and Naturkartan site 22051/GPX appear stale Mästocka-Västralt/Knäred-era 19.8 km linework and should be suppressed for current S7 unless the route-geometry lane disproves this. Official places API returned 21 records, with core candidates at Mästocka, Mejeribacken, Bollaltebygget, Äldre stenbro, Rullstensås, Dödsröset, Krokån, Knäred endpoint/transit/services and side/adjacent records for Västralt, Gula villan and Flammabadet. S6/S7 handoff is about 0.89 m and S7/S8 handoff about 5.34 m. Knäred transit is strong via official Hållplats Knäred/line 223 and nearby OSM Smedjebacken stop pair; Mästocka transit remains weak and access likely relies on campsite/parking/car/pickup context. Prästaskogen reserve rules and services are captured for Krokån."
+      },
+      "completedAt": "2026-04-30T02:42:00Z",
+      "synthesizedAt": "2026-04-30T03:05:00Z",
+      "synthesisOutput": "sections/hallandsleden-mastocka-knared.research.json",
+      "synthesisSummary": "Synthesized S7 Mästocka - Knäred into a research-ready section JSON after all six lane reports plus main-thread official/API/GPX/Naturkartan/OSM/places/reserve checks. Canonical geometry is official GPX/API geo_json, 300 points and 17.183 km computed, with exact Mästocka S6 and Knäred S8 handoffs. Hallandsleden line.geometry, Naturkartan and OSM relation 7396989 preserve stale 19.8 km Mästocka-Västralt-era linework and must be suppressed. Knäred transit is strong; Mästocka transit is weak and access relies on parking/pickup. Core Mästocka/Bollaltebygget/Krokån/Knäred facilities are ready with side/connection filtering for Västralt, Gula villan and Flammabadet."
     }
   ],
   "sourceCoverage": {
@@ -4758,10 +4863,26 @@
       "fieldReports": "complete from field-report lane; no active closure found, recent partial/full field signals and stale Assman-Mästocka source risks recorded",
       "rulesSafety": "complete from rules-safety-currentness lane; protected-area/fire/dog/hunting/forestry/road-currentness recorded",
       "synthesis": "complete; section JSON written and validation passed before commit"
+    },
+    "hallandsleden-mastocka-knared": {
+      "overview": "complete from trail.research.json overview pass",
+      "officialSources": "complete from official-source lane and main-thread official page/API/GPX/places baseline",
+      "routeGeometry": "complete from route-geometry lane and main-thread baseline; official GPX/API geo_json canonical, API line.geometry and Naturkartan/OSM stale overlong sources suppressed",
+      "endpointCoordinates": "complete from official GPX/API endpoints and route-geometry lane; S6/S7 and S7/S8 continuity verified",
+      "facilities": "complete from facilities lane and main-thread official places/proximity checks; import/pending/suppress decisions ready for synthesis",
+      "commuteAccess": "complete from transit/access lane; strong Knäred transit, weak Mästocka transit and parking/pickup caveats recorded",
+      "fieldReports": "complete from field-report lane; no active closure found, wetness/waymarking/local-condition and stale Mästocka-Västralt risks recorded",
+      "rulesSafety": "complete from rules-safety-currentness lane; Bollaltebygget/Prästaskogen/Mästocka/Västralt/currentness/forestry/fire/dog/hunting caveats recorded",
+      "synthesis": "complete; section JSON written and validation passed before commit"
     }
   },
   "knownGaps": [
-    "Only the overview and first twenty-two sections have been researched/synthesized; 13 later sections still need the six-lane workflow.",
+    "Only the overview and first twenty-three sections have been researched/synthesized; 12 later sections still need the six-lane workflow.",
+    "S7: official GPX/API geo_json is canonical; Hallandsleden line.geometry, Naturkartan and OSM relation 7396989 preserve stale 19.8 km Mästocka-Västralt-era geometry and should be suppressed for current S7 import.",
+    "S7: Västralt, Gula villan and Flammabadet are adjacent/side/next-section records, not current S7 core facilities unless a side-service or connector policy is chosen.",
+    "S7: Knäred endpoint access is strong, but stop naming differs between official Hållplats Knäred and OSM Smedjebacken; normalize carefully.",
+    "S7: Mästocka start has weak/no close transit; public access depends on parking/pickup/continuation and tentative local parking needs signage verification.",
+    "S7: Krokån water/toilet is official but should be verified outside season before public year-round potable-water copy; Mästocka water is seasonal 15 Apr-15 Oct.",
     "Coastal Hallandsleden is incomplete by official statement; future import must model gaps instead of stitching a continuous coast.",
     "Older sources may report 435 km / 26 stages / 3 parts; live official source reports 612 km / 35 sections / 4 subtrails.",
     "Paper maps printed June 2022 are stale for 2024 rerouted sections.",
@@ -4951,9 +5072,9 @@
     "S6 research-ready caveat: old Assman-Mästocka 16-17 km route-app/tourism sources are stale and must be suppressed."
   ],
   "nextActions": [
-    "Commit S6 research before starting S7.",
-    "Resume Phase 2 with S7 hallandsleden-mastocka-knared using the six required research/report lanes.",
-    "For S7, run a main-thread baseline against the official page, official GPX Sodra_Mastocka_Knared.gpx, Hallandsleden API linework, places API, Naturkartan/OSM, adjacent S6/S8 continuity and endpoint access in Mästocka and Knäred."
+    "Validate S7 JSON/progress/README and commit before starting S8.",
+    "After S7 commit, start S8 hallandsleden-knared-ekegarden with a six-lane agent batch.",
+    "For S8, pay attention to Knäred S7/S8 endpoint handoff, official GPX Sodra_Knared_Ekegarden.gpx, old Västralt/Gula villan source leakage, Ekegården endpoint access, water/camping/fire/toilet evidence, and protected-area/currentness context."
   ],
   "handoffNotes": [
     "Work resumed on 2026-04-29 in /workspaces/hike-trails-codex-hallandsleden-research on branch codex/hallandsleden-research.",
@@ -5072,7 +5193,12 @@
     "S6 active target: hallandsleden-simlangsdalen-mastocka, official page https://www.hallandsleden.se/etapp/simlangsdalen-mastocka, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Simlangsdalen_Mastocka_250818.gpx, distance 26 km, hard.",
     "S6 section JSON is written at data/research/candidate-trails/hallandsleden/sections/hallandsleden-simlangsdalen-mastocka.research.json and is research-ready-with-caveats.",
     "Commit S6 before starting S7 per user instruction to commit between sections.",
-    "S7 next target: hallandsleden-mastocka-knared, official page https://www.hallandsleden.se/etapp/mastocka-knared, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Mastocka_Knared.gpx, distance 17 km, medium; starts Mästocka and ends Knäred."
+    "S7 section JSON is written at data/research/candidate-trails/hallandsleden/sections/hallandsleden-mastocka-knared.research.json and is research-ready-with-caveats.",
+    "Commit S7 before starting S8 per user instruction to commit between sections.",
+    "S7: use official GPX/API geo_json as canonical 300-point 17.183 km Mästocka-to-Knäred geometry; suppress API line.geometry, Naturkartan and OSM relation 7396989 as stale Mästocka-Västralt geometry.",
+    "S7: Knäred endpoint transit is strong through official Hållplats Knäred/OSM Smedjebacken, but Mästocka start transit is weak and should be modeled as parking/pickup/continuation access.",
+    "S7: import core Mästocka, Bollaltebygget, Krokån and Knäred endpoint facilities; keep Västralt, Gula villan and Flammabadet as side/connection/next-section context pending policy.",
+    "S8 next target: hallandsleden-knared-ekegarden, official page https://www.hallandsleden.se/etapp/knared-ekegarden, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Knared_Ekegarden.gpx, distance 25 km, medium; starts Knäred and ends Ekegården."
   ],
   "filesWritten": [
     "README.md",
@@ -5099,7 +5225,8 @@
     "sections/hallandsleden-kvarnforsen-gyltige.research.json",
     "sections/hallandsleden-gyltige-simlangsdalen.research.json",
     "sections/hallandsleden-simlangsdalen-halmstad.research.json",
-    "sections/hallandsleden-simlangsdalen-mastocka.research.json"
+    "sections/hallandsleden-simlangsdalen-mastocka.research.json",
+    "sections/hallandsleden-mastocka-knared.research.json"
   ],
   "meaningfulPasses": [
     {
@@ -5646,6 +5773,31 @@
       "id": "phase-2-s6-six-lane-synthesis-complete-2026-04-30",
       "completedAt": "2026-04-30T02:05:00Z",
       "summary": "Synthesized S6 Simlångsdalen - Mästocka into sections/hallandsleden-simlangsdalen-mastocka.research.json after all six lane reports plus main-thread official/API/GPX/Naturkartan/OSM/places/reserve checks. Marked S6 research-ready with caveats around canonical GPX/API geo_json versus stale line.geometry, old Assman-Mästocka sources, Simlångsdalen and Mästocka node handoffs, weak Mästocka transit, confirmed endpoint campsite/seasonal water, protected-area rules, forestry/currentness and dynamic fire/transit checks."
+    },
+    {
+      "id": "phase-2-s7-initial-six-lane-batch-started-2026-04-30",
+      "completedAt": "2026-04-30T02:06:00Z",
+      "summary": "Started S7 Mästocka - Knäred six-lane research batch with agents Carson, Darwin, Beauvoir the 2nd, Poincare the 2nd, Rawls the 2nd and Kuhn the 2nd. Main thread retains all file-write ownership."
+    },
+    {
+      "id": "phase-2-s7-main-thread-baseline-2026-04-30",
+      "completedAt": "2026-04-30T02:20:00Z",
+      "summary": "Main thread baseline for S7 checked official page/API/GPX/places, Naturkartan, OSM and Prästaskogen reserve. Official GPX/API geo_json appears canonical at 17.15-17.18 km with strong S6/S8 endpoint continuity; Hallandsleden line.geometry, Naturkartan and OSM preserve stale Mästocka-Västralt/19.8 km evidence. Official facilities, Knäred transit and reserve-rule caveats are captured in progress while agent lanes continue."
+    },
+    {
+      "id": "phase-2-s7-six-lane-reports-received-2026-04-30",
+      "completedAt": "2026-04-30T02:42:00Z",
+      "summary": "Received usable S7 reports from all six lanes after re-prompting the field-report lane. Reports confirm canonical official GPX/API geo_json, stale Mästocka-Västralt geometry/source risks, strong Knäred transit, weak Mästocka transit, core Mästocka/Bollaltebygget/Krokån/Knäred facilities, no active closure found, and protected-area/fire/dog/hunting/forestry/currentness caveats."
+    },
+    {
+      "id": "phase-2-s7-six-lane-synthesis-complete-2026-04-30",
+      "completedAt": "2026-04-30T03:05:00Z",
+      "summary": "Synthesized S7 Mästocka - Knäred into sections/hallandsleden-mastocka-knared.research.json after all six lane reports plus main-thread official/API/GPX/Naturkartan/OSM/places/reserve checks. Marked S7 research-ready with caveats around canonical GPX/API geo_json versus stale 19.8 km Mästocka-Västralt linework, strong Knäred transit, weak Mästocka transit, core Mästocka/Bollaltebygget/Krokån/Knäred facilities, side/connection filtering for Västralt/Gula villan/Flammabadet, protected-area rules, Krokån water currentness and dynamic fire/transit/forestry checks."
+    },
+    {
+      "id": "phase-2-s7-validation-passed-2026-04-30",
+      "completedAt": "2026-04-30T03:08:00Z",
+      "summary": "Validated all Hallandsleden candidate JSON files with jq and checked whitespace with git diff --check before committing S7."
     }
   ]
 }
