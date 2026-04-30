@@ -1,0 +1,1166 @@
+{
+  "schemaVersion": "candidate-protected-area-overlays/v1",
+  "trailId": "vastra-vatterleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-gis-overlay-computed-research-only",
+  "runtimeImportApproved": false,
+  "sourceArtifact": "vastra-vatterleden/import-readiness-resolution.research.json",
+  "method": "Fetched official Naturvårdsverket NVR/Natura 2000 WFS polygons named by the Västra Vätterleden readiness packet and checked all normalized candidate facility points plus all candidate route GeoJSON segments.",
+  "summary": {
+    "protectedAreas": 17,
+    "protectedAreasWithRouteOverlap": 10,
+    "protectedAreasWithFacilityOverlap": 9,
+    "routeOverlapRecords": 13,
+    "facilityOverlapRecords": 37
+  },
+  "records": [
+    {
+      "overlayId": "vastra-vatterleden-tiveden-national-park",
+      "protectedArea": "Tiveden national park",
+      "status": "no-candidate-overlap",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NP&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272001216%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/tiveden-national-park-national-park-2001216.geojson"
+      ],
+      "recommendation": "Do not apply national-park rules section-wide to stage 1 unless a selected variant or connector intersects.",
+      "confidence": "medium-high",
+      "routeOverlaps": [],
+      "facilityOverlaps": []
+    },
+    {
+      "overlayId": "vastra-vatterleden-valekleven-ombo-oar-reserve-and-natura-2000",
+      "protectedArea": "Valekleven-Ombo öar reserve and Natura 2000",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NR&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272000332%27",
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-n2k%3APS.ProtectedSites.Natura2000&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=omradesnamn%3D%27Valekleven-Ombo+%C3%B6ar%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/valekleven-ombo-oar-reserve-and-natura-2000-nature-reserve-2000332.geojson",
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/valekleven-ombo-oar-reserve-and-natura-2000-natura-2000-valekleven-ombo-oar.geojson"
+      ],
+      "recommendation": "Apply protected-area rules only to overlapping stage-1 variant or connector geometry.",
+      "confidence": "medium-high",
+      "routeOverlaps": [
+        {
+          "sectionId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 7.683,
+                  "endKm": 10.23
+                },
+                {
+                  "startKm": 11.28,
+                  "endKm": 13.905
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.geojson",
+              "lineIndex": 1,
+              "rangesKm": [
+                {
+                  "startKm": 9.827,
+                  "endKm": 12.451
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.geojson",
+              "lineIndex": 2,
+              "rangesKm": [
+                {
+                  "startKm": 7.683,
+                  "endKm": 10.23
+                },
+                {
+                  "startKm": 11.28,
+                  "endKm": 13.905
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.geojson",
+              "lineIndex": 3,
+              "rangesKm": [
+                {
+                  "startKm": 9.827,
+                  "endKm": 12.451
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "facilityOverlaps": [
+        {
+          "facilityId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-5-djaknesundet-badplats",
+          "sectionId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+          "name": "Djäknesundet badplats",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            58.629486,
+            14.564069
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-4-vindskydd-djaknasundet",
+          "sectionId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+          "name": "Vindskydd Djäknasundet",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            58.630085,
+            14.563773
+          ]
+        }
+      ]
+    },
+    {
+      "overlayId": "vastra-vatterleden-granvik-nature-reserve",
+      "protectedArea": "Granvik nature reserve",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NR&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272000571%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/granvik-nature-reserve-nature-reserve-2000571.geojson"
+      ],
+      "recommendation": "Apply reserve rules only to overlapping stage-1 variant or connector geometry.",
+      "confidence": "medium-high",
+      "routeOverlaps": [
+        {
+          "sectionId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 10.216,
+                  "endKm": 11.3
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.geojson",
+              "lineIndex": 1,
+              "rangesKm": [
+                {
+                  "startKm": 9.354,
+                  "endKm": 9.846
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.geojson",
+              "lineIndex": 2,
+              "rangesKm": [
+                {
+                  "startKm": 10.216,
+                  "endKm": 11.3
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.geojson",
+              "lineIndex": 3,
+              "rangesKm": [
+                {
+                  "startKm": 9.354,
+                  "endKm": 9.846
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "facilityOverlaps": [
+        {
+          "facilityId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-6-granvik-event-granviks-herrgard",
+          "sectionId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+          "name": "Granvik Event / Granviks Herrgård",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            58.631973,
+            14.546407
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-8-granviks-badplats",
+          "sectionId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+          "name": "Granviks badplats",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            58.630667,
+            14.547427
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-7-granviks-besokscentrum-hamn-service-cluster",
+          "sectionId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+          "name": "Granviks besökscentrum / hamn service cluster",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            58.632955,
+            14.547079
+          ]
+        }
+      ]
+    },
+    {
+      "overlayId": "vastra-vatterleden-bolets-angar-nature-reserve",
+      "protectedArea": "Bölets ängar nature reserve",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NR&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272000573%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/bolets-angar-nature-reserve-nature-reserve-2000573.geojson"
+      ],
+      "recommendation": "Apply reserve rules only to overlapping stage-1 variant or connector geometry.",
+      "confidence": "medium-high",
+      "routeOverlaps": [
+        {
+          "sectionId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 14.724,
+                  "endKm": 15.894
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.geojson",
+              "lineIndex": 1,
+              "rangesKm": [
+                {
+                  "startKm": 13.27,
+                  "endKm": 14.44
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.geojson",
+              "lineIndex": 2,
+              "rangesKm": [
+                {
+                  "startKm": 14.724,
+                  "endKm": 15.894
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.geojson",
+              "lineIndex": 3,
+              "rangesKm": [
+                {
+                  "startKm": 13.27,
+                  "endKm": 14.44
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "facilityOverlaps": [
+        {
+          "facilityId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-11-bolets-angar-tc-parking",
+          "sectionId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+          "name": "Bölets ängar TC / parking",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            58.616013,
+            14.517959
+          ]
+        }
+      ]
+    },
+    {
+      "overlayId": "vastra-vatterleden-bolskullen-nature-conservation-area",
+      "protectedArea": "Bölskullen nature conservation area",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NVO&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272000376%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/bolskullen-nature-conservation-area-nature-conservation-area-2000376.geojson"
+      ],
+      "recommendation": "Apply protected-area rules only to overlapping stage-1 variant or connector geometry.",
+      "confidence": "medium-high",
+      "routeOverlaps": [
+        {
+          "sectionId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 16.804,
+                  "endKm": 18.183
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.geojson",
+              "lineIndex": 1,
+              "rangesKm": [
+                {
+                  "startKm": 15.35,
+                  "endKm": 16.729
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.geojson",
+              "lineIndex": 2,
+              "rangesKm": [
+                {
+                  "startKm": 16.804,
+                  "endKm": 18.183
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.geojson",
+              "lineIndex": 3,
+              "rangesKm": [
+                {
+                  "startKm": 15.35,
+                  "endKm": 16.729
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "facilityOverlaps": [
+        {
+          "facilityId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-12-bolskullen-bordsgrupp",
+          "sectionId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+          "name": "Bölskullen bordsgrupp",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            58.617204,
+            14.492713
+          ]
+        }
+      ]
+    },
+    {
+      "overlayId": "vastra-vatterleden-haketjarnarna-nature-reserve",
+      "protectedArea": "Håketjärnarna nature reserve",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NR&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272014934%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/haketjarnarna-nature-reserve-nature-reserve-2014934.geojson"
+      ],
+      "recommendation": "Apply reserve rules only to overlapping stage-1 variant or connector geometry.",
+      "confidence": "medium-high",
+      "routeOverlaps": [
+        {
+          "sectionId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 6.096,
+                  "endKm": 6.85
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.geojson",
+              "lineIndex": 2,
+              "rangesKm": [
+                {
+                  "startKm": 6.096,
+                  "endKm": 6.85
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "facilityOverlaps": []
+    },
+    {
+      "overlayId": "vastra-vatterleden-stora-roa-nature-reserve",
+      "protectedArea": "Stora Röå nature reserve",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NR&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272000600%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/stora-roa-nature-reserve-nature-reserve-2000600.geojson"
+      ],
+      "recommendation": "Use Stora Röå rules for overlapping stage-3, stage-4 and facility context only.",
+      "confidence": "high",
+      "routeOverlaps": [
+        {
+          "sectionId": "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 11.262,
+                  "endKm": 13.177
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-4-roa-lunnakulle-hjo.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 0,
+                  "endKm": 0.3
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "facilityOverlaps": [
+        {
+          "facilityId": "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-facilities-1-roasjon-eldplats-grill",
+          "sectionId": "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa",
+          "name": "Röåsjön eldplats / grill",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "attach-to-parent",
+          "coordinatesLatLon": [
+            58.4123939,
+            14.3647325
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-watersources-1-roasjon-lake-stream-water",
+          "sectionId": "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa",
+          "name": "Röåsjön lake/stream water",
+          "candidateType": null,
+          "state": "suppress",
+          "importAction": "suppress",
+          "coordinatesLatLon": [
+            58.412626,
+            14.36451
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-facilities-3-roasjon-natural-water",
+          "sectionId": "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa",
+          "name": "Röåsjön natural water",
+          "candidateType": null,
+          "state": "suppress",
+          "importAction": "suppress",
+          "coordinatesLatLon": [
+            58.412626,
+            14.36451
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-facilities-2-roasjon-torrtoa-wc",
+          "sectionId": "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa",
+          "name": "Röåsjön torrtoa / WC",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            58.4123939,
+            14.3647325
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-facilities-0-roasjon-vindskydd",
+          "sectionId": "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa",
+          "name": "Röåsjön vindskydd",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            58.4123939,
+            14.3647325
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-3-rastplats-roasjon",
+          "sectionId": "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+          "name": "Rastplats Röåsjön",
+          "candidateType": null,
+          "state": "suppress",
+          "importAction": "suppress",
+          "coordinatesLatLon": [
+            58.412617,
+            14.362563
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-1-roasjon-eldplats",
+          "sectionId": "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+          "name": "Röåsjön eldplats",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "attach-to-parent",
+          "coordinatesLatLon": [
+            58.4123939,
+            14.3647325
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-watersources-1-roasjon-natural-water",
+          "sectionId": "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+          "name": "Röåsjön natural water",
+          "candidateType": null,
+          "state": "suppress",
+          "importAction": "suppress",
+          "coordinatesLatLon": [
+            58.412626,
+            14.36451
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-2-roasjon-torrtoa-wc",
+          "sectionId": "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+          "name": "Röåsjön torrtoa / WC",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            58.4123939,
+            14.3647325
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-0-roasjon-vindskydd",
+          "sectionId": "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+          "name": "Röåsjön vindskydd",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            58.4123939,
+            14.3647325
+          ]
+        }
+      ]
+    },
+    {
+      "overlayId": "vastra-vatterleden-roa-alsumpskog-reserve-and-natura-2000",
+      "protectedArea": "Röå alsumpskog reserve and Natura 2000",
+      "status": "no-candidate-overlap",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NR&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272000336%27",
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-n2k%3APS.ProtectedSites.Natura2000&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=omradesnamn%3D%27R%C3%B6%C3%A5+alsumpskog%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/roa-alsumpskog-reserve-and-natura-2000-nature-reserve-2000336.geojson",
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/roa-alsumpskog-reserve-and-natura-2000-natura-2000-roa-alsumpskog.geojson"
+      ],
+      "recommendation": "Do not attach Röå alsumpskog rules unless selected route/access geometry proves overlap.",
+      "confidence": "medium-high",
+      "routeOverlaps": [],
+      "facilityOverlaps": []
+    },
+    {
+      "overlayId": "vastra-vatterleden-hjoans-dalgang-reserve-and-natura-2000",
+      "protectedArea": "Hjoåns dalgång reserve and Natura 2000",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NR&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272000411%27",
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-n2k%3APS.ProtectedSites.Natura2000&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=omradesnamn%3D%27Hjo%C3%A5ns+dalg%C3%A5ng%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/hjoans-dalgang-reserve-and-natura-2000-nature-reserve-2000411.geojson",
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/hjoans-dalgang-reserve-and-natura-2000-natura-2000-hjoans-dalgang.geojson"
+      ],
+      "recommendation": "Use Hjoåns dalgång rules only for overlapping route/facility context; keep the mapped firepoint suppressed or pending because the standing reserve rule prohibits fire.",
+      "confidence": "high",
+      "routeOverlaps": [
+        {
+          "sectionId": "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-4-roa-lunnakulle-hjo.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 22.488,
+                  "endKm": 23.637
+                },
+                {
+                  "startKm": 24.468,
+                  "endKm": 24.828
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "vastra-vatterleden-etapp-5-hjo-bastasen",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-5-hjo-bastasen.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 0.184,
+                  "endKm": 0.545
+                },
+                {
+                  "startKm": 1.375,
+                  "endKm": 2.525
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "facilityOverlaps": [
+        {
+          "facilityId": "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-12-hjoans-dalgang-eldstad",
+          "sectionId": "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+          "name": "Hjoåns dalgång eldstad",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            58.308201,
+            14.274469
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-13-hjoans-dalgang-rest-point",
+          "sectionId": "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+          "name": "Hjoåns dalgång rest point",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            58.303792,
+            14.285233
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-5-hjo-bastasen-facilities-6-hjoans-dalgang-fireplace-rest-point",
+          "sectionId": "vastra-vatterleden-etapp-5-hjo-bastasen",
+          "name": "Hjoåns dalgång fireplace/rest point",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            58.308201,
+            14.274469
+          ]
+        }
+      ]
+    },
+    {
+      "overlayId": "vastra-vatterleden-vastra-vattern-natura-2000",
+      "protectedArea": "Västra Vättern Natura 2000",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-n2k%3APS.ProtectedSites.Natura2000&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=omradesnamn%3D%27V%C3%A4stra+V%C3%A4ttern%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/vastra-vattern-natura-2000-natura-2000-vastra-vattern.geojson"
+      ],
+      "recommendation": "Do not attach water-area rules unless selected shore/water connector geometry intersects the polygon.",
+      "confidence": "medium-high",
+      "routeOverlaps": [],
+      "facilityOverlaps": [
+        {
+          "facilityId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-9-klangahamn-klangahamns-fisk",
+          "sectionId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+          "name": "Klangahamn / Klangahamns Fisk",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            58.613095,
+            14.538881
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-18-hjo-gasthamn-service",
+          "sectionId": "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+          "name": "Hjo Gästhamn service",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            58.302667,
+            14.2944988
+          ]
+        }
+      ]
+    },
+    {
+      "overlayId": "vastra-vatterleden-hokensas-nature-conservation-area",
+      "protectedArea": "Hökensås nature conservation area",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NVO&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272001952%27",
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NVO&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272002586%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/hokensas-nature-conservation-area-nature-conservation-area-2001952.geojson",
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/hokensas-nature-conservation-area-nature-conservation-area-2002586.geojson"
+      ],
+      "recommendation": "Apply Hökensås NVO rules to overlapping stage-6, stage-7 and facility context.",
+      "confidence": "high",
+      "routeOverlaps": [
+        {
+          "sectionId": "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 12.09,
+                  "endKm": 21.888
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 0.072,
+                  "endKm": 0.169
+                },
+                {
+                  "startKm": 0.869,
+                  "endKm": 10.889
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult.geojson",
+              "lineIndex": 1,
+              "rangesKm": [
+                {
+                  "startKm": 0,
+                  "endKm": 0.138
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult.geojson",
+              "lineIndex": 2,
+              "rangesKm": [
+                {
+                  "startKm": 0,
+                  "endKm": 0.022
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult.geojson",
+              "lineIndex": 3,
+              "rangesKm": [
+                {
+                  "startKm": 0,
+                  "endKm": 0.053
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult.geojson",
+              "lineIndex": 4,
+              "rangesKm": [
+                {
+                  "startKm": 0,
+                  "endKm": 0.027
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "facilityOverlaps": [
+        {
+          "facilityId": "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-facilities-12-ibbesjon-shelter",
+          "sectionId": "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+          "name": "Ibbesjön shelter",
+          "candidateType": null,
+          "state": "suppress",
+          "importAction": "suppress",
+          "coordinatesLatLon": [
+            58.0881152,
+            14.0841605
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-watersources-3-lilla-havsjon-bathing-water",
+          "sectionId": "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+          "name": "Lilla Havsjön bathing water",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "swimming-context-only",
+          "coordinatesLatLon": [
+            58.105834,
+            14.085727
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-facilities-6-lille-lilla-havsjon-bathing-place",
+          "sectionId": "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+          "name": "Lille/Lilla Havsjön bathing place",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            58.105834,
+            14.085727
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-watersources-2-store-grubben-lake-rest-area-water",
+          "sectionId": "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+          "name": "Store Grubben lake/rest area water",
+          "candidateType": null,
+          "state": "suppress",
+          "importAction": "suppress",
+          "coordinatesLatLon": [
+            58.097667,
+            14.109787
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-facilities-5-store-grubben-rest-area",
+          "sectionId": "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+          "name": "Store Grubben rest area",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            58.097667,
+            14.109787
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-facilities-9-hallsdammsbacken-shelter-cluster",
+          "sectionId": "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult",
+          "name": "Hållsdammsbäcken shelter cluster",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            58.032095,
+            14.063029
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-facilities-3-ibbesjon-shelter-cluster",
+          "sectionId": "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult",
+          "name": "Ibbesjön shelter cluster",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            58.08804,
+            14.083862
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-facilities-4-lilla-havssjon-lille-havsjon-bathing-place",
+          "sectionId": "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult",
+          "name": "Lilla Havssjön / Lille Havsjön bathing place",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            58.105834,
+            14.085727
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-watersources-3-lilla-havssjon-bathing-water",
+          "sectionId": "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult",
+          "name": "Lilla Havssjön bathing water",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "swimming-context-only",
+          "coordinatesLatLon": [
+            58.105834,
+            14.085727
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-facilities-7-nordvattnet-rest-grill-fishing-area",
+          "sectionId": "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult",
+          "name": "Nordvattnet rest/grill/fishing area",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            58.05367,
+            14.07482
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-facilities-6-store-ojasjon-grill-rest-areas",
+          "sectionId": "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult",
+          "name": "Store Öjasjön grill/rest areas",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            58.06289,
+            14.07632
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-facilities-8-sydvattnet-rest-areas",
+          "sectionId": "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult",
+          "name": "Sydvattnet rest areas",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            58.05021,
+            14.07185
+          ]
+        }
+      ]
+    },
+    {
+      "overlayId": "vastra-vatterleden-hyltan-nature-reserve",
+      "protectedArea": "Hyltan nature reserve",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NR&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272000412%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/hyltan-nature-reserve-nature-reserve-2000412.geojson"
+      ],
+      "recommendation": "Apply Hyltan rules only to overlapping stage-6 route/facility context.",
+      "confidence": "high",
+      "routeOverlaps": [
+        {
+          "sectionId": "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 5.241,
+                  "endKm": 5.759
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas.geojson",
+              "lineIndex": 3,
+              "rangesKm": [
+                {
+                  "startKm": 0,
+                  "endKm": 0.032
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "facilityOverlaps": [
+        {
+          "facilityId": "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-facilities-4-vitsjon-fireplace-rest-area",
+          "sectionId": "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+          "name": "Vitsjön fireplace / rest area",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "attach-to-parent",
+          "coordinatesLatLon": [
+            58.1911018,
+            14.0997753
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-watersources-1-vitsjon-lake-water",
+          "sectionId": "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+          "name": "Vitsjön lake water",
+          "candidateType": null,
+          "state": "suppress",
+          "importAction": "suppress",
+          "coordinatesLatLon": [
+            58.1911018,
+            14.0997753
+          ]
+        },
+        {
+          "facilityId": "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-facilities-3-vitsjon-shelter-cluster",
+          "sectionId": "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+          "name": "Vitsjön shelter cluster",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            58.1911018,
+            14.0997753
+          ]
+        }
+      ]
+    },
+    {
+      "overlayId": "vastra-vatterleden-gagnan-reserve-and-natura-2000",
+      "protectedArea": "Gagnån reserve and Natura 2000",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NR&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272001372%27",
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-n2k%3APS.ProtectedSites.Natura2000&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=omradesnamn%3D%27Gagn%C3%A5n%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/gagnan-reserve-and-natura-2000-nature-reserve-2001372.geojson",
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/gagnan-reserve-and-natura-2000-natura-2000-gagnan.geojson"
+      ],
+      "recommendation": "Apply Gagnån rules to overlapping stage-8 geometry; do not apply them to stage-7 facilities unless overlap is proven.",
+      "confidence": "high",
+      "routeOverlaps": [
+        {
+          "sectionId": "vastra-vatterleden-etapp-8-fagerhult-mullsjo",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-8-fagerhult-mullsjo.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 0.335,
+                  "endKm": 0.459
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/vastra-vatterleden/geometry/candidate/sections/vastra-vatterleden-etapp-8-fagerhult-mullsjo.geojson",
+              "lineIndex": 1,
+              "rangesKm": [
+                {
+                  "startKm": 0.335,
+                  "endKm": 0.459
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "facilityOverlaps": []
+    },
+    {
+      "overlayId": "vastra-vatterleden-ryfors-reserve-and-natura-2000",
+      "protectedArea": "Ryfors reserve and Natura 2000",
+      "status": "no-candidate-overlap",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NR&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272001381%27",
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-n2k%3APS.ProtectedSites.Natura2000&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=omradesnamn%3D%27Ryfors%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/ryfors-reserve-and-natura-2000-nature-reserve-2001381.geojson",
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/ryfors-reserve-and-natura-2000-natura-2000-ryfors.geojson"
+      ],
+      "recommendation": "Keep as nearby/continuation context unless selected route/access geometry proves overlap.",
+      "confidence": "medium-high",
+      "routeOverlaps": [],
+      "facilityOverlaps": []
+    },
+    {
+      "overlayId": "vastra-vatterleden-strakens-strandskogar-nature-reserve",
+      "protectedArea": "Stråkens strandskogar nature reserve",
+      "status": "no-candidate-overlap",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NR&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272065122%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/strakens-strandskogar-nature-reserve-nature-reserve-2065122.geojson"
+      ],
+      "recommendation": "Keep as nearby/continuation context unless selected route/access geometry proves overlap.",
+      "confidence": "medium-high",
+      "routeOverlaps": [],
+      "facilityOverlaps": []
+    },
+    {
+      "overlayId": "vastra-vatterleden-vastra-fagerhult-natura-2000",
+      "protectedArea": "Västra Fagerhult Natura 2000",
+      "status": "no-candidate-overlap",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-n2k%3APS.ProtectedSites.Natura2000&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=omradesnamn%3D%27V%C3%A4stra+Fagerhult%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/vastra-fagerhult-natura-2000-natura-2000-vastra-fagerhult.geojson"
+      ],
+      "recommendation": "Keep as nearby/continuation context unless selected route/access geometry proves overlap.",
+      "confidence": "medium-high",
+      "routeOverlaps": [],
+      "facilityOverlaps": []
+    },
+    {
+      "overlayId": "vastra-vatterleden-norra-fagelas-nature-reserve",
+      "protectedArea": "Norra Fågelås nature reserve",
+      "status": "no-candidate-overlap",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NR&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272046449%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/vastra-vatterleden/geometry/protected-area-overlays/source-downloads/norra-fagelas-nature-reserve-nature-reserve-2046449.geojson"
+      ],
+      "recommendation": "Keep as nearby context unless selected route/access geometry proves overlap.",
+      "confidence": "medium-high",
+      "routeOverlaps": [],
+      "facilityOverlaps": []
+    }
+  ]
+}

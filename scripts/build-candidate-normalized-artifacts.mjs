@@ -519,6 +519,11 @@ const protectedAreaOverlayResolutionConfig = {
     triageResolvedSourceIds: ["sjuharadsleden-protected-area-clipping"],
     action:
       "Candidate protected-area-overlays.research.json now records computed NVR polygon checks against every normalized candidate facility point and candidate route GeoJSON segment for Klippan, Årås, Ryfors and Stråkens strandskogar."
+  },
+  "vastra-vatterleden": {
+    triageResolvedSourceIds: ["rules"],
+    action:
+      "Candidate protected-area-overlays.research.json now records computed NVR/Natura 2000 polygon checks against final normalized candidate route geometry and facility points for Västra Vätterleden rule scoping."
   }
 };
 
