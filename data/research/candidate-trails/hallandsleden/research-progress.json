@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-30T05:10:00Z",
-  "currentPhase": "Phase 2 S9 complete and validated; ready to start hallandsleden-sandsjobacka-kungsbacka-c",
+  "lastUpdated": "2026-04-30T06:10:00Z",
+  "currentPhase": "Phase 2 K1 complete and validated; ready to commit before starting hallandsleden-kungsbacka-c-tjoloholm",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -27,7 +27,8 @@
     "hallandsleden-simlangsdalen-mastocka",
     "hallandsleden-mastocka-knared",
     "hallandsleden-knared-ekegarden",
-    "hallandsleden-ekegarden-koarp"
+    "hallandsleden-ekegarden-koarp",
+    "hallandsleden-sandsjobacka-kungsbacka-c"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -798,19 +799,41 @@
       "sectionNumber": "K1",
       "name": "Sandsjöbacka - Kungsbacka C",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-gpx-discovered-map-api-line-empty-or-sparse-needs-parsing",
-      "startEndCoordinateStatus": "not-yet-validated-gpx-endpoints-needed",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-official-source-lane-and-main-thread-baseline",
+      "routeGeometryStatus": "complete-official-gpx-api-geojson-canonical-line-geometry-empty-naturkartan-osm-suppressed",
+      "startEndCoordinateStatus": "main-thread-baseline-complete-official-gpx-api-endpoints-high-confidence-k2-handoff-17m",
+      "commuteAccessStatus": "complete-start-parking-demand-responsive-weak-scheduled-transit-end-strong-kungsbacka-c",
+      "facilityResearchStatus": "complete-core-facilities-ready-urban-filtering-and-start-toilet-water-verification-needed",
+      "rulesSafetyStatus": "complete-sandsjobacka-start-reserve-span-no-active-closure-safety-currentness-caveats",
+      "synthesisStatus": "complete-section-json-written-and-validation-passed",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
         "Run six independent section research lanes and synthesize findings.",
         "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
         "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision.",
+        "K1 batch started using six research lanes.",
+        "Pay special attention to coastal-route topology, official GPX Kust_Sandsjobacka_Kungsbacka.gpx, official 8.7 km medium route, sparse/empty official map API linework, Sandsjöbacka/Kungsbacka C endpoint access, Kungsbacka transit and services, Sandsjöbacka protected-area rules, currentness and coastal-route incompleteness/future-build caveats.",
+        "Main-thread baseline found the official GPX Kust_Sandsjobacka_Kungsbacka.gpx is HTTP 200, Last-Modified 2025-06-23, ETag 0c68105bf2f9c2f56e70773f9c37004c, name Sandsjöbacka - Kungsbacka C, metadata name Kust_Sandsjobacka_Kungsbacka, metadata time 2025-06-23T09:31:07+02:00, desc Total: 8.7 km, 100 points, computed 8.663 km, start 57.529644,12.041022 and end 57.489648,12.078760.",
+        "Main-thread baseline found Hallandsleden API geo_json matches the official GPX exactly: 100 points, computed 8.663 km, start 57.529644,12.041022, end 57.489648,12.078760, official length 8700 m, medium difficulty and no official time.",
+        "Main-thread baseline found Hallandsleden API line object has only properties and no line.geometry for K1; treat the GPX/API geo_json as canonical candidate pending geometry lane.",
+        "Main-thread baseline verified K1/K2 handoff: K1 GPX end 57.489648,12.078760 to K2 GPX start 57.489500,12.078674 is about 17.24 m.",
+        "Official page baseline: Hallandsleden starts here in Sandsjöbacka nature reserve, passes under the motorway and by the 2018 ecoduct, follows paths through forest, small lakes and hills, offers a Björkris viewpoint side trip, continues through Björkris past Hede station and follows Kungsbackaån to Stadshusparken and Kungsbacka station.",
+        "Official places API baseline returned 7 records for K1: Best Western Hotell Halland, Hemköp Torget Kungsbacka, Hållplats Hede station, Kungsbacka Resecentrum, Röda Stugan Trädgårdscafé & Butik, Toalett Borgmästareplatsen and Toalett och dricksvatten Kungsbacka. These are mostly mid-route/end urban service records; no official K1 campsite/shelter/fireplace was found in the section places API.",
+        "Facility baseline route-proximity check: Hållplats Hede station is about 23 m from route km 5.50, Kungsbacka Resecentrum about 56 m from route end, Best Western about 84 m from route end, Toalett Borgmästareplatsen about 35 m from route km 8.34, Hemköp about 367 m from route end, Röda Stugan about 252 m from route end and Toalett och dricksvatten Kungsbacka about 334 m from route end.",
+        "Access baseline: Naturkartan/Västkuststiftelsen Grönabur p-plats is at 57.52949554,12.04073534, about 23 m from the K1 start; official Naturkartan parking page reports no public-transport stop found for the parking. Hede station is about 3.1 km straight-line from the start and on-route at km 5.5; Kungsbacka Resecentrum/Kungsbacka station is 56-81 m from the route end.",
+        "Protected-area/currentness baseline: Länsstyrelsen says Sandsjöbacka is Halland's largest land nature reserve, part of Natura 2000, with no tent/caravan camping, fires only at designated places and dogs leashed; Västkuststiftelsen and Länsstyrelsen report limited access to Hagryd-Dala parking through April 2026, but K1 starts at/near Grönabur p-plats.",
+        "Naturkartan baseline: search index still has a Sandsjöbacka - Kungsbacka C Hallandsleden Kust page showing 8.7 km and green/easy, but direct fetch on 2026-04-30 returned 404; treat it as stale/search-cached until agents or later pass find a live replacement. Naturkartan Grönabur p-plats page is live.",
+        "OSM baseline did not find an exact current Hallandsleden K1 hiking relation in the K1 corridor by name/route query; it did find older/inland Hallandsleden relation 4174979 east of the corridor plus Sandsjöbackaleden and local Björkris bus/viewpoint nodes, so OSM should be validation/context only pending geometry lane.",
+        "Official-source lane confirmed canonical identity/order/distance/difficulty/no-time, official GPX/API metadata, Kusten currentness context, official places/facilities, Sandsjöbacka reserve source context and official source contradictions around Naturkartan difficulty and Kusten total-distance wording.",
+        "Route-geometry lane confirmed official GPX/API geo_json as canonical navigation-grade geometry, API line.geometry missing, K2 handoff about 17.2 m, Naturkartan live geometry unavailable/stale and no exact OSM Hallandsleden K1 relation found.",
+        "Facilities lane classified core records for Grönabur/Sandsjöbacka start parking, Björkris viewpoint, Hede station, Kungsbacka Resecentrum, Best Western, Borgmästareplatsen toilet, Kungsbacka torg toilet/water and Hemköp, with Björkris water/toilet/food and Röda Stugan pending, dense Kungsbacka service suppression and no official K1 campsite/shelter/fireplace.",
+        "Transit-access lane confirmed start access is parking/trailhead-first with weak fixed-route transit, Hallabäcksvägen and Hede station as caveated scheduled alternatives, Kungsbacka C as a strong bus/rail endpoint, and Västtrafik Närtrafik/Högsered p-plats as reserve-access context rather than a normal K1 start stop.",
+        "Field-report lane found no active K1 closure/reroute, only partial Sandsjöbacka/Kungsbacka route-app condition evidence, seasonal/local muddy/rocky/boggy terrain signals and stale pre-coastal-route source risks.",
+        "Rules-safety lane found Sandsjöbacka nature reserve span only at the start (about km 0.00-0.24), no active K1 closure/reroute, no direct Natura/water-protection/forestry span to import, hazards at E6/E20 underpass, Hede/rail, road crossings, Kungsbackaån and urban finish, plus future Björkris/Kungsbackaån works/currentness caveats.",
+        "All six K1 lane reports are in. Main thread decided no targeted follow-up batch is needed before synthesis because remaining issues are import/currentness caveats: Naturkartan stale page, start scheduled transit weakness, Sandsjöbackamotet toilet coordinate, Björkris water/toilet public availability, reserve/Natura boundary verification, Kungsbacka urban filtering and dynamic works/fire/transit checks.",
+        "K1 synthesis complete: section JSON written at sections/hallandsleden-sandsjobacka-kungsbacka-c.research.json. It is research-ready with caveats around canonical official GPX/API geometry, missing line.geometry, stale Naturkartan, no exact OSM K1 relation, weak start transit, Grönabur/Sandsjöbacka parking naming, Högsered/Närtrafik as reserve-access context only, endpoint urban-service filtering, no official campsite/shelter/fireplace, Kungsbacka torg water offset, Sandsjöbacka reserve start rules and dynamic currentness checks.",
+        "Full Hallandsleden candidate JSON validation and git diff --check passed for K1 before commit."
       ]
     },
     "hallandsleden-kungsbacka-c-tjoloholm": {
@@ -5121,6 +5144,185 @@
       "synthesizedAt": "2026-04-30T05:05:00Z",
       "synthesisOutput": "sections/hallandsleden-ekegarden-koarp.research.json",
       "synthesisSummary": "Synthesized S9 Ekegården - Koarp into a research-ready section JSON after all six lane reports plus main-thread official/API/GPX/Naturkartan/OSM/places/rules checks. Canonical geometry is official GPX/API geo_json, 457 points and 12.770 km computed, with exact S8 handoff and Koarp/Skåneleden continuation. Hallandsleden line.geometry, Naturkartan and OSM relation 7396991 are suppressed as direct import geometry. Endpoint transit is weak, Koarp water has seasonal/current tap caveats, Ekegården has no confirmed drinking water, side services need filtering, and Musikedalen/Skogaby overlays remain import-time open questions."
+    },
+    {
+      "batchId": "hallandsleden-sandsjobacka-kungsbacka-c-initial-6-lane-2026-04-30",
+      "sectionId": "hallandsleden-sandsjobacka-kungsbacka-c",
+      "startedAt": "2026-04-30T05:15:00Z",
+      "status": "synthesized-section-json-written",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "nickname": "Carson"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "nickname": "Darwin"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "nickname": "Beauvoir the 2nd"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "nickname": "Poincare the 2nd"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "nickname": "Rawls the 2nd"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "nickname": "Kuhn the 2nd"
+        }
+      ],
+      "requestedOutputs": [
+        "official facts",
+        "geometry verification",
+        "facilities",
+        "transit/access",
+        "field reports",
+        "rules/safety/currentness"
+      ],
+      "notes": [
+        "Research only; agents must not edit files. Main thread owns final JSON/progress writes.",
+        "Focus on Sandsjöbacka - Kungsbacka C, official Kusten K1 topology, official GPX Kust_Sandsjobacka_Kungsbacka.gpx, sparse/empty official map API linework, endpoint access/transit at Sandsjöbacka and Kungsbacka C, Kungsbacka urban service filtering, facilities/water/camping/fire/toilet evidence, Sandsjöbacka protected-area rules/currentness and coastal-route incompleteness/future-build caveats."
+      ],
+      "receivedReports": [
+        {
+          "lane": "official-sources",
+          "receivedAt": "2026-04-30T05:45:00Z",
+          "summary": "Confirmed K1 as the first Kusten section, Sandsjöbacka - Kungsbacka C, 8.7 km, blue/medium, no official time, with route description through Sandsjöbacka reserve, the motorway underpass/ecoduct, Björkris, Hede station, Kungsbackaån, Stadshusparken and Kungsbacka station. Official GPX has 100 points, metadata time 2025-06-23T09:31:07+02:00, start 57.529644,12.041022 and end 57.489648,12.078760. Official API length is 8700 m and line.geometry is empty. Official places API returned seven mostly Hede/Kungsbacka service records and no campsite/wind shelter.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/sandsjobacka-kungsbacka-c",
+            "https://www.hallandsleden.se/en/etapp/sandsjobacka-kungsbacka-c",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Sandsjobacka_Kungsbacka.gpx",
+            "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=sandsjobacka-kungsbacka-c&token=<public-page-token>",
+            "https://www.hallandsleden.se/api/v2/places?trackSegment=sandsjobacka-kungsbacka-c&token=<public-page-token>",
+            "https://hallandsleden.se/delled/kusten",
+            "https://visitkungsbacka.se/se--gora/natur--friluftsliv/vandra--cykla/hallandsleden-kusten",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/sandsjobacka.html"
+          ],
+          "importImpacts": [
+            "Use official K1 identity, order, 8.7 km distance, medium/blue difficulty and null time.",
+            "Use official GPX/API geo_json for geometry and do not use API line.geometry.",
+            "Attach curated Kungsbacka/Hede official service records and do not infer K1 camping/shelter.",
+            "Record Kusten partial-completion and Naturkartan difficulty/source risks."
+          ]
+        },
+        {
+          "lane": "route-geometry",
+          "receivedAt": "2026-04-30T05:40:00Z",
+          "summary": "Confirmed official GPX/API geo_json as navigation-grade canonical geometry: 100 points, computed 8.663 km, start Sandsjöbacka 57.529644,12.041022, end Kungsbacka C 57.489648,12.078760, official/API length 8700 m and elevation 1.5-84.9 m. K2 starts at 57.489500,12.078674, about 17.2 m from K1 end. Hallandsleden line.geometry is missing, Naturkartan page/GPX are not currently retrievable, and no current OSM Hallandsleden K1 relation was found; nearby Sandsjöbackaleden relation 89398 is a different local route.",
+          "keySources": [
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Sandsjobacka_Kungsbacka.gpx",
+            "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=sandsjobacka-kungsbacka-c&token=<public-page-token>",
+            "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=kungsbacka-c-tjoloholm&token=<public-page-token>",
+            "https://www.naturkartan.se/sv/hallands-lan/sandsjobacka-kungsbacka-c-hallandsleden-kust-49d9a4c2-6b93-4da1-8f90-317fb617e16c",
+            "https://www.openstreetmap.org/relation/89398"
+          ],
+          "importImpacts": [
+            "Import official GPX/API geo_json as canonical geometry.",
+            "Suppress API line.geometry, Naturkartan and OSM as direct K1 geometry.",
+            "Preserve Sandsjöbacka to Kungsbacka C direction and record 17.2 m K2 station-area handoff."
+          ]
+        },
+        {
+          "lane": "facilities",
+          "receivedAt": "2026-04-30T05:45:00Z",
+          "summary": "Classified core records for Sandsjöbacka/Grönabur start parking, Björkris viewpoint, Hållplats Hede station, Kungsbacka Resecentrum, Best Western Hotell Halland, Toalett Borgmästareplatsen, Toalett och dricksvatten Kungsbacka and Hemköp Torget. Marked Björkris Pizzeria, Björkris OSM water, Hede/Björkris OSM toilet, Röda Stugan and Kungsbacka tourist information as pending/optional, and dense Kungsbacka urban amenities plus transit shelters as suppressions. Confirmed no official K1 campsite, wind shelter or fireplace.",
+          "keySources": [
+            "https://www.hallandsleden.se/api/v2/places?trackSegment=sandsjobacka-kungsbacka-c&token=<public-page-token>",
+            "https://www.hallandsleden.se/plats/hallplats-hede-station",
+            "https://www.hallandsleden.se/plats/kungsbacka-resecentrum",
+            "https://www.hallandsleden.se/plats/toalett-borgmastareplatsen",
+            "https://www.hallandsleden.se/plats/toalett-och-dricksvatten-kungsbacka",
+            "https://www.openstreetmap.org/way/617831493",
+            "https://www.openstreetmap.org/node/10556553560",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/sandsjobacka.html"
+          ],
+          "importImpacts": [
+            "Import a lightweight K1 facility set focused on trailhead/access, Björkris viewpoint, Hede/Kungsbacka access and curated endpoint services.",
+            "Import Kungsbacka torg water as official endpoint service despite 334 m endpoint offset.",
+            "Keep Björkris water/toilet public availability and Sandsjöbackamotet toilet coordinate pending.",
+            "Suppress generic Kungsbacka urban amenities and unverified shelters."
+          ]
+        },
+        {
+          "lane": "transit-access",
+          "receivedAt": "2026-04-30T05:45:00Z",
+          "summary": "Confirmed K1 start is parking/trailhead-first at Grönabur/Sandsjöbacka parking around 57.52949,12.04074, about 23 m from the GPX start. Västtrafik Närtrafik/Högsered p-plats/Spårhagavägen 70 remains reserve-access context and should not be modeled as a normal scheduled K1 start stop unless verified. Closest scheduled bus found is Hallabäcksvägen about 2.69 km from start; Hede station is about 3.13 km from start but on-route later. Kungsbacka C is a strong multimodal endpoint: station/bus area 29-81 m from GPX end, plus parking nearby. No ferry/boat applies.",
+          "keySources": [
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/sandsjobacka.html",
+            "https://vastkuststiftelsen.se/naturreservat/sandsjobacka/",
+            "https://www.vasttrafik.se/en/travel-planning/pre-ordered-traffic/nartrafik/Molndal/",
+            "https://visitkungsbacka.se/planera-din-resa",
+            "https://www.openstreetmap.org/way/617831493",
+            "https://www.openstreetmap.org/node/5470460486",
+            "https://www.openstreetmap.org/node/3168257162"
+          ],
+          "importImpacts": [
+            "Model Sandsjöbacka as parking/trailhead-first with weak scheduled-transit access and reserve-access Närtrafik caveat.",
+            "Use Hallabäcksvägen and Hede station only as caveated alternate access/bailout.",
+            "Import Kungsbacka C as robust bus/rail endpoint and keep station-area endpoint offset caveat."
+          ]
+        },
+        {
+          "lane": "field-reports",
+          "receivedAt": "2026-04-30T05:42:00Z",
+          "summary": "Found no active K1-specific closure/reroute; official report page has only the deviation form and Länsstyrelsen had no current destination news. Route-app evidence is partial rather than exact K1: 2025 AllTrails Sandsjöbacka local-loop reports mention muddy/rocky or good conditions depending date, Komoot/Kungsbacka area evidence describes forest paths, rocky sections, gravel, moorland and boggy/boardwalk terrain. Old/pre-Kustleden Hallandsleden-Kungsbacka evidence is stale boundary context only.",
+          "keySources": [
+            "https://www.hallandsleden.se/report/sandsjobacka-kungsbacka-c",
+            "https://www.hallandsleden.se/etapp/sandsjobacka-kungsbacka-c",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/sandsjobacka.html",
+            "https://www.alltrails.com/trail/sweden/vastra-gotaland/sandsjobacka-sodra-sandsjo-rundslinga",
+            "https://www.alltrails.com/trail/sweden/halland/sandsjobackaleden",
+            "https://www.komoot.com/guide/910817/running-trails-around-kungsbacka",
+            "https://visitkungsbacka.se/se--gora/natur--friluftsliv/vandra--cykla/hallandsleden-kusten"
+          ],
+          "importImpacts": [
+            "Do not import active closure/reroute.",
+            "Import route character and optional seasonal caution for wet/muddy/rocky/boggy Sandsjöbacka terrain.",
+            "Do not import local-loop boardwalk/water/livestock details without exact K1 confirmation.",
+            "Suppress old pre-coastal-route Hallandsleden boundary evidence."
+          ]
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "receivedAt": "2026-04-30T05:48:00Z",
+          "summary": "Confirmed Sandsjöbacka nature reserve/NVR start span only for about km 0.00-0.24, with no tent/caravan camping, fires only at designated places and dogs leashed. Did not verify a direct K1 Natura 2000 span, water-protection span, forestry warning or active closure/reroute. Recorded safety hazards at E6/E20 underpass/ecoduct, forest/wet/rocky start terrain, Björkris urban transition, Hedebrovägen/Göteborgsvägen crossings, Hede rail/station area, Kungsbackaån riverbank and central Kungsbacka finish. Björkris/Kungsbackaån and station-area works are future/currentness caveats only.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/sandsjobacka-kungsbacka-c",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/sandsjobacka.html",
+            "https://geodata.naturvardsverket.se/naturvardsregistret/wfs",
+            "https://geodata.naturvardsverket.se/n2000/wfs",
+            "https://kungsbacka.se/trafik-resor-och-utemiljo/torg-och-allmanna-platser/ordningsregler",
+            "https://kungsbacka.se/bygga-bo-och-miljo/vatten-och-avlopp/kommunalt-vatten-och-avlopp/kommunalt-dricksvatten/vattenskyddsomraden",
+            "https://kungsbacka.se/bygga-bo-och-miljo/aktuella-projekt/bjorkris-etapp-2",
+            "https://www.skogsstyrelsen.se/bruka-skog/avverkning/anmalan-om-avverkning/"
+          ],
+          "importImpacts": [
+            "Import Sandsjöbacka reserve rule span around km 0.00-0.24.",
+            "Import road/rail/riverbank/urban finish safety cautions.",
+            "Do not import active closure, direct Natura span, water-protection span or forestry warning.",
+            "Keep reserve/Natura/water and urban works as recheck caveats."
+          ]
+        }
+      ],
+      "mainThreadBaseline": {
+        "completedAt": "2026-04-30T05:30:00Z",
+        "summary": "Main thread checked K1 official page, official GPX, Hallandsleden API map/places, K2 endpoint continuity, Naturkartan search/live pages, Västkuststiftelsen/Länsstyrelsen Sandsjöbacka pages, Visit Kungsbacka coastal overview, OSM/Nominatim/Overpass access context and route-proximity checks. Official GPX/API geo_json is the canonical candidate: 100 points, 8.663 km computed, start 57.529644,12.041022, end 57.489648,12.078760, exact GPX/API match, official 8700 m/medium/no-time metadata and no API line.geometry. K2 starts about 17.24 m from the K1 end. Official route text starts the coastal trail in Sandsjöbacka nature reserve, passes the motorway/ecoduct, Björkris, Hede station, Kungsbackaån, Stadshusparken and Kungsbacka station. Official places API returned 7 mostly urban/mid-route/end service records; no official K1 shelter/campsite/fireplace was found. Grönabur p-plats is about 23 m from the GPX start and Kungsbacka Resecentrum is about 56 m from the end; start transit is weak while Kungsbacka end access is strong. Sandsjöbacka reserve/Natura rules, Hagryd-Dala parking works through April 2026, stale Naturkartan K1 page and no exact OSM K1 relation are recorded as source/currentness caveats."
+      },
+      "completedAt": "2026-04-30T05:50:00Z",
+      "synthesizedAt": "2026-04-30T06:05:00Z",
+      "synthesisOutput": "sections/hallandsleden-sandsjobacka-kungsbacka-c.research.json",
+      "synthesisSummary": "Synthesized K1 Sandsjöbacka - Kungsbacka C into a research-ready section JSON after all six lane reports plus main-thread official/API/GPX/Naturkartan/OSM/access/rules checks. Canonical geometry is official GPX/API geo_json, 100 points and 8.663 km computed, with K2 handoff gap about 17.24 m. API line.geometry is missing, Naturkartan K1 is stale/unavailable and OSM has no exact K1 relation. Start access is Grönabur/Sandsjöbacka parking with weak scheduled transit; Kungsbacka C end access is strong. Facilities should be curated to start parking, Björkris viewpoint, Hede/Kungsbacka access and selected endpoint services, with Kungsbacka urban over-import, Björkris water/toilet, Sandsjöbackamotet toilet and reserve/Natura/currentness issues kept as caveats."
     }
   ],
   "sourceCoverage": {
@@ -5220,10 +5422,26 @@
       "fieldReports": "complete from field-report lane; no active closure found, terrain/wet-footing/adjacent-Skåneleden caveats recorded",
       "rulesSafety": "complete from rules-safety-currentness lane; no active closure, road 24/fire/dog/hunting/forestry/currentness caveats and Musikedalen/Skogaby open questions recorded",
       "synthesis": "complete; section JSON written and validation passed before commit"
+    },
+    "hallandsleden-sandsjobacka-kungsbacka-c": {
+      "overview": "complete from trail.research.json overview pass",
+      "officialSources": "complete from official-source lane and main-thread official page/API/GPX/places/coastal-overview baseline",
+      "routeGeometry": "complete from route-geometry lane and main-thread baseline; official GPX/API geo_json canonical, API line.geometry empty, Naturkartan/OSM suppressed",
+      "endpointCoordinates": "complete from official GPX/API endpoints and route-geometry/transit lanes; K2 handoff about 17 m",
+      "facilities": "complete from facilities lane and main-thread official places/proximity checks; import/pending/suppress decisions ready for synthesis",
+      "commuteAccess": "complete from transit/access lane; start parking/demand-responsive access and weak fixed-route transit, strong Kungsbacka C end access",
+      "fieldReports": "complete from field-report lane; no active closure found, partial Sandsjöbacka condition context and stale-source risks recorded",
+      "rulesSafety": "complete from rules-safety-currentness lane; Sandsjöbacka start reserve span, no active closure and road/rail/river/currentness caveats recorded",
+      "synthesis": "complete; section JSON written and validation passed before commit"
     }
   },
   "knownGaps": [
-    "Only the overview and first twenty-five sections have been researched/synthesized; 10 coastal sections still need the six-lane workflow.",
+    "Only the overview and first twenty-six sections have been researched/synthesized; 9 coastal sections still need the six-lane workflow.",
+    "K1: official GPX/API geo_json is canonical; Hallandsleden line.geometry is missing, Naturkartan K1 is stale/unavailable and no exact OSM Hallandsleden K1 relation was found.",
+    "K1: Sandsjöbacka start is parking/trailhead-first with weak fixed-route transit; Grönabur/Sandsjöbacka start parking is supported, while Högsered/Närtrafik evidence should remain reserve-access context unless verified for the K1 start.",
+    "K1: no official campsite/shelter/fireplace was found; Sandsjöbacka reserve start rules prohibit tent/caravan camping and restrict fires to designated places.",
+    "K1: official water is at Kungsbacka torg about 334 m from the endpoint; Björkris water/toilet and Sandsjöbackamotet toilet need verification before import.",
+    "K1: reserve/Natura/water-protection boundaries, Kungsbacka/Björkris works, fire status and urban service filtering require import-time recheck.",
     "S9: official GPX/API geo_json is canonical; Hallandsleden line.geometry, Naturkartan and OSM relation 7396991 should be suppressed as direct import geometry because they are offset, reverse or gap-heavy.",
     "S9: both endpoints have weak/no close public transport; Ekegården and Koarp should be modeled as shelter/trail-junction/road-access/pickup/continuation access with distant bus fallbacks only.",
     "S9: Koarp water is official and seasonal but currently has a tap-problem/temporary-container note; Ekegården has no confirmed drinking water.",
@@ -5427,9 +5645,9 @@
     "S6 research-ready caveat: old Assman-Mästocka 16-17 km route-app/tourism sources are stale and must be suppressed."
   ],
   "nextActions": [
-    "Commit S9 research files before starting K1.",
-    "Start K1 six-lane workflow for hallandsleden-sandsjobacka-kungsbacka-c after the S9 commit.",
-    "For K1, pay attention to the coastal-route topology, official GPX Kust_Sandsjobacka_Kungsbacka.gpx, empty/sparse official map API linework, Sandsjöbacka/Kungsbacka C endpoint access, Kungsbacka transit/services, protected-area/rules/currentness, and any coast-route incompleteness or future-build caveats."
+    "Commit K1 research files before starting K2.",
+    "Start K2 six-lane workflow for hallandsleden-kungsbacka-c-tjoloholm after the K1 commit.",
+    "For K2, pay attention to the Kungsbacka C station handoff, official GPX Kust_Kungsbacka_Tjoloholm.gpx, official 22 km easy route, coastal-route and Tjolöholm endpoint access, Tjolöholm facilities/rules, commute options, Kungsbacka urban service filtering and any coastal-route currentness caveats."
   ],
   "handoffNotes": [
     "Work resumed on 2026-04-29 in /workspaces/hike-trails-codex-hallandsleden-research on branch codex/hallandsleden-research.",
@@ -5555,7 +5773,13 @@
     "S7: import core Mästocka, Bollaltebygget, Krokån and Knäred endpoint facilities; keep Västralt, Gula villan and Flammabadet as side/connection/next-section context pending policy.",
     "S8 synthesized into sections/hallandsleden-knared-ekegarden.research.json; validate and commit before starting S9.",
     "S9 synthesized into sections/hallandsleden-ekegarden-koarp.research.json and validation passed; commit before starting K1.",
-    "K1 next target: hallandsleden-sandsjobacka-kungsbacka-c, official page https://www.hallandsleden.se/etapp/sandsjobacka-kungsbacka-c, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Sandsjobacka_Kungsbacka.gpx, distance 8.7 km, medium; starts Sandsjöbacka and ends Kungsbacka C."
+    "K1 next target: hallandsleden-sandsjobacka-kungsbacka-c, official page https://www.hallandsleden.se/etapp/sandsjobacka-kungsbacka-c, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Sandsjobacka_Kungsbacka.gpx, distance 8.7 km, medium; starts Sandsjöbacka and ends Kungsbacka C.",
+    "K1 initial six-lane agent batch started 2026-04-30T05:15:00Z with agents Carson, Darwin, Beauvoir the 2nd, Poincare the 2nd, Rawls the 2nd and Kuhn the 2nd. Main thread retains all file-write ownership.",
+    "K1 main-thread baseline completed 2026-04-30T05:30:00Z: official GPX/API geo_json is canonical candidate at 100 points/8.663 km, API line.geometry is empty, K2 handoff is about 17 m, official places are mostly Hede/Kungsbacka service records, Grönabur p-plats is the practical start access, Kungsbacka C end access is strong, and Sandsjöbacka reserve/Naturkartan/OSM/currentness caveats are recorded.",
+    "K1 all six lane reports received by 2026-04-30T05:50:00Z. No targeted follow-up batch is needed before synthesis because remaining issues are explicit caveats: stale Naturkartan page, weak scheduled start transit, Sandsjöbackamotet toilet coordinate, Björkris water/toilet public availability, reserve/Natura boundary verification, Kungsbacka urban filtering and dynamic works/fire/transit checks.",
+    "K1 section JSON written at data/research/candidate-trails/hallandsleden/sections/hallandsleden-sandsjobacka-kungsbacka-c.research.json and is research-ready-with-caveats pending validation.",
+    "Commit K1 before starting K2 per user instruction to commit between sections.",
+    "K2 next target: hallandsleden-kungsbacka-c-tjoloholm, official page https://www.hallandsleden.se/etapp/kungsbacka-c-tjoloholm, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Kungsbacka_Tjoloholm.gpx, distance 22 km, easy; starts Kungsbacka C and ends Tjolöholm."
   ],
   "filesWritten": [
     "README.md",
@@ -5585,7 +5809,8 @@
     "sections/hallandsleden-simlangsdalen-mastocka.research.json",
     "sections/hallandsleden-mastocka-knared.research.json",
     "sections/hallandsleden-knared-ekegarden.research.json",
-    "sections/hallandsleden-ekegarden-koarp.research.json"
+    "sections/hallandsleden-ekegarden-koarp.research.json",
+    "sections/hallandsleden-sandsjobacka-kungsbacka-c.research.json"
   ],
   "meaningfulPasses": [
     {
@@ -6237,6 +6462,31 @@
       "id": "phase-2-s9-validation-passed-2026-04-30",
       "completedAt": "2026-04-30T05:10:00Z",
       "summary": "Validated all Hallandsleden candidate JSON files with jq and checked whitespace with git diff --check before committing S9."
+    },
+    {
+      "id": "phase-2-k1-initial-six-lane-batch-started-2026-04-30",
+      "completedAt": "2026-04-30T05:15:00Z",
+      "summary": "Started K1 Sandsjöbacka - Kungsbacka C six-lane research batch with agents Carson, Darwin, Beauvoir the 2nd, Poincare the 2nd, Rawls the 2nd and Kuhn the 2nd. Main thread retains all file-write ownership."
+    },
+    {
+      "id": "phase-2-k1-main-thread-baseline-2026-04-30",
+      "completedAt": "2026-04-30T05:30:00Z",
+      "summary": "Main thread baseline for K1 checked official page/API/GPX/places, K2 endpoint continuity, Naturkartan live/search state, Västkuststiftelsen/Länsstyrelsen Sandsjöbacka pages, Visit Kungsbacka coastal overview, and OSM/Nominatim/Overpass access context. Official GPX/API geo_json is canonical candidate at 100 points/8.663 km with start 57.529644,12.041022 and end 57.489648,12.078760; API line.geometry is empty. Grönabur p-plats is about 23 m from the start, Kungsbacka Resecentrum about 56 m from the end, official places are mostly urban/mid-route services, and reserve/currentness/stale-source caveats are recorded while agent lanes continue."
+    },
+    {
+      "id": "phase-2-k1-six-lane-reports-complete-synthesis-started-2026-04-30",
+      "completedAt": "2026-04-30T05:50:00Z",
+      "summary": "All six K1 lane reports are in. Reports confirm canonical official GPX/API geo_json, missing API line.geometry, stale/unavailable Naturkartan and no exact OSM K1 relation, weak scheduled start transit, strong Grönabur parking, caveated Närtrafik reserve-access context and strong Kungsbacka C access, curated facilities with no official campsite/shelter/fireplace, no active closure, Sandsjöbacka start reserve rules, urban/river/road/rail safety caveats and Kusten currentness risks. Main thread decided no targeted follow-up batch is needed before synthesis."
+    },
+    {
+      "id": "phase-2-k1-six-lane-synthesis-complete-2026-04-30",
+      "completedAt": "2026-04-30T06:05:00Z",
+      "summary": "Synthesized K1 Sandsjöbacka - Kungsbacka C into sections/hallandsleden-sandsjobacka-kungsbacka-c.research.json after all six lane reports plus main-thread official/API/GPX/Naturkartan/OSM/access/rules checks. Marked K1 research-ready with caveats around canonical official GPX/API geo_json, missing line.geometry, stale Naturkartan, no exact OSM K1 relation, weak scheduled start transit, Grönabur/Sandsjöbacka parking and Högsered/Närtrafik naming caveat, endpoint urban-service filtering, no official campsite/shelter/fireplace, Kungsbacka torg water offset, Sandsjöbacka reserve start rules and dynamic currentness checks."
+    },
+    {
+      "id": "phase-2-k1-validation-passed-2026-04-30",
+      "completedAt": "2026-04-30T06:10:00Z",
+      "summary": "Validated all Hallandsleden candidate JSON files with jq and checked whitespace with git diff --check before committing K1."
     }
   ]
 }
