@@ -1,0 +1,237 @@
+{
+  "schemaVersion": "candidate-trail-caveat-resolution-v1",
+  "trailId": "ostkustleden",
+  "lastUpdated": "2026-04-29T20:51:47Z",
+  "scope": "Research-only caveat resolution under data/research/candidate-trails/ostkustleden/. No runtime source, generated output, package, script or shared app data was edited.",
+  "sourceCheckSummary": {
+    "checkedDate": "2026-04-29",
+    "method": "Main-thread follow-up source pass over current official/maintainer pages plus synthesis of existing section research files.",
+    "officialSourcesRechecked": [
+      {
+        "label": "Naturkartan: Övernattningsstuga Stjärneberg",
+        "url": "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-stjarneberg",
+        "finding": "Visible page text lists Stjärneberg cabin inventory, well about 75 m away, boil-water recommendation, no outdoor fires and standard fees. The earlier bed-bug closure and arsenic wording was not reproduced."
+      },
+      {
+        "label": "Naturkartan: Övernattningsstuga Hällveberg",
+        "url": "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-hallveberg",
+        "finding": "Confirms Hällveberg is the current map name, Hedvigsberg the older name, no electricity, well/dry toilet, boil-water recommendation and no outdoor fires."
+      },
+      {
+        "label": "Naturkartan: Övernattningsstuga Lilla Hycklinge",
+        "url": "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-i-hycklinge",
+        "finding": "Confirms water in the house, toilet between red and yellow buildings, grill ring usable only when no stricter municipal fire ban applies and standard fees."
+      },
+      {
+        "label": "Döderhults Naturskyddsförening: Ostkustleden",
+        "url": "https://doderhult.naturskyddsforeningen.se/ostkustleden/",
+        "finding": "Confirms the 16 mil, 8-stage ring, general cabin network, stage distances, stage narratives, bathing notes, transport links and general allemansrätten guidance."
+      },
+      {
+        "label": "Oskarshamn tourism: Ostkustleden",
+        "url": "https://oskarshamn.com/product/ostkustleden/",
+        "finding": "Confirms the 16 mil, 8-stage closed ring and says overnight cabins are open year-round in broad public tourism text."
+      }
+    ]
+  },
+  "resolutionPolicy": {
+    "sourcePrecedence": [
+      "Current official facility/section pages and maintainer pages checked on 2026-04-29 take precedence for static research decisions.",
+      "Official GPX/PDF/API linework is preferred for route geometry, but raw multi-track order is not trusted when section research documents duplicate, reversed or mid-route pieces.",
+      "Official PDFs, OSM relations and route apps are secondary checks for distance and continuity, not replacement geometry when official GPX is repairable.",
+      "Third-party field reports are used for terrain, route-finding and currentness cautions, not for unverified facility availability unless corroborated by official sources."
+    ],
+    "endpointPolicy": [
+      "Keep official GPX endpoints and official cabin/facility markers as separate evidence when there is a gap.",
+      "Do not snap to a cabin marker unless a separate official access leg or normalization decision later supports it.",
+      "Naturkartan route-page markers may be mid-route or endpoint-adjacent; use GPX endpoints and facility markers instead."
+    ],
+    "distancePolicy": [
+      "Use the current official section page distance as canonical display unless a documented duplicate-geometry artifact clearly explains the discrepancy.",
+      "For Etapp 5, treat Naturkartan 21.4 km as duplicate-linework inflated and retain about 19 km display context with repaired official GPX length about 18.734 km for normalization.",
+      "Store computed GPX lengths as geometry metadata, not as silent replacement for official display values."
+    ],
+    "facilityPolicy": [
+      "Only import POIs with source-backed coordinates. Narrative-only or locality-proxy POIs remain pending or suppressed from default import.",
+      "Cabin-yard water, toilets, fireplaces and grills without separate source-backed coordinates should be modeled as cabin metadata or clustered subfacilities, not independent precision POIs.",
+      "Natural swimming waters are not drinking-water sources.",
+      "Water sources with boil/currentness caveats must not be presented as unqualified potable water."
+    ],
+    "accessPolicy": [
+      "Off-route shops, harbors, food, lodging, taxi/Närtrafik and bus fallback points are access/service metadata unless a sourced spur geometry exists.",
+      "KLT/Närtrafik service patterns are publication-time checks, even where stop coordinates are researched."
+    ],
+    "rulesPolicy": [
+      "Fire bans, hunting notices, forestry operations, cabin availability, seasonal water, bathing-water status and transit service remain publication-time checks.",
+      "Protected-area, Natura 2000, biotopskydd and water-protection rules should not be applied as route-touch rules unless a GIS overlay confirms intersection or an official source states the route passes through the area."
+    ]
+  },
+  "resolvedCaveats": [
+    {
+      "id": "stjarneberg-closure-arsenic",
+      "status": "resolved-to-current-official-publication-time-check",
+      "affectedSections": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg",
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar"
+      ],
+      "resolution": "The earlier closed-cabin/arsenic claim was not reproducible from current official Stjärneberg Naturkartan, Döderhult or Oskarshamn pages on 2026-04-29. Candidate data should not mark Stjärneberg closed or carry a static arsenic warning. Keep cabin availability and well quality as publication-time checks, with boil-water wording from current official text.",
+      "filesPatched": [
+        "sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+        "sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json"
+      ]
+    },
+    {
+      "id": "geometry-marker-policy",
+      "status": "resolved-by-policy",
+      "affectedSections": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+        "ostkustleden-etapp-2-nynas-lonhult",
+        "ostkustleden-etapp-4-krokstorp-mortfors",
+        "ostkustleden-etapp-5-mortfors-stjarneberg",
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "resolution": "Endpoint/cabin gaps and route-page pin mismatches are not research blockers. Preserve them as metadata and normalize route geometry from documented GPX sequence/repair instructions."
+    },
+    {
+      "id": "distance-contradictions",
+      "status": "resolved-by-policy",
+      "affectedSections": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg",
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "resolution": "Distance conflicts are handled by keeping official display distance, secondary rounded distances and computed GPX lengths in separate fields. Etapp 5 has a special duplicate-geometry artifact note."
+    },
+    {
+      "id": "hallveberg-hedvigsberg-name",
+      "status": "resolved-by-current-official-source",
+      "affectedSections": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "resolution": "Use Hällveberg as current display name and Hedvigsberg/Hälveberg spellings as source aliases."
+    },
+    {
+      "id": "side-service-and-optional-poi-import",
+      "status": "resolved-by-policy",
+      "affectedSections": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg",
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "resolution": "Off-route service clusters are access metadata; optional narrative POIs without exact source-backed coordinates remain pending or suppressed from default import."
+    },
+    {
+      "id": "cabin-yard-subfacilities",
+      "status": "resolved-by-policy",
+      "affectedSections": [
+        "ostkustleden-etapp-3-lonhult-krokstorp",
+        "ostkustleden-etapp-5-mortfors-stjarneberg",
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "resolution": "Where exact water/toilet/fireplace coordinates are not sourced separately, keep them as cabin metadata or clustered subfacilities instead of blocking route normalization."
+    }
+  ],
+  "remainingPublicationTimeChecks": [
+    "KLT/Närtrafik schedules, stop service patterns and seasonal/weekend availability.",
+    "Cabin availability, group booking, fees and seasonal access at all endpoint cabins before user-facing publication.",
+    "Current water quality and reliability for Nynäs, Lönhult, Krokstorp, Mörtfors, Stjärneberg, Lilla Laxemar, Hällveberg, Lilla Hycklinge and Stensjö by refill claims.",
+    "Same-day municipal/county fire bans and fire-risk warnings.",
+    "Current hunting notices and local active-hunting signage.",
+    "Forestry/felling notices and on-site passability, especially Etapp 1 near Nynäs and Etapp 6 notices A 54522-2023, A 18318-2026 and A 18330-2026.",
+    "Seasonal café/service hours for Stensjö by, Tilias and off-route food/lodging/service clusters."
+  ],
+  "remainingGisOrCoordinateChecks": [
+    "GIS overlays for Bråbygden Natura 2000, Krokshult reserve context, Misterhults skärgård reserve/Natura 2000 C-areas, Stamsjövägen reserve, Fårbo water-protection area, Virån Natura 2000, biotopskydd SK 568-2007 and other water-protection boundaries.",
+    "Exact optional POI coordinates before import: Humlenäs/Hummeln small swim access, Småland 'Chinese wall', Tvingen/Storyttern swim access, Karlsfors mill/waterfall, Skälshult mill, Krokstorpssjön swim point, Hålviken beach/old port, Kallsebo quarries, Trollklinten, Tjustgölen swim, Bussvik/Kärrsvik/Ekerum swim/cultural points, Djurvadsnäs cairns, Bredviksberget, Stålglo, Uthammar quarry waste piles, Gammal-Näs/Ny-Näs/Södra Uvö, Tilias, Nybo göl, Långsjön and Virån/Åmötsberget."
+  ],
+  "sectionResolutionSummary": {
+    "ostkustleden-etapp-1-lilla-hycklinge-nynas": {
+      "fixed": [
+        "Nynäs GPX/cabin gap is a metadata/normalization-policy decision, not a research blocker."
+      ],
+      "stillRequires": [
+        "Publication-time Nynäs winter/water/forestry checks.",
+        "Exact Humlenäs/Hummeln swim coordinate if imported."
+      ]
+    },
+    "ostkustleden-etapp-2-nynas-lonhult": {
+      "fixed": [
+        "Shared Nynäs endpoint ambiguity follows the endpoint policy."
+      ],
+      "stillRequires": [
+        "Lönhult seasonal water currentness and exact optional POI/GIS checks.",
+        "KLT publication-time check."
+      ]
+    },
+    "ostkustleden-etapp-3-lonhult-krokstorp": {
+      "fixed": [
+        "Raw ten-track GPX caveat is resolved by documented ordering/reversal instructions."
+      ],
+      "stillRequires": [
+        "Krokstorp water/toilet handling as cabin metadata unless exact coordinates and current quality are verified.",
+        "Optional swim/mill POI coordinates."
+      ]
+    },
+    "ostkustleden-etapp-4-krokstorp-mortfors": {
+      "fixed": [
+        "Raw GPX order and route-page pin caveats are resolved by documented geometry repair and endpoint policy."
+      ],
+      "stillRequires": [
+        "Mörtfors water/condition currentness and duplicate toilet handling.",
+        "Skälshult and swimming/side-cluster import review."
+      ]
+    },
+    "ostkustleden-etapp-5-mortfors-stjarneberg": {
+      "fixed": [
+        "Stjärneberg is no longer marked statically closed or arsenic-unsafe based on unreproducible source text.",
+        "Etapp 5 distance/geometry contradiction is resolved by duplicate-track repair policy."
+      ],
+      "stillRequires": [
+        "Publication-time Stjärneberg cabin/well check.",
+        "Exact side-POI and Arvidsmåla detour coordinates.",
+        "Misterhults GIS overlay."
+      ]
+    },
+    "ostkustleden-etapp-6-stjarneberg-lilla-laxemar": {
+      "fixed": [
+        "Stjärneberg closure/arsenic contradiction is resolved as not source-reproducible on 2026-04-29.",
+        "Reverse raw GPX at normalization; route marker caveat is documented."
+      ],
+      "stillRequires": [
+        "Publication-time Stjärneberg/Lilla Laxemar water checks.",
+        "Forestry currentness and approximate coastal POI coordinates."
+      ]
+    },
+    "ostkustleden-etapp-7-lilla-laxemar-hallveberg": {
+      "fixed": [
+        "Hällveberg display name and Hedvigsberg alias are resolved.",
+        "Figeholm/Fårbo/Fårbosjön side services are access metadata unless spur geometry is later sourced."
+      ],
+      "stillRequires": [
+        "Hällveberg access modeling via Sippetorp/Fårbo E22 rather than unsupported direct car access.",
+        "Figeholm/Stamsjövägen/Fårbo GIS and optional POI coordinates."
+      ]
+    },
+    "ostkustleden-etapp-8-hallveberg-lilla-hycklinge": {
+      "fixed": [
+        "Etapp 8 raw GPX sequencing and Hällveberg naming are resolved by documented policy.",
+        "Hällveberg and Lilla Hycklinge cabin subfacilities are modeled as cabin metadata unless exact coordinates are sourced."
+      ],
+      "stillRequires": [
+        "Lilla Hycklinge access-leg decision for the 156.4 m cabin gap.",
+        "Stensjö service/water currentness, Virån/Natura/GIS checks and optional POI coordinates."
+      ]
+    }
+  },
+  "importReadinessDecision": {
+    "readyForNormalizationPlanning": true,
+    "readyForRuntimeImport": false,
+    "reason": "All static research caveats that can be resolved without inventing coordinates have a policy or corrected source decision. Runtime import still needs a separate normalization-planning task, GIS overlays where route-touch rules matter, and publication-time checks for unstable availability/safety facts.",
+    "recommendedNextSafeStep": "Run a normalization-planning review within data/research/candidate-trails/ostkustleden/ only; do not integrate into runtime app data until explicitly requested."
+  }
+}

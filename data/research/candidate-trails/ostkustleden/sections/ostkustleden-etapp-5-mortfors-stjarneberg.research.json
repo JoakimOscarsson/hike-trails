@@ -1,0 +1,1166 @@
+{
+  "schemaVersion": "candidate-trail-section-research-v1",
+  "trailId": "ostkustleden",
+  "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+  "sectionNumber": 5,
+  "name": "Ostkustleden Etapp 5, Mörtfors - Stjärneberg",
+  "from": "Mörtfors",
+  "to": "Stjärneberg",
+  "distanceKm": {
+    "value": 19,
+    "source": "Naturkartan PDF map and Döderhults Naturskyddsförening overview, supported by repaired official GPX length",
+    "confidence": "medium-high",
+    "notes": "Use circa 19 km for intended section distance. Naturkartan page/API 21.4 km appears to be inflated by duplicate official GPX/API linework.",
+    "alternates": [
+      {
+        "value": 21.4,
+        "source": "Naturkartan section page/API",
+        "semantics": "published page/API length, likely geometry-counting artifact from duplicate short segment"
+      },
+      {
+        "value": 21.346,
+        "source": "raw sum of official Naturkartan GPX tracks T1 + T2 + T3",
+        "semantics": "raw duplicate-inflated digital length; do not use for import"
+      },
+      {
+        "value": 18.734025,
+        "source": "computed from repaired official Naturkartan GPX after discarding duplicate T2, reversing T1/T3, and removing T3 overshoot",
+        "semantics": "cleaned digital line length before endpoint POI connectors"
+      },
+      {
+        "value": 18.747551,
+        "source": "repaired official GPX with straight endpoint POI connectors",
+        "semantics": "cleaned digital line length plus endpoint connector gaps"
+      },
+      {
+        "value": 18.3,
+        "source": "rules/currentness lane found Naturkartan route text variant",
+        "semantics": "additional official-text inconsistency to verify"
+      },
+      {
+        "value": 18.510166,
+        "source": "sum of OSM relation 4767778 way lengths",
+        "semantics": "secondary OSM cross-check, not primary geometry"
+      }
+    ]
+  },
+  "estimatedTime": {
+    "value": null,
+    "source": null,
+    "confidence": "high",
+    "notes": "No official section-specific walking time found. Naturkartan API time is null."
+  },
+  "difficulty": {
+    "value": "Röd - krävande",
+    "source": "Naturkartan section page",
+    "confidence": "high",
+    "notes": "Official red/demanding grade. Field reports support a hard, rocky, hilly and sometimes overgrown stage."
+  },
+  "routeType": "linear stage within circular trail",
+  "appDescription": "A demanding inland-to-coast stage from Mörtfors to Stjärneberg. The route leaves the Mörtfors cabin, follows Marströmmen, crosses E22 near Solstadström, reaches the Baltic at Hålviken, then continues through Kallsebo, Snäckedal, Arvidsmåla and the Trollklinten area before roads toward Adriansnäs and the Misterhult-Klintemåla road lead to Stjärneberg. Use repaired official geometry rather than raw GPX, and carry Stjärneberg cabin/well availability as a publication-time check rather than a static closure.",
+  "officialSources": [
+    {
+      "label": "Naturkartan: Ostkustleden Etapp 5, Mörtfors - Stjärneberg",
+      "url": "https://www.naturkartan.se/sv/kalmar-lan/mortfors-stjarneberg-ostkustleden-etapp-5",
+      "accessedDate": "2026-04-29",
+      "sourceType": "official section page",
+      "keyFacts": [
+        "Official section name and red/demanding difficulty.",
+        "Page/API length shows 21.4 km, but this conflicts with PDF/Döderhult and repaired GPX.",
+        "Description starts at Mörtfors cabin, follows Marströmmen, crosses E22, reaches Hålviken and continues via Kallsebo, Snäckedal, Arvidsmåla/Trollklinten and Stjärneberg.",
+        "Warns to be careful crossing E22 near Solstadström and describes the later section after Snäckedal as hilly/rocky.",
+        "No closure/status report fields were set for the section route itself in the official-source pass."
+      ],
+      "confidence": "high"
+    },
+    {
+      "label": "Naturkartan GPX: Etapp 5",
+      "url": "https://www.naturkartan.se/sv/kalmar-lan/mortfors-stjarneberg-ostkustleden-etapp-5.gpx",
+      "accessedDate": "2026-04-29",
+      "sourceType": "official GPX",
+      "keyFacts": [
+        "Official GPX has three tracks, but T1 and T2 are exact duplicates.",
+        "T3 is stored Stjärneberg-to-Mörtfors/north-junction, reverse of official direction.",
+        "Raw length 21.346 km is not import-safe.",
+        "Repaired line is about 18.734 km before endpoint connectors."
+      ],
+      "confidence": "high"
+    },
+    {
+      "label": "Naturkartan API v3.2 site 21683",
+      "url": "https://api.naturkartan.se/v3.2/sites/21683",
+      "accessedDate": "2026-04-29",
+      "sourceType": "official API/geometry cross-check",
+      "keyFacts": [
+        "API length is 21.4 km and marker is at the same mid-route/north-junction coordinate as the duplicated GPX node.",
+        "API MultiLineString has the same structural issue: two short Mörtfors-side lines plus one main reversed line."
+      ],
+      "confidence": "high"
+    },
+    {
+      "label": "Naturkartan PDF map: Etapp 5",
+      "url": "https://uploads.naturkartan-cdn.se/uploads/site_pdf/file/1792/cc71242138b956718bad5e9df4ffd979.pdf",
+      "accessedDate": "2026-04-29",
+      "sourceType": "official section map PDF",
+      "keyFacts": [
+        "PDF map title names Etapp 5 Mörtfors - Stjärneberg 19 km.",
+        "HTTP Last-Modified observed as 2025-06-17 in the official-source pass.",
+        "Shows Hålviken bathing symbol and official stage context."
+      ],
+      "confidence": "high"
+    },
+    {
+      "label": "Döderhults Naturskyddsförening: Ostkustleden",
+      "url": "https://doderhult.naturskyddsforeningen.se/ostkustleden/",
+      "accessedDate": "2026-04-29",
+      "sourceType": "official maintainer overview",
+      "keyFacts": [
+        "Etapp 5 listed as about 19 km.",
+        "Yellow-orange marking.",
+        "Mentions Hålviken swimming and advises food/drinking-water planning.",
+        "Provides maintainer distance, bathing, cabin and general water-planning context."
+      ],
+      "confidence": "high"
+    },
+    {
+      "label": "Naturkartan: Övernattningsstuga i Mörtfors",
+      "url": "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-i-mortfors",
+      "accessedDate": "2026-04-29",
+      "sourceType": "official facility page",
+      "keyFacts": [
+        "Mörtfors cabin coordinate and details.",
+        "Former bathhouse with kitchen/electric stove, dining/common/wash rooms, five upstairs bedrooms and toilet beside house.",
+        "No fireplaces and no fires outside the cottage.",
+        "Damp smell after old water damage noted."
+      ],
+      "confidence": "high"
+    },
+    {
+      "label": "Naturkartan: Övernattningsstuga Stjärneberg",
+      "url": "https://www.naturkartan.se/en/kalmar-lan/overnattningsstuga-stjarneberg",
+      "accessedDate": "2026-04-29",
+      "sourceType": "official facility page",
+      "keyFacts": [
+        "Stjärneberg cabin coordinate and normal facility inventory.",
+        "Current visible page text checked again on 2026-04-29 says the cabin is available to Ostkustleden hikers and lists two rooms/kitchen plus a smaller overnight cabin.",
+        "Water is in a well about 75 m away and Döderhults Naturskyddsförening recommends boiling it.",
+        "No outdoor fires are permitted at the cottage; standard cabin and tenting fees are listed."
+      ],
+      "confidence": "high"
+    },
+    {
+      "label": "Länsstyrelsen Kalmar: Snäckedal",
+      "url": "https://www.lansstyrelsen.se/kalmar/besoksmal/kulturmiljoer/snackedal.html",
+      "accessedDate": "2026-04-29",
+      "sourceType": "official cultural heritage page",
+      "keyFacts": [
+        "Snäckedal bronze-age grave field lies on/near Ostkustleden.",
+        "Visitors with cars cannot currently be directed there because there is no access-road/parking agreement.",
+        "Access by foot is suggested via Ostkustleden."
+      ],
+      "confidence": "high"
+    },
+    {
+      "label": "Länsstyrelsen Kalmar: Mörtfors naturreservat",
+      "url": "https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/mortfors.html",
+      "accessedDate": "2026-04-29",
+      "sourceType": "protected-area official page",
+      "keyFacts": [
+        "Reserve applies at the Mörtfors start area.",
+        "Rules and fire-risk currentness affect Etapp 5 start context.",
+        "Reserve can be reached by foot via Ostkustleden and Tjustleden."
+      ],
+      "confidence": "high"
+    },
+    {
+      "label": "Länsstyrelsen Kalmar: Misterhults skärgård naturreservat",
+      "url": "https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/misterhults-skargard.html",
+      "accessedDate": "2026-04-29",
+      "sourceType": "protected-area official page",
+      "keyFacts": [
+        "Nearby coastal reserve/Natura context around Hålviken/Kallsebo.",
+        "Rules matter if hikers leave the main route for islands/waters.",
+        "Exact GPX intersection with reserve/C-areas needs GIS overlay."
+      ],
+      "confidence": "medium"
+    }
+  ],
+  "endpointCoordinates": {
+    "start": {
+      "label": "Mörtfors cleaned GPX start",
+      "coordinates": [
+        57.524670505041,
+        16.4715270282426
+      ],
+      "coordinateSource": "Repaired Naturkartan Etapp 5 GPX, using one reversed copy of T1/T2",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/mortfors-stjarneberg-ostkustleden-etapp-5.gpx",
+        "https://api.naturkartan.se/v3.2/sites/21683"
+      ],
+      "confidence": "high",
+      "notes": "5.654 m from the Mörtfors cabin marker and about 5.7 m from the Etapp 4 normalized endpoint."
+    },
+    "startStageGoalCandidate": {
+      "label": "Mörtfors / Övernattningsstuga i Mörtfors",
+      "coordinates": [
+        57.52464623995621,
+        16.4716102460923
+      ],
+      "coordinateSource": "Naturkartan Mörtfors cabin marker/API site 55399",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-i-mortfors",
+        "https://api.naturkartan.se/v3.2/sites/55399"
+      ],
+      "confidence": "high",
+      "notes": "Best coordinate for the official Etapp 5 start cabin."
+    },
+    "routePagePinNotEndpoint": {
+      "label": "Naturkartan Etapp 5 route-page marker / duplicated GPX node",
+      "coordinates": [
+        57.5434451248887,
+        16.4808952113779
+      ],
+      "coordinateSource": "Naturkartan section page/API site 21683 and GPX T1/T2 start",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/mortfors-stjarneberg-ostkustleden-etapp-5",
+        "https://api.naturkartan.se/v3.2/sites/21683"
+      ],
+      "confidence": "high",
+      "notes": "This is an intermediate/north-junction coordinate about 2.16 km straight-line from Mörtfors cabin. Do not use it as the stage start."
+    },
+    "end": {
+      "label": "Stjärneberg cleaned GPX endpoint",
+      "coordinates": [
+        57.5144154529917,
+        16.6018438162613
+      ],
+      "coordinateSource": "Repaired Naturkartan Etapp 5 GPX after reversing T3",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/mortfors-stjarneberg-ostkustleden-etapp-5.gpx",
+        "https://api.naturkartan.se/v3.2/sites/21683"
+      ],
+      "confidence": "high",
+      "notes": "7.872 m from the Stjärneberg cabin marker."
+    },
+    "endStageGoalCandidate": {
+      "label": "Stjärneberg / Övernattningsstuga Stjärneberg",
+      "coordinates": [
+        57.51435204367604,
+        16.60190243957652
+      ],
+      "coordinateSource": "Naturkartan Stjärneberg cabin marker/API site 55400",
+      "sourceUrls": [
+        "https://www.naturkartan.se/en/kalmar-lan/overnattningsstuga-stjarneberg",
+        "https://api.naturkartan.se/v3.2/sites/55400"
+      ],
+      "confidence": "high",
+      "notes": "Best coordinate for the official Etapp 5 endpoint cabin. A follow-up source check on 2026-04-29 did not reproduce the earlier bed-bug closure claim; still verify cabin availability at publication time."
+    }
+  },
+  "routeGeometry": {
+    "primary": {
+      "sourceName": "Naturkartan official GPX/API",
+      "sourceFormat": "gpx/api-linework",
+      "url": "https://www.naturkartan.se/sv/kalmar-lan/mortfors-stjarneberg-ostkustleden-etapp-5.gpx",
+      "apiUrl": "https://api.naturkartan.se/v3.2/sites/21683",
+      "trackCount": 3,
+      "segmentCount": 3,
+      "pointCount": 1463,
+      "officialDirection": "Mörtfors to Stjärneberg",
+      "storedDirection": "broken/mixed; duplicate Mörtfors-side line and main line stored in reverse",
+      "normalizationRecommendation": "Discard T2 as an exact duplicate of T1. Reverse T1 from Mörtfors cabin area to the shared junction. Reverse T3, omitting the stored final 4.037 m overshoot/tail so it joins at the shared junction, then continue to Stjärneberg.",
+      "rawTrackPieces": [
+        {
+          "track": 1,
+          "segmentCount": 1,
+          "pointCount": 164,
+          "distanceMeters": 2608.317,
+          "start": [
+            57.5434451248887,
+            16.4808952113779
+          ],
+          "end": [
+            57.524670505041,
+            16.4715270282426
+          ],
+          "importUse": "reverse"
+        },
+        {
+          "track": 2,
+          "segmentCount": 1,
+          "pointCount": 164,
+          "distanceMeters": 2608.317,
+          "start": [
+            57.5434451248887,
+            16.4808952113779
+          ],
+          "end": [
+            57.524670505041,
+            16.4715270282426
+          ],
+          "importUse": "discard_exact_duplicate_of_track_1"
+        },
+        {
+          "track": 3,
+          "segmentCount": 1,
+          "pointCount": 1135,
+          "distanceMeters": 16129.744,
+          "start": [
+            57.5144154529917,
+            16.6018438162613
+          ],
+          "end": [
+            57.5434214643444,
+            16.4808439023203
+          ],
+          "importUse": "reverse_and_trim_4m_overshoot_tail"
+        }
+      ],
+      "normalizedSequence": [
+        {
+          "track": 1,
+          "orientation": "reversed",
+          "distanceKm": 2.608317,
+          "from": [
+            57.524670505041,
+            16.4715270282426
+          ],
+          "to": [
+            57.5434451248887,
+            16.4808952113779
+          ]
+        },
+        {
+          "track": 3,
+          "orientation": "reversed_trimmed",
+          "distanceKm": 16.125708,
+          "from": [
+            57.5434451248887,
+            16.4808952113779
+          ],
+          "to": [
+            57.5144154529917,
+            16.6018438162613
+          ],
+          "joinFromPreviousMeters": 0
+        }
+      ],
+      "computedDistanceKm": {
+        "rawDuplicateInflated": 21.346,
+        "cleanedOfficialLine": 18.734025,
+        "cleanedWithEndpointConnectors": 18.747551
+      },
+      "endpointGapNotes": [
+        "Mörtfors cabin marker is 5.654 m from the cleaned GPX start.",
+        "Stjärneberg cabin marker is 7.872 m from the cleaned GPX end.",
+        "Naturkartan route page/API marker is a mid-route/north-junction coordinate and should not be treated as an endpoint."
+      ],
+      "geometryGrade": "planning-grade after repair; not raw-importable",
+      "confidence": "high"
+    },
+    "secondary": [
+      {
+        "sourceName": "OpenStreetMap relation 4767778",
+        "sourceFormat": "osm relation",
+        "url": "https://www.openstreetmap.org/relation/4767778",
+        "computedDistanceKm": 18.510166,
+        "tags": {
+          "distance": "19 km",
+          "ref": "5",
+          "from": "Mörtsfors",
+          "to": "Stjärneberg",
+          "oscm:status": "complete"
+        },
+        "notes": "27 way members. Main connected component about 18.0442 km from 57.5248868,16.4713876 to 57.5145215,16.6021163. Endpoint gaps to cabin POIs are 29.9 m and 22.8 m. Has a small disconnected Mörtfors-side spur, so it corroborates distance but is not cleaner than repaired official GPX.",
+        "confidence": "medium"
+      },
+      {
+        "sourceName": "Pacer route app",
+        "sourceFormat": "route-app page",
+        "url": "https://www.mypacer.com/routes/oi04a2/ostkustleden-stage-5-m%C3%B6rtfors-stj%C3%A4rneberg-hiking-trail-kalmar-l%C3%A4n",
+        "computedDistanceKm": 18.5,
+        "notes": "Reports 11.5 mi/about 18.5 km. Use only as secondary cross-check.",
+        "confidence": "low-medium"
+      }
+    ],
+    "importRecommendation": "Import repaired official GPX as a single LineString. Discard T2, reverse T1, reverse and trim T3's 4.037 m overshoot, and preserve endpoint gaps to the Mörtfors/Stjärneberg cabin POIs as metadata."
+  },
+  "commuteAccess": {
+    "start": {
+      "endpointLabel": "Mörtfors / Övernattningsstuga i Mörtfors",
+      "closestCommutePoint": {
+        "name": "Mörtfors",
+        "type": "bus stop",
+        "coordinates": [
+          57.523563,
+          16.470677
+        ],
+        "distanceFromEndpointKm": 0.13,
+        "operatorNetwork": "Kalmar Länstrafik / KLT line 44",
+        "sourceUrl": "https://kalmarlanstrafik.se/tidtabeller/hitta-din-tidtabell/",
+        "confidence": "medium",
+        "caveats": [
+          "Closest stop but likely limited rural/school-style service.",
+          "Verify current departures in KLT planner before publication."
+        ]
+      },
+      "morePracticalFixedRouteAccess": {
+        "name": "Mörtfors E22",
+        "type": "bus stop",
+        "coordinates": [
+          57.524619,
+          16.492524
+        ],
+        "distanceFromEndpointKm": 1.26,
+        "operatorNetwork": "Kalmar Länstrafik / KLT line 160 primary, line 44 secondary",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/busshallplats-mortfors-e22",
+        "confidence": "high-for-location-medium-for-service-pattern",
+        "caveats": [
+          "Walking/road distance should be verified.",
+          "KLT flagged possible line 160 delays due to E22 roadworks during the source pass.",
+          "Verify current departures in KLT planner."
+        ]
+      },
+      "preBookedTransit": {
+        "name": "Mörtfors Närtrafik pickup by agreement",
+        "type": "pre-booked Närtrafik",
+        "coordinates": [
+          57.524646,
+          16.47161
+        ],
+        "distanceFromEndpointKm": 0,
+        "operatorNetwork": "Kalmar Länstrafik / KLT Närtrafik",
+        "sourceUrl": "https://www.klt.se/globalassets/tidtabeller/tidtabell-nartrafik/oskarshamn-kommun/misterhult_mortfors_solstadstrom_blankaholm.pdf",
+        "confidence": "medium",
+        "caveats": [
+          "Exact pickup point must be agreed when booking.",
+          "Capacity and booking windows are limited; pets are not allowed on Närtrafik per transit lane."
+        ]
+      },
+      "parking": [
+        {
+          "name": "Parkering Mörtfors östra",
+          "type": "parking",
+          "coordinates": [
+            57.524616,
+            16.47146
+          ],
+          "distanceFromEndpointKm": 0.01,
+          "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/parkering-mortfors-ostra",
+          "confidence": "high",
+          "notes": "Free parking directly by the Mörtfors cabin/stage junction; avoid blocking properties or roads."
+        },
+        {
+          "name": "Parkering Mörtfors västra",
+          "type": "parking",
+          "coordinates": [
+            57.52466,
+            16.471018
+          ],
+          "distanceFromEndpointKm": 0.04,
+          "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/parkering-mortfors-vastra",
+          "confidence": "high",
+          "notes": "Adjacent endpoint parking; likely cluster/dedupe with east parking depending app model."
+        }
+      ]
+    },
+    "end": {
+      "endpointLabel": "Stjärneberg / Övernattningsstuga Stjärneberg",
+      "closestCommutePoint": {
+        "name": "Stjärneberg Närtrafik pickup by agreement",
+        "type": "pre-booked Närtrafik",
+        "coordinates": [
+          57.514383,
+          16.601965
+        ],
+        "distanceFromEndpointKm": 0,
+        "operatorNetwork": "Kalmar Länstrafik / KLT Närtrafik",
+        "sourceUrl": "https://www.klt.se/globalassets/tidtabeller/tidtabell-nartrafik/oskarshamn-kommun/misterhult_mortfors_solstadstrom_blankaholm.pdf",
+        "confidence": "medium",
+        "caveats": [
+          "Best non-car option at the endpoint, but Stjärneberg was not found as a named fixed stop.",
+          "Confirm coverage and meeting point directly with KLT when booking."
+        ]
+      },
+      "fixedRouteFallbacks": [
+        {
+          "name": "Målbäcken",
+          "type": "bus stop",
+          "coordinates": [
+            57.49602,
+            16.511104
+          ],
+          "distanceFromEndpointKm": 5.79,
+          "operatorNetwork": "Kalmar Länstrafik / KLT line 160",
+          "sourceUrl": "https://kalmarlanstrafik.se/tidtabeller/hitta-din-tidtabell/",
+          "confidence": "medium",
+          "caveats": [
+            "Long road/track approach from Stjärneberg; treat as taxi/road fallback rather than easy walking connection."
+          ]
+        },
+        {
+          "name": "Misterhult E22",
+          "type": "bus stop",
+          "coordinates": [
+            57.476983,
+            16.517571
+          ],
+          "distanceFromEndpointKm": 6.53,
+          "operatorNetwork": "Kalmar Länstrafik / KLT line 160/44 area",
+          "sourceUrl": "https://kalmarlanstrafik.se/tidtabeller/hitta-din-tidtabell/",
+          "confidence": "medium",
+          "caveats": [
+            "Useful as taxi rendezvous or fallback fixed-route access, not close walking access."
+          ]
+        }
+      ],
+      "parking": [
+        {
+          "name": "Parkering Stjärneberg",
+          "type": "parking",
+          "coordinates": [
+            57.514383,
+            16.601965
+          ],
+          "distanceFromEndpointKm": 0.007,
+          "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/parkering-stjarneberg",
+          "confidence": "high",
+          "notes": "Free parking at the Etapp 5/6 hut, only two spaces."
+        },
+        {
+          "name": "Parkering Klintemåla",
+          "type": "parking / overflow access",
+          "coordinates": [
+            57.518927,
+            16.640739
+          ],
+          "distanceFromEndpointKm": 2.37,
+          "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/parkering-stjarneberg",
+          "confidence": "high",
+          "notes": "Stjärneberg parking page directs overflow here when the two hut spaces are full."
+        }
+      ]
+    },
+    "midStageAccessCandidates": [
+      {
+        "name": "Virum",
+        "type": "bus stop",
+        "coordinates": [
+          57.545574,
+          16.478776
+        ],
+        "routeRelation": "about 0.25 km straight-line from the trail near the northern Mörtfors/Virum part",
+        "operatorNetwork": "KLT line 160 per secondary GTFS/Busmaps evidence",
+        "confidence": "medium",
+        "notes": "Best fixed-route mid-stage bailout found; confirm walking access and current service."
+      },
+      {
+        "name": "Hålvik/Hålviken, Kallsebo, Snäckedal, Arvidsmåla and road toward Adriansnäs",
+        "type": "road/taxi bailout areas",
+        "coordinates": null,
+        "routeRelation": "named by official stage description/map but no close fixed KLT stop found",
+        "operatorNetwork": null,
+        "confidence": "medium",
+        "notes": "Use as taxi/shuttle context only unless later source pass finds precise public access points."
+      }
+    ],
+    "gettingThereNotes": [
+      "No train or ferry serves either endpoint directly.",
+      "Access is bus, pre-booked Närtrafik, car or taxi.",
+      "Oskarshamns Taxi is a practical rural fallback; pre-book and provide coordinates."
+    ]
+  },
+  "facilities": [
+    {
+      "name": "Övernattningsstuga Mörtfors",
+      "normalizedCandidateType": "shelter",
+      "coordinates": [
+        57.52464623995621,
+        16.4716102460923
+      ],
+      "coordinateSource": "Naturkartan marker/API",
+      "description": "Shared Etapp 4/5 endpoint cabin in former bathhouse with kitchen, five bedrooms and toilet beside house. No fireplace and no outdoor fires. Official page notes damp smell after old water damage.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-i-mortfors",
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/"
+      ],
+      "routeProximity": {
+        "status": "near-route-start",
+        "distanceKm": 0.006
+      },
+      "confidence": "high",
+      "importDecision": "import_dedupe_with_etapp_4"
+    },
+    {
+      "name": "Toalett, Mörtfors",
+      "normalizedCandidateType": "toilet",
+      "coordinates": [
+        57.524535,
+        16.471613
+      ],
+      "coordinateSource": "Naturkartan marker/API, toilet for Ostkustleden hikers beside Mörtfors hut",
+      "description": "Toilet beside the Mörtfors overnight hut. Review duplicate handling against Etapp 4 endpoint toilet records.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-i-mortfors"
+      ],
+      "routeProximity": {
+        "status": "near-route-start",
+        "distanceKm": 0.016
+      },
+      "confidence": "high",
+      "importDecision": "import_after_duplicate_review"
+    },
+    {
+      "name": "Parkering Mörtfors östra",
+      "normalizedCandidateType": "parking",
+      "coordinates": [
+        57.524616,
+        16.47146
+      ],
+      "coordinateSource": "Naturkartan marker/API",
+      "description": "Free parking by the Etapp 4/5 overnight hut.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/parkering-mortfors-ostra"
+      ],
+      "routeProximity": {
+        "status": "near-route-start",
+        "distanceKm": 0.007
+      },
+      "confidence": "high",
+      "importDecision": "model_as_access_metadata"
+    },
+    {
+      "name": "Parkering Mörtfors västra",
+      "normalizedCandidateType": "parking",
+      "coordinates": [
+        57.52466,
+        16.471018
+      ],
+      "coordinateSource": "Naturkartan marker/API",
+      "description": "Free parking for Etapp 4 and Etapp 5; avoid blocking properties or roads.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/parkering-mortfors-vastra"
+      ],
+      "routeProximity": {
+        "status": "near-route-start",
+        "distanceKm": 0.029
+      },
+      "confidence": "high",
+      "importDecision": "model_as_access_metadata_or_cluster_with_mortfors_east"
+    },
+    {
+      "name": "Hålviken / Hålvik bathing place",
+      "normalizedCandidateType": "swimming",
+      "coordinates": [
+        57.5605,
+        16.5375
+      ],
+      "coordinateSource": "Approximate OSM Hålvik locality plus Naturkartan/PDF route context; exact beach coordinate not found",
+      "description": "Official sources and PDF swim icon identify Hålviken/Hålvik as a bathing spot on the stage. Coordinate is approximate and needs refinement before import.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/mortfors-stjarneberg-ostkustleden-etapp-5",
+        "https://uploads.naturkartan-cdn.se/uploads/site_pdf/file/1792/cc71242138b956718bad5e9df4ffd979.pdf",
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/",
+        "https://www.utsidan.se/albums/viewpic.htm?ID=39475"
+      ],
+      "routeProximity": {
+        "status": "near-route",
+        "distanceKm": 0.025
+      },
+      "confidence": "medium",
+      "importDecision": "keep_pending_coordinate_refinement"
+    },
+    {
+      "name": "Hålviken old stone-shipping port remains",
+      "normalizedCandidateType": "cultural_poi",
+      "coordinates": null,
+      "coordinateSource": "Official narrative only; exact coordinate not verified",
+      "description": "Official text describes remains of old wooden/stone quay or stone-shipping port around Hålviken.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/mortfors-stjarneberg-ostkustleden-etapp-5",
+        "https://oskarshamn.com/product/ostkustleden/"
+      ],
+      "routeProximity": {
+        "status": "on-route-narrative"
+      },
+      "confidence": "medium",
+      "importDecision": "keep_pending_coordinate"
+    },
+    {
+      "name": "Kallsebo stone quarries",
+      "normalizedCandidateType": "cultural_poi",
+      "coordinates": null,
+      "coordinateSource": "Official narrative only; OSM Kallsebo locality 57.546365,16.540221 is only a proxy",
+      "description": "Official text says the route follows an old railway bank to stone quarries at Kallsebo. Do not import a point until the quarry coordinate is verified.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/mortfors-stjarneberg-ostkustleden-etapp-5",
+        "https://oskarshamn.com/product/ostkustleden/"
+      ],
+      "routeProximity": {
+        "status": "on-route-narrative"
+      },
+      "confidence": "low-medium",
+      "importDecision": "keep_pending_coordinate"
+    },
+    {
+      "name": "Snäckedal bronsåldersgravar",
+      "normalizedCandidateType": "cultural_poi",
+      "coordinates": [
+        57.519706,
+        16.556686
+      ],
+      "coordinateSource": "Naturkartan marker/API, OSM corroboration nearby",
+      "description": "Bronze-age grave field with information boards. Länsstyrelsen says the route passes it and visitors with cars cannot currently be directed there because there is no access-road/parking agreement.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/snackedal",
+        "https://oskarshamn.com/product/snackedal/",
+        "https://www.lansstyrelsen.se/kalmar/besoksmal/kulturmiljoer/snackedal.html"
+      ],
+      "routeProximity": {
+        "status": "near-route",
+        "distanceKm": 0.2
+      },
+      "confidence": "high",
+      "importDecision": "import"
+    },
+    {
+      "name": "Trollklinten near Arvidsmåla",
+      "normalizedCandidateType": "viewpoint_or_natural_poi",
+      "coordinates": null,
+      "coordinateSource": "Official narrative only; no coordinate source found",
+      "description": "Official text says the route passes a large, strange mountain called Trollklinten beyond Arvidsmåla. Exact coordinate needed before import.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/mortfors-stjarneberg-ostkustleden-etapp-5"
+      ],
+      "routeProximity": {
+        "status": "on-route-narrative"
+      },
+      "confidence": "low",
+      "importDecision": "keep_pending_coordinate"
+    },
+    {
+      "name": "Övernattningsstuga Stjärneberg",
+      "normalizedCandidateType": "shelter",
+      "coordinates": [
+        57.51435204367604,
+        16.60190243957652
+      ],
+      "coordinateSource": "Naturkartan marker/API",
+      "description": "Etapp 5/6 endpoint. Current official page text checked on 2026-04-29 lists a two-room cottage plus smaller cabin, electricity, hotplate, iron stove, indoor fireplace, woodshed, dry toilet and a well about 75 m away. Do not hard-code a closed status; verify availability at publication time.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/en/kalmar-lan/overnattningsstuga-stjarneberg",
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/",
+        "https://www.sydsverige.dk/?pageID=1105"
+      ],
+      "routeProximity": {
+        "status": "near-route-end",
+        "distanceKm": 0.008
+      },
+      "confidence": "high-for-location-and-inventory-medium-for-publication-time-availability",
+      "importDecision": "import_dedupe_with_etapp_6_with_publication_time_availability_check"
+    },
+    {
+      "name": "Tenting at Stjärneberg hut",
+      "normalizedCandidateType": "camping",
+      "coordinates": [
+        57.51435204367604,
+        16.60190243957652
+      ],
+      "coordinateSource": "Approximate at Stjärneberg cabin marker",
+      "description": "Official cabin page lists standard tenting fee of 50 SEK/person by the cabin; verify current availability and local restrictions at publication time.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/en/kalmar-lan/overnattningsstuga-stjarneberg",
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/"
+      ],
+      "routeProximity": {
+        "status": "near-route-end",
+        "distanceKm": 0.008
+      },
+      "confidence": "high",
+      "importDecision": "model_as_hut_subfacility_or_access_metadata"
+    },
+    {
+      "name": "Stjärneberg dry toilet",
+      "normalizedCandidateType": "toilet",
+      "coordinates": [
+        57.51435204367604,
+        16.60190243957652
+      ],
+      "coordinateSource": "Approximate at hut yard; exact toilet coordinate not separate",
+      "description": "Dry toilet on the farm/yard is listed in current official cabin text; exact separate coordinate not found.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/en/kalmar-lan/overnattningsstuga-stjarneberg",
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/"
+      ],
+      "routeProximity": {
+        "status": "near-route-end",
+        "distanceKm": 0.008
+      },
+      "confidence": "high-for-existence-low-for-exact-coordinate",
+      "importDecision": "dedupe_as_hut_subfacility_or_import_with_coordinate_caveat"
+    },
+    {
+      "name": "Stjärneberg well",
+      "normalizedCandidateType": "water",
+      "coordinates": null,
+      "coordinateSource": "Text only; well about 75 m from hut, exact direction/coordinate not found",
+      "description": "Current official cabin page says water is in a well about 75 m from the hut and recommends boiling. Exact direction/coordinate was not found; do not import as unqualified safe drinking water.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/en/kalmar-lan/overnattningsstuga-stjarneberg",
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/"
+      ],
+      "routeProximity": {
+        "status": "near-route-end"
+      },
+      "confidence": "medium-high-for-existence-low-for-coordinate",
+      "importDecision": "keep_pending_or_model_as_cabin_water_note_with_boiling_and_currentness_caveat"
+    },
+    {
+      "name": "Parkering Stjärneberg",
+      "normalizedCandidateType": "parking",
+      "coordinates": [
+        57.514383,
+        16.601965
+      ],
+      "coordinateSource": "Naturkartan marker/API",
+      "description": "Free parking at Etapp 5/6 hut, but only two spaces; overflow is directed to Klintemåla.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/parkering-stjarneberg"
+      ],
+      "routeProximity": {
+        "status": "near-route-end",
+        "distanceKm": 0.007
+      },
+      "confidence": "high",
+      "importDecision": "model_as_access_metadata"
+    },
+    {
+      "name": "Klintemåla Gästhamn / Valborgs",
+      "normalizedCandidateType": "food_shop_water_toilet_waste",
+      "coordinates": [
+        57.517949,
+        16.650463
+      ],
+      "coordinateSource": "Naturkartan marker/API from facilities lane",
+      "description": "Off-route resupply/service cluster near Klintemåla: cafe/shop, guest harbor, toilets/showers, fresh water, fuel and environmental station. Too far for on-route Etapp 5 facility import, but relevant access/resupply metadata.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/parkering-stjarneberg"
+      ],
+      "routeProximity": {
+        "status": "off-route-access",
+        "distanceKm": 2.9
+      },
+      "confidence": "high",
+      "importDecision": "suppress_as_on_route_facility_model_as_access_resupply_metadata"
+    }
+  ],
+  "waterSources": [
+    {
+      "name": "Mörtfors well/water",
+      "coordinates": [
+        57.52464623995621,
+        16.4716102460923
+      ],
+      "coordinateSource": "Approximate at Mörtfors cabin marker; no separate water coordinate in this section pass",
+      "reliability": "tested_ok_but_may_need_pumping",
+      "treatment": "Maintainer says water tested without remark but may be rusty if unused; pump thoroughly until clear.",
+      "sourceUrls": [
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/"
+      ],
+      "confidence": "medium-high",
+      "notes": "This updates the earlier Etapp 4 caveat: Mörtfors water exists per maintainer, but exact source coordinate and current use state still need care."
+    },
+    {
+      "name": "Hålviken/Hålvik bathing water",
+      "coordinates": [
+        57.5605,
+        16.5375
+      ],
+      "coordinateSource": "Approximate locality/swim context only",
+      "reliability": "not_drinking_water",
+      "treatment": "No official sampling profile found; treat as swimming context only.",
+      "sourceUrls": [
+        "https://www.havochvatten.se/badplatser-och-badvatten/kommuner/badplatser-i-oskarshamns-kommun.html",
+        "https://www.naturkartan.se/sv/kalmar-lan/mortfors-stjarneberg-ostkustleden-etapp-5"
+      ],
+      "confidence": "medium",
+      "notes": "Havs- och vattenmyndigheten list includes Mörtfors but not Stjärneberg or Hålviken in the rules lane pass."
+    },
+    {
+      "name": "Stjärneberg well",
+      "coordinates": null,
+      "coordinateSource": "Text only; about 75 m from hut",
+      "reliability": "boil_recommended_current_official_text",
+      "treatment": "Current official text recommends boiling well water. No current official arsenic wording was reproduced in the follow-up source check; still avoid unqualified potable-water claims without publication-time confirmation.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/en/kalmar-lan/overnattningsstuga-stjarneberg",
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/"
+      ],
+      "confidence": "medium-high-for-existence-low-for-coordinate",
+      "notes": "Do not import as a separate drinking-water point unless the well coordinate and current quality wording are verified."
+    },
+    {
+      "name": "Arvidsmåla tap-water detour",
+      "coordinates": null,
+      "coordinateSource": "Maintainer text only",
+      "reliability": "detour_tap_water_candidate",
+      "treatment": "Maintainer identifies tap water in Arvidsmåla via a short detour after the Misterhult-Klintemåla road crossing.",
+      "sourceUrls": [
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/"
+      ],
+      "confidence": "medium",
+      "notes": "Find exact coordinate/access instruction before importing."
+    }
+  ],
+  "campingAndFire": {
+    "camping": [
+      "Mörtfors cabin/tenting is a standard official Ostkustleden overnight option and shared with Etapp 4.",
+      "Current official Stjärneberg cabin text checked on 2026-04-29 does not show the earlier bed-bug closure claim; model cabin/tenting availability as publication-time information.",
+      "Misterhults skärgård reserve rules matter only if leaving the main route for nearby islands/waters; camping in reserve context is limited to one night in the same place."
+    ],
+    "fire": [
+      "Mörtfors cabin has no fireplaces and no fires are permitted outside the cabin.",
+      "Stjärneberg has indoor iron stove/fireplace as facility metadata, but no outside fires at the cottage.",
+      "Fire-ban feed showed no Oskarshamn fire ban at access time, but SMHI fire-risk warnings were active/high to very high for Kalmar mainland April 29-May 1, 2026; recheck same day.",
+      "Do not light fires at the slightest fire danger per maintainer/reserve safety context."
+    ],
+    "toilets": [
+      "Mörtfors toilet beside the house is high-confidence but needs duplicate handling with Etapp 4 records.",
+      "Stjärneberg dry toilet remains available but exact separate coordinate was not found."
+    ],
+    "confidence": "medium-high"
+  },
+  "rulesAndSafety": {
+    "closuresAndReroutes": {
+      "status": "no_route_closure_found",
+      "checkedDate": "2026-04-29",
+      "notes": "No current trail closure, reroute or forestry-operation notice found in searched official/currentness sources. Follow-up checks of the current Stjärneberg Naturkartan page and maintainer pages on 2026-04-29 did not reproduce the earlier bed-bug closure or arsenic wording; treat cabin and well availability as publication-time checks."
+    },
+    "protectedAreas": [
+      {
+        "name": "Mörtfors naturreservat / Stora Ramm and Marströmmen Natura 2000 SE0330239",
+        "rulesSummary": [
+          "Applies at the Mörtfors start context.",
+          "Do not damage natural formations.",
+          "Do not collect insects.",
+          "Permission may be needed for organized/commercial exploitation, surveys/signage, and collecting moss/lichen/fungi except edible fungi.",
+          "Dogs should be leashed to protect wildlife/young animals.",
+          "Natura 2000 permit may be needed for activities that can affect protected values, even outside the area."
+        ],
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/mortfors.html",
+          "https://ext-dokument.lansstyrelsen.se/kalmar/natura2000/se0330239.pdf"
+        ],
+        "confidence": "high"
+      },
+      {
+        "name": "Misterhults skärgård naturreservat / Natura 2000 SE0330049",
+        "rulesSummary": [
+          "Nearby coastal/archipelago context around Hålviken/Kallsebo.",
+          "If entering reserve islands/waters, dogs/pets must not run loose, wildlife must not be disturbed, camping is limited to one night in the same place, and fire bans restrict fire.",
+          "C-areas have seasonal access restrictions: no entry or being within 100 m, and no boat travel within 100 m, from April 1 to July 10."
+        ],
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/misterhults-skargard.html",
+          "https://ext-dokument.lansstyrelsen.se/kalmar/natura2000/se0330049.pdf"
+        ],
+        "confidence": "medium-for-route-intersection-high-for-rules",
+        "notes": "Exact GIS intersection with Etapp 5 GPX and any C-areas remains open."
+      }
+    ],
+    "dogs": {
+      "summary": "Maintainer asks dog supervision and leashing at farms/livestock and when meeting others on narrow paths. Swedish law requires dogs to be prevented from running loose where wildlife exists during March 1-August 20.",
+      "sources": [
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/",
+        "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-20071150-om-tillsyn-over-hundar-och-katter_sfs-2007-1150/"
+      ],
+      "confidence": "high"
+    },
+    "hunting": {
+      "summary": "Latest official Kalmar elk decision found was for 2025/2026: elk-management/licence areas October 8, 2025-January 31, 2026 and unregistered areas October 8-12, 2025 calf only. That season had ended by the 2026-04-29 access date; 2026/2027 dates were not found.",
+      "sources": [
+        "https://www.lansstyrelsen.se/kalmar/djur/jakt-och-vilt/algjakt.html",
+        "https://www.lansstyrelsen.se/download/18.5cfa956b1969f62b01b2c01b/1746792358864/3480-2025-fallavgift.pdf"
+      ],
+      "confidence": "medium-high"
+    },
+    "fire": {
+      "summary": "No Oskarshamn fire ban was shown by the official feed at access time, but SMHI had active high/very-high fire-risk warnings for Kalmar mainland for April 29-May 1, 2026. Cabin rules and same-day fire status should override generic facility fire icons.",
+      "sources": [
+        "https://ext-webbgis.lansstyrelsen.se/d314b5c1-bdd8-447f-9daa-a6e420c008be/",
+        "https://opendata-download-warnings.smhi.se/ibww/api/version/1/warning.json",
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/"
+      ],
+      "confidence": "high-for-queried-status-time-sensitive"
+    },
+    "waterProtection": {
+      "summary": "Oskarshamn municipality lists protected drinking-water areas Bockara, Kristdala, Fårbo, Hummeln, Djupeträsk, Eckern and Älvehult; Mörtfors, Stjärneberg, Hålviken, Kallsebo, Snäckedal and Arvidsmåla do not appear on that list. This is not a GIS legal-boundary check.",
+      "sources": [
+        "https://www.oskarshamn.se/bygga-bo-och-miljo/vatten-och-avlopp/skyddsomrade-for-vattentakt/"
+      ],
+      "confidence": "medium"
+    },
+    "trailSpecificSafety": {
+      "summary": "Be careful crossing E22 near Solstadström. Later section after Snäckedal is hilly/rocky. Field reports add overgrowth, slippery slabs and route-finding caution.",
+      "sources": [
+        "https://www.naturkartan.se/sv/kalmar-lan/mortfors-stjarneberg-ostkustleden-etapp-5",
+        "https://www.jogg.se/Forum/Trad.aspx?subid=56497&sida=1#post_587613"
+      ],
+      "confidence": "medium-high"
+    }
+  },
+  "conditionReports": [
+    {
+      "sourceName": "Jogg.se forum local runner report",
+      "url": "https://www.jogg.se/Forum/Trad.aspx?subid=56497&sida=1#post_587613",
+      "reportDate": "2023-09-30",
+      "sectionRelevance": "Exact Mörtfors to Bussvik outing, including Etapp 5 and part of Etapp 6",
+      "summary": "Reported Etapp 5 as partly quite overgrown, somewhat messy, with many elevation meters, very little asphalt/gravel, two wrong turns, slippery rock slabs and markings easy to miss when concentrating on footing.",
+      "confidence": "high-for-section-relevance-medium-for-currentness",
+      "notes": "Dated report; vegetation/maintenance can change."
+    },
+    {
+      "sourceName": "Sydsverige.dk Etape 5",
+      "url": "https://www.sydsverige.dk/?pageID=1105",
+      "reportDate": "updated 2025-06-21",
+      "sectionRelevance": "Exact section and Stjärneberg cabin",
+      "summary": "Describes forest paths and gravel roads, Hålviken, rocky/old quarry landscape, and Stjärneberg cabin as usable but in need of care, with kitchen, living room/stove, electricity, mattresses, firewood, toilets and a newer hut with more beds.",
+      "confidence": "medium-high",
+      "notes": "Its Hålviken distance conflicts with other descriptions; use only as field/context support and defer Stjärneberg availability to current official/publication-time checks."
+    },
+    {
+      "sourceName": "AllTrails Ostkustleden whole-route reviews",
+      "url": "https://www.alltrails.com/trail/sweden/kalmar/ostkustleden",
+      "reportDate": "2025-07/08 and older route-wide reviews",
+      "sectionRelevance": "Whole route, not Etapp 5-specific",
+      "summary": "Recent route-wide reviews mention good conditions, bugs and low crowding; other reviews warn the trail can be hard to follow and AllTrails linework may be an older version.",
+      "confidence": "medium-for-whole-route-low-for-section-specific",
+      "notes": "Use as general route-following caveat only."
+    },
+    {
+      "sourceName": "Trailforks subsegment metadata",
+      "url": "https://www.trailforks.com/trails/ostkustleden-mortfors-e22/",
+      "reportDate": "2025/2026 metadata; some visible last activity 2023",
+      "sectionRelevance": "Exact Etapp 5 subsegments",
+      "summary": "Mörtfors-E22 marked hard physical but easy to follow; E22-Vickerum and Kallseboskogen marked hard and sometimes hard to follow. No useful trail reports posted.",
+      "confidence": "medium-for-routefinding-metadata-low-for-current-conditions",
+      "notes": "Other subsegment URLs: https://www.trailforks.com/trails/ostkustleden-e22-vickerum/ and https://www.trailforks.com/trails/ostkustleden-kallseboskogen/."
+    },
+    {
+      "sourceName": "Utsidan Hålviken photo",
+      "url": "https://www.utsidan.se/albums/viewpic.htm?ID=39475",
+      "reportDate": "2009",
+      "sectionRelevance": "Hålviken swim/location context",
+      "summary": "Old personal trip photo confirms Hålviken was used as a swim spot.",
+      "confidence": "very-low-for-current-conditions",
+      "notes": "Use only as old location context."
+    }
+  ],
+  "sourceContradictions": [
+    {
+      "topic": "distance",
+      "details": "Naturkartan page/API says 21.4 km, official PDF and Döderhult say about 19 km, rules lane found an 18.3 km Naturkartan text variant, OSM says 19 km, Pacer says about 18.5 km, and repaired official GPX is 18.734 km.",
+      "resolution": "Treat 21.4 km as duplicate-geometry artifact and use about 19 km for intended display distance, with repaired official GPX length retained for normalization."
+    },
+    {
+      "topic": "official GPX/API raw geometry",
+      "details": "Official GPX/API includes two duplicate short Mörtfors-side lines and a reversed main line; raw summing creates the 21.4 km distance.",
+      "resolution": "Do not import raw. Discard T2, reverse T1, reverse/trim T3, and join at the shared junction."
+    },
+    {
+      "topic": "route-page marker versus endpoint",
+      "details": "Naturkartan route-page marker 57.5434451248887,16.4808952113779 is about 2.16 km straight-line from the Mörtfors cabin and corresponds to the duplicated GPX junction.",
+      "resolution": "Use cleaned GPX start and Mörtfors cabin marker for endpoint metadata; mark page pin as not endpoint."
+    },
+    {
+      "topic": "Stjärneberg cabin availability",
+      "details": "The original Etapp 5 synthesis recorded a closure/bed-bug notice, while Etapp 6 lanes and a direct follow-up check of the current Stjärneberg Naturkartan page on 2026-04-29 did not reproduce any visible closure notice.",
+      "resolution": "Do not mark Stjärneberg closed from the candidate data. Import as a cabin cluster only with a publication-time availability check before user-facing overnight claims."
+    },
+    {
+      "topic": "Stjärneberg water",
+      "details": "The original Etapp 5 synthesis recorded an arsenic warning, while Etapp 6 lanes and a direct follow-up check of the current Stjärneberg Naturkartan page on 2026-04-29 found boil-water wording only.",
+      "resolution": "Use boil-water/currentness wording from current official text. Do not import the well as an unqualified potable-water point and do not carry a static arsenic warning without a reproducible source."
+    },
+    {
+      "topic": "Snäckedal access",
+      "details": "Snäckedal is an official POI on/near the trail, but Länsstyrelsen says car visitors cannot currently be directed there due to no access-road/parking agreement.",
+      "resolution": "Import as on-foot cultural POI, not as car access/parking."
+    }
+  ],
+  "researchIterations": [
+    {
+      "iterationId": "ostkustleden-etapp-5-batch-1",
+      "startedAt": "2026-04-29T20:53:00Z",
+      "completedAt": "2026-04-29T21:17:00Z",
+      "agents": [
+        {
+          "lane": "official_sources",
+          "agentId": "019ddabe-730a-7a30-a7d7-fff4e8244c5e",
+          "nickname": "Faraday",
+          "status": "completed"
+        },
+        {
+          "lane": "route_geometry",
+          "agentId": "019ddabe-735f-7933-904d-528d320c178d",
+          "nickname": "Anscombe",
+          "status": "completed"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddabe-76d1-7803-8c06-1aed4e02cabc",
+          "nickname": "Curie",
+          "status": "completed"
+        },
+        {
+          "lane": "transit_access",
+          "agentId": "019ddabe-7741-76b1-ad88-dc346f9babbf",
+          "nickname": "Epicurus",
+          "status": "completed"
+        },
+        {
+          "lane": "field_reports",
+          "agentId": "019ddabe-7774-7e12-bf22-597943f58ecb",
+          "nickname": "Boole",
+          "status": "completed"
+        },
+        {
+          "lane": "rules_safety_currentness",
+          "agentId": "019ddabe-7796-79d2-89ba-f47db98d3955",
+          "nickname": "Maxwell",
+          "status": "completed"
+        }
+      ],
+      "synthesisDecision": "Six lanes produced enough evidence for a research-ready file. A follow-up caveat-resolution pass on 2026-04-29 corrected the Stjärneberg closure/arsenic claim to a publication-time cabin/well check; remaining issues are explicit import caveats around repaired geometry, exact side-POI coordinates and GIS overlay."
+    }
+  ],
+  "openQuestions": [
+    "Visually verify repaired Etapp 5 geometry against the official PDF/map viewer before runtime import.",
+    "Confirm whether Naturkartan's 18.3 km text variant is a stale page fragment, typo or alternate route measurement.",
+    "Verify Stjärneberg cabin availability at publication time before any user-facing overnight claim.",
+    "Find exact coordinate/direction for Stjärneberg well and verify current water-quality wording before importing any water point.",
+    "Find exact coordinate for Arvidsmåla tap-water detour before importing as water access.",
+    "Refine Hålviken/Hålvik bathing-place coordinate and old stone-shipping port coordinate.",
+    "Find exact coordinates for Kallsebo quarries and Trollklinten before importing those narrative POIs.",
+    "Run a GIS overlay to determine whether Etapp 5 intersects Misterhults skärgård reserve/Natura 2000 C-areas or only passes nearby.",
+    "Verify KLT line 44/160 and Närtrafik service patterns at publication time, including E22 roadwork impacts.",
+    "Review duplicate handling for Mörtfors toilet and parking records shared with Etapp 4.",
+    "Confirm whether Stjärneberg parking's two spaces and Klintemåla overflow should be modeled as access metadata only."
+  ],
+  "importReadiness": {
+    "status": "research-ready-for-normalization-not-runtime-import-ready",
+    "readyForNormalization": true,
+    "geometryReadiness": "ready_after_repair_discard_duplicate_track_reverse_tracks_and_trim_overshoot",
+    "facilityReadiness": "mixed; endpoint/access and Snäckedal are strong, Stjärneberg cabin/well need publication-time and coordinate checks, and side POI coordinates need care",
+    "commuteReadiness": "planning-grade; Mörtfors has fixed bus options, Stjärneberg depends mainly on Närtrafik/taxi and service must be verified",
+    "rulesReadiness": "research-ready with Stjärneberg publication-time cabin/well caveats, fire-risk and protected-area GIS caveats",
+    "doNotImportYet": true,
+    "normalizationBlockers": [
+      "Raw official GPX/API cannot be imported as-is.",
+      "Distance display must not silently use Naturkartan 21.4 km without duplicate-geometry caveat.",
+      "Stjärneberg cabin availability must be verified at publication time.",
+      "Stjärneberg well must not be imported as an unqualified potable-water point without a verified well coordinate and current water-quality wording.",
+      "Hålviken, Kallsebo, Trollklinten and Arvidsmåla water detour need coordinate verification before point import."
+    ]
+  }
+}
