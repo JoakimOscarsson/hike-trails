@@ -378,11 +378,15 @@
     },
     {
       "trailId": "kungsleden",
-      "status": "candidate-topology-recorded-needs-geometry-and-source-policy",
+      "status": "candidate-topology-and-transfer-policy-recorded",
       "decisionsApplied": [
         {
           "id": "kungsleden-selected-section-chain",
-          "decision": "Keep the researched 27-section chain as the candidate topology, with non-walk transfers and water/road crossings represented as explicit connector metadata during the later importer pass."
+          "decision": "Keep the researched 27-section Abisko-Hemavan chain as the candidate topology and exclude the Singi-Kebnekaise-Nikkaluokta access spur from the mainline."
+        },
+        {
+          "id": "kungsleden-transfer-runtime-policy",
+          "decision": "Use official Naturvardsverket/Lansstyrelsen Leder GeoJSON as the runtime geometry source, keep in-section boat/rowboat/water gaps in section notes with manual route status, and model only the between-section Vakkotavare-Saltoluokta handoff as a runtime transfer."
         }
       ],
       "routeGroups": [
@@ -421,11 +425,20 @@
           ]
         }
       ],
-      "connections": [],
+      "connections": [
+        {
+          "connectionId": "kungsleden-vakkotavare-saltoluokta-transfer",
+          "fromSectionId": "kungsleden-section-08-teusajaure-vakkotavare",
+          "toSectionId": "kungsleden-section-09-saltoluokta-sitojaure",
+          "mode": "bus",
+          "status": "road-and-boat-transfer",
+          "importPolicy": "Represent the Vakkotavare-Saltoluokta handoff as a planning transfer: road/bus access from Vakkotavare toward Kebnats plus the Saltoluokta passenger boat. Do not draw or imply a continuous walking line."
+        }
+      ],
       "displayPolicies": [],
       "remainingGeometryWork": [
-        "Transform EPSG:3006 official geometry to WGS84, assemble multi-part lines, apply endpoint-zone snapping policy and reverse directions where needed.",
-        "Resolve source-policy and connector taxonomy decisions before runtime import."
+        "Keep boat timetables, bridge status, fire bans, weather, hut seasons, reindeer restrictions and service openings as publication-time checks.",
+        "Add richer typed in-section transfer geometry later if the runtime route model grows beyond section notes/manual route status."
       ]
     },
     {

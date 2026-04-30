@@ -1,0 +1,241 @@
+{
+  "id": "kungsleden-section-26-syter-viterskalet",
+  "stageNumber": 26,
+  "name": "Syter-Viterskalet",
+  "from": "Syter",
+  "to": "Viterskalet",
+  "distanceKm": 12,
+  "estimatedTime": "3-4 hours",
+  "description": "Syter to Viterskalet. Candidate import from normalized research; verify current notices before publication.",
+  "utilities": [
+    "STF Syter Fjällstuga cluster (lodging)",
+    "Syterskalet rastskydd (shelter)",
+    "Syterskalet rastskydd toilet (toilet)",
+    "Tent/camping near Viterskalet (camping)",
+    "STF Viterskalet Fjällstuga cluster (lodging)",
+    "Viterskalet shop (food)",
+    "Viterskalet safety room (service)",
+    "Viterskalet toilet (toilet)"
+  ],
+  "waterSources": [
+    "Main-route natural water: The route crosses/follows Svärfarbäcken, Västra Syterbäcken/Syterbäcken and side streams. Hut pages describe guests fetching water from stream/lake. Treat as natural water, not a built tap.",
+    "Syter hut / Svärfarbäcken water: Syter hut guests fetch natural water from stream/lake. Treat/purify as needed.",
+    "Syterskalet streams / Syterbäcken: Main route follows or crosses watercourses including Svärfarbäcken and Syterbäcken/Västra Syterbäcken. Field reports repeatedly mention reliable streams and camping by water.",
+    "Viterskalet hut natural water: STF hut guests fetch water from stream/lake under the standard mountain-cabin routine. Not a treated tap."
+  ],
+  "notes": [
+    "Final runtime source/licensing/capture policy for Naturvårdsverket, Naturkartan and OSM/Waymarked.",
+    "Endpoint snapping/splitting policy at Viterskalet shared boundary with section 27.",
+    "Confirm exact final AC3 clipping point and coordinate transformation in import tooling.",
+    "If importing standalone facilities, use Naturvårdsverket Anordningar as the primary coordinate source for Syterskalet/Viterskalet toilet, bridge and help-phone points and keep OSM only as QA.",
+    "Treat Viterskalet capacity as 32 guest beds from current STF descriptive text unless a future live recheck changes the page.",
+    "Keep Viterskalet sauna suppressed unless a future official source adds it.",
+    "Refresh live currentness before import: Länsstyrelsen closures/bridges, STF hut dates/services, fire bans, SMHI forecasts/warnings and transit timetables."
+  ],
+  "facilities": [
+    {
+      "id": "kungsleden-section-26-syter-viterskalet-facilities-0-stf-syter-fjallstuga-cluster",
+      "name": "STF Syter Fjällstuga cluster",
+      "type": "lodging",
+      "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "description": "Shared northern endpoint. Staffed STF hut in season with old/safety room, help phone, toilets, wood/self-service water routines, pets in limited rooms. No current official shop or sauna.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.svenskaturistforeningen.se/boende/stf-syter-fjallstuga/",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "Section start / shared endpoint with section 25."
+    },
+    {
+      "id": "kungsleden-section-26-syter-viterskalet-facilities-1-bridge-west-of-syter-svarfarbacken-bridge",
+      "name": "Bridge west of Syter / Svärfarbäcken bridge",
+      "type": "hazard",
+      "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "description": "Bridge over Svärfarbäcken just west of STF Syter. STF explicitly says the stage crosses Svärfarbäcken by the bridge just west of the hut; Naturvårdsverket Anordningar confirms a hanging bridge on AC3 at 65.892310,15.394974.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.svenskaturistforeningen.se/guider-tips/etapper/syter-viterskalet/",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "Immediately after Syter on main route."
+    },
+    {
+      "id": "kungsleden-section-26-syter-viterskalet-facilities-2-syterskalet-rastskydd",
+      "name": "Syterskalet rastskydd",
+      "type": "shelter",
+      "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "description": "Official Länsstyrelsen/Naturkartan rest shelter in Syterskalet. Naturvårdsverket Anordningar confirms Rastskydd on AC3. Temporary rest only; no overnight except mountain-safety need. Has help-phone activity tag, emergency box and emergency wood replenished by Länsstyrelsen in winter.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.naturkartan.se/sv/vasterbottens-lan/rastskydd-syterskalet",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "On or very near main route in Syterskalet."
+    },
+    {
+      "id": "kungsleden-section-26-syter-viterskalet-facilities-3-syterskalet-rastskydd-toilet",
+      "name": "Syterskalet rastskydd toilet",
+      "type": "toilet",
+      "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "description": "Official Naturvårdsverket Anordningar Dass point associated with AC3 and located about 73 m from the Syterskalet shelter coordinate. Treat OSM's nearby mapped toilet as QA only.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.naturkartan.se/sv/vasterbottens-lan/rastskydd-syterskalet",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "Near Syterskalet shelter."
+    },
+    {
+      "id": "kungsleden-section-26-syter-viterskalet-facilities-4-syterskalet-syterbacken-bridge",
+      "name": "Syterskalet / Syterbäcken bridge",
+      "type": "hazard",
+      "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "description": "Official Naturvårdsverket Anordningar bridge on AC3 in the Syterskalet/Syterbäcken area. This resolves the earlier OSM-only bridge caveat.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.svenskaturistforeningen.se/guider-tips/etapper/syter-viterskalet/",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "Main route in Syterskalet."
+    },
+    {
+      "id": "kungsleden-section-26-syter-viterskalet-facilities-6-main-route-natural-water",
+      "name": "Main-route natural water",
+      "type": "natural-water",
+      "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "description": "The route crosses/follows Svärfarbäcken, Västra Syterbäcken/Syterbäcken and side streams. Hut pages describe guests fetching water from stream/lake. Treat as natural water, not a built tap.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.svenskaturistforeningen.se/guider-tips/etapper/syter-viterskalet/",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "Along main route and at hut clusters."
+    },
+    {
+      "id": "kungsleden-section-26-syter-viterskalet-facilities-7-tent-camping-near-viterskalet",
+      "name": "Tent/camping near Viterskalet",
+      "type": "camping",
+      "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "description": "Naturkartan/Länsstyrelsen section page says there are many good tent sites closer to Viterskalsstugan. No discrete official tent-site coordinate found.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.naturkartan.se/sv/vasterbottens-lan/syterstugan-viterskalsstugan-hemavan-kungsleden",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "Near Viterskalet endpoint."
+    },
+    {
+      "id": "kungsleden-section-26-syter-viterskalet-facilities-8-stf-viterskalet-fjallstuga-cluster",
+      "name": "STF Viterskalet Fjällstuga cluster",
+      "type": "lodging",
+      "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "description": "Endpoint STF hut on Kungsleden. Current STF text says 32 guest beds, self-catering kitchen, drying room, wash room, dog/safety room, water/wood self-service routine and shop with large assortment. No current official sauna found.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.svenskaturistforeningen.se/boende/stf-viterskalet-fjallstuga/",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "Section endpoint / shared with section 27."
+    },
+    {
+      "id": "kungsleden-section-26-syter-viterskalet-facilities-9-viterskalet-shop",
+      "name": "Viterskalet shop",
+      "type": "food",
+      "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "description": "STF Viterskalet page lists a shop in the small cabin with large assortment; STF shop page lists Viterskalet among hut shops.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.svenskaturistforeningen.se/boende/stf-viterskalet-fjallstuga/",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "Viterskalet endpoint."
+    },
+    {
+      "id": "kungsleden-section-26-syter-viterskalet-facilities-10-viterskalet-safety-room",
+      "name": "Viterskalet safety room",
+      "type": "service",
+      "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "description": "Naturkartan says the first room on the right in the main cabin is an open safety room outside STF season and also dog room. STF says one 4-bed room is used as safety room.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.naturkartan.se/en/vasterbottens-lan/stf-viterskalet-fjallstuga",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "Viterskalet endpoint."
+    },
+    {
+      "id": "kungsleden-section-26-syter-viterskalet-facilities-11-viterskalet-help-phone",
+      "name": "Viterskalet help phone",
+      "type": "emergency-phone",
+      "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "description": "Official help phone point in the Viterskalet endpoint cluster, associated with AC3 and AC8.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://geodata.naturvardsverket.se/nedladdning/friluftsliv/Anordningar.geojson",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "Viterskalet endpoint cluster."
+    },
+    {
+      "id": "kungsleden-section-26-syter-viterskalet-facilities-12-viterskalet-toilet",
+      "name": "Viterskalet toilet",
+      "type": "toilet",
+      "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "description": "Official Naturvårdsverket Anordningar Dass point in the Viterskalet hut cluster, corroborating OSM's nearby toilet point.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.svenskaturistforeningen.se/boende/stf-viterskalet-fjallstuga/",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "Viterskalet endpoint cluster."
+    },
+    {
+      "id": "kungsleden-section-26-syter-viterskalet-watersources-0-syter-hut-svarfarbacken-water",
+      "name": "Syter hut / Svärfarbäcken water",
+      "type": "natural-water",
+      "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "description": "Syter hut guests fetch natural water from stream/lake. Treat/purify as needed.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.svenskaturistforeningen.se/boende/stf-syter-fjallstuga/",
+        "lastFetchedAt": "2026-04-30"
+      }
+    },
+    {
+      "id": "kungsleden-section-26-syter-viterskalet-watersources-1-syterskalet-streams-syterbacken",
+      "name": "Syterskalet streams / Syterbäcken",
+      "type": "natural-water",
+      "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "description": "Main route follows or crosses watercourses including Svärfarbäcken and Syterbäcken/Västra Syterbäcken. Field reports repeatedly mention reliable streams and camping by water.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.svenskaturistforeningen.se/guider-tips/etapper/syter-viterskalet/",
+        "lastFetchedAt": "2026-04-30"
+      }
+    },
+    {
+      "id": "kungsleden-section-26-syter-viterskalet-watersources-2-viterskalet-hut-natural-water",
+      "name": "Viterskalet hut natural water",
+      "type": "natural-water",
+      "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "description": "STF hut guests fetch water from stream/lake under the standard mountain-cabin routine. Not a treated tap.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.svenskaturistforeningen.se/boende/stf-viterskalet-fjallstuga/",
+        "lastFetchedAt": "2026-04-30"
+      }
+    }
+  ],
+  "source": {
+    "provider": "Naturvårdsverket Leder.geojson / Friluftsliv AC3 line",
+    "lastFetchedAt": "2026-04-30"
+  },
+  "route": {
+    "status": "ready",
+    "sourceFormat": "geojson",
+    "geojsonPath": "/routes/hiking/kungsleden/sections/kungsleden-section-26-syter-viterskalet.geojson"
+  },
+  "endpointCoordinates": {
+    "source": "candidate-normalized-route"
+  }
+}

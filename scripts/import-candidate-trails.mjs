@@ -325,6 +325,72 @@ const importConfigs = {
       url: "https://www.westswedentrails.com/en/delled/bohusleden",
       lastFetchedAt: "2026-04-30"
     }
+  },
+  kungsleden: {
+    name: "Kungsleden",
+    region: "Norrbottens län / Västerbottens län",
+    country: "Sweden",
+    difficulty: "Strenuous",
+    estimatedTime: "27 stages",
+    season: "June-September",
+    routeType: "Point to point with boat and transfer gaps",
+    description:
+      "The classic Swedish mountain trail from Abisko to Hemavan, crossing remote Lapland terrain, national parks, hut systems, lake crossings and long service-sparse sections.",
+    gettingThere:
+      "Use the selected section endpoints for access planning. Abisko, Vakkotavare, Saltoluokta/Kebnats, Kvikkjokk, Ammarnäs and Hemavan are the strongest access anchors; boats, road transfers and bus legs need current timetable checks.",
+    utilities: [
+      "STF huts, mountain stations, shelters and village services are concentrated in the northern and southern hut chains; the Kvikkjokk-Ammarnäs middle is more remote.",
+      "Several sections require scheduled motorboat, private boat, rowboat or road/boat transfer planning; exact operators, dates, prices and payment rules must be checked before travel."
+    ],
+    waterSources: [
+      "Streams and natural water are common in mountain terrain but should be treated unless a section lists a verified potable source.",
+      "Carry enough water across high, exposed or service-sparse stages and do not rely on hut/service access outside season."
+    ],
+    notes: [
+      "Imported from normalized candidate research on 2026-04-30.",
+      "Runtime import uses 27 researched Abisko-Hemavan mainline hiking sections and excludes the Singi-Kebnekaise-Nikkaluokta access spur from the main route.",
+      "Official summaries describe Kungsleden as more than 450 km; runtime distance uses the normalized 27 section display distances, while generated land/walking route geometry totals about 418.6 km.",
+      "Boat, rowboat, road-transfer and service-zone gaps are not silently joined into a walkable line. Affected sections are marked manual in route status and explain the missing transfer in notes.",
+      "The Vakkotavare-Saltoluokta handoff is modeled as an explicit transfer because it requires road/bus access to Kebnats plus the Saltoluokta passenger boat.",
+      "Boat timetables, bridge status, fire bans, weather, reindeer restrictions, protected-area rules, hut seasons and service opening conditions remain publication-time checks."
+    ],
+    routeGroupNames: {
+      "kungsleden-mainline": "Abisko-Hemavan mainline"
+    },
+    manualRouteSectionIds: [
+      "kungsleden-section-08-teusajaure-vakkotavare",
+      "kungsleden-section-10-sitojaure-aktse",
+      "kungsleden-section-11-aktse-parte",
+      "kungsleden-section-13-kvikkjokk-tsielekjakkstugan",
+      "kungsleden-section-17-vuonatjviken-jackvik",
+      "kungsleden-section-20-sjnulttjie-ravfallsstugan"
+    ],
+    sectionNotesById: {
+      "kungsleden-section-08-teusajaure-vakkotavare": [
+        "Route geometry is land-only candidate linework. The Teusajaure lake crossing is required and must be planned as scheduled boat or rowboat transport, not as continuous hiking geometry."
+      ],
+      "kungsleden-section-10-sitojaure-aktse": [
+        "Route geometry is land-only candidate linework. The Sitojaure/Svijnne boat transport is required before the walking part and current operator details must be checked."
+      ],
+      "kungsleden-section-11-aktse-parte": [
+        "Route geometry is land-only candidate linework. The Aktse-Laitaure crossing and short hut/landing approach are intentionally kept as transfer/access context rather than invented hiking linework."
+      ],
+      "kungsleden-section-13-kvikkjokk-tsielekjakkstugan": [
+        "Route geometry starts after the Kvikkjokk/Sakkat boat transfer. The official section distance includes boat-plus-walk planning context, so check current Kvikkjokk boat operations before relying on it."
+      ],
+      "kungsleden-section-17-vuonatjviken-jackvik": [
+        "Route geometry is multipart planning linework around Riebnes and Kapellströmmarna. This section needs booked Riebnes boat transport and a short rowboat crossing before Jäckvik."
+      ],
+      "kungsleden-section-20-sjnulttjie-ravfallsstugan": [
+        "Route geometry preserves a small source-boundary/service-zone gap around the shelter handoff. Treat the map line as planning-grade and inspect endpoint notes before navigation."
+      ]
+    },
+    sectionNoteLimit: 7,
+    source: {
+      provider: "naturvardsverket-lansstyrelsen-stf-candidate-research",
+      url: "https://www.swedishtouristassociation.com/areas/kungsleden/",
+      lastFetchedAt: "2026-04-30"
+    }
   }
 };
 
@@ -361,7 +427,13 @@ async function buildTrailSystem(trailId, config) {
   const orderedSections = [...(routeSections.sections ?? [])]
     .sort((left, right) => sectionOrderValue(left) - sectionOrderValue(right))
     .map((section) =>
-      toRuntimeSection(trailId, section, sectionGeometryById.get(section.sectionId), normalFacilitiesBySectionId.get(section.sectionId) ?? [])
+      toRuntimeSection(
+        trailId,
+        section,
+        sectionGeometryById.get(section.sectionId),
+        normalFacilitiesBySectionId.get(section.sectionId) ?? [],
+        config
+      )
     );
   const runtimeRouteGroups = toRuntimeRouteGroups(routeTopology.routeGroups ?? [], config);
   const runtimeConnections = toRuntimeConnections(routeTopology.connections ?? [], orderedSections);
@@ -404,10 +476,15 @@ async function buildTrailSystem(trailId, config) {
   };
 }
 
-function toRuntimeSection(trailId, section, geometryRecord, normalFacilities) {
+function toRuntimeSection(trailId, section, geometryRecord, normalFacilities, config = {}) {
   const routePath = `/routes/hiking/${trailId}/sections/${section.sectionId}.geojson`;
   const timingNotes = estimatedTimeNotes(section.estimatedTime);
-  const caveatNotes = uniqueStrings([...geometryStatusNotes(geometryRecord), ...(section.caveats ?? []), ...timingNotes]).slice(0, 6);
+  const configNotes = config.sectionNotesById?.[section.sectionId] ?? [];
+  const noteLimit = config.sectionNoteLimit ?? 6;
+  const caveatNotes = uniqueStrings([...configNotes, ...geometryStatusNotes(geometryRecord), ...(section.caveats ?? []), ...timingNotes]).slice(
+    0,
+    noteLimit
+  );
   const endpointCoordinates = {
     source: "candidate-normalized-route",
     start: endpointLatLon(section.endpoints, "start"),
@@ -432,7 +509,7 @@ function toRuntimeSection(trailId, section, geometryRecord, normalFacilities) {
       lastFetchedAt: "2026-04-30"
     },
     route: {
-      status: runtimeRouteStatus(geometryRecord),
+      status: runtimeRouteStatus(geometryRecord, section, config),
       sourceFormat: "geojson",
       geojsonPath: routePath
     },
@@ -440,7 +517,8 @@ function toRuntimeSection(trailId, section, geometryRecord, normalFacilities) {
   };
 }
 
-function runtimeRouteStatus(geometryRecord) {
+function runtimeRouteStatus(geometryRecord, section, config = {}) {
+  if ((config.manualRouteSectionIds ?? []).includes(section?.sectionId)) return "manual";
   if (!geometryRecord?.candidateGeojsonFiles?.length) return "manual";
   const text = `${geometryRecord.status ?? ""} ${geometryRecord.sourceSummary?.classification ?? ""}`.toLowerCase();
   return text.includes("blocked") || text.includes("partial") ? "manual" : "ready";

@@ -42,7 +42,7 @@ Candidate artifact commands:
 | `hallandsleden` | Hallandsleden | 35 sections | Imported to runtime data | Runtime source/public shards and 35 section route files exist; 9 selectable chains preserve the branched inland network and the official coastal gap. |
 | `hogakustenleden` | Höga Kustenleden | 9 sections | Imported to runtime data | Runtime source/public shards and 9 section route files exist; section 2 distance and section 7 difficulty caveats are retained in notes. |
 | `hoglandsleden` | Höglandsleden | 23 sections | Imported to runtime data | Runtime source/public shards and 23 section route files exist; 3 selectable chains preserve the primary loop and official branch topology. |
-| `kungsleden` | Kungsleden | 27 sections | Candidate artifacts generated | Geometry QA exists; source/licensing and endpoint conventions remain open. |
+| `kungsleden` | Kungsleden | 27 sections | Imported to runtime data | Runtime source/public shards and 27 section route files exist; official state-trail geometry is used with boat/rowboat/road gaps kept explicit in section notes/manual route status plus one Vakkotavare-Saltoluokta transfer. |
 | `nordkalottleden` | Nordkalottleden | 12 sections | Candidate artifacts generated | Official-source geometry artifacts exist; endpoint/connector gaps must remain explicit. |
 | `ostkustleden` | Ostkustleden | 8 sections | Imported to runtime data | Runtime source/public shards and 8 section route files exist; opening/service caveats are retained in notes and descriptions. |
 | `padjelantaleden` | Padjelantaleden | 10 sections | Candidate artifacts generated | Needs remote access, hut cluster, and seasonal bridge/boat policies during import. |

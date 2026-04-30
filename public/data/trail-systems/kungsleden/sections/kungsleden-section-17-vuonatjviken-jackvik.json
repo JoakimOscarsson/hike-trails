@@ -1,0 +1,237 @@
+{
+  "trailSystemId": "kungsleden",
+  "id": "kungsleden-section-17-vuonatjviken-jackvik",
+  "stageNumber": 17,
+  "name": "Vuonatjviken-Jäckvik",
+  "from": "Vuonatjviken",
+  "to": "Jäckvik",
+  "distanceKm": 18,
+  "estimatedTime": "4-6 hours (STF); Naturkartan/Länsstyrelsen gives 5-7 hours",
+  "description": "Vuonatjviken to Jäckvik. Candidate import from normalized research; verify current notices before publication.",
+  "utilities": [
+    "ICA Nära Jäckvik / Handlar'n i Jäckvik (food)",
+    "Jäkkvik affären (transit)",
+    "Jäckvik Fjällcenter (lodging)",
+    "Kapellströmmarna north landing (transit)",
+    "Kapellströmmarna rowboat crossing (transit)",
+    "Kapellströmmarna south landing / Lövmokk side (transit)",
+    "Kyrkans Fjällgård Jäckvik (lodging)",
+    "Riebnes east landing / Vuonatjviken boat start (transit)"
+  ],
+  "waterSources": [
+    "No verified potable water source is listed for this section; carry water and treat natural water."
+  ],
+  "notes": [
+    "Route geometry is multipart planning linework around Riebnes and Kapellströmmarna. This section needs booked Riebnes boat transport and a short rowboat crossing before Jäckvik.",
+    "STF/Naturkartan display 5.4 km Riebnes boat plus 18 km hiking, while WFS composed geometry is about 23.744 km before small gaps, OSM/Waymarked totals about 24.252 km, and route apps/tracks show 24.1-26.6 km. Likely cause: official distance separates hiking from boat, while mapped routes include boats and endpoint variants.",
+    "STF says 400 m; Naturkartan/Båttrafik say 300 m; OSM measures about 316 m; WFS rowboat object measures about 251 m and is laterally offset from the connected walking break.",
+    "STF/Naturkartan/Länsstyrelsen mostly use Jäckvik for trail stage; Lantmäteriet settlement and Kyrkans Fjällgård use Jäkkvik; ASCII slugs use Jackvik/Jakkvik. WFS, OSM and Naturkartan endpoints differ by hundreds of meters.",
+    "Official STF points to current private boat contacts and advance booking. Field reports vary from older 250-350 SEK / 10:00-18:00 style times to 2024-2025 reports of 440 SEK and 09:00 in late season.",
+    "Hornavan-Sädvajaure is clearly relevant to the Jäckvik/Riebnes area and Pieljekaise begins at/after Jäckvik, but no full selected-line overlay was performed.",
+    "Kyrkans Fjällgård and ICA Jäckvik are strong. Riebnes/Kapellströmmarna connectors are strong as access metadata. Several OSM-only camp/fire/shelter/toilet/bridge records lack current/official confirmation."
+  ],
+  "facilities": [
+    {
+      "id": "kungsleden-section-17-ica-nara-jackvik",
+      "name": "ICA Nära Jäckvik / Handlar'n i Jäckvik",
+      "type": "food",
+      "sectionId": "kungsleden-section-17-vuonatjviken-jackvik",
+      "description": "Main Jäckvik resupply. Official ICA page lists grocery opening daily 09-20 and services including pharmacy agent, fuel/tank station, gasol, cafe, bus goods, parcel agents, AED, charging, pant station, wifi, fishing permits and Systembolaget agent. Public commercial service but hours are date-sensitive. Fold fuel/gasol/cafe/pharmacy-agent/parcel/charging/AED/pant into service metadata unless taxonomy requires child records.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.openstreetmap.org/way/137930853",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "About 140 m from OSM route endpoint/final road segment; beside Jäckvik affären bus stop."
+    },
+    {
+      "id": "kungsleden-section-17-jackvik-affaren-bus-stop",
+      "name": "Jäkkvik affären",
+      "type": "transit",
+      "sectionId": "kungsleden-section-17-vuonatjviken-jackvik",
+      "description": "Bus stop by the ICA/Handlar'n service cluster. OSM tags network=Länstrafiken Norrbotten; current exact service should be checked in Länstrafiken planner because line 104 is sparse/seasonal. Import as access stop only; require live planner/date check before exposing departures.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.openstreetmap.org/node/1512556345",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "About 140 m from OSM route endpoint/final road segment."
+    },
+    {
+      "id": "kungsleden-section-17-jackvik-fjallcenter",
+      "name": "Jäckvik Fjällcenter",
+      "type": "lodging",
+      "sectionId": "kungsleden-section-17-vuonatjviken-jackvik",
+      "description": "Off-route winter-focused ski/fjällcenter with accommodation by email, winter restaurant/cafe/bar, ski/snowmobile services and annual caravan sites. Camping page says current caravan camping is annual places only and all are rented. Do not import as default section-17 accommodation/camping; useful town service context only.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.openstreetmap.org/node/2667284981",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "About 2.6 km off the section-17 OSM route; south of Jäckvik village."
+    },
+    {
+      "id": "kungsleden-section-17-jackvik-recycling-pant",
+      "name": "Jäckvik recycling / ICA pant station context",
+      "type": "waste",
+      "sectionId": "kungsleden-section-17-vuonatjviken-jackvik",
+      "description": "Town recycling node near ICA; no public waste facility was confirmed along the trail itself. Use as Jäckvik town waste/recycling context; do not imply trail bins. Carry waste out until town.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.openstreetmap.org/node/1512556299",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "About 260 m from OSM route endpoint/final road segment."
+    },
+    {
+      "id": "kungsleden-section-17-kapellstrommarna-north-landing",
+      "name": "Kapellströmmarna north landing",
+      "type": "transit",
+      "sectionId": "kungsleden-section-17-vuonatjviken-jackvik",
+      "description": "North side landing for the Kapellströmmarna rowboat crossing. Use with south landing as typed connector.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://geodata.naturvardsverket.se/nedladdning/friluftsliv/Statliga_Leder.geojson",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "On route; approx 11.4 km walking from Riebnes west landing."
+    },
+    {
+      "id": "kungsleden-section-17-kapellstrommarna-rowboat-crossing",
+      "name": "Kapellströmmarna rowboat crossing",
+      "type": "transit",
+      "sectionId": "kungsleden-section-17-vuonatjviken-jackvik",
+      "description": "Mandatory short rowboat crossing before Jäckvik. STF describes 400 m; Naturkartan and Båttrafik i Kvikkjokk describe 300 m; OSM route measures about 316 m. Official guidance says one boat must remain on each side, so rowing three times may be necessary. Model as rowboat connector with two landings; preserve length conflict and WFS offset caveat.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.swedishtouristassociation.com/trails/kvikkjokk-ammarnas/",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "On route; approx 11.4-11.7 km walking from Riebnes west landing; about 5 km before Jäckvik per official text."
+    },
+    {
+      "id": "kungsleden-section-17-kapellstrommarna-south-landing",
+      "name": "Kapellströmmarna south landing / Lövmokk side",
+      "type": "transit",
+      "sectionId": "kungsleden-section-17-vuonatjviken-jackvik",
+      "description": "South side landing for the Kapellströmmarna rowboat crossing, beside the OSM-mapped lean-to shelter. Use with north landing as typed connector.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://geodata.naturvardsverket.se/nedladdning/friluftsliv/Statliga_Leder.geojson",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "On route; approx 11.7 km walking from Riebnes west landing."
+    },
+    {
+      "id": "kungsleden-section-17-kyrkans-fjallgard-jackvik",
+      "name": "Kyrkans Fjällgård Jäckvik",
+      "type": "lodging",
+      "sectionId": "kungsleden-section-17-vuonatjviken-jackvik",
+      "description": "Primary official/STF-listed Jäckvik hiker accommodation. Summer 2026 hostel and campsite open 24 June-13 September; service room includes shower, toilet and kitchen; laundry, sauna, guest package holding, rowing boat/canoe for guests are listed. Commercial/guest and seasonal. Fold toilet, shower, kitchen, laundry, sauna, guest water and guest package service into parent metadata.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.openstreetmap.org/way/137940723",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "About 165 m from OSM route endpoint/final road segment in Jäckvik."
+    },
+    {
+      "id": "kungsleden-section-17-lovmokk-track-bridge",
+      "name": "Bridge near Lövmokk/Kapellvägen track",
+      "type": "hazard",
+      "sectionId": "kungsleden-section-17-vuonatjviken-jackvik",
+      "description": "OSM bridge=yes on the route as it follows/joins the track/road system south of Kapellströmmarna. OSM-only bridge record; verify current condition before public use.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.openstreetmap.org/way/163714429",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "On route; approx 13.2 km walking from Riebnes west landing."
+    },
+    {
+      "id": "kungsleden-section-17-mid-route-metal-bridge",
+      "name": "Mid-route metal path bridge",
+      "type": "hazard",
+      "sectionId": "kungsleden-section-17-vuonatjviken-jackvik",
+      "description": "OSM bridge=yes, surface=metal on the Kungsleden footpath. OSM-route corroborated but no matching Naturvårdsverket Anordningar point found; current condition still needs publication-time check.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.openstreetmap.org/way/990965474",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "On route; approx 8.8 km walking from Riebnes west landing."
+    },
+    {
+      "id": "kungsleden-section-17-pieljekaise-jackvik-trailhead-utilities",
+      "name": "Pieljekaise/Jäckvik trailhead toilet, parking and map",
+      "type": "trail-junction",
+      "sectionId": "kungsleden-section-17-vuonatjviken-jackvik",
+      "description": "Official toilet and parking associated with Jäckvik-Adolfström BD87/Pieljekaise access, not the main section-17 endpoint. Useful for Jäckvik service/next-stage context. Do not attach as an on-section facility unless Jäckvik access/next-section records are in scope.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://geodata.naturvardsverket.se/nedladdning/friluftsliv/Anordningar.geojson",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "About 650 m from section-17 OSM route endpoint; primarily next-section/trailhead context."
+    },
+    {
+      "id": "kungsleden-section-17-riebnes-east-landing",
+      "name": "Riebnes east landing / Vuonatjviken boat start",
+      "type": "transit",
+      "sectionId": "kungsleden-section-17-vuonatjviken-jackvik",
+      "description": "East side of the Riebnes motorboat connector. Official/STF/Naturkartan sources state that crossing Riebnes requires boat transport and there are no rowboats. Model as connector metadata, not an ordinary facility. Operator/contact/time/payment are currentness-sensitive.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://geodata.naturvardsverket.se/nedladdning/friluftsliv/Statliga_Leder.geojson",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "Section start connector before the 5.4 km official boat segment."
+    },
+    {
+      "id": "kungsleden-section-17-riebnes-west-landing",
+      "name": "Riebnes west landing / walking section start",
+      "type": "transit",
+      "sectionId": "kungsleden-section-17-vuonatjviken-jackvik",
+      "description": "West side of Riebnes, where the Kungsleden walking section resumes with a steep climb through birch forest. Use as start of section-17 foot geometry after typed Riebnes boat segment.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://geodata.naturvardsverket.se/nedladdning/friluftsliv/Statliga_Leder.geojson",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "0.0 km walking from Riebnes west landing; about 5.4 km official boat from Vuonatjviken."
+    },
+    {
+      "id": "kungsleden-section-17-vuonatjviken-start-service-cluster",
+      "name": "Vuonatjviken / Vuonatjvikens Stugby",
+      "type": "lodging",
+      "sectionId": "kungsleden-section-17-vuonatjviken-jackvik",
+      "description": "Roadless start-context lodging/service cluster with cabins, kitchen/service facilities, sauna, restaurant by pre-order and Riebnes boat coordination. Private/commercial and prebook/confirm. Fold restaurant, sauna, shower, guest water, tenting and boat coordination into parent metadata.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.openstreetmap.org/node/1750315974",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": "Start/service context; about 0.1-0.2 km from Riebnes east landing/boat-start zone depending endpoint convention."
+    }
+  ],
+  "source": {
+    "provider": "Naturvårdsverket WFS BD78 composed segments",
+    "lastFetchedAt": "2026-04-30"
+  },
+  "route": {
+    "status": "manual",
+    "sourceFormat": "geojson",
+    "geojsonPath": "/routes/hiking/kungsleden/sections/kungsleden-section-17-vuonatjviken-jackvik.geojson"
+  },
+  "endpointCoordinates": {
+    "source": "candidate-normalized-route",
+    "start": [
+      66.4910928,
+      17.2429033
+    ],
+    "end": [
+      66.3889994,
+      16.9665137
+    ]
+  }
+}

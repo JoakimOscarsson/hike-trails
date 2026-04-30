@@ -53,7 +53,18 @@ const sectionPlans = [
   plan("kungsleden-section-11-aktse-parte", ledIds.bd65),
   plan("kungsleden-section-12-parte-kvikkjokk", ledIds.bd66),
   plan("kungsleden-section-13-kvikkjokk-tsielekjakkstugan", ledIds.bd77Land),
-  plan("kungsleden-section-14-tsielekjakkstugan-pitealven", ledIds.bd77Land),
+  {
+    sectionId: "kungsleden-section-14-tsielekjakkstugan-pitealven",
+    parts: [
+      {
+        ledId: ledIds.bd77Land,
+        startAnchor: { lat: 66.8450149, lon: 17.5883718 },
+        endAnchor: { lat: 66.71854496, lon: 17.34937659 },
+        notes:
+          "Official BD77 line split from the route-line point nearest Tsielekjakkstugan to the Pitealven/Vasterfjall BD77-BD78 handoff; do not start this section at the full BD77 Mallenjarka line start."
+      }
+    ]
+  },
   plan("kungsleden-section-15-pitealven-gasaklahko", ledIds.bd78Land),
   plan("kungsleden-section-16-gasaklahko-vuonatjviken", ledIds.bd78Land),
   {

@@ -1,6 +1,6 @@
 # Kungsleden Research
 
-Status: phase 2 section research complete and phase 3 research-only candidate geometry generated. Do not integrate into runtime data yet.
+Status: imported to runtime data on 2026-04-30 after source-policy, transfer-policy, facility-taxonomy and section-14 geometry fixes.
 
 Trail id: `kungsleden`
 
@@ -36,6 +36,7 @@ Important import-shaping findings:
 - `geometry/candidate/sections/*.geojson`: generated WGS84 candidate section geometry for all 27 Kungsleden sections.
 - `geometry/candidate/kungsleden-candidate-section-geometries.geojson`: combined generated section FeatureCollection for map/overlay QA.
 - `normalized-candidate/route-geometry-build.research.json`: reproducible geometry build report with snaps, source parts, preserved gaps and warnings.
+- Runtime source/public shards under `data/source/hiking/kungsleden/`, `public/data/trail-systems/kungsleden/` and `public/routes/hiking/kungsleden/sections/`.
 
 ## Phase 2 Section Research
 
@@ -48,11 +49,13 @@ Current handoff:
 - Cross-trail geometry QA is complete in `geometry-qa-2026-04-30.research.json`.
 - Official Naturvårdsverket/Länsstyrelsen master geometry candidates were found for all section groups, with relevant summer hiking features at `GEOMETRIKVALITET <=20 meter`.
 - Geometry-affecting caveats are addressed for research by source hierarchy, clipping/splitting, direction normalization, endpoint-zone handling and typed connector policy.
-- Research-only candidate GeoJSON is generated for all 27 sections from official EPSG:3006 Leder WFS linework, transformed to WGS84, anchor-routed through multipart source features, clipped/split to researched section anchors and simplified at 5 m tolerance.
-- The generated land/walking section geometry totals 430.784 km. Boat, rowboat, road transfer and service-zone offsets are intentionally kept as connector/access metadata rather than invented hiking linework.
-- The candidate is ready for a research-only QA and normalization-planning pass.
-- The candidate is not ready for runtime integration.
+- Candidate GeoJSON is generated for all 27 sections from official EPSG:3006 Leder WFS linework, transformed to WGS84, anchor-routed through multipart source features, clipped/split to researched section anchors and simplified at 5 m tolerance.
+- The generated land/walking section geometry totals 418.647 km after fixing section 14 to start at the researched Tsiele split instead of the full BD77 Mallenjarka line start.
+- Runtime distance is the normalized 27-section display-distance sum, 434 km. Official public summaries still describe the whole trail as more than 450 km because transfer/boat/access semantics differ by source.
+- Boat, rowboat, road transfer and service-zone offsets are intentionally kept as transfer/access metadata or section notes rather than invented hiking linework.
+- The runtime import has one main route group, `kungsleden-mainline`, and one explicit Vakkotavare-Saltoluokta transfer. Sections 8, 10, 11, 13, 17 and 20 are marked `manual` route status because their map line is planning-grade or land-only around required transfer/gap context.
+- Runtime validation, generated-data checks and Kungsleden route-file sanity checks passed after import.
 
 ## Safe Next Work
 
-Do not run generated-data or runtime import commands yet. Next, use `normalized-candidate/route-geometry-build.research.json` and the generated `geometry/candidate/` GeoJSON as research QA inputs while resolving runtime source approval, typed boat/rowboat/road connector support, final endpoint-zone presentation, protected-area overlays, shared facility deduplication, taxonomy mapping and live-currentness refresh requirements.
+Before user-facing publication, refresh volatile facts: boat timetables/operators/payment, Vakkotavare-Kebnats-Saltoluokta transfer planning, bridge status, hut seasons, fire bans, weather, reindeer/hunting/fishing restrictions, protected-area rules, parking and service openings. If the app later gains typed in-section transfer geometry, sections 8, 10, 11, 13 and 17 are the first places to upgrade from notes/manual status.

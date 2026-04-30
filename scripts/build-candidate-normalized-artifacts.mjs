@@ -216,20 +216,38 @@ const topologyDecisionConfig = {
     triageResolvedAction: "Route-builder topology is now fixed as main loop plus Mariannelund and Tomtabacken-Kärringabacka branches."
   },
   kungsleden: {
-    status: "candidate-topology-recorded-needs-geometry-and-source-policy",
+    status: "candidate-topology-and-transfer-policy-recorded",
     decisionsApplied: [
       {
         id: "kungsleden-selected-section-chain",
         decision:
-          "Keep the researched 27-section chain as the candidate topology, with non-walk transfers and water/road crossings represented as explicit connector metadata during the later importer pass."
+          "Keep the researched 27-section Abisko-Hemavan chain as the candidate topology and exclude the Singi-Kebnekaise-Nikkaluokta access spur from the mainline."
+      },
+      {
+        id: "kungsleden-transfer-runtime-policy",
+        decision:
+          "Use official Naturvardsverket/Lansstyrelsen Leder GeoJSON as the runtime geometry source, keep in-section boat/rowboat/water gaps in section notes with manual route status, and model only the between-section Vakkotavare-Saltoluokta handoff as a runtime transfer."
       }
     ],
     routeGroups: [{ groupId: "kungsleden-mainline", kind: "mainline", allSections: true, status: "candidate-topology-recorded" }],
-    connections: [],
+    connections: [
+      {
+        connectionId: "kungsleden-vakkotavare-saltoluokta-transfer",
+        fromSectionOrder: 8,
+        toSectionOrder: 9,
+        mode: "bus",
+        status: "road-and-boat-transfer",
+        importPolicy:
+          "Represent the Vakkotavare-Saltoluokta handoff as a planning transfer: road/bus access from Vakkotavare toward Kebnats plus the Saltoluokta passenger boat. Do not draw or imply a continuous walking line."
+      }
+    ],
     remainingGeometryWork: [
-      "Transform EPSG:3006 official geometry to WGS84, assemble multi-part lines, apply endpoint-zone snapping policy and reverse directions where needed.",
-      "Resolve source-policy and connector taxonomy decisions before runtime import."
-    ]
+      "Keep boat timetables, bridge status, fire bans, weather, hut seasons, reindeer restrictions and service openings as publication-time checks.",
+      "Add richer typed in-section transfer geometry later if the runtime route model grows beyond section notes/manual route status."
+    ],
+    triageResolvedSourceIds: ["blocker-3", "decision-2", "decision-3"],
+    triageResolvedAction:
+      "Kungsleden importer policy now preserves in-section boat, rowboat and service-zone gaps as section notes/manual route status, models the Vakkotavare-Saltoluokta handoff as a transfer, and keeps Singi-Kebnekaise-Nikkaluokta as access metadata outside the mainline."
   },
   nordkalottleden: {
     status: "candidate-topology-decisions-applied",
@@ -469,9 +487,9 @@ const policyDecisionConfig = {
       "Shared trail-specific decisions now include the Höglandsleden service scope: commercial/bookable services are caveated metadata, and weak rural transit remains access metadata unless current useful service is verified."
   },
   kungsleden: {
-    triageResolvedSourceIds: ["decision-4"],
+    triageResolvedSourceIds: ["blocker-1", "decision-1", "decision-4", "decision-5"],
     action:
-      "Shared trail-specific decisions now define the Kungsleden facility taxonomy for hut clusters, child amenities, transport, services, water, bridges, viewpoints, Naturum, parking and pending unverified subfacilities."
+      "Shared trail-specific decisions now approve official Naturvardsverket/Lansstyrelsen CC0 Leder GeoJSON as the runtime route source, keep STF/Naturkartan/operator pages as descriptive/currentness references, avoid OSM/Waymarked as runtime linework, define Kungsleden facility taxonomy, and keep dynamic timetable/opening details in notes that require publication-date recheck."
   },
   nordkalottleden: {
     triageResolvedSourceIds: ["decision-5"],

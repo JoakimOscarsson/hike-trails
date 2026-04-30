@@ -14,15 +14,15 @@
     "scope-limitation": "Accepted scope boundary for this candidate import model."
   },
   "summary": {
-    "resolved-now": 66,
+    "resolved-now": 72,
     "runtime-integration-task": 6,
     "defer-publication-time": 16,
-    "external-source-approval": 5,
-    "runtime-schema-needed": 12,
+    "external-source-approval": 3,
+    "runtime-schema-needed": 8,
     "scope-limitation": 3
   },
   "fixNowCount": 0,
-  "resolvedNowCount": 66,
+  "resolvedNowCount": 72,
   "trails": [
     {
       "trailId": "bohusleden",
@@ -893,13 +893,21 @@
     {
       "trailId": "kungsleden",
       "triageSummary": {
-        "external-source-approval": 2,
-        "resolved-now": 3,
-        "runtime-schema-needed": 4,
+        "resolved-now": 9,
         "defer-publication-time": 1,
         "runtime-integration-task": 1
       },
       "fixesAppliedNow": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "blocker-1",
+          "status": "unresolved",
+          "details": "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds, field-report metadata and generated research-only candidate GeoJSON.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared trail-specific decisions now approve official Naturvardsverket/Lansstyrelsen CC0 Leder GeoJSON as the runtime route source, keep STF/Naturkartan/operator pages as descriptive/currentness references, avoid OSM/Waymarked as runtime linework, define Kungsleden facility taxonomy, and keep dynamic timetable/opening details in notes that require publication-date recheck."
+        },
         {
           "id": "blocker-2",
           "itemType": "blocker",
@@ -909,6 +917,16 @@
           "disposition": "resolved-now",
           "owner": "candidate-geometry",
           "action": "Research-only candidate GeoJSON now exists for all 27 Kungsleden sections from official Naturvardsverket/Lansstyrelsen Leder EPSG:3006 WFS features, transformed to WGS84, anchor-routed through multipart official linework, clipped/split by researched section anchors, simplified conservatively, and preserving boat/rowboat/road/service-zone gaps as connector metadata rather than invented hiking linework."
+        },
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "blocker-3",
+          "status": "unresolved",
+          "details": "Typed connector model must be implemented for boats, rowboats, ferry/water lines and road/bus transfers before runtime geometry is generated.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Kungsleden importer policy now preserves in-section boat, rowboat and service-zone gaps as section notes/manual route status, models the Vakkotavare-Saltoluokta handoff as a transfer, and keeps Singi-Kebnekaise-Nikkaluokta as access metadata outside the mainline."
         },
         {
           "id": "blocker-4",
@@ -921,6 +939,36 @@
           "action": "Candidate facility-clusters.research.json now applies taxonomy and dedupe grouping for Kungsleden facilities, including hut/site parent clusters and child amenities for toilets, phones, shops, saunas, water, waste, viewpoints, Naturum, parking, lodging and village services."
         },
         {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "decision-1",
+          "status": "open-decision",
+          "details": "Approve or reject runtime/source-policy use of Naturvardsverket/Lansstyrelsen state-trail geometry, Naturkartan API/GPX, OSM/Waymarked QA/fallback linework, transit feeds and field-report-derived metadata.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared trail-specific decisions now approve official Naturvardsverket/Lansstyrelsen CC0 Leder GeoJSON as the runtime route source, keep STF/Naturkartan/operator pages as descriptive/currentness references, avoid OSM/Waymarked as runtime linework, define Kungsleden facility taxonomy, and keep dynamic timetable/opening details in notes that require publication-date recheck."
+        },
+        {
+          "id": "open-decision-8",
+          "itemType": "open-decision",
+          "sourceId": "decision-2",
+          "status": "open-decision",
+          "details": "Decide whether the app import should support typed boat, rowboat, ferry/water and road/bus transfer connectors before Kungsleden is imported.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Kungsleden importer policy now preserves in-section boat, rowboat and service-zone gaps as section notes/manual route status, models the Vakkotavare-Saltoluokta handoff as a transfer, and keeps Singi-Kebnekaise-Nikkaluokta as access metadata outside the mainline."
+        },
+        {
+          "id": "open-decision-9",
+          "itemType": "open-decision",
+          "sourceId": "decision-3",
+          "status": "open-decision",
+          "details": "Decide whether access spurs such as Singi-Kebnekaise-Nikkaluokta should remain access metadata only or become optional alternate route groups.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Kungsleden importer policy now preserves in-section boat, rowboat and service-zone gaps as section notes/manual route status, models the Vakkotavare-Saltoluokta handoff as a transfer, and keeps Singi-Kebnekaise-Nikkaluokta as access metadata outside the mainline."
+        },
+        {
           "id": "open-decision-10",
           "itemType": "open-decision",
           "sourceId": "decision-4",
@@ -928,21 +976,21 @@
           "details": "Decide the app taxonomy for hut clusters, child toilets, emergency phones, shops, saunas, waste points, water sources, bridges, viewpoints, Naturum, village services and parking.",
           "disposition": "resolved-now",
           "owner": "candidate-data",
-          "action": "Shared trail-specific decisions now define the Kungsleden facility taxonomy for hut clusters, child amenities, transport, services, water, bridges, viewpoints, Naturum, parking and pending unverified subfacilities."
+          "action": "Shared trail-specific decisions now approve official Naturvardsverket/Lansstyrelsen CC0 Leder GeoJSON as the runtime route source, keep STF/Naturkartan/operator pages as descriptive/currentness references, avoid OSM/Waymarked as runtime linework, define Kungsleden facility taxonomy, and keep dynamic timetable/opening details in notes that require publication-date recheck."
+        },
+        {
+          "id": "open-decision-11",
+          "itemType": "open-decision",
+          "sourceId": "decision-5",
+          "status": "open-decision",
+          "details": "Decide how much dynamic timetable/opening/currentness detail belongs in normalized data versus descriptions that require publication-date recheck.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared trail-specific decisions now approve official Naturvardsverket/Lansstyrelsen CC0 Leder GeoJSON as the runtime route source, keep STF/Naturkartan/operator pages as descriptive/currentness references, avoid OSM/Waymarked as runtime linework, define Kungsleden facility taxonomy, and keep dynamic timetable/opening details in notes that require publication-date recheck."
         }
       ],
       "nextFixNow": [],
       "deferred": [
-        {
-          "id": "blocker-1",
-          "itemType": "blocker",
-          "sourceId": "blocker-1",
-          "status": "unresolved",
-          "details": "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds, field-report metadata and generated research-only candidate GeoJSON.",
-          "disposition": "external-source-approval",
-          "owner": "source-review",
-          "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
-        },
         {
           "id": "blocker-5",
           "itemType": "blocker",
@@ -962,60 +1010,9 @@
           "disposition": "runtime-integration-task",
           "owner": "runtime-import",
           "action": "Leave runtime source/generated data untouched until the separate runtime import task is explicitly started."
-        },
-        {
-          "id": "open-decision-7",
-          "itemType": "open-decision",
-          "sourceId": "decision-1",
-          "status": "open-decision",
-          "details": "Approve or reject runtime/source-policy use of Naturvardsverket/Lansstyrelsen state-trail geometry, Naturkartan API/GPX, OSM/Waymarked QA/fallback linework, transit feeds and field-report-derived metadata.",
-          "disposition": "external-source-approval",
-          "owner": "source-review",
-          "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
         }
       ],
-      "runtimeSchemaNeeded": [
-        {
-          "id": "blocker-3",
-          "itemType": "blocker",
-          "sourceId": "blocker-3",
-          "status": "unresolved",
-          "details": "Typed connector model must be implemented for boats, rowboats, ferry/water lines and road/bus transfers before runtime geometry is generated.",
-          "disposition": "runtime-schema-needed",
-          "owner": "runtime-importer",
-          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
-        },
-        {
-          "id": "open-decision-8",
-          "itemType": "open-decision",
-          "sourceId": "decision-2",
-          "status": "open-decision",
-          "details": "Decide whether the app import should support typed boat, rowboat, ferry/water and road/bus transfer connectors before Kungsleden is imported.",
-          "disposition": "runtime-schema-needed",
-          "owner": "runtime-importer",
-          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
-        },
-        {
-          "id": "open-decision-9",
-          "itemType": "open-decision",
-          "sourceId": "decision-3",
-          "status": "open-decision",
-          "details": "Decide whether access spurs such as Singi-Kebnekaise-Nikkaluokta should remain access metadata only or become optional alternate route groups.",
-          "disposition": "runtime-schema-needed",
-          "owner": "runtime-importer",
-          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
-        },
-        {
-          "id": "open-decision-11",
-          "itemType": "open-decision",
-          "sourceId": "decision-5",
-          "status": "open-decision",
-          "details": "Decide how much dynamic timetable/opening/currentness detail belongs in normalized data versus descriptions that require publication-date recheck.",
-          "disposition": "runtime-schema-needed",
-          "owner": "runtime-importer",
-          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
-        }
-      ],
+      "runtimeSchemaNeeded": [],
       "items": [
         {
           "id": "blocker-1",
@@ -1023,9 +1020,9 @@
           "sourceId": "blocker-1",
           "status": "unresolved",
           "details": "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds, field-report metadata and generated research-only candidate GeoJSON.",
-          "disposition": "external-source-approval",
-          "owner": "source-review",
-          "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared trail-specific decisions now approve official Naturvardsverket/Lansstyrelsen CC0 Leder GeoJSON as the runtime route source, keep STF/Naturkartan/operator pages as descriptive/currentness references, avoid OSM/Waymarked as runtime linework, define Kungsleden facility taxonomy, and keep dynamic timetable/opening details in notes that require publication-date recheck."
         },
         {
           "id": "blocker-2",
@@ -1043,9 +1040,9 @@
           "sourceId": "blocker-3",
           "status": "unresolved",
           "details": "Typed connector model must be implemented for boats, rowboats, ferry/water lines and road/bus transfers before runtime geometry is generated.",
-          "disposition": "runtime-schema-needed",
-          "owner": "runtime-importer",
-          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Kungsleden importer policy now preserves in-section boat, rowboat and service-zone gaps as section notes/manual route status, models the Vakkotavare-Saltoluokta handoff as a transfer, and keeps Singi-Kebnekaise-Nikkaluokta as access metadata outside the mainline."
         },
         {
           "id": "blocker-4",
@@ -1083,9 +1080,9 @@
           "sourceId": "decision-1",
           "status": "open-decision",
           "details": "Approve or reject runtime/source-policy use of Naturvardsverket/Lansstyrelsen state-trail geometry, Naturkartan API/GPX, OSM/Waymarked QA/fallback linework, transit feeds and field-report-derived metadata.",
-          "disposition": "external-source-approval",
-          "owner": "source-review",
-          "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared trail-specific decisions now approve official Naturvardsverket/Lansstyrelsen CC0 Leder GeoJSON as the runtime route source, keep STF/Naturkartan/operator pages as descriptive/currentness references, avoid OSM/Waymarked as runtime linework, define Kungsleden facility taxonomy, and keep dynamic timetable/opening details in notes that require publication-date recheck."
         },
         {
           "id": "open-decision-8",
@@ -1093,9 +1090,9 @@
           "sourceId": "decision-2",
           "status": "open-decision",
           "details": "Decide whether the app import should support typed boat, rowboat, ferry/water and road/bus transfer connectors before Kungsleden is imported.",
-          "disposition": "runtime-schema-needed",
-          "owner": "runtime-importer",
-          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Kungsleden importer policy now preserves in-section boat, rowboat and service-zone gaps as section notes/manual route status, models the Vakkotavare-Saltoluokta handoff as a transfer, and keeps Singi-Kebnekaise-Nikkaluokta as access metadata outside the mainline."
         },
         {
           "id": "open-decision-9",
@@ -1103,9 +1100,9 @@
           "sourceId": "decision-3",
           "status": "open-decision",
           "details": "Decide whether access spurs such as Singi-Kebnekaise-Nikkaluokta should remain access metadata only or become optional alternate route groups.",
-          "disposition": "runtime-schema-needed",
-          "owner": "runtime-importer",
-          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Kungsleden importer policy now preserves in-section boat, rowboat and service-zone gaps as section notes/manual route status, models the Vakkotavare-Saltoluokta handoff as a transfer, and keeps Singi-Kebnekaise-Nikkaluokta as access metadata outside the mainline."
         },
         {
           "id": "open-decision-10",
@@ -1115,7 +1112,7 @@
           "details": "Decide the app taxonomy for hut clusters, child toilets, emergency phones, shops, saunas, waste points, water sources, bridges, viewpoints, Naturum, village services and parking.",
           "disposition": "resolved-now",
           "owner": "candidate-data",
-          "action": "Shared trail-specific decisions now define the Kungsleden facility taxonomy for hut clusters, child amenities, transport, services, water, bridges, viewpoints, Naturum, parking and pending unverified subfacilities."
+          "action": "Shared trail-specific decisions now approve official Naturvardsverket/Lansstyrelsen CC0 Leder GeoJSON as the runtime route source, keep STF/Naturkartan/operator pages as descriptive/currentness references, avoid OSM/Waymarked as runtime linework, define Kungsleden facility taxonomy, and keep dynamic timetable/opening details in notes that require publication-date recheck."
         },
         {
           "id": "open-decision-11",
@@ -1123,9 +1120,9 @@
           "sourceId": "decision-5",
           "status": "open-decision",
           "details": "Decide how much dynamic timetable/opening/currentness detail belongs in normalized data versus descriptions that require publication-date recheck.",
-          "disposition": "runtime-schema-needed",
-          "owner": "runtime-importer",
-          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared trail-specific decisions now approve official Naturvardsverket/Lansstyrelsen CC0 Leder GeoJSON as the runtime route source, keep STF/Naturkartan/operator pages as descriptive/currentness references, avoid OSM/Waymarked as runtime linework, define Kungsleden facility taxonomy, and keep dynamic timetable/opening details in notes that require publication-date recheck."
         }
       ]
     },
