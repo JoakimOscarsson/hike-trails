@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "candidate-route-topology/v1",
+  "trailId": "hogakustenleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-display-and-topology-decisions-applied",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "hogakustenleden/normalization-handoff.research.json",
+  "sharedDecisionFile": "shared-importer-decisions.research.json",
+  "topologyPolicy": {
+    "decision": "Use route groups for walked official route topology and connections for transfers between route entries.",
+    "routeGroupKinds": {
+      "mainline": "Primary continuous official section chain for the selected trail model.",
+      "branch": "Official alternate or side branch that can be hiked as trail, but should not be silently merged into the mainline.",
+      "access": "Official or strongly supported approach route to/from public transport, village, trailhead or another trail.",
+      "connector": "Walked link between route groups or nearby route sections where it is part of the trail model."
+    },
+    "connectionsUse": "Use connections.json-style records for non-section transfers or continuity records between sections: ferry, bus, road transfer, rowboat, short walk transfer, same-island continuity, or mode none for a known gap with no usable transfer geometry.",
+    "officialRowboatRule": "If a rowboat crossing is an official route entry in its own right, model it as a section route with strong warnings. Otherwise model it as a rowboat connection or access/side metadata."
+  },
+  "topologySourceSummary": {
+    "importOrder": [
+      "1. Import/parse the 9 current sections in official order.",
+      "2. Normalize route geometry from current Höga Kusten and Naturkartan section sources, keeping legacy 7-stage and 13-stage sources as caveats only.",
+      "3. Apply section 2 official-distance display policy and preserve computed/Naturkartan contradiction metadata.",
+      "4. Apply section 7 difficulty and Slåttdalsskrevan hazard/current-route warnings.",
+      "5. Preserve the Ullånger 24.8 m endpoint offset unless a logical junction/access node is needed by the graph.",
+      "6. Clip route segments and facilities against Skuleberget, Skuleskogen, Balesudden, and Hörnsjön only where recorded.",
+      "7. Promote verified facilities and keep pending/suppressed items out of public normalized facilities.",
+      "8. Replace transit IDs with authoritative GTFS/ResRobot IDs if available; otherwise keep research IDs caveated.",
+      "9. Run dynamic currentness/fire/transit/boat/service checks before publication."
+    ]
+  },
+  "decisionsApplied": [
+    {
+      "id": "hogakustenleden-section-2-distance-display",
+      "fixNowItemRefs": [
+        "hogakustenleden-section-2-distance-display"
+      ],
+      "decision": "Use the Höga Kusten 26.8 km section distance for display while preserving Naturkartan/GPX contradictions as metadata."
+    },
+    {
+      "id": "hogakustenleden-section-7-difficulty-display",
+      "fixNowItemRefs": [
+        "hogakustenleden-section-7-difficulty"
+      ],
+      "decision": "Prefer the conservative Naturkartan red/krävande difficulty while preserving the Höga Kusten Medel caveat."
+    }
+  ],
+  "routeGroups": [
+    {
+      "groupId": "hogakustenleden-mainline",
+      "kind": "mainline",
+      "status": "candidate-topology-explicit",
+      "sectionIds": [
+        "hogakustenleden-section-1-hornoberget-lovvik",
+        "hogakustenleden-section-2-lovvik-gavik",
+        "hogakustenleden-section-3-gavik-lappudden",
+        "hogakustenleden-section-4-lappudden-ullanger",
+        "hogakustenleden-section-5-ullanger-skuleberget",
+        "hogakustenleden-section-6-skuleberget-entre-syd",
+        "hogakustenleden-section-7-entre-syd-entre-nord",
+        "hogakustenleden-section-8-entre-nord-balesudden",
+        "hogakustenleden-section-9-balesudden-ornskoldsvik"
+      ]
+    }
+  ],
+  "connections": [],
+  "displayPolicies": [
+    {
+      "scope": "section-2",
+      "displayDistanceKm": 26.8,
+      "contradictionPolicy": "Preserve alternate source/computed distances in distanceCaveats."
+    },
+    {
+      "scope": "section-7",
+      "displayDifficulty": "red/krävande",
+      "contradictionPolicy": "Keep Höga Kusten Medel as a source caveat."
+    }
+  ],
+  "remainingGeometryWork": [
+    "Build final candidate geometry artifacts and run protected-area clipping before runtime import."
+  ],
+  "unresolvedSectionRefs": []
+}

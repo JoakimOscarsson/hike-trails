@@ -12,13 +12,34 @@
     "rule-warnings.research.json",
     "import-report.research.json"
   ],
+  "supplementalArtifactFiles": [
+    "route-topology.research.json"
+  ],
   "manifestSectionFiles": 23,
   "generatedCounts": {
     "routeSections": 23,
     "geometrySections": 23,
     "geometrySectionsWithCandidateGeojson": 1,
+    "routeTopologyDecisions": 1,
+    "routeGroups": 3,
+    "routeTopologyConnections": 2,
     "facilities": 555,
     "ruleWarnings": 556
+  },
+  "routeTopologySummary": {
+    "status": "candidate-topology-decisions-applied",
+    "decisionIds": [
+      "hoglandsleden-route-builder-topology"
+    ],
+    "routeGroupIds": [
+      "hoglandsleden-main-loop",
+      "hoglandsleden-mariannelund-branch",
+      "hoglandsleden-tomtabacken-karringabacka-branch"
+    ],
+    "connectionIds": [
+      "hoglandsleden-valbacken-branch-junction",
+      "hoglandsleden-vikskvarn-branch-junction"
+    ]
   },
   "blockers": [
     {
@@ -103,9 +124,9 @@
       "sourceId": "decision-1",
       "status": "open-decision",
       "details": "Choose the route-builder topology for Höglandsleden.",
-      "disposition": "fix-now",
-      "owner": "candidate-geometry",
-      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Route-builder topology is now fixed as main loop plus Mariannelund and Tomtabacken-Kärringabacka branches."
     },
     {
       "id": "open-decision-6",
@@ -131,8 +152,8 @@
   "triageSummary": {
     "runtime-integration-task": 1,
     "runtime-schema-needed": 2,
-    "fix-now": 3,
-    "resolved-now": 1
+    "fix-now": 2,
+    "resolved-now": 2
   },
   "fixesAppliedNow": [
     {
@@ -144,6 +165,16 @@
       "disposition": "resolved-now",
       "owner": "candidate-data",
       "action": "Parking/transit and access services are normalized as candidate facility/access records with pending/suppress states and live-check caveats."
+    },
+    {
+      "id": "open-decision-5",
+      "itemType": "open-decision",
+      "sourceId": "decision-1",
+      "status": "open-decision",
+      "details": "Choose the route-builder topology for Höglandsleden.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Route-builder topology is now fixed as main loop plus Mariannelund and Tomtabacken-Kärringabacka branches."
     }
   ],
   "fixNowBeforeRuntimeImport": [
@@ -156,16 +187,6 @@
       "disposition": "fix-now",
       "owner": "candidate-gis",
       "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
-    },
-    {
-      "id": "open-decision-5",
-      "itemType": "open-decision",
-      "sourceId": "decision-1",
-      "status": "open-decision",
-      "details": "Choose the route-builder topology for Höglandsleden.",
-      "disposition": "fix-now",
-      "owner": "candidate-geometry",
-      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
     },
     {
       "id": "open-decision-7",
@@ -228,7 +249,6 @@
     "runtime-integration-task: No runtime data has been imported.",
     "runtime-schema-needed: Whether official route groups should be modeled as main loop plus three connectors, main loop plus east/north/west branches, or another route-builder topology.",
     "fix-now: Protected-area boundary overlays and live fire-ban/currentness checks are still required before user-facing runtime import.",
-    "fix-now: Choose the route-builder topology for Höglandsleden.",
     "runtime-schema-needed: Decide whether official access trails such as Mariannelund-HÖ3, Sävsjö C, Hok station, Byarum kyrka, Skillingaryd station and Lyngemadens naturreservat should be first-class route groups or access metadata.",
     "fix-now: Decide app scope for bookable/commercial services and very weak rural transit."
   ],

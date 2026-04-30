@@ -14,26 +14,36 @@
     "scope-limitation": "Accepted scope boundary for this candidate import model."
   },
   "summary": {
-    "fix-now": 38,
+    "resolved-now": 41,
     "runtime-integration-task": 7,
-    "resolved-now": 26,
     "defer-publication-time": 18,
+    "fix-now": 23,
     "external-source-approval": 4,
     "runtime-schema-needed": 13,
     "scope-limitation": 3
   },
-  "fixNowCount": 38,
-  "resolvedNowCount": 26,
+  "fixNowCount": 23,
+  "resolvedNowCount": 41,
   "trails": [
     {
       "trailId": "bohusleden",
       "triageSummary": {
-        "fix-now": 3,
+        "resolved-now": 9,
         "runtime-integration-task": 1,
-        "resolved-now": 8,
-        "defer-publication-time": 2
+        "defer-publication-time": 2,
+        "fix-now": 2
       },
       "fixesAppliedNow": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "hardBlockers-1",
+          "status": "hardBlockers",
+          "details": "Stage 21 remains partial official geometry only and must not be imported as a complete route.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Route topology now models Stage 21 as research-only partial/self-navigation and keeps the southern, middle and northern chains separate instead of treating Stage 21 as complete."
+        },
         {
           "id": "blocker-3",
           "itemType": "blocker",
@@ -117,16 +127,6 @@
       ],
       "nextFixNow": [
         {
-          "id": "blocker-1",
-          "itemType": "blocker",
-          "sourceId": "hardBlockers-1",
-          "status": "hardBlockers",
-          "details": "Stage 21 remains partial official geometry only and must not be imported as a complete route.",
-          "disposition": "fix-now",
-          "owner": "candidate-geometry",
-          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
-        },
-        {
           "id": "blocker-7",
           "itemType": "blocker",
           "sourceId": "publicationTimeRechecks-3",
@@ -187,9 +187,9 @@
           "sourceId": "hardBlockers-1",
           "status": "hardBlockers",
           "details": "Stage 21 remains partial official geometry only and must not be imported as a complete route.",
-          "disposition": "fix-now",
-          "owner": "candidate-geometry",
-          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Route topology now models Stage 21 as research-only partial/self-navigation and keeps the southern, middle and northern chains separate instead of treating Stage 21 as complete."
         },
         {
           "id": "blocker-2",
@@ -327,9 +327,9 @@
       "trailId": "hallandsleden",
       "triageSummary": {
         "runtime-integration-task": 1,
-        "resolved-now": 6,
-        "fix-now": 3,
-        "defer-publication-time": 2
+        "resolved-now": 7,
+        "defer-publication-time": 2,
+        "fix-now": 2
       },
       "fixesAppliedNow": [
         {
@@ -341,6 +341,16 @@
           "disposition": "resolved-now",
           "owner": "candidate-data",
           "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+        },
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "hardBlockers-3",
+          "status": "hardBlockers",
+          "details": "K4 Frillesas does not currently connect to K5 Steninge in the official coastal inventory; keep visible as a network gap unless an official connector is later published.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Route topology now preserves K4-K5 as an explicit official network gap with separate coastal route groups."
         },
         {
           "id": "open-decision-7",
@@ -394,16 +404,6 @@
         }
       ],
       "nextFixNow": [
-        {
-          "id": "blocker-3",
-          "itemType": "blocker",
-          "sourceId": "hardBlockers-3",
-          "status": "hardBlockers",
-          "details": "K4 Frillesas does not currently connect to K5 Steninge in the official coastal inventory; keep visible as a network gap unless an official connector is later published.",
-          "disposition": "fix-now",
-          "owner": "candidate-geometry",
-          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
-        },
         {
           "id": "blocker-6",
           "itemType": "blocker",
@@ -485,9 +485,9 @@
           "sourceId": "hardBlockers-3",
           "status": "hardBlockers",
           "details": "K4 Frillesas does not currently connect to K5 Steninge in the official coastal inventory; keep visible as a network gap unless an official connector is later published.",
-          "disposition": "fix-now",
-          "owner": "candidate-geometry",
-          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Route topology now preserves K4-K5 as an explicit official network gap with separate coastal route groups."
         },
         {
           "id": "blocker-4",
@@ -584,10 +584,10 @@
     {
       "trailId": "hogakustenleden",
       "triageSummary": {
-        "fix-now": 3,
+        "fix-now": 1,
         "external-source-approval": 1,
         "defer-publication-time": 2,
-        "resolved-now": 2
+        "resolved-now": 4
       },
       "fixesAppliedNow": [
         {
@@ -599,6 +599,26 @@
           "disposition": "resolved-now",
           "owner": "candidate-data",
           "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        },
+        {
+          "id": "open-decision-5",
+          "itemType": "open-decision",
+          "sourceId": "hogakustenleden-section-2-distance-display",
+          "status": "open-decision",
+          "details": "Use Höga Kusten 26.8 km while preserving Naturkartan/GPX contradictions metadata.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Display policy is now explicit in route-topology.research.json while source contradictions remain preserved."
+        },
+        {
+          "id": "open-decision-6",
+          "itemType": "open-decision",
+          "sourceId": "hogakustenleden-section-7-difficulty",
+          "status": "open-decision",
+          "details": "Prefer conservative Naturkartan red/krävande while preserving Höga Kusten Medel caveat.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Display policy is now explicit in route-topology.research.json while source contradictions remain preserved."
         },
         {
           "id": "open-decision-7",
@@ -621,26 +641,6 @@
           "disposition": "fix-now",
           "owner": "candidate-gis",
           "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
-        },
-        {
-          "id": "open-decision-5",
-          "itemType": "open-decision",
-          "sourceId": "hogakustenleden-section-2-distance-display",
-          "status": "open-decision",
-          "details": "Use Höga Kusten 26.8 km while preserving Naturkartan/GPX contradictions metadata.",
-          "disposition": "fix-now",
-          "owner": "candidate-geometry",
-          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
-        },
-        {
-          "id": "open-decision-6",
-          "itemType": "open-decision",
-          "sourceId": "hogakustenleden-section-7-difficulty",
-          "status": "open-decision",
-          "details": "Prefer conservative Naturkartan red/krävande while preserving Höga Kusten Medel caveat.",
-          "disposition": "fix-now",
-          "owner": "candidate-review",
-          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
         }
       ],
       "deferred": [
@@ -723,9 +723,9 @@
           "sourceId": "hogakustenleden-section-2-distance-display",
           "status": "open-decision",
           "details": "Use Höga Kusten 26.8 km while preserving Naturkartan/GPX contradictions metadata.",
-          "disposition": "fix-now",
-          "owner": "candidate-geometry",
-          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Display policy is now explicit in route-topology.research.json while source contradictions remain preserved."
         },
         {
           "id": "open-decision-6",
@@ -733,9 +733,9 @@
           "sourceId": "hogakustenleden-section-7-difficulty",
           "status": "open-decision",
           "details": "Prefer conservative Naturkartan red/krävande while preserving Höga Kusten Medel caveat.",
-          "disposition": "fix-now",
-          "owner": "candidate-review",
-          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Display policy is now explicit in route-topology.research.json while source contradictions remain preserved."
         },
         {
           "id": "open-decision-7",
@@ -764,8 +764,8 @@
       "triageSummary": {
         "runtime-integration-task": 1,
         "runtime-schema-needed": 2,
-        "fix-now": 3,
-        "resolved-now": 1
+        "fix-now": 2,
+        "resolved-now": 2
       },
       "fixesAppliedNow": [
         {
@@ -777,6 +777,16 @@
           "disposition": "resolved-now",
           "owner": "candidate-data",
           "action": "Parking/transit and access services are normalized as candidate facility/access records with pending/suppress states and live-check caveats."
+        },
+        {
+          "id": "open-decision-5",
+          "itemType": "open-decision",
+          "sourceId": "decision-1",
+          "status": "open-decision",
+          "details": "Choose the route-builder topology for Höglandsleden.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Route-builder topology is now fixed as main loop plus Mariannelund and Tomtabacken-Kärringabacka branches."
         }
       ],
       "nextFixNow": [
@@ -789,16 +799,6 @@
           "disposition": "fix-now",
           "owner": "candidate-gis",
           "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
-        },
-        {
-          "id": "open-decision-5",
-          "itemType": "open-decision",
-          "sourceId": "decision-1",
-          "status": "open-decision",
-          "details": "Choose the route-builder topology for Höglandsleden.",
-          "disposition": "fix-now",
-          "owner": "candidate-geometry",
-          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
         },
         {
           "id": "open-decision-7",
@@ -892,9 +892,9 @@
           "sourceId": "decision-1",
           "status": "open-decision",
           "details": "Choose the route-builder topology for Höglandsleden.",
-          "disposition": "fix-now",
-          "owner": "candidate-geometry",
-          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Route-builder topology is now fixed as main loop plus Mariannelund and Tomtabacken-Kärringabacka branches."
         },
         {
           "id": "open-decision-6",
@@ -1160,20 +1160,20 @@
       "trailId": "nordkalottleden",
       "triageSummary": {
         "external-source-approval": 1,
-        "fix-now": 7,
-        "scope-limitation": 3
+        "resolved-now": 6,
+        "scope-limitation": 3,
+        "fix-now": 1
       },
-      "fixesAppliedNow": [],
-      "nextFixNow": [
+      "fixesAppliedNow": [
         {
           "id": "blocker-2",
           "itemType": "blocker",
           "sourceId": "blocker-2",
           "status": "unresolved",
           "details": "Geometry QA artifacts now exist for all 12 sections, but sections 1, 2, 8, 11 and 12 still need explicit endpoint connector or endpoint-policy decisions before navigation-grade import.",
-          "disposition": "fix-now",
-          "owner": "candidate-geometry",
-          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Endpoint/connector policy is now explicit: hut-yard and legacy lodging offsets stay metadata, Saraelv/Ovi remains a compound endpoint gap, and no seamless connector is invented."
         },
         {
           "id": "blocker-3",
@@ -1181,9 +1181,9 @@
           "sourceId": "blocker-3",
           "status": "unresolved",
           "details": "Sections 1 and 2 still need Saarijarvi endpoint/spur policy because the selected current hut yard is about 152.3 m from the official route line.",
-          "disposition": "fix-now",
-          "owner": "candidate-facilities",
-          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Endpoint/connector policy is now explicit: hut-yard and legacy lodging offsets stay metadata, Saraelv/Ovi remains a compound endpoint gap, and no seamless connector is invented."
         },
         {
           "id": "blocker-4",
@@ -1191,9 +1191,9 @@
           "sourceId": "blocker-4",
           "status": "unresolved",
           "details": "Sections 11 and 12 still need Madam Bongos/Cunovuohppi endpoint policy because the legacy place coordinate is about 65.4 m from the Turrutebasen E1 route projection and should not be imported as active lodging.",
-          "disposition": "fix-now",
-          "owner": "candidate-facilities",
-          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Endpoint/connector policy is now explicit: hut-yard and legacy lodging offsets stay metadata, Saraelv/Ovi remains a compound endpoint gap, and no seamless connector is invented."
         },
         {
           "id": "blocker-5",
@@ -1201,9 +1201,9 @@
           "sourceId": "blocker-5",
           "status": "unresolved",
           "details": "Sections 7 and 8 need Saraelv/Ovi connector or compound-endpoint policy because the generated section 7 artifact ends at Saraelv while section 8 starts at Ovi Raishiin, leaving about a 1003.9 m inter-section continuity gap.",
-          "disposition": "fix-now",
-          "owner": "candidate-geometry",
-          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Endpoint/connector policy is now explicit: hut-yard and legacy lodging offsets stay metadata, Saraelv/Ovi remains a compound endpoint gap, and no seamless connector is invented."
         },
         {
           "id": "open-decision-8",
@@ -1211,9 +1211,9 @@
           "sourceId": "decision-2",
           "status": "open-decision",
           "details": "Decide endpoint/connector policy for Saarijärvi hut yard, Saraelv/Ovi Raishiin, Madam Bongos/Čunovuohppi and the section 6 source-boundary junction.",
-          "disposition": "fix-now",
-          "owner": "candidate-gis",
-          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Endpoint/connector policy is now explicit: hut-yard and legacy lodging offsets stay metadata, Saraelv/Ovi remains a compound endpoint gap, and no seamless connector is invented."
         },
         {
           "id": "open-decision-10",
@@ -1221,10 +1221,12 @@
           "sourceId": "decision-4",
           "status": "open-decision",
           "details": "Decide whether Madam Bongos/Čunovuohppi appears only as legacy endpoint/access metadata and never as active lodging.",
-          "disposition": "fix-now",
-          "owner": "candidate-facilities",
-          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
-        },
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Endpoint/connector policy is now explicit: hut-yard and legacy lodging offsets stay metadata, Saraelv/Ovi remains a compound endpoint gap, and no seamless connector is invented."
+        }
+      ],
+      "nextFixNow": [
         {
           "id": "open-decision-11",
           "itemType": "open-decision",
@@ -1296,9 +1298,9 @@
           "sourceId": "blocker-2",
           "status": "unresolved",
           "details": "Geometry QA artifacts now exist for all 12 sections, but sections 1, 2, 8, 11 and 12 still need explicit endpoint connector or endpoint-policy decisions before navigation-grade import.",
-          "disposition": "fix-now",
-          "owner": "candidate-geometry",
-          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Endpoint/connector policy is now explicit: hut-yard and legacy lodging offsets stay metadata, Saraelv/Ovi remains a compound endpoint gap, and no seamless connector is invented."
         },
         {
           "id": "blocker-3",
@@ -1306,9 +1308,9 @@
           "sourceId": "blocker-3",
           "status": "unresolved",
           "details": "Sections 1 and 2 still need Saarijarvi endpoint/spur policy because the selected current hut yard is about 152.3 m from the official route line.",
-          "disposition": "fix-now",
-          "owner": "candidate-facilities",
-          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Endpoint/connector policy is now explicit: hut-yard and legacy lodging offsets stay metadata, Saraelv/Ovi remains a compound endpoint gap, and no seamless connector is invented."
         },
         {
           "id": "blocker-4",
@@ -1316,9 +1318,9 @@
           "sourceId": "blocker-4",
           "status": "unresolved",
           "details": "Sections 11 and 12 still need Madam Bongos/Cunovuohppi endpoint policy because the legacy place coordinate is about 65.4 m from the Turrutebasen E1 route projection and should not be imported as active lodging.",
-          "disposition": "fix-now",
-          "owner": "candidate-facilities",
-          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Endpoint/connector policy is now explicit: hut-yard and legacy lodging offsets stay metadata, Saraelv/Ovi remains a compound endpoint gap, and no seamless connector is invented."
         },
         {
           "id": "blocker-5",
@@ -1326,9 +1328,9 @@
           "sourceId": "blocker-5",
           "status": "unresolved",
           "details": "Sections 7 and 8 need Saraelv/Ovi connector or compound-endpoint policy because the generated section 7 artifact ends at Saraelv while section 8 starts at Ovi Raishiin, leaving about a 1003.9 m inter-section continuity gap.",
-          "disposition": "fix-now",
-          "owner": "candidate-geometry",
-          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Endpoint/connector policy is now explicit: hut-yard and legacy lodging offsets stay metadata, Saraelv/Ovi remains a compound endpoint gap, and no seamless connector is invented."
         },
         {
           "id": "blocker-6",
@@ -1356,9 +1358,9 @@
           "sourceId": "decision-2",
           "status": "open-decision",
           "details": "Decide endpoint/connector policy for Saarijärvi hut yard, Saraelv/Ovi Raishiin, Madam Bongos/Čunovuohppi and the section 6 source-boundary junction.",
-          "disposition": "fix-now",
-          "owner": "candidate-gis",
-          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Endpoint/connector policy is now explicit: hut-yard and legacy lodging offsets stay metadata, Saraelv/Ovi remains a compound endpoint gap, and no seamless connector is invented."
         },
         {
           "id": "open-decision-9",
@@ -1376,9 +1378,9 @@
           "sourceId": "decision-4",
           "status": "open-decision",
           "details": "Decide whether Madam Bongos/Čunovuohppi appears only as legacy endpoint/access metadata and never as active lodging.",
-          "disposition": "fix-now",
-          "owner": "candidate-facilities",
-          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Endpoint/connector policy is now explicit: hut-yard and legacy lodging offsets stay metadata, Saraelv/Ovi remains a compound endpoint gap, and no seamless connector is invented."
         },
         {
           "id": "open-decision-11",
@@ -1396,11 +1398,21 @@
       "trailId": "ostkustleden",
       "triageSummary": {
         "runtime-integration-task": 2,
-        "fix-now": 3,
+        "fix-now": 1,
         "defer-publication-time": 1,
-        "resolved-now": 1
+        "resolved-now": 3
       },
       "fixesAppliedNow": [
+        {
+          "id": "open-decision-5",
+          "itemType": "open-decision",
+          "sourceId": "decision-1",
+          "status": "open-decision",
+          "details": "Decide whether runtime import should include a separately sourced access leg from Etapp 8 official GPX end to the Lilla Hycklinge cabin, or keep the 156.4 m gap as metadata only.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Route topology now keeps the Etapp 8 cabin gap as metadata and approves candidate-only prototype work."
+        },
         {
           "id": "open-decision-6",
           "itemType": "open-decision",
@@ -1410,6 +1422,16 @@
           "disposition": "resolved-now",
           "owner": "candidate-data",
           "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "decision-3",
+          "status": "open-decision",
+          "details": "Approve candidate-only geometry normalization prototype before any shared runtime source data is touched.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Route topology now keeps the Etapp 8 cabin gap as metadata and approves candidate-only prototype work."
         }
       ],
       "nextFixNow": [
@@ -1422,26 +1444,6 @@
           "disposition": "fix-now",
           "owner": "candidate-gis",
           "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
-        },
-        {
-          "id": "open-decision-5",
-          "itemType": "open-decision",
-          "sourceId": "decision-1",
-          "status": "open-decision",
-          "details": "Decide whether runtime import should include a separately sourced access leg from Etapp 8 official GPX end to the Lilla Hycklinge cabin, or keep the 156.4 m gap as metadata only.",
-          "disposition": "fix-now",
-          "owner": "candidate-geometry",
-          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
-        },
-        {
-          "id": "open-decision-7",
-          "itemType": "open-decision",
-          "sourceId": "decision-3",
-          "status": "open-decision",
-          "details": "Approve candidate-only geometry normalization prototype before any shared runtime source data is touched.",
-          "disposition": "fix-now",
-          "owner": "candidate-geometry",
-          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
         }
       ],
       "deferred": [
@@ -1524,9 +1526,9 @@
           "sourceId": "decision-1",
           "status": "open-decision",
           "details": "Decide whether runtime import should include a separately sourced access leg from Etapp 8 official GPX end to the Lilla Hycklinge cabin, or keep the 156.4 m gap as metadata only.",
-          "disposition": "fix-now",
-          "owner": "candidate-geometry",
-          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Route topology now keeps the Etapp 8 cabin gap as metadata and approves candidate-only prototype work."
         },
         {
           "id": "open-decision-6",
@@ -1544,9 +1546,9 @@
           "sourceId": "decision-3",
           "status": "open-decision",
           "details": "Approve candidate-only geometry normalization prototype before any shared runtime source data is touched.",
-          "disposition": "fix-now",
-          "owner": "candidate-geometry",
-          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Route topology now keeps the Etapp 8 cabin gap as metadata and approves candidate-only prototype work."
         }
       ]
     },
@@ -1555,8 +1557,7 @@
       "triageSummary": {
         "runtime-schema-needed": 2,
         "defer-publication-time": 2,
-        "resolved-now": 3,
-        "fix-now": 1
+        "resolved-now": 4
       },
       "fixesAppliedNow": [
         {
@@ -1580,6 +1581,16 @@
           "action": "Updated Padjelantaleden README status to reflect completed 10-section research and generated candidate artifacts."
         },
         {
+          "id": "open-decision-5",
+          "itemType": "open-decision",
+          "sourceId": "decision-1",
+          "status": "open-decision",
+          "details": "Decide whether to publish an official headline distance before geometry split review, because official/tourism sources vary between about 140 km, 150 km, 150-160 km, and 160 km.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Distance policy now suppresses a single headline total and keeps contradictory whole-trail claims as metadata."
+        },
+        {
           "id": "open-decision-8",
           "itemType": "open-decision",
           "sourceId": "decision-4",
@@ -1590,18 +1601,7 @@
           "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
         }
       ],
-      "nextFixNow": [
-        {
-          "id": "open-decision-5",
-          "itemType": "open-decision",
-          "sourceId": "decision-1",
-          "status": "open-decision",
-          "details": "Decide whether to publish an official headline distance before geometry split review, because official/tourism sources vary between about 140 km, 150 km, 150-160 km, and 160 km.",
-          "disposition": "fix-now",
-          "owner": "candidate-geometry",
-          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
-        }
-      ],
+      "nextFixNow": [],
       "deferred": [
         {
           "id": "blocker-2",
@@ -1693,9 +1693,9 @@
           "sourceId": "decision-1",
           "status": "open-decision",
           "details": "Decide whether to publish an official headline distance before geometry split review, because official/tourism sources vary between about 140 km, 150 km, 150-160 km, and 160 km.",
-          "disposition": "fix-now",
-          "owner": "candidate-geometry",
-          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Distance policy now suppresses a single headline total and keeps contradictory whole-trail claims as metadata."
         },
         {
           "id": "open-decision-6",
@@ -2070,10 +2070,22 @@
       "trailId": "vastra-vatterleden",
       "triageSummary": {
         "runtime-integration-task": 1,
-        "fix-now": 5,
-        "defer-publication-time": 1
+        "fix-now": 4,
+        "defer-publication-time": 1,
+        "resolved-now": 1
       },
-      "fixesAppliedNow": [],
+      "fixesAppliedNow": [
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "decision-3",
+          "status": "open-decision",
+          "details": "Approve candidate-only geometry prototype scope before any shared runtime source data is touched.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Candidate-only geometry prototype scope is now approved and explicitly barred from writing runtime source data."
+        }
+      ],
       "nextFixNow": [
         {
           "id": "blocker-2",
@@ -2114,16 +2126,6 @@
           "disposition": "fix-now",
           "owner": "candidate-review",
           "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
-        },
-        {
-          "id": "open-decision-7",
-          "itemType": "open-decision",
-          "sourceId": "decision-3",
-          "status": "open-decision",
-          "details": "Approve candidate-only geometry prototype scope before any shared runtime source data is touched.",
-          "disposition": "fix-now",
-          "owner": "candidate-geometry",
-          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
         }
       ],
       "deferred": [
@@ -2216,9 +2218,9 @@
           "sourceId": "decision-3",
           "status": "open-decision",
           "details": "Approve candidate-only geometry prototype scope before any shared runtime source data is touched.",
-          "disposition": "fix-now",
-          "owner": "candidate-geometry",
-          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Candidate-only geometry prototype scope is now approved and explicitly barred from writing runtime source data."
         }
       ]
     },

@@ -37,6 +37,8 @@ const expectedCandidateArtifactFiles = [
   "import-report.research.json"
 ];
 
+const expectedSupplementalCandidateArtifactFiles = ["route-topology.research.json"];
+
 const allowedCandidateFacilityTypes = new Set([
   "campsite",
   "shelter",
@@ -316,6 +318,9 @@ function validatePhase3Report(phase3Report, prep, manifest) {
   if (!arraysEqual(phase3Report?.artifactFiles ?? [], expectedCandidateArtifactFiles)) {
     addError("phase3-candidate-artifacts", "artifactFiles must match the shared candidate artifact contract");
   }
+  if (!arraysEqual(phase3Report?.supplementalArtifactFiles ?? [], expectedSupplementalCandidateArtifactFiles)) {
+    addError("phase3-candidate-artifacts", "supplementalArtifactFiles must list route-topology.research.json");
+  }
 
   const reportTrailIds = (phase3Report?.includedTrails ?? []).map((trail) => trail.trailId);
   if (!arraysEqual(reportTrailIds, prep?.scope?.includedTrails ?? [])) {
@@ -346,17 +351,24 @@ async function validateNormalizedCandidateArtifacts(prep, manifest) {
         addError(`${trailId}/normalized-candidate`, `Missing ${fileName}`);
       }
     }
+    for (const fileName of expectedSupplementalCandidateArtifactFiles) {
+      if (!(await pathExists(path.join(artifactRoot, fileName)))) {
+        addError(`${trailId}/normalized-candidate`, `Missing supplemental ${fileName}`);
+      }
+    }
 
     const routeSections = await readJson(path.join(artifactRoot, "route-sections.research.json"));
     const geometryIndex = await readJson(path.join(artifactRoot, "route-geometry-index.research.json"));
+    const routeTopology = await readJson(path.join(artifactRoot, "route-topology.research.json"));
     const facilities = await readJson(path.join(artifactRoot, "facilities.research.json"));
     const ruleWarnings = await readJson(path.join(artifactRoot, "rule-warnings.research.json"));
     const importReport = await readJson(path.join(artifactRoot, "import-report.research.json"));
-    if (!routeSections || !geometryIndex || !facilities || !ruleWarnings || !importReport) continue;
+    if (!routeSections || !geometryIndex || !routeTopology || !facilities || !ruleWarnings || !importReport) continue;
 
     const scope = `${trailId}/normalized-candidate`;
     validateArtifactHeader(scope, routeSections, trailId, "candidate-route-sections/v1");
     validateArtifactHeader(scope, geometryIndex, trailId, "candidate-route-geometry-index/v1");
+    validateArtifactHeader(scope, routeTopology, trailId, "candidate-route-topology/v1");
     validateArtifactHeader(scope, facilities, trailId, "candidate-facilities/v1");
     validateArtifactHeader(scope, ruleWarnings, trailId, "candidate-rule-warnings/v1");
     validateArtifactHeader(scope, importReport, trailId, "candidate-import-report/v1");
@@ -382,6 +394,15 @@ async function validateNormalizedCandidateArtifacts(prep, manifest) {
     if (importReport.generatedCounts?.geometrySections !== (geometryIndex.sections ?? []).length) {
       addError(scope, "import report geometrySections count must match geometry artifact");
     }
+    if (importReport.generatedCounts?.routeTopologyDecisions !== (routeTopology.decisionsApplied ?? []).length) {
+      addError(scope, "import report routeTopologyDecisions count must match topology artifact");
+    }
+    if (importReport.generatedCounts?.routeGroups !== (routeTopology.routeGroups ?? []).length) {
+      addError(scope, "import report routeGroups count must match topology artifact");
+    }
+    if (importReport.generatedCounts?.routeTopologyConnections !== (routeTopology.connections ?? []).length) {
+      addError(scope, "import report routeTopologyConnections count must match topology artifact");
+    }
     if (importReport.generatedCounts?.facilities !== (facilities.records ?? []).length) {
       addError(scope, "import report facilities count must match facilities artifact");
     }
@@ -404,6 +425,30 @@ async function validateNormalizedCandidateArtifacts(prep, manifest) {
     }
 
     validateUnique(scope, "route section IDs", (routeSections.sections ?? []).map((section) => section.sectionId));
+    const routeSectionIds = new Set((routeSections.sections ?? []).map((section) => section.sectionId));
+    validateUnique(scope, "route group IDs", (routeTopology.routeGroups ?? []).map((group) => group.groupId));
+    validateUnique(scope, "route topology connection IDs", (routeTopology.connections ?? []).map((connection) => connection.connectionId));
+    if ((routeTopology.unresolvedSectionRefs ?? []).length > 0) {
+      addError(scope, "route topology contains unresolvedSectionRefs");
+    }
+    for (const group of routeTopology.routeGroups ?? []) {
+      if (!["mainline", "branch", "access", "connector"].includes(group.kind)) {
+        addError(scope, `route group ${group.groupId} has unsupported kind ${group.kind}`);
+      }
+      if (!Array.isArray(group.sectionIds) || group.sectionIds.length === 0) {
+        addError(scope, `route group ${group.groupId} must contain sectionIds`);
+      }
+      for (const sectionId of group.sectionIds ?? []) {
+        if (!routeSectionIds.has(sectionId)) addError(scope, `route group ${group.groupId} references unknown section ${sectionId}`);
+      }
+    }
+    for (const connection of routeTopology.connections ?? []) {
+      for (const key of ["fromSectionId", "toSectionId"]) {
+        if (connection[key] && !routeSectionIds.has(connection[key])) {
+          addError(scope, `route topology connection ${connection.connectionId} references unknown ${key} ${connection[key]}`);
+        }
+      }
+    }
     validateUnique(scope, "facility IDs", (facilities.records ?? []).map((facility) => facility.facilityId));
     for (const facility of facilities.records ?? []) {
       if (!allowedFacilityStates.has(facility.state)) addError(scope, `facility ${facility.facilityId} has unsupported state ${facility.state}`);
@@ -424,6 +469,7 @@ async function validateNormalizedCandidateArtifacts(prep, manifest) {
     rows.push({
       trailId,
       sections: routeSections.sections.length,
+      routeGroups: routeTopology.routeGroups.length,
       facilities: facilities.records.length,
       ruleWarnings: ruleWarnings.records.length
     });
@@ -451,6 +497,30 @@ function validateBlockerTriage(triageReport, prep) {
   for (const item of items) {
     if (!allowedTriageDispositions.has(item.disposition)) {
       addError("blocker-triage", `item ${item.id} has unsupported disposition ${item.disposition}`);
+    }
+  }
+}
+
+function validateGeometryTopologyFixPass(geometryTopologyFix, prep) {
+  if (geometryTopologyFix?.schemaVersion !== "candidate-geometry-topology-fix-pass/v1") {
+    addError("geometry-topology-fix-pass", "schemaVersion must be candidate-geometry-topology-fix-pass/v1");
+  }
+  if (geometryTopologyFix?.status !== "topology-decisions-applied") {
+    addError("geometry-topology-fix-pass", "status must be topology-decisions-applied");
+  }
+  if (geometryTopologyFix?.runtimeImportApproved !== false) {
+    addError("geometry-topology-fix-pass", "runtimeImportApproved must remain false");
+  }
+  const trailIds = (geometryTopologyFix?.includedTrails ?? []).map((trail) => trail.trailId);
+  if (!arraysEqual(trailIds, prep?.scope?.includedTrails ?? [])) {
+    addError("geometry-topology-fix-pass", "trail order must match normalization-prep");
+  }
+  for (const trail of geometryTopologyFix?.includedTrails ?? []) {
+    if (!Array.isArray(trail.decisionsApplied) || trail.decisionsApplied.length === 0) {
+      addError("geometry-topology-fix-pass", `${trail.trailId} must include at least one topology/display decision`);
+    }
+    if (!Array.isArray(trail.routeGroups) || trail.routeGroups.length === 0) {
+      addError("geometry-topology-fix-pass", `${trail.trailId} must include routeGroups`);
     }
   }
 }
@@ -513,6 +583,9 @@ async function validateDocs(prep, manifest) {
   if (prep?.blockerTriageFile !== "blocker-triage.research.json") {
     addError("normalization-prep", "blockerTriageFile must reference blocker-triage.research.json");
   }
+  if (prep?.geometryTopologyFixFile !== "geometry-topology-fix-pass.research.json") {
+    addError("normalization-prep", "geometryTopologyFixFile must reference geometry-topology-fix-pass.research.json");
+  }
   if (manifest?.sharedPrepFile !== "normalization-prep.research.json") {
     addError("manifest", "sharedPrepFile must reference normalization-prep.research.json");
   }
@@ -528,6 +601,9 @@ async function validateDocs(prep, manifest) {
   if (manifest?.blockerTriageFile !== "blocker-triage.research.json") {
     addError("manifest", "blockerTriageFile must reference blocker-triage.research.json");
   }
+  if (manifest?.geometryTopologyFixFile !== "geometry-topology-fix-pass.research.json") {
+    addError("manifest", "geometryTopologyFixFile must reference geometry-topology-fix-pass.research.json");
+  }
 
   const readme = await readFile(path.join(candidateRoot, "README.md"), "utf8");
   for (const fileName of [
@@ -536,6 +612,7 @@ async function validateDocs(prep, manifest) {
     "normalization-quality-gate.research.json",
     "phase3-candidate-artifacts.research.json",
     "blocker-triage.research.json",
+    "geometry-topology-fix-pass.research.json",
     "manifest.json"
   ]) {
     if (!readme.includes(fileName)) addError("README", `Missing shared coordination file mention for ${fileName}`);
@@ -549,14 +626,16 @@ const shared = await readJson(path.join(candidateRoot, "shared-importer-decision
 const qualityGate = await readJson(path.join(candidateRoot, "normalization-quality-gate.research.json"));
 const phase3Report = await readJson(path.join(candidateRoot, "phase3-candidate-artifacts.research.json"));
 const blockerTriage = await readJson(path.join(candidateRoot, "blocker-triage.research.json"));
+const geometryTopologyFix = await readJson(path.join(candidateRoot, "geometry-topology-fix-pass.research.json"));
 
-if (prep && manifest && shared && qualityGate && phase3Report && blockerTriage) {
+if (prep && manifest && shared && qualityGate && phase3Report && blockerTriage && geometryTopologyFix) {
   validateScopeLists(prep, manifest, shared);
   validateSharedDecisions(shared);
   validatePhaseStatus(prep);
   validateQualityGate(qualityGate, prep, manifest);
   validatePhase3Report(phase3Report, prep, manifest);
   validateBlockerTriage(blockerTriage, prep);
+  validateGeometryTopologyFixPass(geometryTopologyFix, prep);
   await validateDocs(prep, manifest);
   const rows = await validateHandoffs(prep, manifest);
   const artifactRows = await validateNormalizedCandidateArtifacts(prep, manifest);
@@ -566,7 +645,9 @@ if (prep && manifest && shared && qualityGate && phase3Report && blockerTriage) 
       console.log(`- ${row.trailId}: ${row.sectionFiles} section files, ${row.openDecisions} open decisions, ${row.status}`);
     }
     for (const row of artifactRows) {
-      console.log(`  artifacts ${row.trailId}: ${row.sections} sections, ${row.facilities} facilities, ${row.ruleWarnings} rule warnings`);
+      console.log(
+        `  artifacts ${row.trailId}: ${row.sections} sections, ${row.routeGroups} route groups, ${row.facilities} facilities, ${row.ruleWarnings} rule warnings`
+      );
     }
   }
 }

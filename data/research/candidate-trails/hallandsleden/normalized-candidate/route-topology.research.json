@@ -1,0 +1,197 @@
+{
+  "schemaVersion": "candidate-route-topology/v1",
+  "trailId": "hallandsleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-topology-decisions-applied",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "hallandsleden/normalization-handoff.research.json",
+  "sharedDecisionFile": "shared-importer-decisions.research.json",
+  "topologyPolicy": {
+    "decision": "Use route groups for walked official route topology and connections for transfers between route entries.",
+    "routeGroupKinds": {
+      "mainline": "Primary continuous official section chain for the selected trail model.",
+      "branch": "Official alternate or side branch that can be hiked as trail, but should not be silently merged into the mainline.",
+      "access": "Official or strongly supported approach route to/from public transport, village, trailhead or another trail.",
+      "connector": "Walked link between route groups or nearby route sections where it is part of the trail model."
+    },
+    "connectionsUse": "Use connections.json-style records for non-section transfers or continuity records between sections: ferry, bus, road transfer, rowboat, short walk transfer, same-island continuity, or mode none for a known gap with no usable transfer geometry.",
+    "officialRowboatRule": "If a rowboat crossing is an official route entry in its own right, model it as a section route with strong warnings. Otherwise model it as a rowboat connection or access/side metadata."
+  },
+  "topologySourceSummary": {
+    "importOrder": [
+      {
+        "step": 1,
+        "slice": "geometry-only dry run",
+        "sections": "All 35 canonical files",
+        "notes": "Validate schema, coordinate order, distance tolerances and endpoint graph without writing runtime app data."
+      },
+      {
+        "step": 2,
+        "slice": "simple LineString sections",
+        "sections": "All sections except N5, K3 and K4",
+        "notes": "Carry long-internal-segment draw-ready caveats; defer publication until facility/rule policies are resolved."
+      },
+      {
+        "step": 3,
+        "slice": "official break policy",
+        "sections": "N5, K3 and K4",
+        "notes": "Import only after deciding how official MultiLineString breaks are represented."
+      },
+      {
+        "step": 4,
+        "slice": "coastal topology",
+        "sections": "K1-K10",
+        "notes": "Treat K4-to-K5 as an explicit official network gap; do not imply continuous coastal coverage through Falkenberg/Varberg."
+      },
+      {
+        "step": 5,
+        "slice": "facilities and rules",
+        "sections": "All researched sections",
+        "notes": "Run dedupe, GIS overlays and live checks before user-facing publication."
+      }
+    ],
+    "endpointContinuityIssues": [
+      "N5 has four-part MultiLineString/gap handling and the practical endpoint is at Gallarpasjon/Gallarp rather than Nosslinge church.",
+      "N8 official GPX endpoint sits about 60-65 m from the shared Akulla junction.",
+      "S1/S2 handoff gap at Oskarstrom is 2.94 m.",
+      "K1/K2 handoff gap at Kungsbacka C is about 17 m.",
+      "K3 has official gaps of about 203 m near Nasungevagen/Mor Annas vag and 111 m near Badviksvagen/Asa beach.",
+      "K4-to-K5 is a large official coastal gap and K5/K6 Haverdal handoff is about 13 m.",
+      "K6/K7 handoff is about 1 m, K7/K8 is about 5.34 m, K8/K9 is about 3.23 m, and K9/K10 is about 10.82 m.",
+      "Branch nodes at Akulla, Astad/Byasjon, Kvarnforsen, Frodeparken, Gyltige, Simlangsdalen, Halmstad C and Koarp need explicit graph/topology decisions rather than a single linear chain."
+    ],
+    "blockedGeometry": [
+      "None missing locally; hard geometry blockers are policy decisions around official breaks, endpoint snapping and the K4-to-K5 official coastal network gap."
+    ]
+  },
+  "decisionsApplied": [
+    {
+      "id": "hallandsleden-k4-k5-official-gap",
+      "fixNowItemRefs": [
+        "hardBlockers-3"
+      ],
+      "decision": "Treat the K4 Frillesas to K5 Steninge break as an official network gap, not a missing connector to invent."
+    }
+  ],
+  "routeGroups": [
+    {
+      "groupId": "hallandsleden-norra",
+      "kind": "mainline",
+      "status": "candidate-topology-explicit",
+      "sectionIds": [
+        "hallandsleden-alvsaker-naturum-fjaras-bracka",
+        "hallandsleden-naturum-fjaras-bracka-askhults-by",
+        "hallandsleden-askhults-by-stattared",
+        "hallandsleden-stattared-veddige",
+        "hallandsleden-veddige-nosslinge",
+        "hallandsleden-nosslinge-akulla",
+        "hallandsleden-akulla-astad"
+      ]
+    },
+    {
+      "groupId": "hallandsleden-varberg-branch",
+      "kind": "branch",
+      "status": "candidate-topology-explicit",
+      "sectionIds": [
+        "hallandsleden-varberg-akulla"
+      ]
+    },
+    {
+      "groupId": "hallandsleden-mellersta-west",
+      "kind": "mainline",
+      "status": "candidate-topology-explicit",
+      "sectionIds": [
+        "hallandsleden-akulla-ullared",
+        "hallandsleden-ullared-karnebygd",
+        "hallandsleden-karnebygd-atran",
+        "hallandsleden-atran-langesjon",
+        "hallandsleden-langesjon-rydobruk",
+        "hallandsleden-rydobruk-kvarnforsen"
+      ]
+    },
+    {
+      "groupId": "hallandsleden-mellersta-east",
+      "kind": "branch",
+      "status": "candidate-topology-explicit",
+      "sectionIds": [
+        "hallandsleden-astad-vessigebro",
+        "hallandsleden-vessigebro-frodeparken"
+      ]
+    },
+    {
+      "groupId": "hallandsleden-sodra-west",
+      "kind": "mainline",
+      "status": "candidate-topology-explicit",
+      "sectionIds": [
+        "hallandsleden-frodeparken-oskarstrom",
+        "hallandsleden-oskarstrom-gyltige",
+        "hallandsleden-gyltige-simlangsdalen",
+        "hallandsleden-simlangsdalen-halmstad"
+      ]
+    },
+    {
+      "groupId": "hallandsleden-sodra-gyltige-branch",
+      "kind": "branch",
+      "status": "candidate-topology-explicit",
+      "sectionIds": [
+        "hallandsleden-kvarnforsen-gyltige"
+      ]
+    },
+    {
+      "groupId": "hallandsleden-sodra-east",
+      "kind": "branch",
+      "status": "candidate-topology-explicit",
+      "sectionIds": [
+        "hallandsleden-simlangsdalen-mastocka",
+        "hallandsleden-mastocka-knared",
+        "hallandsleden-knared-ekegarden",
+        "hallandsleden-ekegarden-koarp"
+      ]
+    },
+    {
+      "groupId": "hallandsleden-kustleden-north",
+      "kind": "mainline",
+      "status": "candidate-topology-explicit",
+      "sectionIds": [
+        "hallandsleden-sandsjobacka-kungsbacka-c",
+        "hallandsleden-kungsbacka-c-tjoloholm",
+        "hallandsleden-tjoloholm-asa",
+        "hallandsleden-asa-frillesas"
+      ]
+    },
+    {
+      "groupId": "hallandsleden-kustleden-south",
+      "kind": "mainline",
+      "status": "candidate-topology-explicit",
+      "sectionIds": [
+        "hallandsleden-steninge-haverdal",
+        "hallandsleden-haverdal-tylosand",
+        "hallandsleden-tylosand-halmstad-c",
+        "hallandsleden-halmstad-c-paarp",
+        "hallandsleden-paarp-mellbystrand",
+        "hallandsleden-mellbystrand-bastad-station"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "connectionId": "hallandsleden-k4-to-k5-official-gap",
+      "fromSectionId": "hallandsleden-asa-frillesas",
+      "toSectionId": "hallandsleden-steninge-haverdal",
+      "mode": "none",
+      "status": "official-network-gap",
+      "importPolicy": "Keep visible as two coastal chains unless an official connector is later published."
+    },
+    {
+      "connectionId": "hallandsleden-akulla-junction",
+      "mode": "walk",
+      "status": "shared-junction-node-candidate",
+      "importPolicy": "Use shared-node topology at Akulla/Ästad/Byasjön/Kvarnforsen/Gyltige/Frodeparken/Oskarström/Koarp only after preserving original endpoints in provenance."
+    }
+  ],
+  "displayPolicies": [],
+  "remainingGeometryWork": [
+    "Run protected-area and water-protection GIS overlays against the selected canonical lines before public rule warnings."
+  ],
+  "unresolvedSectionRefs": []
+}

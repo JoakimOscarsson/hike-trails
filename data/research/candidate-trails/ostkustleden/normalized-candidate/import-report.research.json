@@ -12,13 +12,32 @@
     "rule-warnings.research.json",
     "import-report.research.json"
   ],
+  "supplementalArtifactFiles": [
+    "route-topology.research.json"
+  ],
   "manifestSectionFiles": 8,
   "generatedCounts": {
     "routeSections": 8,
     "geometrySections": 8,
     "geometrySectionsWithCandidateGeojson": 0,
+    "routeTopologyDecisions": 2,
+    "routeGroups": 1,
+    "routeTopologyConnections": 1,
     "facilities": 159,
     "ruleWarnings": 188
+  },
+  "routeTopologySummary": {
+    "status": "candidate-topology-decisions-applied",
+    "decisionIds": [
+      "ostkustleden-etapp-8-cabin-gap-policy",
+      "ostkustleden-candidate-geometry-prototype-scope"
+    ],
+    "routeGroupIds": [
+      "ostkustleden-main-ring"
+    ],
+    "connectionIds": [
+      "ostkustleden-etapp-8-to-lilla-hycklinge-cabin"
+    ]
   },
   "blockers": [
     {
@@ -103,9 +122,9 @@
       "sourceId": "decision-1",
       "status": "open-decision",
       "details": "Decide whether runtime import should include a separately sourced access leg from Etapp 8 official GPX end to the Lilla Hycklinge cabin, or keep the 156.4 m gap as metadata only.",
-      "disposition": "fix-now",
-      "owner": "candidate-geometry",
-      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Route topology now keeps the Etapp 8 cabin gap as metadata and approves candidate-only prototype work."
     },
     {
       "id": "open-decision-6",
@@ -123,18 +142,28 @@
       "sourceId": "decision-3",
       "status": "open-decision",
       "details": "Approve candidate-only geometry normalization prototype before any shared runtime source data is touched.",
-      "disposition": "fix-now",
-      "owner": "candidate-geometry",
-      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Route topology now keeps the Etapp 8 cabin gap as metadata and approves candidate-only prototype work."
     }
   ],
   "triageSummary": {
     "runtime-integration-task": 2,
-    "fix-now": 3,
+    "fix-now": 1,
     "defer-publication-time": 1,
-    "resolved-now": 1
+    "resolved-now": 3
   },
   "fixesAppliedNow": [
+    {
+      "id": "open-decision-5",
+      "itemType": "open-decision",
+      "sourceId": "decision-1",
+      "status": "open-decision",
+      "details": "Decide whether runtime import should include a separately sourced access leg from Etapp 8 official GPX end to the Lilla Hycklinge cabin, or keep the 156.4 m gap as metadata only.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Route topology now keeps the Etapp 8 cabin gap as metadata and approves candidate-only prototype work."
+    },
     {
       "id": "open-decision-6",
       "itemType": "open-decision",
@@ -144,6 +173,16 @@
       "disposition": "resolved-now",
       "owner": "candidate-data",
       "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "decision-3",
+      "status": "open-decision",
+      "details": "Approve candidate-only geometry normalization prototype before any shared runtime source data is touched.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Route topology now keeps the Etapp 8 cabin gap as metadata and approves candidate-only prototype work."
     }
   ],
   "fixNowBeforeRuntimeImport": [
@@ -156,26 +195,6 @@
       "disposition": "fix-now",
       "owner": "candidate-gis",
       "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
-    },
-    {
-      "id": "open-decision-5",
-      "itemType": "open-decision",
-      "sourceId": "decision-1",
-      "status": "open-decision",
-      "details": "Decide whether runtime import should include a separately sourced access leg from Etapp 8 official GPX end to the Lilla Hycklinge cabin, or keep the 156.4 m gap as metadata only.",
-      "disposition": "fix-now",
-      "owner": "candidate-geometry",
-      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
-    },
-    {
-      "id": "open-decision-7",
-      "itemType": "open-decision",
-      "sourceId": "decision-3",
-      "status": "open-decision",
-      "details": "Approve candidate-only geometry normalization prototype before any shared runtime source data is touched.",
-      "disposition": "fix-now",
-      "owner": "candidate-geometry",
-      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
     }
   ],
   "runtimeSchemaNeeded": [],
@@ -227,9 +246,7 @@
     "runtime-integration-task: Ready for normalization planning, not runtime import.",
     "runtime-integration-task: Runtime import still needs an explicit import task, geometry implementation and visual QA.",
     "fix-now: Boundary-sensitive rules require GIS overlays against final normalized geometry.",
-    "defer-publication-time: Cabin availability/fees, water reliability/quality, KLT/Närtrafik, fire risk, hunting signs/notices, forestry and route passability are publication-time checks.",
-    "fix-now: Decide whether runtime import should include a separately sourced access leg from Etapp 8 official GPX end to the Lilla Hycklinge cabin, or keep the 156.4 m gap as metadata only.",
-    "fix-now: Approve candidate-only geometry normalization prototype before any shared runtime source data is touched."
+    "defer-publication-time: Cabin availability/fees, water reliability/quality, KLT/Närtrafik, fire risk, hunting signs/notices, forestry and route passability are publication-time checks."
   ],
   "nextActions": [
     "Handle fixNowBeforeRuntimeImport first unless the linked item truly needs external data.",

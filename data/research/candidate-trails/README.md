@@ -19,7 +19,12 @@ Shared coordination files:
 - `normalization-quality-gate.research.json`: consistency audit result for starting candidate normalized artifacts.
 - `phase3-candidate-artifacts.research.json`: batch summary for generated candidate-only normalized artifacts.
 - `blocker-triage.research.json`: per-trail blocker disposition with a bias toward fixing candidate-prep issues before runtime import.
+- `geometry-topology-fix-pass.research.json`: first fix-now pass documenting explicit route topology, gap, connector and display-distance decisions.
 - `manifest.json`: machine-readable candidate inventory.
+
+Generated supplemental per-trail artifact:
+
+- `normalized-candidate/route-topology.research.json`: candidate-only route groups, known gaps/connections, and display policies. It is research/prep data and is not app runtime source.
 
 Candidate artifact commands:
 

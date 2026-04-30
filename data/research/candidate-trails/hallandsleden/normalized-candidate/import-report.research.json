@@ -12,13 +12,40 @@
     "rule-warnings.research.json",
     "import-report.research.json"
   ],
+  "supplementalArtifactFiles": [
+    "route-topology.research.json"
+  ],
   "manifestSectionFiles": 35,
   "generatedCounts": {
     "routeSections": 35,
     "geometrySections": 35,
     "geometrySectionsWithCandidateGeojson": 35,
+    "routeTopologyDecisions": 1,
+    "routeGroups": 9,
+    "routeTopologyConnections": 2,
     "facilities": 1129,
     "ruleWarnings": 847
+  },
+  "routeTopologySummary": {
+    "status": "candidate-topology-decisions-applied",
+    "decisionIds": [
+      "hallandsleden-k4-k5-official-gap"
+    ],
+    "routeGroupIds": [
+      "hallandsleden-norra",
+      "hallandsleden-varberg-branch",
+      "hallandsleden-mellersta-west",
+      "hallandsleden-mellersta-east",
+      "hallandsleden-sodra-west",
+      "hallandsleden-sodra-gyltige-branch",
+      "hallandsleden-sodra-east",
+      "hallandsleden-kustleden-north",
+      "hallandsleden-kustleden-south"
+    ],
+    "connectionIds": [
+      "hallandsleden-k4-to-k5-official-gap",
+      "hallandsleden-akulla-junction"
+    ]
   },
   "blockers": [
     {
@@ -105,9 +132,9 @@
       "sourceId": "hardBlockers-3",
       "status": "hardBlockers",
       "details": "K4 Frillesas does not currently connect to K5 Steninge in the official coastal inventory; keep visible as a network gap unless an official connector is later published.",
-      "disposition": "fix-now",
-      "owner": "candidate-geometry",
-      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Route topology now preserves K4-K5 as an explicit official network gap with separate coastal route groups."
     },
     {
       "id": "blocker-4",
@@ -202,9 +229,9 @@
   ],
   "triageSummary": {
     "runtime-integration-task": 1,
-    "resolved-now": 6,
-    "fix-now": 3,
-    "defer-publication-time": 2
+    "resolved-now": 7,
+    "defer-publication-time": 2,
+    "fix-now": 2
   },
   "fixesAppliedNow": [
     {
@@ -216,6 +243,16 @@
       "disposition": "resolved-now",
       "owner": "candidate-data",
       "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+    },
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "hardBlockers-3",
+      "status": "hardBlockers",
+      "details": "K4 Frillesas does not currently connect to K5 Steninge in the official coastal inventory; keep visible as a network gap unless an official connector is later published.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Route topology now preserves K4-K5 as an explicit official network gap with separate coastal route groups."
     },
     {
       "id": "open-decision-7",
@@ -269,16 +306,6 @@
     }
   ],
   "fixNowBeforeRuntimeImport": [
-    {
-      "id": "blocker-3",
-      "itemType": "blocker",
-      "sourceId": "hardBlockers-3",
-      "status": "hardBlockers",
-      "details": "K4 Frillesas does not currently connect to K5 Steninge in the official coastal inventory; keep visible as a network gap unless an official connector is later published.",
-      "disposition": "fix-now",
-      "owner": "candidate-geometry",
-      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
-    },
     {
       "id": "blocker-6",
       "itemType": "blocker",
@@ -350,7 +377,6 @@
   ],
   "unresolvedBeforeRuntimeImport": [
     "runtime-integration-task: Runtime integration still needs a separate explicit import task.",
-    "fix-now: K4 Frillesas does not currently connect to K5 Steninge in the official coastal inventory; keep visible as a network gap unless an official connector is later published.",
     "defer-publication-time: Transit, closures/reroutes, fire status, beach/reserve rules and seasonal services immediately before publication/import.",
     "defer-publication-time: Water, toilet, cafe/shop, shelter/campsite and private/commercial service availability.",
     "fix-now: Final protected-area and water-protection GIS overlays before public rule warnings.",

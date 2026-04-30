@@ -12,13 +12,34 @@
     "rule-warnings.research.json",
     "import-report.research.json"
   ],
+  "supplementalArtifactFiles": [
+    "route-topology.research.json"
+  ],
   "manifestSectionFiles": 8,
   "generatedCounts": {
     "routeSections": 8,
     "geometrySections": 8,
     "geometrySectionsWithCandidateGeojson": 0,
+    "routeTopologyDecisions": 1,
+    "routeGroups": 3,
+    "routeTopologyConnections": 2,
     "facilities": 210,
     "ruleWarnings": 195
+  },
+  "routeTopologySummary": {
+    "status": "candidate-topology-decisions-applied",
+    "decisionIds": [
+      "vastra-vatterleden-candidate-prototype-scope"
+    ],
+    "routeGroupIds": [
+      "vastra-vatterleden-mainline",
+      "vastra-vatterleden-stage-1-alternate",
+      "vastra-vatterleden-stage-2-skackastugan-alternate"
+    ],
+    "connectionIds": [
+      "vastra-vatterleden-stage-7-fagerhult-access",
+      "vastra-vatterleden-stage-8-child-components"
+    ]
   },
   "blockers": [
     {
@@ -123,17 +144,29 @@
       "sourceId": "decision-3",
       "status": "open-decision",
       "details": "Approve candidate-only geometry prototype scope before any shared runtime source data is touched.",
-      "disposition": "fix-now",
-      "owner": "candidate-geometry",
-      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Candidate-only geometry prototype scope is now approved and explicitly barred from writing runtime source data."
     }
   ],
   "triageSummary": {
     "runtime-integration-task": 1,
-    "fix-now": 5,
-    "defer-publication-time": 1
+    "fix-now": 4,
+    "defer-publication-time": 1,
+    "resolved-now": 1
   },
-  "fixesAppliedNow": [],
+  "fixesAppliedNow": [
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "decision-3",
+      "status": "open-decision",
+      "details": "Approve candidate-only geometry prototype scope before any shared runtime source data is touched.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Candidate-only geometry prototype scope is now approved and explicitly barred from writing runtime source data."
+    }
+  ],
   "fixNowBeforeRuntimeImport": [
     {
       "id": "blocker-2",
@@ -174,16 +207,6 @@
       "disposition": "fix-now",
       "owner": "candidate-review",
       "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
-    },
-    {
-      "id": "open-decision-7",
-      "itemType": "open-decision",
-      "sourceId": "decision-3",
-      "status": "open-decision",
-      "details": "Approve candidate-only geometry prototype scope before any shared runtime source data is touched.",
-      "disposition": "fix-now",
-      "owner": "candidate-geometry",
-      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
     }
   ],
   "runtimeSchemaNeeded": [],
@@ -227,8 +250,7 @@
     "fix-now: Protected-area overlays must be run against final normalized geometry before rule attribution.",
     "defer-publication-time: Transit schedules, fire bans, forestry notices, business hours, bathing-water status, water reliability and shelter maintenance are runtime checks.",
     "fix-now: Decide app scope for optional businesses and off-route town services.",
-    "fix-now: Confirm whether Rankåsleden and regional long-distance connections should be exposed in this import pass or kept as future connector metadata.",
-    "fix-now: Approve candidate-only geometry prototype scope before any shared runtime source data is touched."
+    "fix-now: Confirm whether Rankåsleden and regional long-distance connections should be exposed in this import pass or kept as future connector metadata."
   ],
   "nextActions": [
     "Handle fixNowBeforeRuntimeImport first unless the linked item truly needs external data.",

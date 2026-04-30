@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "candidate-route-topology/v1",
+  "trailId": "tjustleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-topology-recorded-needs-runtime-schema",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "tjustleden/normalization-handoff.research.json",
+  "sharedDecisionFile": "shared-importer-decisions.research.json",
+  "topologyPolicy": {
+    "decision": "Use route groups for walked official route topology and connections for transfers between route entries.",
+    "routeGroupKinds": {
+      "mainline": "Primary continuous official section chain for the selected trail model.",
+      "branch": "Official alternate or side branch that can be hiked as trail, but should not be silently merged into the mainline.",
+      "access": "Official or strongly supported approach route to/from public transport, village, trailhead or another trail.",
+      "connector": "Walked link between route groups or nearby route sections where it is part of the trail model."
+    },
+    "connectionsUse": "Use connections.json-style records for non-section transfers or continuity records between sections: ferry, bus, road transfer, rowboat, short walk transfer, same-island continuity, or mode none for a known gap with no usable transfer geometry.",
+    "officialRowboatRule": "If a rowboat crossing is an official route entry in its own right, model it as a section route with strong warnings. Otherwise model it as a rowboat connection or access/side metadata."
+  },
+  "topologySourceSummary": {
+    "importOrder": [
+      "1. Confirm runtime schema/import support for officialDistanceKm, computedGeometryDistanceKm, endpoint clusters, tails/connectors, and source-direction reversal metadata.",
+      "2. Import/parse the 9 section packets in official Mörtfors-to-Falerum order.",
+      "3. Normalize official GPX geometry, reversing sections 4 and 6 and preserving source direction metadata.",
+      "4. Apply official-distance display policy while storing computed geometry distances for QA.",
+      "5. Preserve GPX endpoints and model nearby facilities, access points, tails, and connectors as separate provenance-bearing clusters.",
+      "6. Apply final protected/water-area overlays after endpoint/tail/reversal decisions.",
+      "7. Promote only verified high-confidence facilities; keep pending, approximate, commercial/currentness, and off-route items pending/access metadata.",
+      "8. Run dynamic acute/fire/forestry/service/transit checks before publication."
+    ]
+  },
+  "decisionsApplied": [
+    {
+      "id": "tjustleden-mainline-and-tail-policy",
+      "decision": "Keep the researched 9-section mainline and preserve terminal tails/connectors explicitly instead of trimming or silently merging them."
+    }
+  ],
+  "routeGroups": [
+    {
+      "groupId": "tjustleden-mainline",
+      "kind": "mainline",
+      "status": "candidate-topology-recorded",
+      "sectionIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen",
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom",
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn",
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall",
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg",
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi",
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen",
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon",
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ]
+    }
+  ],
+  "connections": [],
+  "displayPolicies": [],
+  "remainingGeometryWork": [
+    "Finalize normalized geometry before overlays and runtime route import."
+  ],
+  "unresolvedSectionRefs": []
+}

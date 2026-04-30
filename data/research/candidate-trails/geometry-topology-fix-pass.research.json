@@ -1,0 +1,810 @@
+{
+  "schemaVersion": "candidate-geometry-topology-fix-pass/v1",
+  "lastUpdated": "2026-04-30",
+  "status": "topology-decisions-applied",
+  "purpose": "First fix-now pass for candidate trails: make route topology, known gaps, connector policies, and display-distance decisions explicit before runtime import work.",
+  "runtimeImportApproved": false,
+  "artifactRootPattern": "data/research/candidate-trails/<trail-id>/normalized-candidate/route-topology.research.json",
+  "includedTrails": [
+    {
+      "trailId": "bohusleden",
+      "status": "candidate-topology-decisions-applied",
+      "decisionsApplied": [
+        {
+          "id": "bohusleden-stage-21-partial-route-model",
+          "fixNowItemRefs": [
+            "hardBlockers-1"
+          ],
+          "decision": "Keep Stage 21 out of the default complete-route chain until authoritative complete linework exists; preserve the researched partial/self-navigation span as explicit candidate metadata."
+        }
+      ],
+      "routeGroups": [
+        {
+          "groupId": "bohusleden-southern-chain",
+          "kind": "mainline",
+          "status": "candidate-importable-after-geometry-validation",
+          "sectionIds": [
+            "bohusleden-stage-1-alvsaker-stensjon",
+            "bohusleden-stage-2-stensjon-skatas",
+            "bohusleden-stage-3-skatas-kasjon",
+            "bohusleden-stage-4-kasjon-jonsered",
+            "bohusleden-stage-5-jonsered-angereds-kyrka",
+            "bohusleden-stage-6-angereds-kyrka-fontin",
+            "bohusleden-stage-7-fontin-grandalen",
+            "bohusleden-stage-8-grandalen-bottenstugan"
+          ],
+          "notes": "Stages 1-8 form the southern walked chain ending at Bottenstugan."
+        },
+        {
+          "groupId": "bohusleden-middle-chain",
+          "kind": "mainline",
+          "status": "candidate-importable-after-geometry-validation",
+          "sectionIds": [
+            "bohusleden-stage-9-bottenstugan-lysevatten",
+            "bohusleden-stage-10-lysevatten-hasterod",
+            "bohusleden-stage-11-hasterod-vassbovik",
+            "bohusleden-stage-12-vassbovik-glimmingen",
+            "bohusleden-stage-13-glimmingen-bjursjon",
+            "bohusleden-stage-14-bjursjon-metsjo",
+            "bohusleden-stage-15-metsjo-kaserna",
+            "bohusleden-stage-16-kaserna-borgmastarbruket",
+            "bohusleden-stage-17-borgmastarbruket-kyrkoryr",
+            "bohusleden-stage-18-kyrkoryr-kynnefjalls-natur",
+            "bohusleden-stage-19-kynnefjalls-natur-vaktarekullen",
+            "bohusleden-stage-20-vaktarekullen-flotemarkson"
+          ],
+          "notes": "Stages 9-20 resume from Bottenstugan and stop before the partial Stage 21 span."
+        },
+        {
+          "groupId": "bohusleden-northern-chain",
+          "kind": "mainline",
+          "status": "candidate-importable-after-geometry-validation",
+          "sectionIds": [
+            "bohusleden-stage-22-porsas-nornas",
+            "bohusleden-stage-23-nornas-vassbotten",
+            "bohusleden-stage-24-vassbotten-havedalen",
+            "bohusleden-stage-25-havedalen-krokstrand",
+            "bohusleden-stage-26-krokstrand-hogstad",
+            "bohusleden-stage-27-hogstad-stromstad"
+          ],
+          "notes": "Stages 22-27 remain a separate northern chain unless runtime UX can show the Stage 21 gap clearly."
+        },
+        {
+          "groupId": "bohusleden-stage-21-partial",
+          "kind": "branch",
+          "status": "research-only-partial-self-navigation",
+          "sectionIds": [
+            "bohusleden-stage-21-flotemarkson-porsas"
+          ],
+          "notes": "Not eligible for ordinary complete-route import under the shared partial/self-navigation policy."
+        }
+      ],
+      "connections": [
+        {
+          "connectionId": "bohusleden-stage-8-to-9-bottenstugan",
+          "fromSectionId": "bohusleden-stage-8-grandalen-bottenstugan",
+          "toSectionId": "bohusleden-stage-9-bottenstugan-lysevatten",
+          "mode": "walk",
+          "status": "reviewed-short-walk-connection-needed",
+          "distanceMetersApprox": 49.4,
+          "importPolicy": "Represent as an explicit reviewed walk connection if runtime route graph support is used; do not silently move endpoints."
+        },
+        {
+          "connectionId": "bohusleden-stage-21-to-22-known-gap",
+          "fromSectionId": "bohusleden-stage-21-flotemarkson-porsas",
+          "toSectionId": "bohusleden-stage-22-porsas-nornas",
+          "mode": "none",
+          "status": "known-gap",
+          "distanceMetersApprox": 4296.3,
+          "importPolicy": "Do not bridge or auto-route; show Stage 21/22 separation visibly if partial Stage 21 is ever exposed."
+        }
+      ],
+      "displayPolicies": [],
+      "remainingGeometryWork": [
+        "Validate candidate GeoJSON for Stages 1-20 and 22-27 before runtime import.",
+        "Stage 21 still requires authoritative complete geometry or explicit missing-route runtime UX before it can be shown as a route section."
+      ]
+    },
+    {
+      "trailId": "hallandsleden",
+      "status": "candidate-topology-decisions-applied",
+      "decisionsApplied": [
+        {
+          "id": "hallandsleden-k4-k5-official-gap",
+          "fixNowItemRefs": [
+            "hardBlockers-3"
+          ],
+          "decision": "Treat the K4 Frillesas to K5 Steninge break as an official network gap, not a missing connector to invent."
+        }
+      ],
+      "routeGroups": [
+        {
+          "groupId": "hallandsleden-norra",
+          "kind": "mainline",
+          "status": "candidate-topology-explicit",
+          "sectionIds": [
+            "hallandsleden-alvsaker-naturum-fjaras-bracka",
+            "hallandsleden-naturum-fjaras-bracka-askhults-by",
+            "hallandsleden-askhults-by-stattared",
+            "hallandsleden-stattared-veddige",
+            "hallandsleden-veddige-nosslinge",
+            "hallandsleden-nosslinge-akulla",
+            "hallandsleden-akulla-astad"
+          ]
+        },
+        {
+          "groupId": "hallandsleden-varberg-branch",
+          "kind": "branch",
+          "status": "candidate-topology-explicit",
+          "sectionIds": [
+            "hallandsleden-varberg-akulla"
+          ]
+        },
+        {
+          "groupId": "hallandsleden-mellersta-west",
+          "kind": "mainline",
+          "status": "candidate-topology-explicit",
+          "sectionIds": [
+            "hallandsleden-akulla-ullared",
+            "hallandsleden-ullared-karnebygd",
+            "hallandsleden-karnebygd-atran",
+            "hallandsleden-atran-langesjon",
+            "hallandsleden-langesjon-rydobruk",
+            "hallandsleden-rydobruk-kvarnforsen"
+          ]
+        },
+        {
+          "groupId": "hallandsleden-mellersta-east",
+          "kind": "branch",
+          "status": "candidate-topology-explicit",
+          "sectionIds": [
+            "hallandsleden-astad-vessigebro",
+            "hallandsleden-vessigebro-frodeparken"
+          ]
+        },
+        {
+          "groupId": "hallandsleden-sodra-west",
+          "kind": "mainline",
+          "status": "candidate-topology-explicit",
+          "sectionIds": [
+            "hallandsleden-frodeparken-oskarstrom",
+            "hallandsleden-oskarstrom-gyltige",
+            "hallandsleden-gyltige-simlangsdalen",
+            "hallandsleden-simlangsdalen-halmstad"
+          ]
+        },
+        {
+          "groupId": "hallandsleden-sodra-gyltige-branch",
+          "kind": "branch",
+          "status": "candidate-topology-explicit",
+          "sectionIds": [
+            "hallandsleden-kvarnforsen-gyltige"
+          ]
+        },
+        {
+          "groupId": "hallandsleden-sodra-east",
+          "kind": "branch",
+          "status": "candidate-topology-explicit",
+          "sectionIds": [
+            "hallandsleden-simlangsdalen-mastocka",
+            "hallandsleden-mastocka-knared",
+            "hallandsleden-knared-ekegarden",
+            "hallandsleden-ekegarden-koarp"
+          ]
+        },
+        {
+          "groupId": "hallandsleden-kustleden-north",
+          "kind": "mainline",
+          "status": "candidate-topology-explicit",
+          "sectionIds": [
+            "hallandsleden-sandsjobacka-kungsbacka-c",
+            "hallandsleden-kungsbacka-c-tjoloholm",
+            "hallandsleden-tjoloholm-asa",
+            "hallandsleden-asa-frillesas"
+          ]
+        },
+        {
+          "groupId": "hallandsleden-kustleden-south",
+          "kind": "mainline",
+          "status": "candidate-topology-explicit",
+          "sectionIds": [
+            "hallandsleden-steninge-haverdal",
+            "hallandsleden-haverdal-tylosand",
+            "hallandsleden-tylosand-halmstad-c",
+            "hallandsleden-halmstad-c-paarp",
+            "hallandsleden-paarp-mellbystrand",
+            "hallandsleden-mellbystrand-bastad-station"
+          ]
+        }
+      ],
+      "connections": [
+        {
+          "connectionId": "hallandsleden-k4-to-k5-official-gap",
+          "fromSectionId": "hallandsleden-asa-frillesas",
+          "toSectionId": "hallandsleden-steninge-haverdal",
+          "mode": "none",
+          "status": "official-network-gap",
+          "importPolicy": "Keep visible as two coastal chains unless an official connector is later published."
+        },
+        {
+          "connectionId": "hallandsleden-akulla-junction",
+          "mode": "walk",
+          "status": "shared-junction-node-candidate",
+          "importPolicy": "Use shared-node topology at Akulla/Ästad/Byasjön/Kvarnforsen/Gyltige/Frodeparken/Oskarström/Koarp only after preserving original endpoints in provenance."
+        }
+      ],
+      "displayPolicies": [],
+      "remainingGeometryWork": [
+        "Run protected-area and water-protection GIS overlays against the selected canonical lines before public rule warnings."
+      ]
+    },
+    {
+      "trailId": "hogakustenleden",
+      "status": "candidate-display-and-topology-decisions-applied",
+      "decisionsApplied": [
+        {
+          "id": "hogakustenleden-section-2-distance-display",
+          "fixNowItemRefs": [
+            "hogakustenleden-section-2-distance-display"
+          ],
+          "decision": "Use the Höga Kusten 26.8 km section distance for display while preserving Naturkartan/GPX contradictions as metadata."
+        },
+        {
+          "id": "hogakustenleden-section-7-difficulty-display",
+          "fixNowItemRefs": [
+            "hogakustenleden-section-7-difficulty"
+          ],
+          "decision": "Prefer the conservative Naturkartan red/krävande difficulty while preserving the Höga Kusten Medel caveat."
+        }
+      ],
+      "routeGroups": [
+        {
+          "groupId": "hogakustenleden-mainline",
+          "kind": "mainline",
+          "status": "candidate-topology-explicit",
+          "sectionIds": [
+            "hogakustenleden-section-1-hornoberget-lovvik",
+            "hogakustenleden-section-2-lovvik-gavik",
+            "hogakustenleden-section-3-gavik-lappudden",
+            "hogakustenleden-section-4-lappudden-ullanger",
+            "hogakustenleden-section-5-ullanger-skuleberget",
+            "hogakustenleden-section-6-skuleberget-entre-syd",
+            "hogakustenleden-section-7-entre-syd-entre-nord",
+            "hogakustenleden-section-8-entre-nord-balesudden",
+            "hogakustenleden-section-9-balesudden-ornskoldsvik"
+          ]
+        }
+      ],
+      "connections": [],
+      "displayPolicies": [
+        {
+          "scope": "section-2",
+          "displayDistanceKm": 26.8,
+          "contradictionPolicy": "Preserve alternate source/computed distances in distanceCaveats."
+        },
+        {
+          "scope": "section-7",
+          "displayDifficulty": "red/krävande",
+          "contradictionPolicy": "Keep Höga Kusten Medel as a source caveat."
+        }
+      ],
+      "remainingGeometryWork": [
+        "Build final candidate geometry artifacts and run protected-area clipping before runtime import."
+      ]
+    },
+    {
+      "trailId": "hoglandsleden",
+      "status": "candidate-topology-decisions-applied",
+      "decisionsApplied": [
+        {
+          "id": "hoglandsleden-route-builder-topology",
+          "fixNowItemRefs": [
+            "decision-1"
+          ],
+          "decision": "Model Höglandsleden as a main loop with official branches rather than one undifferentiated chain: HÖ3 as the Mariannelund branch and HÖ18-HÖ23 as the Tomtabacken-Kärringabacka branch."
+        }
+      ],
+      "routeGroups": [
+        {
+          "groupId": "hoglandsleden-main-loop",
+          "kind": "mainline",
+          "status": "candidate-topology-explicit",
+          "sectionIds": [
+            "hoglandsleden-ho01-vastra-lagern-skuruhatt",
+            "hoglandsleden-ho02-skuruhatt-valbacken",
+            "hoglandsleden-ho04-valbacken-lilla-bjalkerum",
+            "hoglandsleden-ho05-lilla-bjalkerum-adelfors",
+            "hoglandsleden-ho06-adelfors-hogarps-kulturreservat",
+            "hoglandsleden-ho07-hogarps-kulturreservat-lemnhult",
+            "hoglandsleden-ho08-lemnhult-lindshammar",
+            "hoglandsleden-ho09-lindshammar-ramkvilla",
+            "hoglandsleden-ho10-ramkvilla-asa",
+            "hoglandsleden-ho11-asa-hultsjo",
+            "hoglandsleden-ho12-hultsjo-savsjo",
+            "hoglandsleden-ho13-savsjo-forsa",
+            "hoglandsleden-ho14-forsa-vikskvarn",
+            "hoglandsleden-ho15-vikskvarn-lovhult",
+            "hoglandsleden-ho16-lovhult-ranneborg",
+            "hoglandsleden-ho17-ranneborg-skuruhatt"
+          ],
+          "notes": "Main loop/primary official chain through Skuruhatt, Valbacken, Sävsjö, Vikskvarn, Ränneborg and back to Skuruhatt."
+        },
+        {
+          "groupId": "hoglandsleden-mariannelund-branch",
+          "kind": "branch",
+          "status": "candidate-topology-explicit",
+          "sectionIds": [
+            "hoglandsleden-ho03-valbacken-mariannelund"
+          ],
+          "notes": "Official branch from Valbacken to Mariannelund."
+        },
+        {
+          "groupId": "hoglandsleden-tomtabacken-karringabacka-branch",
+          "kind": "branch",
+          "status": "candidate-topology-explicit",
+          "sectionIds": [
+            "hoglandsleden-ho18-vikskvarn-tomtabacken",
+            "hoglandsleden-ho19-tomtabacken-hok",
+            "hoglandsleden-ho20-hok-byarum",
+            "hoglandsleden-ho21-byarum-skillingaryd",
+            "hoglandsleden-ho22-skillingaryd-asafors",
+            "hoglandsleden-ho23-asafors-karringabacka"
+          ],
+          "notes": "Official branch from Vikskvarn through Tomtabacken, Hok, Byarum and Skillingaryd to Kärringabacka."
+        }
+      ],
+      "connections": [
+        {
+          "connectionId": "hoglandsleden-valbacken-branch-junction",
+          "fromSectionId": "hoglandsleden-ho02-skuruhatt-valbacken",
+          "toSectionId": "hoglandsleden-ho03-valbacken-mariannelund",
+          "mode": "walk",
+          "status": "official-branch-junction",
+          "importPolicy": "Represent HÖ3 as a branch from the Valbacken junction."
+        },
+        {
+          "connectionId": "hoglandsleden-vikskvarn-branch-junction",
+          "fromSectionId": "hoglandsleden-ho14-forsa-vikskvarn",
+          "toSectionId": "hoglandsleden-ho18-vikskvarn-tomtabacken",
+          "mode": "walk",
+          "status": "official-branch-junction",
+          "importPolicy": "Represent HÖ18-HÖ23 as the Tomtabacken/Kärringabacka branch from Vikskvarn."
+        }
+      ],
+      "displayPolicies": [],
+      "remainingGeometryWork": [
+        "Complete candidate geometry package for the selected route groups before runtime import."
+      ]
+    },
+    {
+      "trailId": "kungsleden",
+      "status": "candidate-topology-recorded-needs-geometry-and-source-policy",
+      "decisionsApplied": [
+        {
+          "id": "kungsleden-selected-section-chain",
+          "decision": "Keep the researched 27-section chain as the candidate topology, with non-walk transfers and water/road crossings represented as explicit connector metadata during the later importer pass."
+        }
+      ],
+      "routeGroups": [
+        {
+          "groupId": "kungsleden-mainline",
+          "kind": "mainline",
+          "status": "candidate-topology-recorded",
+          "sectionIds": [
+            "kungsleden-section-01-abisko-abiskojaure",
+            "kungsleden-section-02-abiskojaure-alesjaure",
+            "kungsleden-section-03-alesjaure-tjaktja",
+            "kungsleden-section-04-tjaktja-salka",
+            "kungsleden-section-05-salka-singi",
+            "kungsleden-section-06-singi-kaitumjaure",
+            "kungsleden-section-07-kaitumjaure-teusajaure",
+            "kungsleden-section-08-teusajaure-vakkotavare",
+            "kungsleden-section-09-saltoluokta-sitojaure",
+            "kungsleden-section-10-sitojaure-aktse",
+            "kungsleden-section-11-aktse-parte",
+            "kungsleden-section-12-parte-kvikkjokk",
+            "kungsleden-section-13-kvikkjokk-tsielekjakkstugan",
+            "kungsleden-section-14-tsielekjakkstugan-pitealven",
+            "kungsleden-section-15-pitealven-gasaklahko",
+            "kungsleden-section-16-gasaklahko-vuonatjviken",
+            "kungsleden-section-17-vuonatjviken-jackvik",
+            "kungsleden-section-18-jackvik-adolfstrom",
+            "kungsleden-section-19-adolfstrom-sjnulttjie",
+            "kungsleden-section-20-sjnulttjie-ravfallsstugan",
+            "kungsleden-section-21-ravfallsstugan-ammarnas",
+            "kungsleden-section-22-ammarnas-aigert",
+            "kungsleden-section-23-aigert-serve",
+            "kungsleden-section-24-serve-tarnasjo",
+            "kungsleden-section-25-tarnasjo-syter",
+            "kungsleden-section-26-syter-viterskalet",
+            "kungsleden-section-27-viterskalet-hemavan"
+          ]
+        }
+      ],
+      "connections": [],
+      "displayPolicies": [],
+      "remainingGeometryWork": [
+        "Transform EPSG:3006 official geometry to WGS84, assemble multi-part lines, apply endpoint-zone snapping policy and reverse directions where needed.",
+        "Resolve source-policy and connector taxonomy decisions before runtime import."
+      ]
+    },
+    {
+      "trailId": "nordkalottleden",
+      "status": "candidate-topology-decisions-applied",
+      "decisionsApplied": [
+        {
+          "id": "nordkalottleden-endpoint-zone-policy",
+          "fixNowItemRefs": [
+            "blocker-2",
+            "blocker-3",
+            "blocker-4",
+            "blocker-5",
+            "decision-2",
+            "decision-4"
+          ],
+          "decision": "Keep the researched 12-section model as the candidate mainline and represent Saarijärvi, Saraelv/Ovi Raishiin, Madam Bongos/Čunovuohppi and the section 6 source-boundary mismatch as explicit endpoint-zone/known-gap metadata."
+        }
+      ],
+      "routeGroups": [
+        {
+          "groupId": "nordkalottleden-mainline-12-section-model",
+          "kind": "mainline",
+          "status": "candidate-topology-explicit",
+          "sectionIds": [
+            "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi",
+            "nordkalottleden-kalottireitti-02-saarijarvi-kuonjarjohka",
+            "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi",
+            "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi",
+            "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki",
+            "nordkalottleden-kalottireitti-06-kopmajoki-somashytta",
+            "nordkalottleden-kalottireitti-07-somashytta-saraelv",
+            "nordkalottleden-kalottireitti-08-saraelv-sieimma",
+            "nordkalottleden-kalottireitti-09-sieimma-nedrefoss",
+            "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta",
+            "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos",
+            "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+          ]
+        }
+      ],
+      "connections": [
+        {
+          "connectionId": "nordkalottleden-saarijarvi-hut-yard-offset",
+          "fromSectionId": "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi",
+          "toSectionId": "nordkalottleden-kalottireitti-02-saarijarvi-kuonjarjohka",
+          "mode": "none",
+          "status": "endpoint-zone-metadata",
+          "distanceMetersApprox": 152.3,
+          "importPolicy": "Do not invent a hut-yard connector; expose hut access only as endpoint/access metadata if supported."
+        },
+        {
+          "connectionId": "nordkalottleden-section-6-source-boundary",
+          "fromSectionId": "nordkalottleden-kalottireitti-06-kopmajoki-somashytta",
+          "toSectionId": "nordkalottleden-kalottireitti-07-somashytta-saraelv",
+          "mode": "walk",
+          "status": "source-boundary-gap-needs-review",
+          "distanceMetersApprox": 36.8,
+          "importPolicy": "Preserve the mixed-source boundary and review before creating any shared route graph node."
+        },
+        {
+          "connectionId": "nordkalottleden-saraelv-ovi-raishiin-endpoint-zone",
+          "fromSectionId": "nordkalottleden-kalottireitti-07-somashytta-saraelv",
+          "toSectionId": "nordkalottleden-kalottireitti-08-saraelv-sieimma",
+          "mode": "none",
+          "status": "compound-endpoint-zone",
+          "distanceMetersApprox": 1003.9,
+          "importPolicy": "Do not draw a seamless line from Saraelv to Ovi Raishiin without separately sourced connector geometry."
+        },
+        {
+          "connectionId": "nordkalottleden-madam-bongos-legacy-endpoint",
+          "fromSectionId": "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos",
+          "toSectionId": "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino",
+          "mode": "none",
+          "status": "legacy-place-access-metadata",
+          "distanceMetersApprox": 65.4,
+          "importPolicy": "Treat Madam Bongos/Čunovuohppi as legacy endpoint/access metadata, never as active lodging."
+        }
+      ],
+      "displayPolicies": [],
+      "remainingGeometryWork": [
+        "Review the section 6 source-boundary gap before creating runtime graph nodes.",
+        "Keep alternate whole-trail variants outside the 12-section model as a scope limitation."
+      ]
+    },
+    {
+      "trailId": "ostkustleden",
+      "status": "candidate-topology-decisions-applied",
+      "decisionsApplied": [
+        {
+          "id": "ostkustleden-etapp-8-cabin-gap-policy",
+          "fixNowItemRefs": [
+            "decision-1"
+          ],
+          "decision": "Keep the 156.4 m Etapp 8 official-GPX-to-Lilla-Hycklinge-cabin gap as metadata only unless a separate authoritative access leg is sourced."
+        },
+        {
+          "id": "ostkustleden-candidate-geometry-prototype-scope",
+          "fixNowItemRefs": [
+            "decision-3"
+          ],
+          "decision": "Approve candidate-only geometry normalization under the research folder; runtime source data remains untouched until a separate import task."
+        }
+      ],
+      "routeGroups": [
+        {
+          "groupId": "ostkustleden-main-ring",
+          "kind": "mainline",
+          "status": "candidate-topology-explicit",
+          "sectionIds": [
+            "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+            "ostkustleden-etapp-2-nynas-lonhult",
+            "ostkustleden-etapp-3-lonhult-krokstorp",
+            "ostkustleden-etapp-4-krokstorp-mortfors",
+            "ostkustleden-etapp-5-mortfors-stjarneberg",
+            "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+            "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+            "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+          ]
+        }
+      ],
+      "connections": [
+        {
+          "connectionId": "ostkustleden-etapp-8-to-lilla-hycklinge-cabin",
+          "fromSectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+          "toSectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+          "mode": "none",
+          "status": "metadata-only-cabin-gap",
+          "distanceMetersApprox": 156.4,
+          "importPolicy": "Do not add an access leg to the default route until separately sourced."
+        }
+      ],
+      "displayPolicies": [],
+      "remainingGeometryWork": [
+        "Run boundary-sensitive GIS overlays against final normalized ring geometry."
+      ]
+    },
+    {
+      "trailId": "padjelantaleden",
+      "status": "candidate-display-and-topology-decisions-applied",
+      "decisionsApplied": [
+        {
+          "id": "padjelantaleden-headline-distance-policy",
+          "fixNowItemRefs": [
+            "decision-1"
+          ],
+          "decision": "Do not publish a single official headline distance yet; use section-level display distances and preserve the 140/150/150-160/160 km source claims until geometry split review."
+        }
+      ],
+      "routeGroups": [
+        {
+          "groupId": "padjelantaleden-mainline",
+          "kind": "mainline",
+          "status": "candidate-topology-explicit",
+          "sectionIds": [
+            "padjelantaleden-stage-01-ritsem-akka-gisuris",
+            "padjelantaleden-stage-02-gisuris-laddejahka",
+            "padjelantaleden-stage-03-laddejahka-arasluokta",
+            "padjelantaleden-stage-04-arasluokta-staloluokta",
+            "padjelantaleden-stage-05-staloluokta-duottar",
+            "padjelantaleden-stage-06-duottar-darreluoppal",
+            "padjelantaleden-stage-07-darreluoppal-sammarlappa",
+            "padjelantaleden-stage-08-sammarlappa-tarrekaise",
+            "padjelantaleden-stage-09-tarrekaise-njunjes",
+            "padjelantaleden-stage-10-njunjes-kvikkjokk"
+          ]
+        }
+      ],
+      "connections": [
+        {
+          "connectionId": "padjelantaleden-ritsem-akka-boat-access",
+          "fromSectionId": "padjelantaleden-stage-01-ritsem-akka-gisuris",
+          "mode": "boat",
+          "status": "access-connector-metadata",
+          "importPolicy": "Keep M/S Storlule and trailhead boat access as connector/access metadata, not walking route geometry."
+        },
+        {
+          "connectionId": "padjelantaleden-kvikkjokk-bobacken-boat-access",
+          "fromSectionId": "padjelantaleden-stage-10-njunjes-kvikkjokk",
+          "mode": "boat",
+          "status": "access-connector-metadata",
+          "importPolicy": "Keep Kvikkjokk-Bobäcken boat logistics in the description/connector layer until runtime connector support exists."
+        }
+      ],
+      "displayPolicies": [
+        {
+          "scope": "whole-trail",
+          "displayDistanceKm": null,
+          "contradictionPolicy": "Suppress single headline total; show section distances and source-claim caveats."
+        }
+      ],
+      "remainingGeometryWork": [
+        "Complete geometry split review and connector/runtime schema work for boats, helicopter access and alternates."
+      ]
+    },
+    {
+      "trailId": "sjuharadsleden",
+      "status": "candidate-topology-recorded-needs-geometry-normalization",
+      "decisionsApplied": [
+        {
+          "id": "sjuharadsleden-mainline-selected",
+          "decision": "Keep the researched 10-section mainline order, while leaving section 6 cleanup and section 7 densification as real geometry work before runtime import."
+        }
+      ],
+      "routeGroups": [
+        {
+          "groupId": "sjuharadsleden-mainline",
+          "kind": "mainline",
+          "status": "candidate-topology-recorded",
+          "sectionIds": [
+            "sjuharadsleden-etapp-1-hindas-station-hestrafors-if",
+            "sjuharadsleden-etapp-2-hestrafors-if-ik-omega",
+            "sjuharadsleden-etapp-3-ik-omega-sok-stugan",
+            "sjuharadsleden-etapp-4-sok-stugan-rya-asar",
+            "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna",
+            "sjuharadsleden-etapp-6-karlsaflogarna-blackered",
+            "sjuharadsleden-etapp-7-blackered-prangens-camping",
+            "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka",
+            "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri",
+            "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+          ]
+        }
+      ],
+      "connections": [],
+      "displayPolicies": [],
+      "remainingGeometryWork": [
+        "Normalize section 6 Rölle duplicate/parallel/spur artifacts into one mainline.",
+        "Densify/resample the known section 7 simplified chord before runtime route import."
+      ]
+    },
+    {
+      "trailId": "tjustleden",
+      "status": "candidate-topology-recorded-needs-runtime-schema",
+      "decisionsApplied": [
+        {
+          "id": "tjustleden-mainline-and-tail-policy",
+          "decision": "Keep the researched 9-section mainline and preserve terminal tails/connectors explicitly instead of trimming or silently merging them."
+        }
+      ],
+      "routeGroups": [
+        {
+          "groupId": "tjustleden-mainline",
+          "kind": "mainline",
+          "status": "candidate-topology-recorded",
+          "sectionIds": [
+            "tjustleden-etapp-1-mortfors-getterum-getgolen",
+            "tjustleden-etapp-2-getgolen-hjorted-svartestrom",
+            "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn",
+            "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall",
+            "tjustleden-etapp-5-tornsfall-almvik-hallingeberg",
+            "tjustleden-etapp-6-hallingeberg-karrum-odensvi",
+            "tjustleden-etapp-7-odensvi-dalhem-bjorndalen",
+            "tjustleden-etapp-8-bjorndalen-mockelhult-lermon",
+            "tjustleden-etapp-9-lermon-kolsebro-falerum"
+          ]
+        }
+      ],
+      "connections": [],
+      "displayPolicies": [],
+      "remainingGeometryWork": [
+        "Finalize normalized geometry before overlays and runtime route import."
+      ]
+    },
+    {
+      "trailId": "vastra-vatterleden",
+      "status": "candidate-topology-decisions-applied",
+      "decisionsApplied": [
+        {
+          "id": "vastra-vatterleden-candidate-prototype-scope",
+          "fixNowItemRefs": [
+            "decision-3"
+          ],
+          "decision": "Approve candidate-only route/connector geometry prototype scope: stage variants and child components may be normalized under research artifacts only; runtime source data remains untouched."
+        }
+      ],
+      "routeGroups": [
+        {
+          "groupId": "vastra-vatterleden-mainline",
+          "kind": "mainline",
+          "status": "candidate-topology-explicit",
+          "sectionIds": [
+            "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+            "vastra-vatterleden-etapp-2-forsvik-molltorp",
+            "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa",
+            "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+            "vastra-vatterleden-etapp-5-hjo-bastasen",
+            "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+            "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult",
+            "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+          ]
+        },
+        {
+          "groupId": "vastra-vatterleden-stage-1-alternate",
+          "kind": "branch",
+          "status": "variant-metadata",
+          "sectionIds": [
+            "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+          ],
+          "notes": "Stage 1 primary/alternate variants must remain explicit during geometry normalization."
+        },
+        {
+          "groupId": "vastra-vatterleden-stage-2-skackastugan-alternate",
+          "kind": "branch",
+          "status": "variant-metadata",
+          "sectionIds": [
+            "vastra-vatterleden-etapp-2-forsvik-molltorp"
+          ],
+          "notes": "Stage 2 direct line is primary; Skackastugan remains an alternate branch."
+        }
+      ],
+      "connections": [
+        {
+          "connectionId": "vastra-vatterleden-stage-7-fagerhult-access",
+          "fromSectionId": "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult",
+          "toSectionId": "vastra-vatterleden-etapp-8-fagerhult-mullsjo",
+          "mode": "walk",
+          "status": "mainline-access-split",
+          "importPolicy": "Treat Gagnån as the mainline handoff and Fagerhult as access/connector metadata unless final geometry proves otherwise."
+        },
+        {
+          "connectionId": "vastra-vatterleden-stage-8-child-components",
+          "fromSectionId": "vastra-vatterleden-etapp-8-fagerhult-mullsjo",
+          "mode": "walk",
+          "status": "child-geometry-components",
+          "importPolicy": "Keep stage 8 child GPX components under one section and normalize Furusjö-Mullsjö Hotell direction to the official endpoint."
+        }
+      ],
+      "displayPolicies": [],
+      "remainingGeometryWork": [
+        "Implement stage 1 variants, stage 2 alternate, stages 3-5 assembly/reversal, stage 7 access split and stage 8 child components before runtime route import.",
+        "Run protected-area overlays against the final normalized geometry."
+      ]
+    },
+    {
+      "trailId": "vikingaleden",
+      "status": "candidate-topology-recorded-needs-overlap-dedupe",
+      "decisionsApplied": [
+        {
+          "id": "vikingaleden-overlap-alias-policy",
+          "decision": "Keep the 12-section Vikingaleden candidate topology while preserving sections 7-12 as Upplandsleden overlap aliases for the later dedupe/import pass."
+        }
+      ],
+      "routeGroups": [
+        {
+          "groupId": "vikingaleden-mainline",
+          "kind": "mainline",
+          "status": "candidate-topology-recorded",
+          "sectionIds": [
+            "vikingaleden-etapp-1-grisslehamn-trastabron",
+            "vikingaleden-etapp-2-trastabron-havero-kyrka",
+            "vikingaleden-etapp-3-havero-kyrka-haverodal",
+            "vikingaleden-etapp-4-haverodal-sanda",
+            "vikingaleden-etapp-5-sanda-harg-hargshamn",
+            "vikingaleden-etapp-6-harg-gimo"
+          ]
+        },
+        {
+          "groupId": "vikingaleden-upplandsleden-overlap",
+          "kind": "branch",
+          "status": "overlap-alias-metadata",
+          "sectionIds": [
+            "vikingaleden-etapp-7-gimo-osterbybruk",
+            "vikingaleden-etapp-8-osterbybruk-rison",
+            "vikingaleden-etapp-9-rison-lovstabruk",
+            "vikingaleden-etapp-10-lovstabruk-vastland",
+            "vikingaleden-etapp-11-vastland-marma",
+            "vikingaleden-etapp-12-marma-alvkarleby"
+          ]
+        }
+      ],
+      "connections": [],
+      "displayPolicies": [],
+      "remainingGeometryWork": [
+        "Run Upplandsleden overlap dedupe for sections 7-12 before runtime import."
+      ]
+    }
+  ],
+  "remainingFixNowCategories": [
+    "Actual candidate GeoJSON assembly/normalization where the selected topology still lacks route linework.",
+    "GIS overlays against final normalized geometry for protected-area and restriction warnings.",
+    "Facility dedupe and taxonomy passes where the blocker is about POI clustering rather than route topology."
+  ]
+}

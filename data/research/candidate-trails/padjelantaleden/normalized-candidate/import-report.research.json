@@ -12,13 +12,32 @@
     "rule-warnings.research.json",
     "import-report.research.json"
   ],
+  "supplementalArtifactFiles": [
+    "route-topology.research.json"
+  ],
   "manifestSectionFiles": 10,
   "generatedCounts": {
     "routeSections": 10,
     "geometrySections": 10,
     "geometrySectionsWithCandidateGeojson": 0,
+    "routeTopologyDecisions": 1,
+    "routeGroups": 1,
+    "routeTopologyConnections": 2,
     "facilities": 254,
     "ruleWarnings": 214
+  },
+  "routeTopologySummary": {
+    "status": "candidate-display-and-topology-decisions-applied",
+    "decisionIds": [
+      "padjelantaleden-headline-distance-policy"
+    ],
+    "routeGroupIds": [
+      "padjelantaleden-mainline"
+    ],
+    "connectionIds": [
+      "padjelantaleden-ritsem-akka-boat-access",
+      "padjelantaleden-kvikkjokk-bobacken-boat-access"
+    ]
   },
   "blockers": [
     {
@@ -107,9 +126,9 @@
       "sourceId": "decision-1",
       "status": "open-decision",
       "details": "Decide whether to publish an official headline distance before geometry split review, because official/tourism sources vary between about 140 km, 150 km, 150-160 km, and 160 km.",
-      "disposition": "fix-now",
-      "owner": "candidate-geometry",
-      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Distance policy now suppresses a single headline total and keeps contradictory whole-trail claims as metadata."
     },
     {
       "id": "open-decision-6",
@@ -145,8 +164,7 @@
   "triageSummary": {
     "runtime-schema-needed": 2,
     "defer-publication-time": 2,
-    "resolved-now": 3,
-    "fix-now": 1
+    "resolved-now": 4
   },
   "fixesAppliedNow": [
     {
@@ -170,6 +188,16 @@
       "action": "Updated Padjelantaleden README status to reflect completed 10-section research and generated candidate artifacts."
     },
     {
+      "id": "open-decision-5",
+      "itemType": "open-decision",
+      "sourceId": "decision-1",
+      "status": "open-decision",
+      "details": "Decide whether to publish an official headline distance before geometry split review, because official/tourism sources vary between about 140 km, 150 km, 150-160 km, and 160 km.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Distance policy now suppresses a single headline total and keeps contradictory whole-trail claims as metadata."
+    },
+    {
       "id": "open-decision-8",
       "itemType": "open-decision",
       "sourceId": "decision-4",
@@ -180,18 +208,7 @@
       "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
     }
   ],
-  "fixNowBeforeRuntimeImport": [
-    {
-      "id": "open-decision-5",
-      "itemType": "open-decision",
-      "sourceId": "decision-1",
-      "status": "open-decision",
-      "details": "Decide whether to publish an official headline distance before geometry split review, because official/tourism sources vary between about 140 km, 150 km, 150-160 km, and 160 km.",
-      "disposition": "fix-now",
-      "owner": "candidate-geometry",
-      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
-    }
-  ],
+  "fixNowBeforeRuntimeImport": [],
   "runtimeSchemaNeeded": [
     {
       "id": "blocker-1",
@@ -246,7 +263,6 @@
   "unresolvedBeforeRuntimeImport": [
     "runtime-schema-needed: Runtime import requires a normalizer to choose and document distance fields, endpoint snaps, geometry splits, and access connector modeling.",
     "defer-publication-time: Dynamic 2026 access/currentness sources need rechecking close to publication.",
-    "fix-now: Decide whether to publish an official headline distance before geometry split review, because official/tourism sources vary between about 140 km, 150 km, 150-160 km, and 160 km.",
     "runtime-schema-needed: Decide the app connector model for M/S Storlule, Kvikkjokk-Bobäcken, helicopter midpoint access and the Gamájåhkå walking alternative.",
     "defer-publication-time: Decide whether hut toilets, emergency phones, water points, waste points and seasonal shop/provisions should be standalone facilities or attached to parent hut records."
   ],

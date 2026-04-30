@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "candidate-route-topology/v1",
+  "trailId": "vastra-vatterleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-topology-decisions-applied",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "vastra-vatterleden/normalization-handoff.research.json",
+  "sharedDecisionFile": "shared-importer-decisions.research.json",
+  "topologyPolicy": {
+    "decision": "Use route groups for walked official route topology and connections for transfers between route entries.",
+    "routeGroupKinds": {
+      "mainline": "Primary continuous official section chain for the selected trail model.",
+      "branch": "Official alternate or side branch that can be hiked as trail, but should not be silently merged into the mainline.",
+      "access": "Official or strongly supported approach route to/from public transport, village, trailhead or another trail.",
+      "connector": "Walked link between route groups or nearby route sections where it is part of the trail model."
+    },
+    "connectionsUse": "Use connections.json-style records for non-section transfers or continuity records between sections: ferry, bus, road transfer, rowboat, short walk transfer, same-island continuity, or mode none for a known gap with no usable transfer geometry.",
+    "officialRowboatRule": "If a rowboat crossing is an official route entry in its own right, model it as a section route with strong warnings. Otherwise model it as a rowboat connection or access/side metadata."
+  },
+  "topologySourceSummary": {
+    "importOrder": [
+      {
+        "step": 1,
+        "name": "Normalize route geometry first",
+        "notes": "Resolve stage 1 variants, stage 2 branches, stages 3-5 segment assembly/reversal, stage 7 mainline/access split and stage 8 two child GPX components plus connectors."
+      },
+      {
+        "step": 2,
+        "name": "Apply protected-area rule scoping after geometry",
+        "notes": "Run boundary overlays before attaching Tiveden, Granvik/Håketjärnarna, Stora Röå/Röå alsumpskog, Hjoåns dalgång, Hökensås/Hyltan, Gagnån or Mullsjö/Stråken area rules."
+      },
+      {
+        "step": 3,
+        "name": "Import only high-confidence facilities",
+        "notes": "Import facilities with source-backed coordinates and clear legal/currentness status. Keep Hjoåns dalgång fireplace, Hållsdammsbäcken fireplace/camping, Rödåkra/line 405, natural water, optional businesses and unverified subfacilities pending or suppressed."
+      },
+      {
+        "step": 4,
+        "name": "Recheck volatile sources immediately before runtime import",
+        "notes": "Transit schedules, fire bans, SMHI fire risk, forestry notices, business hours, bathing-water status, water reliability and shelter maintenance should be checked near the actual import date."
+      }
+    ]
+  },
+  "decisionsApplied": [
+    {
+      "id": "vastra-vatterleden-candidate-prototype-scope",
+      "fixNowItemRefs": [
+        "decision-3"
+      ],
+      "decision": "Approve candidate-only route/connector geometry prototype scope: stage variants and child components may be normalized under research artifacts only; runtime source data remains untouched."
+    }
+  ],
+  "routeGroups": [
+    {
+      "groupId": "vastra-vatterleden-mainline",
+      "kind": "mainline",
+      "status": "candidate-topology-explicit",
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp",
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa",
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+        "vastra-vatterleden-etapp-5-hjo-bastasen",
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult",
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ]
+    },
+    {
+      "groupId": "vastra-vatterleden-stage-1-alternate",
+      "kind": "branch",
+      "status": "variant-metadata",
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "notes": "Stage 1 primary/alternate variants must remain explicit during geometry normalization."
+    },
+    {
+      "groupId": "vastra-vatterleden-stage-2-skackastugan-alternate",
+      "kind": "branch",
+      "status": "variant-metadata",
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "notes": "Stage 2 direct line is primary; Skackastugan remains an alternate branch."
+    }
+  ],
+  "connections": [
+    {
+      "connectionId": "vastra-vatterleden-stage-7-fagerhult-access",
+      "fromSectionId": "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult",
+      "toSectionId": "vastra-vatterleden-etapp-8-fagerhult-mullsjo",
+      "mode": "walk",
+      "status": "mainline-access-split",
+      "importPolicy": "Treat Gagnån as the mainline handoff and Fagerhult as access/connector metadata unless final geometry proves otherwise."
+    },
+    {
+      "connectionId": "vastra-vatterleden-stage-8-child-components",
+      "fromSectionId": "vastra-vatterleden-etapp-8-fagerhult-mullsjo",
+      "mode": "walk",
+      "status": "child-geometry-components",
+      "importPolicy": "Keep stage 8 child GPX components under one section and normalize Furusjö-Mullsjö Hotell direction to the official endpoint."
+    }
+  ],
+  "displayPolicies": [],
+  "remainingGeometryWork": [
+    "Implement stage 1 variants, stage 2 alternate, stages 3-5 assembly/reversal, stage 7 access split and stage 8 child components before runtime route import.",
+    "Run protected-area overlays against the final normalized geometry."
+  ],
+  "unresolvedSectionRefs": []
+}

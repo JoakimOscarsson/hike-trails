@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "candidate-route-topology/v1",
+  "trailId": "nordkalottleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-topology-decisions-applied",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "nordkalottleden/normalization-handoff.research.json",
+  "sharedDecisionFile": "shared-importer-decisions.research.json",
+  "topologyPolicy": {
+    "decision": "Use route groups for walked official route topology and connections for transfers between route entries.",
+    "routeGroupKinds": {
+      "mainline": "Primary continuous official section chain for the selected trail model.",
+      "branch": "Official alternate or side branch that can be hiked as trail, but should not be silently merged into the mainline.",
+      "access": "Official or strongly supported approach route to/from public transport, village, trailhead or another trail.",
+      "connector": "Walked link between route groups or nearby route sections where it is part of the trail model."
+    },
+    "connectionsUse": "Use connections.json-style records for non-section transfers or continuity records between sections: ferry, bus, road transfer, rowboat, short walk transfer, same-island continuity, or mode none for a known gap with no usable transfer geometry.",
+    "officialRowboatRule": "If a rowboat crossing is an official route entry in its own right, model it as a section route with strong warnings. Otherwise model it as a rowboat connection or access/side metadata."
+  },
+  "topologySourceSummary": {
+    "importOrder": [
+      {
+        "phase": "preflight",
+        "actions": [
+          "Before runtime import, review data/research/candidate-trails/nordkalottleden/geometry/geometry-quality-report.json and decide endpoint/connector policy for sections 1, 2, 8, 11 and 12.",
+          "For normalization, use the generated official-source geometry artifacts as candidate route lines and keep Saarijarvi, source-boundary and Madam Bongos/Cunovuohppi gaps explicit.",
+          "Do not use OSM child relation 9517537 for section 12 geometry; it remains incomplete for Kautokeino and is superseded by the Turrutebasen artifact."
+        ]
+      },
+      {
+        "phase": "researched-12-section-model",
+        "sectionIds": [
+          "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi",
+          "nordkalottleden-kalottireitti-02-saarijarvi-kuonjarjohka",
+          "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi",
+          "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi",
+          "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki",
+          "nordkalottleden-kalottireitti-06-kopmajoki-somashytta",
+          "nordkalottleden-kalottireitti-07-somashytta-saraelv",
+          "nordkalottleden-kalottireitti-08-saraelv-sieimma",
+          "nordkalottleden-kalottireitti-09-sieimma-nedrefoss",
+          "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta",
+          "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos",
+          "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+        ]
+      },
+      {
+        "phase": "later-whole-trail-work",
+        "status": "unknown/recheck",
+        "blockedBy": [
+          "full-trail-section-model"
+        ]
+      }
+    ]
+  },
+  "decisionsApplied": [
+    {
+      "id": "nordkalottleden-endpoint-zone-policy",
+      "fixNowItemRefs": [
+        "blocker-2",
+        "blocker-3",
+        "blocker-4",
+        "blocker-5",
+        "decision-2",
+        "decision-4"
+      ],
+      "decision": "Keep the researched 12-section model as the candidate mainline and represent Saarijärvi, Saraelv/Ovi Raishiin, Madam Bongos/Čunovuohppi and the section 6 source-boundary mismatch as explicit endpoint-zone/known-gap metadata."
+    }
+  ],
+  "routeGroups": [
+    {
+      "groupId": "nordkalottleden-mainline-12-section-model",
+      "kind": "mainline",
+      "status": "candidate-topology-explicit",
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi",
+        "nordkalottleden-kalottireitti-02-saarijarvi-kuonjarjohka",
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi",
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki",
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta",
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv",
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma",
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss",
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta",
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos",
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "connectionId": "nordkalottleden-saarijarvi-hut-yard-offset",
+      "fromSectionId": "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi",
+      "toSectionId": "nordkalottleden-kalottireitti-02-saarijarvi-kuonjarjohka",
+      "mode": "none",
+      "status": "endpoint-zone-metadata",
+      "distanceMetersApprox": 152.3,
+      "importPolicy": "Do not invent a hut-yard connector; expose hut access only as endpoint/access metadata if supported."
+    },
+    {
+      "connectionId": "nordkalottleden-section-6-source-boundary",
+      "fromSectionId": "nordkalottleden-kalottireitti-06-kopmajoki-somashytta",
+      "toSectionId": "nordkalottleden-kalottireitti-07-somashytta-saraelv",
+      "mode": "walk",
+      "status": "source-boundary-gap-needs-review",
+      "distanceMetersApprox": 36.8,
+      "importPolicy": "Preserve the mixed-source boundary and review before creating any shared route graph node."
+    },
+    {
+      "connectionId": "nordkalottleden-saraelv-ovi-raishiin-endpoint-zone",
+      "fromSectionId": "nordkalottleden-kalottireitti-07-somashytta-saraelv",
+      "toSectionId": "nordkalottleden-kalottireitti-08-saraelv-sieimma",
+      "mode": "none",
+      "status": "compound-endpoint-zone",
+      "distanceMetersApprox": 1003.9,
+      "importPolicy": "Do not draw a seamless line from Saraelv to Ovi Raishiin without separately sourced connector geometry."
+    },
+    {
+      "connectionId": "nordkalottleden-madam-bongos-legacy-endpoint",
+      "fromSectionId": "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos",
+      "toSectionId": "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino",
+      "mode": "none",
+      "status": "legacy-place-access-metadata",
+      "distanceMetersApprox": 65.4,
+      "importPolicy": "Treat Madam Bongos/Čunovuohppi as legacy endpoint/access metadata, never as active lodging."
+    }
+  ],
+  "displayPolicies": [],
+  "remainingGeometryWork": [
+    "Review the section 6 source-boundary gap before creating runtime graph nodes.",
+    "Keep alternate whole-trail variants outside the 12-section model as a scope limitation."
+  ],
+  "unresolvedSectionRefs": []
+}

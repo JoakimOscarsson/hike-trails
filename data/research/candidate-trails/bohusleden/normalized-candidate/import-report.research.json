@@ -12,13 +12,35 @@
     "rule-warnings.research.json",
     "import-report.research.json"
   ],
+  "supplementalArtifactFiles": [
+    "route-topology.research.json"
+  ],
   "manifestSectionFiles": 27,
   "generatedCounts": {
     "routeSections": 27,
     "geometrySections": 27,
     "geometrySectionsWithCandidateGeojson": 27,
+    "routeTopologyDecisions": 1,
+    "routeGroups": 4,
+    "routeTopologyConnections": 2,
     "facilities": 716,
     "ruleWarnings": 682
+  },
+  "routeTopologySummary": {
+    "status": "candidate-topology-decisions-applied",
+    "decisionIds": [
+      "bohusleden-stage-21-partial-route-model"
+    ],
+    "routeGroupIds": [
+      "bohusleden-southern-chain",
+      "bohusleden-middle-chain",
+      "bohusleden-northern-chain",
+      "bohusleden-stage-21-partial"
+    ],
+    "connectionIds": [
+      "bohusleden-stage-8-to-9-bottenstugan",
+      "bohusleden-stage-21-to-22-known-gap"
+    ]
   },
   "blockers": [
     {
@@ -95,9 +117,9 @@
       "sourceId": "hardBlockers-1",
       "status": "hardBlockers",
       "details": "Stage 21 remains partial official geometry only and must not be imported as a complete route.",
-      "disposition": "fix-now",
-      "owner": "candidate-geometry",
-      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Route topology now models Stage 21 as research-only partial/self-navigation and keeps the southern, middle and northern chains separate instead of treating Stage 21 as complete."
     },
     {
       "id": "blocker-2",
@@ -231,12 +253,22 @@
     }
   ],
   "triageSummary": {
-    "fix-now": 3,
+    "resolved-now": 9,
     "runtime-integration-task": 1,
-    "resolved-now": 8,
-    "defer-publication-time": 2
+    "defer-publication-time": 2,
+    "fix-now": 2
   },
   "fixesAppliedNow": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "hardBlockers-1",
+      "status": "hardBlockers",
+      "details": "Stage 21 remains partial official geometry only and must not be imported as a complete route.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Route topology now models Stage 21 as research-only partial/self-navigation and keeps the southern, middle and northern chains separate instead of treating Stage 21 as complete."
+    },
     {
       "id": "blocker-3",
       "itemType": "blocker",
@@ -320,16 +352,6 @@
   ],
   "fixNowBeforeRuntimeImport": [
     {
-      "id": "blocker-1",
-      "itemType": "blocker",
-      "sourceId": "hardBlockers-1",
-      "status": "hardBlockers",
-      "details": "Stage 21 remains partial official geometry only and must not be imported as a complete route.",
-      "disposition": "fix-now",
-      "owner": "candidate-geometry",
-      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
-    },
-    {
       "id": "blocker-7",
       "itemType": "blocker",
       "sourceId": "publicationTimeRechecks-3",
@@ -400,7 +422,6 @@
     "Confirm no runtime app data, generated public data, shared scripts or package files are modified by the normalization-prep pass."
   ],
   "unresolvedBeforeRuntimeImport": [
-    "fix-now: Stage 21 remains partial official geometry only and must not be imported as a complete route.",
     "runtime-integration-task: Runtime integration still needs a separate explicit import task.",
     "defer-publication-time: WST status/deviation widgets, fire bans, transit timetables, commercial opening hours and seasonal services.",
     "defer-publication-time: Known bridge/raft/forestry/windfall/planned-burn notices.",

@@ -13,8 +13,448 @@ const manifest = await readJson(path.join(candidateRoot, "manifest.json"));
 
 const includedTrails = prep.scope.includedTrails;
 const trailManifestById = new Map(manifest.trails.map((trail) => [trail.id, trail]));
+const supplementalArtifactFiles = ["route-topology.research.json"];
 const batchSummary = [];
+const topologyFixRows = [];
 const blockerTriageRows = [];
+
+const topologyDecisionConfig = {
+  bohusleden: {
+    status: "candidate-topology-decisions-applied",
+    decisionsApplied: [
+      {
+        id: "bohusleden-stage-21-partial-route-model",
+        fixNowItemRefs: ["hardBlockers-1"],
+        decision:
+          "Keep Stage 21 out of the default complete-route chain until authoritative complete linework exists; preserve the researched partial/self-navigation span as explicit candidate metadata."
+      }
+    ],
+    routeGroups: [
+      {
+        groupId: "bohusleden-southern-chain",
+        kind: "mainline",
+        sectionOrders: [1, 2, 3, 4, 5, 6, 7, 8],
+        status: "candidate-importable-after-geometry-validation",
+        notes: "Stages 1-8 form the southern walked chain ending at Bottenstugan."
+      },
+      {
+        groupId: "bohusleden-middle-chain",
+        kind: "mainline",
+        sectionOrders: [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+        status: "candidate-importable-after-geometry-validation",
+        notes: "Stages 9-20 resume from Bottenstugan and stop before the partial Stage 21 span."
+      },
+      {
+        groupId: "bohusleden-northern-chain",
+        kind: "mainline",
+        sectionOrders: [22, 23, 24, 25, 26, 27],
+        status: "candidate-importable-after-geometry-validation",
+        notes: "Stages 22-27 remain a separate northern chain unless runtime UX can show the Stage 21 gap clearly."
+      },
+      {
+        groupId: "bohusleden-stage-21-partial",
+        kind: "branch",
+        sectionOrders: [21],
+        status: "research-only-partial-self-navigation",
+        notes: "Not eligible for ordinary complete-route import under the shared partial/self-navigation policy."
+      }
+    ],
+    connections: [
+      {
+        connectionId: "bohusleden-stage-8-to-9-bottenstugan",
+        fromSectionOrder: 8,
+        toSectionOrder: 9,
+        mode: "walk",
+        status: "reviewed-short-walk-connection-needed",
+        distanceMetersApprox: 49.4,
+        importPolicy: "Represent as an explicit reviewed walk connection if runtime route graph support is used; do not silently move endpoints."
+      },
+      {
+        connectionId: "bohusleden-stage-21-to-22-known-gap",
+        fromSectionOrder: 21,
+        toSectionOrder: 22,
+        mode: "none",
+        status: "known-gap",
+        distanceMetersApprox: 4296.3,
+        importPolicy: "Do not bridge or auto-route; show Stage 21/22 separation visibly if partial Stage 21 is ever exposed."
+      }
+    ],
+    remainingGeometryWork: [
+      "Validate candidate GeoJSON for Stages 1-20 and 22-27 before runtime import.",
+      "Stage 21 still requires authoritative complete geometry or explicit missing-route runtime UX before it can be shown as a route section."
+    ],
+    triageResolvedSourceIds: ["hardBlockers-1"],
+    triageResolvedAction:
+      "Route topology now models Stage 21 as research-only partial/self-navigation and keeps the southern, middle and northern chains separate instead of treating Stage 21 as complete."
+  },
+  hallandsleden: {
+    status: "candidate-topology-decisions-applied",
+    decisionsApplied: [
+      {
+        id: "hallandsleden-k4-k5-official-gap",
+        fixNowItemRefs: ["hardBlockers-3"],
+        decision:
+          "Treat the K4 Frillesas to K5 Steninge break as an official network gap, not a missing connector to invent."
+      }
+    ],
+    routeGroups: [
+      { groupId: "hallandsleden-norra", kind: "mainline", sectionRefs: ["N1", "N2", "N3", "N4", "N5", "N6", "N7"], status: "candidate-topology-explicit" },
+      { groupId: "hallandsleden-varberg-branch", kind: "branch", sectionRefs: ["N8"], status: "candidate-topology-explicit" },
+      { groupId: "hallandsleden-mellersta-west", kind: "mainline", sectionRefs: ["M1", "M2", "M3", "M4", "M5", "M6"], status: "candidate-topology-explicit" },
+      { groupId: "hallandsleden-mellersta-east", kind: "branch", sectionRefs: ["M7", "M8"], status: "candidate-topology-explicit" },
+      { groupId: "hallandsleden-sodra-west", kind: "mainline", sectionRefs: ["S1", "S2", "S4", "S5"], status: "candidate-topology-explicit" },
+      { groupId: "hallandsleden-sodra-gyltige-branch", kind: "branch", sectionRefs: ["S3"], status: "candidate-topology-explicit" },
+      { groupId: "hallandsleden-sodra-east", kind: "branch", sectionRefs: ["S6", "S7", "S8", "S9"], status: "candidate-topology-explicit" },
+      { groupId: "hallandsleden-kustleden-north", kind: "mainline", sectionRefs: ["K1", "K2", "K3", "K4"], status: "candidate-topology-explicit" },
+      { groupId: "hallandsleden-kustleden-south", kind: "mainline", sectionRefs: ["K5", "K6", "K7", "K8", "K9", "K10"], status: "candidate-topology-explicit" }
+    ],
+    connections: [
+      {
+        connectionId: "hallandsleden-k4-to-k5-official-gap",
+        fromSectionRef: "K4",
+        toSectionRef: "K5",
+        mode: "none",
+        status: "official-network-gap",
+        importPolicy: "Keep visible as two coastal chains unless an official connector is later published."
+      },
+      {
+        connectionId: "hallandsleden-akulla-junction",
+        mode: "walk",
+        status: "shared-junction-node-candidate",
+        importPolicy: "Use shared-node topology at Akulla/Ästad/Byasjön/Kvarnforsen/Gyltige/Frodeparken/Oskarström/Koarp only after preserving original endpoints in provenance."
+      }
+    ],
+    remainingGeometryWork: ["Run protected-area and water-protection GIS overlays against the selected canonical lines before public rule warnings."],
+    triageResolvedSourceIds: ["hardBlockers-3"],
+    triageResolvedAction: "Route topology now preserves K4-K5 as an explicit official network gap with separate coastal route groups."
+  },
+  hogakustenleden: {
+    status: "candidate-display-and-topology-decisions-applied",
+    decisionsApplied: [
+      {
+        id: "hogakustenleden-section-2-distance-display",
+        fixNowItemRefs: ["hogakustenleden-section-2-distance-display"],
+        decision: "Use the Höga Kusten 26.8 km section distance for display while preserving Naturkartan/GPX contradictions as metadata."
+      },
+      {
+        id: "hogakustenleden-section-7-difficulty-display",
+        fixNowItemRefs: ["hogakustenleden-section-7-difficulty"],
+        decision: "Prefer the conservative Naturkartan red/krävande difficulty while preserving the Höga Kusten Medel caveat."
+      }
+    ],
+    routeGroups: [{ groupId: "hogakustenleden-mainline", kind: "mainline", allSections: true, status: "candidate-topology-explicit" }],
+    connections: [],
+    displayPolicies: [
+      {
+        scope: "section-2",
+        displayDistanceKm: 26.8,
+        contradictionPolicy: "Preserve alternate source/computed distances in distanceCaveats."
+      },
+      {
+        scope: "section-7",
+        displayDifficulty: "red/krävande",
+        contradictionPolicy: "Keep Höga Kusten Medel as a source caveat."
+      }
+    ],
+    remainingGeometryWork: ["Build final candidate geometry artifacts and run protected-area clipping before runtime import."],
+    triageResolvedSourceIds: ["hogakustenleden-section-2-distance-display", "hogakustenleden-section-7-difficulty"],
+    triageResolvedAction: "Display policy is now explicit in route-topology.research.json while source contradictions remain preserved."
+  },
+  hoglandsleden: {
+    status: "candidate-topology-decisions-applied",
+    decisionsApplied: [
+      {
+        id: "hoglandsleden-route-builder-topology",
+        fixNowItemRefs: ["decision-1"],
+        decision:
+          "Model Höglandsleden as a main loop with official branches rather than one undifferentiated chain: HÖ3 as the Mariannelund branch and HÖ18-HÖ23 as the Tomtabacken-Kärringabacka branch."
+      }
+    ],
+    routeGroups: [
+      {
+        groupId: "hoglandsleden-main-loop",
+        kind: "mainline",
+        sectionOrders: [1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+        status: "candidate-topology-explicit",
+        notes: "Main loop/primary official chain through Skuruhatt, Valbacken, Sävsjö, Vikskvarn, Ränneborg and back to Skuruhatt."
+      },
+      {
+        groupId: "hoglandsleden-mariannelund-branch",
+        kind: "branch",
+        sectionOrders: [3],
+        status: "candidate-topology-explicit",
+        notes: "Official branch from Valbacken to Mariannelund."
+      },
+      {
+        groupId: "hoglandsleden-tomtabacken-karringabacka-branch",
+        kind: "branch",
+        sectionOrders: [18, 19, 20, 21, 22, 23],
+        status: "candidate-topology-explicit",
+        notes: "Official branch from Vikskvarn through Tomtabacken, Hok, Byarum and Skillingaryd to Kärringabacka."
+      }
+    ],
+    connections: [
+      {
+        connectionId: "hoglandsleden-valbacken-branch-junction",
+        fromSectionOrder: 2,
+        toSectionOrder: 3,
+        mode: "walk",
+        status: "official-branch-junction",
+        importPolicy: "Represent HÖ3 as a branch from the Valbacken junction."
+      },
+      {
+        connectionId: "hoglandsleden-vikskvarn-branch-junction",
+        fromSectionOrder: 14,
+        toSectionOrder: 18,
+        mode: "walk",
+        status: "official-branch-junction",
+        importPolicy: "Represent HÖ18-HÖ23 as the Tomtabacken/Kärringabacka branch from Vikskvarn."
+      }
+    ],
+    remainingGeometryWork: ["Complete candidate geometry package for the selected route groups before runtime import."],
+    triageResolvedSourceIds: ["decision-1"],
+    triageResolvedAction: "Route-builder topology is now fixed as main loop plus Mariannelund and Tomtabacken-Kärringabacka branches."
+  },
+  kungsleden: {
+    status: "candidate-topology-recorded-needs-geometry-and-source-policy",
+    decisionsApplied: [
+      {
+        id: "kungsleden-selected-section-chain",
+        decision:
+          "Keep the researched 27-section chain as the candidate topology, with non-walk transfers and water/road crossings represented as explicit connector metadata during the later importer pass."
+      }
+    ],
+    routeGroups: [{ groupId: "kungsleden-mainline", kind: "mainline", allSections: true, status: "candidate-topology-recorded" }],
+    connections: [],
+    remainingGeometryWork: [
+      "Transform EPSG:3006 official geometry to WGS84, assemble multi-part lines, apply endpoint-zone snapping policy and reverse directions where needed.",
+      "Resolve source-policy and connector taxonomy decisions before runtime import."
+    ]
+  },
+  nordkalottleden: {
+    status: "candidate-topology-decisions-applied",
+    decisionsApplied: [
+      {
+        id: "nordkalottleden-endpoint-zone-policy",
+        fixNowItemRefs: ["blocker-2", "blocker-3", "blocker-4", "blocker-5", "decision-2", "decision-4"],
+        decision:
+          "Keep the researched 12-section model as the candidate mainline and represent Saarijärvi, Saraelv/Ovi Raishiin, Madam Bongos/Čunovuohppi and the section 6 source-boundary mismatch as explicit endpoint-zone/known-gap metadata."
+      }
+    ],
+    routeGroups: [{ groupId: "nordkalottleden-mainline-12-section-model", kind: "mainline", allSections: true, status: "candidate-topology-explicit" }],
+    connections: [
+      {
+        connectionId: "nordkalottleden-saarijarvi-hut-yard-offset",
+        fromSectionOrder: 1,
+        toSectionOrder: 2,
+        mode: "none",
+        status: "endpoint-zone-metadata",
+        distanceMetersApprox: 152.3,
+        importPolicy: "Do not invent a hut-yard connector; expose hut access only as endpoint/access metadata if supported."
+      },
+      {
+        connectionId: "nordkalottleden-section-6-source-boundary",
+        fromSectionOrder: 6,
+        toSectionOrder: 7,
+        mode: "walk",
+        status: "source-boundary-gap-needs-review",
+        distanceMetersApprox: 36.8,
+        importPolicy: "Preserve the mixed-source boundary and review before creating any shared route graph node."
+      },
+      {
+        connectionId: "nordkalottleden-saraelv-ovi-raishiin-endpoint-zone",
+        fromSectionOrder: 7,
+        toSectionOrder: 8,
+        mode: "none",
+        status: "compound-endpoint-zone",
+        distanceMetersApprox: 1003.9,
+        importPolicy: "Do not draw a seamless line from Saraelv to Ovi Raishiin without separately sourced connector geometry."
+      },
+      {
+        connectionId: "nordkalottleden-madam-bongos-legacy-endpoint",
+        fromSectionOrder: 11,
+        toSectionOrder: 12,
+        mode: "none",
+        status: "legacy-place-access-metadata",
+        distanceMetersApprox: 65.4,
+        importPolicy: "Treat Madam Bongos/Čunovuohppi as legacy endpoint/access metadata, never as active lodging."
+      }
+    ],
+    remainingGeometryWork: [
+      "Review the section 6 source-boundary gap before creating runtime graph nodes.",
+      "Keep alternate whole-trail variants outside the 12-section model as a scope limitation."
+    ],
+    triageResolvedSourceIds: ["blocker-2", "blocker-3", "blocker-4", "blocker-5", "decision-2", "decision-4"],
+    triageResolvedAction:
+      "Endpoint/connector policy is now explicit: hut-yard and legacy lodging offsets stay metadata, Saraelv/Ovi remains a compound endpoint gap, and no seamless connector is invented."
+  },
+  ostkustleden: {
+    status: "candidate-topology-decisions-applied",
+    decisionsApplied: [
+      {
+        id: "ostkustleden-etapp-8-cabin-gap-policy",
+        fixNowItemRefs: ["decision-1"],
+        decision:
+          "Keep the 156.4 m Etapp 8 official-GPX-to-Lilla-Hycklinge-cabin gap as metadata only unless a separate authoritative access leg is sourced."
+      },
+      {
+        id: "ostkustleden-candidate-geometry-prototype-scope",
+        fixNowItemRefs: ["decision-3"],
+        decision:
+          "Approve candidate-only geometry normalization under the research folder; runtime source data remains untouched until a separate import task."
+      }
+    ],
+    routeGroups: [{ groupId: "ostkustleden-main-ring", kind: "mainline", allSections: true, status: "candidate-topology-explicit" }],
+    connections: [
+      {
+        connectionId: "ostkustleden-etapp-8-to-lilla-hycklinge-cabin",
+        fromSectionOrder: 8,
+        toSectionOrder: 1,
+        mode: "none",
+        status: "metadata-only-cabin-gap",
+        distanceMetersApprox: 156.4,
+        importPolicy: "Do not add an access leg to the default route until separately sourced."
+      }
+    ],
+    remainingGeometryWork: ["Run boundary-sensitive GIS overlays against final normalized ring geometry."],
+    triageResolvedSourceIds: ["decision-1", "decision-3"],
+    triageResolvedAction: "Route topology now keeps the Etapp 8 cabin gap as metadata and approves candidate-only prototype work."
+  },
+  padjelantaleden: {
+    status: "candidate-display-and-topology-decisions-applied",
+    decisionsApplied: [
+      {
+        id: "padjelantaleden-headline-distance-policy",
+        fixNowItemRefs: ["decision-1"],
+        decision:
+          "Do not publish a single official headline distance yet; use section-level display distances and preserve the 140/150/150-160/160 km source claims until geometry split review."
+      }
+    ],
+    routeGroups: [{ groupId: "padjelantaleden-mainline", kind: "mainline", allSections: true, status: "candidate-topology-explicit" }],
+    connections: [
+      {
+        connectionId: "padjelantaleden-ritsem-akka-boat-access",
+        fromSectionOrder: 1,
+        mode: "boat",
+        status: "access-connector-metadata",
+        importPolicy: "Keep M/S Storlule and trailhead boat access as connector/access metadata, not walking route geometry."
+      },
+      {
+        connectionId: "padjelantaleden-kvikkjokk-bobacken-boat-access",
+        fromSectionOrder: 10,
+        mode: "boat",
+        status: "access-connector-metadata",
+        importPolicy: "Keep Kvikkjokk-Bobäcken boat logistics in the description/connector layer until runtime connector support exists."
+      }
+    ],
+    displayPolicies: [
+      {
+        scope: "whole-trail",
+        displayDistanceKm: null,
+        contradictionPolicy: "Suppress single headline total; show section distances and source-claim caveats."
+      }
+    ],
+    remainingGeometryWork: ["Complete geometry split review and connector/runtime schema work for boats, helicopter access and alternates."],
+    triageResolvedSourceIds: ["decision-1"],
+    triageResolvedAction: "Distance policy now suppresses a single headline total and keeps contradictory whole-trail claims as metadata."
+  },
+  sjuharadsleden: {
+    status: "candidate-topology-recorded-needs-geometry-normalization",
+    decisionsApplied: [
+      {
+        id: "sjuharadsleden-mainline-selected",
+        decision:
+          "Keep the researched 10-section mainline order, while leaving section 6 cleanup and section 7 densification as real geometry work before runtime import."
+      }
+    ],
+    routeGroups: [{ groupId: "sjuharadsleden-mainline", kind: "mainline", allSections: true, status: "candidate-topology-recorded" }],
+    connections: [],
+    remainingGeometryWork: [
+      "Normalize section 6 Rölle duplicate/parallel/spur artifacts into one mainline.",
+      "Densify/resample the known section 7 simplified chord before runtime route import."
+    ]
+  },
+  tjustleden: {
+    status: "candidate-topology-recorded-needs-runtime-schema",
+    decisionsApplied: [
+      {
+        id: "tjustleden-mainline-and-tail-policy",
+        decision:
+          "Keep the researched 9-section mainline and preserve terminal tails/connectors explicitly instead of trimming or silently merging them."
+      }
+    ],
+    routeGroups: [{ groupId: "tjustleden-mainline", kind: "mainline", allSections: true, status: "candidate-topology-recorded" }],
+    connections: [],
+    remainingGeometryWork: ["Finalize normalized geometry before overlays and runtime route import."]
+  },
+  "vastra-vatterleden": {
+    status: "candidate-topology-decisions-applied",
+    decisionsApplied: [
+      {
+        id: "vastra-vatterleden-candidate-prototype-scope",
+        fixNowItemRefs: ["decision-3"],
+        decision:
+          "Approve candidate-only route/connector geometry prototype scope: stage variants and child components may be normalized under research artifacts only; runtime source data remains untouched."
+      }
+    ],
+    routeGroups: [
+      { groupId: "vastra-vatterleden-mainline", kind: "mainline", allSections: true, status: "candidate-topology-explicit" },
+      {
+        groupId: "vastra-vatterleden-stage-1-alternate",
+        kind: "branch",
+        sectionOrders: [1],
+        status: "variant-metadata",
+        notes: "Stage 1 primary/alternate variants must remain explicit during geometry normalization."
+      },
+      {
+        groupId: "vastra-vatterleden-stage-2-skackastugan-alternate",
+        kind: "branch",
+        sectionOrders: [2],
+        status: "variant-metadata",
+        notes: "Stage 2 direct line is primary; Skackastugan remains an alternate branch."
+      }
+    ],
+    connections: [
+      {
+        connectionId: "vastra-vatterleden-stage-7-fagerhult-access",
+        fromSectionOrder: 7,
+        toSectionOrder: 8,
+        mode: "walk",
+        status: "mainline-access-split",
+        importPolicy: "Treat Gagnån as the mainline handoff and Fagerhult as access/connector metadata unless final geometry proves otherwise."
+      },
+      {
+        connectionId: "vastra-vatterleden-stage-8-child-components",
+        fromSectionOrder: 8,
+        mode: "walk",
+        status: "child-geometry-components",
+        importPolicy: "Keep stage 8 child GPX components under one section and normalize Furusjö-Mullsjö Hotell direction to the official endpoint."
+      }
+    ],
+    remainingGeometryWork: [
+      "Implement stage 1 variants, stage 2 alternate, stages 3-5 assembly/reversal, stage 7 access split and stage 8 child components before runtime route import.",
+      "Run protected-area overlays against the final normalized geometry."
+    ],
+    triageResolvedSourceIds: ["decision-3"],
+    triageResolvedAction: "Candidate-only geometry prototype scope is now approved and explicitly barred from writing runtime source data."
+  },
+  vikingaleden: {
+    status: "candidate-topology-recorded-needs-overlap-dedupe",
+    decisionsApplied: [
+      {
+        id: "vikingaleden-overlap-alias-policy",
+        decision:
+          "Keep the 12-section Vikingaleden candidate topology while preserving sections 7-12 as Upplandsleden overlap aliases for the later dedupe/import pass."
+      }
+    ],
+    routeGroups: [
+      { groupId: "vikingaleden-mainline", kind: "mainline", sectionOrders: [1, 2, 3, 4, 5, 6], status: "candidate-topology-recorded" },
+      { groupId: "vikingaleden-upplandsleden-overlap", kind: "branch", sectionOrders: [7, 8, 9, 10, 11, 12], status: "overlap-alias-metadata" }
+    ],
+    connections: [],
+    remainingGeometryWork: ["Run Upplandsleden overlap dedupe for sections 7-12 before runtime import."]
+  }
+};
 
 for (const trailId of includedTrails) {
   const trailRoot = path.join(candidateRoot, trailId);
@@ -29,12 +469,14 @@ for (const trailId of includedTrails) {
 
   const routeSections = buildRouteSections(trailId, sections, handoff);
   const geometryIndex = buildGeometryIndex(trailId, sections, handoff, geojsonFiles);
+  const routeTopology = buildRouteTopology(trailId, routeSections, handoff);
   const facilities = buildFacilities(trailId, sections);
   const ruleWarnings = buildRuleWarnings(trailId, sections, handoff);
-  const importReport = buildImportReport(trailId, handoff, routeSections, geometryIndex, facilities, ruleWarnings);
+  const importReport = buildImportReport(trailId, handoff, routeSections, geometryIndex, routeTopology, facilities, ruleWarnings);
 
   await writeJson(path.join(normalizedRoot, "route-sections.research.json"), routeSections);
   await writeJson(path.join(normalizedRoot, "route-geometry-index.research.json"), geometryIndex);
+  await writeJson(path.join(normalizedRoot, "route-topology.research.json"), routeTopology);
   await writeJson(path.join(normalizedRoot, "facilities.research.json"), facilities);
   await writeJson(path.join(normalizedRoot, "rule-warnings.research.json"), ruleWarnings);
   await writeJson(path.join(normalizedRoot, "import-report.research.json"), importReport);
@@ -48,9 +490,21 @@ for (const trailId of includedTrails) {
     pendingFacilityCandidates: facilities.summary.byState["pending-review"] ?? 0,
     suppressedFacilityCandidates: facilities.summary.byState.suppress ?? 0,
     ruleWarningRecords: ruleWarnings.records.length,
+    topologyDecisions: routeTopology.decisionsApplied.length,
+    routeGroups: routeTopology.routeGroups.length,
+    topologyConnections: routeTopology.connections.length,
     blockerCount: importReport.blockers.length,
     openDecisionCount: importReport.openDecisions.length,
     triageSummary: importReport.triageSummary
+  });
+  topologyFixRows.push({
+    trailId,
+    status: routeTopology.status,
+    decisionsApplied: routeTopology.decisionsApplied,
+    routeGroups: routeTopology.routeGroups,
+    connections: routeTopology.connections,
+    displayPolicies: routeTopology.displayPolicies,
+    remainingGeometryWork: routeTopology.remainingGeometryWork
   });
   blockerTriageRows.push({
     trailId,
@@ -71,12 +525,29 @@ await writeJson(path.join(candidateRoot, "phase3-candidate-artifacts.research.js
   runtimeImportApproved: false,
   artifactRootPattern: "data/research/candidate-trails/<trail-id>/normalized-candidate/",
   artifactFiles: shared.resolvedSharedDecisions.candidateArtifactLayout.minimumArtifacts,
+  supplementalArtifactFiles,
   includedTrails: batchSummary,
   nextActions: [
     "Work the fix-now queue in blocker-triage.research.json before runtime import work.",
     "Prioritize candidate geometry builds, topology/connectors, facility dedupe and GIS overlays.",
     "Run GIS overlays and live publication checks before user-facing rule warnings.",
     "Keep pending-review and suppress facility records out of runtime output."
+  ]
+});
+
+await writeJson(path.join(candidateRoot, "geometry-topology-fix-pass.research.json"), {
+  schemaVersion: "candidate-geometry-topology-fix-pass/v1",
+  lastUpdated,
+  status: "topology-decisions-applied",
+  purpose:
+    "First fix-now pass for candidate trails: make route topology, known gaps, connector policies, and display-distance decisions explicit before runtime import work.",
+  runtimeImportApproved: false,
+  artifactRootPattern: "data/research/candidate-trails/<trail-id>/normalized-candidate/route-topology.research.json",
+  includedTrails: topologyFixRows,
+  remainingFixNowCategories: [
+    "Actual candidate GeoJSON assembly/normalization where the selected topology still lacks route linework.",
+    "GIS overlays against final normalized geometry for protected-area and restriction warnings.",
+    "Facility dedupe and taxonomy passes where the blocker is about POI clustering rather than route topology."
   ]
 });
 
@@ -268,6 +739,110 @@ function buildGeometryIndex(trailId, sections, handoff, geojsonFiles) {
   };
 }
 
+function buildRouteTopology(trailId, routeSections, handoff) {
+  const config = topologyDecisionConfig[trailId] ?? {
+    status: "candidate-topology-recorded",
+    decisionsApplied: [{ id: `${trailId}-mainline-topology`, decision: "Use the researched section order as the candidate mainline." }],
+    routeGroups: [{ groupId: `${trailId}-mainline`, kind: "mainline", allSections: true, status: "candidate-topology-recorded" }],
+    connections: [],
+    remainingGeometryWork: ["Review candidate geometry before runtime import."]
+  };
+  const unresolvedSectionRefs = [];
+  const routeGroups = (config.routeGroups ?? []).map((group) => {
+    const sectionIds = resolveSectionIds(routeSections.sections, group, unresolvedSectionRefs);
+    return prune({
+      groupId: group.groupId,
+      kind: group.kind,
+      status: group.status,
+      sectionIds,
+      notes: group.notes ?? null
+    });
+  });
+  const connections = (config.connections ?? []).map((connection) =>
+    prune({
+      connectionId: connection.connectionId,
+      fromSectionId: resolveConnectionSectionId(routeSections.sections, connection, "from", unresolvedSectionRefs),
+      toSectionId: resolveConnectionSectionId(routeSections.sections, connection, "to", unresolvedSectionRefs),
+      mode: connection.mode,
+      status: connection.status,
+      distanceMetersApprox: connection.distanceMetersApprox ?? null,
+      importPolicy: connection.importPolicy ?? null
+    })
+  );
+
+  return {
+    schemaVersion: "candidate-route-topology/v1",
+    trailId,
+    lastUpdated,
+    status: config.status,
+    runtimeImportApproved: false,
+    sourceHandoff: `${trailId}/normalization-handoff.research.json`,
+    sharedDecisionFile: "shared-importer-decisions.research.json",
+    topologyPolicy: shared.resolvedSharedDecisions.routeTopologyPolicy,
+    topologySourceSummary: summarizeTopologySource(handoff),
+    decisionsApplied: config.decisionsApplied ?? [],
+    routeGroups,
+    connections,
+    displayPolicies: config.displayPolicies ?? [],
+    remainingGeometryWork: config.remainingGeometryWork ?? [],
+    unresolvedSectionRefs
+  };
+}
+
+function summarizeTopologySource(handoff) {
+  return prune({
+    importOrder: handoff.importOrder ?? null,
+    geometryPlanSummary: handoff.geometryPlan?.summary ?? handoff.geometryPlan?.decision ?? null,
+    endpointContinuityIssues: handoff.geometryPlan?.endpointContinuityIssues ?? null,
+    blockedGeometry: handoff.geometryPlan?.blockedGeometry ?? null
+  });
+}
+
+function resolveSectionIds(sections, group, unresolvedSectionRefs) {
+  if (group.allSections) return sections.map((section) => section.sectionId);
+  const refs = [
+    ...(group.sectionOrders ?? []).map((value) => ({ kind: "order", value })),
+    ...(group.sectionRefs ?? []).map((value) => ({ kind: "sectionNumber", value })),
+    ...(group.sectionIds ?? []).map((value) => ({ kind: "sectionId", value }))
+  ];
+  return refs.flatMap((ref) => {
+    const section = findSection(sections, ref);
+    if (!section) {
+      unresolvedSectionRefs.push({ scope: group.groupId, ...ref });
+      return [];
+    }
+    return [section.sectionId];
+  });
+}
+
+function resolveConnectionSectionId(sections, connection, side, unresolvedSectionRefs) {
+  const orderKey = `${side}SectionOrder`;
+  const refKey = `${side}SectionRef`;
+  const idKey = `${side}SectionId`;
+  const ref =
+    connection[orderKey] != null
+      ? { kind: "order", value: connection[orderKey] }
+      : connection[refKey] != null
+        ? { kind: "sectionNumber", value: connection[refKey] }
+        : connection[idKey] != null
+          ? { kind: "sectionId", value: connection[idKey] }
+          : null;
+  if (!ref) return null;
+  const section = findSection(sections, ref);
+  if (!section) {
+    unresolvedSectionRefs.push({ scope: connection.connectionId, side, ...ref });
+    return null;
+  }
+  return section.sectionId;
+}
+
+function findSection(sections, ref) {
+  if (ref.kind === "order") return sections.find((section) => section.order === ref.value);
+  if (ref.kind === "sectionNumber") return sections.find((section) => String(section.sectionNumber) === String(ref.value));
+  if (ref.kind === "sectionId") return sections.find((section) => section.sectionId === ref.value);
+  return null;
+}
+
 function buildFacilities(trailId, sections) {
   const records = [];
   for (const { data, sourceFile } of sections) {
@@ -344,7 +919,7 @@ function buildRuleWarnings(trailId, sections, handoff) {
   };
 }
 
-function buildImportReport(trailId, handoff, routeSections, geometryIndex, facilities, ruleWarnings) {
+function buildImportReport(trailId, handoff, routeSections, geometryIndex, routeTopology, facilities, ruleWarnings) {
   const minimumArtifacts = shared.resolvedSharedDecisions.candidateArtifactLayout.minimumArtifacts;
   const manifestEntry = trailManifestById.get(trailId);
   const blockers = normalizeBlockers(handoff.blockers);
@@ -358,13 +933,23 @@ function buildImportReport(trailId, handoff, routeSections, geometryIndex, facil
     runtimeImportApproved: false,
     sourceHandoff: `${trailId}/normalization-handoff.research.json`,
     artifactFiles: minimumArtifacts,
+    supplementalArtifactFiles,
     manifestSectionFiles: manifestEntry?.files?.sectionFiles ?? null,
     generatedCounts: {
       routeSections: routeSections.sections.length,
       geometrySections: geometryIndex.sections.length,
       geometrySectionsWithCandidateGeojson: geometryIndex.sections.filter((section) => section.candidateGeojsonFiles.length > 0).length,
+      routeTopologyDecisions: routeTopology.decisionsApplied.length,
+      routeGroups: routeTopology.routeGroups.length,
+      routeTopologyConnections: routeTopology.connections.length,
       facilities: facilities.records.length,
       ruleWarnings: ruleWarnings.records.length
+    },
+    routeTopologySummary: {
+      status: routeTopology.status,
+      decisionIds: routeTopology.decisionsApplied.map((decision) => decision.id),
+      routeGroupIds: routeTopology.routeGroups.map((group) => group.groupId),
+      connectionIds: routeTopology.connections.map((connection) => connection.connectionId)
     },
     blockers,
     openDecisions,
@@ -429,6 +1014,15 @@ function triageBlockers(trailId, blockers, openDecisions) {
 
 function classifyTriageItem(trailId, item) {
   const text = `${item.sourceId} ${item.status} ${item.details}`.toLowerCase();
+  const topologyResolution = topologyDecisionConfig[trailId];
+
+  if (topologyResolution?.triageResolvedSourceIds?.includes(item.sourceId)) {
+    return {
+      disposition: "resolved-now",
+      owner: "candidate-data",
+      action: topologyResolution.triageResolvedAction ?? "Resolved by explicit route topology decisions in normalized-candidate/route-topology.research.json."
+    };
+  }
 
   if (text.includes("readme.md status is older")) {
     return {
