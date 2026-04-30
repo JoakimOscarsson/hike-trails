@@ -30,7 +30,7 @@
     "ruleWarnings": 267
   },
   "routeTopologySummary": {
-    "status": "candidate-topology-recorded-needs-geometry-normalization",
+    "status": "candidate-topology-and-geometry-normalization-recorded",
     "decisionIds": [
       "sjuharadsleden-mainline-selected"
     ],
@@ -95,9 +95,9 @@
       "sourceId": "sjuharadsleden-geometry-normalization",
       "status": "blocks-runtime-route-import",
       "details": "Run geometry normalization/densification for section 6 and 7 before runtime route import.",
-      "disposition": "fix-now",
+      "disposition": "resolved-now",
       "owner": "candidate-geometry",
-      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+      "action": "Research-only candidate GeoJSON now exists for all 10 Sjuhäradsleden sections; section 6 uses selected Rölle mainline components and section 7 is densified before overlays."
     },
     {
       "id": "blocker-2",
@@ -161,12 +161,22 @@
     }
   ],
   "triageSummary": {
-    "fix-now": 2,
+    "resolved-now": 3,
+    "fix-now": 1,
     "defer-publication-time": 2,
-    "external-source-approval": 1,
-    "resolved-now": 2
+    "external-source-approval": 1
   },
   "fixesAppliedNow": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "sjuharadsleden-geometry-normalization",
+      "status": "blocks-runtime-route-import",
+      "details": "Run geometry normalization/densification for section 6 and 7 before runtime route import.",
+      "disposition": "resolved-now",
+      "owner": "candidate-geometry",
+      "action": "Research-only candidate GeoJSON now exists for all 10 Sjuhäradsleden sections; section 6 uses selected Rölle mainline components and section 7 is densified before overlays."
+    },
     {
       "id": "open-decision-6",
       "itemType": "open-decision",
@@ -189,16 +199,6 @@
     }
   ],
   "fixNowBeforeRuntimeImport": [
-    {
-      "id": "blocker-1",
-      "itemType": "blocker",
-      "sourceId": "sjuharadsleden-geometry-normalization",
-      "status": "blocks-runtime-route-import",
-      "details": "Run geometry normalization/densification for section 6 and 7 before runtime route import.",
-      "disposition": "fix-now",
-      "owner": "candidate-geometry",
-      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
-    },
     {
       "id": "blocker-2",
       "itemType": "blocker",
@@ -253,7 +253,6 @@
     "Protected-area and fire/transit currentness checks remain publication-day blockers."
   ],
   "unresolvedBeforeRuntimeImport": [
-    "fix-now: Run geometry normalization/densification for section 6 and 7 before runtime route import.",
     "fix-now: Production GIS clipping all facility points/route segments.",
     "defer-publication-time: Refresh fire-ban status for Härryda, Bollebygd, Borås, Ulricehamn, Mullsjö before publication; refresh Västtrafik/JLT schedules/stops before publication.",
     "defer-publication-time: Verify public access/opening status for service facilities before exposing water/toilet/cafe/lodging.",

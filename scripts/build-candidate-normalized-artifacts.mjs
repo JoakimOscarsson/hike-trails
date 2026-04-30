@@ -359,19 +359,18 @@ const topologyDecisionConfig = {
     triageResolvedAction: "Distance policy now suppresses a single headline total and keeps contradictory whole-trail claims as metadata."
   },
   sjuharadsleden: {
-    status: "candidate-topology-recorded-needs-geometry-normalization",
+    status: "candidate-topology-and-geometry-normalization-recorded",
     decisionsApplied: [
       {
         id: "sjuharadsleden-mainline-selected",
         decision:
-          "Keep the researched 10-section mainline order, while leaving section 6 cleanup as real geometry work before runtime import. Section 7 has a generated densified candidate GeoJSON that still needs final map QA before runtime import."
+          "Keep the researched 10-section mainline order. Section 6 uses the selected Rölle mainline components and section 7 has a generated densified candidate GeoJSON before overlay work."
       }
     ],
     routeGroups: [{ groupId: "sjuharadsleden-mainline", kind: "mainline", allSections: true, status: "candidate-topology-recorded" }],
     connections: [],
     remainingGeometryWork: [
-      "Normalize section 6 Rölle duplicate/parallel/spur artifacts into one mainline.",
-      "Review the generated section 7 densified candidate GeoJSON during final map QA before runtime route import."
+      "Review the generated section 6 Rölle mainline selection and section 7 densification during final map QA before runtime route import."
     ]
   },
   tjustleden: {
@@ -485,6 +484,11 @@ const policyDecisionConfig = {
 };
 
 const generatedGeometryResolutionConfig = {
+  sjuharadsleden: {
+    triageResolvedSourceIds: ["sjuharadsleden-geometry-normalization"],
+    action:
+      "Research-only candidate GeoJSON now exists for all 10 Sjuhäradsleden sections; section 6 uses selected Rölle mainline components and section 7 is densified before overlays."
+  },
   tjustleden: {
     triageResolvedSourceIds: ["tjustleden-normalized-geometry-before-overlays"],
     action:

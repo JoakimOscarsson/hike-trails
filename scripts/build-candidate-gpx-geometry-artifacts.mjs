@@ -29,8 +29,10 @@ const trailBuildPolicy = {
   },
   sjuharadsleden: {
     densifySectionIds: new Set(["sjuharadsleden-etapp-7-blackered-prangens-camping"]),
+    componentSelection: new Map([["sjuharadsleden-etapp-6-karlsaflogarna-blackered", [0, 2, 5, 7]]]),
     maxSegmentMeters: 100,
-    notes: "Section 7 is densified where official GPX sampling leaves simplified chords; section 6 still needs the separate Rölle cleanup decision before runtime import."
+    notes:
+      "Section 6 selects GPX components 0, 2, 5 and 7 as the Rölle mainline, dropping short duplicate/parallel fragments and the spur; section 7 is densified where official GPX sampling leaves simplified chords."
   }
 };
 
@@ -123,9 +125,12 @@ async function buildSectionGeometry({ trailId, sectionId, sourceUrl, sourceSumma
     if (lines.length === 0) throw new Error("No GPX track or route coordinates found");
 
     const policy = trailBuildPolicy[trailId] ?? {};
+    const selectedComponentIndexes = policy.componentSelection?.get(sectionId) ?? null;
+    const componentSelectionApplied = Array.isArray(selectedComponentIndexes);
+    const selectedLines = componentSelectionApplied ? [joinComponentLines(selectedComponentIndexes.map((index) => lines[index]).filter(Boolean))] : lines;
     const reverseApplied = policy.reverseSectionIds?.has(sectionId) ?? false;
     const densifyApplied = policy.densifySectionIds?.has(sectionId) ?? false;
-    const normalizedLines = lines.map((line) => {
+    const normalizedLines = selectedLines.map((line) => {
       const maybeReversed = reverseApplied ? [...line].reverse() : line;
       return densifyApplied ? densifyLine(maybeReversed, policy.maxSegmentMeters ?? 100) : maybeReversed;
     });
@@ -150,6 +155,8 @@ async function buildSectionGeometry({ trailId, sectionId, sourceUrl, sourceSumma
             sourceComputedDistanceKm: sourceSummary?.computedDistanceKm ?? null,
             lineCount: normalizedLines.length,
             pointCount,
+            componentSelectionApplied,
+            selectedComponentIndexes,
             reverseApplied,
             densifyApplied,
             buildPolicyNotes: summarizeBuildPolicy(trailId)?.notes ?? null,
@@ -171,6 +178,8 @@ async function buildSectionGeometry({ trailId, sectionId, sourceUrl, sourceSumma
       rawGpx: toProjectRelative(path.join(sourceOutputRoot, `${sectionId}.gpx`)),
       lineCount: normalizedLines.length,
       pointCount,
+      componentSelectionApplied,
+      selectedComponentIndexes,
       reverseApplied,
       densifyApplied
     };
@@ -227,6 +236,21 @@ function densifyLine(line, maxSegmentMeters) {
   return densified;
 }
 
+function joinComponentLines(lines) {
+  if (lines.length === 0) return [];
+  const joined = [...lines[0]];
+  for (const line of lines.slice(1)) {
+    if (line.length === 0) continue;
+    const last = joined[joined.length - 1];
+    const forwardDistance = haversineMeters(last, line[0]);
+    const reversedDistance = haversineMeters(last, line[line.length - 1]);
+    const oriented = reversedDistance < forwardDistance ? [...line].reverse() : line;
+    const startIndex = haversineMeters(last, oriented[0]) < 2 ? 1 : 0;
+    joined.push(...oriented.slice(startIndex));
+  }
+  return joined;
+}
+
 function interpolateCoordinate(start, end, ratio) {
   const dimensions = Math.max(start.length, end.length);
   const coordinate = [];
@@ -264,6 +288,7 @@ function summarizeBuildPolicy(trailId) {
   return {
     reverseSectionIds: [...(policy.reverseSectionIds ?? [])],
     densifySectionIds: [...(policy.densifySectionIds ?? [])],
+    componentSelection: Object.fromEntries(policy.componentSelection ?? []),
     maxSegmentMeters: policy.maxSegmentMeters ?? null,
     notes: policy.notes
   };
