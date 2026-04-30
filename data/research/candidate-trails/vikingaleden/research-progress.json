@@ -1,0 +1,41 @@
+{
+  "trailId": "vikingaleden",
+  "lastUpdated": "2026-04-30",
+  "currentPhase": "section-research-complete-top-level-metadata-added",
+  "completedSections": [
+    "vikingaleden-etapp-1-grisslehamn-trastabron",
+    "vikingaleden-etapp-2-trastabron-havero-kyrka",
+    "vikingaleden-etapp-3-havero-kyrka-haverodal",
+    "vikingaleden-etapp-4-haverodal-sanda",
+    "vikingaleden-etapp-5-sanda-harg-hargshamn",
+    "vikingaleden-etapp-6-harg-gimo",
+    "vikingaleden-etapp-7-gimo-osterbybruk",
+    "vikingaleden-etapp-8-osterbybruk-rison",
+    "vikingaleden-etapp-9-rison-lovstabruk",
+    "vikingaleden-etapp-10-lovstabruk-vastland",
+    "vikingaleden-etapp-11-vastland-marma",
+    "vikingaleden-etapp-12-marma-alvkarleby"
+  ],
+  "inProgressSections": [],
+  "blockedSections": [],
+  "sectionCoverage": {
+    "expectedSections": 12,
+    "researchedSections": 12,
+    "status": "complete"
+  },
+  "sourceCoverage": {
+    "sectionPackets": "Each section has a researched section packet with route, facilities, access, rules, and source notes.",
+    "mapData": "Each section packet has drawable geometry metadata. Sections 1-6 use Naturkartan GPX as the main source; sections 7-12 use Outdooractive/Paxwalk GPX with Upplandsleden overlap checks where applicable.",
+    "overlapReview": "Sections 7-12 overlap Upplandsleden sections 11-16 and require dedupe against existing Upplandsleden records before runtime import."
+  },
+  "knownGaps": [
+    "Trail-level metadata was generated from the completed section packets rather than a separate official overview pass.",
+    "Import work must dedupe facilities, geometry, and route aliases against Upplandsleden for overlapping sections 7-12.",
+    "Visit Roslagen Etapp 12 detail returned 404 during section research; the section packet uses Naturkartan/Upplandsleden and Outdooractive/Paxwalk evidence."
+  ],
+  "nextActions": [
+    "Run the normal candidate-trail normalization pass.",
+    "Dedupe overlapping Vikingaleden/Upplandsleden route geometry and facilities.",
+    "Verify current official overview and any changed section pages immediately before runtime import."
+  ]
+}

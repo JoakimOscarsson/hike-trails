@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "candidate-trail-research/v1",
+  "trailId": "hogakustenleden",
+  "lastUpdated": "2026-04-30",
+  "purpose": "Research-only candidate trail packet for later import. Do not integrate into runtime app data yet.",
+  "officialName": "Höga Kustenleden",
+  "aliases": [
+    "Högakustenleden",
+    "Höga Kusten-leden",
+    "High Coast Trail",
+    "Signature trail Höga Kusten"
+  ],
+  "status": "section-research-complete-ready-for-normalization-with-caveats",
+  "currentResearchBaseline": {
+    "baseline": "Use the active Höga Kusten tourism pages and current Naturkartan per-section pages as the import baseline.",
+    "sectionCount": 9,
+    "totalDistanceKmClaimed": 135,
+    "estimatedTotalTime": "7-9 days",
+    "direction": "Official order is south to north from Hornöberget to Örnsköldsvik; sources say sections can be hiked in both directions.",
+    "sections": [
+      {
+        "sectionId": "hogakustenleden-section-1-hornoberget-lovvik",
+        "sectionNumber": 1,
+        "name": "Hornöberget-Lövvik",
+        "from": "Hornöberget",
+        "to": "Lövvik",
+        "distanceKm": 11.0,
+        "difficulty": "Svår"
+      },
+      {
+        "sectionId": "hogakustenleden-section-2-lovvik-gavik",
+        "sectionNumber": 2,
+        "name": "Lövvik-Gavik",
+        "from": "Lövvik",
+        "to": "Gavik",
+        "distanceKm": 26.8,
+        "difficulty": "Svår",
+        "distanceCaveat": "Höga Kusten says 26.8 km, Naturkartan says 23.7 km, and GPX computes about 24.9 km. Display 26.8 km and preserve contradictions as metadata."
+      },
+      {
+        "sectionId": "hogakustenleden-section-3-gavik-lappudden",
+        "sectionNumber": 3,
+        "name": "Gavik-Lappudden",
+        "from": "Gavik",
+        "to": "Lappudden",
+        "distanceKm": 9.4,
+        "difficulty": "Lätt"
+      },
+      {
+        "sectionId": "hogakustenleden-section-4-lappudden-ullanger",
+        "sectionNumber": 4,
+        "name": "Lappudden-Ullånger",
+        "from": "Lappudden",
+        "to": "Ullånger",
+        "distanceKm": 14.6,
+        "difficulty": "Medel"
+      },
+      {
+        "sectionId": "hogakustenleden-section-5-ullanger-skuleberget",
+        "sectionNumber": 5,
+        "name": "Ullånger-Skuleberget",
+        "from": "Ullånger",
+        "to": "Skuleberget",
+        "distanceKm": 20.8,
+        "difficulty": "Svår"
+      },
+      {
+        "sectionId": "hogakustenleden-section-6-skuleberget-entre-syd",
+        "sectionNumber": 6,
+        "name": "Skuleberget-Entré Syd Skuleskogens nationalpark",
+        "from": "Skuleberget",
+        "to": "Entré Syd Skuleskogens nationalpark",
+        "distanceKm": 10.86,
+        "difficulty": "Svår"
+      },
+      {
+        "sectionId": "hogakustenleden-section-7-entre-syd-entre-nord",
+        "sectionNumber": 7,
+        "name": "Entré Syd-Entré Nord Skuleskogens nationalpark",
+        "from": "Entré Syd Skuleskogens nationalpark",
+        "to": "Entré Nord Skuleskogens nationalpark",
+        "distanceKm": 7.5,
+        "difficulty": "Röd - krävande",
+        "difficultyCaveat": "Höga Kusten says Medel; Naturkartan says Röd - krävande. Prefer the conservative normalized difficulty."
+      },
+      {
+        "sectionId": "hogakustenleden-section-8-entre-nord-balesudden",
+        "sectionNumber": 8,
+        "name": "Entré Nord-Balesuddens naturreservat",
+        "from": "Entré Nord Skuleskogens nationalpark",
+        "to": "Balesuddens naturreservat",
+        "distanceKm": 20.0,
+        "difficulty": "Medel"
+      },
+      {
+        "sectionId": "hogakustenleden-section-9-balesudden-ornskoldsvik",
+        "sectionNumber": 9,
+        "name": "Balesuddens naturreservat-Örnsköldsvik",
+        "from": "Balesuddens naturreservat",
+        "to": "Örnsköldsvik",
+        "distanceKm": 18.8,
+        "difficulty": "Medel"
+      }
+    ]
+  },
+  "sourceBaseline": {
+    "primaryTrailSource": "Höga Kusten current section pages",
+    "primaryMapSource": "Naturkartan current per-section pages and GPX downloads",
+    "legacySourcesToAvoidAsPrimary": [
+      "13-stage Höga Kusten PDF/legacy association structure",
+      "7-stage STF signature-trail structure",
+      "old app or OSM section numbering where it conflicts with the current 9-section structure"
+    ]
+  },
+  "importReadiness": {
+    "status": "ready-for-normalization-with-caveats",
+    "sectionPackets": "All 9 sections are present and marked ready for normalization with caveats in research-progress.json.",
+    "geometry": "Section packets include current GPX/route geometry research; no consolidated top-level geometry artifact has been built yet.",
+    "facilityNormalization": "Facilities are researched at section level and need the normal facility dedupe/suppression pass before runtime import.",
+    "ruleWarnings": [
+      "Recheck fire bans and current route notices before publication.",
+      "Apply protected-area rules only to the affected route portions documented in section packets.",
+      "Model Slåttdalsskrevan as a hazard/avoid-through-passage warning unless newer formal notices change the wording."
+    ]
+  }
+}
