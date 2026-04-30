@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-30T14:30:00Z",
-  "currentPhase": "Phase 2 K8 validation passed; ready to commit hallandsleden-halmstad-c-paarp",
+  "lastUpdated": "2026-04-30T16:10:00Z",
+  "currentPhase": "Phase 2 K9 validation passed; commit pending for hallandsleden-paarp-mellbystrand",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -35,7 +35,8 @@
     "hallandsleden-steninge-haverdal",
     "hallandsleden-haverdal-tylosand",
     "hallandsleden-tylosand-halmstad-c",
-    "hallandsleden-halmstad-c-paarp"
+    "hallandsleden-halmstad-c-paarp",
+    "hallandsleden-paarp-mellbystrand"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -1097,19 +1098,22 @@
       "sectionNumber": "K9",
       "name": "Påarp - Mellbystrand",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-gpx-discovered-map-api-line-empty-or-sparse-needs-parsing",
-      "startEndCoordinateStatus": "not-yet-validated-gpx-endpoints-needed",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-from-official-sources-lane-and-main-thread-official-page-api-gpx-places-baseline",
+      "routeGeometryStatus": "complete-from-route-geometry-lane-and-main-thread-baseline-official-gpx-api-geo-json-continuous-linestring-trkseg-255-points-computed-13-434-km-osm-relation-20187273-reverse-direction-corroboration",
+      "startEndCoordinateStatus": "complete-start-56-601437-12-917840-end-56-514695-12-949724-k8-handoff-3-23-m-k10-handoff-10-82-m",
+      "commuteAccessStatus": "complete-from-transit-access-lane-and-main-thread-baseline-paarp-kattegattvag-start-and-mellbystrand-end-official-stops-found",
+      "facilityResearchStatus": "complete-from-facilities-lane-and-main-thread-baseline-20-or-21-official-place-records-found-official-water-rest-at-hokafaltet-and-snapparp",
+      "rulesSafetyStatus": "complete-from-rules-safety-currentness-lane-and-main-thread-protected-area-beach-fire-currentness-baseline",
+      "synthesisStatus": "complete-section-json-written",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
-        "Run six independent section research lanes and synthesize findings.",
-        "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
-        "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Use official GPX/API geo_json as canonical K9 geometry; suppress API line.geometry, missing Naturkartan and local/cycling/route-app linework; keep OSM relation 20187273 as reverse-direction corroboration only.",
+        "Decide endpoint snapping for the approximately 3.23 m K8-to-K9 Påarp handoff and approximately 10.82 m K9-to-K10 Mellbystrand handoff.",
+        "Resolve the official places API 20-vs-21 count/query variation and decide whether Burgers & Dreams belongs in the import candidate set.",
+        "Deduplicate official/OSM water, rest and toilet clusters at Snapparp and Hökafältet; keep Birger Pers väg water pending unless description-derived water evidence is accepted.",
+        "Import Gullbranna, Tönnersa, Hökafältet and Laholmsbuktens sanddynsreservat spans/rules; rerun the protected-area overlay against final geometry before import.",
+        "Surface Genevadsån/Lagaoset soft-sand and current hazards without treating them as closures.",
+        "Recheck Laholm/Halmstad beach dog, horse, camping and motor-traffic rules, fire/Brandrisk, Hallandstrafiken schedules, Hökafältet access barrier, Laholm lighting works and official closures immediately before import."
       ]
     },
     "hallandsleden-mellbystrand-bastad-station": {
@@ -1135,6 +1139,47 @@
     }
   },
   "agentBatches": [
+    {
+      "batchId": "hallandsleden-paarp-mellbystrand-initial-6-lane-2026-04-30",
+      "sectionId": "hallandsleden-paarp-mellbystrand",
+      "startedAt": "2026-04-30T14:35:00Z",
+      "completedAt": "2026-04-30T15:40:00Z",
+      "status": "completed-and-synthesized",
+      "synthesisFile": "sections/hallandsleden-paarp-mellbystrand.research.json",
+      "synthesisDecision": "All six K9 lanes returned usable evidence after re-prompting the field-report and rules/safety lanes. No targeted follow-up batch needed before writing the section file; remaining issues are import-time/currentness caveats around official distance rounding, places API count/query variation, service filtering, water/rest dedupe, protected-area spans/rules, Lagaoset/Genevadsån soft-sand and current hazards, Hökafältet car-access barrier, Laholm beach dog/horse/camping/motor-traffic rules, live fire status and Hallandstrafiken schedules.",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "nickname": "Carson"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "nickname": "Darwin"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "nickname": "Beauvoir the 2nd"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "nickname": "Poincare the 2nd"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "nickname": "Rawls the 2nd"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "nickname": "Kuhn the 2nd"
+        }
+      ]
+    },
     {
       "batchId": "hallandsleden-halmstad-c-paarp-initial-6-lane-2026-04-30",
       "sectionId": "hallandsleden-halmstad-c-paarp",
@@ -5920,10 +5965,27 @@
       "fieldReports": "complete from field-report lane; no active closure found, sparse exact K8 field reports, partial Fylleån/Östra stranden/Hagön context and Halmstad C works-currentness caveats recorded",
       "rulesSafety": "complete from rules-safety-currentness lane; Hagön and Trönninge ängar direct route spans, Fylleån/Skäret/landscape-protection context, Halmstad beach dog/fire/public-place/currentness and Halmstad C/Fredsgatan works caveats recorded",
       "synthesis": "complete; section JSON written and validation passed before commit"
+    },
+    "hallandsleden-paarp-mellbystrand": {
+      "overview": "complete from trail.research.json overview pass",
+      "officialSources": "complete from official-sources lane and main-thread baseline covering official page, tokenized map API, official GPX, places API, important-info page and section comment",
+      "routeGeometry": "complete from route-geometry lane and main-thread baseline; official GPX/API geo_json canonical candidate is a 255-point LineString, official 13 km, GPX desc 13.5 km and computed 13.434 km; OSM relation 20187273 reverse-direction/13.611 km kept as corroboration only",
+      "endpointCoordinates": "complete from official GPX/API endpoints; K8-to-K9 handoff 3.23 m and K9-to-K10 handoff 10.82 m",
+      "facilities": "complete from facilities lane and main-thread baseline; 20-21 official places depending on query variant, official water/rest at Hökafältet and Snapparp, endpoint toilets/access/services and OSM candidate facilities recorded",
+      "commuteAccess": "complete from transit-access lane and main-thread baseline; official Påarp Kattegattväg bus 314 start and Mellbystrand bus 225 end, OSM stop pairs and parking candidates recorded",
+      "fieldReports": "complete from re-prompted field-report lane and main-thread baseline; no active K9 closure found, official July 2025 comment, Naturvandra 2025 partial report, AllTrails partial-condition reports and Laholm/Hökafältet currentness caveats recorded",
+      "rulesSafety": "complete from re-prompted rules-safety-currentness lane and main-thread baseline; Gullbranna, Tönnersa, Hökafältet, Natura 2000 spans, Laholm/Halmstad beach rules, fire policy, Lagaoset/Genevadsån hazards and currentness caveats recorded",
+      "synthesis": "complete; section JSON written and validation passed before commit"
     }
   },
   "knownGaps": [
-    "Only the overview and first thirty-three sections have been researched/synthesized; K9-K10 still need the six-lane workflow.",
+    "Only the overview and first thirty-four sections have been researched/synthesized; K10 still needs the six-lane workflow.",
+    "K9 research-ready caveat: official GPX/API geo_json is a continuous 255-point LineString/trkseg from 56.601437,12.917840 to 56.514695,12.949724, official 13 km, GPX desc 13.5 km and computed 13.434 km; suppress API line.geometry, missing Naturkartan and local/cycling/route-app linework; keep OSM relation 20187273 as reverse-direction corroboration only.",
+    "K9 research-ready caveat: K8-to-K9 Påarp handoff is about 3.23 m and K9-to-K10 Mellbystrand handoff is about 10.82 m; later normalization should decide whether to snap endpoints.",
+    "K9 research-ready caveat: official places API returned 20 records in the main query while the official-source lane saw 21 including Burgers & Dreams; resolve the API count/query variation and service filtering before import.",
+    "K9 research-ready caveat: deduplicate official/OSM water, rest and toilet clusters at Snapparp and Hökafältet; keep Birger Pers väg water pending unless description-derived water evidence is accepted.",
+    "K9 research-ready caveat: Gullbranna, Tönnersa, Hökafältet and Laholmsbuktens sanddynsreservat directly overlap the route; rerun protected-area overlay against final geometry and keep Lagaoset/Lagan/Genevadsån soft-sand/current/water-safety context separate from route closures.",
+    "K9 research-ready caveat: Laholm/Halmstad beach rules affect dogs, horses, camping and motor traffic; recheck live fire-ban/Brandrisk status, Hallandstrafiken schedules, Hökafältet access barrier, Laholm lighting works and official closures/currentness before import.",
     "K8 research-ready caveat: official GPX/API geo_json is a continuous 573-point LineString/trkseg from 56.669375,12.863491 to 56.601432,12.917788, official 14.6 km, GPX desc 14.7 km and computed 14.655 km; suppress API line.geometry, guessed Naturkartan slugs and OSM adjacent/local/inland/bicycle linework for K8 import.",
     "K8 research-ready caveat: K7-to-K8 Halmstad C handoff is about 5.34 m and K8-to-K9 Påarp handoff is about 3.23 m; later normalization should decide whether to snap endpoints.",
     "K8 research-ready caveat: official places API returned 29 records but no official drinking-water, free-campsite, free-shelter or trail fireplace category; OSM-only Trönninge/Östra water and Steglebacken/Trönninge fire/picnic candidates need verification.",
@@ -6170,9 +6232,9 @@
     "S6 research-ready caveat: old Assman-Mästocka 16-17 km route-app/tourism sources are stale and must be suppressed."
   ],
   "nextActions": [
-    "Validate K8 section JSON, README and research-progress, then commit K8 before starting K9.",
-    "After K8 commit, start K9 six-lane research for hallandsleden-paarp-mellbystrand / Påarp - Mellbystrand.",
-    "For K9, use official page https://www.hallandsleden.se/etapp/paarp-mellbystrand and official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Paarp_Mellbystrand.gpx; focus on official 13 km easy section, K8/K9 Påarp handoff, K9/K10 Mellbystrand handoff, Påarp/Laxvik/Mellbystrand transit/access, coastal/beach facilities, protected-area/rules/currentness and service filtering."
+    "Commit K9 before starting K10.",
+    "After K9 commit, start K10 six-lane research for hallandsleden-mellbystrand-bastad-station / Mellbystrand - Båstad station.",
+    "For K10, use official page https://www.hallandsleden.se/etapp/mellbystrand-bastad-station, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Mellbystrand_Bastad.gpx, official 12 km easy section, K9/K10 Mellbystrand handoff, Båstad station endpoint and Kusten terminal/Skåne boundary/Skåneleden or transit handoff, plus Laholm/Båstad coastal rules/currentness."
   ],
   "handoffNotes": [
     "Work resumed on 2026-04-29 in /workspaces/hike-trails-codex-hallandsleden-research on branch codex/hallandsleden-research.",
@@ -7196,6 +7258,36 @@
       "id": "phase-2-k8-validation-passed-2026-04-30",
       "completedAt": "2026-04-30T14:30:00Z",
       "summary": "Validated the K8 section JSON, all Hallandsleden candidate JSON files and whitespace before committing K8."
+    },
+    {
+      "id": "phase-2-k9-initial-six-lane-batch-started-2026-04-30",
+      "completedAt": "2026-04-30T14:35:00Z",
+      "summary": "Committed K8 as 13fb365, then started K9 Påarp - Mellbystrand six-lane research batch with agents Carson, Darwin, Beauvoir the 2nd, Poincare the 2nd, Rawls the 2nd and Kuhn the 2nd. Main thread retains all file-write ownership."
+    },
+    {
+      "id": "phase-2-k9-main-thread-baseline-2026-04-30",
+      "completedAt": "2026-04-30T15:05:00Z",
+      "summary": "Main thread baseline for K9 checked official page/API/GPX/places, K8 and K10 endpoint topology, OSM/Overpass access/facility/route-relation context, Länsstyrelsen Gullbranna/Tönnersa/Hökafältet pages, Laholm beach/dog/horse/camping/motor-traffic rules, Hallandsleden important information and partial field-report sources. Official GPX/API geo_json is a continuous 255-point LineString/trkseg from 56.601437,12.917840 to 56.514695,12.949724, with official 13 km, GPX desc 13.5 km and computed 13.434 km. Handoffs are 3.23 m to K8 and 10.82 m to K10. Official places API returns 20 records including official drinking-water/rest records at Hökafältet and Snapparp. OSM relation 20187273 is reverse-direction validation evidence. Overlay found Gullbranna approx km 1.756-3.985, Tönnersa approx km 4.169-8.960 and Hökafältet approx km 10.498-12.647."
+    },
+    {
+      "id": "phase-2-k9-four-lane-reports-complete-rerun-started-2026-04-30",
+      "completedAt": "2026-04-30T15:20:00Z",
+      "summary": "Received usable K9 reports from official-sources, route-geometry, facilities and transit/access lanes. Field-report and rules/safety lanes returned no report bodies, so main thread re-prompted both lanes before synthesis. Usable reports so far confirm official GPX/API geometry, 20 official places, OSM relation 20187273, strong official water/rest records at Hökafältet and Snapparp, Påarp Kattegattväg and Mellbystrand transit access, core facility filtering and endpoint/parking caveats."
+    },
+    {
+      "id": "phase-2-k9-six-lane-reports-complete-synthesis-started-2026-04-30",
+      "completedAt": "2026-04-30T15:45:00Z",
+      "summary": "Received usable replacement reports from the K9 field-report and rules/safety lanes. All six lane reports are now available. Reports confirm canonical official GPX/API geo_json, OSM relation 20187273 as reverse-direction corroboration, 20-21 official places depending on query variant, official water/rest at Hökafältet and Snapparp, Påarp Kattegattväg and Mellbystrand transit access, no active K9 closure, Gullbranna/Tönnersa/Hökafältet/Natura direct spans, Lagaoset/Genevadsån soft-sand/current hazards, Laholm beach dog/horse/camping/motor-traffic rules, Hökafältet car-access barrier, partial 2025 field reports and service-filtering caveats. Main thread decided no targeted follow-up batch is needed before synthesis."
+    },
+    {
+      "id": "phase-2-k9-six-lane-synthesis-complete-2026-04-30",
+      "completedAt": "2026-04-30T16:05:00Z",
+      "summary": "Wrote sections/hallandsleden-paarp-mellbystrand.research.json from the six K9 lane reports and main-thread baseline. The section is research-ready with caveats around official distance rounding, places API count/query variation, endpoint snapping, OSM reverse-direction relation, official Hökafältet/Snapparp water/rest dedupe, protected-area spans/rules, Genevadsån/Lagaoset hazards, Laholm/Halmstad beach rules, Hökafältet barrier, fire/transit/works/currentness checks."
+    },
+    {
+      "id": "phase-2-k9-validation-passed-2026-04-30",
+      "completedAt": "2026-04-30T16:10:00Z",
+      "summary": "Validated the K9 section JSON, all Hallandsleden candidate JSON files and whitespace before committing K9."
     }
   ]
 }
