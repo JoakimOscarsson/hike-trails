@@ -1,0 +1,2789 @@
+{
+  "schemaVersion": "candidate-rule-warnings/v1",
+  "trailId": "ostkustleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-normalized-research-only",
+  "runtimeImportApproved": false,
+  "ruleWarningPolicy": {
+    "decision": "Only hiker-facing warnings should reach runtime user surfaces.",
+    "runtimeEligibleWarnings": [
+      "legal or local rules that affect hiking behavior",
+      "route hazards and known current-condition warnings",
+      "camping, fire, dog, cycling, bathing, fishing, water-protection and access restrictions",
+      "source contradictions that change how a hiker should plan or navigate"
+    ],
+    "runtimeIneligibleWarnings": [
+      "import-maintenance instructions",
+      "normalization provenance text",
+      "raw GPX processing instructions",
+      "debug notes about snapping, reversing, geometry repair or section assignment unless rewritten as hiker-facing caveats"
+    ],
+    "granularity": "Prefer subsegment or facility/site-level warnings after GIS overlay. Use whole-section warnings only when exact subsegment scope is unknown but the warning is important.",
+    "currentness": "Fire bans, temporary closures, forestry/storm damage, ferry/boat service, transit, business openings, water reliability and cabin/hut season must be rechecked immediately before publication."
+  },
+  "summary": {
+    "totalRecords": 188,
+    "byCategory": {
+      "campingAndFire.campingRules": 3,
+      "campingAndFire.feesAsOfAccessedDate": 3,
+      "campingAndFire.fireRules": 3,
+      "campingAndFire.overnightCabins": 3,
+      "conditionReports.0": 8,
+      "conditionReports.1": 8,
+      "conditionReports.2": 8,
+      "conditionReports.3": 8,
+      "conditionReports.4": 8,
+      "conditionReports.5": 5,
+      "rulesAndSafety.closuresAndCurrentness": 3,
+      "rulesAndSafety.hunting": 8,
+      "rulesAndSafety.protectedAreas": 8,
+      "rulesAndSafety.swimmingSafety": 1,
+      "rulesAndSafety.waterProtection": 5,
+      "sourceContradictions.0": 8,
+      "sourceContradictions.1": 8,
+      "sourceContradictions.2": 8,
+      "sourceContradictions.3": 8,
+      "sourceContradictions.4": 8,
+      "sourceContradictions.5": 6,
+      "rulesAndSafety.routeFinding": 2,
+      "sourceContradictions.6": 2,
+      "conditionReports.6": 2,
+      "rulesAndSafety.accessRules": 1,
+      "rulesAndSafety.dogsAndLivestock": 1,
+      "campingAndFire.camping": 5,
+      "campingAndFire.confidence": 5,
+      "campingAndFire.fire": 5,
+      "campingAndFire.toilets": 5,
+      "rulesAndSafety.closuresAndReroutes": 5,
+      "rulesAndSafety.difficultyAndTrailFollowing": 1,
+      "rulesAndSafety.dogs": 5,
+      "rulesAndSafety.fire": 5,
+      "rulesAndSafety.waterAndBathing": 1,
+      "rulesAndSafety.trailSpecificSafety": 1,
+      "rulesAndSafety.forestry": 3,
+      "rulesAndSafety.grazingAndLivestock": 2,
+      "rulesAndSafety.roadSafety": 2,
+      "rulesAndSafety.waterSafety": 2,
+      "handoff.ruleWarningPlan": 5
+    },
+    "byUserFacingEligibility": {
+      "candidate-hiker-facing": 111,
+      "needs-review": 42,
+      "import-maintenance-only": 35
+    }
+  },
+  "records": [
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-1-lilla-hycklinge-nynas-campingandfire-campingrules",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "sourceCollection": "campingAndFire.campingRules",
+      "category": "campingAndFire.campingRules",
+      "title": "camping Rules",
+      "summary": "Döderhult cites general allemansrätten guidance for one night of tenting on another person's land when done responsibly. | Humlenäs reserve rules prohibit camping more than one day in the same place. | Tenting at Ostkustleden cabins has a 50 SEK/person fee according to current Swedish maintainer/Naturkartan pages.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/",
+        "https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/humlenas.html",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-nynas?guide_id=201",
+        "https://www.oskarshamn.se/mer-om-kommunen/raddning-sakerhet-kris/raddningstjansten/eldningsforbud/"
+      ],
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-1-lilla-hycklinge-nynas-campingandfire-feesasofaccesseddate",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "sourceCollection": "campingAndFire.feesAsOfAccessedDate",
+      "category": "campingAndFire.feesAsOfAccessedDate",
+      "title": "fees As Of Accessed Date",
+      "summary": "Older English page reports 70 SEK; prefer Swedish/Naturkartan current pages.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-nynas?guide_id=201"
+      ],
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-1-lilla-hycklinge-nynas-campingandfire-firerules",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "sourceCollection": "campingAndFire.fireRules",
+      "category": "campingAndFire.fireRules",
+      "title": "fire Rules",
+      "summary": "Humlenäs reserve permits fire only in a brought grill/outdoor stove or designated places. | Nynäs cabin page says no outdoor fires at the cabin and no fire in the upstairs fireplace. | Lilla Hycklinge cabin page notes an outdoor grill ring if no fire ban applies. | Oskarshamn's fire-ban page said no fire ban on 2026-04-29, but same-day fire-ban/risk checks are required because fire status changes quickly.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/",
+        "https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/humlenas.html",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-nynas?guide_id=201",
+        "https://www.oskarshamn.se/mer-om-kommunen/raddning-sakerhet-kris/raddningstjansten/eldningsforbud/"
+      ],
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-1-lilla-hycklinge-nynas-campingandfire-overnightcabins",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "sourceCollection": "campingAndFire.overnightCabins",
+      "category": "campingAndFire.overnightCabins",
+      "title": "overnight Cabins",
+      "summary": "Simple cabin at start/end of circular route; water and toilet available per object page; fee applies. | Official Etapp 1 endpoint cabin; about 15 sleeping places, simple kitchen/wood stove, no electricity, dry toilet, unreliable water. Potential winter-closure conflict requires verification.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/",
+        "https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/humlenas.html",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-nynas?guide_id=201",
+        "https://www.oskarshamn.se/mer-om-kommunen/raddning-sakerhet-kris/raddningstjansten/eldningsforbud/"
+      ],
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-1-lilla-hycklinge-nynas-conditionreports-0",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "sourceCollection": "conditionReports.0",
+      "category": "conditionReports.0",
+      "title": "condition Reports",
+      "summary": "Section-specific account reports a wrong turn at Lämmedal that turned planned Etapp 1 distance from about 17 km into about 21 km, very wet conditions, socks wrung out during breaks, and pressure to reach Nynäs before thunder.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://helenas.dagar.se/2015/08/04/ostkustleden/"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-1-lilla-hycklinge-nynas-conditionreports-1",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "sourceCollection": "conditionReports.1",
+      "category": "conditionReports.1",
+      "title": "condition Reports",
+      "summary": "Corroborates the Helenas dagar Etapp 1/2 trip with 17 km plus 4 km due to wrong turn and very wet conditions.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.flickr.com/photos/helenaferry/albums/72157654414228503/"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-1-lilla-hycklinge-nynas-conditionreports-2",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "sourceCollection": "conditionReports.2",
+      "category": "conditionReports.2",
+      "title": "condition Reports",
+      "summary": "Whole-route review says cabins are fantastic, route can be hard to follow, and AllTrails route is an old version that may not match current marked route. Not section-specific.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.alltrails.com/sv-se/led/sweden/kalmar/ostkustleden"
+      ],
+      "confidence": "medium-low",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-1-lilla-hycklinge-nynas-conditionreports-3",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "sourceCollection": "conditionReports.3",
+      "category": "conditionReports.3",
+      "title": "condition Reports",
+      "summary": "First six sections report: tough but beautiful/mixed nature, good cabins, GPS/Google Maps useful, and yellow markings missing on one unspecified section.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.alltrails.com/sv-se/led/sweden/kalmar/ostkustleden"
+      ],
+      "confidence": "low",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-1-lilla-hycklinge-nynas-conditionreports-4",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "sourceCollection": "conditionReports.4",
+      "category": "conditionReports.4",
+      "title": "condition Reports",
+      "summary": "Recent whole-route/unclear-section report says very good conditions, easy parking, and insects.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.alltrails.com/sv-se/led/sweden/kalmar/ostkustleden"
+      ],
+      "confidence": "low",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-1-lilla-hycklinge-nynas-conditionreports-5",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "sourceCollection": "conditionReports.5",
+      "category": "conditionReports.5",
+      "title": "condition Reports",
+      "summary": "Recent whole-route/unclear-section report says very good conditions.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.alltrails.com/sv-se/led/sweden/kalmar/ostkustleden"
+      ],
+      "confidence": "low",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-1-lilla-hycklinge-nynas-rulesandsafety-closuresandcurrentness",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "sourceCollection": "rulesAndSafety.closuresAndCurrentness",
+      "category": "rulesAndSafety.closuresAndCurrentness",
+      "title": "closures And Currentness",
+      "summary": "Naturkartan warns of forestry work near the cabin during late summer/autumn 2025. This is stale by date but still visible; verify whether any access/signage effects remain in 2026. | No official current Etapp 1 closure/reroute found on Naturkartan, Oskarshamn, Länsstyrelsen, or Döderhult pages accessed on 2026-04-29. Field signage may override web pages.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-1-lilla-hycklinge-nynas-rulesandsafety-hunting",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "sourceCollection": "rulesAndSafety.hunting",
+      "category": "rulesAndSafety.hunting",
+      "title": "hunting",
+      "summary": "Naturkartan displays an elk-hunting notice for October 8-January 31, advising hikers to respect signs, wear bright clothing, stay on marked trails, and communicate with hunters. The notice was visible on 2026-04-29 outside the stated hunting window; treat as seasonal safety currentness note.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/lilla-hycklinge-nynas-ostkustleden-etapp-1"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-1-lilla-hycklinge-nynas-rulesandsafety-protectedareas",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "sourceCollection": "rulesAndSafety.protectedAreas",
+      "category": "rulesAndSafety.protectedAreas",
+      "title": "protected Areas",
+      "summary": "{\"name\":\"Humlenäs naturreservat\",\"sourceUrl\":\"https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/humlenas.html\",\"confidence\":\"high\",\"rules\":[\"Dogs must be leashed.\",\"Camping is limited to max one day in the same place.\",\"Fires only in own grill/friluftskök or designated places.\",\"Motor vehicles only on roads; park only in designated places.\",\"Do not damage trees/shrubs or disturb wildlife/nests; restrictions also cover fungi, mosses, and lichens without permission.\"]}",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-1-lilla-hycklinge-nynas-rulesandsafety-swimmingsafety",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "sourceCollection": "rulesAndSafety.swimmingSafety",
+      "category": "rulesAndSafety.swimmingSafety",
+      "title": "swimming Safety",
+      "summary": "Stage text encourages bathing in Hummeln near the endpoint, but no exact official Etapp 1 swimming access coordinate was found. Oskarshamn's official bathing season is June 21-August 15 and water quality can change quickly; do not assume the informal Nynäs access is sampled as an official bathing site.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/lilla-hycklinge-nynas-ostkustleden-etapp-1",
+        "https://www.oskarshamn.se/kultur-och-fritid/idrott-och-fritid/badplatser/badvattenprover/",
+        "https://oskarshamn.com/product/hummeln/"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-1-lilla-hycklinge-nynas-rulesandsafety-waterprotection",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "sourceCollection": "rulesAndSafety.waterProtection",
+      "category": "rulesAndSafety.waterProtection",
+      "title": "water Protection",
+      "summary": "Hummeln is a protected surface-water source. Avoid soap, washing, fuel spills, greywater disposal, or contamination near lakes/streams; spills/leaks that risk water pollution must be reported to 112/relevant authorities. | Oskarshamn lists Eckern as a reserve water source. Exact zone/rule boundary still needs verification before detailed app wording.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-1-lilla-hycklinge-nynas-sourcecontradictions-0",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "sourceCollection": "sourceContradictions.0",
+      "category": "sourceContradictions.0",
+      "title": "source Contradictions",
+      "summary": "Naturkartan section page and Etapp 1 PDF use 16.0/16 km. Döderhults maintainer overview says cirka 17 km. Field report references 17 km plus extra wrong-turn distance.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-1-lilla-hycklinge-nynas-sourcecontradictions-1",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "sourceCollection": "sourceContradictions.1",
+      "category": "sourceContradictions.1",
+      "title": "source Contradictions",
+      "summary": "Official GPX/Etapp 2 snap endpoint is 57.3578725758454, 16.2658329902812, about 565.9 m from the Nynäs cabin marker. OSM relation is hut-inclusive and about 16.7 km.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-1-lilla-hycklinge-nynas-sourcecontradictions-2",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "sourceCollection": "sourceContradictions.2",
+      "category": "sourceContradictions.2",
+      "title": "source Contradictions",
+      "summary": "Older/maintainer wording says well exists but may dry in late summer; current Naturkartan cabin page says the well has dried/sinat and lake water must always be boiled.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-1-lilla-hycklinge-nynas-sourcecontradictions-3",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "sourceCollection": "sourceContradictions.3",
+      "category": "sourceContradictions.3",
+      "title": "source Contradictions",
+      "summary": "Current Swedish Döderhult/Naturkartan pages say 100 SEK/person in cabin and 50 SEK/person tenting by cabin. Older English page says 70 SEK/night.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-1-lilla-hycklinge-nynas-sourcecontradictions-4",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "sourceCollection": "sourceContradictions.4",
+      "category": "sourceContradictions.4",
+      "title": "source Contradictions",
+      "summary": "Naturkartan Nynäs cabin page may say cabins are winter-closed 1 November-31 March, while broader Ostkustleden pages say stage cabins are open year-round.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-1-lilla-hycklinge-nynas-sourcecontradictions-5",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "sourceCollection": "sourceContradictions.5",
+      "category": "sourceContradictions.5",
+      "title": "source Contradictions",
+      "summary": "AllTrails review from 2025 warns that third-party route may be old and not always match current markings.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-campingandfire-campingrules",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "campingAndFire.campingRules",
+      "category": "campingAndFire.campingRules",
+      "title": "camping Rules",
+      "summary": "Humlenäs reserve rules prohibit camping more than one day in the same place. | Tenting by Ostkustleden cabins has a 50 SEK/person fee according to current Swedish maintainer/Naturkartan pages. | Apply Swedish allemansrätten only outside protected areas/private yards and avoid tenting where it disturbs landowners, livestock, or cabin access.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-nynas?guide_id=201",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-lonhult?guide_id=201",
+        "https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/humlenas.html",
+        "https://www.oskarshamn.se/mer-om-kommunen/raddning-sakerhet-kris/raddningstjansten/eldningsforbud/"
+      ],
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-campingandfire-feesasofaccesseddate",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "campingAndFire.feesAsOfAccessedDate",
+      "category": "campingAndFire.feesAsOfAccessedDate",
+      "title": "fees As Of Accessed Date",
+      "summary": "Same current Swedish/Naturkartan fee structure as Etapp 1; currentness-check before publication.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-lonhult?guide_id=201",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-nynas?guide_id=201"
+      ],
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-campingandfire-firerules",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "campingAndFire.fireRules",
+      "category": "campingAndFire.fireRules",
+      "title": "fire Rules",
+      "summary": "Humlenäs reserve permits fire only in own grill/outdoor stove or designated places. | Nynäs cabin page says no outdoor fires and no fire in the upstairs fireplace. | Lönhult cabin page says outdoor fires are not allowed at the cabin. | Bråhultsjöns badplats has a grill place, but it remains subject to current municipal/county fire bans. | Oskarshamn had no municipal fire ban at access time, but same-day fire-ban checks are required because status changes quickly.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-nynas?guide_id=201",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-lonhult?guide_id=201",
+        "https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/humlenas.html",
+        "https://www.oskarshamn.se/mer-om-kommunen/raddning-sakerhet-kris/raddningstjansten/eldningsforbud/"
+      ],
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-campingandfire-overnightcabins",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "campingAndFire.overnightCabins",
+      "category": "campingAndFire.overnightCabins",
+      "title": "overnight Cabins",
+      "summary": "Shared Etapp 1/2 cabin in Humlenäs reserve. Simple standard, no electricity, dry toilet, unreliable/dry well, no outdoor fire, no fire in upstairs fireplace. Currentness caveat for visible 2025 forestry/RestoRED notice. | Official Etapp 2 endpoint cabin for Ostkustleden hikers only. Kitchen has wood stove and electric hotplate, wood shed, dry toilet behind barn, seasonal summer water at cabin corner, and no outdoor fires.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-nynas?guide_id=201",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-lonhult?guide_id=201",
+        "https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/humlenas.html",
+        "https://www.oskarshamn.se/mer-om-kommunen/raddning-sakerhet-kris/raddningstjansten/eldningsforbud/"
+      ],
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-conditionreports-0",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "conditionReports.0",
+      "category": "conditionReports.0",
+      "title": "condition Reports",
+      "summary": "Section-specific report says the stage became over 25 km instead of about 21.5 km because of wrong turns and explicitly mentions route-finding problems. Also supports forest/gravel-road character, Bråhultsjön/Bråbo rest/bathing context, Smisserum's stone wall, Lönhults kvarn, and a two-car logistics pattern.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.devote.se/eva/ostkustleden-etapp-2-31353385"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-conditionreports-1",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "conditionReports.1",
+      "category": "conditionReports.1",
+      "title": "condition Reports",
+      "summary": "Two-stage Etapp 1-2 trip evidence describes the trip as wet and hard-going, but Etapp 2-specific detail is limited.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://helenas.dagar.se/tag/ostkustleden/"
+      ],
+      "confidence": "medium-low",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-conditionreports-2",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "conditionReports.2",
+      "category": "conditionReports.2",
+      "title": "condition Reports",
+      "summary": "Club newsletter records Etapp 2 Nynäs-Lönhult walked on 2009-06-06, with a stop at Bråbo bathing place and no reported water/cabin/closure problem. Use as historical support only.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.sokviljan.se/explorer/files/Kampen/2009-nr4kompr.pdf"
+      ],
+      "confidence": "high-for-date-low-currentness",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-conditionreports-3",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "conditionReports.3",
+      "category": "conditionReports.3",
+      "title": "condition Reports",
+      "summary": "Whole-route review says cabins are excellent but the route can be hard to follow and the AllTrails route is an old version that may not match current marked trail. Not Etapp 2-specific.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.alltrails.com/sv-se/led/sweden/kalmar/ostkustleden"
+      ],
+      "confidence": "medium-low",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-conditionreports-4",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "conditionReports.4",
+      "category": "conditionReports.4",
+      "title": "condition Reports",
+      "summary": "First-six-sections review says the route is tough but varied, GPS/Google Maps was important, one unspecified section had missing yellow markers, and cabins were good.",
+      "userFacingEligibility": "import-maintenance-only",
+      "sourceUrls": [
+        "https://www.alltrails.com/sv-se/led/sweden/kalmar/ostkustleden"
+      ],
+      "confidence": "low",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-conditionreports-5",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "conditionReports.5",
+      "category": "conditionReports.5",
+      "title": "condition Reports",
+      "summary": "Very old Nynäs concerns about smoky stove/chimney, low water, and variable cabin mattresses. Treat only as a prompt for current Nynäs verification, not as current condition.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.outdoorseiten.net/vb5/forum/tourenvorbereitung/tourenvorbereitung-n%C3%B6rdliches-europa/29626-ostkustleden-brauche-tipps"
+      ],
+      "confidence": "low-currentness",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-rulesandsafety-closuresandcurrentness",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "rulesAndSafety.closuresAndCurrentness",
+      "category": "rulesAndSafety.closuresAndCurrentness",
+      "title": "closures And Currentness",
+      "summary": "Nynäs page still shows a notice for forestry near the cabin during late summer/autumn 2025. Länsstyrelsen Humlenäs showed no current news in the lane report, so the notice may be stale but should be verified for 2026 before import. | No official Etapp 2 closure or reroute was found on Naturkartan, Döderhult, Oskarshamn, or Länsstyrelsen pages checked on 2026-04-29. Field signage may override web pages.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-rulesandsafety-hunting",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "rulesAndSafety.hunting",
+      "category": "rulesAndSafety.hunting",
+      "title": "hunting",
+      "summary": "No Etapp 2-specific hunting notice was confirmed in the lane reports beyond broader Ostkustleden/Naturkartan seasonal elk-hunt notices seen elsewhere. Check the current section page and local signs before publication.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/nynas-lonhult-ostkustleden-etapp-2"
+      ],
+      "confidence": "low-medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-rulesandsafety-protectedareas",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "rulesAndSafety.protectedAreas",
+      "category": "rulesAndSafety.protectedAreas",
+      "title": "protected Areas",
+      "summary": "{\"name\":\"Humlenäs naturreservat / Natura 2000\",\"sourceUrls\":[\"https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/humlenas.html\",\"https://www.liferestored.se/har-jobbar-vi/kalmar-lan/humlenas/\"],\"confidence\":\"high\",\"rules\":[\"Drive only on roads and park only at designated parking.\",\"Camp max one day in the same place.\",\"Fire only in brought grill/outdoor stove or designated places.\",\"Dogs and other pets must be leashed.\",\"Do not disturb wildlife/nests/dens and do not damage trees, shrubs, fungi, mosses, or lichens without permission.\"]} | Exact overlap between the Etapp 2 GPX and Bråbygden Natura 2000 polygons should be checked before publishing detailed protected-area wording.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-rulesandsafety-routefinding",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "rulesAndSafety.routeFinding",
+      "category": "rulesAndSafety.routeFinding",
+      "title": "route Finding",
+      "summary": "Field reports and whole-route reviews indicate route-finding can be a real issue on or around Etapp 2. Use official GPX and current markings; third-party route-app data may be stale.",
+      "userFacingEligibility": "needs-review",
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-rulesandsafety-waterprotection",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "rulesAndSafety.waterProtection",
+      "category": "rulesAndSafety.waterProtection",
+      "title": "water Protection",
+      "summary": "Relevant around Hummeln/Nynäs. Avoid washing, soap, greywater, fuel/chemical handling, or contamination near lake/streams; spills/leaks that risk pollution should be reported immediately.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-sourcecontradictions-0",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "sourceContradictions.0",
+      "category": "sourceContradictions.0",
+      "title": "source Contradictions",
+      "summary": "Naturkartan page says 20.6 km, official GPX computes 20.622734 km, the official PDF map title says 21 km, Döderhult says cirka 22 km, and OSM/route-app lineage is around 21.5-21.6 km.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-sourcecontradictions-1",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "sourceContradictions.1",
+      "category": "sourceContradictions.1",
+      "title": "source Contradictions",
+      "summary": "The official GPX start exactly matches the reviewed Etapp 1 digital endpoint, but Nynässtugan is about 565.9 m direct away and is reached by the GPX around route km 0.699.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-sourcecontradictions-2",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "sourceContradictions.2",
+      "category": "sourceContradictions.2",
+      "title": "source Contradictions",
+      "summary": "Older/maintainer wording says the well can dry in late summer; current Naturkartan wording says the well has dried and Hummeln water must always be boiled.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-sourcecontradictions-3",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "sourceContradictions.3",
+      "category": "sourceContradictions.3",
+      "title": "source Contradictions",
+      "summary": "One agent report said Lönhult has no electricity and that water must be boiled, but main-thread checks of Naturkartan and Döderhult pages found electric power/electric hotplate and summer water at the cabin corner, with no current official boil-water wording located for Lönhult.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-sourcecontradictions-4",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "sourceContradictions.4",
+      "category": "sourceContradictions.4",
+      "title": "source Contradictions",
+      "summary": "Official Naturkartan pages use Bråhultsjöns badplats / Bråhultesjön in text, while OSM may call parts of the same cluster Saxtorps badplats.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-sourcecontradictions-5",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "sourceContradictions.5",
+      "category": "sourceContradictions.5",
+      "title": "source Contradictions",
+      "summary": "Naturkartan Nynäs page still carries a late-summer/autumn 2025 forestry/RestoRED notice, while the rules lane found no current Länsstyrelsen Humlenäs news.",
+      "userFacingEligibility": "needs-review",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-2-nynas-lonhult-sourcecontradictions-6",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "sourceCollection": "sourceContradictions.6",
+      "category": "sourceContradictions.6",
+      "title": "source Contradictions",
+      "summary": "Recent whole-route reviews warn that third-party app routes can be old or not match current markings.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-campingandfire-campingrules",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "campingAndFire.campingRules",
+      "category": "campingAndFire.campingRules",
+      "title": "camping Rules",
+      "summary": "Tenting by Ostkustleden cabins has a 50 SEK/person fee according to current official pages. | General allemansrätten guidance allows short responsible tenting outside private home zones/crops/plantings, but route/cabin-specific and protected-area restrictions override general guidance. | Close gates and avoid crops/plantings according to Döderhult guidance.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-lonhult?guide_id=201",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-krokstorp?guide_id=201",
+        "https://www.oskarshamn.se/mer-om-kommunen/raddning-sakerhet-kris/raddningstjansten/eldningsforbud/"
+      ],
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-campingandfire-feesasofaccesseddate",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "campingAndFire.feesAsOfAccessedDate",
+      "category": "campingAndFire.feesAsOfAccessedDate",
+      "title": "fees As Of Accessed Date",
+      "summary": "Groups over 10 should notify Döderhults Naturskyddsförening.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-krokstorp?guide_id=201",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-lonhult?guide_id=201"
+      ],
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-campingandfire-firerules",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "campingAndFire.fireRules",
+      "category": "campingAndFire.fireRules",
+      "title": "fire Rules",
+      "summary": "Lönhult cabin: outdoor fires are not allowed. | Krokstorp cabin: all fireplaces in the cabin are prohibited and outdoor fires by the cabin are not allowed. | Oskarshamn reported no municipal fire ban on 2026-04-29, but same-day fire-ban and fire-risk checks remain required.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-lonhult?guide_id=201",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-krokstorp?guide_id=201",
+        "https://www.oskarshamn.se/mer-om-kommunen/raddning-sakerhet-kris/raddningstjansten/eldningsforbud/"
+      ],
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-campingandfire-overnightcabins",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "campingAndFire.overnightCabins",
+      "category": "campingAndFire.overnightCabins",
+      "title": "overnight Cabins",
+      "summary": "Shared Etapp 2/3 endpoint cabin with summer water, wood stove, electric hotplate and dry toilet. Outdoor fires are not allowed. | Locked endpoint cabin; key in mailbox by the large white house up the hill before the cabin. Electricity, hotplate, simple kitchen and mattresses. Well water on yard; lake water must be boiled if well dries. No fireplace use and no outdoor fires.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-lonhult?guide_id=201",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-krokstorp?guide_id=201",
+        "https://www.oskarshamn.se/mer-om-kommunen/raddning-sakerhet-kris/raddningstjansten/eldningsforbud/"
+      ],
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-conditionreports-0",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "conditionReports.0",
+      "category": "conditionReports.0",
+      "title": "condition Reports",
+      "summary": "Direct Etapp 3 report calls it the toughest of the author's first six Ostkustleden stages: hilly, overgrown, rutted clearcuts, partly wet/muddy and rocky, poorly marked in places, and took 8 hours. Reports Krokstorp well water very low with sediment/debris and Krokstorpssjön red-brown/iron-rich. Notes Krokstorp cabin is not the first cabin by the lake/bathing place.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://livsnjutare11.rssing.com/chan-34857225/article14.html"
+      ],
+      "confidence": "high-for-2015-low-currentness",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-conditionreports-1",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "conditionReports.1",
+      "category": "conditionReports.1",
+      "title": "condition Reports",
+      "summary": "Trip/photos from 2017-07-26 confirm two-car logistics, rough fields/dense vegetation, Krokstorp electricity/hotplate usefulness, and cloudy/slimy Krokstorp well water; hikers bought bottled water in Oskarshamn.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://helenas.dagar.se/tag/ostkustleden/"
+      ],
+      "confidence": "high-for-2017-low-currentness",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-conditionreports-2",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "conditionReports.2",
+      "category": "conditionReports.2",
+      "title": "condition Reports",
+      "summary": "Photo evidence supporting poor Krokstorp well-water quality in 2017.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.flickr.com/photos/helenaferry/35525700363/in/album-72157686993700696"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-conditionreports-3",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "conditionReports.3",
+      "category": "conditionReports.3",
+      "title": "condition Reports",
+      "summary": "Partial Etapp 3 walk Lönhult-Karlsfors. First about 2 km asphalt/gravel road, Sjöändemåla area beautiful, signed BAD 50 m side trip at Tvingen, heavy rain, and indistinct marking caused two wrong turns.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.sokviljan.se/explorer/files/Kampen/2009-nr4kompr.pdf"
+      ],
+      "confidence": "medium-for-routefinding-low-currentness",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-conditionreports-4",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "conditionReports.4",
+      "category": "conditionReports.4",
+      "title": "condition Reports",
+      "summary": "Direct Etapp 3 report found the stage less demanding than the 2015 account but independently flagged Krokstorp well and lake water as uninviting, with suspended matter filtered from the well.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://outofthedoor.wordpress.com/tag/ostkustleden/"
+      ],
+      "confidence": "medium-for-water-low-currentness",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-conditionreports-5",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "conditionReports.5",
+      "category": "conditionReports.5",
+      "title": "condition Reports",
+      "summary": "Whole-route review, not Etapp 3-specific, says cabins are excellent but the route can be hard to follow and AllTrails line may be old.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.alltrails.com/sv-se/led/sweden/kalmar/ostkustleden"
+      ],
+      "confidence": "medium-low",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-conditionreports-6",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "conditionReports.6",
+      "category": "conditionReports.6",
+      "title": "condition Reports",
+      "summary": "Route-app listing gives 13 mi, hard, last updated 2026-04-01, but no useful review text.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.mypacer.com/routes/ohzco5/ostkustleden-stage-3-l%C3%B6nnhult-krokstorp-hiking-trail-kalmar-l%C3%A4n"
+      ],
+      "confidence": "low",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-rulesandsafety-accessrules",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "rulesAndSafety.accessRules",
+      "category": "rulesAndSafety.accessRules",
+      "title": "access Rules",
+      "summary": "KLT Närtrafik must be booked and does not allow pets except approved service dogs; regular KLT buses/trains have separate pet placement rules.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-rulesandsafety-closuresandcurrentness",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "rulesAndSafety.closuresAndCurrentness",
+      "category": "rulesAndSafety.closuresAndCurrentness",
+      "title": "closures And Currentness",
+      "summary": "No closure or reroute found on official pages checked. Naturkartan API record was last modified 2026-04-27 and had no trail-status report. | No route-specific forestry closure found online. Follow local worksite signs and avoid machinery areas.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-rulesandsafety-dogsandlivestock",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "rulesAndSafety.dogsAndLivestock",
+      "category": "rulesAndSafety.dogsAndLivestock",
+      "title": "dogs And Livestock",
+      "summary": "Dogs must be under extra close control March 1-August 20; in practice leash is usually needed. Leash near grazing animals. Close gates and avoid crops/plantings.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.naturvardsverket.se/amnesomraden/allemansratten/sa-gor-vi-allemansratt/hundar-i-naturen/",
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/"
+      ],
+      "confidence": "high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-rulesandsafety-hunting",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "rulesAndSafety.hunting",
+      "category": "rulesAndSafety.hunting",
+      "title": "hunting",
+      "summary": "Naturkartan API included a seasonal hunting notice: elk hunting October 8-January 31, respect jakt pågår signs, wear visible clothing, stay on trail, and choose another area if active hunting is underway. Not an active elk-season closure on 2026-04-29.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://api.naturkartan.se/v3.2/sites/21681",
+        "https://www.naturvardsverket.se/amnesomraden/allemansratten/sa-gor-vi-allemansratt/jakt-och-fiske/"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-rulesandsafety-protectedareas",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "rulesAndSafety.protectedAreas",
+      "category": "rulesAndSafety.protectedAreas",
+      "title": "protected Areas",
+      "summary": "Useful as environmental context near the start, not a direct visitor restriction beyond normal low-impact hiking behavior. | {\"name\":\"Nearby protected-area candidates not confirmed as route overlaps\",\"sourceUrls\":[\"https://geodata.naturvardsverket.se/naturvardsregistret/wfs\",\"https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/krokshult.html\"],\"confidence\":\"medium\",\"rules\":[\"Nearby WFS candidates included Hummeln/Kristdala water-protection area, Ishult naturreservat, Blomsfors naturreservat, and Krokshult naturreservat context, but the mapped trail was not confirmed to intersect them in the lane report.\",\"Do not apply Krokshult reserve rules to Etapp 3 unless a later geometry/protected-area overlay confirms an intersection.\"]}",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-rulesandsafety-routefinding",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "rulesAndSafety.routeFinding",
+      "category": "rulesAndSafety.routeFinding",
+      "title": "route Finding",
+      "summary": "Multiple older section-specific reports describe indistinct markings or wrong turns, and a 2025 whole-route AllTrails review warns third-party route lines can be stale. Treat route-finding as a real Etapp 3 caution.",
+      "userFacingEligibility": "needs-review",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-rulesandsafety-waterprotection",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "rulesAndSafety.waterProtection",
+      "category": "rulesAndSafety.waterProtection",
+      "title": "water Protection",
+      "summary": "Keep low-impact guidance near streams/outlet areas: avoid contamination, washing/soap, and disturbance of water margins.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-sourcecontradictions-0",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "sourceContradictions.0",
+      "category": "sourceContradictions.0",
+      "title": "source Contradictions",
+      "summary": "Naturkartan page says 20.5 km, normalized GPX computes 20.549165 km with small joins, Döderhult/OSM/Pacer round to about 21 km, and raw GPX concatenation gives a false 54.841849 km because tracks are not in route order.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-sourcecontradictions-1",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "sourceContradictions.1",
+      "category": "sourceContradictions.1",
+      "title": "source Contradictions",
+      "summary": "Official GPX and API contain ten pieces in non-sequential order and mixed directions.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-sourcecontradictions-2",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "sourceContradictions.2",
+      "category": "sourceContradictions.2",
+      "title": "source Contradictions",
+      "summary": "PDF text extraction may read Krokshult, while official page, cabin page, map labels, and OSM use Krokstorp.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-sourcecontradictions-3",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "sourceContradictions.3",
+      "category": "sourceContradictions.3",
+      "title": "source Contradictions",
+      "summary": "Naturkartan says well water on yard and lake water must be boiled if the well dries; Döderhult says the well water may be brown but potable; field reports from 2009, 2015 and 2017 repeatedly describe poor/low/cloudy water.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-sourcecontradictions-4",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "sourceContradictions.4",
+      "category": "sourceContradictions.4",
+      "title": "source Contradictions",
+      "summary": "A 2015 field report says the overnight cabin is not the first cabin by the lake/bathing place and not directly on the shore, while official route text generally says Krokstorp/Krokstorpsjön near the endpoint.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-sourcecontradictions-5",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "sourceContradictions.5",
+      "category": "sourceContradictions.5",
+      "title": "source Contradictions",
+      "summary": "Krokshult naturreservat has strict visitor rules but Etapp 3 overlap was not confirmed. Viråns vattensystem Natura 2000 contact near Lönhult/Näjern was found.",
+      "userFacingEligibility": "needs-review",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-3-lonhult-krokstorp-sourcecontradictions-6",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "sourceCollection": "sourceContradictions.6",
+      "category": "sourceContradictions.6",
+      "title": "source Contradictions",
+      "summary": "Krokstorp Naturkartan stop and GTFS-derived Krokstorp östra appear to refer to the same cluster, but service pattern and names differ, and seasonal timetable dates affect currentness.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-campingandfire-camping",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "campingAndFire.camping",
+      "category": "campingAndFire.camping",
+      "title": "camping",
+      "summary": "Krokstorp cabin and tenting by the cabin are official overnight options, with current maintainer sources listing 100 SEK/person in cabin and 50 SEK/person for tenting. | Mörtfors cabin is the official Etapp 4 endpoint cabin; same standard cabin/tenting fee pattern applies, but condition/currentness caveats should be shown internally before publication. | Ölvedal and Mörtfors reserve rules limit tenting/anchoring to no more than one day in the same place; check exact reserve boundaries during normalization.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-campingandfire-confidence",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "campingAndFire.confidence",
+      "category": "campingAndFire.confidence",
+      "title": "confidence",
+      "summary": "medium-high",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-campingandfire-fire",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "campingAndFire.fire",
+      "category": "campingAndFire.fire",
+      "title": "fire",
+      "summary": "Krokstorp cabin page: no fires in fireplaces and no outdoor fires. | Mörtfors cabin page: no fireplaces and no outside fire. | Mörtfors naturreservat: fire only at designated places, in brought grill or outdoor stove. | Mörtfors badplats has a documented grill place, but use is subject to current fire bans and local rules. | No municipal/county fire ban was found at the rules check time, but fire risk was flagged and this is time-sensitive.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-campingandfire-toilets",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "campingAndFire.toilets",
+      "category": "campingAndFire.toilets",
+      "title": "toilets",
+      "summary": "Krokstorp toilet is implied by cabin/Etapp 3 context but a separate exact coordinate remains unverified in the Etapp 4 pass. | Mörtfors has a cabin-side toilet and at least one Naturkartan endpoint-area toilet marker; duplicate handling is needed before import. | Mörtfors badplats toilet is seasonal according to municipal bathing-place information.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-conditionreports-0",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "conditionReports.0",
+      "category": "conditionReports.0",
+      "title": "condition Reports",
+      "summary": "Reports roof leakage, dampness in walls/ceilings and a mold smell on entry at Mörtfors cabin.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.sydsverige.dk/?pageID=1145"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-conditionreports-1",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "conditionReports.1",
+      "category": "conditionReports.1",
+      "title": "condition Reports",
+      "summary": "Older report was more positive about Mörtfors facilities, noting WC, a substantial kitchen and nearby cafe, while also supporting route-finding caution for the broader Etapp 3/4 context.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://helenas.dagar.se/2017/08/page/2/"
+      ],
+      "confidence": "medium-low",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-conditionreports-2",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "conditionReports.2",
+      "category": "conditionReports.2",
+      "title": "condition Reports",
+      "summary": "Rejected brown Krokstorp water and got fresh water from a resident in Ölvedal; this supports treating Krokstorp water as unreliable and Ölvedal resident water as non-service/opportunistic.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://livsnjutare11.rssing.com/chan-34857225/article14.html"
+      ],
+      "confidence": "medium-low",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-conditionreports-3",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "conditionReports.3",
+      "category": "conditionReports.3",
+      "title": "condition Reports",
+      "summary": "Whole-route reviews mention that markings and app/digital lines may differ; use only as broad route-following caution, not as Etapp 4-specific closure evidence.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.alltrails.com/sv-se/led/sweden/kalmar/ostkustleden"
+      ],
+      "confidence": "low-medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-conditionreports-4",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "conditionReports.4",
+      "category": "conditionReports.4",
+      "title": "condition Reports",
+      "summary": "No current official Etapp 4 closure/reroute notice found.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/ostkustleden"
+      ],
+      "confidence": "high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-rulesandsafety-closuresandreroutes",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "rulesAndSafety.closuresAndReroutes",
+      "category": "rulesAndSafety.closuresAndReroutes",
+      "title": "closures And Reroutes",
+      "summary": "No Etapp 4-specific official closure, forestry closure or reroute found. Naturkartan duplicate-language page still showed a hunting notice for the 2025/2026 moose season, likely stale seasonal safety text by 2026-04-29.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-rulesandsafety-difficultyandtrailfollowing",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "rulesAndSafety.difficultyAndTrailFollowing",
+      "category": "rulesAndSafety.difficultyAndTrailFollowing",
+      "title": "difficulty And Trail Following",
+      "summary": "Official difficulty is red/demanding. Field reports and whole-route reviews support caution for rough natural tread, stony/undulating terrain and occasional route-finding mismatches between digital lines and markings.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/krokstorp-mortfors-ostkustleden-etapp-4",
+        "https://www.alltrails.com/sv-se/led/sweden/kalmar/ostkustleden",
+        "https://helenas.dagar.se/2017/08/page/2/"
+      ],
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-rulesandsafety-dogs",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "rulesAndSafety.dogs",
+      "category": "rulesAndSafety.dogs",
+      "title": "dogs",
+      "summary": "Dogs need extra control March 1-August 20 under national rules and must be leashed in the relevant reserves; leash near grazing animals, avoid yards/plantings/crops and close gates.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.naturvardsverket.se/amnesomraden/allemansratten/sa-gor-vi-allemansratt/hundar-i-naturen/",
+        "https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/olvedal.html",
+        "https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/mortfors.html"
+      ],
+      "confidence": "high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-rulesandsafety-fire",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "rulesAndSafety.fire",
+      "category": "rulesAndSafety.fire",
+      "title": "fire",
+      "summary": "No Oskarshamn/Kalmar fire ban was found at check time, but fire risk was flagged and cabin/reserve rules are stricter than general allemansrätt. Recheck before publication or seasonal use.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.lansstyrelsen.se/kalmar/samhalle/sakerhet-och-beredskap/om-eldningsforbud.html",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-krokstorp",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-i-mortfors?guide_id=201",
+        "https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/mortfors.html"
+      ],
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-rulesandsafety-hunting",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "rulesAndSafety.hunting",
+      "category": "rulesAndSafety.hunting",
+      "title": "hunting",
+      "summary": "The 2025/2026 moose season was October 8-January 31 and was not active on 2026-04-29. Treat old Naturkartan hunting notices as stale unless physical signage or current notices say otherwise.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.lansstyrelsen.se/kalmar/djur/jakt-och-vilt/algjakt.html",
+        "https://www.naturkartan.se/fi/kalmar-lan/krokstorp-mortfors-ostkustleden-etapp-4?guide_id=201"
+      ],
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-rulesandsafety-protectedareas",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "rulesAndSafety.protectedAreas",
+      "category": "rulesAndSafety.protectedAreas",
+      "title": "protected Areas",
+      "summary": "{\"name\":\"Ölvedal naturreservat\",\"rulesSummary\":[\"No off-road motor vehicles.\",\"Park only at designated places.\",\"No water scooters or hovercraft.\",\"No anchoring or tenting more than one day in the same place.\",\"Dogs must be leashed.\",\"Do not disturb wildlife or damage/pick restricted vegetation, mosses, lichens, wood fungi or live/dead wood.\"],\"sourceUrl\":\"https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/olvedal.html\",\"confidence\":\"high\"} | {\"name\":\"Mörtfors naturreservat\",\"rulesSummary\":[\"Core reserve restrictions are similar to Ölvedal.\",\"Fire only at designated places, in brought grill or outdoor stove.\",\"Dogs must be leashed.\",\"No tenting/anchoring more than one day in the same place.\"],\"sourceUrl\":\"https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/mortfors.html\",\"confidence\":\"high\"} | {\"name\":\"Stora Ramm och Marströmmen Natura 2000 SE0330239\",\"rulesSummary\":[\"Normal hiking was not identified as specifically prohibited.\",\"Activities that may significantly affect Natura 2000 values can require permit.\"],\"sourceUrl\":\"https://ext-dokument.lansstyrelsen.se/kalmar/natura2000/se0330239.pdf\",\"confidence\":\"medium-high\"}",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-rulesandsafety-waterandbathing",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "rulesAndSafety.waterAndBathing",
+      "category": "rulesAndSafety.waterAndBathing",
+      "title": "water And Bathing",
+      "summary": "No Krokstorp/Marströmmen/Mörtfors municipal drinking-water protection conflict was identified. County water-status page said no county-wide irrigation ban, but large groundwater reservoirs were very low on its 2026-03-20 update. Mörtfors bathing-water records had acceptable 2025 samples and no 2026 sampling yet.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.oskarshamn.se/bygga-bo-miljo/vatten-och-avlopp/dricksvatten/vattenskyddsomraden/",
+        "https://www.lansstyrelsen.se/kalmar/miljo-och-vatten/vatten--och-avloppsforsorjning/vattenlaget-i-kalmar-lan.html",
+        "https://www.havochvatten.se/badplatser-och-badvatten/kommuner/badplatser-i-oskarshamns-kommun/mortfors.html"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-sourcecontradictions-0",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "sourceContradictions.0",
+      "category": "sourceContradictions.0",
+      "title": "source Contradictions",
+      "summary": "Naturkartan page/API says 17.4 km, PDF and OSM tag say 17.5 km, Döderhult says cirka 18 km, and OSM/Pacer computed linework is about 16.332 km.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-sourcecontradictions-1",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "sourceContradictions.1",
+      "category": "sourceContradictions.1",
+      "title": "source Contradictions",
+      "summary": "Naturkartan section page/site pin 57.4573952970922, 16.459728608256 lies at a mid-route track junction, not at Krokstorp.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-sourcecontradictions-2",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "sourceContradictions.2",
+      "category": "sourceContradictions.2",
+      "title": "source Contradictions",
+      "summary": "The official GPX is authoritative but raw track order is unusable and would produce false long jumps.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-sourcecontradictions-3",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "sourceContradictions.3",
+      "category": "sourceContradictions.3",
+      "title": "source Contradictions",
+      "summary": "OSM relation 4767777 and Pacer linework are shorter and OSM/Pacer descriptions contain Lönnhult/Krokstorp text despite Etapp 4 labels.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-sourcecontradictions-4",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "sourceContradictions.4",
+      "category": "sourceContradictions.4",
+      "title": "source Contradictions",
+      "summary": "Official page notes damp smell after old water damage; a 2025 third-party report describes roof leakage, dampness and mold smell; a 2017 field report was more positive.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-4-krokstorp-mortfors-sourcecontradictions-5",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "sourceCollection": "sourceContradictions.5",
+      "category": "sourceContradictions.5",
+      "title": "source Contradictions",
+      "summary": "Krokstorp has official well/lake-water wording but field reports warn of poor water quality. Mörtfors cabin water is not clearly documented as potable in the gathered sources.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-campingandfire-camping",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "campingAndFire.camping",
+      "category": "campingAndFire.camping",
+      "title": "camping",
+      "summary": "Mörtfors cabin/tenting is a standard official Ostkustleden overnight option and shared with Etapp 4. | Current official Stjärneberg cabin text checked on 2026-04-29 does not show the earlier bed-bug closure claim; model cabin/tenting availability as publication-time information. | Misterhults skärgård reserve rules matter only if leaving the main route for nearby islands/waters; camping in reserve context is limited to one night in the same place.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-campingandfire-confidence",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "campingAndFire.confidence",
+      "category": "campingAndFire.confidence",
+      "title": "confidence",
+      "summary": "medium-high",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-campingandfire-fire",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "campingAndFire.fire",
+      "category": "campingAndFire.fire",
+      "title": "fire",
+      "summary": "Mörtfors cabin has no fireplaces and no fires are permitted outside the cabin. | Stjärneberg has indoor iron stove/fireplace as facility metadata, but no outside fires at the cottage. | Fire-ban feed showed no Oskarshamn fire ban at access time, but SMHI fire-risk warnings were active/high to very high for Kalmar mainland April 29-May 1, 2026; recheck same day. | Do not light fires at the slightest fire danger per maintainer/reserve safety context.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-campingandfire-toilets",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "campingAndFire.toilets",
+      "category": "campingAndFire.toilets",
+      "title": "toilets",
+      "summary": "Mörtfors toilet beside the house is high-confidence but needs duplicate handling with Etapp 4 records. | Stjärneberg dry toilet remains available but exact separate coordinate was not found.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-conditionreports-0",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "conditionReports.0",
+      "category": "conditionReports.0",
+      "title": "condition Reports",
+      "summary": "Reported Etapp 5 as partly quite overgrown, somewhat messy, with many elevation meters, very little asphalt/gravel, two wrong turns, slippery rock slabs and markings easy to miss when concentrating on footing.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.jogg.se/Forum/Trad.aspx?subid=56497&sida=1#post_587613"
+      ],
+      "confidence": "high-for-section-relevance-medium-for-currentness",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-conditionreports-1",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "conditionReports.1",
+      "category": "conditionReports.1",
+      "title": "condition Reports",
+      "summary": "Describes forest paths and gravel roads, Hålviken, rocky/old quarry landscape, and Stjärneberg cabin as usable but in need of care, with kitchen, living room/stove, electricity, mattresses, firewood, toilets and a newer hut with more beds.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.sydsverige.dk/?pageID=1105"
+      ],
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-conditionreports-2",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "conditionReports.2",
+      "category": "conditionReports.2",
+      "title": "condition Reports",
+      "summary": "Recent route-wide reviews mention good conditions, bugs and low crowding; other reviews warn the trail can be hard to follow and AllTrails linework may be an older version.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.alltrails.com/trail/sweden/kalmar/ostkustleden"
+      ],
+      "confidence": "medium-for-whole-route-low-for-section-specific",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-conditionreports-3",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "conditionReports.3",
+      "category": "conditionReports.3",
+      "title": "condition Reports",
+      "summary": "Mörtfors-E22 marked hard physical but easy to follow; E22-Vickerum and Kallseboskogen marked hard and sometimes hard to follow. No useful trail reports posted.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.trailforks.com/trails/ostkustleden-mortfors-e22/"
+      ],
+      "confidence": "medium-for-routefinding-metadata-low-for-current-conditions",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-conditionreports-4",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "conditionReports.4",
+      "category": "conditionReports.4",
+      "title": "condition Reports",
+      "summary": "Old personal trip photo confirms Hålviken was used as a swim spot.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.utsidan.se/albums/viewpic.htm?ID=39475"
+      ],
+      "confidence": "very-low-for-current-conditions",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-rulesandsafety-closuresandreroutes",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "rulesAndSafety.closuresAndReroutes",
+      "category": "rulesAndSafety.closuresAndReroutes",
+      "title": "closures And Reroutes",
+      "summary": "No current trail closure, reroute or forestry-operation notice found in searched official/currentness sources. Follow-up checks of the current Stjärneberg Naturkartan page and maintainer pages on 2026-04-29 did not reproduce the earlier bed-bug closure or arsenic wording; treat cabin and well availability as publication-time checks.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-rulesandsafety-dogs",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "rulesAndSafety.dogs",
+      "category": "rulesAndSafety.dogs",
+      "title": "dogs",
+      "summary": "Maintainer asks dog supervision and leashing at farms/livestock and when meeting others on narrow paths. Swedish law requires dogs to be prevented from running loose where wildlife exists during March 1-August 20.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/",
+        "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-20071150-om-tillsyn-over-hundar-och-katter_sfs-2007-1150/"
+      ],
+      "confidence": "high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-rulesandsafety-fire",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "rulesAndSafety.fire",
+      "category": "rulesAndSafety.fire",
+      "title": "fire",
+      "summary": "No Oskarshamn fire ban was shown by the official feed at access time, but SMHI had active high/very-high fire-risk warnings for Kalmar mainland for April 29-May 1, 2026. Cabin rules and same-day fire status should override generic facility fire icons.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://ext-webbgis.lansstyrelsen.se/d314b5c1-bdd8-447f-9daa-a6e420c008be/",
+        "https://opendata-download-warnings.smhi.se/ibww/api/version/1/warning.json",
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/"
+      ],
+      "confidence": "high-for-queried-status-time-sensitive",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-rulesandsafety-hunting",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "rulesAndSafety.hunting",
+      "category": "rulesAndSafety.hunting",
+      "title": "hunting",
+      "summary": "Latest official Kalmar elk decision found was for 2025/2026: elk-management/licence areas October 8, 2025-January 31, 2026 and unregistered areas October 8-12, 2025 calf only. That season had ended by the 2026-04-29 access date; 2026/2027 dates were not found.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.lansstyrelsen.se/kalmar/djur/jakt-och-vilt/algjakt.html",
+        "https://www.lansstyrelsen.se/download/18.5cfa956b1969f62b01b2c01b/1746792358864/3480-2025-fallavgift.pdf"
+      ],
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-rulesandsafety-protectedareas",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "rulesAndSafety.protectedAreas",
+      "category": "rulesAndSafety.protectedAreas",
+      "title": "protected Areas",
+      "summary": "{\"name\":\"Mörtfors naturreservat / Stora Ramm and Marströmmen Natura 2000 SE0330239\",\"rulesSummary\":[\"Applies at the Mörtfors start context.\",\"Do not damage natural formations.\",\"Do not collect insects.\",\"Permission may be needed for organized/commercial exploitation, surveys/signage, and collecting moss/lichen/fungi except edible fungi.\",\"Dogs should be leashed to protect wildlife/young animals.\",\"Natura 2000 permit may be needed for activities that can affect protected values, even outside the area.\"],\"sourceUrls\":[\"https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/mortfors.html\",\"https://ext-dokument.lansstyrelsen.se/kalmar/natura2000/se0330239.pdf\"],\"confidence\":\"high\"} | Exact GIS intersection with Etapp 5 GPX and any C-areas remains open.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-rulesandsafety-trailspecificsafety",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "rulesAndSafety.trailSpecificSafety",
+      "category": "rulesAndSafety.trailSpecificSafety",
+      "title": "trail Specific Safety",
+      "summary": "Be careful crossing E22 near Solstadström. Later section after Snäckedal is hilly/rocky. Field reports add overgrowth, slippery slabs and route-finding caution.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/mortfors-stjarneberg-ostkustleden-etapp-5",
+        "https://www.jogg.se/Forum/Trad.aspx?subid=56497&sida=1#post_587613"
+      ],
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-rulesandsafety-waterprotection",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "rulesAndSafety.waterProtection",
+      "category": "rulesAndSafety.waterProtection",
+      "title": "water Protection",
+      "summary": "Oskarshamn municipality lists protected drinking-water areas Bockara, Kristdala, Fårbo, Hummeln, Djupeträsk, Eckern and Älvehult; Mörtfors, Stjärneberg, Hålviken, Kallsebo, Snäckedal and Arvidsmåla do not appear on that list. This is not a GIS legal-boundary check.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.oskarshamn.se/bygga-bo-och-miljo/vatten-och-avlopp/skyddsomrade-for-vattentakt/"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-sourcecontradictions-0",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "sourceContradictions.0",
+      "category": "sourceContradictions.0",
+      "title": "source Contradictions",
+      "summary": "Naturkartan page/API says 21.4 km, official PDF and Döderhult say about 19 km, rules lane found an 18.3 km Naturkartan text variant, OSM says 19 km, Pacer says about 18.5 km, and repaired official GPX is 18.734 km.",
+      "userFacingEligibility": "needs-review",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-sourcecontradictions-1",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "sourceContradictions.1",
+      "category": "sourceContradictions.1",
+      "title": "source Contradictions",
+      "summary": "Official GPX/API includes two duplicate short Mörtfors-side lines and a reversed main line; raw summing creates the 21.4 km distance.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-sourcecontradictions-2",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "sourceContradictions.2",
+      "category": "sourceContradictions.2",
+      "title": "source Contradictions",
+      "summary": "Naturkartan route-page marker 57.5434451248887,16.4808952113779 is about 2.16 km straight-line from the Mörtfors cabin and corresponds to the duplicated GPX junction.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-sourcecontradictions-3",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "sourceContradictions.3",
+      "category": "sourceContradictions.3",
+      "title": "source Contradictions",
+      "summary": "The original Etapp 5 synthesis recorded a closure/bed-bug notice, while Etapp 6 lanes and a direct follow-up check of the current Stjärneberg Naturkartan page on 2026-04-29 did not reproduce any visible closure notice.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-sourcecontradictions-4",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "sourceContradictions.4",
+      "category": "sourceContradictions.4",
+      "title": "source Contradictions",
+      "summary": "The original Etapp 5 synthesis recorded an arsenic warning, while Etapp 6 lanes and a direct follow-up check of the current Stjärneberg Naturkartan page on 2026-04-29 found boil-water wording only.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-5-mortfors-stjarneberg-sourcecontradictions-5",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "sourceCollection": "sourceContradictions.5",
+      "category": "sourceContradictions.5",
+      "title": "source Contradictions",
+      "summary": "Snäckedal is an official POI on/near the trail, but Länsstyrelsen says car visitors cannot currently be directed there due to no access-road/parking agreement.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-campingandfire-camping",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "campingAndFire.camping",
+      "category": "campingAndFire.camping",
+      "title": "camping",
+      "summary": "Stjärneberg and Lilla Laxemar have official cabin/tenting fee patterns: 100 SEK/person in cabin and 50 SEK/person tenting by cabin. | Tjustgöl reserve rules include no camping more than one night. | Misterhults skärgård reserve is off-route/coastal context; if entering reserve areas, camping/anchoring max one day in same place.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-campingandfire-confidence",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "campingAndFire.confidence",
+      "category": "campingAndFire.confidence",
+      "title": "confidence",
+      "summary": "medium-high",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-campingandfire-fire",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "campingAndFire.fire",
+      "category": "campingAndFire.fire",
+      "title": "fire",
+      "summary": "No outdoor fires at Stjärneberg cabin. | No outdoor fires at Lilla Laxemar cabin. | Oskarshamn fire-ban page showed no fire ban at access, but Länsstyrelsen carried an SMHI forest-fire-risk banner; recheck on hike day. | Misterhults skärgård reserve fire restrictions apply if going off-route into the reserve.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-campingandfire-toilets",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "campingAndFire.toilets",
+      "category": "campingAndFire.toilets",
+      "title": "toilets",
+      "summary": "Stjärneberg has dry toilet in the cabin/farm area; no separate coordinate found. | Lilla Laxemar has simple dry toilet in yard outbuilding; no separate coordinate found. | Misterhults skärgård 2025 notice says toilets on several islands are closed and waste handling stopped; off-route context only.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-conditionreports-0",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "conditionReports.0",
+      "category": "conditionReports.0",
+      "title": "condition Reports",
+      "summary": "Notes a 600 m main-road walk after Bussviken, a large detour around Kärrsvik, good coastal views east of Kärrsvik, and describes Lilla Laxemar cabin as primitive with water fetched from a neighbor in buckets.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.sydsverige.dk/?pageID=1129"
+      ],
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-conditionreports-1",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "conditionReports.1",
+      "category": "conditionReports.1",
+      "title": "condition Reports",
+      "summary": "Route-wide reports support route-following caution: AllTrails linework may be older than current markings, and one 2022 hiker who completed first six stages said yellow markings disappeared on one unspecified part. Recent 2025 notes mention good conditions and insects.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.alltrails.com/sv-se/led/sweden/kalmar/ostkustleden"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-conditionreports-2",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "conditionReports.2",
+      "category": "conditionReports.2",
+      "title": "condition Reports",
+      "summary": "Lists 11.5 mi/18.5 km and medium difficulty with one review count, but no readable condition text.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.mypacer.com/routes/oi04ab/ostkustleden-stage-6-stj%C3%A4rneberg-lilla-laxemar-hiking-trail-kalmar-l%C3%A4n"
+      ],
+      "confidence": "low-for-conditions",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-conditionreports-3",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "conditionReports.3",
+      "category": "conditionReports.3",
+      "title": "condition Reports",
+      "summary": "Hikers staged a car with lots of water, found stages 5-6 nice and coastal in parts, and reported no bathing near Stjärneberg when arriving hot.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://helenas.dagar.se/tag/ostkustleden/"
+      ],
+      "confidence": "medium-low",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-conditionreports-4",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "conditionReports.4",
+      "category": "conditionReports.4",
+      "title": "condition Reports",
+      "summary": "Could not drive all the way to the Lilla Laxemar cabin and found adjacent Etapp 7 rough, overgrown, scratchy and insect-heavy.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://helenas.dagar.se/2019/07/28/ostkustleden-etapp-7-lilla-laxemar-hallveberg/"
+      ],
+      "confidence": "medium-for-access-low-for-etapp-6-conditions",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-conditionreports-5",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "conditionReports.5",
+      "category": "conditionReports.5",
+      "title": "condition Reports",
+      "summary": "Old photos confirm Tjustgölen swim/rest context and lush summer greenery.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.utsidan.se/albums/viewpic.htm?ID=39525"
+      ],
+      "confidence": "very-low-for-current-conditions",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-rulesandsafety-closuresandreroutes",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "rulesAndSafety.closuresAndReroutes",
+      "category": "rulesAndSafety.closuresAndReroutes",
+      "title": "closures And Reroutes",
+      "summary": "No official Etapp 6 reroute or route closure found. Follow-up Stjärneberg official-page and maintainer-page checks on 2026-04-29 did not reproduce the earlier Etapp 5 closure/arsenic claim; treat cabin and well status as publication-time checks.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-rulesandsafety-dogs",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "rulesAndSafety.dogs",
+      "category": "rulesAndSafety.dogs",
+      "title": "dogs",
+      "summary": "National March 1-August 20 wildlife-control rule applies; dogs normally need leash. Always leash near grazing animals and reserve detours; close gates per Döderhult.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.naturvardsverket.se/amnesomraden/allemansratten/sa-gor-vi-allemansratt/hundar-i-naturen/",
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/"
+      ],
+      "confidence": "high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-rulesandsafety-fire",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "rulesAndSafety.fire",
+      "category": "rulesAndSafety.fire",
+      "title": "fire",
+      "summary": "Oskarshamn page said no fire ban at access, but forest-fire-risk warning was visible through Länsstyrelsen/SMHI context. Same-day recheck needed. Cabin-specific no-outdoor-fire rules apply at both endpoints.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.oskarshamn.se/mer-om-kommunen/raddning-sakerhet-kris/raddningstjansten/eldningsforbud/",
+        "https://www.lansstyrelsen.se/kalmar/samhalle/sakerhet-och-beredskap/om-eldningsforbud.html"
+      ],
+      "confidence": "high-for-accessed-status-time-sensitive",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-rulesandsafety-forestry",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "rulesAndSafety.forestry",
+      "category": "rulesAndSafety.forestry",
+      "title": "forestry",
+      "summary": "Skogsstyrelsen public felling layer shows one notice intersecting GPX, A 54522-2023 received 2023-11-03, 1.5 ha registered and 0.55 ha shown as carried out in season 2024/2025. Two fresh nearby notices from 2026-04-14 are within about 120 m and 370 m of the route: A 18318-2026 3.0 ha and A 18330-2026 3.1 ha. These are not trail closures but are current disturbance/passability risks.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://geodpags.skogsstyrelsen.se/arcgis/rest/services/Geodataportal/GeodataportalVisaSkogsbruk/MapServer/5"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-rulesandsafety-hunting",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "rulesAndSafety.hunting",
+      "category": "rulesAndSafety.hunting",
+      "title": "hunting",
+      "summary": "Latest official Kalmar moose-hunt decision found for 2025/2026 ended before 2026-04-29; no 2026/2027 decision found by access date. Naturkartan route API contains an English-only hunting notice for October 8-January 31, which was outside the access date.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.lansstyrelsen.se/kalmar/djur/jakt-och-vilt/algjakt.html",
+        "https://api.naturkartan.se/v3.2/sites/21684"
+      ],
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-rulesandsafety-protectedareas",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "rulesAndSafety.protectedAreas",
+      "category": "rulesAndSafety.protectedAreas",
+      "title": "protected Areas",
+      "summary": "{\"name\":\"Tjustgöl\",\"rulesSummary\":[\"Protected site about 450 m from the GPX in rules lane spatial check.\",\"Official page says no current news and reserve lacks trails/paths and parking.\",\"Rules include no camping more than one night, no aircraft takeoff/landing, no disturbing animals/birds or damaging trees/shrubs, and permits for plant/insect collecting, signs/controls, moss/lichen/tree fungi collection and organized events.\"],\"sourceUrls\":[\"https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/tjustgol.html\",\"https://geodata.naturvardsverket.se/inspire/ps/wfs\"],\"confidence\":\"medium-high\"} | {\"name\":\"Misterhults skärgård naturreservat / Natura 2000\",\"rulesSummary\":[\"Rules lane spatial check found it about 2 km from GPX at closest, not intersecting the stage line.\",\"Relevant if going off-route into coastal/archipelago areas.\",\"Bird/sensitive-area restrictions April 1-July 10; keep 100 m from marked islands/skerries.\",\"Dogs leashed, no camping/anchoring more than one day, no boat toilet waste, no deliberate wildlife disturbance, fire restrictions.\"],\"sourceUrls\":[\"https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/misterhults-skargard.html\"],\"confidence\":\"medium-high\"}",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-rulesandsafety-waterprotection",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "rulesAndSafety.waterProtection",
+      "category": "rulesAndSafety.waterProtection",
+      "title": "water Protection",
+      "summary": "Oskarshamn lists Bockara, Kristdala, Fårbo, Hummeln, Djupeträsk, Eckern and Älvehult as municipal water-protection areas; none appear to intersect Etapp 6 in the rules lane pass.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.oskarshamn.se/bygga-bo-miljo/vatten-och-avlopp/dricksvatten/vattenskyddsomraden/"
+      ],
+      "confidence": "high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-sourcecontradictions-0",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "sourceContradictions.0",
+      "category": "sourceContradictions.0",
+      "title": "source Contradictions",
+      "summary": "Official title/text says Stjärneberg to Lilla Laxemar, but Naturkartan GPX/API geometry is stored Lilla Laxemar to Stjärneberg.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-sourcecontradictions-1",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "sourceContradictions.1",
+      "category": "sourceContradictions.1",
+      "title": "source Contradictions",
+      "summary": "Naturkartan says 18.4 km, PDF/Oskarshamn/OSM/Pacer about 18.5 km, Döderhult about 19 km, computed GPX 18.407 km.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-sourcecontradictions-2",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "sourceContradictions.2",
+      "category": "sourceContradictions.2",
+      "title": "source Contradictions",
+      "summary": "Etapp 5 originally recorded a closure/arsenic notice, but Etapp 6 official/facility/rules lanes and a direct follow-up check of current Naturkartan/Döderhult/Oskarshamn pages on 2026-04-29 did not reproduce visible closure or arsenic wording.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-sourcecontradictions-3",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "sourceContradictions.3",
+      "category": "sourceContradictions.3",
+      "title": "source Contradictions",
+      "summary": "Sydsverige 2025 says water was fetched from a neighbor in buckets, while current Naturkartan says summer water line on yard and winter water from yellow slaughter shed.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-sourcecontradictions-4",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "sourceCollection": "sourceContradictions.4",
+      "category": "sourceContradictions.4",
+      "title": "source Contradictions",
+      "summary": "Etapp 6 route description says the trail reaches Tjustgölen, while the Tjustgöl reserve page says the reserve lacks trails/paths and parking.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-campingandfire-camping",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "campingAndFire.camping",
+      "category": "campingAndFire.camping",
+      "title": "camping",
+      "summary": "Lilla Laxemar and Hällveberg have official cabin/tenting fee pattern: 100 SEK/person in cabin and 50 SEK/person tenting by cabin. | Cabins are for Ostkustleden hikers; group/currentness should be verified before publication. | Figeholm reserve camping requires Länsstyrelsen permission; do not imply wild camping is allowed in the reserve. | Bredviken Camping is a route-adjacent commercial/municipal camping/service candidate and should be handled separately from wild-camping rules.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-campingandfire-confidence",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "campingAndFire.confidence",
+      "category": "campingAndFire.confidence",
+      "title": "confidence",
+      "summary": "medium-high",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-campingandfire-fire",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "campingAndFire.fire",
+      "category": "campingAndFire.fire",
+      "title": "fire",
+      "summary": "No outdoor fires at Lilla Laxemar cabin. | No outdoor fires at Hällveberg cabin. | Figeholm reserve forbids fires except at designated places. | Fårbo badplats grill place can be imported only with ordinary fire-ban/currentness caveat. | Oskarshamn fire-ban page showed no fire ban on 2026-04-29, but same-day recheck is required.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-campingandfire-toilets",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "campingAndFire.toilets",
+      "category": "campingAndFire.toilets",
+      "title": "toilets",
+      "summary": "Lilla Laxemar has a simple dry toilet in a yard outbuilding; no separate coordinate found. | Hällveberg has a simple dry toilet in the yard; no separate coordinate found. | Fårbosjön badplats has a toilet; OSM coordinate was used with Naturkartan facility-page support.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-conditionreports-0",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "conditionReports.0",
+      "category": "conditionReports.0",
+      "title": "condition Reports",
+      "summary": "A hiker who had walked stages 5-8 and 1-2 said markings are poor in places and recommended GPS with downloaded route. The same reply said Lilla Laxemar has fresh water in a hose and Hällveberg has well water that should be filtered.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.utsidan.se/forum/threads/ostkustleden-vatten.96662/"
+      ],
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-conditionreports-1",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "conditionReports.1",
+      "category": "conditionReports.1",
+      "title": "condition Reports",
+      "summary": "A 2025 review said the trail can be hard to follow and that the AllTrails route is an old version that does not always match the marked route. A 2022 review says hikers should bring food to the middle of part 7.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.alltrails.com/sv-se/led/sweden/kalmar/ostkustleden"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-conditionreports-2",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "conditionReports.2",
+      "category": "conditionReports.2",
+      "title": "condition Reports",
+      "summary": "Direct field report describes rough/overgrown terrain, scratches, many insect bites, confusing markings/wrong turns around Figeholm, difficulty driving to the cabin endpoints and a long day from 10:20 to 20:20 with breaks and swimming.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://helenas.dagar.se/2019/07/28/ostkustleden-etapp-7-lilla-laxemar-hallveberg/"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-conditionreports-3",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "conditionReports.3",
+      "category": "conditionReports.3",
+      "title": "condition Reports",
+      "summary": "Describes Figeholm as a useful resupply detour of just under 1 km each way and Hällveberg as a cozy simple cabin with about 10 sleeping places, wood stove, fireplace, well, woodshed and toilets.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.sydsverige.dk/?pageID=856"
+      ],
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-conditionreports-4",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "conditionReports.4",
+      "category": "conditionReports.4",
+      "title": "condition Reports",
+      "summary": "Lists 13.4 mi/21.7 km and hard difficulty, but no detailed condition text was available.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.mypacer.com/routes/ohzyff/ostkustleden-stage-7-lilla-laxemar-hedvigsberg-hiking-trail-kalmar-l%C3%A4n"
+      ],
+      "confidence": "low-for-conditions",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-rulesandsafety-closuresandreroutes",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "rulesAndSafety.closuresAndReroutes",
+      "category": "rulesAndSafety.closuresAndReroutes",
+      "title": "closures And Reroutes",
+      "summary": "No current Etapp 7 closure or reroute found on Naturkartan section page, Naturkartan Ostkustleden guide, Döderhult, Oskarshamn tourism/municipality or Figeholm reserve page.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-rulesandsafety-dogs",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "rulesAndSafety.dogs",
+      "category": "rulesAndSafety.dogs",
+      "title": "dogs",
+      "summary": "Figeholm reserve requires leashed dogs/pets. General Swedish rule context also applies: March 1-August 20 dogs must be kept from running loose where wildlife exists and year-round they must not pursue wildlife. Use leash near grazing animals.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/figeholm.html",
+        "https://www.naturvardsverket.se/vagledning-och-stod/allemansratten/allemansratten-for-markagare/"
+      ],
+      "confidence": "high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-rulesandsafety-fire",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "rulesAndSafety.fire",
+      "category": "rulesAndSafety.fire",
+      "title": "fire",
+      "summary": "Oskarshamn page said no current municipal fire ban on 2026-04-29, but fire bans change quickly. Apply stricter local rules: no outdoor fires at both endpoint cabins, and no fires in Figeholm reserve except designated places.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.oskarshamn.se/mer-om-kommunen/raddning-sakerhet-kris/raddningstjansten/eldningsforbud/",
+        "https://www.oskarshamn.se/mer-om-kommunen/raddning-sakerhet-kris/raddningstjansten/elda-utomhus/",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-lilla-laxemar",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-hallveberg",
+        "https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/figeholm.html"
+      ],
+      "confidence": "high-for-accessed-status-time-sensitive",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-rulesandsafety-forestry",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "rulesAndSafety.forestry",
+      "category": "rulesAndSafety.forestry",
+      "title": "forestry",
+      "summary": "No section-specific forestry closure found in the rules retry. Treat forestry as a general currentness risk and follow on-site signs.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/lilla-laxemar-hedvigsberg-hallveberg-ostkustleden-etapp-7",
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-rulesandsafety-grazingandlivestock",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "rulesAndSafety.grazingAndLivestock",
+      "category": "rulesAndSafety.grazingAndLivestock",
+      "title": "grazing And Livestock",
+      "summary": "Official route text starts through old pasture/hagmark. Döderhult reminds hikers to close gates. No current active-livestock notice found; model as general conduct/safety note rather than confirmed active grazing.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/lilla-laxemar-hedvigsberg-hallveberg-ostkustleden-etapp-7",
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-rulesandsafety-hunting",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "rulesAndSafety.hunting",
+      "category": "rulesAndSafety.hunting",
+      "title": "hunting",
+      "summary": "No section-specific hunting closure found. Naturkartan English page reportedly showed a seasonal elk-hunting notice for October 8-January 31 while Swedish page did not show the same notice; on 2026-04-29 this period was not active. Treat as seasonal/general safety caveat.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/lilla-laxemar-hedvigsberg-hallveberg-ostkustleden-etapp-7",
+        "https://www.naturvardsverket.se/amnesomraden/allemansratten/sa-gor-vi-allemansratt/jakt-och-fiske/"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-rulesandsafety-protectedareas",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "rulesAndSafety.protectedAreas",
+      "category": "rulesAndSafety.protectedAreas",
+      "title": "protected Areas",
+      "summary": "{\"name\":\"Figeholm naturreservat / Natura 2000 SE0330268\",\"rulesSummary\":[\"Confirmed directly relevant: official Etapp 7 text says the route passes through Figeholm reserve north of Figeholm.\",\"No current visitor news found on Länsstyrelsen page.\",\"Dogs/pets must be leashed.\",\"No fire except designated places.\",\"Camping requires Länsstyrelsen permission.\",\"Parking only at designated places.\",\"No deliberate wildlife disturbance.\",\"No damaging/removing plants, mosses, lichens, wood fungi or live/dead wood.\",\"Natura 2000 context is mainly a planning/impact caveat; hiker-facing import should use reserve rules.\"],\"sourceUrls\":[\"https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/figeholm.html\",\"https://eunis.eea.europa.eu/sites/SE0330268\"],\"confidence\":\"high\"} | {\"name\":\"Stamsjövägen naturreservat\",\"rulesSummary\":[\"Nearby Fårbo/E22 protected-area context identified in rules retry.\",\"No evidence found that Etapp 7 enters it.\"],\"sourceUrls\":[\"https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/stamsjovagen.html\"],\"confidence\":\"low-medium\",\"importCaveat\":\"Do not import as route-touched without GPX/boundary intersection.\"} | {\"name\":\"Fårbo water-protection area\",\"rulesSummary\":[\"Water-protection area exists for Fårbo groundwater supply with inner/outer-zone restrictions for chemicals, fuel, waste, forestry storage, road salt and excavation.\",\"Exact corridor overlap was not GIS-verified.\"],\"sourceUrls\":[\"https://www.lansstyrelsen.se/download/18.151739f161e6faa20625b4c/1526068932976/200373%20Skyddsomr%C3%A5de%20och%20skyddsbest%C3%A4mmelser%20f%C3%B6r%20grundvattent%C3%A4kt%20F%C3%A5rbo%20vattent%C3%A4kt.pdf\"],\"confidence\":\"medium\",\"importCaveat\":\"Keep as nearby environmental constraint until GIS confirms intersection.\"}",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-rulesandsafety-roadsafety",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "rulesAndSafety.roadSafety",
+      "category": "rulesAndSafety.roadSafety",
+      "title": "road Safety",
+      "summary": "Official Etapp 7 text identifies crossings/road use at kustvägen, the Figeholm-Fårbo road and E22 after Sippetorp. Hällveberg has no direct car road access, so pickup must be via E22.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/lilla-laxemar-hedvigsberg-hallveberg-ostkustleden-etapp-7",
+        "https://doderhult.naturskyddsforeningen.se/ostkustleden/"
+      ],
+      "confidence": "high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-rulesandsafety-watersafety",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "rulesAndSafety.waterSafety",
+      "category": "rulesAndSafety.waterSafety",
+      "title": "water Safety",
+      "summary": "Hällveberg well should be treated/boiled. Lilla Laxemar water is seasonal/currentness-sensitive. Fårbosjön is a swimming-water/badplats, not drinking water; current bathing-water sample status should be rechecked in season.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-hallveberg",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-lilla-laxemar",
+        "https://www.havochvatten.se/badplatser-och-badvatten/kommuner/badplatser-i-oskarshamns-kommun/farbosjon.html"
+      ],
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-sourcecontradictions-0",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "sourceContradictions.0",
+      "category": "sourceContradictions.0",
+      "title": "source Contradictions",
+      "summary": "Naturkartan visible pages/PDF use Hällveberg, while Naturkartan slugs and OSM/Waymarked Trails still use Hedvigsberg. The Hällveberg cabin page explains Hedvigsberg is the older name and Hällveberg is current on maps.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-sourcecontradictions-1",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "sourceContradictions.1",
+      "category": "sourceContradictions.1",
+      "title": "source Contradictions",
+      "summary": "Naturkartan page/API says 21.6 km, official GPX computes 21.611762 km, PDF/Sydsverige round to 21.5 km, OSM computed length is 21.630638 km, while Döderhult and OSM relation tag say about 20 km.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-sourcecontradictions-2",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "sourceContradictions.2",
+      "category": "sourceContradictions.2",
+      "title": "source Contradictions",
+      "summary": "Official-source lane found a seasonal elk-hunting notice for October 8-January 31 on Naturkartan English but not Swedish; it was not active on 2026-04-29.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-sourcecontradictions-3",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "sourceContradictions.3",
+      "category": "sourceContradictions.3",
+      "title": "source Contradictions",
+      "summary": "Official text and field reports describe Figeholm as a useful service detour, but no Figeholm spur/access line appears in the official GPX, Naturkartan API geometry or OSM relation.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-7-lilla-laxemar-hallveberg-sourcecontradictions-4",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "sourceCollection": "sourceContradictions.4",
+      "category": "sourceContradictions.4",
+      "title": "source Contradictions",
+      "summary": "Rules retry identified nearby Stamsjövägen reserve and Fårbo water-protection area, but did not verify GPX/boundary intersection.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-campingandfire-camping",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "campingAndFire.camping",
+      "category": "campingAndFire.camping",
+      "title": "camping",
+      "summary": "Hällveberg and Lilla Hycklinge use the general Ostkustleden cabin/tenting fee pattern: 100 SEK/person in cabin and 50 SEK/person tenting by cabin, where allowed. | Stensjö by rules prohibit tenting in fenced grazing land. | Cabins are intended for Ostkustleden hikers; group/currentness should be verified before publication.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-campingandfire-confidence",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "campingAndFire.confidence",
+      "category": "campingAndFire.confidence",
+      "title": "confidence",
+      "summary": "medium-high",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-campingandfire-fire",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "campingAndFire.fire",
+      "category": "campingAndFire.fire",
+      "title": "fire",
+      "summary": "No outdoor fires at Hällveberg cabin. | Lilla Hycklinge has a concrete grill ring/fireplace, but only if no fire ban or stricter rule applies. | Stensjö by permits fires only at designated places. | Oskarshamn fire-ban page showed no fire ban on 2026-04-29, but same-day fire-risk/current local status must be rechecked.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-campingandfire-toilets",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "campingAndFire.toilets",
+      "category": "campingAndFire.toilets",
+      "title": "toilets",
+      "summary": "Hällveberg has a simple dry toilet on/near the cabin yard; no separate coordinate found. | Stensjö by has importable toilet coordinate from OSM/service context. | Lilla Hycklinge has toilet in nearby building; no separate coordinate found.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-conditionreports-0",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "conditionReports.0",
+      "category": "conditionReports.0",
+      "title": "condition Reports",
+      "summary": "Recent users report generally very good conditions, low traffic, insects in late July and good cabins. One 2025 review says AllTrails route geometry is old and can diverge from actual markings; older 2022 comments mention tough trail, missing yellow marks on at least one section and need for GPS/map-reading.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.alltrails.com/sv-se/led/sweden/kalmar/ostkustleden"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-conditionreports-1",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "conditionReports.1",
+      "category": "conditionReports.1",
+      "title": "condition Reports",
+      "summary": "Direct report of Etapp 8: extra distance due to road-barrier access and wrong turns, searching for yellow markings, brushy/narrow sections, ankle-twisting footing, hungry insects, gravel roads, some asphalt and steep descent near Virån with rope aid.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://helenas.dagar.se/2022/07/13/ostkustleden-etapp-8-hallveberg-hycklinge/"
+      ],
+      "confidence": "high-for-2022-medium-for-current",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-conditionreports-2",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "conditionReports.2",
+      "category": "conditionReports.2",
+      "title": "condition Reports",
+      "summary": "May 2025 user tip called the section fantastic; older tip notes yellow-orange markings, bridges/stairs for streams/fences/obstacles and attractive route along Virån to Stensjö by.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.komoot.com/highlight/3595721"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-conditionreports-3",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "conditionReports.3",
+      "category": "conditionReports.3",
+      "title": "condition Reports",
+      "summary": "Lilla Hycklinge described as a useful shelter/picnic shelter, including in rain.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.komoot.com/de-de/highlight/886973"
+      ],
+      "confidence": "medium-low",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-conditionreports-4",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "conditionReports.4",
+      "category": "conditionReports.4",
+      "title": "condition Reports",
+      "summary": "Notes water refill at Stensjö by, lunch spot by Långsjön, final swim at Nybogölen and Lilla Hycklinge cabin with beds/mattresses, electricity, kitchen and flush toilet in nearby building.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.sydsverige.dk/?pageID=114"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-conditionreports-5",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "conditionReports.5",
+      "category": "conditionReports.5",
+      "title": "condition Reports",
+      "summary": "Lists 10.4 mi, about 16.7 km, 147.6 ft gain and medium difficulty.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.mypacer.com/routes/ohzyf2/ostkustleden-stage-8-hedvigsberg-lilla-hycklinge-hiking-trail-kalmar-l%C3%A4n"
+      ],
+      "confidence": "low-for-conditions",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-conditionreports-6",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "conditionReports.6",
+      "category": "conditionReports.6",
+      "title": "condition Reports",
+      "summary": "Reports all eight cabins inventoried and action list created; Lilla Hycklinge and Hällveberg interiors painted; several bridges, boardwalks and a stair repaired.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://rtp.se/wp-content/uploads/2022/12/nyhetsbrev-mera-ut-2022.pdf"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-rulesandsafety-closuresandreroutes",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "rulesAndSafety.closuresAndReroutes",
+      "category": "rulesAndSafety.closuresAndReroutes",
+      "title": "closures And Reroutes",
+      "summary": "No closure or reroute found on checked official pages. Naturkartan Ostkustleden news had no news items and Länsstyrelsen Stensjö by had no current visitor news.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-rulesandsafety-dogs",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "rulesAndSafety.dogs",
+      "category": "rulesAndSafety.dogs",
+      "title": "dogs",
+      "summary": "Stensjö by requires leashed dogs/pets year-round. General Swedish March 1-August 20 wildlife-control rule also applies elsewhere.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.lansstyrelsen.se/kalmar/besoksmal/kulturmiljoer/stensjo-by.html",
+        "https://www.naturvardsverket.se/globalassets/media/publikationer-pdf/1300/978-91-620-1304-2.pdf"
+      ],
+      "confidence": "high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-rulesandsafety-fire",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "rulesAndSafety.fire",
+      "category": "rulesAndSafety.fire",
+      "title": "fire",
+      "summary": "Oskarshamn page showed no municipal fire ban at access date, but fire-risk and local fire-ban status are highly time-sensitive. Hällveberg forbids outdoor fires, Stensjö by allows fires only at designated places and Lilla Hycklinge grill ring use depends on no active fire ban.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.oskarshamn.se/mer-om-kommunen/raddning-sakerhet-kris/raddningstjansten/eldningsforbud/",
+        "https://www.msb.se/sv/om-msb/kommunikationskanaler/appar/brandrisk-ute/",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-hallveberg",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-i-hycklinge?guide_id=201",
+        "https://www.lansstyrelsen.se/download/18.7a5fa68e170c024b3283de4/1583998121596/202004%20Kulturreservatet%20Stensj%C3%B6%20by.pdf"
+      ],
+      "confidence": "high-for-accessed-status-time-sensitive",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-rulesandsafety-forestry",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "rulesAndSafety.forestry",
+      "category": "rulesAndSafety.forestry",
+      "title": "forestry",
+      "summary": "No official current forestry-work or reroute notice found for Etapp 8. Stensjö by reserve management can involve maintenance, grazing, conservation work and controlled burning, so temporary local signage remains possible.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/ostkustleden/news",
+        "https://www.lansstyrelsen.se/kalmar/besoksmal/kulturmiljoer/stensjo-by.html"
+      ],
+      "confidence": "medium",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-rulesandsafety-grazingandlivestock",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "rulesAndSafety.grazingAndLivestock",
+      "category": "rulesAndSafety.grazingAndLivestock",
+      "title": "grazing And Livestock",
+      "summary": "Stensjö by marked trails pass through cattle/sheep grazing areas. Close gates, avoid disturbing animals and keep dogs leashed.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.lansstyrelsen.se/kalmar/besoksmal/kulturmiljoer/stensjo-by.html"
+      ],
+      "confidence": "high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-rulesandsafety-hunting",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "rulesAndSafety.hunting",
+      "category": "rulesAndSafety.hunting",
+      "title": "hunting",
+      "summary": "Naturkartan Etapp 8 carries elk-hunting notice October 8-January 31. On access date 2026-04-29 the stated period was not active. Model as seasonal safety note, not current closure.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/hedvigsberg-lilla-hycklinge-ostkustleden-etapp-8"
+      ],
+      "confidence": "high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-rulesandsafety-protectedareas",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "rulesAndSafety.protectedAreas",
+      "category": "rulesAndSafety.protectedAreas",
+      "title": "protected Areas",
+      "summary": "{\"name\":\"Kulturreservatet Stensjö by\",\"rulesSummary\":[\"Confirmed route-relevant: Etapp 8 passes through the cultural reserve.\",\"Park only at designated parking.\",\"No cycling outside gravel roads.\",\"No tenting in fenced grazing land.\",\"Dogs/pets must be leashed.\",\"Fires only at designated places.\",\"Do not damage living/dead trees or shrubs.\",\"Do not deliberately disturb livestock or wild animals.\",\"Permits required for signs/markers, competitions/organized events, collecting certain mosses/lichens/fungi/plants/insects and drone use.\",\"Marked trails pass through areas grazed by cows or sheep; close gates.\"],\"sourceUrls\":[\"https://www.lansstyrelsen.se/kalmar/besoksmal/kulturmiljoer/stensjo-by.html\",\"https://www.lansstyrelsen.se/download/18.7a5fa68e170c024b3283de4/1583998121596/202004%20Kulturreservatet%20Stensj%C3%B6%20by.pdf\"],\"confidence\":\"high\"} | {\"name\":\"Virån / Viråns vattensystem Natura 2000 context\",\"rulesSummary\":[\"Etapp 8 crosses and follows Virån.\",\"Naturkartan identifies Virån as a species-rich watercourse within Natura 2000 context.\",\"Stensjö by reserve rules reference Natura 2000 and conservation measures for Virån.\",\"Exact Natura 2000 boundary intersection should be GIS-confirmed before import.\"],\"sourceUrls\":[\"https://www.naturkartan.se/sv/kalmar-lan/hedvigsberg-lilla-hycklinge-ostkustleden-etapp-8\",\"https://www.lansstyrelsen.se/download/18.7a5fa68e170c024b3283de4/1583998121596/202004%20Kulturreservatet%20Stensj%C3%B6%20by.pdf\",\"https://www.gu.se/hantverkslaboratoriet/att-ateruppta-ett-traditionellt-brukande-med-hela-landskapet-som-bas\"],\"confidence\":\"medium-high\",\"importCaveat\":\"Do not apply detailed Natura 2000 boundary rules until GIS overlay confirms intersection.\"} | {\"name\":\"Water-protection areas near Lilla Hycklinge/Eckern\",\"rulesSummary\":[\"Oskarshamn inventory lists municipal water-protection areas including Eckern and others.\",\"No source proved Etapp 8 itself crosses one.\"],\"sourceUrls\":[\"https://www.oskarshamn.se/bygga-bo-miljo/vatten-och-avlopp/dricksvatten/vattenskyddsomraden/\"],\"confidence\":\"low-for-route-intersection\",\"importCaveat\":\"Run GIS overlay before applying water-protection-area rules to the route.\"}",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-rulesandsafety-roadsafety",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "rulesAndSafety.roadSafety",
+      "category": "rulesAndSafety.roadSafety",
+      "title": "road Safety",
+      "summary": "Route includes gravel roads, some asphalt, a stretch toward Skrikebo and village road through Hycklinge. Field report also described access/wrong-turn extra distance and a steep rope-assisted descent near Virån.",
+      "userFacingEligibility": "needs-review",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/hedvigsberg-lilla-hycklinge-ostkustleden-etapp-8",
+        "https://helenas.dagar.se/2022/07/13/ostkustleden-etapp-8-hallveberg-hycklinge/"
+      ],
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-rulesandsafety-watersafety",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "rulesAndSafety.waterSafety",
+      "category": "rulesAndSafety.waterSafety",
+      "title": "water Safety",
+      "summary": "Hällveberg well should be boiled/treated. Stensjö by water refill is guide-supported but not separately verified as a potable-water coordinate. Lilla Hycklinge has water in the house. Nybo göl has steep shores and very deep water warning.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-hallveberg",
+        "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-i-hycklinge?guide_id=201",
+        "https://www.sydsverige.dk/?pageID=114",
+        "https://www.naturkartan.se/sv/kalmar-lan/hedvigsberg-lilla-hycklinge-ostkustleden-etapp-8"
+      ],
+      "confidence": "medium-high",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-sourcecontradictions-0",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "sourceContradictions.0",
+      "category": "sourceContradictions.0",
+      "title": "source Contradictions",
+      "summary": "Current Naturkartan display uses Hällveberg, but URL/GPX filename and OSM relation use Hedvigsberg. Hällveberg cabin page reconciles this by stating Hedvigsberg is the older name and Hällveberg is current on maps. Döderhult also contains Hälveberg spelling in places.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-sourcecontradictions-1",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "sourceContradictions.1",
+      "category": "sourceContradictions.1",
+      "title": "source Contradictions",
+      "summary": "Naturkartan says 16.9 km, normalized GPX computes about 16.834 km, PDF/Oskarshamn round to 17 km, OSM computes about 16.76 km but tags 18 km, and Döderhult says cirka 18 km.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-sourcecontradictions-2",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "sourceContradictions.2",
+      "category": "sourceContradictions.2",
+      "title": "source Contradictions",
+      "summary": "Official GPX contains eight pieces, but raw order creates jumps and duplicate sliver tracks 2 and 7. Correct sequence is 8 -> 4 -> 3 -> 1 -> 5R -> 6R.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-sourcecontradictions-3",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "sourceContradictions.3",
+      "category": "sourceContradictions.3",
+      "title": "source Contradictions",
+      "summary": "Naturkartan Etapp 8 Hitta hit/stage marker is mid-route, not start or endpoint.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-sourcecontradictions-4",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "sourceContradictions.4",
+      "category": "sourceContradictions.4",
+      "title": "source Contradictions",
+      "summary": "Normalized official GPX endpoint is 156.4 m from the Lilla Hycklinge cabin marker, while the official description says the section ends at the trail entrance/overnight cabin.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-sourcecontradictions-5",
+      "trailId": "ostkustleden",
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "sourceCollection": "sourceContradictions.5",
+      "category": "sourceContradictions.5",
+      "title": "source Contradictions",
+      "summary": "Naturkartan says Kungliga Vitterhetsakademien acquired Stensjö by in 1963, while Döderhult says owned since 1960.",
+      "userFacingEligibility": "import-maintenance-only",
+      "importAction": "suppress"
+    },
+    {
+      "warningId": "ostkustleden-trail-handoff-rulewarningplan-planreference",
+      "trailId": "ostkustleden",
+      "sourceFile": "ostkustleden/normalization-handoff.research.json",
+      "sourceCollection": "handoff.ruleWarningPlan.planReference",
+      "category": "handoff.ruleWarningPlan",
+      "title": "plan Reference",
+      "summary": "normalization-plan.research.json:rulesAndCurrentnessPlan",
+      "userFacingEligibility": "needs-review",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-trail-handoff-rulewarningplan-publicationtimechecks",
+      "trailId": "ostkustleden",
+      "sourceFile": "ostkustleden/normalization-handoff.research.json",
+      "sourceCollection": "handoff.ruleWarningPlan.publicationTimeChecks",
+      "category": "handoff.ruleWarningPlan",
+      "title": "publication Time Checks",
+      "summary": "Fire bans and fire-risk warnings. | KLT fixed-route and Närtrafik service. | Cabin availability and fees. | Water reliability and quality. | Hunting signs/notices. | Forestry and route passability.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-trail-handoff-rulewarningplan-requiresgisoverlaybeforeruleimport",
+      "trailId": "ostkustleden",
+      "sourceFile": "ostkustleden/normalization-handoff.research.json",
+      "sourceCollection": "handoff.ruleWarningPlan.requiresGisOverlayBeforeRuleImport",
+      "category": "handoff.ruleWarningPlan",
+      "title": "requires Gis Overlay Before Rule Import",
+      "summary": "Bråbygden Natura 2000 | Krokshult reserve context | Misterhults skärgård reserve/Natura 2000 C-areas | Stamsjövägen reserve | Fårbo water-protection area | Virån Natura 2000 | biotopskydd SK 568-2007 | other water-protection areas near route context",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-trail-handoff-rulewarningplan-staticrulepolicy",
+      "trailId": "ostkustleden",
+      "sourceFile": "ostkustleden/normalization-handoff.research.json",
+      "sourceCollection": "handoff.ruleWarningPlan.staticRulePolicy",
+      "category": "handoff.ruleWarningPlan",
+      "title": "static Rule Policy",
+      "summary": "Official reserve/cultural-reserve rules where the source says the route passes through the area, such as Humlenäs and Stensjö by. | Cabin-specific no-outdoor-fire/no-electricity/boil-water wording from current official cabin pages, with accessed dates.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    },
+    {
+      "warningId": "ostkustleden-trail-handoff-rulewarningplan-unknowns",
+      "trailId": "ostkustleden",
+      "sourceFile": "ostkustleden/normalization-handoff.research.json",
+      "sourceCollection": "handoff.ruleWarningPlan.unknowns",
+      "category": "handoff.ruleWarningPlan",
+      "title": "unknowns",
+      "summary": "unknown/recheck: boundary-sensitive rules after final normalized geometry. | unknown/recheck: current KLT/Närtrafik, fire-risk, hunting, forestry and cabin/water status at publication time.",
+      "userFacingEligibility": "candidate-hiker-facing",
+      "importAction": "pending-review"
+    }
+  ]
+}

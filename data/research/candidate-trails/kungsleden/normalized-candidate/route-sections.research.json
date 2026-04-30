@@ -1,0 +1,1842 @@
+{
+  "schemaVersion": "candidate-route-sections/v1",
+  "trailId": "kungsleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-normalized-research-only",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "kungsleden/normalization-handoff.research.json",
+  "sharedDecisionFile": "shared-importer-decisions.research.json",
+  "distancePolicy": {
+    "officialDistanceKm": "Trail-manager or selected official user-facing distance.",
+    "computedGeometryDistanceKm": "Distance computed from selected normalized geometry.",
+    "displayDistanceKm": "Defaults to officialDistanceKm unless a trail-specific handoff selects a different value.",
+    "distanceCaveats": "Source contradictions, rounded totals, stale values and measured-distance notes."
+  },
+  "sections": [
+    {
+      "sectionId": "kungsleden-section-01-abisko-abiskojaure",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-01-abisko-abiskojaure.research.json",
+      "order": 1,
+      "sectionNumber": 1,
+      "name": "Abisko-Abiskojaure",
+      "from": "Abisko",
+      "to": "Abiskojaure",
+      "distance": {
+        "officialDistanceKm": 15,
+        "displayDistanceKm": 15
+      },
+      "estimatedTime": "4-6 hours",
+      "difficulty": {
+        "label": "Easy walking; low technical difficulty",
+        "source": "Naturkartan describes the path as broad/easy with some boardwalk; STF does not provide a formal grade.",
+        "confidence": "medium"
+      },
+      "routeType": {
+        "type": "linear",
+        "direction": "north-to-south",
+        "notes": [
+          "Official section direction is Abisko to Abiskojaure.",
+          "This section overlaps Kungsleden and Nordkalottleden.",
+          "The whole stage lies in Abisko National Park.",
+          "At Abiskojaure, the hut area is reached by leaving the Kungsleden through-route and crossing Kamajakka by suspension bridge; later section joins may need to avoid duplicating this hut access spur."
+        ]
+      },
+      "endpoints": {
+        "start": {
+          "label": "Kungsledsportalen / Kungsleden trailhead, Abisko",
+          "coordinatesLatLon": [
+            68.358896048,
+            18.779224884
+          ],
+          "confidence": "high",
+          "caveats": [
+            "This is the route/trailhead coordinate, not the STF building coordinate.",
+            "About 93 m from OSM trailhead node 289461132 and about 186 m from the OSM STF Abisko Turiststation point.",
+            "STF Abiskojaure page says the Kungsleden trail toward Abiskojaure starts about 300 m from the bus stop, railway station and car park."
+          ]
+        },
+        "end": {
+          "label": "Abiskojaure hut area / Kungsleden section end",
+          "coordinatesLatLon": [
+            68.286000203,
+            18.590492322
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Naturkartan says hikers leave Kungsleden and cross Kamajakka by suspension bridge to reach the Abiskojaure cabins.",
+            "End coordinate is about 7 m from the OSM route end and about 32 m from the OSM Abiskojaure hut point."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturkartan site 12850 shapes",
+        "sourceUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd21-fran-abisko-till-abiskojaure",
+        "classification": "planning-grade",
+        "confidence": "high"
+      },
+      "caveats": [
+        "STF says 15 km and 4-6 hours; Naturkartan says 14.0 km and 4-5 hours; AllTrails and OSM-derived sources are around 14-15 km. Use STF's 15 km / 4-6 h for official section display, and record 14.0 km Naturkartan linework distance as geometry metadata.",
+        "Official descriptions present Abiskojaure hut/cabin as the stage end, while Naturkartan notes hikers leave Kungsleden and cross Kamajakka by suspension bridge to reach the cabins.",
+        "Sources spell the mid-stage designated campsite as Nissonjohka, Nissunjohka, Nissunjakka/Nissunjåkka, and Nissonjåhka.",
+        "One AllTrails review from 2025-08-06 reported a bridge closure making the trail impassable without rerouting, but official sources checked on 2026-04-29 did not show a standing section closure and the bridge was not identified.",
+        "Naturkartan page linework is available in the web map/API evidence, but the public .gpx URL returned HTTP 500 on 2026-04-29 and the geometry agent found publish_gpx=false."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-02-abiskojaure-alesjaure",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-02-abiskojaure-alesjaure.research.json",
+      "order": 2,
+      "sectionNumber": 2,
+      "name": "Abiskojaure-Alesjaure",
+      "from": "Abiskojaure",
+      "to": "Alesjaure",
+      "distance": {
+        "officialDistanceKm": 21,
+        "displayDistanceKm": 21
+      },
+      "estimatedTime": "6-8 hours",
+      "difficulty": {
+        "label": "Moderate mountain stage; no formal official grade found",
+        "source": "STF and Naturkartan describe a long 21 km stage with a 300 m climb at Kieronbacken, stony/wet stretches, open alpine terrain and possible water scarcity after Siellajohka, but do not publish a formal difficulty grade.",
+        "confidence": "medium"
+      },
+      "routeType": {
+        "type": "linear",
+        "direction": "north-to-south",
+        "notes": [
+          "Official section direction is Abiskojaure to Alesjaure.",
+          "This section overlaps Kungsleden and Nordkalottleden/Arctic Trail context in official and OSM sources.",
+          "The stage starts at the Abiskojaure hut area inside Abisko National Park, crosses Kamajakka back to the through-route, leaves the national park after a few kilometres, and ends at the Alesjaure hut area.",
+          "The Alesjaure boat across Alisjavri is an optional shortcut of about 6 km and should be modelled as access/shortcut metadata, not as mandatory hiking geometry."
+        ]
+      },
+      "endpoints": {
+        "start": {
+          "label": "Abiskojaure hut area / Kungsleden section start",
+          "coordinatesLatLon": [
+            68.286000202,
+            18.590492322
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Naturkartan/GPX geometry is stored Alesjaure-to-Abiskojaure and must be reversed for official section order.",
+            "The start is the hut-area/route endpoint. Hikers cross Kamajakka back to the through-route after leaving the hut area, so section-join import must avoid duplicating the Abiskojaure hut spur."
+          ]
+        },
+        "end": {
+          "label": "Alesjaure hut area / Kungsleden section end",
+          "coordinatesLatLon": [
+            68.136794344,
+            18.413779339
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Endpoint is near the Alesjaure hut area, not necessarily the cabin building centroid.",
+            "Optional boat terminal and hut subfacility coordinates should remain access/facility metadata until verified from official/operator sources."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturkartan site 14092 / BD26 GPX",
+        "classification": "planning-grade",
+        "confidence": "high"
+      },
+      "caveats": [
+        "Official section order and route title are Abiskojaure to Alesjaure, while Naturkartan GPX/API linework is stored Alesjaure to Abiskojaure.",
+        "Naturkartan API reports publish_gpx=false for site 14092, but the public GPX URL returned HTTP 200 application/gpx+xml on 2026-04-29.",
+        "Official sources display 21 km. Naturkartan computed GPX/API line is about 20.66 km, while Waymarked/OSM assembles about 20.36 km.",
+        "Official STF boat page updated 2025-07-05 lists Alesjaure shuttle schedule and payment context until further notice, but field report claims a 2025 shutdown and STF page has a general cash note versus Alesjaure-specific card/currency note.",
+        "OSM ferry way evidence includes useful operator/terminal hints, but the line geometry is duplicated/malformed with a clearly wrong full length.",
+        "Official sources provide terrain notes but no formal difficulty grade.",
+        "The route clearly starts in Abisko National Park and leaves it after a few kilometres, but no separate protected-area rule set was confirmed for the post-park segment in this batch.",
+        "Several child amenities at Alesjaure and exact Siellajohka/Radunjarga subfacility points rely on OSM support while official pages confirm the facility type but not exact coordinates."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-03-alesjaure-tjaktja",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-03-alesjaure-tjaktja.research.json",
+      "order": 3,
+      "sectionNumber": 3,
+      "name": "Alesjaure-Tjaktja",
+      "from": "Alesjaure",
+      "to": "Tjaktja",
+      "distance": {
+        "officialDistanceKm": 13,
+        "displayDistanceKm": 13
+      },
+      "estimatedTime": "4-5 hours",
+      "difficulty": {
+        "label": "Moderate mountain stage; no formal official grade found",
+        "source": "STF describes mostly easy walking at first, then steeper and rockier final kilometres. Naturkartan describes open moor, increasing stone/barrenness, Sielmmanjira ford and the climb toward Tjaktja.",
+        "confidence": "medium"
+      },
+      "routeType": {
+        "type": "linear",
+        "direction": "north-to-south",
+        "notes": [
+          "Official STF section direction is Alesjaure to Tjaktja.",
+          "This section overlaps Kungsleden and Nordkalottleden/Arctic Trail context.",
+          "STF publishes Alesjaure-Tjaktja as a 13 km day stage, while Naturkartan publishes the official county linework as a combined 25 km Alesjaure-Salka route with Tjaktja as an intermediate hut.",
+          "No ferry or boat belongs to this section; the Alesjaure boat is a section-2 shortcut/access record."
+        ]
+      },
+      "endpoints": {
+        "start": {
+          "label": "STF Alesjaure Mountain Cabin / Alesjaure section start",
+          "coordinatesLatLon": [
+            68.136673,
+            18.414793
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Naturkartan combined Alesjaure-Salka GPX appears to start on the main trail/bridge-side line, not exactly at the STF hut coordinate.",
+            "Section 2 and section 3 both use Alesjaure hut-area endpoints; import should avoid duplicating local hut/bridge spurs."
+          ]
+        },
+        "end": {
+          "label": "STF Tjaktja Mountain Cabin / Tjaktja section end",
+          "coordinatesLatLon": [
+            68.051648,
+            18.241082
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Decide whether section import should end at the STF hut GPS or at the Kungsleden mainline point near the hut.",
+            "Verify side-spur/access geometry to the hut before treating route geometry as navigation-grade."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturkartan site 12865 combined Alesjaure-Salka linework",
+        "classification": "planning-grade",
+        "confidence": "medium-high"
+      },
+      "caveats": [
+        "STF lists Alesjaure-Tjaktja as section 3, 13 km, while Naturkartan publishes Alesjaure-Salka as one 25 km route with Tjaktja as an intermediate cabin.",
+        "STF hut coordinates are official facility endpoints, but both Naturkartan cut line and OSM/Waymarked section line are about 216-220 m from the STF Tjaktja hut coordinate.",
+        "Naturkartan combined Alesjaure-Salka line is stored Salka-to-Alesjaure and must be reversed; API reportedly has publish_gpx=false while public GPX worked on 2026-04-29.",
+        "STF structured field says 11-25 beds, while STF Swedish text/rules lane and Naturkartan/OSM context indicate 33 beds.",
+        "Alesjaure has a large shop, but Tjaktja has no shop in STF stage/shop/facility evidence.",
+        "No named land reserve or national park was confirmed for this section, but possible Natura 2000 water-system relevance was noted and exact overlap was not verified.",
+        "Alesjaure/Tjaktja child amenities, wild tent areas, Meditationsplats and Tjaktja waterfall rely on OSM or field evidence rather than official object coordinates."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-04-tjaktja-salka",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-04-tjaktja-salka.research.json",
+      "order": 4,
+      "sectionNumber": 4,
+      "name": "Tjaktja-Salka",
+      "from": "Tjaktja",
+      "to": "Salka",
+      "distance": {
+        "officialDistanceKm": 12,
+        "displayDistanceKm": 12
+      },
+      "estimatedTime": "3-5 hours",
+      "difficulty": {
+        "label": "Moderate mountain pass stage; no formal official grade found",
+        "source": "STF gives no formal difficulty grade. Official and field sources describe a short but exposed stage over Tjaktjapasset, Kungsleden's highest point, with stony terrain, snow that can linger into July, scarce water near the pass and a steep/stony descent toward Salka.",
+        "confidence": "medium"
+      },
+      "routeType": {
+        "type": "linear",
+        "direction": "north-to-south",
+        "notes": [
+          "Official STF section direction is Tjaktja to Salka.",
+          "This is STF Abisko-Nikkaluokta stage 4 and the southern half of Naturkartan/Lansstyrelsen route BD31 Alesjaure-Salka.",
+          "The stage crosses Tjaktjapasset about 4 km south of Tjaktja. STF and Naturkartan describe this as Kungsleden's highest point at about 1150 m.",
+          "No ferry or boat belongs directly to this section. Boat services relevant to Alesjaure or Laddjujavri are adjacent access/stage-chain metadata, not section-4 route geometry.",
+          "Salka is a junction for the main Kungsleden south toward Singi and side routes toward Nallo and Hukejaure."
+        ]
+      },
+      "endpoints": {
+        "start": {
+          "label": "STF Tjaktja Mountain Cabin / Tjaktja section start",
+          "coordinatesLatLon": [
+            68.051648,
+            18.241082
+          ],
+          "confidence": "high",
+          "caveats": [
+            "The mapped trail-stage boundary does not coincide exactly with the STF hut coordinate.",
+            "OSM relation 10861494 starts about 328 m from the STF Tjaktja hut, at the same point where OSM relation 10861495 Alesjaure-Tjaktja ends.",
+            "Naturkartan nearest line point to STF Tjaktja is about 220 m from the hut.",
+            "Import should decide whether the endpoint represents the hut POI, the mainline stage boundary, or a hut-spur connector."
+          ]
+        },
+        "end": {
+          "label": "STF Salka Mountain Cabin / Salka section end",
+          "coordinatesLatLon": [
+            67.946376,
+            18.281701
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Salka hut coordinate aligns well with OSM section geometry but not exactly with Naturkartan's combined-line endpoint.",
+            "Naturkartan appears to use a stage-boundary convention near Salka that may align with the next Salka-Singi section rather than the hut centroid."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "OSM relation 10861494 / Waymarked Trails",
+        "classification": "planning-grade",
+        "confidence": "medium-high"
+      },
+      "caveats": [
+        "STF publishes Tjaktja-Salka as a 12 km stage, while Naturkartan official county linework is a combined 25 km Alesjaure-Salka route that must be reversed and split. OSM relation 10861494 is section-specific but not official.",
+        "STF hut coordinates do not always coincide with OSM/Naturkartan stage-boundary geometry. Tjaktja is 220-328 m from line/stage coordinates; Salka aligns closer but Naturkartan's Salka-side endpoint is about 199 m from the hut.",
+        "STF structured/page evidence and Naturkartan/OSM/text evidence conflict between 11-25 beds and 33 beds for Tjaktja.",
+        "Official sources use Tjaktjapasset and about 1150 m; OSM shelter object uses variant spelling and ele=1120.",
+        "STF gives the Abisko-Nikkaluokta route-group total as 107 km; Swedish Lapland gives 105 km. Section 4 distance remains consistently 12 km.",
+        "Multiple 2025 sources report early-season snow at/near Tjaktjapasset, but no 2026 summer snow report was available on 2026-04-29.",
+        "Should later normalization represent Tjaktja and Salka endpoints as STF hut POIs, OSM/Naturkartan stage-boundary points, or hut-spur connector metadata?",
+        "If using Naturkartan official linework, should section 4 be split at the OSM Tjaktja stage boundary, at the nearest point to STF Tjaktja, or at a verified hut spur once found?",
+        "Confirm project source/licensing policy before importing Naturkartan API/GPX geometry or OSM-derived geometry.",
+        "Verify exact hut-spur geometry at Tjaktja and Naturkartan's Salka stage-boundary convention before navigation-grade import.",
+        "Run a full protected-area/Natura 2000 overlay on final section geometry before rules normalization.",
+        "Verify Tjaktjapasset rest shelter coordinate from an official coordinate field or map export if a higher precision source becomes available."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-05-salka-singi",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-05-salka-singi.research.json",
+      "order": 5,
+      "sectionNumber": 5,
+      "name": "Salka-Singi",
+      "from": "Salka",
+      "to": "Singi",
+      "distance": {
+        "officialDistanceKm": 12,
+        "displayDistanceKm": 12
+      },
+      "estimatedTime": "3-4 hours",
+      "difficulty": {
+        "label": "Easy-to-moderate valley stage; no formal official grade found",
+        "source": "STF and Naturkartan describe easy and mostly flat walking over heath and moorland, with bridges, broad valley views and a more winding/rocky approach to Singi. Field reports agree the tread is generally easy-to-moderate but emphasize exposed wind and weather.",
+        "confidence": "medium"
+      },
+      "routeType": {
+        "type": "linear",
+        "direction": "north-to-south",
+        "notes": [
+          "Official STF section direction is Salka to Singi.",
+          "This is STF Abisko-Nikkaluokta stage 5 and Naturkartan route BD38.",
+          "The section overlaps Kungsleden and Nordkalottleden context.",
+          "Singi is a major junction: official Kungsleden continues south toward Kaitumjaure, while the popular Kebnekaise/Nikkaluokta route leaves official Kungsleden at Singi.",
+          "No ferry or boat belongs directly to this section. The Laddjujavri boat is an access aid on the distant Nikkaluokta-Kebnekaise approach, not section geometry."
+        ]
+      },
+      "endpoints": {
+        "start": {
+          "label": "STF Salka Mountain Cabin / Salka section start",
+          "coordinatesLatLon": [
+            67.946376,
+            18.281701
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Naturkartan's Salka start is materially offset from the STF hut and may be an intentional stage-break or junction convention.",
+            "OSM relation 17080095 and a secondary GPX align much closer to the hut and to the previous OSM Tjaktja-Salka endpoint.",
+            "Later import must decide whether the canonical endpoint is the hut POI, OSM shared section node, or Naturkartan stage-break point."
+          ]
+        },
+        "end": {
+          "label": "STF Singi Mountain Cabin / Singi section end",
+          "coordinatesLatLon": [
+            67.851109,
+            18.31606
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Singi is both a hut and a trail junction. OSM uses a shared node for the continuing Singi-Kaitumjaure mainline and Kebnekaise connector.",
+            "Naturkartan uses a short Singi spur linking its main end to nearby continuation starts.",
+            "Later import should keep Singi junction/connector metadata separate from the hut POI if the geometry requires it."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "OSM relation 17080095 / Waymarked Trails",
+        "classification": "planning-grade",
+        "confidence": "medium-high"
+      },
+      "caveats": [
+        "STF says the route to Kebnekaise/Nikkaluokta leaves official Kungsleden at Singi, while OSM includes the Singi-Kebnekaise connector in broader Kungsleden summer context.",
+        "Naturkartan API main line starts about 207 m from STF Salka hut, while OSM and secondary GPX start about 21-22 m from the hut and are continuous with the prior OSM section.",
+        "STF stage evidence says Singi-Kebnekaise is 15 km, while Singi cabin context says about 14 km west of Kebnekaise; OSM/Waymarked relation 17085819 computes about 14.31 km.",
+        "AllTrails says usually very busy, Trailforks says lighter traffic, and blogs report both event-heavy and quiet periods.",
+        "STF's snow/current-conditions page found for this section is from 2025-07-08, while Lansstyrelsen has a 2026-04-22 shoulder-season winter-route warning.",
+        "Skyddad natur Nationalparksplan layer returned a Kebnekaise proposed national park at Salka/midpoint, but no current national park/reserve/Natura 2000 overlap was confirmed from sampled current layers.",
+        "Is Naturkartan's Salka start intentionally a stage-break/trail-junction point rather than the STF hut, or an endpoint error?",
+        "Should later normalization use STF hut coordinates, OSM shared nodes or Naturkartan stage-break points for Salka and Singi endpoints?",
+        "Confirm project source/licensing policy before importing Naturkartan API geometry, OSM relation 17080095 or secondary GPX-derived geometry.",
+        "Model Singi-Kebnekaise/Nikkaluokta as connector/access metadata, not official mainline, unless a later product decision intentionally includes access branches.",
+        "Run a final protected-area/current-proposal overlay against selected section geometry before rules normalization.",
+        "Verify bridge names and status for Gaskkasjohka and Guobirjohka before importing named bridge records."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-06-singi-kaitumjaure",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-06-singi-kaitumjaure.research.json",
+      "order": 6,
+      "sectionNumber": 6,
+      "name": "Singi-Kaitumjaure",
+      "from": "Singi",
+      "to": "Kaitumjaure",
+      "distance": {
+        "officialDistanceKm": 13,
+        "displayDistanceKm": 13
+      },
+      "estimatedTime": "4-5 hours",
+      "difficulty": {
+        "label": "Easy mountain stage; no formal grade beyond official descriptive wording",
+        "source": "STF calls this an easy stage and Naturkartan describes easy walking with small elevation changes. Field reports agree that the walking is generally straightforward, but weather, boardwalk condition, mosquitoes and the final birch/boardwalk approach can make it feel harder.",
+        "confidence": "medium-high",
+        "caveats": [
+          "STF lists 4-5 hours; Naturkartan Swedish/API evidence lists 4-6 hours and English text was reported as 5-6 hours in the geometry lane.",
+          "Difficulty can increase with cold wind, rain, early-season snow patches, worn boardwalks and mosquitoes around lower/birch areas."
+        ]
+      },
+      "routeType": {
+        "type": "linear",
+        "direction": "north-to-south",
+        "notes": [
+          "Official direction is Singi to Kaitumjaure.",
+          "This is the candidate mainline continuation after Salka-Singi and STF Nikkaluokta-Saltoluokta stage 3.",
+          "Singi is also the junction where the Kebnekaise/Nikkaluokta access route leaves or joins the Kungsleden mainline; keep that as connector/access metadata.",
+          "Kaitumjaure is a remote hut endpoint before the next mainline stage toward Teusajaure."
+        ]
+      },
+      "endpoints": {
+        "start": {
+          "label": "STF Singi Mountain Cabin / Singi section start",
+          "coordinatesLatLon": [
+            67.851109,
+            18.31606
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Singi is both a hut and trail junction. Keep hut POI coordinates separate from route geometry endpoints unless normalization requires snapped hut endpoints.",
+            "The eastbound Kebnekaise/Nikkaluokta route is connector/access metadata, not the Kungsleden mainline continuation."
+          ]
+        },
+        "end": {
+          "label": "STF Kaitumjaure Mountain Cabin / Kaitumjaure section end",
+          "coordinatesLatLon": [
+            67.746527,
+            18.295671
+          ],
+          "confidence": "high",
+          "caveats": [
+            "No material endpoint gap was found; differences are normal hut POI versus route endpoint conventions.",
+            "Kaitumjaure is the shared endpoint for the following Kaitumjaure-Teusajaure section; later normalization should deduplicate the hut POI and route junction."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturkartan BD46 / site 12881",
+        "sourceUrl": "https://www.naturkartan.se/en/norrbottens-lan/vandringsled-bd46-mellan-singi-och-kaitumjaure",
+        "classification": "planning-grade",
+        "confidence": "high"
+      },
+      "caveats": [
+        "STF lists 4-5 hours; Naturkartan Swedish/API evidence lists 4-6 hours and English text was reported as 5-6 hours.",
+        "STF labels this as stage 3 of the Nikkaluokta-Saltoluokta route group; OSM labels relation 17080115 as Kungsleden Etapp 10; this project candidate is section 6 on the Abisko-Hemavan mainline.",
+        "Official/rules lanes initially did not confirm a protected-area overlap. Coordinator WFS checks found Torne och Kalix alvsystem at the Tjaktjajakka bridge and Sjaunja in a broad route bbox, but not in point checks at endpoints or bridge for land reserve.",
+        "STF's Nikkaluokta-Saltoluokta page still labels Vakkotavare-Kebnats bus as FlixBus, while current 2026 operator pages point to Road to Ritsem/Falcks Omnibus.",
+        "AllTrails 2024 tags conflict: 2024-08-27 says poor conditions while 2024-09-02 says great conditions, with no detailed explanation.",
+        "Confirm project source/licensing policy before importing Naturkartan API/GPX geometry or OSM-derived geometry.",
+        "Re-test Naturkartan public GPX and API publish_gpx status before runtime route import.",
+        "Decide endpoint model for Singi and Kaitumjaure: hut POI coordinates, route endpoints, or snapped endpoints.",
+        "Run final protected-area/Natura 2000 overlay against selected section geometry before rules normalization, especially for Sjaunja/Sjavnja, Kaitum fjallurskog and Torne och Kalix alvsystem.",
+        "Confirm exact 2026 bridge/boardwalk maintenance/current condition near travel or public import date.",
+        "Verify exact fishing permit issuer and water-specific rules before exposing fishing metadata.",
+        "Verify 2026/2027 hunting rules after publication."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-07-kaitumjaure-teusajaure",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-07-kaitumjaure-teusajaure.research.json",
+      "order": 7,
+      "sectionNumber": 7,
+      "name": "Kaitumjaure-Teusajaure",
+      "from": "Kaitumjaure",
+      "to": "Teusajaure",
+      "distance": {
+        "officialDistanceKm": 9,
+        "displayDistanceKm": 9
+      },
+      "estimatedTime": "3-5 or 4-5 hours depending on official source",
+      "difficulty": {
+        "label": "Mostly easy fell stage with rocky, exposed and steep sections",
+        "source": "STF and Naturkartan describe a short stage that is mostly easy/open fell walking, but both official text and field reports note stone/rock near the start, possible wet sections, limited water on Muorki and a steep rocky final descent to Teusajaure.",
+        "confidence": "medium-high",
+        "caveats": [
+          "STF route overview lists 4-5 hours while the STF section page/Naturkartan lane reported 3-5 hours.",
+          "AllTrails reviewers called the segment easy, but blogs and field reports call the climb/descent rocky, stony, tiring or weather-dependent.",
+          "Wind on the plateau and wind/waves at Teusajaure can materially change the practical difficulty even when the footpath is passable."
+        ]
+      },
+      "routeType": {
+        "type": "linear",
+        "direction": "north-to-south",
+        "notes": [
+          "Official direction is Kaitumjaure to Teusajaure.",
+          "This is STF Nikkaluokta-Saltoluokta stage 4 and the candidate Kungsleden mainline continuation after Singi-Kaitumjaure.",
+          "Teusajaure lake crossing is not part of this hiking section geometry; model it as access/connector metadata for the next Teusajaure-Vakkotavare section.",
+          "The stage passes into Sjaunja/Sjavnja and Laponia context between Gaidumjohka and Teusajaure."
+        ]
+      },
+      "endpoints": {
+        "start": {
+          "label": "STF Kaitumjaure Fjallstuga",
+          "coordinatesLatLon": [
+            67.746527,
+            18.295671
+          ],
+          "confidence": "high"
+        },
+        "end": {
+          "label": "STF Teusajaure Fjallstuga",
+          "coordinatesLatLon": [
+            67.694756,
+            18.155433
+          ],
+          "confidence": "high"
+        },
+        "routeEndpoints": {},
+        "endpointConventionRecommendation": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturkartan BD49 / site 12883",
+        "sourceUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd49-mellan-kaitumjaure-och-teusajaure",
+        "classification": "planning-grade",
+        "confidence": "high"
+      },
+      "caveats": [
+        "STF route overview lists 9 km, 4-5 hours; STF section page and Naturkartan were reported as 3-5 hours.",
+        "STF quick facts reportedly list 500-620 m elevation, while STF narrative gives high point 780 m and Naturkartan says just over/about 800 m.",
+        "Naturkartan title matches official Kaitumjaure-Teusajaure order, but GPX points are Teusajaure-to-Kaitumjaure.",
+        "Project candidate section is 7, STF route-group stage is 4 and OSM calls the relation Kungsleden Etapp 11.",
+        "Official and AllTrails evidence leans easy, while field reports stress stony climbs, exposure, wind and steep descent.",
+        "Boat crossing exists, but timetable/current rowboat deployment details are date-sensitive and some source details are 2025 or older.",
+        "Sjaunja/Laponia overlap is confirmed, but exact reserve subarea overlap was not resolved from static sources.",
+        "Confirm project source/licensing policy before importing Naturkartan GPX or OSM geometry.",
+        "Reverse Naturkartan BD49 GPX if used and re-test GPX/API availability before import.",
+        "Decide endpoint normalization: route-line endpoint, hut POI, or separate hut-spur/access semantics.",
+        "Model Teusajaure lake crossing as a distinct boat/rowboat connector before section 8; do not treat the 817 m Naturkartan BD50 difference as a section-7 gap.",
+        "Verify exact coordinate and current usability of the mid-section kata before importing as a shelter."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-08-teusajaure-vakkotavare",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-08-teusajaure-vakkotavare.research.json",
+      "order": 8,
+      "sectionNumber": 8,
+      "name": "Teusajaure-Vakkotavare",
+      "from": "Teusajaure",
+      "to": "Vakkotavare",
+      "distance": {
+        "officialDistanceKm": 15,
+        "displayDistanceKm": 15
+      },
+      "estimatedTime": "4-6 hours by STF; 5-6 or 5-7 hours in other official/secondary evidence",
+      "difficulty": {
+        "label": "Moderate mountain stage because of boat logistics and elevation change despite straightforward trail",
+        "source": "STF and Naturkartan describe the route as generally straightforward after a required Teusajaure crossing, with a long climb from birch forest to open fell/heath and a steep switchbacking descent to Vakkotavare. Field reports stress rowing effort, mud/high terrain in places and a steep/slippery final descent.",
+        "confidence": "medium-high",
+        "caveats": [
+          "The Teusajaure lake crossing can be physically hard when self-rowing and may be unsafe or cancelled in wind or unsuitable water levels.",
+          "Time estimates conflict: STF route evidence says 4-6 hours, Naturkartan says 5-6 hours and an STF English snippet/secondary guides may show 5-7 hours.",
+          "The section ends at a roadhead, but Vakkotavare has no shop/resupply according to current STF route and shop-list evidence."
+        ]
+      },
+      "routeType": {
+        "type": "linear-with-boat-connector",
+        "direction": "north-to-south",
+        "notes": [
+          "Official direction is Teusajaure to Vakkotavare.",
+          "The section begins with the Dievssajavri/Teusajaure boat or rowboat crossing from the hut/north shore to the south landing.",
+          "The walking portion after the crossing enters Stora Sjofallet/Stuor Muorkke National Park within Laponia World Heritage.",
+          "Southbound continuation after Vakkotavare is a road/bus and Kebnats-Saltoluokta boat transfer before the next mapped walking stage at Saltoluokta."
+        ]
+      },
+      "endpoints": {
+        "start": {
+          "label": "STF Teusajaure Fjallstuga",
+          "coordinatesLatLon": [
+            67.694756,
+            18.155433
+          ],
+          "confidence": "high"
+        },
+        "end": {
+          "label": "STF Vakkotavare Fjallstuga",
+          "coordinatesLatLon": [
+            67.58169,
+            18.100371
+          ],
+          "confidence": "high"
+        },
+        "routeEndpoints": {},
+        "endpointConventionRecommendation": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturkartan BD50 / site 12884",
+        "sourceUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd50-mellan-teusajaure-och-vakkotavare",
+        "classification": "planning-grade",
+        "confidence": "high"
+      },
+      "caveats": [
+        "STF Swedish route gives 4-6 hours; Naturkartan gives 5-6 hours; rules lane saw STF stage as 5-7 hours and field lane notes secondary guides often say 5-7.",
+        "STF boat page still carried 2025 update/dates and listed Teusajaure service June 19-September 14, while 2026 hut dates end September 13. Rowboats normally deployed around midsummer/no later than July 1 and removed late September.",
+        "Naturkartan text includes the 1 km boat crossing in the route description and 15 km distance, but API linework excludes it and stores only 13.845 km land line reversed. OSM relation includes ferry/rowing segment.",
+        "Current STF route says no shop/carry food and current STF shop list omits Vakkotavare, while older field report mentioned basic goods/souvenirs.",
+        "Some wording is looser about using dried branches/twigs, while Laponia web says fires only at designated fireplaces. Fire bans override either.",
+        "General national-park guidance allows short tenting, but STF says Vakkotavare has no own tent sites and field reports say roadhead space is poor.",
+        "Confirm source/licensing policy before importing Naturkartan API or OSM route/ferry geometry.",
+        "Decide whether the Teusajaure boat crossing belongs inside section geometry as a typed segment or in separate access/connection metadata.",
+        "If Naturkartan is used, reverse BD50 land geometry and prepend a typed boat_crossing segment; do not treat it as a continuous walkable line.",
+        "Confirm 2026 Teusajaure motorboat timetable, payment and rowboat deployment directly with STF/Laponiatjuottjudus/Lansstyrelsen before public use.",
+        "Run final selected-line protected-area overlay for Stora Sjofallet/Stuor Muorkke, Laponia and Natura 2000 SE0820202.",
+        "Decide taxonomy for rowboats, boat landings, bus stops, parking, toilets, hut water, rest-hut stove, hazards, viewpoints and formal/informal camping context."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-09-saltoluokta-sitojaure",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-09-saltoluokta-sitojaure.research.json",
+      "order": 9,
+      "sectionNumber": 9,
+      "name": "Saltoluokta-Sitojaure",
+      "from": "Saltoluokta",
+      "to": "Sitojaure",
+      "distance": {
+        "officialDistanceKm": 19,
+        "displayDistanceKm": 19
+      },
+      "estimatedTime": "6-8 hours",
+      "difficulty": {
+        "label": "Moderate mountain stage with steep initial climb, exposed plateau and remote roadless endpoint",
+        "source": "STF and Naturkartan describe an easy-going trail surface but a fairly steep climb from Saltoluokta, open mountain/heath terrain, Autsutjvagge shelter about halfway and descent toward STF Sitojaure.",
+        "confidence": "medium-high",
+        "caveats": [
+          "No formal official difficulty grade was found.",
+          "Early route-finding from Saltoluokta has several branching/parallel paths; Naturkartan warns hikers to keep left on Kungsleden after side-trail junctions.",
+          "The stage is exposed after the first climb and can be affected by wind, snow, ice and low visibility outside settled summer conditions.",
+          "Elevation figures conflict across secondary sources; do not import ascent/descent until the final selected geometry is profiled."
+        ]
+      },
+      "routeType": {
+        "type": "linear-backcountry-hiking-stage-with-access-transfer-before-and-boat-connector-after",
+        "direction": "north-to-south",
+        "notes": [
+          "Official hiking stage order is Saltoluokta to Sitojaure.",
+          "This is STF stage 1 of the Saltoluokta-Kvikkjokk Kungsleden route, not an official STF 'section 9' number.",
+          "Vakkotavare-Kebnats-Saltoluokta is a prior road/bus plus passenger-boat transfer and should not be included in this section's hiking geometry.",
+          "The next southbound continuation from Sitojaure toward Aktse requires a separate Sitojaure-Svijnne/Svine boat connector; it is not part of section 9 hiking geometry."
+        ]
+      },
+      "endpoints": {
+        "start": {
+          "label": "STF Saltoluokta Mountain Station",
+          "coordinatesLatLon": [
+            67.3940893,
+            18.5207608
+          ],
+          "confidence": "high"
+        },
+        "end": {
+          "label": "STF Sitojaure Mountain Cabin",
+          "coordinatesLatLon": [
+            67.232681,
+            18.440723
+          ],
+          "confidence": "high"
+        },
+        "routeEndpoints": {},
+        "endpointConventionRecommendation": {}
+      },
+      "routeStatus": "research-ready-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturkartan BD62 / site 12892",
+        "classification": "planning-grade",
+        "confidence": "high"
+      },
+      "caveats": [
+        "Official-source lane reported no public GPX surfaced and API publish_gpx=false, while route-geometry lane found a working direct GPX URL on 2026-04-29.",
+        "STF/Naturkartan give 19 km/19.0 km; STF Sitojaure page rounds Saltoluokta distance to about 20 km; computed Naturkartan GPX/API are about 19.6 km and OSM about 19.3 km.",
+        "STF endpoint is the mountain station at 67.3940893,18.5207608, while Naturkartan route endpoint is closer to shore/ferry access, about 200-215 m away.",
+        "Ultevis nature reserve/Natura 2000 overlap is confirmed, while Laponia/Stora Sjofallet national-park overlap for this exact stage was not directly proven.",
+        "Some field reports indicate abundant flowing water, while other secondary reports warn that convenient plateau refills are limited.",
+        "Older/secondary hints mention food/drink from water-taxi operators, but current STF evidence says Sitojaure has no shop.",
+        "STF boats page says June 19-September 14 until further notice, but the operator site still showed Season 2025 during research and direct fetch had availability issues.",
+        "AllTrails, Wikiloc and Distant North give different ascent/descent values.",
+        "Run a final selected-line GIS overlay to decide exact Ultevis/Natura/Laponia/Stora Sjofallet boundary treatment before normalized rules import.",
+        "Resolve source/licensing/capture policy for Naturkartan GPX/API and OSM relation geometry.",
+        "Decide Saltoluokta endpoint convention: use station-to-shore connector, snap the route line to station, or keep route endpoint at Naturkartan shore point with facility endpoint POI.",
+        "Confirm Sitojaure boat 2026 operator dates, prices and departure times before publishing next-stage access data."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-10-sitojaure-aktse",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-10-sitojaure-aktse.research.json",
+      "order": 10,
+      "sectionNumber": 10,
+      "name": "Sitojaure-Aktse",
+      "from": "Sitojaure",
+      "to": "Aktse",
+      "distance": {
+        "officialDistanceKm": 10,
+        "displayDistanceKm": 10
+      },
+      "estimatedTime": "3-4 hours by STF; Naturkartan lists 4-5 hours",
+      "difficulty": {
+        "label": "Moderate short mountain stage with required boat logistics, steep climb and steep descent",
+        "source": "STF and Naturkartan describe an easy first walking section from Svine/Svijnne through birch forest and plankway/wetland context, then a steep climb to open mountain, scarce water on the open fell and a steep descent through old-growth forest to Aktse.",
+        "confidence": "medium-high",
+        "caveats": [
+          "No formal official difficulty grade was found.",
+          "The day depends on a pre-booked Sitojaure-Svine/Svijnne boat before the walking line.",
+          "Official distance and time evidence conflicts across STF and Naturkartan.",
+          "The Skierfe side trip turns the day into a much longer, more exposed route and changes rules because it partly enters Sarek."
+        ]
+      },
+      "routeType": {
+        "type": "linear-with-required-boat-connector-and-hiking-segment",
+        "direction": "north-to-south",
+        "notes": [
+          "Official direction is Sitojaure to Aktse.",
+          "STF treats the Sitojaure-Svine/Svijnne boat as transport before the hike; hiking begins at Svine/Svijnne.",
+          "Naturkartan BD63/site 12893 excludes the Sitojaure boat and is stored reverse from Aktse/Lajtavrre north boat landing toward Svijnne.",
+          "OSM relation 18864488 includes hut-to-hut continuity with the Sitojaure ferry way.",
+          "The next Kungsleden stage toward Parte begins with the separate Laitaure boat/rowboat crossing; keep that as section-11 connector metadata."
+        ]
+      },
+      "endpoints": {
+        "start": {
+          "label": "STF Sitojaure Fjallstuga",
+          "coordinatesLatLon": [
+            67.232681,
+            18.440723
+          ],
+          "confidence": "high"
+        },
+        "end": {
+          "label": "STF Aktse Fjallstuga",
+          "coordinatesLatLon": [
+            67.148672,
+            18.305904
+          ],
+          "confidence": "high"
+        },
+        "routeEndpoints": {},
+        "endpointConventionRecommendation": {}
+      },
+      "routeStatus": "research-ready-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturkartan BD63 / site 12893",
+        "classification": "planning-grade for Naturkartan walking line; navigation-grade candidate from OSM only if ferry/source policy permits",
+        "confidence": "high"
+      },
+      "caveats": [
+        "STF route stage lists 10 km / 3-4 h; Naturkartan lists 11.5 km / 4-5 h; an STF FAQ says Sitojaure-Aktse 9 km; STF Aktse facility says Sitojaure is about 13 km north of Aktse; AllTrails lists 9.7 km and Distant North says 9 km hiking plus 4 km lake.",
+        "Official/STF text starts with boat transport before hiking; Naturkartan BD63 excludes the boat; OSM relation 18864488 includes the ferry.",
+        "Naturkartan BD63 is stored Aktse/Laitaure north landing to Svijnne and excludes exact hut endpoints; OSM is Sitojaure-to-Aktse and hut-proximate.",
+        "Route-geometry lane found a working Naturkartan GPX; official-source lane reported no public GPX and API publish_gpx=false.",
+        "STF uses Kaskajaure/Kabtajaure and Svine; Naturkartan uses Gasskajaure/Gabddajavrre and Svijnne; Lansstyrelsen uses Sijddojavrre/Sitojaure for discontinued rowing route.",
+        "Main route appears just outside or boundary-adjacent to Sarek near Aktse, while Skierfe side trip enters Sarek; exact route-line crossing needs GIS overlay.",
+        "STF lists June 19-September 14 until further notice; operator-visible evidence was still Season 2025 and 2026 times/fares were not confirmed.",
+        "Run final selected-line GIS overlay for the main route, Aktse boundary and Skierfe side-trip to decide Sarek/Laponia/Ultevis rule application.",
+        "Resolve source/licensing/capture policy for Naturkartan GPX/API and OSM ferry/path geometry.",
+        "Decide product modeling for required boats: section geometry segment, access connector, or separate transfer object.",
+        "Confirm Sitojaure boat 2026 operator timetable, fares, booking rules and payment details by operator site/phone before publication.",
+        "Confirm whether Aktse/Laitaure boat and Laitaure north landing should be included in section 10 endpoint metadata or deferred entirely to section 11."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-11-aktse-parte",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-11-aktse-parte.research.json",
+      "order": 11,
+      "sectionNumber": 11,
+      "name": "Aktse-Pårte",
+      "from": "Aktse",
+      "to": "Pårte",
+      "distance": {
+        "officialDistanceKm": 22,
+        "displayDistanceKm": 22
+      },
+      "estimatedTime": "7-9 hours per STF overview; 8-10 hours per STF detailed stage and Naturkartan",
+      "difficulty": "Long, demanding/ansträngande and varied; field and route-app reports consistently treat this as a hard day, especially with Laitaure boat logistics, wet forest and the initial climb.",
+      "routeType": "point-to-point mountain section with required Laitaure rowboat or motorboat crossing near the start",
+      "endpoints": {
+        "start": {
+          "label": "STF Aktse Fjällstuga",
+          "coordinatesLatLon": [
+            67.148672,
+            18.305904
+          ],
+          "confidence": "high"
+        },
+        "end": {
+          "label": "STF Pårte Fjällstuga",
+          "coordinatesLatLon": [
+            67.042306,
+            17.942996
+          ],
+          "confidence": "high"
+        },
+        "routeEndpoints": {},
+        "endpointConventionRecommendation": {}
+      },
+      "routeStatus": "research-ready-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturkartan BD65/site 12895 GPX/API",
+        "classification": "planning-grade. Official land-trail geometry is strong, but the complete stage requires explicit boat/connector modelling and endpoint-convention decisions.",
+        "confidence": "high"
+      },
+      "caveats": [
+        "STF overview says 22 km / 7-9 h; STF detailed stage says 22 km / 8-10 h; Naturkartan says 23.0 km / 8-10 h; STF Aktse facility text says Pårte is about 24 km south; route apps vary around 19.6-22.6 km.",
+        "Naturkartan official GPX/API is about 19.66 km and starts/ends between Pårte and Laitaure south, excluding both Laitaure crossing and the boardwalk from Aktse hut.",
+        "Naturkartan/OSM shared Pårte trail endpoint is about 110 m from STF Pårte hut coordinate.",
+        "STF names the halfway shelter Rittak, while Naturkartan/OSM use Jågge. Evidence indicates the same rest-shelter cluster.",
+        "Official-source/rules lanes observed boat page updated 2025-05-07; transit lane observed 2025-07-05. All agree it is 2025/until-further-notice information.",
+        "OSM maps a waste-disposal node near Jågge/Rittak, but Länsstyrelsen says it has no mountain waste management and visitors must carry out what they bring.",
+        "Official descriptions say most of the section is in Sarek after the early approach; Aktse hut and immediate Laitaure approach should not be assumed inside without boundary overlay.",
+        "Confirm project source/licensing policy before importing Naturkartan GPX/API or OSM route/ferry geometry.",
+        "Decide route model: Naturkartan land route plus explicit connector segments, or OSM-augmented full-stage hut-to-hut geometry.",
+        "Decide endpoint convention for Pårte: STF hut coordinate, shared route endpoint about 110 m away, or explicit short hut approach metadata.",
+        "Run final selected-line GIS overlay for Sarek National Park, Laponia and Natura 2000 boundaries, especially around Aktse hut and Laitaure crossing.",
+        "Recheck 2026 Aktse-Laitaure motorboat schedule, price/payment, operator contact and rowboat deployment close to public/runtime use."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-12-parte-kvikkjokk",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-12-parte-kvikkjokk.research.json",
+      "order": 12,
+      "sectionNumber": 12,
+      "name": "Pårte-Kvikkjokk",
+      "from": "Pårte",
+      "to": "Kvikkjokk",
+      "distance": {
+        "officialDistanceKm": 17,
+        "displayDistanceKm": 17
+      },
+      "estimatedTime": "6-8 hours per STF; 5-8 hours per Naturkartan",
+      "difficulty": "Official text describes mostly easy montane-forest walking with rocky sections; field reports consistently warn the section becomes much harder in wet weather because of mud, slippery rock/root footing, waterlogged trail and stream-like slopes.",
+      "routeType": "point-to-point mountain-forest section with road/bus access at Kvikkjokk and no boat crossing on this section",
+      "endpoints": {
+        "start": {
+          "label": "STF Pårte Fjällstuga",
+          "coordinatesLatLon": [
+            67.042306,
+            17.942996
+          ],
+          "confidence": "high"
+        },
+        "end": {
+          "label": "STF Kvikkjokk Fjällstation",
+          "coordinatesLatLon": [
+            66.953702,
+            17.71952
+          ],
+          "confidence": "high"
+        },
+        "routeEndpoints": {},
+        "endpointConventionRecommendation": {}
+      },
+      "routeStatus": "research-ready-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturkartan BD66/site 12896 API",
+        "classification": "planning-grade. Official API geometry is suitable for candidate research, but source policy, endpoint convention and possible short approach metadata need resolution before runtime import.",
+        "confidence": "high"
+      },
+      "caveats": [
+        "STF says 6-8 hours; Naturkartan says 5-8 hours.",
+        "STF and Naturkartan stage pages say 17 km; STF Pårte facility page says about 16 km north of Kvikkjokk; computed geometry lengths are about 15.36-15.92 km and Naturvårdsverket representative feature length is about 16.4 km.",
+        "STF facility coordinates differ from Naturkartan and OSM route-line endpoints by about 100-231 m; Naturkartan and OSM end near different Kvikkjokk points.",
+        "Naturkartan API has line geometry but publish_gpx=false and no GPX/KML download found; Naturvårdsverket open data is official but duplicated/segmented.",
+        "Pårte is a Sarek/Laponia boundary-zone gateway; Laponia says Bårdde/Pårte cabins are just outside Sarek/Laponia, while nearby route context involves Sarek.",
+        "Several campsites/firepits are OSM-only; official sources support camping generally but not exact informal POIs.",
+        "Official sources mention the historic site, but no reliable coordinate was resolved.",
+        "Official sources vary between Stuor Tata and Stuor Dáhta.",
+        "Confirm project source/licensing policy before importing Naturkartan API, OSM/Waymarked or Naturvårdsverket BD66 geometry.",
+        "Decide endpoint convention for Pårte and Kvikkjokk: STF facility coordinates, route-line endpoints, or explicit short approach metadata.",
+        "Run final selected-line GIS overlay for Sarek/Laponia boundary near Pårte and Kvikkjokk-Kabla reserve/Natura overlap.",
+        "Decide whether to import OSM-only informal campsites/firepits or keep them suppressed/pending."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-13-kvikkjokk-tsielekjakkstugan",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-13-kvikkjokk-tsielekjakkstugan.research.json",
+      "order": 13,
+      "sectionNumber": 13,
+      "name": "Kvikkjokk-Tsielekjåkkstugan",
+      "from": "Kvikkjokk",
+      "to": "Tsielekjåkkstugan",
+      "distance": {
+        "officialDistanceKm": 15,
+        "displayDistanceKm": 15
+      },
+      "estimatedTime": "5-7 hours",
+      "difficulty": "No official stage-specific difficulty rating found. STF describes the broader Kvikkjokk-Ammarnäs route as relatively demanding with elevation changes; field reports describe a mandatory boat, wet/marshy boardwalk after Mallenjarka, forest climb, mosquitoes and lower traffic.",
+      "routeType": "point-to-point section with required commercial Sakkat/Saggat boat from Kvikkjokk to Mallenjarka, followed by hiking to an unstaffed wilderness/rest hut",
+      "endpoints": {
+        "start": {
+          "label": "STF Kvikkjokk Fjällstation",
+          "coordinatesLatLon": [
+            66.953702,
+            17.71952
+          ],
+          "confidence": "high"
+        },
+        "boatTransferStart": {
+          "label": "Båttrafik Kvikkjokk dock",
+          "coordinatesLatLon": [
+            66.9501108,
+            17.7173966
+          ],
+          "confidence": "high"
+        },
+        "walkingStartAfterBoat": {
+          "label": "Mallenjarka / Mallenjargga Kungsleden south landing",
+          "coordinatesLatLon": [
+            66.9259373,
+            17.7190185
+          ],
+          "confidence": "medium-high"
+        },
+        "end": {
+          "label": "Tsielekjåkkstugan",
+          "coordinatesLatLon": [
+            66.8449219,
+            17.589259
+          ],
+          "confidence": "high"
+        },
+        "routeEndpoints": {},
+        "endpointConventionRecommendation": {}
+      },
+      "routeStatus": "research-ready-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturvårdsverket/Länsstyrelsen WFS BD77 hiking line plus separate Sakkat boat line",
+        "classification": "planning-grade. The official base geometry is strong, but section import requires splitting a longer walking route, reversing/connecting a separate boat line, deciding endpoint offsets and applying source policy.",
+        "confidence": "high for boat and base line, medium for exact Tsiele split"
+      },
+      "caveats": [
+        "STF route says Tsielekjåkkstugan (not STF) while Naturkartan says the rest cabin is run by STF.",
+        "Official 15 km likely combines about 3 km boat and about 12 km walking. Naturkartan/official walking GPX starts after boat and does not include Kvikkjokk/Sakkat boat.",
+        "WFS and Naturkartan provide longer BD77/Kvikkjokk-Piteälven geometry that is not split at section 13. OSM/Waymarked is the only ready-made exact section relation and includes ferry.",
+        "Båttrafik has clearer 2026 season and times; Kvikkjokk-Turism/Boka sources still include 2025 booking/pricing language; STF boat page updated 2025-05-07.",
+        "Bus 94 PDF starts 2026-06-15 while regular boat timetable starts 2026-06-18.",
+        "Mallenjarka is a shelter/landing, but Naturkartan says overnight only in emergency and no stove.",
+        "Rules lane identifies Kvikkjokk-Kabla reserve/Natura overlap, but exact route-boundary line along Mallenjarka-Tsiele was not overlaid.",
+        "STF/Naturkartan use Sakkat; Länsstyrelsen also uses Saggat.",
+        "Natural water is likely reliable, and OSM tags Tsiele drinking_water=yes, but official sources do not confirm treated drinking water at hut or Mallenjarka.",
+        "Confirm project source/licensing policy before importing WFS/Naturkartan/OSM geometry.",
+        "Decide whether runtime geometry should use WFS BD77 + WFS boat split, Naturkartan split + separate boat connector, or OSM/Waymarked ready-made relation 18864491.",
+        "Run selected-line GIS overlay for Kvikkjokk-Kabla reserve/Natura 2000 along Mallenjarka-Tsielekjåkkstugan."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-14-tsielekjakkstugan-pitealven",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-14-tsielekjakkstugan-pitealven.research.json",
+      "order": 14,
+      "sectionNumber": 14,
+      "name": "Tsielekjåhkå-Piteälven",
+      "from": "Tsielekjåkkstugan / Tsielekjåhkå",
+      "to": "Piteälven / Västerfjäll stage break",
+      "distance": {
+        "officialDistanceKm": 19,
+        "displayDistanceKm": 19
+      },
+      "estimatedTime": "7-9 hours",
+      "difficulty": "No official stage-specific difficulty grade found. STF describes the broader Kvikkjokk-Ammarnäs route as relatively demanding with major elevation changes. Section-specific official and field evidence indicates remote, camping-only open-fell terrain with route-finding risk at summer/winter trail splits, exposed weather, steep/rocky sections and wet/marshy ground near the Piteälven/Tjeggelvas endpoint.",
+      "routeType": "point-to-point remote mountain section with no road access at either endpoint and camping required",
+      "endpoints": {
+        "start": {
+          "label": "Tsielekjåkkstugan / Stopover cabin Tsielekjåkk",
+          "coordinatesLatLon": [
+            66.8449219,
+            17.589259
+          ],
+          "confidence": "high"
+        },
+        "end": {
+          "label": "Piteälven / Västerfjäll stage break",
+          "coordinatesLatLon": [
+            66.718545,
+            17.3493766
+          ],
+          "confidence": "medium-high"
+        },
+        "routeEndpoints": {},
+        "endpointConventionRecommendation": {}
+      },
+      "routeStatus": "research-ready-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturvårdsverket/Länsstyrelsen WFS BD77 hiking line",
+        "classification": "planning-grade; official linework exists but is not stage-split and Piteälven endpoint convention remains unresolved with section 15",
+        "confidence": "high for official base line, medium for exact split"
+      },
+      "caveats": [
+        "STF/Naturkartan official section distance is 19 km, while WFS, Naturkartan GPX, OSM, Wikiloc and AllTrails-derived distances are around 20.3-21.7 km depending endpoint and split.",
+        "WFS/Naturkartan BD77 endpoint is around 66.718545,17.349377 / 66.7187905,17.3489166, while OSM relation 18864492 ends about 429 m southwest at 66.7163830,17.3412810 and section 15 starts there.",
+        "STF and Naturkartan user-facing stage says Piteälven; WFS state trail uses Västerfjäll; Piteälven Natura plan references the Tjieggelvas/Västerfjäll crossing context.",
+        "Tsielekjåhkå is used for stage/river-area label; Tsielekjåkkstugan / Stopover cabin Tsielekjåkk is the hut. Naturkartan says STF-run while STF route text treats it separately/non-STF.",
+        "Länsstyrelsen says Kungsleden passes through Pärlälvens fjällurskog generally, but section-14 route point sampling did not hit Pärlälvens or any Naturreservat layer. Piteälven Natura hits only at endpoint/final water area.",
+        "OSM has ferry/boat-storage-like tagging near Piteälven, but official stage descriptions and field reports indicate suspension bridge crossing, not a required ferry.",
+        "Weather, snow/ice, water levels, bridge condition, fire bans, hunting closures, reindeer restrictions and field infrastructure can change quickly.",
+        "Resolve section 14/15 Piteälven endpoint convention: WFS/Naturkartan BD77-BD78 handoff versus OSM/Waymarked stage boundary about 429 m southwest.",
+        "Confirm project source/licensing policy before importing WFS, Naturkartan GPX/API or OSM geometry.",
+        "Run true GIS line/polygon overlay for selected section-14 geometry against Naturreservat, Natura 2000, Tillträdesförbud and Djur- och växtskyddsområde.",
+        "Verify exact sameby overlap for Tsielekjåkkstugan-Piteälven before normalized rules import.",
+        "Check NatureIT active hunting-area closures and Jokkmokkskortet/Piteälven water-specific fishing rules before publication."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-15-pitealven-gasaklahko",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-15-pitealven-gasaklahko.research.json",
+      "order": 15,
+      "sectionNumber": 15,
+      "name": "Piteälven-Gásakláhko",
+      "from": "Piteälven",
+      "to": "Gásakláhko",
+      "distance": {
+        "officialDistanceKm": 19,
+        "displayDistanceKm": 19
+      },
+      "estimatedTime": "7-9 hours",
+      "difficulty": {
+        "summary": "No official difficulty grade found. Treat as remote mountain stage: wet low forest/lake-shore start, climb to exposed fell, poor visibility risk, sparse facilities and no direct road access.",
+        "confidence": "medium"
+      },
+      "routeType": "mainline hiking stage; roadless wilderness section; camping-only official accommodation",
+      "endpoints": {
+        "start": {
+          "label": "Piteälven / Västerfjäll BD77-BD78 handoff",
+          "coordinatesLatLon": [
+            66.71854496,
+            17.34937659
+          ],
+          "confidence": "high",
+          "caveats": [
+            "OSM relation 18864493 starts at the Piteälven campsite/stage point 66.7163830,17.3412810 about 429 m southwest.",
+            "Naturkartan BD78 GPX starts at 66.7190103,17.3468528 about 122 m from the WFS handoff.",
+            "For endpoint/access metadata, keep the broader Piteälven endpoint zone rather than treating the handoff as a POI."
+          ]
+        },
+        "end": {
+          "label": "Gásakláhko highland/stage camping area",
+          "coordinatesLatLon": [
+            66.5839492,
+            17.2754676
+          ],
+          "confidence": "medium",
+          "caveats": [
+            "No official Gásakláhko endpoint point feature or waypoint was found.",
+            "Gásakláhko is an official Lulesami terrain/place-name and broad highland area, not a discrete official facility.",
+            "Lantmäteriet Gásakláhko label is about 66.5975793,17.2634070 and projects to WFS around chainage 17.688 km; this supports the broader area but not an exact endpoint.",
+            "OSM/Wikidata/Mapcarta/Wikivoyage Gásakláhko campsite is at 66.6202912,17.2744719, about 4.04 km north of this endpoint and about 14.8 km from the official start; keep it as a facility, not the official section boundary."
+          ]
+        },
+        "routeEndpoints": {},
+        "endpointConventionRecommendation": {}
+      },
+      "routeStatus": "research-ready-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturvårdsverket WFS BD78 split by official stage distance",
+        "classification": "planning-grade-with-resolved-boundary-caveats",
+        "confidence": "medium-high for line, medium for split point"
+      },
+      "caveats": [
+        "STF/Naturkartan list Piteälven-Gásakláhko as 19 km, but publish no endpoint coordinate. WFS 19 km split is 66.5839492,17.2754676. OSM/Wikidata/Mapcarta campsite is 66.6202912,17.2744719, about 4.04 km north and about 14.8 km from the official start.",
+        "OSM relation 18864493 is tagged distance=19 but computes 14.497 km; relation 18864494 is tagged 13 but computes 16.098 km. Both share the OSM campsite boundary.",
+        "Official sources and Lantmäteriet support Gásakláhko as a broad Lulesami terrain/highland place-name; route apps and OSM use a discrete campsite point.",
+        "WFS BD77/BD78 handoff 66.71854496,17.34937659, Naturkartan BD78 GPX first point 66.7190103,17.3468528 and OSM campsite/stage point 66.7163830,17.3412810 differ by up to about 429 m.",
+        "Official STF/Naturkartan distance is 19 km; AllTrails/route-app/OSM-style routes show about 14.5-17.2 km depending convention; Cicerone uses Gistojávrátj-Gásakláhko 19.7 km.",
+        "Map sources may imply shelter/basic hut, while Naturkartan and field reports describe poor condition and unreliable shelter.",
+        "OSM has boat/ferry-like metadata near Piteälven, but official sources and field reports indicate suspension bridge crossing and no required ferry on section 15.",
+        "Piteälven Natura 2000 applies around the start water area; point sampling did not find continuous protected-area overlap and WFS BD78 has Skyddat_område null.",
+        "Snow/ice, wind, bridge condition, fire bans, hunting closures, dog/reindeer restrictions and water levels can change quickly.",
+        "Before runtime import, confirm geometry source/licensing policy for WFS, Naturkartan GPX and OSM/Waymarked linework.",
+        "For normalization, decide whether stage boundaries should privilege official distance/WFS splits or OSM relation continuity when they disagree.",
+        "Run true selected-line GIS overlay for Natura 2000, nature reserves, bird/plant protection, sameby, fishing/hunting and other restrictions."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-16-gasaklahko-vuonatjviken",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-16-gasaklahko-vuonatjviken.research.json",
+      "order": 16,
+      "sectionNumber": 16,
+      "name": "Gásakláhko-Vuonatjviken",
+      "from": "Gásakláhko",
+      "to": "Vuonatjviken",
+      "distance": {
+        "officialDistanceKm": 13,
+        "displayDistanceKm": 13
+      },
+      "estimatedTime": "4-6 hours",
+      "difficulty": {
+        "summary": "No official difficulty grade found. Treat as a remote, partly exposed section with open fell at the start, poor-visibility risk, descent through birch forest, boggy/overgrown ground and many boardwalks approaching Vuonatjviken.",
+        "confidence": "medium"
+      },
+      "routeType": "mainline hiking stage; roadless endpoint service node; onward Riebnes motorboat connection after section",
+      "endpoints": {
+        "start": {
+          "label": "Gásakláhko highland/stage boundary",
+          "coordinatesLatLon": [
+            66.5839492,
+            17.2754676
+          ],
+          "confidence": "medium-high",
+          "caveats": [
+            "Official STF/Naturkartan sources do not publish a precise Gásakláhko coordinate.",
+            "OSM/Wikidata Gásakláhko campsite at 66.6202912,17.2744719 is about 4.0-4.2 km north and should remain a section-15 facility if the WFS boundary is used.",
+            "Lantmäteriet Gásakláhko is a terrain-name/text-placement point, not a route endpoint."
+          ]
+        },
+        "end": {
+          "label": "Vuonatjviken endpoint zone",
+          "coordinatesLatLon": [
+            66.4904687,
+            17.2417888
+          ],
+          "confidence": "medium-high",
+          "caveats": [
+            "Model Vuonatjviken as an endpoint zone: WFS foot-line end 66.4904687,17.2417888, OSM/Waymarked shared section 16/17 endpoint 66.4915145,17.2431982, Naturkartan GPX boat-start point 66.4920400,17.2417961, WFS boat-passage endpoint 66.4922764,17.2435414 and Vuonatjvikens Stugby service node 66.4910928,17.2429033 cluster within about 50-215 m.",
+            "For facilities/access, use Vuonatjvikens Stugby service node and Riebnes east boat landing rather than only the WFS foot endpoint."
+          ]
+        },
+        "routeEndpoints": {},
+        "endpointConventionRecommendation": {}
+      },
+      "routeStatus": "research-ready-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturvårdsverket WFS BD78 split from official stage distances",
+        "classification": "planning-grade-with-endpoint-zone-caveat",
+        "confidence": "medium-high"
+      },
+      "caveats": [
+        "Official STF/Naturkartan distance/time supports a 13 km Gásakláhko-Vuonatjviken section and the WFS official-distance split at 66.5839492,17.2754676, while OSM/Wikivoyage/Mapcarta place a Gásakláhko campsite around 66.6202912,17.2744719 and OSM relation 18864494 starts there.",
+        "OSM/Waymarked relation 18864494 computes about 16.1 km while tagged/official distance is 13 km. Truncating at WFS split leaves about 11.9 km, closer to official distance.",
+        "WFS foot-line end, WFS boat endpoint, Naturkartan GPX endpoint, OSM section join and Vuonatjvikens Stugby service node differ by about 50-215 m.",
+        "Official sources confirm accommodation/tenting/restaurant, while route apps mention extra provisions/gas/prices/times. The latter are volatile and not fully official.",
+        "Point sampling indicates Hornavan-Sädvajaure reserve/Natura overlap only on the southern/last-kilometers approach; no full polygon overlay was run.",
+        "Official Gåbdåk bridge is high confidence, but OSM small bridge and older damaged-bridge field reports are uncertain.",
+        "Fire bans, weather, snow/ice, Riebnes boat operations, service opening, hunting/fishing closures and dog/reindeer restrictions are date-sensitive.",
+        "Before runtime import, confirm geometry source/licensing policy for WFS, Naturkartan GPX/API and OSM/Waymarked linework.",
+        "Run true selected-line GIS overlay for Hornavan-Sädvajaure reserve/Natura, other protected-area layers, sameby, hunting/fishing and current restrictions.",
+        "Verify Vuonatjviken current operator, opening, booking, payment, restaurant, tenting, shower/sauna, provisions/gas and boat details.",
+        "Recheck Riebnes boat schedule/price/payment/weather policy and no-rowboat status before publication.",
+        "Verify official Gåbdåk bridge and OSM small bridge condition before importing bridge/hazard POIs."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-17-vuonatjviken-jackvik",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-17-vuonatjviken-jackvik.research.json",
+      "order": 17,
+      "sectionNumber": 17,
+      "name": "Vuonatjviken-Jäckvik",
+      "from": "Vuonatjviken",
+      "to": "Jäckvik",
+      "distance": {
+        "officialDistanceKm": 18,
+        "displayDistanceKm": 18
+      },
+      "estimatedTime": "4-6 hours (STF); Naturkartan/Länsstyrelsen gives 5-7 hours",
+      "difficulty": {
+        "summary": "No formal official difficulty grade found. Treat as a logistically demanding mountain stage: roadless start, required Riebnes motorboat, steep climb from the west landing through birch forest, open fell/plateau walking, muddy lower forest descent, mandatory Kapellströmmarna rowboat and endpoint routing through Jäckvik/Jäkkvik.",
+        "fieldReportSynthesis": "Route apps often label the full stage hard because they count water crossings, vertical gain, boat timing and rowing. Nontechnical in normal summer conditions, but the stage should not be presented as an easy 18 km walk without transport caveats.",
+        "confidence": "medium-high"
+      },
+      "routeType": "mainline stage with required motorboat connector across Riebnes and required rowboat connector at Kapellströmmarna/Tjårvekallegiehtje-Hornavan",
+      "endpoints": {
+        "start": {
+          "label": "Vuonatjviken endpoint and Riebnes east boat zone",
+          "coordinatesLatLon": [
+            66.4910928,
+            17.2429033
+          ],
+          "confidence": "medium-high as endpoint zone, not a single trail vertex",
+          "caveats": [
+            "Section 17 begins with a boat connector, so no single point captures both the service node and the exact Riebnes east landing.",
+            "WFS section-16 foot end is 66.4904687,17.2417888; OSM section 16/17 join is 66.4915145,17.2431982; Naturkartan GPX boat start is 66.4920400,17.2417961; OSM Riebnes east landing is 66.4902902,17.2421864; WFS boat east endpoint is 66.4922764,17.2435414.",
+            "For route geometry, use a typed Riebnes boat segment from an explicit east landing; for access/facilities, keep Vuonatjvikens Stugby separate."
+          ]
+        },
+        "end": {
+          "label": "Jäckvik/Jäkkvik endpoint and service zone",
+          "coordinatesLatLon": [
+            66.3889994,
+            16.9665137
+          ],
+          "confidence": "medium-high for OSM continuity, medium for official endpoint convention",
+          "caveats": [
+            "WFS BD78 strict foot-line end is 66.3834846,16.9604305, about 670 m from the OSM Jäckvik village endpoint.",
+            "Naturkartan GPX end is 66.3892581,16.9746910, about 365 m east of the OSM endpoint and about 903 m from the WFS endpoint.",
+            "Jäckvik/Jäkkvik should be treated as a service/access zone for import decisions: ICA/bus stop around 66.3901,16.9650, Kyrkans Fjällgård around 66.3875,16.9661 and Pieljekaise/Jäckvik trailhead utilities around 66.3836,16.9609."
+          ]
+        },
+        "routeEndpoints": {},
+        "endpointConventionRecommendation": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturvårdsverket WFS BD78 composed segments",
+        "classification": "planning-grade; exact boat landings and Jäckvik endpoint need final source-policy and endpoint-model decisions before runtime import",
+        "confidence": "medium-high"
+      },
+      "caveats": [
+        "STF/Naturkartan display 5.4 km Riebnes boat plus 18 km hiking, while WFS composed geometry is about 23.744 km before small gaps, OSM/Waymarked totals about 24.252 km, and route apps/tracks show 24.1-26.6 km. Likely cause: official distance separates hiking from boat, while mapped routes include boats and endpoint variants.",
+        "STF says 400 m; Naturkartan/Båttrafik say 300 m; OSM measures about 316 m; WFS rowboat object measures about 251 m and is laterally offset from the connected walking break.",
+        "STF/Naturkartan/Länsstyrelsen mostly use Jäckvik for trail stage; Lantmäteriet settlement and Kyrkans Fjällgård use Jäkkvik; ASCII slugs use Jackvik/Jakkvik. WFS, OSM and Naturkartan endpoints differ by hundreds of meters.",
+        "Official STF points to current private boat contacts and advance booking. Field reports vary from older 250-350 SEK / 10:00-18:00 style times to 2024-2025 reports of 440 SEK and 09:00 in late season.",
+        "Hornavan-Sädvajaure is clearly relevant to the Jäckvik/Riebnes area and Pieljekaise begins at/after Jäckvik, but no full selected-line overlay was performed.",
+        "Kyrkans Fjällgård and ICA Jäckvik are strong. Riebnes/Kapellströmmarna connectors are strong as access metadata. Several OSM-only camp/fire/shelter/toilet/bridge records lack current/official confirmation.",
+        "Before runtime import, choose route geometry source policy: WFS composed geometry, OSM/Waymarked continuous relation, Naturkartan generalized GPX/API, or a hybrid.",
+        "Before runtime import, choose endpoint convention at Jäckvik: WFS state-trail endpoint, OSM village/section-continuity endpoint, Naturkartan GPX endpoint, or explicit access connectors to service nodes.",
+        "Run final selected-line GIS overlay for Hornavan-Sädvajaure, Pieljekaise, Natura 2000, access bans and protected-area boundaries.",
+        "Directly confirm Riebnes boat 2026 times, price, payment, operator contacts and booking requirements with Vuonatjviken/STF before public use.",
+        "Recheck Kapellströmmarna rowboat deployment and any Länsstyrelsen route/boat notices close to publication/travel date.",
+        "Recheck Länsstyrelsen current mountain notices, SMHI warnings, municipal/county fire bans, hunting restrictions and bridge/boardwalk/water conditions before public use."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-18-jackvik-adolfstrom",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-18-jackvik-adolfstrom.research.json",
+      "order": 18,
+      "sectionNumber": 18,
+      "name": "Jäckvik-Adolfström",
+      "from": "Jäckvik",
+      "to": "Adolfström",
+      "distance": {
+        "officialDistanceKm": 22,
+        "displayDistanceKm": 22
+      },
+      "estimatedTime": "9-10 hours (STF); Naturkartan sub-stages total 7-10 hours",
+      "difficulty": {
+        "summary": "No formal official difficulty grade found. Official text calls much of the route easy and well marked, but also notes rocky banks at a small jokk after reaching bare mountain and rocky/steep sections on the descent south of Pieljekaisestugan. Field reports add steep climb from Jäckvik, mud/bog/boardwalk pockets, weather exposure and final gravel-road walking into Adolfström.",
+        "confidence": "medium-high"
+      },
+      "routeType": "mainline hiking stage through Pieljekaise National Park with gravel-road finish into Adolfström",
+      "endpoints": {
+        "start": {
+          "label": "Jäckvik/Jäkkvik Pieljekaise trailhead",
+          "coordinatesLatLon": [
+            66.3834847,
+            16.9604305
+          ],
+          "confidence": "high for trailhead endpoint",
+          "caveats": [
+            "This is the section-18 trailhead, not the Jäckvik village/shop endpoint used by OSM section 17/18 relation continuity.",
+            "Jäckvik service zone remains nearby: Jäkkvik affären bus/shop around 66.3901,16.9650, about 0.75 km from trailhead.",
+            "Section 17 has an endpoint-zone conflict: OSM section-17 endpoint 66.3889994,16.9665137 and Naturkartan section-17 endpoint 66.3892581,16.9746910 differ from this trailhead by about 670-905 m."
+          ]
+        },
+        "end": {
+          "label": "Adolfström route end / harbor-trail endpoint",
+          "coordinatesLatLon": [
+            66.2777724,
+            16.6600828
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Central Adolfström/Handelsbod service point is around 66.2783768,16.6541464, about 0.27 km west of the route endpoint.",
+            "Adolfström bus stop is 66.2778370,16.6572502, about 0.15 km from end-assumption used by transit lane.",
+            "Lantmäteriet place-name form Adolfsström should be kept as alias."
+          ]
+        },
+        "routeEndpoints": {},
+        "endpointConventionRecommendation": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturvårdsverket WFS LED summer line",
+        "classification": "planning-grade to navigation-grade official WFS linework, pending project source/licensing policy and final connector handling at Jäckvik service zone",
+        "confidence": "high"
+      },
+      "caveats": [
+        "STF and Naturkartan say 22 km. Naturkartan GPX computes about 20.435 km, WFS about 20.994 km, OSM about 20.926 km, AllTrails 20.4 km and Komoot 21.1 km. Sweden's National Parks activity page says about 27 km.",
+        "STF gives 9-10 h; Naturkartan sub-stages total 7-10 h; app tracks are closer to 6-7.5 h moving time.",
+        "WFS/Naturkartan section-18 starts at Pieljekaise trailhead around 66.38349,16.9604. OSM relation starts at Jäckvik village/service endpoint 66.3889994,16.9665137, about 670 m away. Section 17 Naturkartan endpoint is about 903-905 m from section-18 WFS/Naturkartan endpoint.",
+        "Official trail sources use Adolfström; Lantmäteriet returned Adolfsström.",
+        "Pieljekaise overlap is expected; Laisdalens fjällurskog overlap at the south end was identified by rules lane. Hornavan-Sädvajaure is nearby but does not intersect selected line.",
+        "Many facilities are official/Naturkartan-backed, but start-village services duplicate section 17 endpoint records; bridge display taxonomy may not support all bridge records; some camps/viewpoints are OSM-only or prose-inferred.",
+        "Before runtime import, decide geometry source policy: WFS summer LED primary versus Naturkartan GPX/API versus OSM relation, and document source/licensing constraints.",
+        "Decide how to connect section 17 Jäckvik village/service endpoint to section 18 Pieljekaise trailhead without duplicating Jäckvik facilities.",
+        "Recheck Naturkartan/API/WFS endpoint and line lengths at normalization time if official data updates.",
+        "Recheck Länstrafiken line 104, demand-responsive line 900 and schooldays line 102 timetables before public use.",
+        "Recheck Adolfström service openings/booking, Pieljekaisestugan key pickup, Handelsbod/café, Adolfström Camping and lodging availability before publication.",
+        "Recheck Pieljekaise/Laisdalen current notices, SMHI warnings, fire bans, bridge/trail conditions, hunting/fishing and reindeer restrictions before public use."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-19-adolfstrom-sjnulttjie",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-19-adolfstrom-sjnulttjie.research.json",
+      "order": 19,
+      "sectionNumber": 19,
+      "name": "Adolfström-Sjnulttjie raststuga",
+      "from": "Adolfström",
+      "to": "Sjnulttjie raststuga",
+      "distance": {
+        "officialDistanceKm": 23,
+        "displayDistanceKm": 23
+      },
+      "estimatedTime": "7-8 hours (STF); Naturkartan 8-10 hours for Adolfström-Sjnulttjie raststuga",
+      "difficulty": {
+        "summary": "No formal official difficulty grade found. STF calls the stage long but easy, mostly low-mountain terrain. Naturkartan describes a mostly easy path with many boardwalks, but wet back-mires, winter-route/quad-track crossings, a long ascent after Bádasjuhka and weather exposure on low fell. Field reports add mud, mosquitoes/bugs, poor visibility and water planning at Sjnulttjie.",
+        "confidence": "medium-high"
+      },
+      "routeType": "mainline hiking stage with optional private Adolfström-Bäverholmen boat shortcut and a short spur to Sjnulttjie shelter",
+      "endpoints": {
+        "start": {
+          "label": "Adolfström handoff / village-service endpoint zone",
+          "coordinatesLatLon": [
+            66.277772,
+            16.660083
+          ],
+          "confidence": "medium-high",
+          "caveats": [
+            "Section 19 walking line from Naturkartan/BD88 starts around 66.278394,16.649013 to 66.278894,16.648457, about 0.50-0.53 km west of the section-18 Adolfström handoff endpoint.",
+            "Central service/bus points are between these endpoints: Adolfström bus stop 66.277837,16.657250 and Handelsbod/service area around 66.278377,16.654146.",
+            "Model Adolfström as an endpoint zone with access/service connector, not a single exact point."
+          ]
+        },
+        "end": {
+          "label": "Sjnulttjie raststuga",
+          "coordinatesLatLon": [
+            66.209948,
+            16.377165
+          ],
+          "confidence": "high",
+          "caveats": [
+            "The main Kungsleden line reaches a Sjnulttjie junction around 66.21104,16.38408; the shelter endpoint is reached by a spur of about 0.33-0.34 km.",
+            "Do not infer Sjnulttjie shelter as an official currently allowed Tjålmejaure marked rest/camp exception during any future seasonal restriction without Länsstyrelsen confirmation."
+          ]
+        },
+        "routeEndpoints": {},
+        "endpointConventionRecommendation": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturvårdsverket STATLIG_LED/WFS BD88 plus Sjnulttjie shelter spur",
+        "classification": "planning-grade, with official linework suitable for later import only after route-source policy, line clipping, handoff connector and shelter-spur decisions",
+        "confidence": "medium-high"
+      },
+      "caveats": [
+        "Public Naturkartan/STF/Länsstyrelsen-facing guidance still presents a 9 May-14 Aug stay-on-Kungsleden/leashed-dog/no-leaving-trail rule. Targeted legal/map follow-up found that 25 FS 2016:23 was valid only until 2019-08-14, the 2018 Natura 2000 plan also describes a temporary-through-2019 ban, NVR foreskriftsomraden returns empty, and national access-ban WFS has no Tjålmejaure feature.",
+        "Naturkartan links an overview map image for Tjålmejaure, but the Länsstyrelsen image returned 404 in targeted follow-up. No current official map found with marked rest-place/camping exception coordinates.",
+        "STF gives 7-8 hours; Naturkartan gives 8-10 hours for Adolfström-Sjnulttjie raststuga.",
+        "STF/Naturkartan/Bäverholmen/field sources agree on optional Adolfström-Bäverholmen boat but contact names/numbers and stale prices differ.",
+        "Official display is 23 km. WFS assembled endpoint-to-shelter is about 23.01 km; Naturkartan split plus spur/handoff is about 22.97 km; OSM relation plus spur is about 22.76 km. Adolfström has a 0.50-0.53 km handoff gap and Sjnulttjie requires a 0.33-0.34 km shelter spur.",
+        "Naturkartan says plenty of water along the broader route; field reports specifically warn that Sjnulttjie shelter itself lacks obvious nearby running water.",
+        "Route-app/general sources can imply free camping everywhere; public Tjålmejaure guidance and resolved legal/currentness caveat require more cautious language in protected-area context.",
+        "Field reports and service pages support shop/cafe/lodging, but opening hours and service availability vary by season/year.",
+        "Before runtime import, ask/confirm with Länsstyrelsen Norrbotten whether any post-2019 Tjålmejaure hiker access restriction is legally active despite NVR and legal-source evidence.",
+        "Obtain any current official Tjålmejaure access-ban map/polygon and marked rest-place/camping exception coordinates if Länsstyrelsen says a restriction is active.",
+        "Confirm whether Sjnulttjie shelter/tent area is a marked allowed rest/camping place during any future seasonal restriction window.",
+        "Finalize geometry source policy and assemble official line: Adolfström endpoint-zone connector, BD88/Naturkartan mainline, Sjnulttjie junction and shelter spur."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-20-sjnulttjie-ravfallsstugan",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-20-sjnulttjie-ravfallsstugan.research.json",
+      "order": 20,
+      "sectionNumber": 20,
+      "name": "Sjnulttjie raststuga-Rävfallsstugan",
+      "from": "Sjnulttjie raststuga",
+      "to": "Rävfallsstugan",
+      "distance": {
+        "officialDistanceKm": 27,
+        "displayDistanceKm": 27
+      },
+      "estimatedTime": "10-12 hours",
+      "difficulty": {
+        "summary": "No formal official difficulty grade found. STF presents it as a long 27 km stage. Naturkartan describes the county-boundary-to-Rävfallsstugan terrain as mostly easy/dry path over Björkfjället and along Lisvuojávrrie, followed by descent through rich mountain birch forest. Field reports add exposed upland weather, mosquitoes/midges, bridge-condition history, and a steep, muddy, overgrown descent toward Vindelälven/Rävfallsstugan.",
+        "confidence": "medium-high"
+      },
+      "routeType": "mainline STF hiking stage assembled across Naturkartan/Naturvårdsverket county-boundary split",
+      "endpoints": {
+        "start": {
+          "label": "Sjnulttjie raststuga",
+          "coordinatesLatLon": [
+            66.209948,
+            16.377165
+          ],
+          "confidence": "high for shelter endpoint",
+          "caveats": [
+            "Shelter is off the main Kungsleden line by about 0.33 km.",
+            "Sjnulttjie is a rest/emergency shelter, not normal lodging.",
+            "Do not import Sjnulttjie as a reliable water point."
+          ]
+        },
+        "end": {
+          "label": "Rävfallsstugan",
+          "coordinatesLatLon": [
+            66.0954158,
+            16.1191107
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Route-line endpoint is about 70 m away at 66.0954332,16.1206686.",
+            "Use facility marker as semantic endpoint and preserve line endpoint for geometry assembly.",
+            "Rävfallsstugan is locked except safety space; key/payment rules apply."
+          ]
+        },
+        "routeEndpoints": {},
+        "endpointConventionRecommendation": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Assembled official Naturkartan/Naturvårdsverket BD88 + AC20 summer hiking line with Sjnulttjie shelter spur",
+        "classification": "planning-grade assembled official geometry; suitable for normalization only after manual clipping/ordering and source-policy review",
+        "confidence": "medium-high"
+      },
+      "caveats": [
+        "STF page summary says Kvikkjokk-Ammarnäs has 8 stages/days, but current detailed list shows 9 and includes Sjnulttjie shelter-Rävfallsstugan as Stage 8 and Rävfallsstugan-Ammarnäs as Stage 9.",
+        "STF uses one 27 km stage Sjnulttjie-Rävfallsstugan. Naturkartan splits official route at länsgränsen, with Adolfström-länsgränsen including Sjnulttjie and Länsgränsen-Rävfallsstugan as 14 km.",
+        "Public pages may still repeat 9 May-14 Aug seasonal access wording, but section 19 targeted follow-up and section 20 replacement rules lane found the hiker access ban was time-limited through 2019 and no active 2026 renewal/polygon was found.",
+        "Section 19 research identifies Tjålmejaure SPA as SE0820714; section 20 replacement rules lane wrote SE0820434, which appears likely to be a transcription error or confusion with another Natura watercourse context.",
+        "Official endpoint should be Rävfallsstugan. Rävfallstugan appears on some Länsstyrelsen/Vindelfjällen link labels as spelling variant/typo, and Rävfallet refers to nearby waterfall/local feature.",
+        "Field reports mention broken/under-construction bridges near forest-line/Rävfalls descent, but current official facility layer still lists bridges and no official 2026 closure was found.",
+        "Route has water after Sjnulttjie and at Lisvuojuhka, but Sjnulttjie shelter itself remains unreliable/dry.",
+        "Official pages support cabin, key/fee/safety-space, sauna and toilet; field/Komoot mentions waste bin and rare tent spots. Waste and endpoint tenting are not strong enough for normal import.",
+        "Before runtime import, manually assemble and validate BD88/AC20 geometry, including Sjnulttjie spur, county-boundary handoff and Rävfallsstugan line/facility endpoint offset.",
+        "Confirm whether STF's 27 km display includes the Sjnulttjie shelter spur and exact Rävfallsstugan facility offset; keep 27 km as official display regardless.",
+        "Recheck Vindelfjällen current bridge/cabin notice and Länsstyrelsen notices before public use, especially historical bridge issues near Rävfalls descent.",
+        "Confirm Rävfallsstugan key/fee/current opening/safety-space rules before runtime publication."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-21-ravfallsstugan-ammarnas",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-21-ravfallsstugan-ammarnas.research.json",
+      "order": 21,
+      "sectionNumber": 21,
+      "name": "Rävfallsstugan-Ammarnäs",
+      "from": "Rävfallsstugan",
+      "to": "Ammarnäs",
+      "distance": {
+        "officialDistanceKm": 23,
+        "displayDistanceKm": 23
+      },
+      "estimatedTime": "8-10 hours",
+      "difficulty": {
+        "summary": "No formal official difficulty grade found. STF gives this as a long 23 km stage and Naturkartan gives 8-10 hours. Source descriptions and field reports consistently describe a steep climb from Rävfallet/Vindelälven, exposed upland walking with limited reliable running water, and a steep descent toward Ammarnäs/Näsberget.",
+        "confidence": "medium-high"
+      },
+      "routeType": "mainline STF hiking stage, with Ammarnäs endpoint convention caveat",
+      "endpoints": {
+        "start": {
+          "label": "Rävfallsstugan",
+          "coordinatesLatLon": [
+            66.095468,
+            16.118982
+          ],
+          "confidence": "high",
+          "caveats": [
+            "The WFS line endpoint is on/near the trail and bridge approach, not the hut centroid. De-duplicate Rävfallsstugan with section 20 endpoint records."
+          ]
+        },
+        "end": {
+          "label": "Ammarnäs",
+          "coordinatesLatLon": [
+            65.95193837,
+            16.20263462
+          ],
+          "confidence": "medium-high",
+          "caveats": [
+            "STF's 23 km distance and WFS LED.2784003 support carrying the section through Ammarnäs to the ledstart/parking area. Naturkartan, OSM and Gaia shorter route interpretations stop near Näsberget/ski-slope access and omit the unmarked village/ledstart stretch."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturvårdsverket Friluftsliv Leder WFS",
+        "sourceUrl": "https://geodata.naturvardsverket.se/leder_friluftsliv/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=Leder_friluftsliv_WFS:LED&outputFormat=GEOJSON&srsName=EPSG:4326&bbox=65.95,16.04,66.11,16.20,EPSG:4326",
+        "classification": "planning-grade/high-confidence candidate; WFS line appears detailed enough for later normalization but still needs source-policy approval, final endpoint convention decision and protected-area overlay",
+        "confidence": "high"
+      },
+      "caveats": [
+        "STF gives 23 km and WFS LED.2784003 measures 23.334 km to the Ammarnäs ledstart/parking area. Naturkartan gives 21.0 km, its GPX measures about 21.252 km, OSM extraction about 21.558 km and Gaia about 21.1 km, all apparently ending near Näsberget/ski-slope access and omitting the unmarked village/ledstart stretch.",
+        "Official section is Rävfallsstugan-Ammarnäs, but the shorter route line ends near Näsberget while the WFS 23 km line reaches the ledstart/parking area across/near the next-section boundary. Naturkartan also says the village trail is unmarked.",
+        "The WFS route endpoint is about 88-94 m from the Rävfallsstugan hut/facility point and likely represents trail/bridge approach rather than cabin centroid.",
+        "Official Naturkartan/section-20 evidence supports a locked cabin/safety-space model, while local/field sources mention 18 beds, sauna, key via Ammarnäs Livs and other service details.",
+        "A 2021 field report found good bivouac options across bridge/forest, while a 2025 route-app note says good tent spots near the cabin are rare.",
+        "The Marsivagge bird-protection area has a real 15 May-1 Aug entry ban, but this does not automatically close the entire Rävfallsstugan-Ammarnäs stage. Route intersection with the closed polygon was not proven in this pass.",
+        "The 2026-03-30 Länsstyrelsen notice advises choosing another way around Ammarnäs-Björkfjället-Skeble, but it appears under snowmobile restriction/local exemption context rather than as a hiking closure.",
+        "Shelter and firepit have OSM plus field-report support; toilet is field-only without a source-backed coordinate.",
+        "For normalized app display, choose whether section 21 ends at Näsberget/ski-slope access using the shorter Naturkartan/OSM line or at the Ammarnäs ledstart/parking using WFS LED.2784003 and STF 23 km distance.",
+        "Run final selected-line overlay against Marsivagge bird-protection polygon before attaching any seasonal restriction to the section.",
+        "Verify current Rävfallsstugan key/fee/sauna details, Ammarnäs service hours, bus timetable, fire bans, bridge notices, hunting/reindeer notices and weather immediately before runtime import/public use.",
+        "Decide whether OSM-supported Näsbergs shelter/firepit and Näsberget slalomback parking belong in the app taxonomy; keep Näsbergs toilet pending until a coordinate is sourced."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-22-ammarnas-aigert",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-22-ammarnas-aigert.research.json",
+      "order": 22,
+      "sectionNumber": 22,
+      "name": "Ammarnäs-Aigert",
+      "from": "Ammarnäs",
+      "to": "Aigert",
+      "distance": {
+        "officialDistanceKm": 8,
+        "displayDistanceKm": 8
+      },
+      "estimatedTime": "2-3 hours",
+      "difficulty": {
+        "official": "medium day tour in Naturkartan/Länsstyrelsen text",
+        "summary": "STF gives no formal difficulty grade, but Naturkartan/Länsstyrelsen describes a medium-difficulty day tour through both forest and bare mountain. Field reports consistently describe a short but real climb from Ammarnäs, with forest, bog/wet sections, boardwalk/small bridges, waterfall/canyon bridges and open fell before Aigert.",
+        "confidence": "medium-high"
+      },
+      "routeType": "mainline STF hiking stage with Ammarnäs endpoint-zone caveat",
+      "endpoints": {
+        "start": {
+          "label": "Entré Kungsleden / Äjvesåjvvie ledstart, Ammarnäs",
+          "coordinatesLatLon": [
+            65.95193837,
+            16.20263462
+          ],
+          "confidence": "medium-high",
+          "caveats": [
+            "Ammarnäs is an endpoint zone. STF/Naturkartan prose includes village/naturum and bridge access, while official line geometry starts at the ledstart/parking above the village."
+          ]
+        },
+        "end": {
+          "label": "Aigertstugan / STF Aigert Fjällstuga",
+          "coordinatesLatLon": [
+            65.941384,
+            16.09461
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Use Aigertstugan/STF Aigert Fjällstuga for the facility endpoint; retain Aigert as the STF short stage alias."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturvårdsverket Leder WFS",
+        "sourceUrl": "https://geodata.naturvardsverket.se/leder_friluftsliv/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=Leder_friluftsliv_WFS:LED&outputFormat=GEOJSON&srsName=EPSG:4326&resourceID=LED.2784419",
+        "classification": "planning-grade/high-confidence selected WFS candidate; source policy and endpoint/connector convention still required before runtime import",
+        "confidence": "high"
+      },
+      "caveats": [
+        "STF, Naturkartan and Vindelfjällen all report 8 km, but WFS/Naturkartan GPX ledstart-to-Aigert geometry measures about 6.1-6.4 km. OSM clips from naturum/village give about 7.46 km and full relation with Näsberget/Liftvägen connector gives about 8.69 km.",
+        "STF gives 2-3 hours; Naturkartan/Länsstyrelsen gives 3-4 hours.",
+        "STF says the stage starts in Ammarnäs village at the bridge over Vindelälven. Naturkartan says start from naturum, cross Tjulån, follow signs to Entré Kungsleden parking, or drive to the parking. Official line geometry starts at the ledstart/parking.",
+        "STF stage short label is Aigert, while Naturkartan/Vindelfjällen and facility sources use Aigertstugan / STF Aigert Fjällstuga.",
+        "OSM maps an emergency=phone node at Aigert, but STF/Naturkartan state there is no help phone and official Anordningar has no Aigert help-phone record.",
+        "TimeOfTiger reported the sauna closed during COVID in 2021, but current STF/Naturkartan and 2014 field photo evidence support sauna availability.",
+        "Naturkartan confirms Aigertstugan toilet but does not expose a page-text coordinate; coordinate in this pass comes from OSM way 1205576564.",
+        "STF and field reports support camping/tent sites near Aigert, but no exact official coordinate was found.",
+        "Before normalization, choose the explicit Ammarnäs connector policy: ledstart/parking-to-hut geometry only, naturum/village-to-hut stage, or Näsberget-to-village-to-ledstart continuity from section 21.",
+        "Resolve geometry source/licensing policy for Naturvårdsverket WFS, Naturkartan GPX/API and OSM-derived connector evidence.",
+        "Decide whether Aigertstugan toilet can use an OSM coordinate for a facility confirmed by Naturkartan, or should stay pending.",
+        "Find or verify a source-backed coordinate for the Aigert tent area opposite the hut before importing it as a POI."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-23-aigert-serve",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-23-aigert-serve.research.json",
+      "order": 23,
+      "sectionNumber": 23,
+      "name": "Aigert-Serve",
+      "from": "Aigert",
+      "to": "Serve",
+      "distance": {
+        "officialDistanceKm": 19,
+        "displayDistanceKm": 19
+      },
+      "estimatedTime": "5-7 hours",
+      "difficulty": {
+        "official": "demanding in both summer and winter per Naturkartan/Länsstyrelsen",
+        "summary": "STF gives 19 km and 5-7 hours. Naturkartan/Länsstyrelsen gives 20 km, 7-9 hours and describes a demanding route with rocky/blocky terrain. Field reports consistently add exposed weather, fog/visibility risk, long climbs, high rocky plateau, bog/flooded boardwalks and water gaps on the high tops.",
+        "confidence": "high"
+      },
+      "routeType": "mainline STF hiking stage with exposed high-route caveats",
+      "endpoints": {
+        "start": {
+          "label": "Aigertstugan / STF Aigert Fjällstuga",
+          "coordinatesLatLon": [
+            65.941376,
+            16.094567
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Carry forward Aigert hut cluster from section 22 and keep Aigert help-phone suppression."
+          ]
+        },
+        "end": {
+          "label": "Servestugan / STF Serve Fjällstuga",
+          "coordinatesLatLon": [
+            65.972338,
+            15.764218
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Route line ends on/near the through-trail above the Serve hut cluster. Store Serve as endpoint facility cluster, not a single doorway point, unless endpoint snapping policy requires otherwise."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturvårdsverket Friluftsliv REST/open-data AC16 line",
+        "classification": "planning-grade/high-confidence selected line; not runtime navigation-grade until source-policy, endpoint snapping and shelter coordinate caveats are resolved",
+        "confidence": "high"
+      },
+      "caveats": [
+        "STF gives 19 km / 5-7 h; Naturkartan gives 20.0 km / 7-9 h; geometry computes about 19.2-19.4 km; route apps cluster around 19-20.6 km with elapsed times up to about 8 hours.",
+        "STF stage/overview uses short Serve, while Naturkartan/Vindelfjällen often use Servestugan. Facility is STF Serve Fjällstuga.",
+        "Naturkartan/API gives Juovatvaretje rastskydd at 65.926434,15.938271, while Naturvårdsverket Anordningar / OSM / toilet alignment supports about 65.923190,15.954065. Names vary between Juovatvaretje and Juovvatjåhkka.",
+        "Some older/tourism sources imply Serve provisions, but current STF stage says no shop at Serve and lists shop huts as Aigert, Tärnasjö and Viterskalet. Third-party field lane noted shop ended in 2020.",
+        "Some non-official/tourism mentions imply a sauna, but no current STF/Naturkartan/Anordningar/OSM evidence found.",
+        "Field blogs may call Juovatvaretje/Juovvatjåhkka and Vuomatjåhkka/Matsen cabins/huts, but official Naturkartan classifies them as rest/emergency shelters.",
+        "OSM has emergency-phone-like tags on mid-shelter nodes, but Naturkartan describes emergency boxes, not help phones, and Anordningar has no help-phone records for these shelters.",
+        "Selected route line and Naturkartan GPX end around 75-80 m from the Serve hut cluster.",
+        "Manually reconcile Juovatvaretje/Juovvatjåhkka shelter coordinates before final POI import; Naturkartan/API and Anordningar/OSM disagree materially.",
+        "Choose endpoint snapping policy for Serve route line versus hut/help-phone cluster, which is about 75-80 m off the through-trail line.",
+        "Resolve source/licensing policy for Naturvårdsverket REST/download, Naturkartan GPX/API and OSM fallback evidence.",
+        "Verify Serve tenting west/near Servvejuhkka with a coordinate before importing a tent-area POI."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-24-serve-tarnasjo",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-24-serve-tarnasjo.research.json",
+      "order": 24,
+      "sectionNumber": 24,
+      "name": "Serve-Tarnasjo",
+      "from": "Serve",
+      "to": "Tarnasjo",
+      "distance": {
+        "officialDistanceKm": 14,
+        "displayDistanceKm": 14
+      },
+      "estimatedTime": "4-5 hours",
+      "difficulty": {
+        "official": "No formal official difficulty grade found in STF/Naturkartan API fields for this section.",
+        "summary": "STF treats this as a 14 km, 4-5 hour mountain stage. Naturkartan/Länsstyrelsen gives 14.0 km and 4-6 hours. Field reports describe a moderate rolling mountain day that becomes harder in wet, foggy or shoulder-season conditions because of open mountain, boggy ground, repeated ascent/descent and seasonal insects.",
+        "confidence": "medium-high"
+      },
+      "routeType": "mainline STF hiking stage with backcountry hut endpoints and wetland/open-mountain caveats",
+      "endpoints": {
+        "start": {
+          "label": "Servestugan / STF Serve Fjällstuga",
+          "coordinatesLatLon": [
+            65.972338,
+            15.764218
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Route line passes above/near the Serve hut cluster. Keep Serve hut/help-phone/safety-room as endpoint facility cluster unless normalization decides to snap the route to the hut."
+          ]
+        },
+        "end": {
+          "label": "Tärnasjöstugorna / STF Tärnasjö Fjällstuga",
+          "coordinatesLatLon": [
+            65.988814,
+            15.4973
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Tärnasjö hut and help-phone/sauna/toilet cluster are close to but not identical with the AC16 route-line endpoint."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturvårdsverket Friluftsliv REST/WKT/open-data AC16 line",
+        "classification": "planning-grade/high-confidence selected official line; not runtime navigation-grade until source-policy, endpoint snapping, GPX publish flag and final protected-area overlay are resolved",
+        "confidence": "high"
+      },
+      "caveats": [
+        "Resolve source/licensing policy before importing Naturvårdsverket, Naturkartan or OSM-derived geometry or coordinates.",
+        "Decide endpoint snapping policy at Serve and Tärnasjö: route-line endpoints, hut clusters, or explicit short access metadata.",
+        "Re-test Naturkartan site 14951 API/GPX availability before import because public GPX worked but API metadata/agent checks conflict.",
+        "Verify exact source-backed tent-site coordinates if standalone tent areas are in scope.",
+        "Do not import the Tärnasjö-Syter seven-bridge archipelago in section 24; verify in section 25.",
+        "Refresh date-sensitive currentness before public use: Länsstyrelsen notices, hut seasons, live fire bans, SMHI warnings/forecast, reindeer/dog advisories and access/boat/timetable details.",
+        "Run final protected-area/rules overlay on selected route geometry before runtime import."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-25-tarnasjo-syter.research.json",
+      "order": 25,
+      "sectionNumber": 25,
+      "name": "Tarnasjo-Syter",
+      "from": "Tarnasjo",
+      "to": "Syter",
+      "distance": {
+        "officialDistanceKm": 14,
+        "displayDistanceKm": 14
+      },
+      "estimatedTime": "4-5 hours STF; Naturkartan/Länsstyrelsen says 4-6 hours",
+      "difficulty": "Easy in STF stage copy / easy-moderate in field reports; Naturkartan API difficulty null",
+      "routeType": "point-to-point mountain hiking section; bridge/boardwalk lake-archipelago crossing; no required boat",
+      "endpoints": {
+        "start": {
+          "label": "Tärnasjöstugorna / STF Tärnasjö Fjällstuga",
+          "confidence": "high",
+          "caveats": [
+            "Keep route-line endpoint and hut/facility cluster separate until endpoint snapping policy is decided."
+          ]
+        },
+        "end": {
+          "label": "Syterstugorna / STF Syter Fjällstuga",
+          "confidence": "high",
+          "caveats": [
+            "Keep Syter hut cluster separate from section 26 onward geometry and from the nearby Svärfarbäcken bridge on the next section."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturvårdsverket Friluftsliv REST/WKT/open-data AC2 line",
+        "classification": "planning-grade/high-confidence official state-trail line; not final navigation-grade until source policy, endpoint snapping, live currentness and bridge/boardwalk structure handling are resolved",
+        "confidence": "high"
+      },
+      "caveats": [
+        "Final source/licensing/capture policy for Naturvårdsverket, Naturkartan and OSM/Waymarked geometry before runtime import.",
+        "Endpoint snapping policy at Tärnasjö and Syter: route-line endpoints, hut centroids, or explicit short access connectors.",
+        "Recheck Naturkartan API/GPX availability and publish_gpx behavior for site 14045 before importing geometry.",
+        "Resolve whether NV-A bridge 30412704 at the life-ring point is a duplicate, side bridge or misaligned official bridge record before importing structure POIs.",
+        "Re-verify Tärnasjö outdoor toilet coordinate/source if standalone toilet import is required.",
+        "Refresh live currentness immediately before import: bridge closures/status, fire bans, SMHI warnings, STF hut seasons and transit timetables.",
+        "Decide whether prebooked helicopter access belongs in app access metadata or should be suppressed as non-ground/logistics-only information.",
+        "If importing bridge POIs, compute route proximity against the final chosen route line rather than the simplified route estimates in the facility lane."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-26-syter-viterskalet.research.json",
+      "order": 26,
+      "sectionNumber": 26,
+      "name": "Syter-Viterskalet",
+      "from": "Syter",
+      "to": "Viterskalet",
+      "distance": {
+        "officialDistanceKm": 12,
+        "displayDistanceKm": 12
+      },
+      "estimatedTime": "3-4 hours",
+      "difficulty": "No formal official grade found for the main route; practical difficulty is moderate mountain walking because of steep ascent, open fjäll terrain, wind/fog exposure and weather dependence. Norra Sytertoppen alternate is advanced/hard only.",
+      "routeType": "point-to-point mountain hiking section through Syterskalet; official high-alpine alternate via Norra Sytertoppen must be modeled separately",
+      "endpoints": {
+        "start": {
+          "label": "Syterstugorna / STF Syter Fjällstuga",
+          "confidence": "high",
+          "caveats": [
+            "Shared endpoint with section 25; do not duplicate Syter hut/facility imports."
+          ]
+        },
+        "end": {
+          "label": "Viterskalet / STF Viterskalet Fjällstuga",
+          "confidence": "high",
+          "caveats": [
+            "Shared endpoint with section 27; decide whether to snap to hut centroid or keep route-line point at final import."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturvårdsverket Leder.geojson / Friluftsliv AC3 line",
+        "classification": "planning-grade/high-confidence official state line; final runtime import needs clipping policy, source policy, endpoint snap policy and alternate-route handling",
+        "confidence": "high"
+      },
+      "caveats": [
+        "Final runtime source/licensing/capture policy for Naturvårdsverket, Naturkartan and OSM/Waymarked.",
+        "Endpoint snapping/splitting policy at Viterskalet shared boundary with section 27.",
+        "Confirm exact final AC3 clipping point and coordinate transformation in import tooling.",
+        "If importing standalone facilities, use Naturvårdsverket Anordningar as the primary coordinate source for Syterskalet/Viterskalet toilet, bridge and help-phone points and keep OSM only as QA.",
+        "Treat Viterskalet capacity as 32 guest beds from current STF descriptive text unless a future live recheck changes the page.",
+        "Keep Viterskalet sauna suppressed unless a future official source adds it.",
+        "Refresh live currentness before import: Länsstyrelsen closures/bridges, STF hut dates/services, fire bans, SMHI forecasts/warnings and transit timetables.",
+        "Decide how official Norra Sytertoppen/AC8 alternate should be represented: alternate route, hazard note, suppressed, or separate candidate geometry.",
+        "Klippen E12 is coordinate-resolved from GTFS-derived BusMaps data; exact trailhead/side-trail modeling remains access metadata."
+      ]
+    },
+    {
+      "sectionId": "kungsleden-section-27-viterskalet-hemavan",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-27-viterskalet-hemavan.research.json",
+      "order": 27,
+      "sectionNumber": 27,
+      "name": "Viterskalet-Hemavan",
+      "from": "Viterskalet / STF Viterskalet Fjallstuga / Viterskalsstugan",
+      "to": "Hemavan, Kungsledens sodra entre / Naturum Vindelfjallen",
+      "distance": {
+        "officialDistanceKm": 10,
+        "displayDistanceKm": 10
+      },
+      "estimatedTime": "3-4 hours by STF; 4-5 hours by Naturkartan/Lansstyrelsen",
+      "difficulty": "No formal official grade found. Naturkartan describes the section as easy hiking; practical difficulty is easy-to-moderate mountain walking because of open fell, snow-season/currentness, reindeer sensitivity, route-choice ambiguity near Hemavan and the descent through the ski-area/ravine approach.",
+      "routeType": "point-to-point final Kungsleden mountain hiking section from the Viterskalet hut area to the official southern gateway at Naturum Vindelfjallen in Hemavan; Hemavan village/E12 bus stops are access points rather than the route endpoint.",
+      "endpoints": {
+        "start": {
+          "label": "Viterskalet / STF Viterskalet Fjallstuga / Viterskalsstugan",
+          "confidence": "high",
+          "caveats": [
+            "Shared endpoint with section 26. Do not duplicate Viterskalet hut, help phone, toilet or hut-component imports if they are already carried by the previous section/endpoint cluster."
+          ]
+        },
+        "end": {
+          "label": "Hemavan, Kungsledens sodra entre / Naturum Vindelfjallen / Fjallbotaniska tradgarden",
+          "confidence": "high",
+          "caveats": [
+            "Use the route-line terminus or ledstart/terminal cluster for import. Do not snap the section endpoint down to Hemavan village, Hemavans kopcentrum E12 or Kungsvagen E12; those are access/commute points."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturvardsverket Leder.geojson / Friluftsliv AC3 line",
+        "classification": "planning-grade/high-confidence official state line; likely suitable as primary candidate geometry after project source-policy and simplification decisions, but not yet imported into runtime data",
+        "confidence": "high"
+      },
+      "caveats": [
+        "During normalization, decide whether the imported end coordinate should be the AC3 route-line terminus (65.814929,15.104844), Naturkartan ledstart POI (65.814840,15.105171) or Naturvardsverket Ledterminal 30482997 (about 65.814964,15.104993). Recommendation: route-line terminus for geometry, ledstart/Naturum as endpoint POI cluster.",
+        "During normalization, decide whether to snap Viterskalet section boundary to the AC3 split or hut centroid. Recommendation: AC3 split for route geometry, hut centroid for facility/access cluster.",
+        "Confirm final source/licensing policy for Naturvardsverket AC3 and Naturkartan GPX before runtime import.",
+        "Refresh live closure/bridge notices, STF opening dates, Naturum opening, fire bans, weather warnings and bus timetables before public/runtime use.",
+        "Decide app taxonomy for bridges, help phones, hut subfacilities, viewpoint/fireplace combos, endpoint visitor centers, botanical garden attractions and off-route village lodging/services.",
+        "Verify official source/coordinate for ICA Fjallboden or any other Hemavan resupply/waste/public-water points if endpoint village services are imported.",
+        "If the app supports alternates, separately research/model Klippen AC9 access, Drottningleden/Lapplandsleden connections and Fjallfinakatan/Kobaset local route. Do not merge them into the mainline."
+      ]
+    }
+  ]
+}

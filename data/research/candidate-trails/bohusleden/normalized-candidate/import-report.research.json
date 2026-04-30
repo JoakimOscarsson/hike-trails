@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "candidate-import-report/v1",
+  "trailId": "bohusleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-artifacts-generated-research-only",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "bohusleden/normalization-handoff.research.json",
+  "artifactFiles": [
+    "route-sections.research.json",
+    "route-geometry-index.research.json",
+    "facilities.research.json",
+    "rule-warnings.research.json",
+    "import-report.research.json"
+  ],
+  "manifestSectionFiles": 27,
+  "generatedCounts": {
+    "routeSections": 27,
+    "geometrySections": 27,
+    "geometrySectionsWithCandidateGeojson": 27,
+    "facilities": 716,
+    "ruleWarnings": 682
+  },
+  "blockers": [
+    {
+      "id": "hardBlockers-1",
+      "status": "hardBlockers",
+      "details": "Stage 21 remains partial official geometry only and must not be imported as a complete route."
+    },
+    {
+      "id": "hardBlockers-2",
+      "status": "hardBlockers",
+      "details": "Runtime integration still needs a separate explicit import task."
+    },
+    {
+      "id": "hardBlockers-3",
+      "status": "hardBlockers",
+      "details": "A deliberate decision is required before any Stage 21 partial/self-navigation route model is represented."
+    },
+    {
+      "id": "hardBlockers-4",
+      "status": "hardBlockers",
+      "details": "Do not bridge, snap or auto-route the 4.296 km Stage 21-to-Stage 22 gap."
+    },
+    {
+      "id": "publicationTimeRechecks-1",
+      "status": "publicationTimeRechecks",
+      "details": "WST status/deviation widgets, fire bans, transit timetables, commercial opening hours and seasonal services."
+    },
+    {
+      "id": "publicationTimeRechecks-2",
+      "status": "publicationTimeRechecks",
+      "details": "Known bridge/raft/forestry/windfall/planned-burn notices."
+    },
+    {
+      "id": "publicationTimeRechecks-3",
+      "status": "publicationTimeRechecks",
+      "details": "Final GIS line-buffer overlays for protected areas, water-protection zones and restriction subsegments."
+    },
+    {
+      "id": "publicationTimeRechecks-4",
+      "status": "publicationTimeRechecks",
+      "details": "Facility coordinate verification where section files mark records pending, approximate or conflicting."
+    }
+  ],
+  "openDecisions": [
+    "Exclude Stage 21 entirely from route import, request authoritative full geometry from Tanum municipality/WST, or implement an explicit partial/self-navigation model.",
+    "Choose snap policy for the 49.4 m Stage 8-to-Stage 9 Bottenstugan gap.",
+    "Choose whether Bohusleden is represented as one chain with an explicit Stage 21 gap or as separate importable chains around Stage 21.",
+    "Choose side-service/access metadata radius and visibility for remote northern endpoints and town service clusters.",
+    "Choose how pending OSM-only fire/water/shelter/picnic candidates are stored before verification.",
+    "Choose warning granularity for reserve, water-protection, dog, fire and camping rules after GIS overlay."
+  ],
+  "validationChecklist": [
+    "Parse trail.research.json, research-progress.json, all sections/*.research.json, mapdata/index.json, mapdata/validation-report.json and both new normalization handoff JSON files.",
+    "Confirm expected stage count is 27 and section research count is 27.",
+    "Confirm mapdata totals: 26 full official geometries, 1 partial official geometry and 1 blocked complete-route import.",
+    "Validate every mapdata/sections/*.geojson file is a GeoJSON Feature LineString with [longitude, latitude] coordinates and no consecutive duplicate coordinates.",
+    "Confirm combined FeatureCollection has 27 features.",
+    "Confirm all WST/Hoodin GPX source URLs still resolve before publication if source freshness matters.",
+    "Confirm Stage 21 is excluded from complete-route import and no straight-line/auto-routed connector is generated.",
+    "Review the 49.4 m Stage 8-to-Stage 9 gap before route-chain import.",
+    "Review the 4296.3 m Stage 21-to-Stage 22 gap and keep it explicit.",
+    "Compare official distances, computed distances and source contradictions before exposing distances.",
+    "Run facility cluster/dedupe pass and verify pending/OSM-only/private/seasonal records before import.",
+    "Run final GIS overlays for protected areas, water-protection zones and restriction subsegments.",
+    "Run live WST, fire, transit, bridge/raft/forestry, planned-burn and seasonal-service checks immediately before publication.",
+    "Confirm no runtime app data, generated public data, shared scripts or package files are modified by the normalization-prep pass."
+  ],
+  "unresolvedBeforeRuntimeImport": [
+    "Stage 21 remains partial official geometry only and must not be imported as a complete route.",
+    "Runtime integration still needs a separate explicit import task.",
+    "A deliberate decision is required before any Stage 21 partial/self-navigation route model is represented.",
+    "Do not bridge, snap or auto-route the 4.296 km Stage 21-to-Stage 22 gap.",
+    "WST status/deviation widgets, fire bans, transit timetables, commercial opening hours and seasonal services.",
+    "Known bridge/raft/forestry/windfall/planned-burn notices.",
+    "Final GIS line-buffer overlays for protected areas, water-protection zones and restriction subsegments.",
+    "Facility coordinate verification where section files mark records pending, approximate or conflicting.",
+    "Exclude Stage 21 entirely from route import, request authoritative full geometry from Tanum municipality/WST, or implement an explicit partial/self-navigation model.",
+    "Choose snap policy for the 49.4 m Stage 8-to-Stage 9 Bottenstugan gap.",
+    "Choose whether Bohusleden is represented as one chain with an explicit Stage 21 gap or as separate importable chains around Stage 21.",
+    "Choose side-service/access metadata radius and visibility for remote northern endpoints and town service clusters.",
+    "Choose how pending OSM-only fire/water/shelter/picnic candidates are stored before verification.",
+    "Choose warning granularity for reserve, water-protection, dog, fire and camping rules after GIS overlay."
+  ],
+  "nextActions": [
+    "Review generated candidate records for trail-specific dedupe and topology before runtime import.",
+    "Keep pending-review and suppress facility states out of runtime output.",
+    "Run final GIS overlays and live publication checks before user-facing rule warnings.",
+    "Do not write app runtime source data from this report without an explicit runtime integration task."
+  ]
+}

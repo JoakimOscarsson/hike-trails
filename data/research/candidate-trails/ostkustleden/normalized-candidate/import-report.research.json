@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "candidate-import-report/v1",
+  "trailId": "ostkustleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-artifacts-generated-research-only",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "ostkustleden/normalization-handoff.research.json",
+  "artifactFiles": [
+    "route-sections.research.json",
+    "route-geometry-index.research.json",
+    "facilities.research.json",
+    "rule-warnings.research.json",
+    "import-report.research.json"
+  ],
+  "manifestSectionFiles": 8,
+  "generatedCounts": {
+    "routeSections": 8,
+    "geometrySections": 8,
+    "geometrySectionsWithCandidateGeojson": 0,
+    "facilities": 159,
+    "ruleWarnings": 188
+  },
+  "blockers": [
+    {
+      "id": "runtime-import",
+      "status": "blocked-until-explicit-import-task",
+      "details": "Ready for normalization planning, not runtime import."
+    },
+    {
+      "id": "geometry",
+      "status": "candidate-implementation-required",
+      "details": "Runtime import still needs an explicit import task, geometry implementation and visual QA."
+    },
+    {
+      "id": "rules",
+      "status": "unknown/recheck",
+      "details": "Boundary-sensitive rules require GIS overlays against final normalized geometry."
+    },
+    {
+      "id": "currentness",
+      "status": "unknown/recheck",
+      "details": "Cabin availability/fees, water reliability/quality, KLT/Närtrafik, fire risk, hunting signs/notices, forestry and route passability are publication-time checks."
+    }
+  ],
+  "openDecisions": [
+    {
+      "decision": "Decide whether runtime import should include a separately sourced access leg from Etapp 8 official GPX end to the Lilla Hycklinge cabin, or keep the 156.4 m gap as metadata only.",
+      "whyItMatters": "The normalization plan keeps the official GPX endpoint to close the digital ring and treats the cabin marker as endpoint facility/access metadata unless a sourced access leg is approved."
+    },
+    {
+      "decision": "Decide whether optional narrative POIs and approximate swim/access points should be included in the first runtime import or left pending.",
+      "whyItMatters": "Many are useful but lack exact coordinates or require side-service/access modeling."
+    },
+    {
+      "decision": "Approve candidate-only geometry normalization prototype before any shared runtime source data is touched.",
+      "whyItMatters": "The existing plan explicitly says to prototype and QA under candidate research first."
+    }
+  ],
+  "validationChecklist": [
+    "JSON parse this handoff and every changed research file.",
+    "Confirm normalization-plan.research.json remains the controlling detailed plan.",
+    "Verify all 8 section files exist and match sectionCoverage.sectionIds.",
+    "Implement candidate-only geometry transforms with raw source URL, transform instruction, computed length, display distance and endpoint gap metadata.",
+    "Run visual QA against official PDF/map viewer for repaired multi-track sections.",
+    "Confirm Etapp 8 closes the digital ring at the official GPX endpoint and does not silently snap to Lilla Hycklinge cabin.",
+    "Review duplicate endpoint cabin/toilet/well/parking records before import rows.",
+    "Run GIS overlays for all ruleWarningPlan.requiresGisOverlayBeforeRuleImport entries before static rule import.",
+    "Recheck fire bans, KLT/Närtrafik, cabin availability/fees, water, hunting signs/notices and forestry/passability before runtime publication.",
+    "Keep all outputs research-only until the user explicitly requests runtime integration."
+  ],
+  "unresolvedBeforeRuntimeImport": [
+    "Ready for normalization planning, not runtime import.",
+    "Runtime import still needs an explicit import task, geometry implementation and visual QA.",
+    "Boundary-sensitive rules require GIS overlays against final normalized geometry.",
+    "Cabin availability/fees, water reliability/quality, KLT/Närtrafik, fire risk, hunting signs/notices, forestry and route passability are publication-time checks.",
+    {
+      "decision": "Decide whether runtime import should include a separately sourced access leg from Etapp 8 official GPX end to the Lilla Hycklinge cabin, or keep the 156.4 m gap as metadata only.",
+      "whyItMatters": "The normalization plan keeps the official GPX endpoint to close the digital ring and treats the cabin marker as endpoint facility/access metadata unless a sourced access leg is approved."
+    },
+    {
+      "decision": "Decide whether optional narrative POIs and approximate swim/access points should be included in the first runtime import or left pending.",
+      "whyItMatters": "Many are useful but lack exact coordinates or require side-service/access modeling."
+    },
+    {
+      "decision": "Approve candidate-only geometry normalization prototype before any shared runtime source data is touched.",
+      "whyItMatters": "The existing plan explicitly says to prototype and QA under candidate research first."
+    }
+  ],
+  "nextActions": [
+    "Review generated candidate records for trail-specific dedupe and topology before runtime import.",
+    "Keep pending-review and suppress facility states out of runtime output.",
+    "Run final GIS overlays and live publication checks before user-facing rule warnings.",
+    "Do not write app runtime source data from this report without an explicit runtime integration task."
+  ]
+}

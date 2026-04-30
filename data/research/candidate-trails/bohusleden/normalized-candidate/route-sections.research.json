@@ -1,0 +1,1621 @@
+{
+  "schemaVersion": "candidate-route-sections/v1",
+  "trailId": "bohusleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-normalized-research-only",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "bohusleden/normalization-handoff.research.json",
+  "sharedDecisionFile": "shared-importer-decisions.research.json",
+  "distancePolicy": {
+    "officialDistanceKm": "Trail-manager or selected official user-facing distance.",
+    "computedGeometryDistanceKm": "Distance computed from selected normalized geometry.",
+    "displayDistanceKm": "Defaults to officialDistanceKm unless a trail-specific handoff selects a different value.",
+    "distanceCaveats": "Source contradictions, rounded totals, stale values and measured-distance notes."
+  },
+  "sections": [
+    {
+      "sectionId": "bohusleden-stage-1-alvsaker-stensjon",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-1-alvsaker-stensjon.research.json",
+      "order": 1,
+      "sectionNumber": 1,
+      "name": "Älvsåker - Stensjön",
+      "from": "Älvsåker",
+      "to": "Stensjön",
+      "distance": {
+        "officialDistanceKm": 26,
+        "displayDistanceKm": 26
+      },
+      "estimatedTime": "7-8 h",
+      "difficulty": "medium / blue",
+      "routeType": "linear point-to-point official stage",
+      "endpoints": {
+        "start": {
+          "label": "Älvsåker trailhead / Bohusleden-Hallandsleden boundary area",
+          "coordinatesLatLon": [
+            57.542016,
+            12.148823
+          ],
+          "source": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Bohusleden_etapp1.gpx",
+          "confidence": "high",
+          "caveats": [
+            "This is the current official route endpoint near the trail portal and Halland/Bohuslän boundary area, not Älvsåker village center.",
+            "Older route labels may call this Blåvättnerna."
+          ]
+        },
+        "end": {
+          "label": "Stensjön / Gunnebo end area",
+          "coordinatesLatLon": [
+            57.662525,
+            12.050315
+          ],
+          "source": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Bohusleden_etapp1.gpx",
+          "confidence": "high",
+          "caveats": [
+            "Naturkartan GPX endpoint is about 16 m short/south.",
+            "Endpoint area overlaps the Gunnebo/Stensjön access cluster; exact reserve boundary attribution should be polygon-verified."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Älvsåker south endpoint to Stensjön north endpoint",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "official West Sweden Trails / Hoodin GPX or official map API GeoJSON",
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Bohusleden_etapp1.gpx",
+        "classification": "navigation-grade after consecutive duplicate coordinate de-duplication",
+        "confidence": "high"
+      },
+      "caveats": [
+        "Current WST page/API use Älvsåker - Stensjön, but official map title/navigation/GPX description and Naturkartan slug/text still refer to Blåvättnerna - Stensjön.",
+        "WST declares 26 km; official GPX computes to 25.773 km; OSM computes to 25.469 km; Naturkartan declares/computes about 25.0 km.",
+        "Naturkartan GPX diverges from official GPX/OSM by up to about 498 m near [57.584, 12.113]. AllTrails 2025-08-24 also reports first 3 km differs from official route while remaining route follows new path/markings.",
+        "Naturkartan says bathing/grill/shelter/WC at Stora Hassungaredssjön; WST place feed confirms covered rest area and grills but not toilet/swimming/shelter at that record.",
+        "Länsstyrelsen wording allows fire only at designated places, while Gunnebo local page is stricter about open fire/grilling in the reserve.",
+        "Rådasjön rules may apply near the end, but exact Stage 1 overlap is ambiguous because Gunnebo cultural reserve and Rådasjön nature reserve are adjacent/related.",
+        "AllTrails/search snippets associate Stage 1 with Sandsjöbacka Nature Reserve, but official stage and municipal sources did not support applying Sandsjöbacka rules to this stage.",
+        "Run official GPX against Skyddad Natur/Naturvårdsverket protected-area polygons for Hårssjön-Rambo, Gunnebo kulturreservat, and Rådasjön before normalization.",
+        "Confirm exact authorized firepit coordinates in Hårssjön-Rambo, Gunnebo, and Rådasjön.",
+        "Confirm Herkulesgården water/toilet opening hours before marking water as reliable rather than time-dependent.",
+        "Resolve Stora Hassungaredssjön toilet/swimming/shelter claim with map/field/official facility source before importing those types.",
+        "Before import/publication, re-query fire-ban map, SMHI/RSG fire risk, Västtrafik planner, and commercial opening hours."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-2-stensjon-skatas",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-2-stensjon-skatas.research.json",
+      "order": 2,
+      "sectionNumber": 2,
+      "name": "Stensjön - Skatås",
+      "from": "Stensjön",
+      "to": "Skatås",
+      "distance": {
+        "officialDistanceKm": 9,
+        "displayDistanceKm": 9
+      },
+      "estimatedTime": "3 h",
+      "difficulty": "medium / blue",
+      "routeType": "linear point-to-point official stage",
+      "endpoints": {
+        "start": {
+          "label": "Stensjön / Gunnebo-Stensjön north side stage boundary",
+          "coordinatesLatLon": [
+            57.662525,
+            12.050315
+          ],
+          "source": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Bohusleden_etapp2.gpx",
+          "confidence": "high",
+          "caveats": [
+            "Matches official Stage 1 end coordinate.",
+            "This is the route line endpoint, not necessarily the best parking, bus-stop, or information-board coordinate.",
+            "Naturkartan GPX starts about 16.3 m south/offset from this coordinate."
+          ]
+        },
+        "end": {
+          "label": "Skatås stage boundary / continuation toward Stage 3",
+          "coordinatesLatLon": [
+            57.703241,
+            12.039036
+          ],
+          "source": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Bohusleden_etapp2.gpx",
+          "confidence": "high",
+          "caveats": [
+            "Matches the known official Stage 3 start from the WST baseline.",
+            "Skatås Motionscentrum and main parking/transit access are several hundred meters west of the official route endpoint."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Stensjön to Skatås",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "official West Sweden Trails / Hoodin GPX",
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Bohusleden_etapp2.gpx",
+        "classification": "navigation-grade after consecutive duplicate coordinate de-duplication",
+        "confidence": "high"
+      },
+      "caveats": [
+        "Official GPX/API repeats many consecutive coordinates; de-duplicate before length, simplification, or QA processing.",
+        "Public WST map API requires a page token that may rotate; treat the stable GPX URL as the primary retrievable source.",
+        "Computed length from official and OSM geometry is about 8.64 km, while the public official distance is rounded to 9 km."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-3-skatas-kasjon",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-3-skatas-kasjon.research.json",
+      "order": 3,
+      "sectionNumber": 3,
+      "name": "Skatås - Kåsjön",
+      "from": "Skatås",
+      "to": "Kåsjön",
+      "distance": {
+        "officialDistanceKm": 10,
+        "displayDistanceKm": 10
+      },
+      "estimatedTime": "3-4 h",
+      "difficulty": "medium / blue",
+      "routeType": "linear point-to-point official stage; shared/parallel corridor with Vildmarksleden and Gotaleden",
+      "endpoints": {
+        "start": {
+          "label": "Skatås stage boundary / continuation from Stage 2",
+          "coordinatesLatLon": [
+            57.703241,
+            12.039036
+          ],
+          "source": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp3_skatas_kasjon.gpx",
+          "confidence": "high",
+          "caveats": [
+            "Matches official Stage 2 end coordinate.",
+            "This is the route line endpoint; Skatås Motionscentrum, parking and tram access are several hundred meters west."
+          ]
+        },
+        "end": {
+          "label": "Kåsjön / Åstebo stage boundary",
+          "coordinatesLatLon": [
+            57.716536,
+            12.137621
+          ],
+          "source": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp3_skatas_kasjon.gpx",
+          "confidence": "high",
+          "caveats": [
+            "Matches the known official Stage 4 start from the WST baseline.",
+            "Åstebo bus stop is essentially at this endpoint; Kåsjöbadet bathing area and Kåsjön bus stop are better treated as nearby endpoint-area access/facility records."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Skatås to Kåsjön",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "official West Sweden Trails / Hoodin GPX",
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp3_skatas_kasjon.gpx",
+        "classification": "navigation-grade after consecutive duplicate coordinate de-duplication",
+        "confidence": "high"
+      },
+      "caveats": [
+        "Official GPX repeats each coordinate three times; de-duplicate before length, simplification or QA processing.",
+        "Official GPX is older than Stage 1-2 files, with metadata time 2021-10-25 and CDN Last-Modified 2021-12-01, so stale-risk is nonzero.",
+        "Stale-risk is mitigated because current WST tokenized API and Naturkartan expose the same line and OSM corroborates closely.",
+        "Use WST GPX as durable source; do not depend on tokenized API URL."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-4-kasjon-jonsered",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-4-kasjon-jonsered.research.json",
+      "order": 4,
+      "sectionNumber": 4,
+      "name": "Kåsjön - Jonsered",
+      "from": "Kåsjön",
+      "to": "Jonsered",
+      "distance": {
+        "officialDistanceKm": 8,
+        "displayDistanceKm": 8
+      },
+      "estimatedTime": "3 h",
+      "difficulty": "medium",
+      "routeType": "linear point-to-point official stage; fully overlapping the Gotaleden Kåsjön-Jonsered corridor and partly overlapping Vildmarksleden near Kåsjön/Madern",
+      "endpoints": {
+        "start": {
+          "label": "Kåsjön / Åstebo stage boundary",
+          "coordinatesLatLon": [
+            57.716536,
+            12.137621
+          ],
+          "source": "Official West Sweden Trails/Hoodin GPX and WST GeoJSON",
+          "confidence": "high"
+        },
+        "end": {
+          "label": "Jonsered stage boundary",
+          "coordinatesLatLon": [
+            57.748784,
+            12.175979
+          ],
+          "source": "Official West Sweden Trails/Hoodin GPX and WST GeoJSON",
+          "confidence": "high"
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Kåsjön to Jonsered",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp4_Kasjon_jonsered.gpx",
+        "classification": "navigation-grade after consecutive duplicate coordinate de-duplication",
+        "confidence": "high"
+      },
+      "caveats": [
+        "Every coordinate is triplicated; de-duplicate before length, snapping, simplification or route matching.",
+        "The GPX file is old by metadata/HTTP date, but it remains linked from the current WST page and matches current WST/Naturkartan endpoints.",
+        "Computed length is 2D over coordinates and does not include elevation correction."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-5-jonsered-angereds-kyrka",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-5-jonsered-angereds-kyrka.research.json",
+      "order": 5,
+      "sectionNumber": 5,
+      "name": "Jonsered - Angereds kyrka",
+      "from": "Jonsered",
+      "to": "Angereds kyrka",
+      "distance": {
+        "officialDistanceKm": 12,
+        "displayDistanceKm": 12
+      },
+      "estimatedTime": "5 h",
+      "difficulty": "hard",
+      "routeType": "linear point-to-point official stage with a described Jonsered-Freden shortcut/alternate; shared route context with Signaturled Göteborg, Gotaleden and local routes",
+      "endpoints": {
+        "start": {
+          "label": "Jonsered stage boundary",
+          "coordinatesLatLon": [
+            57.748784,
+            12.175979
+          ],
+          "source": "Official West Sweden Trails/Hoodin GPX and WST GeoJSON",
+          "confidence": "high"
+        },
+        "end": {
+          "label": "Angereds kyrka stage boundary / bus-stop area",
+          "coordinatesLatLon": [
+            57.788938,
+            12.097071
+          ],
+          "source": "Official West Sweden Trails/Hoodin GPX and WST GeoJSON",
+          "confidence": "high"
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Jonsered to Angereds kyrka",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp5_Jonsered_angeredskyrka.gpx",
+        "classification": "navigation-grade for official main line after consecutive duplicate coordinate de-duplication",
+        "confidence": "high"
+      },
+      "caveats": [
+        "Official geometry represents the main line only and does not include the Jonsered-Freden shortcut as a separate component.",
+        "Every coordinate is triplicated; de-duplicate before length, snapping, simplification or route matching.",
+        "GPX is old by metadata/HTTP date, but still current official page/API geometry and matches Naturkartan endpoints.",
+        "Ramsjön bridge warning means route users must follow current signs/new bridge even if old bridge traces exist in maps or field reports."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-6-angereds-kyrka-fontin",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-6-angereds-kyrka-fontin.research.json",
+      "order": 6,
+      "sectionNumber": 6,
+      "name": "Angereds kyrka - Fontin",
+      "from": "Angereds kyrka",
+      "to": "Fontin",
+      "distance": {
+        "officialDistanceKm": 17,
+        "displayDistanceKm": 17
+      },
+      "estimatedTime": "5-6 h",
+      "difficulty": "medium",
+      "routeType": "linear point-to-point official stage; part of the STF Signaturled Goteborg context, with urban/rural transitions, protected-area segments and no official alternate geometry found",
+      "endpoints": {
+        "start": {
+          "label": "Angereds kyrka stage boundary / bus-stop area",
+          "coordinatesLatLon": [
+            57.788938,
+            12.097071
+          ],
+          "source": "Official West Sweden Trails/Hoodin GPX and WST GeoJSON",
+          "confidence": "high"
+        },
+        "end": {
+          "label": "Fontin stage boundary / Kotten recreation centre area",
+          "coordinatesLatLon": [
+            57.873497,
+            11.9998
+          ],
+          "source": "Official West Sweden Trails/Hoodin GPX and WST GeoJSON",
+          "confidence": "high"
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Angereds kyrka to Fontin",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/6.-Angereds-kyrka---Fontin.gpx",
+        "classification": "navigation-grade after consecutive duplicate coordinate de-duplication",
+        "confidence": "high"
+      },
+      "caveats": [
+        "Official GPX is a few years old by metadata/HTTP evidence but remains the current official download and matches the WST/Naturkartan endpoint baseline.",
+        "De-duplicate repeated coordinates before geometry QA or normalization.",
+        "No official alternate/branch/ferry/boat/transfer geometry was found for Stage 6.",
+        "Live WST map should be checked before publication or departure due storm-windfall and status volatility."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-7-fontin-grandalen",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-7-fontin-grandalen.research.json",
+      "order": 7,
+      "sectionNumber": 7,
+      "name": "Fontin - Grandalen",
+      "from": "Fontin",
+      "to": "Grandalen",
+      "distance": {
+        "officialDistanceKm": 16,
+        "displayDistanceKm": 16
+      },
+      "estimatedTime": "6-7 h",
+      "difficulty": "medium",
+      "routeType": "linear point-to-point official stage through Kungalv municipality, from Fontin/Kotten recreation area to Grandalen at the Svartedalen boundary; no official alternate geometry found, but several access and side-trip points exist",
+      "endpoints": {
+        "start": {
+          "label": "Fontin stage boundary / Kotten recreation centre area",
+          "coordinatesLatLon": [
+            57.873497,
+            11.9998
+          ],
+          "source": "Official West Sweden Trails/Hoodin GPX and WST GeoJSON",
+          "confidence": "high"
+        },
+        "end": {
+          "label": "Grandalen stage boundary / Svartedalen boundary area",
+          "coordinatesLatLon": [
+            57.962139,
+            12.007714
+          ],
+          "source": "Official West Sweden Trails/Hoodin GPX and WST GeoJSON",
+          "confidence": "high"
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Fontin to Grandalen",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp-7-Fontin-Grandalen_2024.gpx",
+        "classification": "official-primary-high-confidence-deduped",
+        "confidence": "high"
+      },
+      "caveats": [
+        "De-duplicate repeated coordinates before length, snapping, simplification or route matching.",
+        "Largest official consecutive segment is about 245.2 m, likely sparse sampling in a straight section rather than a break.",
+        "No official alternate, KML or downloadable static GeoJSON file was found; WST exposes GeoJSON through map API.",
+        "Active WST forestry notice at Romelanda should be checked before public import or departure."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-8-grandalen-bottenstugan",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-8-grandalen-bottenstugan.research.json",
+      "order": 8,
+      "sectionNumber": 8,
+      "name": "Grandalen - Bottenstugan",
+      "from": "Grandalen",
+      "to": "Bottenstugan",
+      "distance": {
+        "officialDistanceKm": 8.5,
+        "displayDistanceKm": 8.5
+      },
+      "estimatedTime": "3-4 h",
+      "difficulty": "hard",
+      "routeType": "linear point-to-point official stage through Svartedalen from Grandalen to Bottenstugan; no ferry, rowboat or official alternate geometry found, but several parking/access points and local side-loop facilities exist nearby",
+      "endpoints": {
+        "start": {
+          "label": "Grandalen",
+          "coordinatesLatLon": [
+            57.962139,
+            12.007714
+          ],
+          "confidence": "high",
+          "caveats": [
+            "OSM Stage 8 starts about 59.9 m from the official WST/Naturkartan start, but joins the official line within about 5.6 m."
+          ]
+        },
+        "end": {
+          "label": "Bottenstugan",
+          "coordinatesLatLon": [
+            58.005099,
+            11.991055
+          ],
+          "confidence": "high",
+          "caveats": [
+            "OSM Stage 8 ends about 47.0 m short of the official WST endpoint and about 3.2 m from the official Stage 9 start."
+          ]
+        },
+        "continuity": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Grandalen to Bottenstugan",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp8_Grandalen_bottenstugan.gpx",
+        "classification": "official-primary-dedup-required",
+        "confidence": "high"
+      },
+      "caveats": [
+        "Before final import, recheck the WST forestry/gravel-road status between Ovre and Nedre Langevatten and the Svartedalen storm-damage notice.",
+        "During Stage 9 synthesis, decide how to handle the 49.4 m official WST/Naturkartan continuity gap at Bottenstugan.",
+        "Field-check Bottenstugan water signage and seasonality before marking it as reliable drinking water.",
+        "Cluster Bottenstugan north/south shelters, fireplace, dry toilet, tent place, water tap, information board and possible grillkata/access shelter to avoid duplicate records.",
+        "Verify whether Anvik has any practical fixed-route service at publication time; otherwise keep it as demand-responsive/check-ahead access only.",
+        "Confirm exact Svartedalen sub-area signs at Grandalen/Bottenstugan and Lysegarden water-protection subzone before encoding public rule warnings.",
+        "Keep Nedre Langevatten wind shelter, Bottenstugan waste basket and possible grillkata/access shelter pending until coordinate/existence verification.",
+        "De-duplicate repeated coordinates before length, snapping, simplification or route matching.",
+        "GPX elevation values are zero and should not be imported as elevation.",
+        "Official WST declared distance 8.5 km is longer than computed WST geometry length about 8.127 km.",
+        "Official continuity gap to Stage 9 start is about 49.4 m.",
+        "No official alternate, KML or downloadable static GeoJSON file was found; WST exposes GeoJSON through map API."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-9-bottenstugan-lysevatten",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-9-bottenstugan-lysevatten.research.json",
+      "order": 9,
+      "sectionNumber": 9,
+      "name": "Bottenstugan - Lysevatten",
+      "from": "Bottenstugan",
+      "to": "Lysevatten",
+      "distance": {
+        "officialDistanceKm": 12,
+        "displayDistanceKm": 12
+      },
+      "estimatedTime": "4-5 h",
+      "difficulty": "hard",
+      "routeType": "linear point-to-point official stage through Svartedalen from Bottenstugan to Lysevatten; no ferry, rowboat or official alternate geometry found; several shelters and remote access constraints are part of the stage planning context",
+      "endpoints": {
+        "start": {
+          "label": "Bottenstugan",
+          "coordinatesLatLon": [
+            58.00465994614821,
+            11.99118649612946
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Official Stage 8 endpoint is about 49.432 m north of this Stage 9 start.",
+            "OSM Stage 8/9 continuity uses an endpoint near the Stage 9 official start rather than the Stage 8 official endpoint."
+          ]
+        },
+        "end": {
+          "label": "Lysevatten",
+          "coordinatesLatLon": [
+            58.0760280480825,
+            12.032154231990893
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Stage 9 end to Stage 10 official start gap is about 0.015 m, effectively continuous."
+          ]
+        },
+        "continuity": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Bottenstugan to Lysevatten",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Bohusleden_etapp9.gpx",
+        "classification": "official-primary-navigation-grade-dedup-required",
+        "confidence": "high"
+      },
+      "caveats": [
+        "Before final import, resolve or explicitly document the 49.432 m official WST/Naturkartan gap between Stage 8 end and Stage 9 start.",
+        "Live-check the 2026-04-09 Svartedalen storm/windfall advisory and any WST Stage 9 status items before publication.",
+        "Spatially verify whether the storm-damaged Stora Aggdalssjon shelter is close enough to Stage 9 to mention as a Stage 9 POI or only as reserve-wide caution.",
+        "Cluster Bottenstugan facilities carefully: water, dry toilet, tent site, north/south shelters, possible third shelter/rest hut, fireplaces/grills, parking, information board, waste and building-closure context.",
+        "Import Bottenstugan water only as summer-half-year/check-ahead, and suppress the building as lodging until reopened.",
+        "Cluster Harsvattnet/Nellys shelter records, three OSM shelters, fire/bbq and pasholk to avoid duplicate records.",
+        "Verify Lysevatten rest area/fire/swim coordinates and whether any toilet or drinking water exists before importing endpoint amenities beyond board/parking.",
+        "Recheck Vasttrafik timetables after 2026-06-14 and on travel date; retain no-weekend-service caveat unless newer schedules differ.",
+        "Confirm exact Svartedalen reserve sub-area boundaries and signs before encoding public rule warnings or camping restrictions by subsegment.",
+        "Keep OSM-only side facilities near Stora Hastevatten, Aggdals Klarevatten and Lysevatten firepit pending until coordinate/existence verification.",
+        "De-duplicate repeated coordinates before length, snapping, simplification or route matching.",
+        "GPX elevation values are zero and should not be imported as elevation."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-10-lysevatten-hasterod",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-10-lysevatten-hasterod.research.json",
+      "order": 10,
+      "sectionNumber": 10,
+      "name": "Lysevatten - Hasteröd",
+      "from": "Lysevatten",
+      "to": "Hasteröd",
+      "distance": {
+        "officialDistanceKm": 12,
+        "displayDistanceKm": 12
+      },
+      "estimatedTime": "4-5 h",
+      "difficulty": "medium",
+      "routeType": "linear point-to-point official stage from Lysevatten toward Hasterod, mostly on forest path, dirt/gravel road and short asphalt/road-walk sections; no ferry, rowboat or official alternate geometry found",
+      "endpoints": {
+        "start": {
+          "label": "Lysevatten",
+          "coordinatesLatLon": [
+            58.076028,
+            12.032154
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Official Stage 9 endpoint is about 0.02 m from this start, effectively continuous."
+          ]
+        },
+        "end": {
+          "label": "Hasteröd",
+          "coordinatesLatLon": [
+            58.148133,
+            12.038506
+          ],
+          "confidence": "high",
+          "caveats": [
+            "OSM relation 125070 continues about 723 m north to its Stage 11 boundary; do not use OSM endpoint as official Hasterod endpoint."
+          ]
+        },
+        "continuity": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Lysevatten to Hasterod",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/etapp10.gpx",
+        "classification": "official-primary-navigation-grade-dedup-required",
+        "confidence": "high"
+      },
+      "caveats": [
+        "Before final import, live-check WST Djupevatten notice to confirm whether the unauthorized adjacent structure has been removed.",
+        "Use WST linked GPX/API, not OSM relation 125070, unless the Hasterod boundary mismatch is explicitly resolved.",
+        "Run final protected-area and water-protection line-buffer overlay; current rules lane found no direct protected-area/Natura intersection but used a screening pass.",
+        "Confirm whether any Stage 10 route segment intersects Bredfjallet after the official Stage 10/11 boundary or only after Stage 10 ends.",
+        "Verify Djupevatten child amenities if importing separate fireplace/waste/swim records rather than a single cluster.",
+        "Do not mark any drinking water or toilet on Stage 10 unless a future official source adds one.",
+        "Confirm exact Hasterod Nartrafik pickup/address and any practical walking route to Gransen before exposing them as access options.",
+        "Recheck Vasttrafik 333/332 timetables after 2026-06-14 and Lilla Edet storm-felled-tree warning before publication.",
+        "Keep OSM-only picnic/firepit records pending until official or field verification.",
+        "De-duplicate repeated coordinates before length, snapping, simplification or route matching.",
+        "WST alternate GPX bohusleden_etapp10.gpx exists with 2352 points and same endpoints but is unlinked/variant; do not prefer it over linked official etapp10.gpx.",
+        "OSM relation 125070 extends about 723 m beyond official Hasterod endpoint and should not override official WST geometry."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-11-hasterod-vassbovik",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-11-hasterod-vassbovik.research.json",
+      "order": 11,
+      "sectionNumber": 11,
+      "name": "Hasteröd - Vassbovik",
+      "from": "Hasteröd",
+      "to": "Vassbovik",
+      "distance": {
+        "officialDistanceKm": 22,
+        "displayDistanceKm": 22
+      },
+      "estimatedTime": "6-7 h",
+      "difficulty": "medium",
+      "routeType": "linear point-to-point official stage from Hasterod to Vassbovik, mostly on gravel/dirt roads and forest paths through lake-rich forest, wetlands and Bredfjallet; no ferry, rowboat or official alternate geometry found, but current field reports describe a changed/road-walk finish near Vassbovik/Ivarsbosjon",
+      "endpoints": {
+        "start": {
+          "label": "Hasteröd",
+          "coordinatesLatLon": [
+            58.148133,
+            12.038506
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Official Stage 10 endpoint to Stage 11 start is 0 m.",
+            "OSM relation 125010 starts about 723 m north of this official endpoint; do not use the OSM start as the official Hasterod endpoint."
+          ]
+        },
+        "end": {
+          "label": "Vassbovik",
+          "coordinatesLatLon": [
+            58.272828,
+            12.00697
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Official Stage 11 end to Stage 12 start is 0 m.",
+            "OSM Stage 11 endpoint is about 0.2 m from this official endpoint."
+          ]
+        },
+        "continuity": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Hasterod to Vassbovik",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/bohusleden_etapp11.gpx",
+        "classification": "official-primary-navigation-grade-dedup-required",
+        "confidence": "high"
+      },
+      "caveats": [
+        "Live-check WST status/deviation widgets, forestry/storm notices, Länsstyrelsen current news and fire-ban/fire-risk status before publication.",
+        "Confirm on-site or manager guidance for Store Vaktor grill/fireplace; reserve rules currently mean it must not be modeled as fire allowed.",
+        "Verify Vargfjallet current opening/access terms, owner contact expectations and whether water/toilet/shower are reliably available to hikers.",
+        "Keep OSM-only old spring pending until field/signage/source verification confirms flow and suitability; do not expose as reliable water.",
+        "Run final GIS line-buffer overlay during normalization to assign exact Bredfjallet, Bredfjallet ostra, Natura 2000 and Koperodssjoarna subsegments.",
+        "Confirm whether the Vassbovik/Ivarsbosjon road-walk/clear-cut finish has any newer official explanatory notice, and preserve current 22 km geometry over stale short route-app variants.",
+        "Verify practical road walking from Raane bro/Underas/Gransen and exact Nartrafik pickup constraints before exposing them as user-facing access recommendations.",
+        "Cluster Hasterod and Vassbovik guidepost/info-board OSM records before import, and avoid importing distant Lilla Edet/Ljungskile services as on-route facilities.",
+        "De-duplicate repeated coordinates before length, snapping, simplification or route matching.",
+        "GPX metadata is from 2022 and elevations are zero; do not import elevation values.",
+        "OSM relation 125010 starts about 723 m north of official Hasterod and should not override official WST geometry.",
+        "Current route-app reviews suggest older 15-18 km route values are stale after the official route change/reroute."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-12-vassbovik-glimmingen",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-12-vassbovik-glimmingen.research.json",
+      "order": 12,
+      "sectionNumber": 12,
+      "name": "Vassbovik - Glimmingen",
+      "from": "Vassbovik",
+      "to": "Glimmingen",
+      "distance": {
+        "officialDistanceKm": 12,
+        "displayDistanceKm": 12
+      },
+      "estimatedTime": "5 h",
+      "difficulty": "medium",
+      "routeType": "linear point-to-point official stage from Vassbovik to Glimmingen, mostly on gravel/dirt road, forest path, local exercise tracks and a little asphalt; no ferry, rowboat or official alternate geometry found; keep a Glimmingen motorstadion wayfinding/currentness warning",
+      "endpoints": {
+        "start": {
+          "label": "Vassbovik",
+          "coordinatesLatLon": [
+            58.272828,
+            12.00697
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Official Stage 11 endpoint to Stage 12 start is 0 m.",
+            "OSM Stage 12 start is about 0.182 m from official start."
+          ]
+        },
+        "end": {
+          "label": "Glimmingen",
+          "coordinatesLatLon": [
+            58.344342,
+            12.0281
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Official Stage 12 end to Stage 13 start is 0 m.",
+            "OSM Stage 12 endpoint is about 4.681 m from official endpoint."
+          ]
+        },
+        "continuity": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Vassbovik to Glimmingen",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp12_Vassbovik_glimmingen.gpx",
+        "classification": "official-primary-navigation-grade-dedup-required",
+        "confidence": "high"
+      },
+      "caveats": [
+        "Live-check WST status/deviation widgets, Naturkartan route note, Uddevalla notices and fire-ban/fire-risk status before publication.",
+        "Run final GIS line-buffer overlay during normalization to assign the exact Koperodssjoarna water-protection subsegment and confirm nearby Högalidsberget/Bäveån Nedre non-intersection.",
+        "Resolve Stenshult shelter coordinate choice between WST and OSM and cluster shelter, water, toilet, firepit and benches before runtime import.",
+        "Verify Stenshult water/toilet current availability and seasonal/access status before public import.",
+        "Do not import Stenshult firepit as guaranteed usable fire facility until current fire-ban and local signage/manager guidance are checked.",
+        "Confirm whether Vassbovik exact trailhead is eligible for Uddevalla Nartrafik; otherwise model only as taxi/private drop-off and weak access.",
+        "Use exact-date Västtrafik planner for Glimmingen bus lines 670/679/680 and any school-day/holiday exceptions.",
+        "Keep Bäveån Nedre as adjacent/Stage 13 context rather than Stage 12 route restriction unless later GIS says otherwise.",
+        "Avoid importing off-route Brödbacken/Kuröd/Groröd service candidates as on-route Stage 12 facilities.",
+        "De-duplicate repeated coordinates before length, snapping, simplification or route matching.",
+        "GPX elevation values are zero; do not import GPX elevation values.",
+        "Naturkartan warns that near Glimmingen motorstadion the marked route no longer goes through the motorstadion and may differ from older map/guide text."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-13-glimmingen-bjursjon",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-13-glimmingen-bjursjon.research.json",
+      "order": 13,
+      "sectionNumber": 13,
+      "name": "Glimmingen - Bjursjon",
+      "from": "Glimmingen",
+      "to": "Bjursjon",
+      "distance": {
+        "officialDistanceKm": 12,
+        "displayDistanceKm": 12
+      },
+      "estimatedTime": "5 h",
+      "difficulty": "medium",
+      "routeType": "linear point-to-point official stage from Glimmingen to Bjursjon, on forest path, dirt road and asphalt; no ferry, rowboat or official alternate geometry found; includes protected-area and water-protection subsegments plus strong mid-stage service/access context at Kurod/Skalbanksmuseet",
+      "endpoints": {
+        "start": {
+          "label": "Glimmingen",
+          "coordinatesLatLon": [
+            58.344342,
+            12.0281
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Official Stage 12 endpoint to Stage 13 start is 0 m.",
+            "OSM Stage 13 start is about 4.68 m from official start."
+          ]
+        },
+        "end": {
+          "label": "Bjursjon",
+          "coordinatesLatLon": [
+            58.384636,
+            11.967494
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Official Stage 13 endpoint to Stage 14 start is 0 m.",
+            "OSM Stage 13 end is about 1.55 m from official endpoint."
+          ]
+        },
+        "continuity": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Glimmingen to Bjursjon",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp13_Glimmingen_bjursjon.gpx",
+        "classification": "official-primary-navigation-grade-dedup-required",
+        "confidence": "high"
+      },
+      "caveats": [
+        "Live-check WST status/deviation widgets, Lansstyrelsen pages, Uddevalla forestry notices and fire-ban/fire-risk status before publication.",
+        "Run final GIS line-buffer overlay during normalization to assign exact Bavean nedre, Kurods skalbankar and Koperodssjoarna subsegments and water-protection zone details.",
+        "Resolve or document OSM relation 1899756 local divergence near [58.3759682,11.9655062] before using OSM for anything beyond QA.",
+        "Verify current opening/access status for Bjursjostugan water/toilet/cafe and Skalbanksmuseet toilet/tap water before user-facing import.",
+        "Do not mark Stage 13 as generally tent-friendly; confirm shelter/spur signage at Koperodssjon if overnight guidance will be user-facing.",
+        "Do not import Bavean OSM-only firepit as usable fire facility without manager/on-site confirmation.",
+        "Live-check Vasttrafik planner for Glimmingen, Grorod, Kurod/Skalbanksmuseet and Kopperods viadukt, especially line 738 summer periods and any Nartrafik eligibility for Bjursjon.",
+        "Field or manager verification would improve Koperodssjon shelter coordinate, spur access, water status and nearby shooting-range noise caveat.",
+        "Treat 2023 Bjursjon portable-toilet/jetty-camping blog report as dated context only until current official confirmation exists.",
+        "Commercial/service opening hours at Valkommen in/Shell/7-Eleven and any Uddevalla centre services need live checks if exposed.",
+        "De-duplicate repeated coordinates before length, snapping, simplification or route matching.",
+        "GPX elevation values are zero; do not import GPX elevation values."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-14-bjursjon-metsjo",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-14-bjursjon-metsjo.research.json",
+      "order": 14,
+      "sectionNumber": 14,
+      "name": "Bjursjön - Metsjö",
+      "from": "Bjursjön",
+      "to": "Metsjö",
+      "distance": {
+        "officialDistanceKm": 13,
+        "displayDistanceKm": 13
+      },
+      "estimatedTime": "4 h",
+      "difficulty": "hard",
+      "routeType": "linear point-to-point official stage from Bjursjön to Metsjö, mostly on dirt roads and forest paths through Bjursjön, Havskuren, Ålslån and Herrestadsfjället; no ferry, rowboat or official alternate geometry found; endpoints are car/taxi oriented rather than public-transport endpoints",
+      "endpoints": {
+        "start": {
+          "label": "Bjursjön",
+          "coordinatesLatLon": [
+            58.384636,
+            11.967494
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Official Stage 13 endpoint to Stage 14 start is 0 m.",
+            "OSM Stage 14 start is essentially continuous but uses [58.384638, 11.967468]."
+          ]
+        },
+        "end": {
+          "label": "Metsjö",
+          "coordinatesLatLon": [
+            58.426525,
+            11.844436
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Official Stage 14 endpoint to Stage 15 start is 0 m.",
+            "OSM Stage 14/15 junction is about 204.5 m from official WST endpoint."
+          ]
+        },
+        "continuity": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Bjursjön to Metsjö",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp14_Bjursjon_metsjo.gpx",
+        "classification": "official-primary-navigation-grade-dedup-required",
+        "confidence": "high"
+      },
+      "caveats": [
+        "Live-check WST status/deviation widgets, Länsstyrelsen pages, Uddevalla notices and fire-ban/fire-risk status before publication.",
+        "Run final GIS line-buffer overlay during normalization to assign exact Köperödssjöarna, Herrestadsfjället II and Herrestadsfjället subsegments and to verify any tiny edge-touch cases missed by point sampling.",
+        "Decide whether to model the OSM Metsjö endpoint continuation of about 205 m as an alternate/connection, access metadata or suppress it in favor of official WST endpoint.",
+        "Verify current booking/open-host/access status for Hällerstugan, Krokestugan, Ålslån and Kåtan before exposing lodging/shelter details.",
+        "Verify water pump current function and potability at Ålslån and Hällerstugan; do not mark guaranteed potable without current confirmation.",
+        "Live-check Bjursjön/Bjursjöstugan water, toilet, shower/sauna, cafe/serving and bathing-place seasonal details before public import.",
+        "Use exact-date Västtrafik planner for Lillmossegatan, Dalaberg, Skredsvik/Högstorp and Närtrafik eligibility; endpoints themselves should remain no-public-transport.",
+        "Verify forest-road legality/condition and winter access for Säterbo/Mållsjön and Ålslån/Naturskola mid-stage pickup points.",
+        "Do not import off-route Mållsjön, Pölevattnet, Abborresjön, Kärrevattnet/Herrestadsfjället vindskydd or Kölnestugan as on-route Stage 14 facilities unless side-spur/wider-reserve POIs are intentionally supported.",
+        "Keep fire/grill records restricted to designated places and live fire-ban/local-signage checks.",
+        "Do not present free tenting throughout Stage 14; check reserve signage/municipality before any tenting guidance.",
+        "De-duplicate repeated/triplicated coordinates before length, snapping, simplification or route matching."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-15-metsjo-kaserna",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-15-metsjo-kaserna.research.json",
+      "order": 15,
+      "sectionNumber": 15,
+      "name": "Metsjö - Kaserna",
+      "from": "Metsjö",
+      "to": "Kaserna",
+      "distance": {
+        "officialDistanceKm": 17,
+        "displayDistanceKm": 17
+      },
+      "estimatedTime": "6-7 h",
+      "difficulty": "hard",
+      "routeType": "linear point-to-point official stage from Metsjö to Kaserna, mainly on dirt roads and forest paths through Herrestadsfjället, Viksjön, Modalen and Strömmarna; includes a hand-pulled raft crossing over Munkedalsälven because the bridge in Strömmarna must not be used; no public ferry or official alternate geometry found",
+      "endpoints": {
+        "start": {
+          "label": "Metsjö",
+          "coordinatesLatLon": [
+            58.426525,
+            11.844436
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Official Stage 14 endpoint to Stage 15 start is 0 m.",
+            "OSM Stage 15 relation starts about 204.5 m from this official endpoint, so do not extend the stage to the OSM junction without an explicit normalization decision."
+          ]
+        },
+        "end": {
+          "label": "Kaserna",
+          "coordinatesLatLon": [
+            58.490801,
+            11.7237
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Official Stage 15 endpoint to Stage 16 start is 0 m.",
+            "OSM Stage 15 relation ends about 11.7 m from this official endpoint.",
+            "WST status has bridge/construction context around Kaserna, so access routing at the endpoint is currentness-sensitive."
+          ]
+        },
+        "continuity": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Metsjö to Kaserna",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/etapp15.gpx",
+        "classification": "official-primary-navigation-grade-dedup-required"
+      },
+      "caveats": [
+        "Live-check WST status and Västkuststiftelsen before publication to confirm whether the Strömmarna raft is operating and whether any bridge replacement has changed route instructions.",
+        "Live-check the Kaserna bridge/reconstruction status and exact temporary access/parking arrangements.",
+        "Perform final GIS line/polygon overlay to get exact route-km ranges for Herrestadsfjället, Vågsäter and Strömmarna reserve segments.",
+        "Verify Modalenstugan booking/opening/toilet and whether any water there is safe without treatment.",
+        "Verify Viksjön toilet condition after the 2026 field report noted damage/awkward handling.",
+        "Confirm whether Kärrevattnet/Övre Trästickeln water candidates should be imported at all; current evidence supports only untreated/unknown water.",
+        "Live-check Västtrafik exact-date timetables for line 836 bailouts and lines 830/835 near Kaserna before exposing transit recommendations.",
+        "Decide whether off-route Krokestugan/Kåta Västra Krokevattnet should stay attached to Stage 14, Stage 15, a side-spur model or a wider Herrestadsfjället facility layer.",
+        "Cluster the two Strömmarna grill/fireplace coordinates to avoid duplicate imports unless they are confirmed separate prepared sites.",
+        "Decide whether to model Transportflotte as route geometry/crossing metadata, facility metadata, or condition/status overlay."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-16-kaserna-borgmastarbruket",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-16-kaserna-borgmastarbruket.research.json",
+      "order": 16,
+      "sectionNumber": 16,
+      "name": "Kaserna - Borgmästarbruket",
+      "from": "Kaserna",
+      "to": "Borgmästarbruket",
+      "distance": {
+        "officialDistanceKm": 6,
+        "displayDistanceKm": 6
+      },
+      "estimatedTime": "2-3 h",
+      "difficulty": "medium",
+      "routeType": "linear point-to-point official stage from Kaserna to Borgmästarbruket, following Munkedalsälven and Örekilsälven on forest paths, gravel roads and asphalt; no public ferry or official alternate geometry found; official and partner text contain stale Harska naming, but title, WST API, GPX, OSM and adjacent-stage continuity support Borgmästarbruket as the Stage 16 endpoint",
+      "endpoints": {
+        "start": {
+          "label": "Kaserna",
+          "coordinatesLatLon": [
+            58.490801,
+            11.7237
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Official Stage 15 endpoint to Stage 16 start is 0 m.",
+            "Kaserna access is currentness-sensitive due bridge/status notices and canoe-center staffing."
+          ]
+        },
+        "end": {
+          "label": "Borgmästarbruket",
+          "coordinatesLatLon": [
+            58.500137,
+            11.664682
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Official Stage 16 endpoint to Stage 17 start is 0 m.",
+            "OSM spelling is Borgmästarebruket and municipal page typo Bogmästarbruket appears; prefer WST Borgmästarbruket for candidate ID/name."
+          ]
+        },
+        "continuity": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Kaserna to Borgmästarbruket",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp16_Kaserna_borgmastbruket.gpx",
+        "classification": "official-primary-planning-grade-dedup-required"
+      },
+      "caveats": [
+        "Live-check WST and Munkedal municipality before publication to reconcile the yearless WST Kaserna bridge status with the 2025-11-28 municipal reopening notice.",
+        "Run final GIS line/polygon overlay for Örekilsälven nature reserve and Natura 2000 SE0520163 to assign exact subsegments.",
+        "Verify Kaserna outdoor toilet, parking capacity and staffed water before surfacing as reliable services.",
+        "Confirm Brålands Gård fees, season, opening, water/toilet/waste availability and exact access route before exposing as nearby service.",
+        "Confirm whether the Fura shelter cluster and pond firepit/picnic records are real/current and public before import.",
+        "Decide whether Gamla Bruket/Kaffestuga and Munkedal town services should be represented as off-route services or suppressed from Stage 16 core.",
+        "Use WST Borgmästarbruket as canonical endpoint name, but preserve Borgmästarebruket/Bogmästarbruket variants for search/matching.",
+        "Do not apply Södra Harska no-camping/no-fire rules to Stage 16 unless an import geometry or side-route extends beyond Borgmästarbruket toward Harska/Kärnsjön.",
+        "Live-check Västtrafik exact-date schedules for buses 835/836 and Bohusbanan replacement-bus effects.",
+        "Consider topology/matching QA against OSM relation 4489478 if high-precision navigation geometry is later required."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-17-borgmastarbruket-kyrkoryr",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-17-borgmastarbruket-kyrkoryr.research.json",
+      "order": 17,
+      "sectionNumber": 17,
+      "name": "Borgmästarbruket - Kyrkoryr",
+      "from": "Borgmästarbruket",
+      "to": "Kyrkoryr",
+      "distance": {
+        "officialDistanceKm": 11,
+        "displayDistanceKm": 11
+      },
+      "estimatedTime": "3-4 h",
+      "difficulty": "medium",
+      "routeType": "linear point-to-point official stage from Borgmästarbruket to Kyrkoryr, mostly gravel road with forest-path sections, passing Torp, Lerbergsnäset, Harska/Södra Harska and Harskabukten; official sources describe this as a new section after a larger northward reroute, and third-party route apps have stale Harska/Kyrkoryr routing risks",
+      "endpoints": {
+        "start": {
+          "label": "Borgmästarbruket",
+          "coordinatesLatLon": [
+            58.500137,
+            11.664682
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Official Stage 16 endpoint to Stage 17 start is 0 m.",
+            "OSM start is nearby but not identical at about [58.5003148,11.663193]."
+          ]
+        },
+        "end": {
+          "label": "Kyrkoryr",
+          "coordinatesLatLon": [
+            58.560008,
+            11.631156
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Official Stage 17 endpoint to Stage 18 start is 0 m.",
+            "Kyrkoryr, not Harska or Svarteborg, is the official Stage 17 endpoint."
+          ]
+        },
+        "continuity": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Borgmästarbruket to Kyrkoryr",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp17_Borgmastarbruket_kyrkoryr.gpx",
+        "classification": "official-primary-navigation-grade-with-caveats-dedup-required"
+      },
+      "caveats": [
+        "Run final GIS line/polygon overlay for Södra Harska reserve, Kärnsjön water-protection area and Örekilsälven Natura 2000 context to assign exact subsegments.",
+        "Verify whether the OSM Harska firepit has any legal designated-fireplace exception despite Södra Harska no-fire rule; suppress until verified.",
+        "Verify Harska spring potability or keep it as natural untreated water only.",
+        "Confirm Harska shelter current condition, exact coordinate clustering between WST and OSM, and no toilet/no waste before public import.",
+        "Live-check WST/Västkuststiftelsen and Munkedal before publication for any changes after the reroute.",
+        "Live-check Västtrafik exact-date timetables for line 836 at Smedbergskrysset and line 834 around Hagaskog/Svarteborg östra.",
+        "Decide whether distant Svarteborg/Dingle services and Gadderöd/Svarteborg stops should be suppressed or modeled as off-route access/resupply metadata.",
+        "Preserve Borgmästarebruket spelling as alias for OSM matching while using WST Borgmästarbruket as canonical."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-18-kyrkoryr-kynnefjalls-natur",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-18-kyrkoryr-kynnefjalls-natur.research.json",
+      "order": 18,
+      "sectionNumber": 18,
+      "name": "Kyrkoryr - Kynnefjälls natur",
+      "from": "Kyrkoryr",
+      "to": "Kynnefjälls natur",
+      "distance": {
+        "officialDistanceKm": 10,
+        "displayDistanceKm": 10
+      },
+      "estimatedTime": "3-4 h",
+      "difficulty": "medium / WST Blue; municipal sources call it easy",
+      "routeType": "point-to-point",
+      "endpoints": {
+        "start": {
+          "label": "Kyrkoryr",
+          "coordinatesLatLon": [
+            58.560008,
+            11.631156
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Official WST Stage 17 end matches Stage 18 start exactly.",
+            "OSM Stage 18 start is [58.559963, 11.631120], about 5.5 m from WST.",
+            "No official transit or public parking at Kyrkoryr was found."
+          ]
+        },
+        "end": {
+          "label": "Kynnefjälls natur",
+          "coordinatesLatLon": [
+            58.618192,
+            11.69012
+          ],
+          "confidence": "high for official continuity; medium for exact on-ground terminus",
+          "caveats": [
+            "Official WST Stage 18 end matches Stage 19 start exactly.",
+            "OSM's shared Stage 18/19 endpoint is about 60.4 m from the official WST endpoint; field/signage check needed before any snapping decision."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Kyrkoryr to Kynnefjälls natur",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp18_Kyrkoryr_kynnefjallsnatur.gpx",
+        "classification": "official-primary-planning-grade-dedup-required"
+      },
+      "caveats": [
+        "Current official Stage 18 is Kyrkoryr to Kynnefjälls natur. Several third-party pages and Naturkartan/AllTrails slugs retain Svarteborg-Lunden language from older staging.",
+        "WST/Naturkartan classify Stage 18 as Blue/medium, while Munkedal/Västsverige call it easy/lätt.",
+        "WST/Naturkartan end at [58.618192, 11.690120], OSM shared Stage 18/19 endpoint is [58.618528, 11.689299] about 60.4 m away, and KynnefjällsNatur operator geocode is close to the OSM/service cluster.",
+        "Bredmossen, Svarteborg, Gadderöd and related place records are associated with Stage 18 by WST/other data but lie 3.3-4.1 km from current Stage 18 geometry.",
+        "The operator page says KynnefjällsNatur is 5 km from Bohusleden and has connecting trails, while current WST/Naturkartan Stage 18 ends near the facility.",
+        "WST English text uses Kärsjön once; other sources and local geography use Kärnsjön.",
+        "Should final import preserve the official WST/Naturkartan Kynnefjälls natur endpoint [58.618192, 11.690120] or snap to the OSM/facility cluster around [58.618528, 11.689299]? Field/signage verification is needed before snapping.",
+        "Which exact Stage 18 subsegments, if any, intersect Kynnefjäll nature reserve, Kynnefjäll Natura 2000 and Kärnsjön water-protection zones? Run GIS line/polygon overlay before final rule warnings.",
+        "Are the OSM-only firepits near Skrapeland/Kärnsjön legally designated fireplaces? Keep pending until local signage/manager confirmation.",
+        "Is KynnefjällsNatur water/toilet/food available to non-guests and outside staffed hours? Keep access metadata conservative until confirmed.",
+        "Can Kyrkoryr support any legal public parking/drop-off? No official parking evidence found in this pass.",
+        "Exact-date Västtrafik line 834 and Närtrafik checks are required before publication."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-19-kynnefjalls-natur-vaktarekullen",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-19-kynnefjalls-natur-vaktarekullen.research.json",
+      "order": 19,
+      "sectionNumber": 19,
+      "name": "Kynnefjälls natur - Vaktarekullen",
+      "from": "Kynnefjälls natur",
+      "to": "Vaktarekullen",
+      "distance": {
+        "officialDistanceKm": 16,
+        "displayDistanceKm": 16
+      },
+      "estimatedTime": "5-6 h",
+      "difficulty": "medium / WST Blue",
+      "routeType": "point-to-point",
+      "endpoints": {
+        "start": {
+          "label": "Kynnefjälls natur",
+          "coordinatesLatLon": [
+            58.618192,
+            11.69012
+          ],
+          "confidence": "high for official continuity; medium for on-ground junction nuance",
+          "caveats": [
+            "Official Stage 18 end matches Stage 19 start exactly.",
+            "Legacy references say Lunden, but current official geometry starts at Kynnefjälls natur / KynnefjällsNatur area."
+          ]
+        },
+        "end": {
+          "label": "Vaktarekullen",
+          "coordinatesLatLon": [
+            58.721279,
+            11.706565
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Official Stage 19 end matches Stage 20 start exactly.",
+            "Vaktarekullen endpoint is not road/transit-accessible; Kasebo is the practical road connector."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Kynnefjälls natur to Vaktarekullen",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp19_Kynnefjallsnatur_vaktarekullen.gpx",
+        "classification": "official-primary-navigation-grade-after-dedup"
+      },
+      "caveats": [
+        "Current official title/API/geometry and Munkedal support Kynnefjälls natur to Vaktarekullen. WST English body text still says starts in Lunden, Naturkartan slug/GPX filename and older route-app/blog sources retain Lunden - Vaktarekullen.",
+        "WST lists 16 km, Naturkartan 16.4 km and current official geometry computes 16.376 km; older sources list 14-15 km or 10.8 km.",
+        "WST/Naturkartan start at [58.618192, 11.690120], while OSM Stage 18/19 shared point is [58.6185277, 11.6892989] about 60.4 m away and KynnefjällsNatur facility geocode is nearby.",
+        "WST and OSM coordinates for Säveleken shelter differ by about 120 m.",
+        "WST says Vaktarekullen has a regularly tested spring but water should be boiled; a 2022 Wikiloc hiker reported no water at the cottage and used lake water.",
+        "Bredmossen, Lunden/Vaktarestugan, Stora Holmevatten and Kasebo are important Kynnefjäll context/access/detour records but are off current Stage 19 main geometry.",
+        "Run GIS line/polygon overlay for Kynnefjäll A/B/Sätret, Natura 2000 SE0520141, Bredmossen adjacency and possible Kärnsjön/water-protection context before final rule normalization.",
+        "Keep Lunden - Vaktarekullen as legacy alias and decide whether Lunden/Vaktarestugan detour data belongs in a connector layer.",
+        "Reconcile Säveleken shelter WST versus OSM coordinate mismatch of about 120 m before final facility import.",
+        "Decide whether Kasebo, Kasebo rest shelter, Lilla Holmevatten and Stora Holmevatten are imported only as connector/detour/Stage 20-adjacent metadata.",
+        "Verify Vaktarekullen spring availability and condition shortly before publication; keep boil/treat and carry-backup warning.",
+        "Live-check planned Kynnefjäll 2026 burns, windthrow cleanup, fire bans and WST/Västkuststiftelsen status before publication."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-20-vaktarekullen-flotemarkson",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-20-vaktarekullen-flotemarkson.research.json",
+      "order": 20,
+      "sectionNumber": 20,
+      "name": "Vaktarekullen - Flötemarksön",
+      "from": "Vaktarekullen",
+      "to": "Flötemarksön",
+      "distance": {
+        "officialDistanceKm": 12,
+        "displayDistanceKm": 12
+      },
+      "estimatedTime": "5 h",
+      "difficulty": "medium / WST Blue",
+      "routeType": "point-to-point",
+      "endpoints": {
+        "start": {
+          "label": "Vaktarekullen",
+          "coordinatesLatLon": [
+            58.721279,
+            11.706565
+          ],
+          "source": "Official WST/Hoodin GPX and WST map API; Naturkartan exact match",
+          "confidence": "high"
+        },
+        "end": {
+          "label": "Flötemarksön",
+          "coordinatesLatLon": [
+            58.791817,
+            11.666513
+          ],
+          "source": "Official WST/Hoodin GPX and WST map API; Naturkartan exact match",
+          "confidence": "high"
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Vaktarekullen to Flötemarksön",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp20_Vaktarekullen_flotemarkssjon.gpx",
+        "classification": "official-primary-navigation-grade-after-dedup-with-centerline-caveat"
+      },
+      "caveats": [
+        "Current official sources use Flötemarksön and state the endpoint has moved from or formerly was Holmen. Tanum ArcGIS uses Flötemarksön (Holmen), while OSM wiki and older Outdooractive/Wikiloc tracks still show Vaktarekullen - Holmen around 17.3-17.5 km.",
+        "WST title/API, Naturkartan and Munkedal support Vaktarekullen, while WST body text sometimes uses Vaktarkullen. Vaktarstugan appears as a facility alias.",
+        "Official title/API and Naturkartan use Flötemarksön, while the WST GPX filename uses flotemarkssjon.",
+        "WST/Naturkartan official geometry computes about 11.869 km and has 373 unique points after de-duplication. OSM relation computes about 12.568 km, is more detailed and follows the same corridor/endpoints with offsets up to about 90 m.",
+        "WST Stage 20 returned no dricksvatten category results. Vaktarekullen has spring/well evidence and recent field reports mention a well, but a 2022 Wikiloc report said there was no stream at the cottage.",
+        "Access lane reported approximate Kasebo at [58.709826, 11.699649], while facilities/Stage 19 evidence places Kasebo parking/toilet/information near [58.7276, 11.7295].",
+        "WST text says accommodation suggestions are otherwise limited to Vaktarekullen, while the WST place feed and shelter sources include shelters and off-route Tingvall B&B.",
+        "Stage 21 north of Flötemarksön has official not-continuously-marked warning and both WST/OSM linework appear to compute about 4.4 km despite a stated 14 km. This does not break Stage 20 endpoint continuity but is important for the next section.",
+        "Run GIS line/polygon overlay for Kynnefjäll A/B/Sätret and Natura 2000 SE0520141 before final rule normalization.",
+        "Run authoritative water-protection-area overlay; no named Stage 20 vattenskyddsområde was confirmed by page search alone.",
+        "Reconcile Kasebo access/parking coordinates before importing connector or access metadata.",
+        "Decide whether Kasebo, Mickelskogen, Flötemarksön bridge parking, Flötemarkens Vildmarkscamp and Viking Republic/Hinterland belong in access/private-service metadata rather than core Stage 20 facility import."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-21-flotemarkson-porsas",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-21-flotemarkson-porsas.research.json",
+      "order": 21,
+      "sectionNumber": 21,
+      "name": "Flötemarksön - Porsås",
+      "from": "Flötemarksön",
+      "to": "Porsås",
+      "distance": {
+        "officialDistanceKm": 14,
+        "displayDistanceKm": 14
+      },
+      "estimatedTime": "5-6 h",
+      "difficulty": "hard / WST Red",
+      "routeType": "point-to-point with unmarked self-navigation gap",
+      "endpoints": {
+        "start": {
+          "label": "Flötemarksön",
+          "coordinatesLatLon": [
+            58.791817,
+            11.666513
+          ],
+          "source": "Official WST/Hoodin GPX and WST map API; Naturkartan exact match",
+          "confidence": "high"
+        },
+        "end": {
+          "label": "Porsås / Stage 22 start area",
+          "coordinatesLatLon": [
+            58.84869,
+            11.683167
+          ],
+          "source": "Official WST Stage 22 GPX start; WST Porsås information board [58.848724,11.683316] and parking [58.848521,11.679744] corroborate area",
+          "confidence": "medium-high for intended Porsås area; low for Stage 21 GPX endpoint"
+        },
+        "mappedGeometryEnd": {
+          "label": "Holmen / end of mapped Stage 21 GPX",
+          "coordinatesLatLon": [
+            58.810347,
+            11.692371
+          ],
+          "source": "Official WST/Hoodin Stage 21 GPX and WST map API; Naturkartan exact match",
+          "confidence": "high for mapped partial line end; low as Porsås endpoint"
+        }
+      },
+      "routeStatus": "not-ready-full-stage-geometry-blocked",
+      "sourceDirection": "matches official order from Flötemarksön to the mapped Holmen-area handoff, but does not reach Porsås",
+      "routeGroupHint": "partial-or-blocked",
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp21_Flotemarkssjon_porsas.gpx",
+        "classification": "official-partial-geometry-only-not-full-stage"
+      },
+      "caveats": [
+        "Official WST and Naturkartan metadata say 14 km, but WST GPX/API and Naturkartan GPX/API compute about 4.389 km. OSM relation 4493075 and multiple route apps echo about 4.3-4.5 km.",
+        "Stage 21 GPX/API ends at [58.810347, 11.692371] near Holmen, while Porsås/Stage 22 start and official Porsås facilities are around [58.84869, 11.68317], about 4.296 km away.",
+        "Official text says markings exist only on Flötemarksön-Holmen and road 164-Porsås, with self-navigation between. Wikiloc reports no marks farther north and use of gravel road. OSM old route is no longer blazed.",
+        "WST says Loviseholm bus stop is about 2 km east of Porsås and served from Ed, but current Västtrafik stop search found no Loviseholm stop.",
+        "Rules lane found Kynne älv bird-protection access date conflict: detailed restriction endpoint says 1/4-15/7, while area description/Tanum guide gives 1 April-15 June for boat traffic.",
+        "WST says no suggested accommodations along Stage 21 but mentions Flötemarken near-start private camping; WST Porsås facilities exist near Stage 22 start; OSM/Vindskyddskartan show Roslund and Daletjärnen, while old Utsidan reported missing/ruined shelters.",
+        "Obtain or create an authoritative full 14 km Stage 21 route before any standard route import; current WST/Naturkartan/OSM geometry is only about 4.4 km.",
+        "Verify the exact intended self-navigation corridor between Holmen bridge and road 164 and the marked road 164-to-Porsås segment with Tanum municipality or field survey.",
+        "Do not bridge the 4.296 km Stage 21-to-Stage 22 gap by straight line or automatic snapping.",
+        "Verify whether Kynne älv bird-protection access restrictions affect the road/trail bridge or only water/shore/boat traffic; reconcile 15 June versus 15 July restriction dates.",
+        "Run GIS overlay for Kynne älv, Bredmossen Fiskelössjön and any corrected full Stage 21 route corridor before final rule warnings.",
+        "Verify WST Loviseholm bus note directly with Västtrafik/GTFS before importing it as a commute stop."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-22-porsas-nornas",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-22-porsas-nornas.research.json",
+      "order": 22,
+      "sectionNumber": 22,
+      "name": "Porsås - Nornäs",
+      "from": "Porsås",
+      "to": "Nornäs",
+      "distance": {
+        "officialDistanceKm": 7,
+        "displayDistanceKm": 7
+      },
+      "estimatedTime": "3 h",
+      "difficulty": "medium",
+      "routeType": "point-to-point official Bohusleden stage; remote rural stage on old paths, gravel/country roads and forest paths",
+      "endpoints": {
+        "start": {
+          "label": "Porsås / Stage 22 start",
+          "coordinatesLatLon": [
+            58.84869,
+            11.683167
+          ],
+          "confidence": "high",
+          "caveats": [
+            "This is the official Stage 22 start and Porsås trailhead area, not the Stage 21 GPX endpoint.",
+            "OSM road 164 lies about 6 m from this point in the access lane."
+          ]
+        },
+        "end": {
+          "label": "Nornäs / shelter and Stage 23 start",
+          "coordinatesLatLon": [
+            58.888056,
+            11.668606
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Exact coordinate match to official Stage 23 start.",
+            "No dedicated endpoint parking or fixed public transport stop was verified."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Porsås to Nornäs",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp22_Porsas_nornas.gpx",
+        "classification": "official-navigation-grade-after-deduplication"
+      },
+      "caveats": [
+        "WST lists 7 km; Naturkartan lists 6.9 km; official tour suggestion reportedly says day/stage 22 is 8 km.",
+        "Stage 21 official GPX ends near Holmen and leaves a 4.296 km straight-line gap to Stage 22 start, while official Stage 21 metadata says Flötemarksön-Porsås 14 km.",
+        "WST says Loviseholm is a bus stop about 2 km east of Porsås, served from Ed, but current Västtrafik stop-area data did not show a fixed stop named Loviseholm.",
+        "Swedish WST includes the Nornäs private-road/Norane parking warning, while English WST omits it and has machine-translation artifacts.",
+        "Nearby Bohusleden context includes Kynne älv, Kynnefjäll, Bredmossen and Noraneälven, but Stage 22 official GPX itself did not show a direct protected-area/water-protection intersection in this pass.",
+        "Nornäs has shelter, dry toilet, trash/swimming/lake context and field reports mention lake water, but no official source calls it potable drinking water.",
+        "Retain the 4.296 km Stage 21-to-Stage 22 official geometry gap as a Stage 21 self-navigation/gap warning; do not bridge, snap or straight-line it during import.",
+        "Verify WST Loviseholm bus wording against a live Västtrafik planner/GTFS before importing it as fixed public transport.",
+        "Verify exact Norane/road 166 parking, walking route, private-road signs and possible Närtrafik/address eligibility before importing Nornäs access metadata.",
+        "Run final GIS polygon-on-line overlay for Stage 22 before public rule warnings, especially around Noraneälven nearby context, even though no direct protected-area intersection was found in source screens.",
+        "Cluster Nornäs shelter/toilet/firepit/waste/map/swim objects before runtime import.",
+        "Verify Nornäs wood availability, toilet maintenance and tenting practicality before public trip-planning copy."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-23-nornas-vassbotten",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-23-nornas-vassbotten.research.json",
+      "order": 23,
+      "sectionNumber": 23,
+      "name": "Nornäs - Vassbotten",
+      "from": "Nornäs",
+      "to": "Vassbotten",
+      "distance": {
+        "officialDistanceKm": 13,
+        "displayDistanceKm": 13
+      },
+      "estimatedTime": "5-6 h",
+      "difficulty": "hard",
+      "routeType": "point-to-point official Bohusleden stage; remote hard stage on dirt road, forest path, old paths, ridges and late-stage border/waterfall terrain",
+      "endpoints": {
+        "start": {
+          "label": "Nornäs / Stage 22 end and Stage 23 start",
+          "coordinatesLatLon": [
+            58.888056,
+            11.668606
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Exact coordinate match to official Stage 22 end.",
+            "No fixed current public-transport stop was confirmed at Nornäs.",
+            "Carry the private-road access warning from Swedish WST."
+          ]
+        },
+        "end": {
+          "label": "Vassbotten / Stage 23 end and Stage 24 start",
+          "coordinatesLatLon": [
+            58.875212,
+            11.533793
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Exact coordinate match to official Stage 24 start.",
+            "Vassbotten has a current Västtrafik stop page and GTFS/map coordinate near the endpoint, but line 952 currently lacks a timetable."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "sourceDirection": "matches official order from Nornäs to Vassbotten",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp23_Nornas_vassbotten.gpx",
+        "classification": "official-navigation-grade-after-deduplication"
+      },
+      "caveats": [
+        "WST lists 13 km, 5-6 h and hard; Naturkartan lists 13.5 km, 360 min and red; computed WST/Naturkartan GPX length is about 13.463 km.",
+        "WST attributes Stage 23 to Tanums kommun, while Naturkartan API links the same site to Dals-Ed.",
+        "Swedish WST includes the road 166/private-road/Norane walking warning; English text may not surface it clearly.",
+        "Vassbotten has a current Västtrafik stop page and GTFS/map stop near the endpoint, but line 952 currently has no timetable.",
+        "OSM relation is connected if way orientation is solved, but naive stored-order concatenation creates a false 1.686 km jump.",
+        "Current campground restaurant appears to be Jill's Diner, while OSM may still show Jack's Place.",
+        "Nearby Kynnefjäll rules/currentness exist, but no Stage 23 direct protected-area/Natura/access-ban intersection was confirmed in source pass.",
+        "Run final Skyddad Natur/Naturvårdsregistret/VISS polygon-on-line overlay for Stage 23 before public protected-area or water-protection warnings.",
+        "Verify Vassbotten line 952 in live Västtrafik planner/GTFS before importing it as usable fixed transit.",
+        "Verify Holtet/line 302 cross-border access, ticketing and Norwegian-side access/protected-area rules before recommending it as a standard app access point.",
+        "Verify exact Norane/road 166 parking/walking route, private-road signs and possible public-transport/on-demand status before importing Nornäs access metadata.",
+        "Cluster Nornäs shelter/toilet/firepit/waste/map/swim objects before runtime import."
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-24-vassbotten-havedalen",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-24-vassbotten-havedalen.research.json",
+      "order": 24,
+      "sectionNumber": 24,
+      "name": "Vassbotten - Håvedalen",
+      "from": "Vassbotten",
+      "to": "Håvedalen",
+      "distance": {
+        "officialDistanceKm": 19,
+        "displayDistanceKm": 19
+      },
+      "estimatedTime": "7-8 h",
+      "difficulty": "hard",
+      "routeType": "point-to-point official Bohusleden stage; remote border-area stage with asphalt, gravel road, forest path, bare rock, marshy sections, wind-farm uplands and rural road approaches",
+      "endpoints": {
+        "start": {
+          "label": "Vassbotten / Stage 23 end and Stage 24 start",
+          "coordinatesLatLon": [
+            58.875212,
+            11.533793
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Exact coordinate match to official Stage 23 end.",
+            "A Vassbotten Västtrafik stop exists nearly at the endpoint, but the associated line 952 had no current timetable in the transit lane."
+          ]
+        },
+        "end": {
+          "label": "Håvedalen / Allemarksvägen / Stage 24 end and Stage 25 start",
+          "coordinatesLatLon": [
+            58.939741,
+            11.42641
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Exact coordinate match to official Stage 25 start.",
+            "Allemarksvägen bus stop is effectively endpoint-adjacent and is the best north-end transit access found."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "official WST/Hoodin GPX or identical WST map API GeoJSON",
+        "confidence": "high",
+        "computedDistanceKm": 19.113
+      }
+    },
+    {
+      "sectionId": "bohusleden-stage-25-havedalen-krokstrand",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-25-havedalen-krokstrand.research.json",
+      "order": 25,
+      "sectionNumber": 25,
+      "name": "Håvedalen - Krokstrand",
+      "from": "Håvedalen",
+      "to": "Krokstrand",
+      "distance": {
+        "officialDistanceKm": 11,
+        "displayDistanceKm": 11
+      },
+      "estimatedTime": "3-4 h",
+      "difficulty": "hard",
+      "routeType": "point-to-point official Bohusleden stage; hilly border-area and Idefjorden stage on old road, forest path, bare or mossy rock, conifer forest and road/path approaches toward Krokstrand",
+      "endpoints": {
+        "start": {
+          "label": "Håvedalen / Allemarksvägen / Stage 24 end and Stage 25 start",
+          "coordinatesLatLon": [
+            58.939741,
+            11.42641
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Exact coordinate match to official Stage 24 end.",
+            "Allemarksvägen bus stop is nearly identical to the official endpoint, though some official/regional access text says nearby stops are about 600 m from the section start."
+          ]
+        },
+        "end": {
+          "label": "Krokstrand / Björneröd area / Stage 25 end and Stage 26 start",
+          "coordinatesLatLon": [
+            59.006333,
+            11.422291
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Exact coordinate match to official Stage 26 start.",
+            "Björneröd bus stop is closer to the official endpoint than the central Krokstrand stop."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "official WST/Hoodin GPX or identical WST map API GeoJSON",
+        "confidence": "high",
+        "computedDistanceKm": 10.88
+      }
+    },
+    {
+      "sectionId": "bohusleden-stage-26-krokstrand-hogstad",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-26-krokstrand-hogstad.research.json",
+      "order": 26,
+      "sectionNumber": 26,
+      "name": "Krokstrand - Högstad",
+      "from": "Krokstrand",
+      "to": "Högstad",
+      "distance": {
+        "officialDistanceKm": 13,
+        "displayDistanceKm": 13
+      },
+      "estimatedTime": "5-6 h",
+      "difficulty": "hard",
+      "routeType": "point-to-point official Bohusleden stage; hard upland stage from the Krokstrand/Björneröd start over Löveråsfjället and Björnerödspiggen, then southwest through forest, farms, historic rock-carving country and roads/paths to Högstad",
+      "endpoints": {
+        "start": {
+          "label": "Krokstrand / Björneröd area / Stage 25 end and Stage 26 start",
+          "coordinatesLatLon": [
+            59.006333,
+            11.422291
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Exact coordinate match to official Stage 25 end.",
+            "Despite the official Krokstrand name, the current official geometry starts near Björneröd/Björnerödspiggen parking, not at Krokstrand village center."
+          ]
+        },
+        "end": {
+          "label": "Högstad / Stage 26 end and Stage 27 start",
+          "coordinatesLatLon": [
+            58.951745,
+            11.302371
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Exact coordinate match to official Stage 27 start."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "official WST/Hoodin GPX or identical WST map API GeoJSON",
+        "confidence": "high",
+        "computedDistanceKm": 13.293
+      }
+    },
+    {
+      "sectionId": "bohusleden-stage-27-hogstad-stromstad",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-27-hogstad-stromstad.research.json",
+      "order": 27,
+      "sectionNumber": 27,
+      "name": "Högstad - Strömstad",
+      "from": "Högstad",
+      "to": "Strömstad",
+      "distance": {
+        "officialDistanceKm": 15,
+        "displayDistanceKm": 15
+      },
+      "estimatedTime": "5 h",
+      "difficulty": "medium",
+      "routeType": "point-to-point official Bohusleden stage; medium final northern stage from Högstad through forest paths, small roads, farmland, archaeological landscapes and bedrock toward central Strömstad and the harbour/station area",
+      "endpoints": {
+        "start": {
+          "label": "Högstad / Stage 26 end and Stage 27 start",
+          "coordinatesLatLon": [
+            58.951745,
+            11.302371
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Exact coordinate match to official Stage 26 end.",
+            "Högstad bus stop is about 500 m from the official geometry start."
+          ]
+        },
+        "end": {
+          "label": "Strömstad / central station-harbour endpoint",
+          "coordinatesLatLon": [
+            58.937119,
+            11.174108
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Endpoint is essentially at Strömstad station/bus hub; Strömstad harbour/tourist services are nearby but not identical to the line endpoint."
+          ]
+        }
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "official WST/Hoodin GPX or identical WST map API GeoJSON",
+        "confidence": "high",
+        "computedDistanceKm": 14.935
+      },
+      "caveats": [
+        "The official direct GPX filename is Etapp27_Krokstrand_stromstad.gpx, but current WST/Naturkartan/Västsverige/PDF/ArcGIS identity and endpoints are Högstad - Strömstad.",
+        "Västsverige text/PDF confirm 15 km Högstad - Strömstad, but embedded KMZ/KML is only about 10.009 km, starts about 5.304 km along the official route and ends about 292 m from the WST endpoint.",
+        "WST and Naturkartan give 5 h, while Västsverige says approximately 4-5 h.",
+        "Strömstad endpoint has possible taps/harbour services, but official WST dricksvatten category exposes no Stage 27 water POI and Strömstad/Västsverige context says local Bohusleden sections lack natural water or drinking water.",
+        "AllTrails shows a medium route page but one recent user called it easy; route-app lengths differ from the official rounded 15 km.",
+        "Before import, refresh WST status API and Naturkartan page for any Stage 27 deviation or closure.",
+        "Before publication, recheck Krisinformation/Länsstyrelsen/Strömstad fire-ban status because the no-ban finding is only valid for 2026-04-30T02:06:00Z.",
+        "Verify whether Skogsstyrelsen notification A 60768-2022 near Högstad is completed, inactive or affecting trail passability.",
+        "Confirm exact coordinate/legal status/capacity for the small Högstad-side parking mentioned by Västsverige.",
+        "Verify endpoint OSM water taps and public toilet/waste candidates for seasonality and actual public hiker access.",
+        "Decide during normalization how much Strömstad endpoint city service data to include without overwhelming the core trail facility layer.",
+        "Run final GIS line-buffer overlay against protected-area and water-protection polygons before generating public rule warnings."
+      ]
+    }
+  ]
+}

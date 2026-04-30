@@ -1,0 +1,663 @@
+{
+  "schemaVersion": "candidate-route-geometry-index/v1",
+  "trailId": "bohusleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-normalized-research-only",
+  "runtimeImportApproved": false,
+  "geometryPolicy": {
+    "decision": "Use selected canonical route geometry as provenance, and create separate display-ready geometry only when needed for rendering.",
+    "coordinatePolicy": "All candidate GeoJSON must be WGS84 longitude-latitude coordinate order. Transform EPSG:3006 or other source CRS before candidate artifact output and record the transform.",
+    "sourcePriority": [
+      "Official trail-manager GPX/API/GeoJSON or official state trail linework when source policy allows it.",
+      "Current official presentation source such as Naturkartan when it is the trail manager's public map baseline.",
+      "OSM/Waymarked/third-party sources only as QA, fallback or explicit low-confidence source when the handoff says so."
+    ],
+    "segmentPolicy": "Preserve official track, segment and MultiLineString breaks unless an explicit sourced connector is modeled.",
+    "densificationPolicy": "Densification is allowed only for draw/display artifacts and must not be treated as field-verified trail geometry.",
+    "simplificationPolicy": "Do not simplify canonical candidate geometry until an importer-specific tolerance is chosen and visually QAed."
+  },
+  "sourceArtifactsToUse": [
+    "trail.research.json for official stage order and overview contradictions",
+    "sections/*.research.json for stage caveats, facilities, access, rules and do-not-import guidance",
+    "mapdata/index.json for geometry metrics, source policy, continuity and blocked-import status",
+    "mapdata/sections/*.geojson for one de-duplicated candidate GeoJSON LineString per official stage",
+    "mapdata/bohusleden-candidate-section-geometries.geojson for combined QA",
+    "mapdata/validation-report.json for parse, shape, source URL and continuity checks"
+  ],
+  "sourceArtifactsToSuppress": [
+    "mapdata/reference/bohusleden-stage-21-osm-old-unblazed-reference.geojson for import; retain only as old no-longer-blazed reference",
+    "OSM relations and route-app tracks when section files mark them QA-only, stale, overlong, endpoint-offset or non-canonical",
+    "Legacy Lindome/Blavattnerna southern-start naming except as stale alias risk"
+  ],
+  "discoveredGeojsonFiles": [
+    "data/research/candidate-trails/bohusleden/mapdata/bohusleden-candidate-section-geometries.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/reference/bohusleden-stage-21-osm-old-unblazed-reference.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-1-alvsaker-stensjon.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-2-stensjon-skatas.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-3-skatas-kasjon.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-4-kasjon-jonsered.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-5-jonsered-angereds-kyrka.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-6-angereds-kyrka-fontin.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-7-fontin-grandalen.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-8-grandalen-bottenstugan.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-9-bottenstugan-lysevatten.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-10-lysevatten-hasterod.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-11-hasterod-vassbovik.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-12-vassbovik-glimmingen.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-13-glimmingen-bjursjon.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-14-bjursjon-metsjo.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-15-metsjo-kaserna.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-16-kaserna-borgmastarbruket.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-17-borgmastarbruket-kyrkoryr.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-18-kyrkoryr-kynnefjalls-natur.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-19-kynnefjalls-natur-vaktarekullen.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-20-vaktarekullen-flotemarkson.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-21-flotemarkson-porsas.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-22-porsas-nornas.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-23-nornas-vassbotten.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-24-vassbotten-havedalen.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-25-havedalen-krokstrand.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-26-krokstrand-hogstad.geojson",
+    "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-27-hogstad-stromstad.geojson"
+  ],
+  "summary": {
+    "candidate-geojson-present": 26,
+    "blocked-for-complete-route-import": 1
+  },
+  "sections": [
+    {
+      "sectionId": "bohusleden-stage-1-alvsaker-stensjon",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-1-alvsaker-stensjon.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-1-alvsaker-stensjon.geojson"
+      ],
+      "sourceSummary": {
+        "source": "official West Sweden Trails / Hoodin GPX or official map API GeoJSON",
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Bohusleden_etapp1.gpx",
+        "classification": "navigation-grade after consecutive duplicate coordinate de-duplication",
+        "confidence": "high"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-2-stensjon-skatas",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-2-stensjon-skatas.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-2-stensjon-skatas.geojson"
+      ],
+      "sourceSummary": {
+        "source": "official West Sweden Trails / Hoodin GPX",
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Bohusleden_etapp2.gpx",
+        "classification": "navigation-grade after consecutive duplicate coordinate de-duplication",
+        "confidence": "high"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-3-skatas-kasjon",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-3-skatas-kasjon.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-3-skatas-kasjon.geojson"
+      ],
+      "sourceSummary": {
+        "source": "official West Sweden Trails / Hoodin GPX",
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp3_skatas_kasjon.gpx",
+        "classification": "navigation-grade after consecutive duplicate coordinate de-duplication",
+        "confidence": "high"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-4-kasjon-jonsered",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-4-kasjon-jonsered.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-4-kasjon-jonsered.geojson"
+      ],
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp4_Kasjon_jonsered.gpx",
+        "classification": "navigation-grade after consecutive duplicate coordinate de-duplication",
+        "confidence": "high"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-5-jonsered-angereds-kyrka",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-5-jonsered-angereds-kyrka.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-5-jonsered-angereds-kyrka.geojson"
+      ],
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp5_Jonsered_angeredskyrka.gpx",
+        "classification": "navigation-grade for official main line after consecutive duplicate coordinate de-duplication",
+        "confidence": "high"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-6-angereds-kyrka-fontin",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-6-angereds-kyrka-fontin.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-6-angereds-kyrka-fontin.geojson"
+      ],
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/6.-Angereds-kyrka---Fontin.gpx",
+        "classification": "navigation-grade after consecutive duplicate coordinate de-duplication",
+        "confidence": "high"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-7-fontin-grandalen",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-7-fontin-grandalen.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-7-fontin-grandalen.geojson"
+      ],
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp-7-Fontin-Grandalen_2024.gpx",
+        "classification": "official-primary-high-confidence-deduped",
+        "confidence": "high"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-8-grandalen-bottenstugan",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-8-grandalen-bottenstugan.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-8-grandalen-bottenstugan.geojson"
+      ],
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp8_Grandalen_bottenstugan.gpx",
+        "classification": "official-primary-dedup-required",
+        "confidence": "high"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-9-bottenstugan-lysevatten",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-9-bottenstugan-lysevatten.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-9-bottenstugan-lysevatten.geojson"
+      ],
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Bohusleden_etapp9.gpx",
+        "classification": "official-primary-navigation-grade-dedup-required",
+        "confidence": "high"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-10-lysevatten-hasterod",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-10-lysevatten-hasterod.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-10-lysevatten-hasterod.geojson"
+      ],
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/etapp10.gpx",
+        "classification": "official-primary-navigation-grade-dedup-required",
+        "confidence": "high"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-11-hasterod-vassbovik",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-11-hasterod-vassbovik.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-11-hasterod-vassbovik.geojson"
+      ],
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/bohusleden_etapp11.gpx",
+        "classification": "official-primary-navigation-grade-dedup-required",
+        "confidence": "high"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-12-vassbovik-glimmingen",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-12-vassbovik-glimmingen.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-12-vassbovik-glimmingen.geojson"
+      ],
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp12_Vassbovik_glimmingen.gpx",
+        "classification": "official-primary-navigation-grade-dedup-required",
+        "confidence": "high"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-13-glimmingen-bjursjon",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-13-glimmingen-bjursjon.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-13-glimmingen-bjursjon.geojson"
+      ],
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp13_Glimmingen_bjursjon.gpx",
+        "classification": "official-primary-navigation-grade-dedup-required",
+        "confidence": "high"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-14-bjursjon-metsjo",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-14-bjursjon-metsjo.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-14-bjursjon-metsjo.geojson"
+      ],
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp14_Bjursjon_metsjo.gpx",
+        "classification": "official-primary-navigation-grade-dedup-required",
+        "confidence": "high"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-15-metsjo-kaserna",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-15-metsjo-kaserna.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-15-metsjo-kaserna.geojson"
+      ],
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/etapp15.gpx",
+        "classification": "official-primary-navigation-grade-dedup-required"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-16-kaserna-borgmastarbruket",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-16-kaserna-borgmastarbruket.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-16-kaserna-borgmastarbruket.geojson"
+      ],
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp16_Kaserna_borgmastbruket.gpx",
+        "classification": "official-primary-planning-grade-dedup-required"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-17-borgmastarbruket-kyrkoryr",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-17-borgmastarbruket-kyrkoryr.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-17-borgmastarbruket-kyrkoryr.geojson"
+      ],
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp17_Borgmastarbruket_kyrkoryr.gpx",
+        "classification": "official-primary-navigation-grade-with-caveats-dedup-required"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-18-kyrkoryr-kynnefjalls-natur",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-18-kyrkoryr-kynnefjalls-natur.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-18-kyrkoryr-kynnefjalls-natur.geojson"
+      ],
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp18_Kyrkoryr_kynnefjallsnatur.gpx",
+        "classification": "official-primary-planning-grade-dedup-required"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-19-kynnefjalls-natur-vaktarekullen",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-19-kynnefjalls-natur-vaktarekullen.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-19-kynnefjalls-natur-vaktarekullen.geojson"
+      ],
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp19_Kynnefjallsnatur_vaktarekullen.gpx",
+        "classification": "official-primary-navigation-grade-after-dedup"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-20-vaktarekullen-flotemarkson",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-20-vaktarekullen-flotemarkson.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-20-vaktarekullen-flotemarkson.geojson"
+      ],
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp20_Vaktarekullen_flotemarkssjon.gpx",
+        "classification": "official-primary-navigation-grade-after-dedup-with-centerline-caveat"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-21-flotemarkson-porsas",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-21-flotemarkson-porsas.research.json",
+      "status": "blocked-for-complete-route-import",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-21-flotemarkson-porsas.geojson"
+      ],
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp21_Flotemarkssjon_porsas.gpx",
+        "classification": "official-partial-geometry-only-not-full-stage"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": [
+        {
+          "sectionId": "bohusleden-stage-21-flotemarkson-porsas",
+          "status": "not-ready-full-stage-geometry-blocked",
+          "resolutionRequired": "Obtain authoritative full route corridor from Tanum municipality/WST or encode a deliberate partial/self-navigation model. Do not auto-stitch the gap."
+        }
+      ]
+    },
+    {
+      "sectionId": "bohusleden-stage-22-porsas-nornas",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-22-porsas-nornas.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-22-porsas-nornas.geojson"
+      ],
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp22_Porsas_nornas.gpx",
+        "classification": "official-navigation-grade-after-deduplication"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-23-nornas-vassbotten",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-23-nornas-vassbotten.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-23-nornas-vassbotten.geojson"
+      ],
+      "sourceSummary": {
+        "sourceUrl": "https://cdn.hoodin.com/beta-trailsinwest/assets/geomanager/geofiles/Etapp23_Nornas_vassbotten.gpx",
+        "classification": "official-navigation-grade-after-deduplication"
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-24-vassbotten-havedalen",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-24-vassbotten-havedalen.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-24-vassbotten-havedalen.geojson"
+      ],
+      "sourceSummary": {
+        "source": "official WST/Hoodin GPX or identical WST map API GeoJSON",
+        "confidence": "high",
+        "computedDistanceKm": 19.113
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-25-havedalen-krokstrand",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-25-havedalen-krokstrand.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-25-havedalen-krokstrand.geojson"
+      ],
+      "sourceSummary": {
+        "source": "official WST/Hoodin GPX or identical WST map API GeoJSON",
+        "confidence": "high",
+        "computedDistanceKm": 10.88
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-26-krokstrand-hogstad",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-26-krokstrand-hogstad.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-26-krokstrand-hogstad.geojson"
+      ],
+      "sourceSummary": {
+        "source": "official WST/Hoodin GPX or identical WST map API GeoJSON",
+        "confidence": "high",
+        "computedDistanceKm": 13.293
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "bohusleden-stage-27-hogstad-stromstad",
+      "sourceFile": "data/research/candidate-trails/bohusleden/sections/bohusleden-stage-27-hogstad-stromstad.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/bohusleden/mapdata/sections/bohusleden-stage-27-hogstad-stromstad.geojson"
+      ],
+      "sourceSummary": {
+        "source": "official WST/Hoodin GPX or identical WST map API GeoJSON",
+        "confidence": "high",
+        "computedDistanceKm": 14.935
+      },
+      "transformPolicy": [
+        "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+        "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+        "No simplification, snapping or routing was applied.",
+        "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+        "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    }
+  ]
+}

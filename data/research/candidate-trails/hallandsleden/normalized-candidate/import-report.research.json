@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "candidate-import-report/v1",
+  "trailId": "hallandsleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-artifacts-generated-research-only",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "hallandsleden/normalization-handoff.research.json",
+  "artifactFiles": [
+    "route-sections.research.json",
+    "route-geometry-index.research.json",
+    "facilities.research.json",
+    "rule-warnings.research.json",
+    "import-report.research.json"
+  ],
+  "manifestSectionFiles": 35,
+  "generatedCounts": {
+    "routeSections": 35,
+    "geometrySections": 35,
+    "geometrySectionsWithCandidateGeojson": 35,
+    "facilities": 1129,
+    "ruleWarnings": 847
+  },
+  "blockers": [
+    {
+      "id": "hardBlockers-1",
+      "status": "hardBlockers",
+      "details": "Runtime integration still needs a separate explicit import task."
+    },
+    {
+      "id": "hardBlockers-2",
+      "status": "hardBlockers",
+      "details": "Need normalization decisions for endpoint snapping, official segment-break handling, side-service filtering, facility dedupe and taxonomy mapping."
+    },
+    {
+      "id": "hardBlockers-3",
+      "status": "hardBlockers",
+      "details": "K4 Frillesas does not currently connect to K5 Steninge in the official coastal inventory; keep visible as a network gap unless an official connector is later published."
+    },
+    {
+      "id": "publicationTimeRechecks-1",
+      "status": "publicationTimeRechecks",
+      "details": "Transit, closures/reroutes, fire status, beach/reserve rules and seasonal services immediately before publication/import."
+    },
+    {
+      "id": "publicationTimeRechecks-2",
+      "status": "publicationTimeRechecks",
+      "details": "Water, toilet, cafe/shop, shelter/campsite and private/commercial service availability."
+    },
+    {
+      "id": "publicationTimeRechecks-3",
+      "status": "publicationTimeRechecks",
+      "details": "Final protected-area and water-protection GIS overlays before public rule warnings."
+    }
+  ],
+  "openDecisions": [
+    "Choose endpoint snapping threshold and whether snapped graph nodes preserve original official endpoints in provenance metadata.",
+    "Choose representation for official MultiLineString breaks: preserve as route gaps, model as warning spans, or require external connector evidence.",
+    "Choose how to show the K4-to-K5 official coastal network gap in runtime UX.",
+    "Choose side-service radius and categories for dense urban/beach/resort areas.",
+    "Choose whether facilities marked conditional/private/seasonal/pending are imported as hidden review records, user-facing caveated markers, or deferred.",
+    "Choose rule-warning granularity: whole-section warning, subsegment warning after GIS overlay, or facility/site-level rule notes."
+  ],
+  "validationChecklist": [
+    "Parse trail.research.json, research-progress.json, all sections/*.research.json, geometry/geometry-index.research.json and both new normalization handoff JSON files.",
+    "Confirm expected section count is 35 and every section has canonical and draw-ready geometry.",
+    "Confirm no unresolvedMissingGeometrySections in geometry-index.research.json.",
+    "Validate every canonical/draw-ready GeoJSON Feature geometry type and coordinate order.",
+    "Confirm draw-ready geometry is not used as canonical provenance.",
+    "Confirm N5, K3 and K4 official breaks are preserved and not bridged by generated geometry.",
+    "Confirm K4-to-K5 is represented as a known official network gap.",
+    "Run endpoint gap report and review all snaps above the chosen threshold.",
+    "Compare official distances, computed distances and section source contradictions before exposing distances.",
+    "Run facility cluster/dedupe pass and verify pending/OSM-only/private/seasonal records before import.",
+    "Run final GIS overlays for protected areas, water-protection zones and restriction subsegments.",
+    "Run live fire, transit, closure/reroute, seasonal service and beach/reserve rule checks immediately before publication.",
+    "Confirm no runtime app data, generated public data, shared scripts or package files are modified by the normalization-prep pass."
+  ],
+  "unresolvedBeforeRuntimeImport": [
+    "Runtime integration still needs a separate explicit import task.",
+    "Need normalization decisions for endpoint snapping, official segment-break handling, side-service filtering, facility dedupe and taxonomy mapping.",
+    "K4 Frillesas does not currently connect to K5 Steninge in the official coastal inventory; keep visible as a network gap unless an official connector is later published.",
+    "Transit, closures/reroutes, fire status, beach/reserve rules and seasonal services immediately before publication/import.",
+    "Water, toilet, cafe/shop, shelter/campsite and private/commercial service availability.",
+    "Final protected-area and water-protection GIS overlays before public rule warnings.",
+    "Choose endpoint snapping threshold and whether snapped graph nodes preserve original official endpoints in provenance metadata.",
+    "Choose representation for official MultiLineString breaks: preserve as route gaps, model as warning spans, or require external connector evidence.",
+    "Choose how to show the K4-to-K5 official coastal network gap in runtime UX.",
+    "Choose side-service radius and categories for dense urban/beach/resort areas.",
+    "Choose whether facilities marked conditional/private/seasonal/pending are imported as hidden review records, user-facing caveated markers, or deferred.",
+    "Choose rule-warning granularity: whole-section warning, subsegment warning after GIS overlay, or facility/site-level rule notes."
+  ],
+  "nextActions": [
+    "Review generated candidate records for trail-specific dedupe and topology before runtime import.",
+    "Keep pending-review and suppress facility states out of runtime output.",
+    "Run final GIS overlays and live publication checks before user-facing rule warnings.",
+    "Do not write app runtime source data from this report without an explicit runtime integration task."
+  ]
+}

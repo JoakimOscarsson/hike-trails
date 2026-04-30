@@ -1,0 +1,808 @@
+{
+  "schemaVersion": "candidate-route-sections/v1",
+  "trailId": "vastra-vatterleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-normalized-research-only",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "vastra-vatterleden/normalization-handoff.research.json",
+  "sharedDecisionFile": "shared-importer-decisions.research.json",
+  "distancePolicy": {
+    "officialDistanceKm": "Trail-manager or selected official user-facing distance.",
+    "computedGeometryDistanceKm": "Distance computed from selected normalized geometry.",
+    "displayDistanceKm": "Defaults to officialDistanceKm unless a trail-specific handoff selects a different value.",
+    "distanceCaveats": "Source contradictions, rounded totals, stale values and measured-distance notes."
+  },
+  "sections": [
+    {
+      "sectionId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+      "sourceFile": "data/research/candidate-trails/vastra-vatterleden/sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.research.json",
+      "order": 1,
+      "sectionNumber": 1,
+      "name": "Etapp 1: Stenkällegården - Forsvik",
+      "from": "Stenkällegården",
+      "to": "Forsvik",
+      "distance": {
+        "officialDistanceKm": 31,
+        "displayDistanceKm": 31,
+        "distanceCaveats": [
+          "medium",
+          "Use 31 km as the current section distance for research-normalization purposes because the current Skaraborgsleder stage page/PDF and Naturkartan route object agree on 31.0 km. Keep the 30 km and 36 km variants visible until route variants are modelled.",
+          "PDF revision 2022-11-20.",
+          "Likely includes longer variant via Källebacken and/or branch content."
+        ]
+      },
+      "estimatedTime": {
+        "notes": "No current official stage-specific time found in the completed first pass. Field/route apps treat the full route as a long demanding day; do not import an estimated time until geometry variant is chosen."
+      },
+      "difficulty": {
+        "official": "Bitvis kuperad / medel in overview context",
+        "candidate": "moderate to demanding because of stage length and cumulative climbing",
+        "confidence": "medium",
+        "notes": "Official wording emphasizes good paths and some low-traffic road, but the full stage is long. Field reports and route apps rate full-route variants as strenuous/hard."
+      },
+      "routeType": {
+        "type": "point-to-point",
+        "variantHandling": "Stage has official variants/alternates near Stora Djäknasjön and Stora Kalven/Källebacken. Treat as point-to-point with alternates, not a single unambiguous line."
+      },
+      "endpoints": {
+        "start": {
+          "label": "Stenkällegården",
+          "coordinatesLatLon": [
+            58.68075,
+            14.5977
+          ],
+          "source": "Official Google My Maps start marker, checked against KML and OSM endpoint",
+          "confidence": "high",
+          "caveats": [
+            "KML line start is nearby at approximately 58.680271, 14.598640.",
+            "OSM endpoint is nearby at approximately 58.680783, 14.597387.",
+            "Stenkällegården service object coordinates differ slightly by object/source."
+          ]
+        },
+        "end": {
+          "label": "Forsvik / Göta kanal sluss area",
+          "coordinatesLatLon": [
+            58.5756,
+            14.43464
+          ],
+          "source": "Official Google/Naturkartan segment line end, checked against OSM endpoint and PDF stage-2 connection at Forsvik sluss",
+          "confidence": "high",
+          "caveats": [
+            "OSM endpoint is nearby at approximately 58.575680, 14.435052."
+          ]
+        }
+      },
+      "routeStatus": "research-complete-ready-for-normalization-not-runtime-import",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "google-my-maps-kml",
+        "sourceUrl": "https://www.google.com/maps/d/kml?mid=1XkKn4FdmCYUZHyYkhDNWSRp1vCqEhRfi&forcekml=1",
+        "classification": "available only after normalized primary/alternate geometry is built from official segments and shortcut cross-checks"
+      },
+      "caveats": [
+        "Current PDF/Naturkartan support 31 km; Västsverige overview says 30 km; OSM and older overview accounting support 36 km. Geometry lane found the difference is mostly variant choice between direct shortcut and longer Källebacken line.",
+        "The route object advertises GPX, but downloaded full-stage GPX computed to about 16.95 km and did not reach Forsvik. Do not import it as full-stage geometry.",
+        "Västsverige says stage 1 starts in Tiveden National Park, while Länsstyrelsen indicates the road passes Stenkällegården before the national park boundary. Apply national-park rules only where geometry confirms the stage/connector enters the park.",
+        "Generic overview language says fire bans always apply in nature reserves, but individual reserve pages vary: Valekleven allows designated fires, Bölets bans fires, and Bölskullen page did not list a public fire ban.",
+        "Several named services in the PDF need current coordinate/opening verification before import: Granviks vattenpump, Klangahamns Fisk, Klangatorp, Källebacken/Undenäs hembygdsgård tap, Undenäs vandrarhem and some cluster toilets.",
+        "Implement the documented stage-1 variant model: primary/direct-south line aligned with the current 31 km official display, north Djäknatorp/Djäknasundet alternatives, and Källebacken/Undenäs as alternates/connectors.",
+        "Harvest all official Google/Naturkartan segment linework and OSM shortcut cross-checks during normalization; do not use the incomplete full-stage Naturkartan GPX as full-stage geometry.",
+        "Verify exact coordinates for Granviks vattenpump, Klangatorp kallkälla, Källebacken/Undenäs hembygdsgård drinking-water tap and toilets at Granvik/Bölets clusters before runtime facility import.",
+        "Confirm current operation/opening for Stigmansgården, Klangahamns Fisk, Undenäs vandrarhem and seasonal services before importing them as live services.",
+        "Repeat protected-area overlay against final normalized variants; do not attach Tiveden National Park rules unless the final route or modeled connector enters the park boundary."
+      ]
+    },
+    {
+      "sectionId": "vastra-vatterleden-etapp-2-forsvik-molltorp",
+      "sourceFile": "data/research/candidate-trails/vastra-vatterleden/sections/vastra-vatterleden-etapp-2-forsvik-molltorp.research.json",
+      "order": 2,
+      "sectionNumber": 2,
+      "name": "Etapp 2: Forsvik - Mölltorp",
+      "from": "Forsvik / Göta kanal sluss",
+      "to": "Mölltorps hembygdsgård / Mölltorps kyrka",
+      "distance": {
+        "officialDistanceKm": 13,
+        "displayDistanceKm": 13,
+        "distanceCaveats": [
+          "high for official headline, medium for exact walked variant",
+          "Use 13 km as the official section distance. Keep the direct Naturkartan/OSM/E1 11.9 km geometry and the Skackastugan/Bergsudden 13.3 km assembled option visible until route normalization chooses main/alternate handling.",
+          "Stage PDF revision 2020-01-30.",
+          "Computed by local GPX parse on 2026-04-29.",
+          "OSM relation carries distance=13 but line geometry omits/assigns the Mölltorp terminal leg differently.",
+          "E1 mirrors the shorter OSM-style endpoint split."
+        ]
+      },
+      "estimatedTime": {
+        "derived": "approximately 2 h 50 min at the Västsverige whole-trail pace of 13 min/km; Outdooractive lists 3 h 05 min for an 11.9 km route",
+        "confidence": "low-medium",
+        "notes": "No official stage-specific time found. Derived times should not be imported as official."
+      },
+      "difficulty": {
+        "candidate": "easy to moderate overall, with a longer climb/descent over Vaberget",
+        "confidence": "medium",
+        "notes": "Stage PDF says the north/south gravel plateaus are easy walking but Vaberget adds longer climbs at both edges; Västsverige labels the whole trail easy to medium."
+      },
+      "routeType": {
+        "type": "point-to-point",
+        "variantHandling": "Point-to-point section with a signed/official branch at Fröjden. The direct Fröjden-Bygget line is shorter; the Fröjden-Skackastugan-Skackastugan-Bygget option serves Bergsudden/Skackastugan facilities and aligns better with the 13 km official headline."
+      },
+      "endpoints": {
+        "start": {
+          "label": "Forsvik / Göta kanal sluss",
+          "coordinatesLatLon": [
+            58.575591,
+            14.434631
+          ],
+          "source": "Naturkartan/Google My Maps GPX/KML stage-2 line start, checked against OSM/E1 and Forsvik stop/service cluster",
+          "confidence": "high",
+          "caveats": [
+            "OSM/E1 line start is nearby at approximately 58.575680, 14.435052.",
+            "Västtrafik Forsvik stop is about 120 m north-east of the stage line start."
+          ]
+        },
+        "end": {
+          "label": "Mölltorps hembygdsgård / Mölltorps kyrka trail endpoint",
+          "coordinatesLatLon": [
+            58.493837,
+            14.405358
+          ],
+          "source": "Naturkartan/Google My Maps segment end, supported by Skaraborgsleder stage 2 and stage 3 PDFs",
+          "confidence": "high for endpoint area, medium-high for exact coordinate",
+          "caveats": [
+            "OSM relation 1173504 and E1 stage 10.02 end about 0.4 km earlier at approximately 58.496008, 14.411033.",
+            "OSM stage 3/E1 next-stage material then includes the missing leg toward the hembygdsgård/kyrka endpoint, so raw OSM relation boundaries should not be imported without correction.",
+            "Hembygd.se contact/place coordinates do not match the official route-access distances and are treated as association/contact coordinates, not trail endpoints."
+          ]
+        }
+      },
+      "routeStatus": "research-complete-ready-for-normalization-not-runtime-import",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "google-my-maps-kml",
+        "sourceUrl": "https://www.google.com/maps/d/kml?mid=1XkKn4FdmCYUZHyYkhDNWSRp1vCqEhRfi&forcekml=1",
+        "classification": "available after assembly and branch modelling"
+      },
+      "caveats": [
+        "Official stage headline is 13 km. Naturkartan direct assembled line is about 11.9 km; Naturkartan via Skackastugan/Bergsudden is about 13.3 km. PDF segment distances produce about 12.6 km direct or 14.4 km via Bergsudden. Import must explicitly model direct vs alternate rather than flattening into a single unclear line.",
+        "Official PDFs and Naturkartan/GMaps linework support ending near Mölltorps hembygdsgård/kyrka at about 58.493837, 14.405358. OSM relation 1173504/E1 stage 10.02 end about 0.4 km earlier and assign the terminal leg to the next stage. Do not import raw OSM relation boundaries.",
+        "Stage PDF still lists a Vaberget lookout tower, but 2015/2016 Karlsborg municipal documents say the former summit tower was removed and no current rebuild evidence was found. Use Klinten as current viewpoint; suppress tower as facility.",
+        "Skaraborgsleder stage PDF says 3.3 m level difference; Göta kanal official page says 3.5 m fall height. This affects descriptive text only, not route import.",
+        "Older official PDFs list some service names that have changed or may be temporarily closed. Verify commercial services such as Forsviks Café & Mat, Villa Göta/Sköna Rum and Mölltorps Grillen/Pizzeria at integration time.",
+        "Official sources mention one shelter near Skackastugan/Bergsudden, while shelter-map/field sources indicate multiple shelters. Dedupe/cluster before import.",
+        "Implement the normalization decision: direct Fröjden-Bygget is the primary continuity route and the Skackastugan/Bergsudden line is an official shelter-side alternate/branch.",
+        "Decide whether Skacka Vindskydd and Skacka vindskydd 2 should both be represented, clustered, or deduped.",
+        "Verify exact coordinates/public availability for Skackastugan water tap and toilet before importing them as discrete facilities.",
+        "Verify Forsviks Café & Mat current operation and Villa Göta/Sköna Rum address/name before importing commercial services.",
+        "Check whether Skogsstyrelsen 2026-04-15 forestry notifications intersect the chosen normalized route.",
+        "For stage 3 normalization, start near the hembygdsgård/kyrka endpoint and avoid duplicating OSM's misplaced first/last leg."
+      ]
+    },
+    {
+      "sectionId": "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa",
+      "sourceFile": "data/research/candidate-trails/vastra-vatterleden/sections/vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa.research.json",
+      "order": 3,
+      "sectionNumber": 3,
+      "name": "Etapp 3: Mölltorp - Gunnarflon - Röå",
+      "from": "Mölltorps hembygdsgård / Mölltorps kyrka",
+      "to": "Röå / Röåsjön shelter and stage-4 junction",
+      "distance": {
+        "officialDistanceKm": 14,
+        "displayDistanceKm": 14,
+        "distanceCaveats": [
+          "high for official headline, medium for exact assembled geometry length",
+          "Use 14 km as the official section distance. Preserve computed lengths from official KML/Naturkartan segments, OSM and route-app sources as normalization evidence because source distances range from 13.175 km to 14 km.",
+          "Official PDF revision 2020-01-31; overview lists Mölltorp-Gunnarflon-Röå as 14 km.",
+          "Computed by route-geometry agent from 924 total points across the two official line segments.",
+          "OSM reaches Röå/Röåsjön but uses a different Mölltorp boundary than the official KML/Naturkartan line.",
+          "Secondary evidence only."
+        ]
+      },
+      "estimatedTime": {
+        "derived": "approximately 3 h 00 min at the Västsverige whole-trail pace of about 13 min/km for 14 km",
+        "confidence": "low-medium",
+        "notes": "No official stage-specific time found. Do not import derived time as official."
+      },
+      "difficulty": {
+        "candidate": "easy to medium / moderate",
+        "confidence": "medium",
+        "notes": "Official PDF describes the northern part as mostly flat and easy, and the southern half as more hilly on good paths and occasional low-traffic road. Pacer marks the route medium; AllTrails overlapping Rankåsleden/Västra Vätterleden route reviewers call it medium."
+      },
+      "routeType": {
+        "type": "point-to-point",
+        "connectorsAndSideTrips": [
+          "Rankåsleden connects at Gunnarflon toward Fagersanna, Rankås and Tibro.",
+          "Official KML/Naturkartan linework includes a short Klevaberget viewpoint spur of about 0.231 km one way.",
+          "Breviks kyrka is described in the official PDF as an unmarked 2.4 km one-way side trip.",
+          "Nearby Gärdeslingan and Röåslingan loop geometry appears in logistics context and must not be merged into the main stage."
+        ],
+        "endpointHandling": "Treat the official end label as Röå / Röåsjön. The functional stage boundary is the shelter/stage-4 junction at Röåsjön, not a generic settlement geocode for Röå."
+      },
+      "endpoints": {
+        "start": {
+          "label": "Mölltorps hembygdsgård / Mölltorps kyrka stage boundary",
+          "coordinatesLatLon": [
+            58.493769,
+            14.405318
+          ],
+          "source": "Naturkartan/official KML stage-3 Mölltorp-Gunnarflon segment start, cross-checked against official PDF endpoint wording and stage-2 official/KML end",
+          "confidence": "high",
+          "caveats": [
+            "Official stage-2 KML end and stage-3 KML start are about 7.9 m apart, which is acceptable for normalization.",
+            "OSM relation 1173503 starts at approximately 58.496008, 14.411033, about 415 m from the official/KML stage boundary. This repeats the Mölltorp boundary issue from stage 2, so raw OSM stage boundaries should not be imported directly."
+          ]
+        },
+        "end": {
+          "label": "Röå / Röåsjön shelter and stage-4 junction",
+          "coordinatesLatLon": [
+            58.412626,
+            14.36451
+          ],
+          "source": "Naturkartan/official KML Gunnarflon-Röåsjön segment end, cross-checked against stage-4 KML start and OSM relation end",
+          "confidence": "high for stage boundary, medium-high for exact shelter relation",
+          "caveats": [
+            "Official title uses Röå, while service and route evidence identify the functional endpoint as Röåsjön shelter/stage-4 junction.",
+            "Do not geocode the endpoint to a generic Röå settlement point without checking against official route geometry.",
+            "Stage-3 official/KML end and stage-4 official/KML start are about 4.5 m apart."
+          ]
+        },
+        "intermediate": {}
+      },
+      "routeStatus": "research-complete-ready-for-normalization-not-runtime-import",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "google-my-maps-kml",
+        "sourceUrl": "https://www.google.com/maps/d/kml?mid=1XkKn4FdmCYUZHyYkhDNWSRp1vCqEhRfi&forcekml=1",
+        "classification": "planning-to-navigation-grade after segment assembly, endpoint snapping and separate side-spur modelling"
+      },
+      "caveats": [
+        "Official sources list 14 km; Naturkartan public segment labels total 13.2 km; assembled Naturkartan/official KML geometry computes 13.175 km; E1 lists 13.5 km; OSM relation computes 13.875 km; Pacer lists 13.8 km. Use official 14 km display and preserve computed lengths for normalization.",
+        "Official title says Röå while logistics/service/geometry evidence identifies the functional endpoint as Röåsjön shelter/stage-4 junction. Use Röå / Röåsjön label and the official geometry endpoint, not a generic Röå geocode.",
+        "Current OSM relation 1173503 reaches Röå/Röåsjön, but starts at the OSM stage-2 boundary about 415 m from the official KML/Naturkartan Mölltorp boundary. Do not import raw OSM stage boundaries without correcting the start.",
+        "OSM wiki label truncates stage 3 to Mölltorp-Gunnarflon, but current OSM relation and official sources include Röå/Röåsjön.",
+        "Older official PDF broadly says fire bans apply in reserves; current Länsstyrelsen guidance says protected-area fire rules vary. Stora Röå current listed rules do not include a blanket fire ban, while nearby Röå alsumpskog explicitly prohibits fire and camping. Recheck before public display.",
+        "Naturkartan route objects reportedly had empty regulations, but nearby reserve pages have actual restrictions. Empty route regulations must not be interpreted as no restrictions.",
+        "Camping's own GPS is about 58.4343,14.4107 while OSM/Naturkartan-style point/area evidence is about 58.4298101,14.4012642. Keep pending/off-route until coordinate is resolved.",
+        "Older official PDFs refer to Mölltorps Grillen while current service evidence points to Mölltorps pizzeria. Verify commercial services at import time.",
+        "During normalization, assemble the two official Naturkartan/Google KML mainline segments and keep the Klevaberget spur separate.",
+        "Correct the Mölltorp start boundary rather than importing OSM relation 1173503 raw.",
+        "Keep the endpoint label as Röå / Röåsjön until field signage or official updated material clarifies whether app display should prefer Röå or Röåsjön.",
+        "Protected-area research overlay completed: Stora Röå overlaps stage 3 and the start of stage 4; Röå alsumpskog/Natura 2000 did not show a direct main-route overlap in the checked geometry. Repeat overlay against final normalized geometry before runtime import."
+      ]
+    },
+    {
+      "sectionId": "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+      "sourceFile": "data/research/candidate-trails/vastra-vatterleden/sections/vastra-vatterleden-etapp-4-roa-lunnakulle-hjo.research.json",
+      "order": 4,
+      "sectionNumber": 4,
+      "name": "Etapp 4: Röå - Lunnakulle - Hjo",
+      "from": "Röå / Röåsjön shelter and stage-3 junction",
+      "to": "Hjo harbor / playground / Nya Hamnkrogen area",
+      "distance": {
+        "officialDistanceKm": 26,
+        "displayDistanceKm": 26,
+        "distanceCaveats": [
+          "high for official display distance, medium-high for assembled geometry length",
+          "Use 26 km as the official section distance. Preserve computed linework lengths from official KML/Naturkartan, OSM, E1 and route apps as normalization evidence.",
+          "Stage PDF revision 2019-12-17.",
+          "Computed by route-geometry agent from four main segments; excludes the Skarpås shelter spur.",
+          "E1 says GPX coordinates are from OSM and track last update was 2023-09-30.",
+          "Secondary evidence only."
+        ]
+      },
+      "estimatedTime": {
+        "official": "6-9 timmar / 1-2 dagar",
+        "confidence": "high",
+        "sourceUrl": "https://www.vastsverige.com/hjo/leder/vastra-vatterleden-etapp-4-hjo/",
+        "notes": "Västsverige/Visit Hjo gives section-specific duration and day-count guidance."
+      },
+      "difficulty": {
+        "official": "Lätt",
+        "candidate": "easy overall with a hillier/more demanding northern half",
+        "confidence": "high",
+        "notes": "Västsverige labels the stage Lätt. Official description says the northern half is more hilly and demanding, while the Mullsjön/Hjo side is easier."
+      },
+      "routeType": {
+        "type": "point-to-point",
+        "connectorsAndSideTrips": [
+          "Rankåsleden connects around Bisshult/Lunnakulle toward Rankås, 9.5 km, and Tibro, 14 km.",
+          "A short official spur of about 0.079-0.1 km goes to Skarpås shelter.",
+          "At Stämmorna/Mullsjön, stage 5 toward Baståsen connects; Hjo-Mullsjön/Mullsjön-Hjo linework may be shared or duplicated between stages 4 and 5.",
+          "Hjoåns dalgång nature trail overlaps or parallels the final approach into Hjo."
+        ],
+        "endpointHandling": "Treat the start as Röå / Röåsjön and the functional coordinate as the Röåsjön shelter/stage-3 junction. Treat the end as Hjo harbor near the playground/Nya Hamnkrogen, not a generic Hjo town center geocode."
+      },
+      "endpoints": {
+        "start": {
+          "label": "Röåsjön / stage-3 boundary",
+          "coordinatesLatLon": [
+            58.412664,
+            14.364484
+          ],
+          "source": "Naturkartan/official Google KML stage-4 Röåsjön-Lunnakulle first point",
+          "confidence": "high",
+          "caveats": [
+            "Stage 3 Naturkartan end at 58.412626,14.364510 is about 4.5 m away.",
+            "OSM equivalent start is 58.4124707,14.3646964, within about 25 m of official/KML start.",
+            "Use Röå / Röåsjön label; do not geocode to a generic Röå place."
+          ]
+        },
+        "end": {
+          "label": "Hjo harbor / playground / Nya Hamnkrogen area",
+          "coordinatesLatLon": [
+            58.302558,
+            14.29124
+          ],
+          "source": "Naturkartan/official Google KML stage-4 Mullsjön-Hjo final point, supported by Västsverige endpoint text",
+          "confidence": "high",
+          "caveats": [
+            "OSM equivalent endpoint is 58.3024560,14.2915772, within about 25 m of official/KML endpoint.",
+            "Stage 4 Naturkartan end and stage 5 Hjo endpoint are contiguous, but the stage-5 GPX appears reversed relative to its Hjo-Mullsjö name."
+          ]
+        },
+        "intermediate": {}
+      },
+      "routeStatus": "research-complete-ready-for-normalization-not-runtime-import",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "google-my-maps-kml",
+        "sourceUrl": "https://www.google.com/maps/d/kml?mid=1XkKn4FdmCYUZHyYkhDNWSRp1vCqEhRfi&forcekml=1",
+        "classification": "navigation-grade after concatenating the four main official GPX segments and excluding the Skarpås spur"
+      },
+      "caveats": [
+        "Official display is 26 km; Naturkartan segment labels total 25.1 km; assembled Naturkartan/KML mainline computes 25.003 km; OSM computes 25.785 km; E1 and Pacer report about 25.9 km. Use official 26 km display and preserve computed lengths for normalization.",
+        "Skaraborgsleder title says Röå, while Västsverige and Naturkartan clarify Röåsjön as the functional start. Use Röå / Röåsjön label with official geometry coordinate.",
+        "OSM wiki row says Etapp 4: Röå-Lunnakulle even though it links relation 1251177, which currently has name/from/to for Röå-Lunnakulle-Hjo and reaches Hjo. Treat wiki label as stale/truncated.",
+        "General trail text says fire bans always apply in reserves, but current Länsstyrelsen reserve guidance varies. Hjoåns dalgång and Röå alsumpskog explicitly prohibit fire; Stora Röå current listed rules do not include a blanket no-fire rule.",
+        "Visit Hjo stage page mentions lines 402 and 405. Current Västtrafik evidence favors 402, 406, 415 and sparse/preordered 435; treat line 405 as stale until planner confirms.",
+        "Official map stop-direction coordinates differ materially, while PDF says the stop is about 200 m west of the trail. Use Västtrafik stop coordinates during normalization.",
+        "A mapped Hjoåns dalgång fire/rest point exists, but reserve rules include no fire. Import-risk follow-up on 2026-04-29 found no public evidence of a legal exception or outside-boundary placement.",
+        "Stämmorna cluster is named in official stage split context and has verified facilities, but sits about 265-295 m from the stage-4 line. Decide connector modelling before importing as on-route.",
+        "Normalize the four main Naturkartan/Google KML GPX segments in official order and keep the Skarpås shelter spur separate.",
+        "Use official display distance 26 km, not the assembled 25.003 km geometry length.",
+        "Keep the start label as Röå / Röåsjön and the end label as Hjo harbor / playground / Nya Hamnkrogen area.",
+        "Preserve the stage-5 handoff note: Hjo-Mullsjö GPX appears reversed relative to its name."
+      ]
+    },
+    {
+      "sectionId": "vastra-vatterleden-etapp-5-hjo-bastasen",
+      "sourceFile": "data/research/candidate-trails/vastra-vatterleden/sections/vastra-vatterleden-etapp-5-hjo-bastasen.research.json",
+      "order": 5,
+      "sectionNumber": 5,
+      "name": "Etapp 5: Hjo - Baståsen",
+      "from": "Hjo harbor / playground / Nya Hamnkrogen area",
+      "to": "Baståsen / road 193 / stage-6 boundary",
+      "distance": {
+        "officialDistanceKm": 23,
+        "displayDistanceKm": 23,
+        "distanceCaveats": [
+          "high for official display distance, medium for assembled geometry length",
+          "Use 23 km as the official section distance. Preserve the shorter official GPX/Naturkartan assembled length, OSM length and E1 partial length as normalization evidence.",
+          "Also gives 5-7 hours, 1 day and difficulty Lätt.",
+          "Stage PDF revision 2014-09-16; source-service details may be stale.",
+          "Both segment GPX files are stored reverse to official Hjo-Baståsen order.",
+          "Raw computed total from route-geometry lane; deduplicated mainline is about 21.81 km.",
+          "Not full-section geometry; E1 starts near Stämmorna/Mullsjön and omits Hjo harbor to Mullsjön.",
+          "Secondary route-app evidence only."
+        ]
+      },
+      "estimatedTime": {
+        "official": "5-7 timmar / 1 dag",
+        "confidence": "high",
+        "sourceUrl": "https://www.vastsverige.com/hjo/leder/vastra-vatterleden-etapp-5-hjo/",
+        "notes": "Västsverige/Visit Hjo gives section-specific duration and day-count guidance."
+      },
+      "difficulty": {
+        "official": "Lätt",
+        "candidate": "easy technical walking but long; hillier south of Mullsjön toward Baståsen",
+        "confidence": "high",
+        "notes": "Official text describes flat/easy walking from Hjo toward Mullsjön and hillier terrain south of Mullsjön over long ridges."
+      },
+      "routeType": {
+        "type": "point-to-point",
+        "connectorsAndSideTrips": [
+          "Hjoåns dalgång nature trail overlaps or parallels the first part from Hjo.",
+          "Stage 4 shares or meets the Hjo-Mullsjön/Stämmorna corridor at Hjo and Mullsjön.",
+          "Official side/rest points include Kallkälla, Hedsmossen hand-pump well, Kärrabo cold spring/rest area and Pershov rest area.",
+          "Högaliden outdoor area sits near the route and offers road/parking/access context, but exact connector decisions should be made during normalization.",
+          "Rödåkra is an older official access clue about 1 km west of Baståsen, but current stop/line status is unverified."
+        ],
+        "endpointHandling": "Treat the start as the same Hjo harbor point used by stage 4, not a generic Hjo town-center geocode. Treat Baståsen as a trail boundary/access point by road 193, not a service cluster."
+      },
+      "endpoints": {
+        "start": {
+          "label": "Hjo harbor / playground / Nya Hamnkrogen area",
+          "coordinatesLatLon": [
+            58.302558,
+            14.29124
+          ],
+          "source": "Naturkartan/official Google KML stage-5 Hjo-Mullsjö endpoint after reversing GPX, supported by stage-4 endpoint and Västsverige text",
+          "confidence": "high",
+          "caveats": [
+            "Stage 4 endpoint at Hjo is contiguous with this coordinate.",
+            "OSM relation equivalent start is 58.3024560,14.2915772, within about 25 m of the official/KML endpoint.",
+            "The Naturkartan GPX file is stored reverse and ends at Hjo; reverse before using for stage 5."
+          ]
+        },
+        "end": {
+          "label": "Baståsen / road 193 / stage-6 boundary",
+          "coordinatesLatLon": [
+            58.225498,
+            14.12376
+          ],
+          "source": "Naturkartan/official Google KML stage-5 Mullsjön-Baståsen endpoint after reversing GPX, supported by OSM relation 1690568 and stage-6 continuity",
+          "confidence": "high",
+          "caveats": [
+            "OSM relation equivalent end is 58.2255031,14.1237536, essentially identical.",
+            "Stage 5 end to stage 6 start is about 2 m.",
+            "Do not infer services or parking at Baståsen from the endpoint coordinate alone."
+          ]
+        },
+        "intermediate": {}
+      },
+      "routeStatus": "research-complete-ready-for-normalization-not-runtime-import",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "google-my-maps-kml",
+        "sourceUrl": "https://www.google.com/maps/d/kml?mid=1XkKn4FdmCYUZHyYkhDNWSRp1vCqEhRfi&forcekml=1",
+        "classification": "navigation-grade after reversing, concatenating and deduplicating the two official GPX/KML segments"
+      },
+      "caveats": [
+        "Official stage page/PDF/overview report 23 km. Naturkartan segment labels and computed official GPX total are about 21.8 km. OSM computes about 22.267 km. E1 reports 17.7 km because it omits Hjo-Mullsjön.",
+        "Both official Naturkartan GPX files are stored reverse to official Hjo-Baståsen order.",
+        "Some source labels use Mullsjö while the intended stage split is the Mullsjön/Stämmorna lake area, not Mullsjö municipality.",
+        "Naturkartan/Grillplatser maps a fire/rest point, while the Hjoåns dalgång reserve page says no fire.",
+        "Older official PDF/KML clues mention Rödåkra about 1 km west and bus line 405, but 2026-04-29 transit research could not find a current Rödåkra stop and line 405 returned stale/404 evidence.",
+        "Official sources mention Hedsmossen pump and Kärrabo spring, but official text still recommends carrying water and recent planning notes flag Hedsmossen iron-rich water.",
+        "Field-report lane recorded 2026-03-01 page update while geometry lane recorded 2026-04-01.",
+        "Reverse and deduplicate both official stage-5 GPX segments during normalization, especially the tiny duplicate/backtrack near Baståsen around 58.227546,14.131992.",
+        "Use official display distance 23 km, not the assembled official GPX length of about 21.8 km or the E1 17.7 km partial route.",
+        "Protected-area research overlay completed: Hjoåns dalgång overlaps the Hjo approach/exit and the mapped Hjoåns fire/rest point is inside the reserve, so it should remain suppressed or pending. Repeat overlay against final normalized geometry before runtime import.",
+        "Keep the mapped Hjoåns dalgång fire/rest point suppressed or pending; do not import it as a usable fireplace unless boundary overlay or official clarification proves legal use.",
+        "Forestry notifications are volatile currentness data; exact Skogsstyrelsen polygon-to-final-route-buffer overlay remains a pre-publication check after route normalization, not an unresolved static trail identity blocker."
+      ]
+    },
+    {
+      "sectionId": "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+      "sourceFile": "data/research/candidate-trails/vastra-vatterleden/sections/vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas.research.json",
+      "order": 6,
+      "sectionNumber": 6,
+      "name": "Etapp 6: Baståsen - First Camp Hökensås",
+      "from": "Baståsen / road 193 / stage-5 boundary",
+      "to": "First Camp Hökensås / Hökensås Semesterby / stage-7 boundary",
+      "distance": {
+        "officialDistanceKm": 23,
+        "displayDistanceKm": 23,
+        "distanceCaveats": [
+          "high for official display distance, medium-high for official computed geometry length",
+          "Use 23 km as the official section distance. Preserve computed official/Naturkartan, OSM, E1 and route-app lengths as normalization evidence.",
+          "Also gives about 5 hours, 1 day and difficulty Medel.",
+          "Stage PDF revision 2014-06-15; its subdistances imply 22.9 km.",
+          "Computed by route-geometry lane from 1,699 route points.",
+          "E1 GPX computed about 21.635 km and is OSM-derived; useful cross-check only.",
+          "Secondary evidence only; no public coordinate export found."
+        ]
+      },
+      "estimatedTime": {
+        "official": "cirka 5 timmar / 1 dag",
+        "confidence": "high",
+        "sourceUrl": "https://www.vastsverige.com/tidaholm/leder/etapp-6---vastra-vatterleden/",
+        "notes": "Västsverige/Visit Tidaholm gives section-specific duration and day-count guidance."
+      },
+      "difficulty": {
+        "official": "Medel",
+        "candidate": "moderate; mostly easy pine-heath/gravel-ridge walking with deeper glacial meltwater channels and long water-carry requirement",
+        "confidence": "high",
+        "notes": "Official text says the route mostly follows gently rolling gravel-ridge pine forest, but deeper channels occur between Hammarbackarna and Rännestenen and water access is limited."
+      },
+      "routeType": {
+        "type": "point-to-point",
+        "connectorsAndSideTrips": [
+          "Short official spur to Baståsen/Södra Hulan viewpoint, about 0.160 km.",
+          "Short official spur to Stora Bremsahemmet pest/kolera grave, about 0.055 km.",
+          "Short official spur to Vitsjön shelter, about 0.032 km.",
+          "Short official spur to Rackes håla, about 0.028 km.",
+          "Lilla/Lille Havsjön is an unmarked side trip about 1 km one way from the Hökensås/endpoint area.",
+          "Local Hökensås walking trail, 11.5 km green-marked loop, starts/ends at First Camp and must not be merged into stage 6.",
+          "Ibbesjön shelter is about 1.4 km beyond First Camp on stage 7; keep as continuation metadata, not a stage-6 facility."
+        ],
+        "endpointHandling": "Use the route-line endpoint for geometry continuity at First Camp/Hökensås. Model the First Camp POI about 55-62 m away as access/facility metadata rather than moving the snapped route endpoint."
+      },
+      "endpoints": {
+        "start": {
+          "label": "Baståsen / stage-5 boundary",
+          "coordinatesLatLon": [
+            58.225503,
+            14.123754
+          ],
+          "source": "OSM relation stage-5/stage-6 join, cross-checked by official Naturkartan/Google KML start 58.225482,14.123777",
+          "confidence": "high",
+          "caveats": [
+            "Official KML/Naturkartan line start is about 2.7 m away at 58.225482,14.123777.",
+            "Stage 5 and stage 6 OSM endpoints join exactly here.",
+            "Baståsen has no confirmed current transit, parking or services."
+          ]
+        },
+        "end": {
+          "label": "First Camp Hökensås / Hökensås Semesterby route-line join",
+          "coordinatesLatLon": [
+            58.097821,
+            14.075706
+          ],
+          "source": "OSM relation stage-6/stage-7 join, cross-checked by official Naturkartan/Google KML end 58.097835,14.075594",
+          "confidence": "high",
+          "caveats": [
+            "Official KML/Naturkartan line end is about 6.8 m away at 58.097835,14.075594.",
+            "Official First Camp / Etapp 6-7 POI is about 55-62 m away at 58.0980712,14.0747654 and should be modelled as access/facility metadata.",
+            "Stage 7 official KML line starts about 4 m from the stage-6 official line end."
+          ]
+        },
+        "intermediate": {}
+      },
+      "routeStatus": "research-complete-ready-for-normalization-not-runtime-import",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "google-my-maps-kml",
+        "sourceUrl": "https://www.google.com/maps/d/kml?mid=1n7vxw1r8flUR23uH9wSxfwmaRs77p1ww&forcekml=1",
+        "classification": "navigation-grade official linework with a route-line endpoint vs First Camp POI caveat at the southern endpoint"
+      },
+      "caveats": [
+        "Official stage page/PDF/overview report 23 km. PDF subdistances imply 22.9 km. Naturkartan official page says 21.9 km and computed official GPX is 21.888 km. OSM/E1/Pacer cluster around 21.6-21.9 km.",
+        "Current Västsverige uses First Camp Hökensås; Skaraborgsleder/PDF/E1/OSM use Semesterbyn or Hökensås Semesterby.",
+        "The snapped route-line endpoint is about 55-62 m from the official First Camp / Etapp 6-7 POI.",
+        "Older official material says Rödåkra about 1 km west is served by line 405, but current Västtrafik information says line 405 is withdrawn/replaced and Rödåkra is withdrawn for regional traffic.",
+        "Some tourism/operator text calls Hökensås a nature reserve or national park, but Länsstyrelsen legal/current wording is naturvårdsområde.",
+        "Older trail/PDF language can imply blanket reserve fire bans, while Hökensås/Hyltan legal rules allow fire at designated/prepared places unless current fire bans override. Hökensås Sportfiske local rules can be stricter.",
+        "Older field reports say water was generally not an issue; current official stage text says water access is limited and recommends carrying water for the full day.",
+        "E1 includes or references Ibbesjön under 10.06, but Västra Vätterleden PDF treats it as 1.4 km beyond the stage-6 endpoint, on continuation/stage 7.",
+        "Use official display distance 23 km, not the measured official GPX length 21.888 km, while preserving measured lengths as metadata.",
+        "Normalize official mainline from Naturkartan/Google KML in correct direction and keep four short side spurs separate.",
+        "Use route-line endpoint 58.097821,14.075706 for geometry continuity and First Camp POI 58.0980712,14.0747654 as access/facility metadata.",
+        "Protected-area research overlay completed: stage 6 overlaps Hökensås naturvårdsområde and Hyltan naturreservat. Repeat overlay against final normalized geometry before runtime import."
+      ]
+    },
+    {
+      "sectionId": "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult",
+      "sourceFile": "data/research/candidate-trails/vastra-vatterleden/sections/vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult.research.json",
+      "order": 7,
+      "sectionNumber": 7,
+      "name": "Etapp 7: First Camp Hökensås - Fagerhult",
+      "from": "First Camp Hökensås / Hökensås Semesterby / stage-6 boundary",
+      "to": "Fagerhult trailhead via Gagnån / stage-8 junction",
+      "distance": {
+        "officialDistanceKm": 17,
+        "displayDistanceKm": 17,
+        "distanceCaveats": [
+          "high for official display distance, medium-high for measured mainline/access geometry",
+          "Use 17 km as the official section display distance. Store the measured mainline, Fagerhult access connector, OSM, E1 and Naturkartan variant lengths as normalization metadata.",
+          "Also gives about 3.5 hours, 1 day and difficulty Lätt.",
+          "Stage PDF revision 2014-06-16; subdistances are compatible with official 17 km when the Fagerhult access connector is included.",
+          "Description is placeholder-like; use mainly for GPX/geometry evidence.",
+          "Continuous mainline from First Camp/Hökensås to the Gagnån/Fagerhult stage-8 junction; excludes Fagerhult access connector.",
+          "Terminal access connector from Gagnån/stage-8 junction to Fagerhult trailhead.",
+          "Before rounding/gap handling; official display still remains 17 km.",
+          "Stored opposite the current official order and should be reversed if used.",
+          "OSM-derived cross-check, not primary geometry.",
+          "Secondary route-app evidence only."
+        ]
+      },
+      "estimatedTime": {
+        "official": "cirka 3,5 timmar / 1 dag",
+        "confidence": "high",
+        "sourceUrl": "https://www.vastsverige.com/tidaholm/leder/etapp-7---vastra-vatterleden/",
+        "notes": "Västsverige/Visit Tidaholm gives section-specific duration."
+      },
+      "difficulty": {
+        "official": "Lätt",
+        "candidate": "easy overall, with sandy ridge terrain, rolling Hökensås paths/roads and access-connector decisions at Fagerhult",
+        "confidence": "high",
+        "notes": "Official page labels the stage Lätt. Field reports describe mostly easy roads/trails and many lakes, while broader Hökensås accounts mention sandy/ridge ups and downs."
+      },
+      "routeType": {
+        "type": "point-to-point with terminal access connector",
+        "connectorsAndSideTrips": [
+          "Ibbesjön shelter spur, about 0.138 km from the mainline.",
+          "Stora Öjasjön grill spur, about 0.022 km.",
+          "Sydvattnet rest-area spur, about 0.053 km.",
+          "Hållsdammsbäcken shelter spur, about 0.027 km.",
+          "Official `Accessled till Fagerhult`, about 0.886 km, connects the Gagnån/stage-8 junction to the named Fagerhult trailhead.",
+          "Stage 8 continues south from the Gagnån/Fagerhult junction toward Furusjö/Mullsjö."
+        ],
+        "endpointHandling": "For continuous trail geometry, use the Gagnån/stage-8 junction as the handoff endpoint. For the named stage endpoint Fagerhult and public transport/access, include the official access connector to Fagerhult trailhead."
+      },
+      "endpoints": {
+        "start": {
+          "label": "First Camp Hökensås / Hökensås Semesterby route-line join",
+          "coordinatesLatLon": [
+            58.097821,
+            14.075706
+          ],
+          "source": "OSM/E1 stage-6/stage-7 continuity, cross-checked by official KML/Naturkartan start 58.097825,14.075534",
+          "confidence": "high",
+          "caveats": [
+            "Official KML/Naturkartan line start is about 4 m from stage-6 official line end.",
+            "First Camp service POI is about 55-60 m away at 58.098071,14.074765 and should be modelled as access/facility metadata."
+          ]
+        },
+        "endForTrailContinuity": {
+          "label": "Gagnån / Fagerhult junction / stage-8 boundary",
+          "coordinatesLatLon": [
+            58.002709,
+            14.104708
+          ],
+          "source": "OSM/E1 stage-7/stage-8 continuity, cross-checked by official KML mainline end 58.002731,14.104634",
+          "confidence": "high",
+          "caveats": [
+            "This is the continuous long-distance trail handoff point to stage 8.",
+            "It is not the Fagerhult village/access endpoint."
+          ]
+        },
+        "endForNamedStageAccess": {
+          "label": "Fagerhult trailhead / access-line endpoint",
+          "coordinatesLatLon": [
+            57.998895,
+            14.116089
+          ],
+          "source": "Official KML access line end; nearby KML stage marker 57.998893,14.116233",
+          "confidence": "high",
+          "caveats": [
+            "Use for Fagerhult access/transit and named endpoint handling.",
+            "Continuing stage-8 walkers should use/return along the 0.886 km access connector to the Gagnån junction."
+          ]
+        },
+        "intermediate": {}
+      },
+      "routeStatus": "research-complete-ready-for-normalization-not-runtime-import",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "google-my-maps-kml",
+        "sourceUrl": "https://www.google.com/maps/d/kml?mid=1t8xNZVB6XtCUzhNP6Jj3hlK7DTwI6Ngc&forcekml=1",
+        "classification": "navigation-grade official linework, with an explicit distinction between continuous mainline and Fagerhult terminal access connector"
+      },
+      "caveats": [
+        "Official Västsverige/Skaraborg sources report 17 km. Naturkartan VGR lists 15.2 km, Smålandsleden/Naturkartan lists 15.6 km, official mainline computes 15.219 km, and mainline plus Fagerhult access computes about 16.105 km.",
+        "Continuous stage-8 handoff is at Gagnån/Fagerhult junction, while the named endpoint Fagerhult is reached by a separate 0.886 km access connector.",
+        "Current official Västsverige order is First Camp Hökensås -> Fagerhult. Smålandsleden/Naturkartan title and GPX are Fagerhult -> Hökensås and stored reverse.",
+        "Current sources use First Camp Hökensås; older sources use Semesterbyn or Hökensås Semesterby.",
+        "Some tourism/older wording says reserve or national park, but Länsstyrelsen legal/current wording is naturvårdsområde.",
+        "Hållsdammsbäcken is mapped as shelter/fireplace, while Gagnån NR near Fagerhult has no-fire/no-tenting rules.",
+        "Some guide/older field sources say water is generally available/good, while official stage text says lake/stream water is not continuously sampled and should be boiled/filtered if uncertain.",
+        "Habo municipality mentions Södra Kroksjön shelter, but it lies about 2.6 km from stage-7 route/access and belongs better to stage 8/continuation.",
+        "Use official display distance 17 km and preserve measured mainline 15.219 km, Fagerhult access 0.886 km and main+access about 16.105 km as geometry metadata.",
+        "Model continuous stage-7 mainline to Gagnån/stage-8 junction separately from the 0.886 km Fagerhult access connector.",
+        "Reverse Smålandsleden/Naturkartan VV7 GPX if used.",
+        "Use First Camp POI as facility/access metadata rather than snapping geometry to it."
+      ]
+    },
+    {
+      "sectionId": "vastra-vatterleden-etapp-8-fagerhult-mullsjo",
+      "sourceFile": "data/research/candidate-trails/vastra-vatterleden/sections/vastra-vatterleden-etapp-8-fagerhult-mullsjo.research.json",
+      "order": 8,
+      "sectionNumber": 8,
+      "name": "Etapp 8: Fagerhult - Mullsjö / Hotel Mullsjö",
+      "from": "Fagerhult / Gagnån stage-7/8 junction",
+      "to": "Hotel Mullsjö / Mullsjö",
+      "distance": {
+        "officialDistanceKm": 29,
+        "displayDistanceKm": 29,
+        "distanceCaveats": [
+          "high for current split geometry, medium for single-stage display distance",
+          "Use 29 km as the legacy/current overview stage display distance when matching the one-stage official inventory. Preserve the current Naturkartan/Smålandsleden split distances 20.6 km + 9.2 km and computed GPX total about 29.8 km as the preferred geometry metadata. Keep 30.9 km/31 km values as stale or connector-inclusive planning distances until normalization chooses endpoint handling.",
+          "Lists stage 8 as Fagerhult-Mullsjö 29 km in the whole-trail inventory.",
+          "Local official context for the southern stage.",
+          "Stage label is Etapp 8, Fagerhult-Mullsjö 29 km.",
+          "Current first official split record.",
+          "Current second official split record.",
+          "20.586 km + 9.215 km after reversing both files to planning order.",
+          "Lists Fagerhult-Hotel Mullsjö 30.9 km, Fagerhult-Furusjö 23.2 km, Furusjö-Hotel Mullsjö 9.8 km and Hotel Mullsjö-Mullsjö C 1.9 km. Treat as logistics/planning distance and possibly connector-inclusive.",
+          "Legacy/OSM tag value; computed OSM/E1 geometry is about 29.8 km.",
+          "Waymarked Trails API route length about 29.872 km; assembled coordinate calculation about 29.816 km.",
+          "OSM-derived cross-check."
+        ]
+      },
+      "estimatedTime": {
+        "official": "about 7 hours 30 minutes for the two current Naturkartan/Smålandsleden split records",
+        "components": [
+          {
+            "segment": "Fagerhult-Furusjö",
+            "time": "5 h 10 min",
+            "sourceUrl": "https://www.smalandsleden.se/en/map/vv8-fagerhult-furusjo"
+          },
+          {
+            "segment": "Furusjö-Mullsjö Hotell",
+            "time": "2 h 20 min",
+            "sourceUrl": "https://www.smalandsleden.se/en/map/vv8-furusjo-mullsjo-hotell"
+          }
+        ],
+        "confidence": "high for split-record times, medium for one-day full-stage hiking estimate",
+        "notes": "The full stage is long enough to work as one long day or a two-day split. Current official split records support the two-part model."
+      },
+      "difficulty": {
+        "official": "Blå / medel for both current Naturkartan/Smålandsleden split records",
+        "candidate": "moderate mainly because of length; surfaces are generally good paths, forest roads and low-traffic gravel roads with wetlands/bogs and rolling terrain",
+        "confidence": "high",
+        "notes": "Pacer labels the full route hard, likely due to length. Official split pages describe easy walking on good paths with occasional gravel/forest road."
+      },
+      "routeType": {
+        "type": "linear stage with official split records and access connectors",
+        "officialStageModel": "One numbered Västra Vätterleden stage in overview/PDF sources; current Naturkartan/Smålandsleden exposes it as two VV8 route records.",
+        "normalizationHint": "Represent as one official section with two main geometry components plus separate Fagerhult and Mullsjö centrum access connectors, unless the app later supports official sub-stages."
+      },
+      "endpoints": {
+        "coordinateOrder": {},
+        "officialNamedStart": {
+          "label": "Fagerhult ledstart / access entrance",
+          "coordinatesLatLon": [
+            57.99955,
+            14.11604
+          ],
+          "source": "Naturkartan Fagerhult VV7/VV8 connector GPX",
+          "confidence": "high"
+        },
+        "continuousTrailStart": {
+          "label": "Gagnån / VV7-VV8 junction",
+          "coordinatesLatLon": [
+            58.002709,
+            14.104708
+          ],
+          "source": "OSM relation 7468730 and E1 GPX; Naturkartan VV8 endpoint within 0.16 m",
+          "confidence": "high"
+        },
+        "splitPoint": {
+          "label": "Furusjö split between Naturkartan VV8 records",
+          "coordinatesLatLon": [
+            57.93928,
+            13.94233
+          ],
+          "source": "Naturkartan VV8 split GPX endpoint comparison",
+          "confidence": "high"
+        },
+        "officialNamedEnd": {
+          "label": "Hotel Mullsjö ledstart / Naturkartan endpoint",
+          "coordinatesLatLon": [
+            57.90308,
+            13.87202
+          ],
+          "source": "Naturkartan VV8 Furusjö-Mullsjö Hotell GPX and Hotel Mullsjö ledstart page",
+          "confidence": "high"
+        },
+        "osmE1End": {
+          "label": "OSM/E1 Mullsjö/Hotel area endpoint",
+          "coordinatesLatLon": [
+            57.9042,
+            13.8706
+          ],
+          "source": "OSM relation 7468730 and E1 stage 10.08 GPX",
+          "confidence": "medium-high"
+        },
+        "mullsjoCenterAccess": {
+          "label": "Mullsjö Resecentrum / station",
+          "coordinatesLatLon": [
+            57.915131,
+            13.882738
+          ],
+          "source": "Jönköpings Länstrafik station page",
+          "confidence": "high"
+        }
+      },
+      "routeStatus": "research-complete-ready-for-normalization-not-runtime-import",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "classification": "navigation-grade official split GPX available, with connector and endpoint caveats"
+      },
+      "caveats": [
+        "Overview/PDF sources treat Etapp 8 as one numbered stage, while current Smålandsleden/Naturkartan exposes it as two VV8 records: Fagerhult-Furusjö and Furusjö-Mullsjö Hotell.",
+        "Downloadable VV8 mainline GPX starts/continues at the Gagnån VV7/VV8 junction, not Fagerhult village. Fagerhult is represented by a separate connector.",
+        "Official overview/PDF says 29 km; current Naturkartan split records sum to 29.8 km; logistics PDF says 30.9 km; OSM tag/wiki says 31 km while computed OSM/E1 geometry is about 29.8 km.",
+        "Both current Naturkartan VV8 split GPX files are stored south-to-north relative to official Fagerhult -> Mullsjö planning order.",
+        "Naturkartan endpoint is 57.903080,13.872020, while OSM/E1 endpoint is around 57.9042,13.8706, about 140-150 m away.",
+        "Sources vary between 1.8 km, 1.9 km and 2.3 km for the Hotel Mullsjö-Mullsjö center/station access route.",
+        "Current Smålandsleden/Naturkartan lists a new Hornsjön shelter, while older 2021 PDF appears to list Hornsjön mainly as parking.",
+        "Searches can return unrelated Kroksjön reserve/Natura results in other counties. No local protected-area status was confirmed for this Södra Kroksjön service point.",
+        "A July 2025 full-trail FKT report says the final kilometres into Mullsjö had been rerouted and shorter. Follow-up research found Mullsjö municipal planning evidence for a trail reroute and compared current Naturkartan Furusjö-Mullsjö Hotell GPX with E1/OSM: the route corridor now matches closely, while the endpoint differs by about 154.8 m.",
+        "Should stage 8 display distance remain official 29 km or use current split sum 29.8 km / rounded 30 km in normalized data?",
+        "Model stage 8 as one official section with two official child/subgeometry records while preserving one official stage number.",
+        "Use Naturkartan Hotel Mullsjö endpoint 57.903080,13.872020 as the preferred official endpoint; retain OSM/E1 about 57.9042,13.8706 as an alternate/access cross-check rather than a blocker."
+      ]
+    }
+  ]
+}

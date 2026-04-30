@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "candidate-import-report/v1",
+  "trailId": "hoglandsleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-artifacts-generated-research-only",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "hoglandsleden/normalization-handoff.research.json",
+  "artifactFiles": [
+    "route-sections.research.json",
+    "route-geometry-index.research.json",
+    "facilities.research.json",
+    "rule-warnings.research.json",
+    "import-report.research.json"
+  ],
+  "manifestSectionFiles": 23,
+  "generatedCounts": {
+    "routeSections": 23,
+    "geometrySections": 23,
+    "geometrySectionsWithCandidateGeojson": 1,
+    "facilities": 555,
+    "ruleWarnings": 556
+  },
+  "blockers": [
+    {
+      "id": "runtime-import",
+      "status": "blocked-until-explicit-import-task",
+      "details": "No runtime data has been imported."
+    },
+    {
+      "id": "topology",
+      "status": "normalization-decision-needed",
+      "details": "Whether official route groups should be modeled as main loop plus three connectors, main loop plus east/north/west branches, or another route-builder topology."
+    },
+    {
+      "id": "rules",
+      "status": "unknown/recheck",
+      "details": "Protected-area boundary overlays and live fire-ban/currentness checks are still required before user-facing runtime import."
+    },
+    {
+      "id": "facilities",
+      "status": "unknown/recheck",
+      "details": "Shared endpoint clusters, commercial/customer-only services, weak transit and unverified water/shelter records need normalization review."
+    }
+  ],
+  "openDecisions": [
+    {
+      "decision": "Choose the route-builder topology for Höglandsleden.",
+      "optionsFromResearch": [
+        "main loop plus three connectors",
+        "main loop plus east/north/west branches",
+        "another route-builder topology"
+      ],
+      "whyItMatters": "The official distance and stage structure only make sense if the app distinguishes the ca 300 km loop from branch/connector material."
+    },
+    {
+      "decision": "Decide whether official access trails such as Mariannelund-HÖ3, Sävsjö C, Hok station, Byarum kyrka, Skillingaryd station and Lyngemadens naturreservat should be first-class route groups or access metadata.",
+      "whyItMatters": "They are mentioned officially, but should not be silently merged into HÖ section geometry."
+    },
+    {
+      "decision": "Decide app scope for bookable/commercial services and very weak rural transit.",
+      "whyItMatters": "Several useful services exist, but importing them as ordinary public trail facilities would overstate access."
+    }
+  ],
+  "validationChecklist": [
+    "JSON parse this handoff and every changed research file.",
+    "Verify all 23 expected section files exist and match officialSectionOrder.",
+    "Check every normalized section retains source URL, official distance, computed distance and transform notes.",
+    "Verify route group distances separately for main loop, HÖ1, HÖ3 and HÖ18-HÖ23 branch.",
+    "Run endpoint-gap checks at Skuruhatt, Valbacken, Vikskvarn, Byarum/Grönelund, Åsafors and Kärringabacka.",
+    "Run duplicate facility detection for every shared endpoint cluster listed in facilityPlan.deduplicationTargets.",
+    "Confirm no private/customer-only service is imported as a public facility.",
+    "Run protected-area GIS overlays before importing static reserve/cultural-reserve rule warnings.",
+    "Recheck live fire bans, current trail clearance, transit schedules and water reliability before runtime publication.",
+    "Keep all outputs research-only until the user explicitly requests runtime integration."
+  ],
+  "unresolvedBeforeRuntimeImport": [
+    "No runtime data has been imported.",
+    "Whether official route groups should be modeled as main loop plus three connectors, main loop plus east/north/west branches, or another route-builder topology.",
+    "Protected-area boundary overlays and live fire-ban/currentness checks are still required before user-facing runtime import.",
+    "Shared endpoint clusters, commercial/customer-only services, weak transit and unverified water/shelter records need normalization review.",
+    {
+      "decision": "Choose the route-builder topology for Höglandsleden.",
+      "optionsFromResearch": [
+        "main loop plus three connectors",
+        "main loop plus east/north/west branches",
+        "another route-builder topology"
+      ],
+      "whyItMatters": "The official distance and stage structure only make sense if the app distinguishes the ca 300 km loop from branch/connector material."
+    },
+    {
+      "decision": "Decide whether official access trails such as Mariannelund-HÖ3, Sävsjö C, Hok station, Byarum kyrka, Skillingaryd station and Lyngemadens naturreservat should be first-class route groups or access metadata.",
+      "whyItMatters": "They are mentioned officially, but should not be silently merged into HÖ section geometry."
+    },
+    {
+      "decision": "Decide app scope for bookable/commercial services and very weak rural transit.",
+      "whyItMatters": "Several useful services exist, but importing them as ordinary public trail facilities would overstate access."
+    }
+  ],
+  "nextActions": [
+    "Review generated candidate records for trail-specific dedupe and topology before runtime import.",
+    "Keep pending-review and suppress facility states out of runtime output.",
+    "Run final GIS overlays and live publication checks before user-facing rule warnings.",
+    "Do not write app runtime source data from this report without an explicit runtime integration task."
+  ]
+}

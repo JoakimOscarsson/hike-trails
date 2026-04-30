@@ -1,0 +1,183 @@
+{
+  "schemaVersion": "candidate-route-geometry-index/v1",
+  "trailId": "ostkustleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-normalized-research-only",
+  "runtimeImportApproved": false,
+  "geometryPolicy": {
+    "decision": "Use selected canonical route geometry as provenance, and create separate display-ready geometry only when needed for rendering.",
+    "coordinatePolicy": "All candidate GeoJSON must be WGS84 longitude-latitude coordinate order. Transform EPSG:3006 or other source CRS before candidate artifact output and record the transform.",
+    "sourcePriority": [
+      "Official trail-manager GPX/API/GeoJSON or official state trail linework when source policy allows it.",
+      "Current official presentation source such as Naturkartan when it is the trail manager's public map baseline.",
+      "OSM/Waymarked/third-party sources only as QA, fallback or explicit low-confidence source when the handoff says so."
+    ],
+    "segmentPolicy": "Preserve official track, segment and MultiLineString breaks unless an explicit sourced connector is modeled.",
+    "densificationPolicy": "Densification is allowed only for draw/display artifacts and must not be treated as field-verified trail geometry.",
+    "simplificationPolicy": "Do not simplify canonical candidate geometry until an importer-specific tolerance is chosen and visually QAed."
+  },
+  "sourceArtifactsToUse": [],
+  "sourceArtifactsToSuppress": [],
+  "discoveredGeojsonFiles": [],
+  "summary": {
+    "source-geometry-needs-candidate-geojson": 8
+  },
+  "sections": [
+    {
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.research.json",
+      "status": "source-geometry-needs-candidate-geojson",
+      "candidateGeojsonFiles": [],
+      "sourceSummary": {
+        "source": "Naturkartan official GPX",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/lilla-hycklinge-nynas-ostkustleden-etapp-1.gpx",
+        "gpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/lilla-hycklinge-nynas-ostkustleden-etapp-1.gpx",
+        "classification": "planning-grade-as-stored; navigation-grade-after-track-reversal-for-official-digital-line; endpoint-ambiguous-for-cabin-goal",
+        "confidence": "medium",
+        "pointCount": 967,
+        "computedDistanceKm": 15.98596
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-2-nynas-lonhult.research.json",
+      "status": "source-geometry-needs-candidate-geojson",
+      "candidateGeojsonFiles": [],
+      "sourceSummary": {
+        "source": "Naturkartan official GPX",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/nynas-lonhult-ostkustleden-etapp-2.gpx",
+        "gpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/nynas-lonhult-ostkustleden-etapp-2.gpx",
+        "classification": "navigation-grade main line with start-endpoint policy caveat",
+        "confidence": "high",
+        "pointCount": 1479,
+        "computedDistanceKm": 20.622734
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-3-lonhult-krokstorp.research.json",
+      "status": "source-geometry-needs-candidate-geojson",
+      "candidateGeojsonFiles": [],
+      "sourceSummary": {
+        "source": "Naturkartan official GPX",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/lonhult-krokstorp-ostkustleden-etapp-3.gpx",
+        "gpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/lonhult-krokstorp-ostkustleden-etapp-3.gpx",
+        "classification": "navigation-grade after explicit ordering/reversal and snapping minor gaps under 35 m; as-stored GPX is not import-ready",
+        "confidence": "medium-high",
+        "pointCount": 1287,
+        "computedDistanceKm": {
+          "sumPieceDistance": 20.459872,
+          "rawConcatenatedWithJumps": 54.841849,
+          "normalizedWithSmallJoins": 20.549165
+        }
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-4-krokstorp-mortfors.research.json",
+      "status": "source-geometry-needs-candidate-geojson",
+      "candidateGeojsonFiles": [],
+      "sourceSummary": {
+        "source": "Naturkartan official GPX/API",
+        "sourceUrl": "https://www.naturkartan.se/en/kalmar-lan/krokstorp-mortfors-ostkustleden-etapp-4.gpx",
+        "classification": "navigation-grade after normalization; not raw-importable",
+        "confidence": "high",
+        "pointCount": 990,
+        "computedDistanceKm": 17.409
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-5-mortfors-stjarneberg.research.json",
+      "status": "source-geometry-needs-candidate-geojson",
+      "candidateGeojsonFiles": [],
+      "sourceSummary": {
+        "source": "Naturkartan official GPX/API",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/mortfors-stjarneberg-ostkustleden-etapp-5.gpx",
+        "classification": "planning-grade after repair; not raw-importable",
+        "confidence": "high",
+        "pointCount": 1463,
+        "computedDistanceKm": {
+          "rawDuplicateInflated": 21.346,
+          "cleanedOfficialLine": 18.734025,
+          "cleanedWithEndpointConnectors": 18.747551
+        }
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-6-stjarneberg-lilla-laxemar.research.json",
+      "status": "source-geometry-needs-candidate-geojson",
+      "candidateGeojsonFiles": [],
+      "sourceSummary": {
+        "source": "Naturkartan official GPX/API",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/stjarneberg-lilla-laxemar-ostkustleden-etapp-6.gpx",
+        "classification": "A-; continuous official line, importable after reversing direction",
+        "confidence": "high",
+        "pointCount": 990,
+        "computedDistanceKm": {
+          "officialGpx": 18.406812509,
+          "apiLinework": 18.400816298
+        }
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.research.json",
+      "status": "source-geometry-needs-candidate-geojson",
+      "candidateGeojsonFiles": [],
+      "sourceSummary": {
+        "source": "Naturkartan official GPX/API",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/lilla-laxemar-hedvigsberg-hallveberg-ostkustleden-etapp-7.gpx",
+        "classification": "A; continuous official line, correct direction, supported by Naturkartan API and OSM",
+        "confidence": "high",
+        "pointCount": 873,
+        "computedDistanceKm": {
+          "officialGpx": 21.611762,
+          "apiLinework": 21.609366
+        }
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sourceFile": "data/research/candidate-trails/ostkustleden/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.research.json",
+      "status": "source-geometry-needs-candidate-geojson",
+      "candidateGeojsonFiles": [],
+      "sourceSummary": {
+        "source": "Naturkartan official GPX/API",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/hedvigsberg-lilla-hycklinge-ostkustleden-etapp-8.gpx",
+        "classification": "A-; navigation-grade official line after sequencing and duplicate-sliver removal",
+        "confidence": "high",
+        "computedDistanceKm": {
+          "officialGpxSegmentSum": 16.8335,
+          "officialGpxWithJoinGaps": 16.834,
+          "apiLineworkWithJoinGaps": 16.8263
+        }
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    }
+  ]
+}

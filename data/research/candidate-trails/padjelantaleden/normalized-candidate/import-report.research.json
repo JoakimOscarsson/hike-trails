@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "candidate-import-report/v1",
+  "trailId": "padjelantaleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-artifacts-generated-research-only",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "padjelantaleden/normalization-handoff.research.json",
+  "artifactFiles": [
+    "route-sections.research.json",
+    "route-geometry-index.research.json",
+    "facilities.research.json",
+    "rule-warnings.research.json",
+    "import-report.research.json"
+  ],
+  "manifestSectionFiles": 10,
+  "generatedCounts": {
+    "routeSections": 10,
+    "geometrySections": 10,
+    "geometrySectionsWithCandidateGeojson": 0,
+    "facilities": 254,
+    "ruleWarnings": 214
+  },
+  "blockers": [
+    {
+      "id": "blocker-1",
+      "status": "unresolved",
+      "details": "Runtime import requires a normalizer to choose and document distance fields, endpoint snaps, geometry splits, and access connector modeling."
+    },
+    {
+      "id": "blocker-2",
+      "status": "unresolved",
+      "details": "Dynamic 2026 access/currentness sources need rechecking close to publication."
+    },
+    {
+      "id": "blocker-3",
+      "status": "unresolved",
+      "details": "Several POIs must be attached/suppressed rather than imported as standalone guessed coordinates."
+    },
+    {
+      "id": "blocker-4",
+      "status": "unresolved",
+      "details": "README.md status is older than research-progress.json and caveats-resolution.research.json; use the progress ledger and caveat-resolution packet for current coverage."
+    }
+  ],
+  "openDecisions": [
+    "Decide whether to publish an official headline distance before geometry split review, because official/tourism sources vary between about 140 km, 150 km, 150-160 km, and 160 km.",
+    "Decide the app connector model for M/S Storlule, Kvikkjokk-Bobäcken, helicopter midpoint access and the Gamájåhkå walking alternative.",
+    "Decide whether hut toilets, emergency phones, water points, waste points and seasonal shop/provisions should be standalone facilities or attached to parent hut records.",
+    "Decide whether OSM-only firepits, informal campsites, minor rest areas, viewpoints, picnic sites and swimming spots without durable coordinates should remain suppressed/pending."
+  ],
+  "validationChecklist": [
+    "Parse trail.research.json, research-progress.json, caveats-resolution.research.json and all sections/*.research.json as JSON.",
+    "Confirm section count remains 10 and every section listed in officialSectionOrder has a matching sections/*.research.json file.",
+    "Confirm no files outside data/research/candidate-trails/padjelantaleden/ are changed by the normalization-handoff task.",
+    "Before runtime work, document officialDisplayDistance, computedGeometryKm, geometrySource, split indices, endpoint snap policy, access connectors and facility import actions per section.",
+    "Before publication/runtime import, recheck all dynamic access/currentness sources listed in caveats-resolution.research.json."
+  ],
+  "unresolvedBeforeRuntimeImport": [
+    "Runtime import requires a normalizer to choose and document distance fields, endpoint snaps, geometry splits, and access connector modeling.",
+    "Dynamic 2026 access/currentness sources need rechecking close to publication.",
+    "Several POIs must be attached/suppressed rather than imported as standalone guessed coordinates.",
+    "README.md status is older than research-progress.json and caveats-resolution.research.json; use the progress ledger and caveat-resolution packet for current coverage.",
+    "Decide whether to publish an official headline distance before geometry split review, because official/tourism sources vary between about 140 km, 150 km, 150-160 km, and 160 km.",
+    "Decide the app connector model for M/S Storlule, Kvikkjokk-Bobäcken, helicopter midpoint access and the Gamájåhkå walking alternative.",
+    "Decide whether hut toilets, emergency phones, water points, waste points and seasonal shop/provisions should be standalone facilities or attached to parent hut records.",
+    "Decide whether OSM-only firepits, informal campsites, minor rest areas, viewpoints, picnic sites and swimming spots without durable coordinates should remain suppressed/pending."
+  ],
+  "nextActions": [
+    "Review generated candidate records for trail-specific dedupe and topology before runtime import.",
+    "Keep pending-review and suppress facility states out of runtime output.",
+    "Run final GIS overlays and live publication checks before user-facing rule warnings.",
+    "Do not write app runtime source data from this report without an explicit runtime integration task."
+  ]
+}

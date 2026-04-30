@@ -1,0 +1,817 @@
+{
+  "schemaVersion": "candidate-route-geometry-index/v1",
+  "trailId": "hallandsleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-normalized-research-only",
+  "runtimeImportApproved": false,
+  "geometryPolicy": {
+    "decision": "Use selected canonical route geometry as provenance, and create separate display-ready geometry only when needed for rendering.",
+    "coordinatePolicy": "All candidate GeoJSON must be WGS84 longitude-latitude coordinate order. Transform EPSG:3006 or other source CRS before candidate artifact output and record the transform.",
+    "sourcePriority": [
+      "Official trail-manager GPX/API/GeoJSON or official state trail linework when source policy allows it.",
+      "Current official presentation source such as Naturkartan when it is the trail manager's public map baseline.",
+      "OSM/Waymarked/third-party sources only as QA, fallback or explicit low-confidence source when the handoff says so."
+    ],
+    "segmentPolicy": "Preserve official track, segment and MultiLineString breaks unless an explicit sourced connector is modeled.",
+    "densificationPolicy": "Densification is allowed only for draw/display artifacts and must not be treated as field-verified trail geometry.",
+    "simplificationPolicy": "Do not simplify canonical candidate geometry until an importer-specific tolerance is chosen and visually QAed."
+  },
+  "sourceArtifactsToUse": [
+    "trail.research.json for official inventory and section order",
+    "sections/*.research.json for section caveats, endpoint notes, facilities, rules and do-not-import guidance",
+    "geometry/geometry-index.research.json as the geometry manifest",
+    "geometry/canonical/*.geojson for provenance and normalization",
+    "geometry/draw-ready/*.geojson for display QA only"
+  ],
+  "sourceArtifactsToSuppress": [
+    "Official API line.geometry fields when section research says they are empty, stale or misleading",
+    "Older Naturkartan, OSM, route-app or paper-map-derived linework when section files mark it stale, validation-only or non-canonical"
+  ],
+  "discoveredGeojsonFiles": [
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-akulla-astad.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-akulla-ullared.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-alvsaker-naturum-fjaras-bracka.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-asa-frillesas.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-askhults-by-stattared.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-astad-vessigebro.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-atran-langesjon.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-ekegarden-koarp.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-frodeparken-oskarstrom.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-gyltige-simlangsdalen.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-halmstad-c-paarp.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-haverdal-tylosand.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-karnebygd-atran.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-knared-ekegarden.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-kungsbacka-c-tjoloholm.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-kvarnforsen-gyltige.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-langesjon-rydobruk.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-mastocka-knared.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-mellbystrand-bastad-station.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-naturum-fjaras-bracka-askhults-by.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-nosslinge-akulla.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-oskarstrom-gyltige.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-paarp-mellbystrand.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-rydobruk-kvarnforsen.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-sandsjobacka-kungsbacka-c.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-simlangsdalen-halmstad.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-simlangsdalen-mastocka.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-stattared-veddige.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-steninge-haverdal.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-tjoloholm-asa.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-tylosand-halmstad-c.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-ullared-karnebygd.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-varberg-akulla.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-veddige-nosslinge.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-vessigebro-frodeparken.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-akulla-astad.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-akulla-ullared.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-alvsaker-naturum-fjaras-bracka.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-asa-frillesas.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-askhults-by-stattared.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-astad-vessigebro.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-atran-langesjon.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-ekegarden-koarp.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-frodeparken-oskarstrom.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-gyltige-simlangsdalen.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-halmstad-c-paarp.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-haverdal-tylosand.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-karnebygd-atran.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-knared-ekegarden.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-kungsbacka-c-tjoloholm.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-kvarnforsen-gyltige.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-langesjon-rydobruk.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-mastocka-knared.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-mellbystrand-bastad-station.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-naturum-fjaras-bracka-askhults-by.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-nosslinge-akulla.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-oskarstrom-gyltige.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-paarp-mellbystrand.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-rydobruk-kvarnforsen.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-sandsjobacka-kungsbacka-c.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-simlangsdalen-halmstad.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-simlangsdalen-mastocka.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-stattared-veddige.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-steninge-haverdal.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-tjoloholm-asa.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-tylosand-halmstad-c.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-ullared-karnebygd.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-varberg-akulla.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-veddige-nosslinge.geojson",
+    "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-vessigebro-frodeparken.geojson"
+  ],
+  "summary": {
+    "candidate-geojson-present": 35
+  },
+  "sections": [
+    {
+      "sectionId": "hallandsleden-alvsaker-naturum-fjaras-bracka",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-alvsaker-naturum-fjaras-bracka.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-alvsaker-naturum-fjaras-bracka.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-naturum-fjaras-bracka-askhults-by",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-naturum-fjaras-bracka-askhults-by.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-naturum-fjaras-bracka-askhults-by.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-askhults-by-stattared",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-askhults-by-stattared.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-askhults-by-stattared.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-askhults-by-stattared.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-stattared-veddige",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-stattared-veddige.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-stattared-veddige.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-stattared-veddige.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-veddige-nosslinge",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-veddige-nosslinge.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-veddige-nosslinge.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-veddige-nosslinge.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-nosslinge-akulla",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-nosslinge-akulla.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-nosslinge-akulla.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-nosslinge-akulla.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-akulla-astad",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-akulla-astad.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-akulla-astad.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-akulla-astad.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-varberg-akulla",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-varberg-akulla.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-varberg-akulla.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-varberg-akulla.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-akulla-ullared",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-akulla-ullared.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-akulla-ullared.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-akulla-ullared.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-ullared-karnebygd",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-ullared-karnebygd.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-ullared-karnebygd.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-ullared-karnebygd.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-karnebygd-atran",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-karnebygd-atran.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-karnebygd-atran.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-karnebygd-atran.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-atran-langesjon",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-atran-langesjon.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-atran-langesjon.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-atran-langesjon.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-langesjon-rydobruk",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-langesjon-rydobruk.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-langesjon-rydobruk.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-langesjon-rydobruk.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-rydobruk-kvarnforsen",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-rydobruk-kvarnforsen.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-rydobruk-kvarnforsen.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-rydobruk-kvarnforsen.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-astad-vessigebro",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-astad-vessigebro.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-astad-vessigebro.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-astad-vessigebro.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-vessigebro-frodeparken",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-vessigebro-frodeparken.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-vessigebro-frodeparken.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-vessigebro-frodeparken.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-frodeparken-oskarstrom",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-frodeparken-oskarstrom.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-frodeparken-oskarstrom.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-frodeparken-oskarstrom.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-oskarstrom-gyltige",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-oskarstrom-gyltige.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-oskarstrom-gyltige.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-oskarstrom-gyltige.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-kvarnforsen-gyltige",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-kvarnforsen-gyltige.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-kvarnforsen-gyltige.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-kvarnforsen-gyltige.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-gyltige-simlangsdalen",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-gyltige-simlangsdalen.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-gyltige-simlangsdalen.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-gyltige-simlangsdalen.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-simlangsdalen-halmstad",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-simlangsdalen-halmstad.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-simlangsdalen-halmstad.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-simlangsdalen-halmstad.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-simlangsdalen-mastocka",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-simlangsdalen-mastocka.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-simlangsdalen-mastocka.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-simlangsdalen-mastocka.geojson"
+      ],
+      "sourceSummary": {
+        "classification": "navigation-grade from official GPX/API geo_json, with stale line.geometry and OSM suppression caveats"
+      },
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-mastocka-knared",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-mastocka-knared.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-mastocka-knared.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-mastocka-knared.geojson"
+      ],
+      "sourceSummary": {
+        "classification": {
+          "grade": "navigation-grade for official GPX/API geo_json",
+          "confidence": "high",
+          "reasoning": "The official GPX and API geo_json are point-identical by lane checks, have current official naming, match official distance, stitch to S6/S8, and align with official section text. Competing sources are consistently older/overlong Mästocka-Västralt-era linework."
+        }
+      },
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-knared-ekegarden",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-knared-ekegarden.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-knared-ekegarden.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-knared-ekegarden.geojson"
+      ],
+      "sourceSummary": {
+        "classification": {
+          "grade": "navigation-grade for official GPX/API geo_json",
+          "confidence": "high",
+          "reasoning": "Official GPX and API geo_json are identical by point count, endpoints, length and bounds, match the 2024 reroute/current digital-source warning, and stitch cleanly to S7 and S9. Competing sources preserve older Västralt-Ekegården segmentation."
+        }
+      },
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-ekegarden-koarp",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-ekegarden-koarp.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-ekegarden-koarp.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-ekegarden-koarp.geojson"
+      ],
+      "sourceSummary": {
+        "classification": {
+          "grade": "navigation-grade for official GPX/API geo_json",
+          "confidence": "high",
+          "reasoning": "Official GPX and API geo_json match exactly in point count, endpoints and computed length, and stitch exactly to S8. Competing official line.geometry, Naturkartan and OSM evidence are useful corroboration but not endpoint-exact or ordered enough for direct import."
+        }
+      },
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-sandsjobacka-kungsbacka-c",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-sandsjobacka-kungsbacka-c.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-sandsjobacka-kungsbacka-c.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-sandsjobacka-kungsbacka-c.geojson"
+      ],
+      "sourceSummary": {
+        "classification": {
+          "grade": "navigation-grade for official GPX/API geo_json",
+          "confidence": "high",
+          "reasoning": "Official GPX and API geo_json match exactly in point count, endpoints and computed length. The only K2 gap is a small station-area offset. Competing API line.geometry, Naturkartan and OSM evidence cannot be used for direct geometry import."
+        }
+      },
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-kungsbacka-c-tjoloholm",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-kungsbacka-c-tjoloholm.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-kungsbacka-c-tjoloholm.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-kungsbacka-c-tjoloholm.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Official GPX and matching Hallandsleden API geo_json",
+        "sourceUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Kungsbacka_Tjoloholm.gpx",
+        "classification": "navigation-grade",
+        "computedDistanceKm": 22.14
+      },
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-tjoloholm-asa",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-tjoloholm-asa.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-tjoloholm-asa.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-tjoloholm-asa.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Official GPX and matching Hallandsleden API geo_json",
+        "sourceUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Tjoloholm_Asa.gpx",
+        "classification": "navigation-grade official geometry with multipart-gap caveat"
+      },
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-asa-frillesas",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-asa-frillesas.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-asa-frillesas.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-asa-frillesas.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Official GPX and Hallandsleden API geo_json"
+      },
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-steninge-haverdal",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-steninge-haverdal.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-steninge-haverdal.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-steninge-haverdal.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Official GPX and Hallandsleden API geo_json"
+      },
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-haverdal-tylosand",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-haverdal-tylosand.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-haverdal-tylosand.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-haverdal-tylosand.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Official GPX and Hallandsleden API geo_json"
+      },
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-tylosand-halmstad-c",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-tylosand-halmstad-c.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-tylosand-halmstad-c.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-tylosand-halmstad-c.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Official GPX and Hallandsleden API geo_json"
+      },
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-halmstad-c-paarp",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-halmstad-c-paarp.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-halmstad-c-paarp.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-halmstad-c-paarp.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Official GPX and Hallandsleden API geo_json"
+      },
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-paarp-mellbystrand",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-paarp-mellbystrand.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-paarp-mellbystrand.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-paarp-mellbystrand.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "hallandsleden-mellbystrand-bastad-station",
+      "sourceFile": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-mellbystrand-bastad-station.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-mellbystrand-bastad-station.geojson",
+        "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-mellbystrand-bastad-station.geojson"
+      ],
+      "sourceSummary": {},
+      "transformPolicy": [
+        "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+        "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+        "Do not treat draw-ready interpolation points as field-verified trail turns.",
+        "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+        "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+      ],
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    }
+  ]
+}

@@ -29,6 +29,43 @@ const expectedQualityCheckIds = [
   "runtime-write-safety"
 ];
 
+const expectedCandidateArtifactFiles = [
+  "route-sections.research.json",
+  "route-geometry-index.research.json",
+  "facilities.research.json",
+  "rule-warnings.research.json",
+  "import-report.research.json"
+];
+
+const allowedCandidateFacilityTypes = new Set([
+  "campsite",
+  "shelter",
+  "fireplace",
+  "toilet",
+  "water",
+  "natural-water",
+  "food",
+  "swimming",
+  "parking",
+  "transit",
+  "rest-area",
+  "attraction",
+  "heritage",
+  "rule-warning",
+  "unofficial-shelter",
+  "trail-junction",
+  "emergency-phone",
+  "lodging",
+  "waste",
+  "hazard",
+  "viewpoint",
+  "camping",
+  "service",
+  "informal-tenting"
+]);
+
+const allowedFacilityStates = new Set(["normal", "pending-review", "suppress"]);
+
 const errors = [];
 const warnings = [];
 
@@ -115,6 +152,20 @@ function collectNumbers(value) {
 function validateRequiredKeys(scope, value, requiredKeys) {
   for (const key of requiredKeys) {
     if (!(key in value)) addError(scope, `Missing required key "${key}"`);
+  }
+}
+
+function validateUnique(scope, label, values) {
+  const seen = new Map();
+  for (const value of values) {
+    if (typeof value !== "string" || !value.trim()) {
+      addError(scope, `${label} contains a missing or non-string ID`);
+      continue;
+    }
+    seen.set(value, (seen.get(value) ?? 0) + 1);
+  }
+  for (const [value, count] of seen) {
+    if (count > 1) addError(scope, `${label} contains duplicate ID "${value}"`);
   }
 }
 
@@ -235,12 +286,136 @@ function validatePhaseStatus(prep) {
   const expected = new Map([
     [1, "complete"],
     [2, "complete"],
-    [3, "ready-to-start"],
+    [3, "complete-initial-candidate-artifacts"],
     [4, "blocked-until-explicit-request"]
   ]);
   for (const [phase, status] of expected) {
     if (phases.get(phase) !== status) addError("normalization-prep", `phase ${phase} must be ${status}`);
   }
+}
+
+function validatePhase3Report(phase3Report, prep, manifest) {
+  if (phase3Report?.schemaVersion !== "candidate-normalization-phase3-report/v1") {
+    addError("phase3-candidate-artifacts", "schemaVersion must be candidate-normalization-phase3-report/v1");
+  }
+  if (phase3Report?.status !== "complete-initial-candidate-artifacts") {
+    addError("phase3-candidate-artifacts", "status must be complete-initial-candidate-artifacts");
+  }
+  if (phase3Report?.runtimeImportApproved !== false) {
+    addError("phase3-candidate-artifacts", "runtimeImportApproved must remain false");
+  }
+  if (!arraysEqual(phase3Report?.artifactFiles ?? [], expectedCandidateArtifactFiles)) {
+    addError("phase3-candidate-artifacts", "artifactFiles must match the shared candidate artifact contract");
+  }
+
+  const reportTrailIds = (phase3Report?.includedTrails ?? []).map((trail) => trail.trailId);
+  if (!arraysEqual(reportTrailIds, prep?.scope?.includedTrails ?? [])) {
+    addError("phase3-candidate-artifacts", "includedTrails must match normalization-prep order");
+  }
+
+  const manifestCounts = new Map(
+    (manifest?.trails ?? [])
+      .filter((trail) => trail.readiness === "normalization-prep")
+      .map((trail) => [trail.id, trail.files?.sectionFiles])
+  );
+  for (const trail of phase3Report?.includedTrails ?? []) {
+    if (trail.sectionCount !== manifestCounts.get(trail.trailId)) {
+      addError("phase3-candidate-artifacts", `${trail.trailId} sectionCount must match manifest`);
+    }
+  }
+}
+
+async function validateNormalizedCandidateArtifacts(prep, manifest) {
+  const trailsById = new Map((manifest?.trails ?? []).map((trail) => [trail.id, trail]));
+  const rows = [];
+
+  for (const trailId of prep?.scope?.includedTrails ?? []) {
+    const manifestSectionCount = trailsById.get(trailId)?.files?.sectionFiles;
+    const artifactRoot = path.join(candidateRoot, trailId, "normalized-candidate");
+    for (const fileName of expectedCandidateArtifactFiles) {
+      if (!(await pathExists(path.join(artifactRoot, fileName)))) {
+        addError(`${trailId}/normalized-candidate`, `Missing ${fileName}`);
+      }
+    }
+
+    const routeSections = await readJson(path.join(artifactRoot, "route-sections.research.json"));
+    const geometryIndex = await readJson(path.join(artifactRoot, "route-geometry-index.research.json"));
+    const facilities = await readJson(path.join(artifactRoot, "facilities.research.json"));
+    const ruleWarnings = await readJson(path.join(artifactRoot, "rule-warnings.research.json"));
+    const importReport = await readJson(path.join(artifactRoot, "import-report.research.json"));
+    if (!routeSections || !geometryIndex || !facilities || !ruleWarnings || !importReport) continue;
+
+    const scope = `${trailId}/normalized-candidate`;
+    validateArtifactHeader(scope, routeSections, trailId, "candidate-route-sections/v1");
+    validateArtifactHeader(scope, geometryIndex, trailId, "candidate-route-geometry-index/v1");
+    validateArtifactHeader(scope, facilities, trailId, "candidate-facilities/v1");
+    validateArtifactHeader(scope, ruleWarnings, trailId, "candidate-rule-warnings/v1");
+    validateArtifactHeader(scope, importReport, trailId, "candidate-import-report/v1");
+
+    if ((routeSections.sections ?? []).length !== manifestSectionCount) {
+      addError(scope, `route section count must match manifest ${manifestSectionCount}`);
+    }
+    if ((geometryIndex.sections ?? []).length !== manifestSectionCount) {
+      addError(scope, `geometry section count must match manifest ${manifestSectionCount}`);
+    }
+    if (facilities.summary?.totalRecords !== (facilities.records ?? []).length) {
+      addError(scope, "facility summary totalRecords must match records length");
+    }
+    if (ruleWarnings.summary?.totalRecords !== (ruleWarnings.records ?? []).length) {
+      addError(scope, "rule warning summary totalRecords must match records length");
+    }
+    if (importReport.manifestSectionFiles !== manifestSectionCount) {
+      addError(scope, "import report manifestSectionFiles must match manifest");
+    }
+    if (importReport.generatedCounts?.routeSections !== (routeSections.sections ?? []).length) {
+      addError(scope, "import report routeSections count must match route artifact");
+    }
+    if (importReport.generatedCounts?.geometrySections !== (geometryIndex.sections ?? []).length) {
+      addError(scope, "import report geometrySections count must match geometry artifact");
+    }
+    if (importReport.generatedCounts?.facilities !== (facilities.records ?? []).length) {
+      addError(scope, "import report facilities count must match facilities artifact");
+    }
+    if (importReport.generatedCounts?.ruleWarnings !== (ruleWarnings.records ?? []).length) {
+      addError(scope, "import report ruleWarnings count must match rule warnings artifact");
+    }
+    if (importReport.runtimeImportApproved !== false) {
+      addError(scope, "import report runtimeImportApproved must remain false");
+    }
+
+    validateUnique(scope, "route section IDs", (routeSections.sections ?? []).map((section) => section.sectionId));
+    validateUnique(scope, "facility IDs", (facilities.records ?? []).map((facility) => facility.facilityId));
+    for (const facility of facilities.records ?? []) {
+      if (!allowedFacilityStates.has(facility.state)) addError(scope, `facility ${facility.facilityId} has unsupported state ${facility.state}`);
+      if (!Array.isArray(facility.candidateTypes) || facility.candidateTypes.length === 0) {
+        addError(scope, `facility ${facility.facilityId} must have candidateTypes`);
+      }
+      for (const type of facility.candidateTypes ?? []) {
+        if (!allowedCandidateFacilityTypes.has(type)) {
+          addError(scope, `facility ${facility.facilityId} has unsupported candidateType ${type}`);
+        }
+      }
+      if (!Array.isArray(facility.rawTypes) || facility.rawTypes.length === 0) {
+        addError(scope, `facility ${facility.facilityId} must preserve rawTypes`);
+      }
+    }
+    validateUnique(scope, "rule warning IDs", (ruleWarnings.records ?? []).map((warning) => warning.warningId));
+
+    rows.push({
+      trailId,
+      sections: routeSections.sections.length,
+      facilities: facilities.records.length,
+      ruleWarnings: ruleWarnings.records.length
+    });
+  }
+
+  return rows;
+}
+
+function validateArtifactHeader(scope, artifact, trailId, schemaVersion) {
+  if (artifact.schemaVersion !== schemaVersion) addError(scope, `schemaVersion must be ${schemaVersion}`);
+  if (artifact.trailId !== trailId) addError(scope, `trailId must be ${trailId}`);
+  if (artifact.runtimeImportApproved !== false) addError(scope, "runtimeImportApproved must remain false");
 }
 
 function validateQualityGate(qualityGate, prep, manifest) {
@@ -289,6 +464,9 @@ async function validateDocs(prep, manifest) {
   if (prep?.qualityGateFile !== "normalization-quality-gate.research.json") {
     addError("normalization-prep", "qualityGateFile must reference normalization-quality-gate.research.json");
   }
+  if (prep?.phase3ReportFile !== "phase3-candidate-artifacts.research.json") {
+    addError("normalization-prep", "phase3ReportFile must reference phase3-candidate-artifacts.research.json");
+  }
   if (manifest?.sharedPrepFile !== "normalization-prep.research.json") {
     addError("manifest", "sharedPrepFile must reference normalization-prep.research.json");
   }
@@ -298,12 +476,16 @@ async function validateDocs(prep, manifest) {
   if (manifest?.qualityGateFile !== "normalization-quality-gate.research.json") {
     addError("manifest", "qualityGateFile must reference normalization-quality-gate.research.json");
   }
+  if (manifest?.phase3ReportFile !== "phase3-candidate-artifacts.research.json") {
+    addError("manifest", "phase3ReportFile must reference phase3-candidate-artifacts.research.json");
+  }
 
   const readme = await readFile(path.join(candidateRoot, "README.md"), "utf8");
   for (const fileName of [
     "normalization-prep.research.json",
     "shared-importer-decisions.research.json",
     "normalization-quality-gate.research.json",
+    "phase3-candidate-artifacts.research.json",
     "manifest.json"
   ]) {
     if (!readme.includes(fileName)) addError("README", `Missing shared coordination file mention for ${fileName}`);
@@ -315,18 +497,24 @@ const prep = await readJson(path.join(candidateRoot, "normalization-prep.researc
 const manifest = await readJson(path.join(candidateRoot, "manifest.json"));
 const shared = await readJson(path.join(candidateRoot, "shared-importer-decisions.research.json"));
 const qualityGate = await readJson(path.join(candidateRoot, "normalization-quality-gate.research.json"));
+const phase3Report = await readJson(path.join(candidateRoot, "phase3-candidate-artifacts.research.json"));
 
-if (prep && manifest && shared && qualityGate) {
+if (prep && manifest && shared && qualityGate && phase3Report) {
   validateScopeLists(prep, manifest, shared);
   validateSharedDecisions(shared);
   validatePhaseStatus(prep);
   validateQualityGate(qualityGate, prep, manifest);
+  validatePhase3Report(phase3Report, prep, manifest);
   await validateDocs(prep, manifest);
   const rows = await validateHandoffs(prep, manifest);
+  const artifactRows = await validateNormalizedCandidateArtifacts(prep, manifest);
   if (errors.length === 0) {
-    console.log(`Candidate normalization prep check passed (${rows.length} trails, ${parsedFiles} JSON/GeoJSON files).`);
+    console.log(`Candidate normalization check passed (${rows.length} trails, ${parsedFiles} JSON/GeoJSON files).`);
     for (const row of rows) {
       console.log(`- ${row.trailId}: ${row.sectionFiles} section files, ${row.openDecisions} open decisions, ${row.status}`);
+    }
+    for (const row of artifactRows) {
+      console.log(`  artifacts ${row.trailId}: ${row.sections} sections, ${row.facilities} facilities, ${row.ruleWarnings} rule warnings`);
     }
   }
 }

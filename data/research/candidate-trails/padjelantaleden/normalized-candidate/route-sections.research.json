@@ -1,0 +1,816 @@
+{
+  "schemaVersion": "candidate-route-sections/v1",
+  "trailId": "padjelantaleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-normalized-research-only",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "padjelantaleden/normalization-handoff.research.json",
+  "sharedDecisionFile": "shared-importer-decisions.research.json",
+  "distancePolicy": {
+    "officialDistanceKm": "Trail-manager or selected official user-facing distance.",
+    "computedGeometryDistanceKm": "Distance computed from selected normalized geometry.",
+    "displayDistanceKm": "Defaults to officialDistanceKm unless a trail-specific handoff selects a different value.",
+    "distanceCaveats": "Source contradictions, rounded totals, stale values and measured-distance notes."
+  },
+  "sections": [
+    {
+      "sectionId": "padjelantaleden-stage-01-ritsem-akka-gisuris",
+      "sourceFile": "data/research/candidate-trails/padjelantaleden/sections/padjelantaleden-stage-01-ritsem-akka-gisuris.research.json",
+      "order": 1,
+      "sectionNumber": 1,
+      "name": "Padjelantaleden Etapp 1: Ritsem/STF Akka Fjällstuga - BLT Gisurisstugan",
+      "from": "Ritsem / Änonjálmme / STF Akka Fjällstuga",
+      "to": "BLT Gisuris/Kisurisstugan",
+      "distance": {
+        "officialDistanceKm": 16,
+        "displayDistanceKm": 16,
+        "distanceCaveats": [
+          "STF, Padjelanta.se, BLT, OSM, and Naturkartan use slightly different start labels and measurement methods. Preserve the official 2 + 14 km for user-facing stage distance until a geometry split is reviewed."
+        ]
+      },
+      "estimatedTime": {
+        "official": "3-5 hours walking, excluding boat wait/crossing",
+        "naturkartan": "4-6 hours for Akka-Gisuris only",
+        "confidence": "medium",
+        "notes": "Boat schedules, wind cancellations, and staying at Ritsem or Akka can dominate the access day."
+      },
+      "difficulty": {
+        "label": "easy to moderate remote mountain stage",
+        "officialClaims": [
+          "Laponia describes Padjelantaleden overall as an easy trail in the mountain context.",
+          "Field reports describe this stage as generally easy in normal summer conditions."
+        ],
+        "caveats": [
+          "Remote national-park terrain with poor mobile coverage.",
+          "Heavy rain and snowmelt can raise streams quickly.",
+          "Akkajaure boat access is weather dependent."
+        ],
+        "confidence": "medium-high"
+      },
+      "routeType": {
+        "type": "point-to-point hiking stage with required boat access",
+        "geometryShouldRepresent": "walking only from Änonjálmme/Áhkká landing via STF Akka to Gisuris; Ritsem should be modeled as access/boat metadata, not hiking geometry",
+        "directionForImport": "north-to-south, Änonjálmme/Áhkká toward Gisuris/Kisuris"
+      },
+      "endpoints": {
+        "start": {},
+        "end": {},
+        "endpointGapNotes": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "OSM relation 19111628",
+        "sourceUrl": "https://www.openstreetmap.org/relation/19111628",
+        "classification": "navigation-grade/planning-grade borderline",
+        "confidence": "medium-high",
+        "computedDistanceKm": 14.916
+      },
+      "caveats": [
+        "During normalization, should the canonical hiking geometry start exactly at the Änonjálmme ferry pier or at the through-trail point nearest the settlement?",
+        "Should Akka be modeled as the route start in app copy, with Änonjálmme and Ritsem only as access metadata, or should the section title keep the official Ritsem/STF Akka wording?",
+        "Can Sjnjuvtjudisjávrásjjåhkå rest-area/toilet coordinates be extracted from official linework or other map services?",
+        "Which Gisuris coordinate should be canonical after snapping to final route geometry: Naturkartan POI, OSM hut node, or BLT-derived coordinate?",
+        "Are the OSM informal tent places actually on route and legal/useful enough to import, or should camping stay as general notes only?",
+        "Before user-facing publication, recheck 2026 or later M/S Storlule, Road to Ritsem, Fiskflyg, fire-ban, and Länsstyrelsen/Laponia current-condition pages."
+      ]
+    },
+    {
+      "sectionId": "padjelantaleden-stage-02-gisuris-laddejahka",
+      "sourceFile": "data/research/candidate-trails/padjelantaleden/sections/padjelantaleden-stage-02-gisuris-laddejahka.research.json",
+      "order": 2,
+      "sectionNumber": 2,
+      "name": "Padjelantaleden Etapp 2: BLT Gisuris/Kisurisstugan - BLT Låddejåhkå/Låddejåkkåstugan",
+      "from": "BLT Gisuris/Kisurisstugan",
+      "to": "BLT Låddejåhkå/Låddejåkkåstugan",
+      "distance": {
+        "officialDistanceKm": 23,
+        "displayDistanceKm": 23,
+        "distanceCaveats": [
+          "STF and BLT/Padjelanta use 23 km. OSM and cropped Naturkartan linework compute about 22.1 km. Preserve the official 23 km until route geometry is normalized and endpoint policy is reviewed."
+        ]
+      },
+      "estimatedTime": {
+        "official": "7-9 hours",
+        "naturkartanRelatedSegment": "6-8 hours for Kutjaure-Låddejåhkå, not the full Gisuris-Låddejåhkå stage",
+        "fieldReports": [
+          "Far Far From Home reported Låddejåhkå-Kisuris in about 6h05 on 2023-07-14, reverse direction.",
+          "Several reports describe this as a long day even though the walking is mostly nontechnical."
+        ],
+        "confidence": "high for official time; medium for actual time because weather, wet ground, and ford levels vary"
+      },
+      "difficulty": {
+        "label": "moderate remote mountain stage",
+        "officialClaims": [
+          "STF calls the terrain relatively easy but identifies this as the longest Padjelantaleden stage.",
+          "Naturkartan describes varied surfaces, easy mountain moorland, grassy pastures, willow brush, wet stretches with boardwalks, easy wades, and a steep descent to Låddejåhkå."
+        ],
+        "keyHazards": [
+          "Long 23 km hut-to-hut day with no road access.",
+          "Three suspension bridges around Varggá/Vuojatädno and possible easy wades.",
+          "Vierttjajågåsj near Låddejåhkå can become a meaningful ford after rain.",
+          "Open fell sections can be exposed to fog, rain, wind, and poor visibility.",
+          "Final approach to Låddejåhkå is steep in the southbound direction."
+        ],
+        "confidence": "medium-high"
+      },
+      "routeType": {
+        "type": "point-to-point remote hut-to-hut hiking stage",
+        "directionForImport": "north-to-south, Gisuris/Kisuris toward Låddejåhkå",
+        "alternatesAndConnections": [
+          {
+            "name": "Kutjaure/Vájsáluokta northern alternate",
+            "description": "STF suggests hikers can start at Vájsáluokta, walk to STF Kutjaure, and then continue directly to Låddejåhkå. Naturkartan BD57 covers Kutjaure-Låddejåhkå and joins the Padjelantaleden line for the last 11 km.",
+            "modelingRecommendation": "Keep as access/alternate metadata, not part of the official Gisuris-Låddejåhkå stage geometry."
+          },
+          {
+            "name": "Old/direct Loadásj route",
+            "description": "Field reports describe an old route/variant after the Vierttjajågåsj area that may shorten the walk toward Kisuris but is not the official stage line captured in OSM relation 19111627.",
+            "modelingRecommendation": "Suppress from import unless a later alternate-route task explicitly researches it."
+          }
+        ]
+      },
+      "endpoints": {
+        "start": {},
+        "end": {},
+        "endpointGapNotes": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {},
+      "caveats": [
+        "STF uses Kisurisstugan and Låddejåkkastugan/Låddejåhkåstugan variants; BLT/Padjelanta commonly use Gisuris and Låddejåhkå; Padjelanta.se uses Låddejåkkå.",
+        "Official stage distance is 23 km; OSM computes 22.053 km and cropped Naturkartan about 22.154 km.",
+        "OSM relation 19111627 is per-stage and clean, while Naturkartan requires crops from BD58 and BD57.",
+        "Some field reports describe no difficult crossings, while 2024 and Utsidan reports flag Vierttjajågåsj as potentially difficult after rain/high water.",
+        "BLT hut pages mention cash-only kiosk payment, while newer price/opening pages may mention card payment. Some pages retain 2025 labels while Padjelanta.se has April 2026 update notes.",
+        "During normalization, decide whether to draw the official stage from the OSM relation exactly or to rebuild from cropped Naturkartan BD58+BD57 where they differ by tens of meters.",
+        "Verify separate coordinates for Gisuris emergency phone and dry toilet before importing those as standalone POIs.",
+        "Confirm whether the Vuojatädno/Varggá bridge cluster centers snap cleanly to final normalized geometry and whether all three should become imported infrastructure POIs.",
+        "Do not import the old/direct Loadásj route without a separate alternate-route research task.",
+        "Before public/user-facing publication, recheck BLT 2026 opening/payment details, Länsstyrelsen current conditions, bridge notices, fire bans, Fiskflyg, Road to Ritsem, and M/S Storlule schedules."
+      ]
+    },
+    {
+      "sectionId": "padjelantaleden-stage-03-laddejahka-arasluokta",
+      "sourceFile": "data/research/candidate-trails/padjelantaleden/sections/padjelantaleden-stage-03-laddejahka-arasluokta.research.json",
+      "order": 3,
+      "sectionNumber": 3,
+      "name": "Padjelantaleden Etapp 3: BLT Låddejåhkå/Låddejåkkåstugan - BLT Árasluoktastugorna",
+      "from": "BLT Låddejåhkå/Låddejåkkåstugan",
+      "to": "BLT Árasluoktastugorna",
+      "distance": {
+        "officialDistanceKm": 13,
+        "displayDistanceKm": 13,
+        "distanceCaveats": [
+          "STF and Naturkartan use 13 km; BLT/Padjelanta endpoint distance tables use 12 km. Preserve STF/Naturkartan 13 km as the official stage distance until import policy decides otherwise."
+        ]
+      },
+      "estimatedTime": {
+        "officialStf": "3-4 hours",
+        "naturkartan": "4-6 hours",
+        "fieldReports": [
+          "I-Trekkings reported about 3h30 for Låddejåkkå-Árasluokta on 2006-07-31.",
+          "Recent field reports emphasize that the climb/undulation can make the short stage feel harder than its distance suggests."
+        ],
+        "confidence": "medium-high",
+        "notes": "Use a broad app estimate or retain both source claims; the 4 km climb to Boarkka/Pårka is the main time variable."
+      },
+      "difficulty": {
+        "label": "moderate short mountain stage with major climb",
+        "officialClaims": [
+          "STF describes easy terrain with some climbs and fine views.",
+          "Naturkartan says the stage is short and easy-walked but has Padjelantaleden's largest elevation difference."
+        ],
+        "keyHazards": [
+          "Suspension bridge over Låddejåhkå shortly after the start.",
+          "Four-kilometre strenuous climb to Boarkka/Pårka pass around 900 m.",
+          "Long descent to Miellädno and another suspension bridge before Árasluokta.",
+          "Wet sections with boardwalks can be slippery.",
+          "Open exposed terrain and poor mobile coverage."
+        ],
+        "confidence": "medium-high"
+      },
+      "routeType": {
+        "type": "point-to-point remote hut-to-hut hiking stage",
+        "directionForImport": "north-to-south/east-to-west relative to STF order, Låddejåhkå toward Árasluokta",
+        "connectionsAndAlternates": [
+          {
+            "name": "Nordkalottleden overlap",
+            "description": "Naturkartan and OSM identify this corridor as shared with Nordkalottleden/Nordkalottruta.",
+            "modelingRecommendation": "Use as route-overlap metadata only; do not duplicate the hiking line in this candidate packet."
+          },
+          {
+            "name": "Árasluokta boat transport across Virihávrre",
+            "description": "BLT says boat transport across Virihaure/Virihávrre can be arranged locally at Árasluokta.",
+            "modelingRecommendation": "Model as side access metadata, not public transit and not section geometry."
+          }
+        ]
+      },
+      "endpoints": {
+        "start": {},
+        "end": {},
+        "endpointGapNotes": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {},
+      "caveats": [
+        "STF and Naturkartan use 13 km; BLT/Padjelanta endpoint tables use 12 km.",
+        "STF says 3-4 hours; Naturkartan says 4-6 hours. Field reports support both depending on pace and whether stages are combined.",
+        "Naturkartan BD59 geometry endpoint is about 224 m from the Padjelanta.se hut coordinate, while OSM relation/hut coordinates are much closer to the hut.",
+        "Laponia warns about a poor-condition Miellädno bridge near Álggajávrre/Alkavare, which appears off the Stage 3 Padjelantaleden line but shares the river name.",
+        "Some BLT pages still show 2025-like staffing/payment text while Padjelanta.se Arasluokta shows 2026 dates/prices; card/cash guidance differs between pages.",
+        "During normalization, decide whether to snap/extend the Árasluokta route endpoint to the official hut coordinate or preserve the Naturkartan route-line endpoint with the hut as nearby facility.",
+        "Verify exact coordinate for Árasluokta emergency phone before importing it as a standalone POI.",
+        "Verify whether Árasluokta has a discrete drinking-water point before importing one.",
+        "Decide whether to import the Låddejåhkå canyon as a bridge only or as bridge plus POI/viewpoint note.",
+        "Do not attach the Laponia poor-condition Miellädno/Álggajávrre bridge warning to Stage 3 unless a later map check proves it is the same bridge.",
+        "Before publication, recheck BLT 2026 staffing/payment text, Laponia/Länsstyrelsen current-condition pages, fire bans, and Fiskflyg/boat schedules."
+      ]
+    },
+    {
+      "sectionId": "padjelantaleden-stage-04-arasluokta-staloluokta",
+      "sourceFile": "data/research/candidate-trails/padjelantaleden/sections/padjelantaleden-stage-04-arasluokta-staloluokta.research.json",
+      "order": 4,
+      "sectionNumber": 4,
+      "name": "Etapp 4: BLT Árasluoktastugorna - BLT Stáloluoktastugan",
+      "from": "BLT Árasluoktastugorna",
+      "to": "BLT Stáloluoktastugan",
+      "distance": {
+        "distanceCaveats": [
+          "high for 10 km official display; medium-high for approximately 10.1 km geometry"
+        ]
+      },
+      "estimatedTime": {
+        "officialStf": "3-4 hours",
+        "naturkartan": "3-4 hours",
+        "fieldReports": [
+          "Reports generally describe the stage as short but rolling, with sustained climb/descent depending on direction.",
+          "Older and reverse-direction reports mention rocky or uneven footing and wet/boardwalk sections that can slow progress."
+        ],
+        "confidence": "high"
+      },
+      "difficulty": {
+        "label": "short scenic mountain-heath stage; not officially graded",
+        "officialClaims": [
+          "STF describes the stage as fine and easy mountain heath.",
+          "Naturkartan says the surface is easy-walked, but wet in places with boardwalks.",
+          "Field reports caution that the stage is rolling rather than flat and can feel slower with a loaded pack."
+        ],
+        "keyHazards": [
+          "Suspension bridge over Árasjåhkå shortly after Árasluokta.",
+          "Climb around Stuor Dijdder and repeated smaller rises before the descent toward Stáloluokta.",
+          "Wet ground and boardwalks can be slippery in rain.",
+          "Open/exposed terrain and poor mobile coverage.",
+          "Reindeer fences and Stáloluokta/Árasluokta Sámi settlement areas require extra care and respect."
+        ],
+        "confidence": "medium-high"
+      },
+      "routeType": {
+        "type": "point-to-point remote hut-to-hut hiking stage",
+        "directionForImport": "Árasluokta to Stáloluokta, matching STF north-to-south section order",
+        "connectionsAndAlternates": [
+          {
+            "name": "Nordkalottleden / Nordkalottruta overlap",
+            "description": "Naturkartan and OSM identify this corridor as shared with Nordkalottleden/Nordkalottruta.",
+            "modelingRecommendation": "Record as route-overlap metadata only; do not duplicate the same line as a separate section geometry."
+          },
+          {
+            "name": "Stáloluokta junction",
+            "description": "At or near Stáloluokta, Padjelantaleden continues southeast toward Duottar while Nordkalottleden has a continuation toward Staddajåkkå/Sårjåsjaure.",
+            "modelingRecommendation": "Do not merge downstream branch geometry into this section."
+          },
+          {
+            "name": "Virihaure local boat access",
+            "description": "BLT pages say boat transport on Virihaure/Virihávrre can be arranged at Árasluokta and Stáloluokta.",
+            "modelingRecommendation": "Model as arranged access metadata, not scheduled public transit and not route geometry."
+          }
+        ]
+      },
+      "endpoints": {
+        "start": {},
+        "end": {},
+        "endpointGapNotes": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {},
+      "caveats": [
+        "STF, Naturkartan, Padjelanta.se overview, Padjelanta.se Árasluokta page, and computed BD60/OSM geometry support about 10 km; BLT/Padjelanta Stáloluokta-side pages list Árasluokta as 12 km.",
+        "Naturkartan still says shop; BLT says smaller sales may occur; Padjelanta.se says previous Parfas kiosk sales have ceased; OSM still has a Parfas Kiosk node with active-looking tags.",
+        "BLT 2026 pricing says card payment is possible in summer at cabin camps; BLT FAQ says provisions are cash-only and prepayment/cash is advised because mountain infrastructure is unreliable; old OSM payment tags are stale.",
+        "Naturkartan/OSM route endpoints are offset from hut coordinates at both ends, especially Árasluokta.",
+        "No Stage 4 closure was found, but Laponia current-info pages include off-section bridge and temporary seasonal notices that can become stale quickly.",
+        "During normalization, decide whether to snap/extend the section geometry to the official hut coordinates or preserve route-line endpoints with hut facilities nearby.",
+        "Verify exact standalone coordinate for Árasluokta emergency phone before importing it separately.",
+        "Verify whether Árasluokta chapel/church hut and picnic table should be imported or suppressed.",
+        "Verify Stáloluokta provisions shortly before import; do not import Parfas Kiosk as active without current operator confirmation.",
+        "Verify whether Stáloluokta campsite/toilets/waste nodes belong to hiker services and should be imported.",
+        "Verify exact Stáloluokta helipad/landing labels with Fiskflyg if access points become importable POIs.",
+        "Recheck BLT 2026 opening/payment/service details, Fiskflyg schedules, Road to Ritsem/Kvikkjokk gateway schedules, Laponia/Länsstyrelsen current conditions, bridge notices, and fire bans before publication."
+      ]
+    },
+    {
+      "sectionId": "padjelantaleden-stage-05-staloluokta-duottar",
+      "sourceFile": "data/research/candidate-trails/padjelantaleden/sections/padjelantaleden-stage-05-staloluokta-duottar.research.json",
+      "order": 5,
+      "sectionNumber": 5,
+      "name": "Etapp 5: BLT Stáloluoktastugan - BLT Duottarstugan",
+      "from": "BLT Stáloluoktastugan",
+      "to": "BLT Duottarstugan",
+      "distance": {
+        "distanceCaveats": [
+          "high for 18 km official display; medium-high for approximately 17.8-18.2 km geometry after hut access offsets"
+        ]
+      },
+      "estimatedTime": {
+        "officialStf": "5-7 hours",
+        "naturkartan": "6-8 hours",
+        "fieldReports": [
+          "FarFarFromHome reported the reverse Duottar-Stáloluokta day as 18 km in 5 hours 10 minutes on 2023-07-12.",
+          "Outdoor Wilda describes the stage as long but generally uncomplicated, with the more barren and stony part after Bållávrjåhkå.",
+          "Wikiloc 2024 marks the reverse segment as moderate and notes that bad weather can make navigation and footing harder."
+        ],
+        "confidence": "medium-high"
+      },
+      "difficulty": {
+        "label": "long exposed mountain stage; not officially graded",
+        "officialClaims": [
+          "STF lists a 18 km stage and describes a route past Gieddávrre, Bållávrjåhkå, moorland, small lakes, and finally Duottar.",
+          "Naturkartan gives 19 km and 6-8 hours for the Stáloluokta-Duottar part and warns that water is scarce after Bållávrjåhkå.",
+          "BLT/Padjelanta cabin pages place the endpoints in a remote hut chain with no road access."
+        ],
+        "keyHazards": [
+          "Long distance with sustained exposure to weather and limited shelter between hut sites.",
+          "Seasonal Bållávrjåhkå suspension bridge; installation/removal timing can affect early/late season travel.",
+          "Water is reported as scarce after Bållávrjåhkå until closer to Duottar, so water planning matters.",
+          "Two generally simple wades before Duottar are reported by field sources, but difficulty depends on weather and meltwater.",
+          "Wet boardwalks, willow/marsh sections, stony ground, mosquitoes/blackflies, and poor mobile coverage can slow travel.",
+          "Reindeer herding areas and the Gieddávrre calf-marking enclosure require care and distance."
+        ],
+        "confidence": "medium-high"
+      },
+      "routeType": {
+        "type": "point-to-point remote hut-to-hut hiking stage",
+        "directionForImport": "Stáloluokta to Duottar, matching STF north-to-south section order",
+        "connectionsAndAlternates": [
+          {
+            "name": "Nordkalottleden / Arctic Trail split near Stáloluokta",
+            "description": "The stage leaves Stáloluokta with shared/nearby trail context, but Nordkalottleden/Arctic Trail turns south toward Staddajåkkå/Sårjåsjaure while Padjelantaleden continues southeast toward Duottar.",
+            "modelingRecommendation": "Record as junction/route-overlap metadata only. Do not merge OSM relation 6261462 or Staddajåkkå geometry into this section."
+          },
+          {
+            "name": "Naturkartan BD69 combined route",
+            "description": "Naturkartan packages Stáloluokta-Duottar and Duottar-Darreluoppal in one GPX file.",
+            "modelingRecommendation": "Split the GPX at the Duottar hut/route crossing and use only the reversed Stáloluokta-Duottar segment for this section."
+          },
+          {
+            "name": "Stáloluokta access routes",
+            "description": "Stáloluokta has scheduled helicopter service to Ritsem/Kvikkjokk in the summer season and arranged local boat access on Virihaure/Virihávrre.",
+            "modelingRecommendation": "Keep as access metadata. Do not model helicopter or boat as hiking route geometry."
+          },
+          {
+            "name": "Darreluoppal onward access",
+            "description": "Duottar has no direct scheduled public access. The nearest southern scheduled helicopter-related gateway is Darreluoppal, one official stage onward.",
+            "modelingRecommendation": "Keep Darreluoppal as onward access context for section 6, not as a section 5 endpoint."
+          }
+        ]
+      },
+      "endpoints": {
+        "start": {},
+        "end": {},
+        "coordinateConfidenceSummary": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {},
+      "caveats": [
+        "During normalization, decide whether to split Naturkartan BD69 at index 419, at the closest route point to the selected Padjelanta Duottar coordinate, or at an OSM-derived hut approach point.",
+        "Decide whether the final geometry should preserve route-line endpoints/splits with hut facilities nearby or snap/extend to hut centroids at Stáloluokta and Duottar.",
+        "Verify 2026 Bållávrjåhkå bridge installation/current status before public-facing import, especially for early/late season use.",
+        "Verify Stáloluokta and Duottar provisions shortly before import; do not import an active standalone Parfas/replacement shop without current operator confirmation.",
+        "Verify whether Stáloluokta campsite/toilet/waste OSM nodes belong to hiker services and should be imported.",
+        "Verify exact standalone coordinate for Duottar emergency phone before importing it separately.",
+        "Verify Duottar dry-toilet coordinate and whether to attach it to the hut instead of importing as standalone.",
+        "Decide whether Bållávrjåhkå tent pitches should remain a route note or become a low-confidence campsite candidate.",
+        "Before publication, recheck BLT 2026 opening/payment/service details, Fiskflyg schedules, Laponia/Länsstyrelsen current conditions, bridge notices, fire bans, and gateway bus/boat schedules."
+      ]
+    },
+    {
+      "sectionId": "padjelantaleden-stage-06-duottar-darreluoppal",
+      "sourceFile": "data/research/candidate-trails/padjelantaleden/sections/padjelantaleden-stage-06-duottar-darreluoppal.research.json",
+      "order": 6,
+      "sectionNumber": 6,
+      "name": "Etapp 6: BLT Duottarstugan - BLT Darreluoppal",
+      "from": "BLT Duottarstugan",
+      "to": "BLT Darreluoppal",
+      "distance": {
+        "distanceCaveats": [
+          "high for official 11 km display; medium for computed route-line distance because both Naturkartan and OSM linework are closer to 9.75-10.0 km"
+        ]
+      },
+      "estimatedTime": {
+        "officialStf": "3-4 hours",
+        "naturkartan": "3-5 hours",
+        "fieldReports": [
+          "FarFarFromHome described the reverse Tarraluoppal-Tuottar day on 2023-07-11 as easy, with the main difficulty being stream crossings requiring boots off.",
+          "Outdoorseiten's 2018 reverse-direction report described a short climb from Darreluoppal, then flatter lake terrain toward Duottar in unusually hot/dry conditions.",
+          "Komoot lists a shorter route time of about 2 hours 41 minutes, but this should not override STF/Naturkartan times for app display."
+        ],
+        "confidence": "medium-high"
+      },
+      "difficulty": {
+        "label": "short exposed high-plateau stage; not officially graded",
+        "officialClaims": [
+          "STF describes rocky terrain with small lakes and snow lingering near the highest point.",
+          "Naturkartan describes easy-walked ground across dry grass heath, meadow, exposed bedrock, one usually easy ford at Gårråjávrátja, the highest point of Padjelantaleden at about 960 m, and then descent toward Darreluoppal/Tarraluoppal.",
+          "BLT/Padjelanta cabin pages identify the endpoints as remote hut sites with no road access."
+        ],
+        "keyHazards": [
+          "High exposed plateau and Padjelantaleden's highest point around 950-960 m.",
+          "Late-lying snow and rapidly changing spring/early-season snow and stream conditions.",
+          "Usually easy but condition-dependent ford at or near Gårråjávrátja.",
+          "Additional small stream crossings reported in field accounts, especially in reverse direction near Darreluoppal.",
+          "Poor visibility, wind, rain, slippery wet planks/boardwalks, boggy sections, mosquitoes, and limited shelter.",
+          "Darreluoppal is just inside Sarek National Park, so boundary/rule context matters."
+        ],
+        "confidence": "medium-high"
+      },
+      "routeType": {
+        "type": "point-to-point remote hut-to-hut hiking stage",
+        "directionForImport": "Duottar to Darreluoppal/Tarraluoppal, matching STF north-to-south section order",
+        "connectionsAndAlternates": [
+          {
+            "name": "Naturkartan BD69 combined route",
+            "description": "Naturkartan packages Stáloluokta-Duottar and Duottar-Darreluoppal in one GPX file.",
+            "modelingRecommendation": "Split the GPX at Duottar and use the first stored Darreluoppal-to-Duottar segment reversed for this section."
+          },
+          {
+            "name": "Darreluoppal / Tarraluoppal boundary access",
+            "description": "Fiskflyg's Kvikkjokk-Stáloluokta route can pick up/drop off at the national-park boundary at Darreluoppal, but no exact landing coordinate was found.",
+            "modelingRecommendation": "Keep as access metadata and a provisional endpoint access proxy, not route geometry or a confirmed standalone helipad."
+          },
+          {
+            "name": "Onward section 7 toward Såmmarlappa",
+            "description": "OSM relation 19111625 and Naturkartan BD70 continue from Darreluoppal toward Såmmarlappa and Tarrekaise.",
+            "modelingRecommendation": "Do not merge onward section 7 geometry into this section."
+          },
+          {
+            "name": "Nordkalottleden / Nordkalottruta branches",
+            "description": "Parent Padjelantaleden/OSM context includes overlapping or nearby Nordkalottleden relations elsewhere.",
+            "modelingRecommendation": "Do not merge branch relations unless a separate overlap/alternate research task is created."
+          }
+        ]
+      },
+      "endpoints": {
+        "start": {},
+        "end": {},
+        "coordinateConfidenceSummary": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {},
+      "caveats": [
+        "During normalization, decide whether to use Naturkartan BD69 split index 419 or OSM relation 19111626 for the Duottar-side route snap, since OSM lands much closer to the hut.",
+        "Decide whether the final geometry should preserve route-line endpoints/splits with hut facilities nearby or snap/extend to hut centroids at Duottar and Darreluoppal.",
+        "Verify exact Darreluoppal helicopter pickup/drop-off landing coordinate with Fiskflyg before importing any helipad/access POI.",
+        "Verify Gårråjávrátja ford cluster coordinates and decide whether to import fords or keep them as safety notes.",
+        "Verify the mid-stage bridge and Darreluoppal approach bridge against final route geometry and current official bridge-status sources before standalone import.",
+        "Verify exact standalone coordinates for Duottar and Darreluoppal emergency phones before importing them separately.",
+        "Verify Duottar and Darreluoppal toilet coordinates and whether to attach them to the hut instead of importing as standalone.",
+        "Treat informal tent pitches as route notes until durable/exact coordinates are verified.",
+        "Before publication, recheck BLT 2026 opening/payment/service details, Fiskflyg schedules and Darreluoppal boundary pickup terms, Laponia/Länsstyrelsen current conditions, fire bans, and gateway bus/boat schedules."
+      ]
+    },
+    {
+      "sectionId": "padjelantaleden-stage-07-darreluoppal-sammarlappa",
+      "sourceFile": "data/research/candidate-trails/padjelantaleden/sections/padjelantaleden-stage-07-darreluoppal-sammarlappa.research.json",
+      "order": 7,
+      "sectionNumber": 7,
+      "name": "Etapp 7: BLT Darreluoppal - STF Såmmarlappa Fjällstuga",
+      "from": "BLT Darreluoppal",
+      "to": "STF Såmmarlappa Fjällstuga",
+      "distance": {
+        "distanceCaveats": [
+          "high for official 15 km display and approximately 14.9 km route geometry"
+        ]
+      },
+      "estimatedTime": {
+        "officialStf": "4-6 hours",
+        "naturkartan": "5-7 hours",
+        "fieldReports": [
+          "I-Trekkings reported reverse Tarraluoppal-Sammarlappa in 3 hours 45 minutes on 2006-08-02.",
+          "Roversmountains reported reverse-direction travel in about 4 hours 15 minutes.",
+          "Field reports note wet planks, stony lower trail, mosquitoes, and weather as practical speed factors."
+        ],
+        "confidence": "medium-high"
+      },
+      "difficulty": {
+        "label": "moderate remote valley stage; mostly easy walking with wet/stony sections",
+        "officialClaims": [
+          "STF gives 15 km and 4-6 hours but no formal difficulty grade.",
+          "Naturkartan describes mostly easy-walked mountain moor, planked wetlands, small hills, wet marshes, birch forest, and Slihtajåhkå suspension bridge.",
+          "Laponia describes Badjelánndaleden generally as easy and says there are no difficult fords."
+        ],
+        "keyHazards": [
+          "Wet and boardwalked ground near Darreluoppal and on the approach to Såmmarlappa.",
+          "Small waterways and mapped fords in the first half can vary with snowmelt and rain.",
+          "Slihtajåhkå suspension bridge currentness should be checked before publication.",
+          "Stony/boggy lower sections, slick planks, mosquitoes, poor visibility, and remoteness.",
+          "The route crosses/skirts Sarek, Padjelanta/Badjelánnda, and Pärlälvens fjällurskog contexts, so rules and current closures are nuanced."
+        ],
+        "confidence": "medium-high"
+      },
+      "routeType": {
+        "type": "point-to-point remote hut-to-hut hiking stage",
+        "directionForImport": "Darreluoppal/Tarraluoppal to Såmmarlappa/Sammarlappa, matching STF north-to-south section order",
+        "connectionsAndAlternates": [
+          {
+            "name": "Naturkartan BD70 combined route",
+            "description": "Naturkartan packages Darreluoppal-Såmmarlappa and Såmmarlappa-Tarrekaise in one GPX file.",
+            "modelingRecommendation": "Split the GPX at Såmmarlappa and use the stored Såmmarlappa-Darreluoppal segment reversed for this section."
+          },
+          {
+            "name": "OSM relation 19111625",
+            "description": "OSM models Darreluoppal via Såmmarlappa to Tarrekaise as one child relation.",
+            "modelingRecommendation": "Use as cross-check and possible endpoint snap reference, not as the sole source unless official GPX handling fails."
+          },
+          {
+            "name": "Darreluoppal and Såmmarlappa helicopter pickup/drop-off",
+            "description": "Fiskflyg's Kvikkjokk-Stáloluokta route lists both the Darreluoppal national-park boundary and Såmmarlappa/Sommarlappa as pickup/drop-off options.",
+            "modelingRecommendation": "Keep as access metadata with hut-coordinate proxies until exact landing coordinates are verified."
+          },
+          {
+            "name": "Såmmarlappa line boat over Tarraälven/Tarraätno",
+            "description": "Padjelanta.se says there is a boat with lines over Tarraälven at Såmmarlappa.",
+            "modelingRecommendation": "Model as endpoint access/facility metadata only if final source pass confirms exact landing/operation details."
+          },
+          {
+            "name": "Old west-side or Sarek side routes",
+            "description": "Field reports mention older/off-route bridges and Sarek route variants south from Darreluoppal.",
+            "modelingRecommendation": "Do not import these as Padjelantaleden geometry without a separate alternate-route research task."
+          }
+        ]
+      },
+      "endpoints": {
+        "start": {},
+        "end": {},
+        "coordinateConfidenceSummary": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {},
+      "caveats": [
+        "During normalization, decide whether to split Naturkartan BD70 at index 469 or use the OSM relation 19111625 split for a tighter Såmmarlappa hut snap.",
+        "Decide whether the final endpoint coordinate for Såmmarlappa should use STF GPS, Padjelanta.se, OSM building centroid, or a route-line point.",
+        "Verify exact Fiskflyg landing coordinates for Darreluoppal boundary and Såmmarlappa before importing any standalone helicopter/access POIs.",
+        "Verify exact line-boat landing/operation details at Såmmarlappa before importing a boat/access POI.",
+        "Verify Slihtajåhkå bridge current status before publication and avoid labeling it as a named seasonal Laponia summer bridge without stronger evidence.",
+        "Verify mapped fords and streamside camp pitches against final geometry and decide whether app taxonomy supports these as standalone imports.",
+        "Find or verify a standalone Såmmarlappa toilet coordinate before importing toilet POI; otherwise attach service context to the hut.",
+        "Verify Darreluoppal/BLT and Såmmarlappa/STF provisions, payment, booking, and opening details close to publication.",
+        "Check Pärlälvens fjällurskog/Försvarsmakten closure notices before publication.",
+        "Do not import old/off-route Sarek or west-side river alternatives without a separate research task."
+      ]
+    },
+    {
+      "sectionId": "padjelantaleden-stage-08-sammarlappa-tarrekaise",
+      "sourceFile": "data/research/candidate-trails/padjelantaleden/sections/padjelantaleden-stage-08-sammarlappa-tarrekaise.research.json",
+      "order": 8,
+      "sectionNumber": 8,
+      "name": "Etapp 8: STF Såmmarlappa Fjällstuga - STF Tarrekaise Fjällstuga",
+      "from": "STF Såmmarlappa Fjällstuga",
+      "to": "STF Tarrekaise Fjällstuga",
+      "distance": {
+        "distanceCaveats": [
+          "high for official 13 km display; medium-high for approximately 11.6 km computed linework from both GPX and OSM"
+        ]
+      },
+      "estimatedTime": {
+        "officialStf": "4-6 hours",
+        "naturkartan": "4-6 hours",
+        "fieldReports": [
+          "Roversmountains reported Såmmarlappa-Tarrekaise in about 3 hours 45 minutes in older conditions.",
+          "Wikiloc 2024 reverse track lists about 13.2 km for Tarrekaise-Sämmarlappa as part of a multi-day Padjelantaleden track.",
+          "Field reports warn that wet vegetation, old/new duckboards, Bádurgårsså side streams, and rocky/bouldery trail can slow the stage."
+        ],
+        "confidence": "medium-high"
+      },
+      "difficulty": {
+        "description": "No formal official difficulty grade found. Naturkartan describes the leg as short and flat but fairly strenuous because the path is rocky. Field reports add wet, muddy, boardwalk, side-stream, mosquito, and after-rain caveats.",
+        "confidence": "medium-high"
+      },
+      "routeType": {
+        "type": "point-to-point remote hut-to-hut hiking stage",
+        "directionForImport": "Såmmarlappa/Sammarlappa to Tarrekaise, matching STF north-to-south section order",
+        "descriptionForApp": "The stage continues south through Tarradalen from Såmmarlappa toward Tarrekaise. It is a short and mostly flat valley stage, but the walking can still be tiring because of stones, wet ground, long boardwalk sections, side streams, and dense birch vegetation. The route starts near the Tarraätno river, passes small bridges, sparse herb-rich birch forest, open wetland and heath, then reaches the Bádurgårsså ravine and alluvial fan where the Vaimok/Tarraälvshyddan side route leaves the Padjelantaleden. After the valley opens toward Tarraure, the stage ends at STF Tarrekaise on the lake's northern shore.",
+        "connectionsAndAlternates": [
+          {
+            "name": "Naturkartan BD70 combined route",
+            "description": "Naturkartan packages Darreluoppal-Såmmarlappa and Såmmarlappa-Tarrekaise in one GPX file.",
+            "modelingRecommendation": "Split the GPX at Såmmarlappa and use the stored Tarrekaise-Såmmarlappa segment reversed for this section."
+          },
+          {
+            "name": "OSM relation 19111625",
+            "description": "OSM models Darreluoppal via Såmmarlappa to Tarrekaise as one child relation.",
+            "modelingRecommendation": "Use as cross-check and possible endpoint snap reference, not as the sole source unless official GPX handling fails."
+          },
+          {
+            "name": "Nordkalottleden / Vaimok branch",
+            "description": "A route leaves toward Vaimok and Tarraälvshyddan near the Bádurgårsså area before Tarrekaise.",
+            "modelingRecommendation": "Model as connection metadata only. Do not include the Vaimok/Tarraälvshyddan branch in section 8 route geometry."
+          },
+          {
+            "name": "Såmmarlappa line boat over Tarraälven/Tarraätno",
+            "description": "Official and regional hut pages mention a local ferry/line boat at Såmmarlappa, useful for side excursions and access to both sides of the river.",
+            "modelingRecommendation": "Keep as endpoint access metadata until exact landing coordinates and operating details are verified."
+          },
+          {
+            "name": "Fiskflyg pickup/drop-off",
+            "description": "Fiskflyg's 2026 Kvikkjokk-Stáloluokta scheduled helicopter route lists Sommarlappa and Tarrekaise as pickup/drop-off options.",
+            "modelingRecommendation": "Use hut coordinates as provisional access proxies only until exact landing coordinates are verified."
+          }
+        ]
+      },
+      "endpoints": {
+        "start": {},
+        "end": {},
+        "coordinateConfidenceSummary": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {},
+      "caveats": [
+        "During normalization, decide whether to split Naturkartan BD70 at index 469 or use the OSM relation 19111625 split for a tighter Såmmarlappa hut snap.",
+        "Resolve how to present official 13 km distance versus 11.55-11.61 km computed route line without overriding official display value.",
+        "Decide whether final endpoint coordinates should use STF GPS, Padjelanta.se, OSM hut centroids, or route-line points at Såmmarlappa and Tarrekaise.",
+        "Verify exact Fiskflyg landing coordinates for Såmmarlappa and Tarrekaise before importing any standalone helicopter/access POIs.",
+        "Verify exact line-boat landing/operation details at Såmmarlappa before importing a boat/ferry POI.",
+        "Verify coordinates for small bridges after Såmmarlappa before standalone bridge import.",
+        "Decide whether OSM-only firepit candidates should be imported, kept pending, or suppressed under the app's fire/facility taxonomy.",
+        "Find or verify standalone toilet coordinates at Såmmarlappa and Tarrekaise before importing toilet POIs; otherwise attach service context to huts.",
+        "Do not import Tarrekaise provisions/shop as active unless a current STF shop/provisions source is found.",
+        "Keep Vaimok/Tarraälvshyddan and Tarraälvshyddan side bridge as connection metadata only unless a separate branch/alternate research task is opened.",
+        "Check Pärlälvens/Försvarsmakten military closure notices, fire bans, fishing rules, bridge/boardwalk condition, Fiskflyg schedules, boat schedules, and STF hut opening/payment details close to publication."
+      ]
+    },
+    {
+      "sectionId": "padjelantaleden-stage-09-tarrekaise-njunjes",
+      "sourceFile": "data/research/candidate-trails/padjelantaleden/sections/padjelantaleden-stage-09-tarrekaise-njunjes.research.json",
+      "order": 9,
+      "sectionNumber": 9,
+      "name": "Etapp 9: STF Tarrekaise Fjällstuga - STF Njunjes Fjällstuga",
+      "from": "STF Tarrekaise Fjällstuga",
+      "to": "STF Njunjes Fjällstuga",
+      "distance": {
+        "distanceCaveats": [
+          "high for official contradiction; high for about 7.0 km from Naturkartan GPX; keep STF 6 km as the primary STF display claim until normalization policy decides otherwise"
+        ]
+      },
+      "estimatedTime": {
+        "officialStf": "2-4 hours",
+        "naturkartan": "2-4 hours",
+        "fieldReports": [
+          "Roversmountains reported Tarrekaise-Njunjes in about 3 hours.",
+          "I-Trekkings reported over 2 hours for the 6 km Tarrekaise-Njunjes leg on 2006-08-03.",
+          "Komoot planning data gives 1 hour 53 minutes, but Naturkartan and field reports support keeping the official 2-4 hour planning range."
+        ],
+        "confidence": "medium-high"
+      },
+      "difficulty": {
+        "description": "No formal official grade found. Naturkartan describes the stage as short but strenuous, especially rocky and muddy in rain. Field reports repeatedly mention stones, mud, slippery duckboards, wet rock slabs, dense vegetation, and a steep rocky descent into Njunjes.",
+        "confidence": "medium-high"
+      },
+      "routeType": {
+        "type": "point-to-point remote hut-to-hut hiking stage",
+        "directionForImport": "Tarrekaise to Njunjes, matching STF north-to-south section order and Naturkartan BD71 stored direction",
+        "descriptionForApp": "A short but rough Tarradalen stage from Tarrekaise to Njunjes. The route leaves the Tarrekaise hut area through dense mountain birch and high vegetation, follows the north side of Tarraure and Luoppal with views toward Hilldo and Tarradalen, then climbs onto a more open plateau before a steep, rocky descent to STF Njunjes above Tarraätno. Wet weather can make the rocky ground, mud, boardwalks and descent noticeably slower than the distance suggests.",
+        "connectionsAndAlternates": [
+          {
+            "name": "Naturkartan BD71 combined route",
+            "description": "Naturkartan packages Tarrekaise-Njunjes and Njunjes-Kvikkjokk/Bobäcken access in one route record.",
+            "modelingRecommendation": "Split the GPX at Njunjes for section 9. Use BD71 points 0..529 for the official GPX segment, or 8..529 if the normalizer snaps the start to the closest STF Tarrekaise route point."
+          },
+          {
+            "name": "OSM Nordkalottruta Etapp 44 / relation 19059738",
+            "description": "OSM models the Tarrekaise-Kvikkjokk child relation and includes the southern access/ferry segment.",
+            "modelingRecommendation": "Use as planning-grade cross-check and for the section 10 boat/access split, not as primary section 9 linework while BD71 GPX is available."
+          },
+          {
+            "name": "Fiskflyg Tarrekaise and Njunjes pickup/drop-off",
+            "description": "Fiskflyg's 2026 Kvikkjokk-Stáloluokta route lists both hut locations as pickup/drop-off options.",
+            "modelingRecommendation": "Use hut coordinates as provisional access proxies only until exact landing coordinates are verified."
+          },
+          {
+            "name": "Njunjes bridge over Tarraätno",
+            "description": "A bridge just south/west of Njunjes is useful for camping or day trips across Tarraätno but is not needed for the section 9 main line.",
+            "modelingRecommendation": "Keep as access/nearby-route metadata, not a primary facility import for this stage unless downstream route modelling needs it."
+          },
+          {
+            "name": "Southern gateway toward Bobäcken and Kvikkjokk",
+            "description": "From Njunjes, the next official stage continues about 12 km toward Bobäcken followed by a boat to Kvikkjokk.",
+            "modelingRecommendation": "Do not attach Bobäcken/Kvikkjokk access geometry to section 9; preserve as gateway context and section 10 input."
+          }
+        ]
+      },
+      "endpoints": {
+        "start": {},
+        "end": {},
+        "coordinateConfidenceSummary": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {},
+      "caveats": [
+        "During normalization, decide whether stage 9 display distance follows STF's 6 km claim, Naturkartan/Padjelanta's 7 km claim, or a rounded computed geometry value; do not silently collapse the contradiction.",
+        "Decide whether final GPX geometry starts at BD71 point 0 or at point 8, the nearest route point to the STF Tarrekaise hut coordinate.",
+        "Verify exact Fiskflyg landing coordinates for Tarrekaise and Njunjes before importing any standalone helicopter/access POI.",
+        "Verify standalone coordinates for Tarrekaise and Njunjes toilets, emergency phones, and hut water collection points before importing them separately.",
+        "Do not import Tarrekaise or Njunjes food/provisions unless a current STF or operator source confirms active shop service.",
+        "Verify OSM firepit node 12050588378 and any informal campsites before importing them as facilities; otherwise keep as route/camping notes.",
+        "Keep Njunjes bridge and Bobäcken/Kvikkjokk gateway access out of section 9 mainline facilities unless section 10 or access modelling requires them.",
+        "Recheck STF hut opening/payment/current notices, Fiskflyg schedules, Bobäcken boat, Länstrafiken bus 94, Länsstyrelsen current mountain information, fire bans, fishing rules, and Pärlälvens military-closure status close to publication."
+      ]
+    },
+    {
+      "sectionId": "padjelantaleden-stage-10-njunjes-kvikkjokk",
+      "sourceFile": "data/research/candidate-trails/padjelantaleden/sections/padjelantaleden-stage-10-njunjes-kvikkjokk.research.json",
+      "order": 10,
+      "sectionNumber": 10,
+      "name": "Etapp 10: STF Njunjes Fjällstuga - STF Kvikkjokk Fjällstation",
+      "from": "STF Njunjes Fjällstuga",
+      "to": "STF Kvikkjokk Fjällstation via Bobäcken boat landing",
+      "distance": {
+        "distanceCaveats": [
+          "high for 12 km walking plus 3 km boat; high for computed 12.3-12.5 km walking line; medium-high for 3.4 km OSM ferry/access line"
+        ]
+      },
+      "estimatedTime": {
+        "officialStf": "4-6 hours walking",
+        "naturkartan": "3-5 hours",
+        "fieldReports": [
+          "I-Trekkings reported Njunjes-Kvikkjokk as 13 km in 2 hours 50 minutes in 2006, with boat needed after the walk.",
+          "Wikiloc 2016 lists Njunjes-Kvikkjokk as 12.39 km and 2 hours 35 minutes, likely the walking leg only.",
+          "Hikr 2008 reverse report lists Kvikkjokk-Njunjes as 12 km and 4 hours after boat to Bobäcken.",
+          "Route-app totals that include the boat/gateway leg list about 15.4-16.1 km and 3.5-4.1 hours."
+        ],
+        "confidence": "medium-high"
+      },
+      "difficulty": {
+        "description": "No formal official grade found. The walking is generally low-gradient forest trail, but official and field sources repeatedly flag wet/swampy ground, boardwalks, mosquitoes, bridges, rocky forest trail, monotonous conifer forest, and mud after rain. Treat as easy-to-moderate rather than purely easy, especially in wet or mosquito-heavy conditions.",
+        "confidence": "medium-high"
+      },
+      "routeType": {
+        "type": "point-to-point remote hut-to-gateway hiking stage with required boat/access transfer",
+        "directionForImport": "Njunjes to Bobäcken for the hiking geometry, then Bobäcken to Kvikkjokk as boat/access connector",
+        "descriptionForApp": "The final Padjelantaleden stage leaves STF Njunjes and descends through Tarradalen toward Kvikkjokk. The walking leg crosses wet ground, mixed forest, old hay meadows at Njunjes and Bäcken, the broad Njunjesjåhkå alluvial fan, rocky conifer forest, and bridges over Vallebäcken/Vállegårsså before reaching the wet, mosquito-prone forest and boat landing at Bobäcken. From Bobäcken the normal route requires a paid boat over Tarraätno/Gamájåhkå delta to Kvikkjokk, where STF Kvikkjokk Fjällstation provides lodging, food and transport connections.",
+        "connectionsAndAlternates": [
+          {
+            "name": "Naturkartan BD71 combined route",
+            "description": "Naturkartan packages Tarrekaise-Njunjes and Njunjes-Kvikkjokk in one GPX file.",
+            "modelingRecommendation": "Use BD71 points 529..1371 as the primary Njunjes-Bobäcken walking segment. Do not treat the post-Bobäcken BD71 points as the standard boat transfer without additional confirmation."
+          },
+          {
+            "name": "Bobäcken-Kvikkjokk boat transfer",
+            "description": "The normal southern access is the paid boat between Bobäcken/Padjelantaleden and Kvikkjokk.",
+            "modelingRecommendation": "Model as required access/connector metadata using OSM ferry way 686397933 and current boat-operator sources, not as hiking linework."
+          },
+          {
+            "name": "Gamájåhkå / Vallevárre-side continuation",
+            "description": "Naturkartan mentions an indistinct 4 km path toward Gamájåhkå opposite Kvikkjokk, but says the watercourse requires boat transport and cannot be forded.",
+            "modelingRecommendation": "Keep as ambiguous alternate/access note only; do not import as the standard section route."
+          },
+          {
+            "name": "Fiskflyg Njunjes pickup/drop-off",
+            "description": "Fiskflyg's 2026 Kvikkjokk-Stáloluokta route lists Njunjes as a pickup/drop-off option.",
+            "modelingRecommendation": "Use the hut coordinate as a provisional access proxy only until exact landing coordinates are verified."
+          },
+          {
+            "name": "Kvikkjokk gateway",
+            "description": "Kvikkjokk provides boat terminal, bus stop, road access, parking, STF fjällstation, shop, restaurant, café/bar, and Fiskflyg heliport context.",
+            "modelingRecommendation": "Attach as gateway/access metadata and endpoint services, not as facilities along the Njunjes-Bobäcken walking line."
+          }
+        ]
+      },
+      "endpoints": {
+        "start": {},
+        "walkingEnd": {},
+        "end": {},
+        "coordinateConfidenceSummary": {}
+      },
+      "routeStatus": "ready-for-normalization-with-caveats",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {},
+      "caveats": [
+        "During normalization, decide whether section 10 display distance should appear as STF's '12+3 km', a separate 12 km walking plus 3 km boat model, or a computed 12.5 km walking plus 3.4 km ferry/access model.",
+        "Decide how to represent official endpoint 'STF Kvikkjokk Fjällstation' while preserving Bobäcken as the walking endpoint and Kvikkjokk as boat/gateway endpoint.",
+        "Choose final Bobäcken snap point among OSM ferry terminal, OSM shelter/rest cabin and BD71 route-line split; verify with authoritative map/field source before navigation-grade import.",
+        "Do not import BD71 post-Bobäcken segment as standard route until the Gamájåhkå/Vallevárre-side alternative is separately researched.",
+        "Verify Bobäcken shelter phone operation in 2026 and whether it reaches all active boat operators.",
+        "Verify exact standalone coordinates for Bobäcken toilet, Njunjes toilet, hut water points, OSM firepit, Kvikkjokk public toilet and Kvikkjokk defibrillator before importing separately.",
+        "Recheck Båttrafik i Kvikkjokk, Padjelanta.se Tarraälven, Länstrafiken line 94/47, Fiskflyg, STF Njunjes, STF Kvikkjokk renovation/service status, Pärlälven/Försvarsmakten closures, fire bans, fishing/hunting rules, bridge/boardwalk status and Länsstyrelsen current-mountain notices close to publication."
+      ]
+    }
+  ]
+}

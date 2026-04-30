@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "candidate-import-report/v1",
+  "trailId": "sjuharadsleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-artifacts-generated-research-only",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "sjuharadsleden/normalization-handoff.research.json",
+  "artifactFiles": [
+    "route-sections.research.json",
+    "route-geometry-index.research.json",
+    "facilities.research.json",
+    "rule-warnings.research.json",
+    "import-report.research.json"
+  ],
+  "manifestSectionFiles": 10,
+  "generatedCounts": {
+    "routeSections": 10,
+    "geometrySections": 10,
+    "geometrySectionsWithCandidateGeojson": 0,
+    "facilities": 171,
+    "ruleWarnings": 267
+  },
+  "blockers": [
+    {
+      "id": "sjuharadsleden-geometry-normalization",
+      "status": "blocks-runtime-route-import",
+      "details": "Run geometry normalization/densification for section 6 and 7 before runtime route import."
+    },
+    {
+      "id": "sjuharadsleden-protected-area-clipping",
+      "status": "blocks-runtime-facility-and-rule-import",
+      "details": "Production GIS clipping all facility points/route segments."
+    },
+    {
+      "id": "sjuharadsleden-live-currentness",
+      "status": "blocks-publication",
+      "details": "Refresh fire-ban status for Härryda, Bollebygd, Borås, Ulricehamn, Mullsjö before publication; refresh Västtrafik/JLT schedules/stops before publication."
+    },
+    {
+      "id": "sjuharadsleden-service-facility-verification",
+      "status": "blocks-public-facility-exposure",
+      "details": "Verify public access/opening status for service facilities before exposing water/toilet/cafe/lodging."
+    }
+  ],
+  "openDecisions": [
+    {
+      "id": "sjuharadsleden-quality-assurance-label",
+      "decision": "Keep the Naturkartan/Västkuststiftelsen not-fully-quality-assured caveat visible in the app until newer official source.",
+      "currentRecommendation": "yes"
+    },
+    {
+      "id": "sjuharadsleden-natural-water-display",
+      "decision": "Allow natural water/lake/spring features as natural/bathing/rest context while suppressing potable-water status.",
+      "currentRecommendation": "yes"
+    },
+    {
+      "id": "sjuharadsleden-unofficial-shelter-display",
+      "decision": "Keep Struntfiskeboa shelter pending/unofficial rather than promoting as a normal shelter until verification.",
+      "currentRecommendation": "yes"
+    }
+  ],
+  "validationChecklist": [
+    "JSON parses successfully.",
+    "No runtime app data, generated public data, shared scripts, or package files changed.",
+    "All 10 section files are represented in sectionCoverage.",
+    "Naturkartan remains primary geometry source; OSM remains QA/cross-check only.",
+    "Section 6, 7, 8, and 10 geometry caveats are carried into geometryPlan.",
+    "Facility water policy suppresses unverified potable-water imports.",
+    "Protected-area and fire/transit currentness checks remain publication-day blockers."
+  ],
+  "unresolvedBeforeRuntimeImport": [
+    "Run geometry normalization/densification for section 6 and 7 before runtime route import.",
+    "Production GIS clipping all facility points/route segments.",
+    "Refresh fire-ban status for Härryda, Bollebygd, Borås, Ulricehamn, Mullsjö before publication; refresh Västtrafik/JLT schedules/stops before publication.",
+    "Verify public access/opening status for service facilities before exposing water/toilet/cafe/lodging.",
+    {
+      "id": "sjuharadsleden-quality-assurance-label",
+      "decision": "Keep the Naturkartan/Västkuststiftelsen not-fully-quality-assured caveat visible in the app until newer official source.",
+      "currentRecommendation": "yes"
+    },
+    {
+      "id": "sjuharadsleden-natural-water-display",
+      "decision": "Allow natural water/lake/spring features as natural/bathing/rest context while suppressing potable-water status.",
+      "currentRecommendation": "yes"
+    },
+    {
+      "id": "sjuharadsleden-unofficial-shelter-display",
+      "decision": "Keep Struntfiskeboa shelter pending/unofficial rather than promoting as a normal shelter until verification.",
+      "currentRecommendation": "yes"
+    }
+  ],
+  "nextActions": [
+    "Review generated candidate records for trail-specific dedupe and topology before runtime import.",
+    "Keep pending-review and suppress facility states out of runtime output.",
+    "Run final GIS overlays and live publication checks before user-facing rule warnings.",
+    "Do not write app runtime source data from this report without an explicit runtime integration task."
+  ]
+}
