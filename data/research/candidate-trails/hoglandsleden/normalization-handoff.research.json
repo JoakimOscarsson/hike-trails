@@ -146,7 +146,7 @@
   },
   "ruleWarningPlan": {
     "staticRulePolicy": [
-      "Scope protected-area restrictions by GIS boundary intersection before attaching them to section segments or facilities.",
+      "Use normalized-candidate/protected-area-overlays.research.json to scope protected-area restrictions by route/facility intersection before attaching them to section segments or facilities.",
       "Use section-level protected-area notes from the research packets; do not apply whole-trail reserve warnings globally.",
       "Represent water scarcity, unreliable natural water and unavailable public potable water as rule warnings or section notes rather than potable-water facilities."
     ],
@@ -161,7 +161,7 @@
       "Several endpoint and rural bus options are sparse, indirect or coordinate-pending; require current timetable verification."
     ],
     "unknowns": [
-      "unknown/recheck: Whether any current closures, reroutes, forestry works, hunting-season advisories, water reliability warnings, or protected-area restrictions affect individual stages."
+      "unknown/recheck: Whether any current closures, reroutes, forestry works, hunting-season advisories, water reliability warnings, or live fire restrictions affect individual stages."
     ]
   },
   "importOrder": [
@@ -188,7 +188,7 @@
     {
       "step": 5,
       "name": "Apply rule-warning and access policies",
-      "notes": "Run GIS overlays and attach rule warnings only where supported."
+      "notes": "Use generated GIS overlays and attach rule warnings only where supported."
     },
     {
       "step": 6,
@@ -209,8 +209,13 @@
     },
     {
       "scope": "rules",
-      "status": "unknown/recheck",
-      "details": "Protected-area boundary overlays and live fire-ban/currentness checks are still required before user-facing runtime import."
+      "status": "resolved-by-candidate-gis-overlay",
+      "details": "Protected-area, Natura 2000, water-protection and biotopskydd overlays are recorded in normalized-candidate/protected-area-overlays.research.json."
+    },
+    {
+      "scope": "currentness",
+      "status": "volatile-runtime-check",
+      "details": "Live fire-ban/currentness, post-Storm-Dave clearance, transit schedules and water reliability must be rechecked before user-facing runtime import."
     },
     {
       "scope": "facilities",
@@ -245,7 +250,7 @@
     "Run endpoint-gap checks at Skuruhatt, Valbacken, Vikskvarn, Byarum/Grönelund, Åsafors and Kärringabacka.",
     "Run duplicate facility detection for every shared endpoint cluster listed in facilityPlan.deduplicationTargets.",
     "Confirm no private/customer-only service is imported as a public facility.",
-    "Run protected-area GIS overlays before importing static reserve/cultural-reserve rule warnings.",
+    "Review protected-area-overlays.research.json before importing static reserve/cultural-reserve rule warnings and repeat overlays if route geometry or source boundaries change.",
     "Recheck live fire bans, current trail clearance, transit schedules and water reliability before runtime publication.",
     "Keep all outputs research-only until the user explicitly requests runtime integration."
   ],
@@ -258,10 +263,12 @@
       "trail.research.json",
       "research-progress.json",
       "sections/*.research.json",
+      "geometry/candidate/",
+      "geometry/protected-area-overlays/",
       "geometry/hoglandsleden-ho23-asafors-karringabacka.official-gpx-derived.geojson"
     ],
     "notes": [
-      "HÖ1-HÖ23 are complete for research handoff; runtime import/normalization has not been performed.",
+      "HÖ1-HÖ23 are complete for research handoff and have generated research-only candidate GPX geometry; runtime import has not been performed.",
       "HÖ23 targeted caveat-resolution pass completed: remaining caveats are now explicit import rules or live pre-publication checks, not unresolved structural blockers."
     ]
   }

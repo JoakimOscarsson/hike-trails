@@ -9,6 +9,9 @@ Trail ID: `hoglandsleden`
 - `trail.research.json`: whole-trail overview and official section inventory.
 - `sections/*.research.json`: per-section research packets, one file per official HÖ stage.
 - `research-progress.json`: running handoff/progress tracker for this research thread.
+- `geometry/candidate/`: generated research-only GeoJSON for all 23 Naturkartan GPX section sources plus raw GPX downloads.
+- `geometry/protected-area-overlays/`: raw route-bbox protected-area, Natura 2000, water-protection and biotopskydd downloads used for rule-scoping overlays.
+- `normalized-candidate/`: generated candidate normalization artifacts, including `protected-area-overlays.research.json`.
 
 ## Handoff Status
 
@@ -39,7 +42,7 @@ This branch currently contains the whole-trail overview plus completed HÖ1, HÖ
 - HÖ22 Skillingaryd - Åsafors: complete for research handoff and ready for normalization with caveats.
 - HÖ23 Åsafors - Kärringabacka: complete for research handoff and ready for normalization; targeted caveat pass completed. Remaining issues are explicit import rules or live pre-publication checks, not unresolved structural blockers.
 
-HÖ23 also has a research-only GeoJSON derived from the official GPX at `geometry/hoglandsleden-ho23-asafors-karringabacka.official-gpx-derived.geojson`. This is for later import planning only and is not runtime app data.
+All 23 sections now have research-only generated GPX GeoJSON under `geometry/candidate/sections/`. HÖ23 also retains the earlier targeted research GeoJSON at `geometry/hoglandsleden-ho23-asafors-karringabacka.official-gpx-derived.geojson` as a source cross-check. These files are for later import planning only and are not runtime app data.
 
 ## Current Official Structure
 
@@ -55,7 +58,7 @@ Working topology interpretation for later normalization:
   - HÖ3 Valbacken-Mariannelund, connecting toward Mariannelund/Emilleden and the Kalmar county side.
   - HÖ18-HÖ23 Vikskvarn-Kärringabacka, a west branch toward Vaggeryd/Gnosjö/Hestra and Järnbärarleden.
 
-This topology should be verified during section synthesis before any route-group import design.
+This topology is represented in the normalized candidate artifacts as main loop plus branch/connector metadata and should still receive visual QA before any runtime route-group import.
 
 ## Primary Sources
 

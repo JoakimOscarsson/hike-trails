@@ -125,6 +125,101 @@ export async function buildCandidateProtectedAreaOverlays({
   return output;
 }
 
+export async function buildCandidateLayerOverlays({
+  projectRoot,
+  trailId,
+  lastUpdated,
+  sourceArtifact,
+  method,
+  layerSources,
+  recordFilter = null
+}) {
+  const trailRoot = path.join(projectRoot, "data/research/candidate-trails", trailId);
+  const normalizedRoot = path.join(trailRoot, "normalized-candidate");
+  const overlayRoot = path.join(trailRoot, "geometry/protected-area-overlays");
+  const sourceDownloadRoot = path.join(overlayRoot, "source-downloads");
+
+  await mkdir(sourceDownloadRoot, { recursive: true });
+
+  const facilities = await readJson(path.join(normalizedRoot, "facilities.research.json"));
+  const geometryIndex = await readJson(path.join(normalizedRoot, "route-geometry-index.research.json"));
+
+  const records = [];
+  for (const layer of layerSources) {
+    const sourceGeojson = await fetchLayerGeojson(sourceDownloadRoot, layer);
+    const sourceDownload = toProjectRelative(projectRoot, layer.outputPath);
+    for (const [featureIndex, feature] of (sourceGeojson.features ?? []).entries()) {
+      const polygons = extractPolygons({ type: "FeatureCollection", features: [feature] });
+      if (polygons.length === 0) continue;
+      const facilityOverlaps = findFacilityOverlaps(polygons, facilities.records ?? []);
+      const routeOverlaps = await findRouteOverlaps(projectRoot, polygons, geometryIndex.sections ?? []);
+      const properties = feature.properties ?? {};
+      const protectedArea = String(properties[layer.nameProperty] ?? properties.namn ?? properties.omradesnamn ?? `feature ${featureIndex + 1}`);
+      const sourceId = properties[layer.idProperty] ?? properties.nvrid ?? properties.objectid ?? properties.OBJECTID ?? feature.id ?? null;
+      const sourceType = layer.sourceTypeProperty ? properties[layer.sourceTypeProperty] : null;
+      const record = {
+        overlayId: `${trailId}-${slugify(layer.layerId)}-${slugify(protectedArea)}-${slugify(sourceId ?? featureIndex + 1)}`,
+        protectedArea,
+        status: routeOverlaps.length > 0 || facilityOverlaps.length > 0 ? "overlap-detected" : "no-candidate-overlap",
+        sourceLayer: layer.layerId,
+        sourceType: sourceType ?? layer.sourceType,
+        sourceId,
+        sourceUrls: [layer.sourceUrl],
+        sourceDownloads: [sourceDownload],
+        recommendation: layer.recommendation,
+        confidence: layer.confidence,
+        routeOverlaps,
+        facilityOverlaps
+      };
+      if (!recordFilter || recordFilter(record, feature, layer)) records.push(record);
+    }
+  }
+
+  records.sort(
+    (left, right) =>
+      Number(right.status === "overlap-detected") - Number(left.status === "overlap-detected") ||
+      left.sourceLayer.localeCompare(right.sourceLayer, "en", { numeric: true }) ||
+      left.protectedArea.localeCompare(right.protectedArea, "sv", { numeric: true })
+  );
+
+  const output = {
+    schemaVersion: "candidate-protected-area-overlays/v1",
+    trailId,
+    lastUpdated,
+    status: "candidate-gis-overlay-computed-research-only",
+    runtimeImportApproved: false,
+    sourceArtifact,
+    method,
+    summary: {
+      protectedAreas: records.length,
+      protectedAreasWithRouteOverlap: records.filter((record) => record.routeOverlaps.length > 0).length,
+      protectedAreasWithFacilityOverlap: records.filter((record) => record.facilityOverlaps.length > 0).length,
+      routeOverlapRecords: records.reduce((count, record) => count + record.routeOverlaps.length, 0),
+      facilityOverlapRecords: records.reduce((count, record) => count + record.facilityOverlaps.length, 0),
+      sourceLayers: layerSources.length
+    },
+    records
+  };
+
+  await writeJson(path.join(normalizedRoot, "protected-area-overlays.research.json"), output);
+  await writeFile(
+    path.join(overlayRoot, "README.md"),
+    [
+      `# ${trailId} protected-area overlays`,
+      "",
+      `Research-only protected-area clipping artifact for ${trailId} candidate normalization.`,
+      "",
+      "- Raw source GeoJSON downloads are stored under `source-downloads/`.",
+      "- The generated normalized overlay artifact is `normalized-candidate/protected-area-overlays.research.json`.",
+      "- This is not runtime app source data.",
+      `- Rebuild with \`npm run data:candidate-overlays:${trailId}\`.`,
+      ""
+    ].join("\n")
+  );
+
+  return output;
+}
+
 function buildWfsUrl(baseUrl, typeName, cqlFilter, outputFormat = "application/json") {
   const url = new URL(baseUrl);
   url.searchParams.set("service", "WFS");
@@ -154,6 +249,22 @@ async function fetchSourceGeojson(sourceDownloadRoot, descriptor, source) {
   );
   source.outputPath = outputPath;
   await writeJson(outputPath, geojson);
+  return geojson;
+}
+
+async function fetchLayerGeojson(sourceDownloadRoot, layer) {
+  const response = await fetch(layer.sourceUrl, {
+    headers: {
+      "user-agent": "hike-trails candidate data prep (research-only protected-area overlay builder)"
+    }
+  });
+  if (!response.ok) throw new Error(`HTTP ${response.status} ${response.statusText}: ${layer.sourceUrl}`);
+  const text = await response.text();
+  if (!text.trim().startsWith("{")) throw new Error(`Non-JSON source response for ${layer.layerId}: ${layer.sourceUrl}`);
+  const geojson = JSON.parse(text);
+  const outputPath = path.join(sourceDownloadRoot, `${slugify(layer.layerId)}.geojson`);
+  layer.outputPath = outputPath;
+  await writeFile(outputPath, `${JSON.stringify(geojson)}\n`);
   return geojson;
 }
 

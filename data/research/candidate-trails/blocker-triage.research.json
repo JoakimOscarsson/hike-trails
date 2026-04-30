@@ -14,16 +14,16 @@
     "scope-limitation": "Accepted scope boundary for this candidate import model."
   },
   "summary": {
-    "resolved-now": 56,
+    "resolved-now": 57,
     "runtime-integration-task": 6,
-    "defer-publication-time": 19,
-    "fix-now": 6,
+    "defer-publication-time": 20,
+    "fix-now": 5,
     "external-source-approval": 5,
     "runtime-schema-needed": 14,
     "scope-limitation": 3
   },
-  "fixNowCount": 6,
-  "resolvedNowCount": 56,
+  "fixNowCount": 5,
+  "resolvedNowCount": 57,
   "trails": [
     {
       "trailId": "bohusleden",
@@ -762,12 +762,22 @@
       "triageSummary": {
         "runtime-integration-task": 1,
         "runtime-schema-needed": 2,
-        "fix-now": 1,
-        "resolved-now": 3
+        "resolved-now": 4,
+        "defer-publication-time": 1
       },
       "fixesAppliedNow": [
         {
-          "id": "blocker-4",
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "rules",
+          "status": "resolved-by-candidate-gis-overlay",
+          "details": "Protected-area, Natura 2000, water-protection and biotopskydd overlays are recorded in normalized-candidate/protected-area-overlays.research.json.",
+          "disposition": "resolved-now",
+          "owner": "candidate-gis",
+          "action": "Candidate protected-area-overlays.research.json now records route-bbox protected-area, Natura 2000, water-protection and biotopskydd checks against all 23 generated Höglandsleden section geometries."
+        },
+        {
+          "id": "blocker-5",
           "itemType": "blocker",
           "sourceId": "facilities",
           "status": "unknown/recheck",
@@ -777,7 +787,7 @@
           "action": "Parking/transit and access services are normalized as candidate facility/access records with pending/suppress states and live-check caveats."
         },
         {
-          "id": "open-decision-5",
+          "id": "open-decision-6",
           "itemType": "open-decision",
           "sourceId": "decision-1",
           "status": "open-decision",
@@ -787,7 +797,7 @@
           "action": "Route-builder topology is now fixed as main loop plus Mariannelund and Tomtabacken-Kärringabacka branches."
         },
         {
-          "id": "open-decision-7",
+          "id": "open-decision-8",
           "itemType": "open-decision",
           "sourceId": "decision-3",
           "status": "open-decision",
@@ -797,18 +807,7 @@
           "action": "Shared trail-specific decisions now include the Höglandsleden service scope: commercial/bookable services are caveated metadata, and weak rural transit remains access metadata unless current useful service is verified."
         }
       ],
-      "nextFixNow": [
-        {
-          "id": "blocker-3",
-          "itemType": "blocker",
-          "sourceId": "rules",
-          "status": "unknown/recheck",
-          "details": "Protected-area boundary overlays and live fire-ban/currentness checks are still required before user-facing runtime import.",
-          "disposition": "fix-now",
-          "owner": "candidate-gis",
-          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
-        }
-      ],
+      "nextFixNow": [],
       "deferred": [
         {
           "id": "blocker-1",
@@ -819,6 +818,16 @@
           "disposition": "runtime-integration-task",
           "owner": "runtime-import",
           "action": "Leave runtime source/generated data untouched until the separate runtime import task is explicitly started."
+        },
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "currentness",
+          "status": "volatile-runtime-check",
+          "details": "Live fire-ban/currentness, post-Storm-Dave clearance, transit schedules and water reliability must be rechecked before user-facing runtime import.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
         }
       ],
       "runtimeSchemaNeeded": [
@@ -833,7 +842,7 @@
           "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
         },
         {
-          "id": "open-decision-6",
+          "id": "open-decision-7",
           "itemType": "open-decision",
           "sourceId": "decision-2",
           "status": "open-decision",
@@ -868,14 +877,24 @@
           "id": "blocker-3",
           "itemType": "blocker",
           "sourceId": "rules",
-          "status": "unknown/recheck",
-          "details": "Protected-area boundary overlays and live fire-ban/currentness checks are still required before user-facing runtime import.",
-          "disposition": "fix-now",
+          "status": "resolved-by-candidate-gis-overlay",
+          "details": "Protected-area, Natura 2000, water-protection and biotopskydd overlays are recorded in normalized-candidate/protected-area-overlays.research.json.",
+          "disposition": "resolved-now",
           "owner": "candidate-gis",
-          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+          "action": "Candidate protected-area-overlays.research.json now records route-bbox protected-area, Natura 2000, water-protection and biotopskydd checks against all 23 generated Höglandsleden section geometries."
         },
         {
           "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "currentness",
+          "status": "volatile-runtime-check",
+          "details": "Live fire-ban/currentness, post-Storm-Dave clearance, transit schedules and water reliability must be rechecked before user-facing runtime import.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "blocker-5",
           "itemType": "blocker",
           "sourceId": "facilities",
           "status": "unknown/recheck",
@@ -885,7 +904,7 @@
           "action": "Parking/transit and access services are normalized as candidate facility/access records with pending/suppress states and live-check caveats."
         },
         {
-          "id": "open-decision-5",
+          "id": "open-decision-6",
           "itemType": "open-decision",
           "sourceId": "decision-1",
           "status": "open-decision",
@@ -895,7 +914,7 @@
           "action": "Route-builder topology is now fixed as main loop plus Mariannelund and Tomtabacken-Kärringabacka branches."
         },
         {
-          "id": "open-decision-6",
+          "id": "open-decision-7",
           "itemType": "open-decision",
           "sourceId": "decision-2",
           "status": "open-decision",
@@ -905,7 +924,7 @@
           "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
         },
         {
-          "id": "open-decision-7",
+          "id": "open-decision-8",
           "itemType": "open-decision",
           "sourceId": "decision-3",
           "status": "open-decision",

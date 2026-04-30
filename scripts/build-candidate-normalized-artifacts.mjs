@@ -505,6 +505,11 @@ const generatedGeometryResolutionConfig = {
     triageResolvedSourceIds: ["geometry"],
     action:
       "Research-only candidate GeoJSON now exists for all 8 Ostkustleden sections from official Naturkartan GPX sources, preserving the Etapp 8 cabin gap as topology metadata."
+  },
+  hoglandsleden: {
+    triageResolvedSourceIds: [],
+    action:
+      "Research-only candidate GeoJSON now exists for all 23 Höglandsleden sections from official Naturkartan GPX sources."
   }
 };
 
@@ -536,6 +541,11 @@ const protectedAreaOverlayResolutionConfig = {
     triageResolvedSourceIds: ["rules"],
     action:
       "Candidate protected-area-overlays.research.json now records computed protected-area, Natura 2000, water-protection and biotopskydd checks against all generated Ostkustleden route geometry and facility points."
+  },
+  hoglandsleden: {
+    triageResolvedSourceIds: ["rules"],
+    action:
+      "Candidate protected-area-overlays.research.json now records route-bbox protected-area, Natura 2000, water-protection and biotopskydd checks against all 23 generated Höglandsleden section geometries."
   }
 };
 
@@ -807,10 +817,12 @@ function buildRouteSections(trailId, sections, handoff) {
 function buildGeometryIndex(trailId, sections, handoff, geojsonFiles) {
   const sectionRows = sections.map(({ data, sourceFile }) => {
     const sectionId = getSectionId(data);
-    const candidateGeojsonFiles = geojsonFiles.filter((filePath) => {
+    const matchedGeojsonFiles = geojsonFiles.filter((filePath) => {
       const base = path.basename(filePath, ".geojson");
       return base === sectionId || base.includes(sectionId) || sectionId.includes(base);
     });
+    const generatedCandidateFiles = matchedGeojsonFiles.filter((filePath) => filePath.includes("/geometry/candidate/sections/"));
+    const candidateGeojsonFiles = generatedCandidateFiles.length > 0 ? generatedCandidateFiles : matchedGeojsonFiles;
     const blocked = isBlockedSection(handoff, sectionId);
     const sourceSummary = extractRouteSourceSummary(data);
     return {
