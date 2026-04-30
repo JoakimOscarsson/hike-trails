@@ -16,7 +16,10 @@ Shared coordination files:
 
 - `normalization-prep.research.json`: batch-level status and phase tracking.
 - `shared-importer-decisions.research.json`: shared importer-model decisions for distances, geometry, connectors, partial sections, direction reversal, facilities, rule warnings, and overlap dedupe.
+- `normalization-quality-gate.research.json`: consistency audit result for starting candidate normalized artifacts.
 - `manifest.json`: machine-readable candidate inventory.
+
+Repeat the gate with `npm run data:candidate-normalization:check` before editing candidate normalized artifacts.
 
 ## Current Inventory
 
