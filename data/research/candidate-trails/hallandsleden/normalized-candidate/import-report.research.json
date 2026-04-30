@@ -92,7 +92,7 @@
     {
       "id": "publicationTimeRechecks-3",
       "status": "publicationTimeRechecks",
-      "details": "Final protected-area and water-protection GIS overlays before public rule warnings."
+      "details": "Confirm the computed protected-area overlay remains current if source layers or candidate geometry change before publication."
     }
   ],
   "openDecisions": [
@@ -115,10 +115,6 @@
     {
       "id": "decision-5",
       "details": "Choose whether facilities marked conditional/private/seasonal/pending are imported as hidden review records, user-facing caveated markers, or deferred."
-    },
-    {
-      "id": "decision-6",
-      "details": "Choose rule-warning granularity: whole-section warning, subsegment warning after GIS overlay, or facility/site-level rule notes."
     }
   ],
   "blockerTriage": [
@@ -177,10 +173,10 @@
       "itemType": "blocker",
       "sourceId": "publicationTimeRechecks-3",
       "status": "publicationTimeRechecks",
-      "details": "Final protected-area and water-protection GIS overlays before public rule warnings.",
-      "disposition": "fix-now",
+      "details": "Confirm the computed protected-area overlay remains current if source layers or candidate geometry change before publication.",
+      "disposition": "resolved-now",
       "owner": "candidate-gis",
-      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+      "action": "Candidate protected-area-overlays.research.json now records route-bbox protected-area, Natura 2000, water-protection, regulatory-area and biotopskydd checks against Hallandsleden canonical candidate route geometry and facility points. Warning granularity is route-subsegment for canonical route polygon overlaps, facility/site-level for point overlaps, and publication-time whole-trail/section notices only for volatile live fire, transit, closure, beach-rule and service status."
     },
     {
       "id": "open-decision-7",
@@ -231,23 +227,12 @@
       "disposition": "resolved-now",
       "owner": "candidate-data",
       "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
-    },
-    {
-      "id": "open-decision-12",
-      "itemType": "open-decision",
-      "sourceId": "decision-6",
-      "status": "open-decision",
-      "details": "Choose rule-warning granularity: whole-section warning, subsegment warning after GIS overlay, or facility/site-level rule notes.",
-      "disposition": "fix-now",
-      "owner": "candidate-gis",
-      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
     }
   ],
   "triageSummary": {
     "runtime-integration-task": 1,
-    "resolved-now": 7,
-    "defer-publication-time": 2,
-    "fix-now": 2
+    "resolved-now": 8,
+    "defer-publication-time": 2
   },
   "fixesAppliedNow": [
     {
@@ -271,6 +256,16 @@
       "action": "Route topology now preserves K4-K5 as an explicit official network gap with separate coastal route groups."
     },
     {
+      "id": "blocker-6",
+      "itemType": "blocker",
+      "sourceId": "publicationTimeRechecks-3",
+      "status": "publicationTimeRechecks",
+      "details": "Confirm the computed protected-area overlay remains current if source layers or candidate geometry change before publication.",
+      "disposition": "resolved-now",
+      "owner": "candidate-gis",
+      "action": "Candidate protected-area-overlays.research.json now records route-bbox protected-area, Natura 2000, water-protection, regulatory-area and biotopskydd checks against Hallandsleden canonical candidate route geometry and facility points. Warning granularity is route-subsegment for canonical route polygon overlaps, facility/site-level for point overlaps, and publication-time whole-trail/section notices only for volatile live fire, transit, closure, beach-rule and service status."
+    },
+    {
       "id": "open-decision-7",
       "itemType": "open-decision",
       "sourceId": "decision-1",
@@ -321,28 +316,7 @@
       "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
     }
   ],
-  "fixNowBeforeRuntimeImport": [
-    {
-      "id": "blocker-6",
-      "itemType": "blocker",
-      "sourceId": "publicationTimeRechecks-3",
-      "status": "publicationTimeRechecks",
-      "details": "Final protected-area and water-protection GIS overlays before public rule warnings.",
-      "disposition": "fix-now",
-      "owner": "candidate-gis",
-      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
-    },
-    {
-      "id": "open-decision-12",
-      "itemType": "open-decision",
-      "sourceId": "decision-6",
-      "status": "open-decision",
-      "details": "Choose rule-warning granularity: whole-section warning, subsegment warning after GIS overlay, or facility/site-level rule notes.",
-      "disposition": "fix-now",
-      "owner": "candidate-gis",
-      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
-    }
-  ],
+  "fixNowBeforeRuntimeImport": [],
   "runtimeSchemaNeeded": [],
   "deferredBeforeRuntimeImport": [
     {
@@ -387,16 +361,14 @@
     "Run endpoint gap report and review all snaps above the chosen threshold.",
     "Compare official distances, computed distances and section source contradictions before exposing distances.",
     "Run facility cluster/dedupe pass and verify pending/OSM-only/private/seasonal records before import.",
-    "Run final GIS overlays for protected areas, water-protection zones and restriction subsegments.",
+    "Use normalized-candidate/protected-area-overlays.research.json for protected-area, water-protection and restriction warning scoping, and rerun it if candidate geometry changes.",
     "Run live fire, transit, closure/reroute, seasonal service and beach/reserve rule checks immediately before publication.",
     "Confirm no runtime app data, generated public data, shared scripts or package files are modified by the normalization-prep pass."
   ],
   "unresolvedBeforeRuntimeImport": [
     "runtime-integration-task: Runtime integration still needs a separate explicit import task.",
     "defer-publication-time: Transit, closures/reroutes, fire status, beach/reserve rules and seasonal services immediately before publication/import.",
-    "defer-publication-time: Water, toilet, cafe/shop, shelter/campsite and private/commercial service availability.",
-    "fix-now: Final protected-area and water-protection GIS overlays before public rule warnings.",
-    "fix-now: Choose rule-warning granularity: whole-section warning, subsegment warning after GIS overlay, or facility/site-level rule notes."
+    "defer-publication-time: Water, toilet, cafe/shop, shelter/campsite and private/commercial service availability."
   ],
   "nextActions": [
     "Handle fixNowBeforeRuntimeImport first unless the linked item truly needs external data.",

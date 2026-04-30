@@ -59,7 +59,8 @@
       "sections/*.research.json for section caveats, endpoint notes, facilities, rules and do-not-import guidance",
       "geometry/geometry-index.research.json as the geometry manifest",
       "geometry/canonical/*.geojson for provenance and normalization",
-      "geometry/draw-ready/*.geojson for display QA only"
+      "geometry/draw-ready/*.geojson for display QA only",
+      "normalized-candidate/protected-area-overlays.research.json for research-only route-bbox protected-area, Natura 2000, water-protection, regulatory-area and biotopskydd overlaps against canonical geometry"
     ],
     "sourceArtifactsToSuppress": [
       "Official API line.geometry fields when section research says they are empty, stale or misleading",
@@ -110,11 +111,13 @@
   },
   "ruleWarningPlan": {
     "protectedAreas": [
-      "Use section rulesAndSafety plus final GIS line-buffer overlay before assigning reserve, Natura 2000, bird-protection or access-ban warnings.",
-      "Keep nearby/context-only areas out of route spans unless final overlay confirms intersection."
+      "Research-only GIS overlay is computed against canonical geometry: 87 protected/restriction records retained, with 68 route-overlapping areas, 18 facility-overlapping areas, 91 route-overlap records and 98 facility-overlap records across protected-area, Natura 2000, water-protection, regulatory-area and biotopskydd source layers.",
+      "Use route-subsegment warnings only where protected-area overlays intersect canonical candidate route geometry; keep nearby/context-only areas out of route spans unless future authoritative geometry changes the result.",
+      "Use facility/site-level warnings where overlay polygons contain candidate facility points, especially shelter, fire, tenting, water, toilet, beach and endpoint clusters.",
+      "Kungsbackafjorden regulatory-area overlap carries seasonal bird/access restrictions from 1/3 to 30/6; Trönninge ängar has a facility-site regulatory overlap with year-round access restriction metadata. Preserve these date conditions in descriptions."
     ],
     "waterProtection": [
-      "Model water-protection context from section files only after final GIS overlay confirms exact subsegments.",
+      "Assign water-protection warnings to the route subsegments and facility/site points confirmed by normalized-candidate/protected-area-overlays.research.json.",
       "Do not mark natural water potable; carry contamination/washing/waste/toileting cautions where section research calls for them."
     ],
     "fire": [
@@ -178,7 +181,7 @@
     "publicationTimeRechecks": [
       "Transit, closures/reroutes, fire status, beach/reserve rules and seasonal services immediately before publication/import.",
       "Water, toilet, cafe/shop, shelter/campsite and private/commercial service availability.",
-      "Final protected-area and water-protection GIS overlays before public rule warnings."
+      "Confirm the computed protected-area overlay remains current if source layers or candidate geometry change before publication."
     ]
   },
   "openDecisionsForUser": [
@@ -186,8 +189,7 @@
     "Choose representation for official MultiLineString breaks: preserve as route gaps, model as warning spans, or require external connector evidence.",
     "Choose how to show the K4-to-K5 official coastal network gap in runtime UX.",
     "Choose side-service radius and categories for dense urban/beach/resort areas.",
-    "Choose whether facilities marked conditional/private/seasonal/pending are imported as hidden review records, user-facing caveated markers, or deferred.",
-    "Choose rule-warning granularity: whole-section warning, subsegment warning after GIS overlay, or facility/site-level rule notes."
+    "Choose whether facilities marked conditional/private/seasonal/pending are imported as hidden review records, user-facing caveated markers, or deferred."
   ],
   "validationChecklist": [
     "Parse trail.research.json, research-progress.json, all sections/*.research.json, geometry/geometry-index.research.json and both new normalization handoff JSON files.",
@@ -200,7 +202,7 @@
     "Run endpoint gap report and review all snaps above the chosen threshold.",
     "Compare official distances, computed distances and section source contradictions before exposing distances.",
     "Run facility cluster/dedupe pass and verify pending/OSM-only/private/seasonal records before import.",
-    "Run final GIS overlays for protected areas, water-protection zones and restriction subsegments.",
+    "Use normalized-candidate/protected-area-overlays.research.json for protected-area, water-protection and restriction warning scoping, and rerun it if candidate geometry changes.",
     "Run live fire, transit, closure/reroute, seasonal service and beach/reserve rule checks immediately before publication.",
     "Confirm no runtime app data, generated public data, shared scripts or package files are modified by the normalization-prep pass."
   ]

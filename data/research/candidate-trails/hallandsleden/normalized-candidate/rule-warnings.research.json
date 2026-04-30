@@ -11592,7 +11592,7 @@
       "sourceCollection": "handoff.ruleWarningPlan.protectedAreas",
       "category": "handoff.ruleWarningPlan",
       "title": "protected Areas",
-      "summary": "Use section rulesAndSafety plus final GIS line-buffer overlay before assigning reserve, Natura 2000, bird-protection or access-ban warnings. | Keep nearby/context-only areas out of route spans unless final overlay confirms intersection.",
+      "summary": "Research-only GIS overlay is computed against canonical geometry: 87 protected/restriction records retained, with 68 route-overlapping areas, 18 facility-overlapping areas, 91 route-overlap records and 98 facility-overlap records across protected-area, Natura 2000, water-protection, regulatory-area and biotopskydd source layers. | Use route-subsegment warnings only where protected-area overlays intersect canonical candidate route geometry; keep nearby/context-only areas out of route spans unless future authoritative geometry changes the result. | Use facility/site-level warnings where overlay polygons contain candidate facility points, especially shelter, fire, tenting, water, toilet, beach and endpoint clusters. | Kungsbackafjorden regulatory-area overlap carries seasonal bird/access restrictions from 1/3 to 30/6; Trönninge ängar has a facility-site regulatory overlap with year-round access restriction metadata. Preserve these date conditions in descriptions.",
       "userFacingEligibility": "candidate-hiker-facing",
       "importAction": "pending-review"
     },
@@ -11603,7 +11603,7 @@
       "sourceCollection": "handoff.ruleWarningPlan.waterProtection",
       "category": "handoff.ruleWarningPlan",
       "title": "water Protection",
-      "summary": "Model water-protection context from section files only after final GIS overlay confirms exact subsegments. | Do not mark natural water potable; carry contamination/washing/waste/toileting cautions where section research calls for them.",
+      "summary": "Assign water-protection warnings to the route subsegments and facility/site points confirmed by normalized-candidate/protected-area-overlays.research.json. | Do not mark natural water potable; carry contamination/washing/waste/toileting cautions where section research calls for them.",
       "userFacingEligibility": "candidate-hiker-facing",
       "importAction": "pending-review"
     }

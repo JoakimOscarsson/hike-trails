@@ -47,7 +47,8 @@ export async function buildCandidateProtectedAreaOverlays({
   lastUpdated,
   sourceArtifact,
   method,
-  sourceDescriptors
+  sourceDescriptors,
+  routeGeojsonFileFilter = null
 }) {
   const trailRoot = path.join(projectRoot, "data/research/candidate-trails", trailId);
   const normalizedRoot = path.join(trailRoot, "normalized-candidate");
@@ -58,7 +59,7 @@ export async function buildCandidateProtectedAreaOverlays({
 
   const facilities = await readJson(path.join(normalizedRoot, "facilities.research.json"));
   const geometryIndex = await readJson(path.join(normalizedRoot, "route-geometry-index.research.json"));
-  const routeLineIndex = await loadRouteLineIndex(projectRoot, geometryIndex.sections ?? []);
+  const routeLineIndex = await loadRouteLineIndex(projectRoot, geometryIndex.sections ?? [], routeGeojsonFileFilter);
 
   const records = [];
   for (const descriptor of sourceDescriptors) {
@@ -133,6 +134,7 @@ export async function buildCandidateLayerOverlays({
   sourceArtifact,
   method,
   layerSources,
+  routeGeojsonFileFilter = null,
   recordFilter = null
 }) {
   const trailRoot = path.join(projectRoot, "data/research/candidate-trails", trailId);
@@ -144,7 +146,7 @@ export async function buildCandidateLayerOverlays({
 
   const facilities = await readJson(path.join(normalizedRoot, "facilities.research.json"));
   const geometryIndex = await readJson(path.join(normalizedRoot, "route-geometry-index.research.json"));
-  const routeLineIndex = await loadRouteLineIndex(projectRoot, geometryIndex.sections ?? []);
+  const routeLineIndex = await loadRouteLineIndex(projectRoot, geometryIndex.sections ?? [], routeGeojsonFileFilter);
 
   const records = [];
   for (const layer of layerSources) {
@@ -321,11 +323,12 @@ function findFacilityOverlaps(polygons, recordsToCheck) {
     .sort((left, right) => left.sectionId.localeCompare(right.sectionId, "en", { numeric: true }) || left.name.localeCompare(right.name));
 }
 
-async function loadRouteLineIndex(projectRoot, sections) {
+async function loadRouteLineIndex(projectRoot, sections, routeGeojsonFileFilter) {
   const routeLineIndex = [];
   for (const section of sections) {
     const files = [];
     for (const candidateGeojsonFile of section.candidateGeojsonFiles ?? []) {
+      if (routeGeojsonFileFilter && !routeGeojsonFileFilter(candidateGeojsonFile, section)) continue;
       const geojson = await readJson(path.join(projectRoot, candidateGeojsonFile));
       files.push({
         sourceGeojson: candidateGeojsonFile,
