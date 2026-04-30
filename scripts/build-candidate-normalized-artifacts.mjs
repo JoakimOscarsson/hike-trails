@@ -493,6 +493,11 @@ const generatedGeometryResolutionConfig = {
     triageResolvedSourceIds: ["tjustleden-normalized-geometry-before-overlays"],
     action:
       "Research-only candidate GeoJSON now exists for all 9 Tjustleden sections from official GPX sources; sections 4 and 6 are reversed into official written order before overlays."
+  },
+  "vastra-vatterleden": {
+    triageResolvedSourceIds: ["geometry"],
+    action:
+      "Research-only candidate GeoJSON now exists for all 8 Västra Vätterleden stages, including explicit stage-1 direct/Källebacken variants, stage-2 Skackastugan alternate, stages 3-5 assembled/reversed segments, stage-7 Fagerhult access connector and stage-8 child GPX components."
   }
 };
 
