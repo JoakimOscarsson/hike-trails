@@ -32,6 +32,7 @@ Candidate artifact commands:
 - `npm run data:candidate-normalization:build`: rebuild `normalized-candidate/` artifacts from research packets.
 - `npm run data:candidate-normalization:check`: validate handoffs, shared decisions, phase 3 report, and generated candidate artifacts.
 - `npm run data:candidate-geometry:gpx`: rebuild research-only candidate GeoJSON from section GPX source URLs for GPX-backed trails.
+- `npm run data:candidate:import`: import the approved candidate slice into runtime source shards, public trail-system shards, and route GeoJSON.
 
 ## Current Inventory
 
@@ -39,15 +40,15 @@ Candidate artifact commands:
 | --- | --- | ---: | --- | --- |
 | `bohusleden` | Bohusleden | 27 sections | Candidate artifacts generated | Mapdata exists for 26 full stages; Stage 21 remains a partial/self-navigation geometry blocker. |
 | `hallandsleden` | Hallandsleden | 35 sections | Candidate artifacts generated | Canonical and draw-ready geometry artifacts exist for all sections. |
-| `hogakustenleden` | Höga Kustenleden | 9 sections | Candidate artifacts generated | Needs geometry artifact build and source-caveat policies for section 2 distance and section 7 difficulty. |
+| `hogakustenleden` | Höga Kustenleden | 9 sections | Imported to runtime data | Runtime source/public shards and 9 section route files exist; section 2 distance and section 7 difficulty caveats are retained in notes. |
 | `hoglandsleden` | Höglandsleden | 23 sections | Candidate artifacts generated | Section research is complete; geometry package is partial. |
 | `kungsleden` | Kungsleden | 27 sections | Candidate artifacts generated | Geometry QA exists; source/licensing and endpoint conventions remain open. |
 | `nordkalottleden` | Nordkalottleden | 12 sections | Candidate artifacts generated | Official-source geometry artifacts exist; endpoint/connector gaps must remain explicit. |
-| `ostkustleden` | Ostkustleden | 8 sections | Candidate artifacts generated | Has caveat resolution, current verification, and normalization planning files. |
+| `ostkustleden` | Ostkustleden | 8 sections | Imported to runtime data | Runtime source/public shards and 8 section route files exist; opening/service caveats are retained in notes and descriptions. |
 | `padjelantaleden` | Padjelantaleden | 10 sections | Candidate artifacts generated | Needs remote access, hut cluster, and seasonal bridge/boat policies during import. |
-| `sjuharadsleden` | Sjuhäradsleden | 10 sections | Candidate artifacts generated | Has caveat resolution; next work is geometry cleanup and facility/rule normalization. |
+| `sjuharadsleden` | Sjuhäradsleden | 10 sections | Imported to runtime data | Runtime source/public shards and 10 section route files exist; estimated-time details are normalized into section notes. |
 | `tjustleden` | Tjustleden | 9 sections | Candidate artifacts generated | Requires importer support for official/computed distance, tails/connectors, direction reversal, and pending/suppress states. |
-| `vastra-vatterleden` | Västra Vätterleden | 8 sections | Candidate artifacts generated | Has static import-readiness and risk-resolution notes; needs route/connector geometry normalization. |
+| `vastra-vatterleden` | Västra Vätterleden | 8 sections | Imported to runtime data | Runtime source/public shards and 8 primary section route files exist; alternate/access variants remain caveated outside the selected runtime geometry. |
 | `vikingaleden` | Vikingaleden | 12 sections | Candidate artifacts generated | Needs Upplandsleden overlap dedupe for sections 7-12. |
 | `stockholm-archipelago-trail` | Stockholm Archipelago Trail | 1 summary | Research-only / existing app work | Whole-trail research file; separate from the current 12-trail prep batch. |
 | `upplandsleden` | Upplandsleden | 44 section/loop files | Existing app/reference data | Has a dedupe registry and is used as reference context for Vikingaleden overlap. |

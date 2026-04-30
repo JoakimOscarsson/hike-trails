@@ -68,6 +68,66 @@ const importConfigs = {
       url: "https://www.vastsverige.com/sjuharad/natur-och-friluftsliv/vandra/vandringsleder/boras-vandringsleder/sjuharadsleden/",
       lastFetchedAt: "2026-04-30"
     }
+  },
+  ostkustleden: {
+    name: "Ostkustleden",
+    region: "Kalmar län",
+    country: "Sweden",
+    difficulty: "Moderate",
+    estimatedTime: "8 stages",
+    season: "Year-round when conditions permit",
+    routeType: "Point to point",
+    description:
+      "A circular multi-stage trail in Oskarshamn municipality, linking overnight cabins, forests, lakes and Småland coastal landscapes through eight official stages.",
+    gettingThere:
+      "Use the selected section endpoints for access planning. Lilla Hycklinge and Oskarshamn-area access are the strongest anchors; cabin endpoints and rural roads need current transport checks.",
+    utilities: [
+      "Overnight cabins, dry toilets, parking and service points are unevenly distributed by stage.",
+      "Cabin, water, fire and seasonal service conditions should be checked before relying on them."
+    ],
+    waterSources: [
+      "Use only listed verified water points as refill context.",
+      "Natural lakes and streams should be treated before drinking."
+    ],
+    notes: [
+      "Imported from normalized candidate research on 2026-04-30.",
+      "Whole-trail headline distance varies by source; runtime distance uses the normalized section display distances."
+    ],
+    source: {
+      provider: "doderhult/naturkartan-candidate-research",
+      url: "https://doderhult.naturskyddsforeningen.se/ostkustleden/",
+      lastFetchedAt: "2026-04-30"
+    }
+  },
+  "vastra-vatterleden": {
+    name: "Västra Vätterleden",
+    region: "Västra Götalands län / Jönköpings län",
+    country: "Sweden",
+    difficulty: "Moderate",
+    estimatedTime: "8 stages",
+    season: "April-October",
+    routeType: "Point to point",
+    description:
+      "A long-distance trail on the western side of Vättern from the Tiveden/Stenkällegården area toward Mullsjö, with forest, lake, canal and town sections.",
+    gettingThere:
+      "Use the selected section endpoints for access planning. Forsvik, Hjo, Hökensås/Fagerhult and Mullsjö have the strongest access context; several rural endpoints need current timetable checks.",
+    utilities: [
+      "Services are concentrated around towns, campgrounds and established trailheads.",
+      "Route variants, business opening hours and rural transit should be checked before publication."
+    ],
+    waterSources: [
+      "No natural water should be treated as potable unless a selected section lists a verified source.",
+      "Carry water on longer forest stages and treat natural water."
+    ],
+    notes: [
+      "Imported from normalized candidate research on 2026-04-30.",
+      "Runtime import uses the normalized primary section geometry; alternate route variants remain caveated in section notes."
+    ],
+    source: {
+      provider: "vastsverige/skaraborgsleder-candidate-research",
+      url: "https://www.vastsverige.com/skovde/leder/vastra-vatterleden/",
+      lastFetchedAt: "2026-04-30"
+    }
   }
 };
 
@@ -101,12 +161,15 @@ async function buildTrailSystem(trailId, config) {
 
   const sectionGeometryById = new Map((routeGeometryIndex.sections ?? []).map((section) => [section.sectionId, section]));
   const normalFacilitiesBySectionId = groupNormalFacilities(facilities.records ?? []);
-  const sections = (routeSections.sections ?? []).map((section) =>
-    toRuntimeSection(trailId, section, sectionGeometryById.get(section.sectionId), normalFacilitiesBySectionId.get(section.sectionId) ?? [])
-  );
-  const orderedSections = sections.sort((left, right) => (left.stageNumber ?? 0) - (right.stageNumber ?? 0));
+  const orderedSections = (routeSections.sections ?? [])
+    .map((section) =>
+      toRuntimeSection(trailId, section, sectionGeometryById.get(section.sectionId), normalFacilitiesBySectionId.get(section.sectionId) ?? [])
+    )
+    .sort((left, right) => (left.stageNumber ?? 0) - (right.stageNumber ?? 0));
+  const runtimeRouteGroups = toRuntimeRouteGroups(routeTopology.routeGroups ?? []);
+  const runtimeConnections = toRuntimeConnections(routeTopology.connections ?? [], orderedSections);
   const locationStart = orderedSections[0]?.endpointCoordinates?.start;
-  const bounds = await routeBounds(trailId, orderedSections);
+  const bounds = await routeBounds(trailId, orderedSections, sectionGeometryById);
   const distanceKm = round(orderedSections.reduce((sum, section) => sum + (Number(section.distanceKm) || 0), 0), 1);
 
   return {
@@ -138,8 +201,9 @@ async function buildTrailSystem(trailId, config) {
       externalUrl: config.source.url
     },
     sections: orderedSections,
-    routeGroups: toRuntimeRouteGroups(routeTopology.routeGroups ?? []),
-    presets: buildPresets(trailId, orderedSections)
+    routeGroups: runtimeRouteGroups,
+    connections: runtimeConnections,
+    presets: buildPresets(orderedSections, runtimeRouteGroups)
   };
 }
 
@@ -147,6 +211,11 @@ function toRuntimeSection(trailId, section, geometryRecord, normalFacilities) {
   const routePath = `/routes/hiking/${trailId}/sections/${section.sectionId}.geojson`;
   const timingNotes = estimatedTimeNotes(section.estimatedTime);
   const caveatNotes = uniqueStrings([...(section.caveats ?? []), ...timingNotes]).slice(0, 6);
+  const endpointCoordinates = {
+    source: "candidate-normalized-route",
+    start: endpointLatLon(section.endpoints, "start"),
+    end: endpointLatLon(section.endpoints, "end")
+  };
   return {
     id: section.sectionId,
     stageNumber: section.sectionNumber ?? section.order,
@@ -154,7 +223,7 @@ function toRuntimeSection(trailId, section, geometryRecord, normalFacilities) {
     from: section.from,
     to: section.to,
     distanceKm: section.distance?.displayDistanceKm ?? section.distance?.officialDistanceKm ?? section.sourceSummary?.computedDistanceKm,
-    estimatedTime: displayText(section.estimatedTime),
+    estimatedTime: estimatedTimeDisplay(section.estimatedTime),
     description: `${section.from} to ${section.to}. Candidate import from normalized research; verify current notices before publication.`,
     utilities: sectionUtilities(normalFacilities),
     waterSources: sectionWaterSources(normalFacilities),
@@ -170,11 +239,7 @@ function toRuntimeSection(trailId, section, geometryRecord, normalFacilities) {
       sourceFormat: "geojson",
       geojsonPath: routePath
     },
-    endpointCoordinates: {
-      source: "candidate-normalized-route",
-      start: section.endpoints?.start?.coordinatesLatLon,
-      end: section.endpoints?.end?.coordinatesLatLon
-    }
+    endpointCoordinates
   };
 }
 
@@ -182,7 +247,7 @@ function groupNormalFacilities(records) {
   const grouped = new Map();
   for (const record of records) {
     if (record.state !== "normal") continue;
-    if (!record.sectionId || !record.coordinatesLatLon) continue;
+    if (!record.sectionId || !isLatLonPair(record.coordinatesLatLon)) continue;
     if (!grouped.has(record.sectionId)) grouped.set(record.sectionId, []);
     grouped.get(record.sectionId).push(record);
   }
@@ -230,7 +295,7 @@ function sectionWaterSources(facilities) {
 function toRuntimeRouteGroups(routeGroups) {
   return routeGroups.map((group) => ({
     id: group.groupId ?? group.id,
-    name: group.name ?? group.groupId ?? group.id,
+    name: group.name ?? humanizeId(group.groupId ?? group.id),
     kind: group.kind,
     sectionIds: group.sectionIds ?? [],
     connectsToSectionIds: group.connectsToSectionIds ?? [],
@@ -238,18 +303,61 @@ function toRuntimeRouteGroups(routeGroups) {
   }));
 }
 
-function buildPresets(trailId, sections) {
-  const presets = [
-    {
-      id: "full-route",
-      name: "Full route",
-      description: `All ${sections.length} stages.`,
-      startSectionId: sections[0]?.id,
-      endSectionId: sections.at(-1)?.id
-    }
-  ];
+function toRuntimeConnections(connections, sections) {
+  const sectionById = new Map(sections.map((section) => [section.id, section]));
+  return connections
+    .filter((connection) => connection.fromSectionId && connection.toSectionId)
+    .map((connection) => {
+      const fromSection = sectionById.get(connection.fromSectionId);
+      const toSection = sectionById.get(connection.toSectionId);
+      const fromCoordinates = fromSection?.endpointCoordinates?.end;
+      const toCoordinates = toSection?.endpointCoordinates?.start;
+      const mode = connection.mode && isLatLonPair(fromCoordinates) && isLatLonPair(toCoordinates) ? connection.mode : "none";
+      return {
+        id: connection.connectionId,
+        mode,
+        from: {
+          sectionId: connection.fromSectionId,
+          label: fromSection?.to ?? fromSection?.name ?? connection.fromSectionId,
+          coordinates: fromCoordinates,
+          coordinateSource: "route-geometry"
+        },
+        to: {
+          sectionId: connection.toSectionId,
+          label: toSection?.from ?? toSection?.name ?? connection.toSectionId,
+          coordinates: toCoordinates,
+          coordinateSource: "route-geometry"
+        },
+        currentness: connection.status ? humanizeId(connection.status) : undefined,
+        note: connection.importPolicy ?? connection.status ?? "Candidate topology connection.",
+        source: {
+          provider: "candidate-route-topology",
+          url: "",
+          lastFetchedAt: "2026-04-30"
+        }
+      };
+    });
+}
 
-  if (sections.length >= 2) {
+function buildPresets(sections, routeGroups) {
+  const sectionById = new Map(sections.map((section) => [section.id, section]));
+  const primaryGroups = routeGroups.filter((group) => group.kind === "mainline");
+  const groups = primaryGroups.length ? primaryGroups : routeGroups;
+  const presets = [];
+  for (const group of groups) {
+    const groupSections = group.sectionIds.map((sectionId) => sectionById.get(sectionId)).filter(Boolean);
+    if (!groupSections.length) continue;
+    const isOnlyGroup = groups.length === 1;
+    presets.push({
+      id: isOnlyGroup ? "full-route" : `full-${group.id}`,
+      name: isOnlyGroup ? "Full route" : `Full ${group.name}`,
+      description: `All ${groupSections.length} stages in ${group.name}.`,
+      startSectionId: groupSections[0].id,
+      endSectionId: groupSections.at(-1).id
+    });
+  }
+
+  if (sections.length >= 2 && groups.length <= 1) {
     presets.unshift({
       id: "first-two-stages",
       name: "First two stages",
@@ -263,12 +371,16 @@ function buildPresets(trailId, sections) {
 }
 
 async function writePublicRouteFiles(trailId, sections) {
+  const routeGeometryIndex = await readJson(
+    path.join(candidateRoot, trailId, "normalized-candidate/route-geometry-index.research.json")
+  );
+  const sectionGeometryById = new Map((routeGeometryIndex.sections ?? []).map((section) => [section.sectionId, section]));
   const routeDir = path.join(publicRoutesRoot, trailId, "sections");
   await rm(routeDir, { recursive: true, force: true });
   await mkdir(routeDir, { recursive: true });
   await Promise.all(
     sections.map(async (section) => {
-      const sourcePath = path.join(candidateRoot, trailId, "geometry/candidate/sections", `${section.id}.geojson`);
+      const sourcePath = routeGeometryPath(trailId, section, sectionGeometryById.get(section.id));
       const candidateGeojson = await readJson(sourcePath);
       const featureCollection = toRouteFeatureCollection(trailId, section, candidateGeojson);
       await writeJson(path.join(routeDir, `${section.id}.geojson`), featureCollection);
@@ -277,32 +389,32 @@ async function writePublicRouteFiles(trailId, sections) {
 }
 
 function toRouteFeatureCollection(trailId, section, candidateGeojson) {
-  const feature = candidateGeojson.type === "Feature" ? candidateGeojson : candidateGeojson.features?.[0];
+  const features = runtimeRouteFeatures(candidateGeojson);
   return {
     type: "FeatureCollection",
-    features: [
-      {
-        type: "Feature",
-        properties: {
-          id: section.id,
-          trailSystemId: trailId,
-          sectionId: section.id,
-          name: section.name,
-          source: "candidate-normalized-geojson"
-        },
-        geometry: feature?.geometry ?? candidateGeojson
-      }
-    ]
+    features: features.map((feature, index) => ({
+      type: "Feature",
+      properties: {
+        ...(feature.properties ?? {}),
+        id: section.id,
+        trailSystemId: trailId,
+        sectionId: section.id,
+        name: section.name,
+        part: index + 1,
+        source: "candidate-normalized-geojson"
+      },
+      geometry: feature?.geometry ?? candidateGeojson
+    }))
   };
 }
 
-async function routeBounds(trailId, sections) {
+async function routeBounds(trailId, sections, sectionGeometryById) {
   const coordinates = [];
   for (const section of sections) {
-    const routePath = path.join(candidateRoot, trailId, "geometry/candidate/sections", `${section.id}.geojson`);
+    const routePath = routeGeometryPath(trailId, section, sectionGeometryById.get(section.id));
     try {
       const geojson = await readJson(routePath);
-      collectCoordinates(geojson, coordinates);
+      collectCoordinates({ type: "FeatureCollection", features: runtimeRouteFeatures(geojson) }, coordinates);
     } catch {
       if (section.endpointCoordinates?.start) coordinates.push(toLonLat(section.endpointCoordinates.start));
       if (section.endpointCoordinates?.end) coordinates.push(toLonLat(section.endpointCoordinates.end));
@@ -329,33 +441,84 @@ function collectCoordinates(value, coordinates) {
   }
 }
 
+function routeGeometryPath(trailId, section, geometryRecord) {
+  const declaredPath = geometryRecord?.candidateGeojsonFiles?.[0];
+  if (declaredPath) return path.resolve(projectRoot, declaredPath);
+  return path.join(candidateRoot, trailId, "geometry/candidate/sections", `${section.id}.geojson`);
+}
+
+function runtimeRouteFeatures(candidateGeojson) {
+  const features =
+    candidateGeojson.type === "FeatureCollection"
+      ? candidateGeojson.features ?? []
+      : [{ type: "Feature", properties: {}, geometry: candidateGeojson.type === "Feature" ? candidateGeojson.geometry : candidateGeojson }];
+  const primaryFeatures = features.filter((feature) => {
+    const role = String(feature.properties?.role ?? "").toLowerCase();
+    return role === "mainline" || role === "mainline-primary" || role.includes("mainline-primary");
+  });
+  return primaryFeatures.length ? primaryFeatures : features;
+}
+
 function toLonLat(latLon) {
   return [latLon[1], latLon[0]];
+}
+
+function endpointLatLon(endpoints, position) {
+  const keys =
+    position === "start"
+      ? ["start", "continuousTrailStart", "officialNamedStart", "startStageGoalCandidate"]
+      : ["end", "endForTrailContinuity", "officialNamedEnd", "endStageGoalCandidate"];
+  for (const key of keys) {
+    const coordinates = endpoints?.[key]?.coordinatesLatLon;
+    if (isLatLonPair(coordinates)) return coordinates;
+  }
+  return undefined;
+}
+
+function isLatLonPair(value) {
+  return (
+    Array.isArray(value) &&
+    value.length === 2 &&
+    value.every((coordinate) => typeof coordinate === "number" && Number.isFinite(coordinate)) &&
+    Math.abs(value[0]) <= 90 &&
+    Math.abs(value[1]) <= 180
+  );
 }
 
 function uniqueStrings(values) {
   return values.filter((value, index) => typeof value === "string" && value.trim() && values.indexOf(value) === index);
 }
 
-function displayText(value, fallback = "See source") {
+function estimatedTimeDisplay(value) {
   if (typeof value === "string" && value.trim()) return value.trim();
-  if (typeof value === "number" && Number.isFinite(value)) return String(value);
-  if (value && typeof value === "object") {
-    for (const key of ["official", "display", "label", "value", "description"]) {
-      if (typeof value[key] === "string" && value[key].trim()) return value[key].trim();
-    }
+  if (value && typeof value === "object" && typeof value.official === "string" && value.official.trim()) {
+    return value.official.trim();
   }
-  return fallback;
+  return "No official estimate";
 }
 
 function estimatedTimeNotes(value) {
   if (!value || typeof value !== "object" || Array.isArray(value)) return [];
-  return (value.otherSources ?? [])
+  const notes = [];
+  for (const key of ["note", "notes"]) {
+    if (typeof value[key] === "string" && value[key].trim()) notes.push(`Timing note: ${value[key].trim()}`);
+  }
+  if (typeof value.derived === "string" && value.derived.trim()) {
+    notes.push(`Derived timing context, not official: ${value.derived.trim()}`);
+  }
+  notes.push(...(value.otherSources ?? [])
     .map((source) => {
       if (!source?.source || !source?.value) return undefined;
       return `Other timing source (${source.source}): ${source.value}`;
     })
-    .filter(Boolean);
+    .filter(Boolean));
+  return notes;
+}
+
+function humanizeId(value) {
+  return String(value ?? "")
+    .replace(/[-_]+/g, " ")
+    .replace(/\b\w/g, (character) => character.toUpperCase());
 }
 
 async function readJson(filePath) {
