@@ -364,14 +364,14 @@ const topologyDecisionConfig = {
       {
         id: "sjuharadsleden-mainline-selected",
         decision:
-          "Keep the researched 10-section mainline order, while leaving section 6 cleanup and section 7 densification as real geometry work before runtime import."
+          "Keep the researched 10-section mainline order, while leaving section 6 cleanup as real geometry work before runtime import. Section 7 has a generated densified candidate GeoJSON that still needs final map QA before runtime import."
       }
     ],
     routeGroups: [{ groupId: "sjuharadsleden-mainline", kind: "mainline", allSections: true, status: "candidate-topology-recorded" }],
     connections: [],
     remainingGeometryWork: [
       "Normalize section 6 Rölle duplicate/parallel/spur artifacts into one mainline.",
-      "Densify/resample the known section 7 simplified chord before runtime route import."
+      "Review the generated section 7 densified candidate GeoJSON during final map QA before runtime route import."
     ]
   },
   tjustleden: {
@@ -481,6 +481,14 @@ const policyDecisionConfig = {
     triageResolvedSourceIds: ["blocker-1"],
     action:
       "The existing Vikingaleden trail.research.json is now explicitly accepted as the candidate trail overview for this prep pass; later official overview refreshes can update metadata without blocking normalization."
+  }
+};
+
+const generatedGeometryResolutionConfig = {
+  tjustleden: {
+    triageResolvedSourceIds: ["tjustleden-normalized-geometry-before-overlays"],
+    action:
+      "Research-only candidate GeoJSON now exists for all 9 Tjustleden sections from official GPX sources; sections 4 and 6 are reversed into official written order before overlays."
   }
 };
 
@@ -1058,6 +1066,15 @@ function classifyTriageItem(trailId, item) {
       disposition: "resolved-now",
       owner: "candidate-data",
       action: policyResolution.action
+    };
+  }
+  const geometryResolution = generatedGeometryResolutionConfig[trailId];
+
+  if (geometryResolution?.triageResolvedSourceIds?.includes(item.sourceId)) {
+    return {
+      disposition: "resolved-now",
+      owner: "candidate-geometry",
+      action: geometryResolution.action
     };
   }
 

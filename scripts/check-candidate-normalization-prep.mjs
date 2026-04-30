@@ -379,6 +379,17 @@ async function validateNormalizedCandidateArtifacts(prep, manifest) {
     if ((geometryIndex.sections ?? []).length !== manifestSectionCount) {
       addError(scope, `geometry section count must match manifest ${manifestSectionCount}`);
     }
+    for (const section of geometryIndex.sections ?? []) {
+      for (const candidateGeojsonFile of section.candidateGeojsonFiles ?? []) {
+        const geojson = await readJson(path.join(projectRoot, candidateGeojsonFile));
+        if (!geojson) continue;
+        const hasFeatureCollection = geojson.type === "FeatureCollection" && Array.isArray(geojson.features) && geojson.features.length > 0;
+        const hasSingleFeature = geojson.type === "Feature" && isObject(geojson.geometry);
+        if (!hasFeatureCollection && !hasSingleFeature) {
+          addError(scope, `candidate geometry ${candidateGeojsonFile} must be a non-empty FeatureCollection or Feature`);
+        }
+      }
+    }
     if (facilities.summary?.totalRecords !== (facilities.records ?? []).length) {
       addError(scope, "facility summary totalRecords must match records length");
     }

@@ -30,6 +30,7 @@ Candidate artifact commands:
 
 - `npm run data:candidate-normalization:build`: rebuild `normalized-candidate/` artifacts from research packets.
 - `npm run data:candidate-normalization:check`: validate handoffs, shared decisions, phase 3 report, and generated candidate artifacts.
+- `npm run data:candidate-geometry:gpx`: rebuild research-only candidate GeoJSON from section GPX source URLs for GPX-backed trails.
 
 ## Current Inventory
 

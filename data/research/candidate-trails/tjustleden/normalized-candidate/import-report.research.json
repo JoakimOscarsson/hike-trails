@@ -19,7 +19,7 @@
   "generatedCounts": {
     "routeSections": 9,
     "geometrySections": 9,
-    "geometrySectionsWithCandidateGeojson": 0,
+    "geometrySectionsWithCandidateGeojson": 9,
     "routeTopologyDecisions": 1,
     "routeGroups": 1,
     "routeTopologyConnections": 0,
@@ -104,9 +104,9 @@
       "sourceId": "tjustleden-normalized-geometry-before-overlays",
       "status": "blocks-rule-overlays",
       "details": "Final normalized geometry before overlays.",
-      "disposition": "fix-now",
-      "owner": "candidate-gis",
-      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+      "disposition": "resolved-now",
+      "owner": "candidate-geometry",
+      "action": "Research-only candidate GeoJSON now exists for all 9 Tjustleden sections from official GPX sources; sections 4 and 6 are reversed into official written order before overlays."
     },
     {
       "id": "blocker-4",
@@ -161,11 +161,20 @@
   ],
   "triageSummary": {
     "runtime-schema-needed": 4,
-    "fix-now": 1,
-    "resolved-now": 2,
+    "resolved-now": 3,
     "defer-publication-time": 1
   },
   "fixesAppliedNow": [
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "tjustleden-normalized-geometry-before-overlays",
+      "status": "blocks-rule-overlays",
+      "details": "Final normalized geometry before overlays.",
+      "disposition": "resolved-now",
+      "owner": "candidate-geometry",
+      "action": "Research-only candidate GeoJSON now exists for all 9 Tjustleden sections from official GPX sources; sections 4 and 6 are reversed into official written order before overlays."
+    },
     {
       "id": "blocker-4",
       "itemType": "blocker",
@@ -187,18 +196,7 @@
       "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
     }
   ],
-  "fixNowBeforeRuntimeImport": [
-    {
-      "id": "blocker-3",
-      "itemType": "blocker",
-      "sourceId": "tjustleden-normalized-geometry-before-overlays",
-      "status": "blocks-rule-overlays",
-      "details": "Final normalized geometry before overlays.",
-      "disposition": "fix-now",
-      "owner": "candidate-gis",
-      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
-    }
-  ],
+  "fixNowBeforeRuntimeImport": [],
   "runtimeSchemaNeeded": [
     {
       "id": "blocker-1",
@@ -266,7 +264,6 @@
   "unresolvedBeforeRuntimeImport": [
     "runtime-schema-needed: Route normalization is still not runtime-import-ready until the importer/schema can represent officialDistanceKm, computedGeometryDistanceKm, endpoint clusters, tails/connectors, and source-direction reversal metadata.",
     "runtime-schema-needed: Importers should support officialDistanceKm and computedGeometryDistanceKm; caveat material differences.",
-    "fix-now: Final normalized geometry before overlays.",
     "defer-publication-time: Transit/parking/acute/fire/forestry/service live checks.",
     "runtime-schema-needed: Allow candidate importer/schema work before runtime import so officialDistanceKm, computedGeometryDistanceKm, endpoint clusters, tails/connectors, and source-direction reversal metadata can be represented.",
     "runtime-schema-needed: Keep loops/connectors out of the main 9-stage route unless the import supports separate connector/tail objects."
