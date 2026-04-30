@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-30T08:35:00Z",
-  "currentPhase": "Phase 2 K3 complete and validated; ready to commit before starting hallandsleden-asa-frillesas",
+  "lastUpdated": "2026-04-30T09:30:00Z",
+  "currentPhase": "Phase 2 K4 validation passed; commit pending before K5",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -30,7 +30,8 @@
     "hallandsleden-ekegarden-koarp",
     "hallandsleden-sandsjobacka-kungsbacka-c",
     "hallandsleden-kungsbacka-c-tjoloholm",
-    "hallandsleden-tjoloholm-asa"
+    "hallandsleden-tjoloholm-asa",
+    "hallandsleden-asa-frillesas"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -512,7 +513,7 @@
       "commuteAccessStatus": "complete-both-endpoints-public-transit-weak",
       "facilityResearchStatus": "complete-with-import-pending-suppress-decisions",
       "rulesSafetyStatus": "complete-protected-water-fire-dog-livestock-hunting-forestry-currentness",
-      "synthesisStatus": "complete-section-json-written",
+      "synthesisStatus": "complete-section-json-written-and-validation-passed",
       "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
         "Decide how to model the Kvarnforsen start spur versus the practical M6/S3 handoff at S3 point 4.",
@@ -935,19 +936,42 @@
       "sectionNumber": "K4",
       "name": "Åsa - Frillesås",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-gpx-discovered-map-api-line-empty-or-sparse-needs-parsing",
-      "startEndCoordinateStatus": "not-yet-validated-gpx-endpoints-needed",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-official-source-lane-and-main-thread-baseline",
+      "routeGeometryStatus": "complete-official-gpx-api-geojson-canonical-multilinestring-gap-missing-line-geometry-osm-naturkartan-suppressed",
+      "startEndCoordinateStatus": "complete-official-gpx-api-endpoints-high-confidence-k3-handoff-0m-k5-official-coastal-gap-67205m",
+      "commuteAccessStatus": "complete-asa-idrottsplats-asa-station-frillesas-korsvag-frillesas-parking-and-line-732-caveats",
+      "facilityResearchStatus": "complete-core-facilities-ready-endpoint-service-filtering-and-seasonal-water-toilet-caveats",
+      "rulesSafetyStatus": "complete-no-direct-protected-area-span-dynamic-fire-dog-beach-currentness-caveats",
+      "synthesisStatus": "complete-section-json-written",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
         "Run six independent section research lanes and synthesize findings.",
         "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
         "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision.",
+        "K4 batch started using six research lanes.",
+        "Pay special attention to the exact K3/K4 Åsa handoff, official GPX Kust_Asa_Frillesas.gpx, official 8.9 km easy route, Åsa endpoint service/access dedupe, Frillesås endpoint transit/access, coastal-route topology, route geometry continuity, water/facility filtering, protected/coastal rules and dynamic currentness caveats.",
+        "Main-thread baseline: official page and API confirm Åsa - Frillesås, 8.9 km, green/easy, no official estimated time, official GPX Kust_Asa_Frillesas.gpx and official route description from Åsa/Vita Sand via Krokvik, Rågelund, Vallersvik/Torstensvik, coastal meadows north of Löftaån, under the railway and into Frillesås centre.",
+        "Main-thread baseline: official GPX HTTP 200, Last-Modified 2025-06-23, metadata time 2025-06-23T09:31:06+02:00, track desc Total: 8.8 km, 113 points, 2 trksegs, start 57.346603,12.121927 and end 57.317010,12.174804.",
+        "Main-thread baseline: Hallandsleden map API length_in_meters 8900, degree_of_difficulty easy, geo_type MultiLineString, 113 coordinates and 256 elevation samples; API line.geometry is absent/null, so official GPX/API geo_json is the canonical candidate pending geometry-lane confirmation.",
+        "Main-thread baseline: official GPX/API segments are 14 points/0.731 km and 99 points/8.052 km; segment-sum length is 8.783 km and flattened length is 8.896 km.",
+        "Main-thread baseline: official MultiLineString has a 112.88 m source gap between 57.341205,12.127714 and 57.341474,12.129528 on Åsa Kustpromenad/OSM footway 542801320; preserve or flag this gap rather than silently bridging for navigation-grade use.",
+        "Main-thread baseline: K3 end to K4 start is exact at 57.346603,12.121927; K4 end to current K5 Steninge start is about 67.2 km from the official K5 GPX start 56.765755,12.630316, reflecting the official coastal gap while Varberg/Falkenberg coastal stages are still planned, so do not stitch Frillesås to Steninge.",
+        "Main-thread baseline: official places API with limit=100 returns 22 records including Åsa/Vita Sand services, Åsa idrottsplats, Rågelund norra, Rågelunds Camping, Vallersvik Camping, Vallersvik/Torstensvik toilets/baths, Frillesås Korsväg and Frillesås endpoint food/lodging/services.",
+        "Main-thread baseline: official water/toilet category response returns four records: Toalett och dricksvatten Vallersvik Camping, Toalett Rågelund open 15/5-15/9, Toalett Torstensvik open 15/5-15/9 and Toalett Vita Sand Åsa with toilet/drinking water/accessibility/shower context; no official free shelter/campsite/fireplace was found in that category pass.",
+        "Main-thread baseline: route-proximity check places Strandbaren and Toalett Vita Sand within about 15 m at the start, Rågelunds Camping about 16 m and Hållplats Rågelund norra about 35 m around km 3, Vallersvik/Torstensvik records within about 10-76 m around km 5.2-5.8, and Coop Frillesås/Frillesås Korsväg/Pensionat Frillesberg/Reale Pizzeria within about 39-156 m at the endpoint.",
+        "Main-thread baseline: start access is shared with K3 at Åsa/Vita Sand; closest official stop is Hållplats Åsa idrottsplats about 330 m from the endpoint, Åsa station is about 2.0 km away, and endpoint parking is mapped within about 86 m.",
+        "Main-thread baseline: end access is strong at Hållplats Frillesås Korsväg about 128 m from the endpoint with Västtrafik line 732 context; OSM Frillesås centre surface parking is very close to the endpoint and should be recorded as parking/access metadata after filtering dense urban parking.",
+        "Official-source lane confirmed K4 identity/order/distance/difficulty, Swedish/English route description, GPX metadata, 22 official places, official water/toilet category records, official-adjacent Åsa/Vallersvik context and no official K4 free shelter/campsite/fireplace.",
+        "Route-geometry lane confirmed official GPX/API geo_json as canonical and point-for-point identical: 113 points, computed 8.896 km, two-part MultiLineString with a 112.883 m gap on Åsa Kustpromenad, exact K3 handoff, missing API line.geometry and no current OSM/Naturkartan geometry to override the official source.",
+        "Route-geometry lane resolved K4-to-K5 topology: current K5 Steninge - Haverdal official GPX starts at 56.765755,12.630316, about 67.2 km from Frillesås, so this is an official coastal-network discontinuity and not a connector to invent.",
+        "Facilities lane classified core imports for Vita Sand toilet/water/beach/Strandbaren/Åsa Camping, Freadals, Rågelund camping/beach/toilet/parking, Vallersvik water/toilet/camping, Torstensvik beach/toilet, Frillesås Coop/Pensionat/Reale and access stops; suppress bus shelters as trail shelters, fireplaces and dense endpoint urban noise.",
+        "Transit-access lane confirmed Åsa idrottsplats as closest start bus, Åsa centrum and Åsa station as secondary/start access, Frillesås Korsväg as primary end bus, Frillesås centre parking, and intermediate Kuggavik/Vassbäck/Rågelund/Borekullavägen line 732 bailouts; no ferry/boat/rowboat transfer applies.",
+        "Field-report lane found no active K4 closure/reroute and only partial-overlap condition reports; import route-character notes for easy coastal path, cycle/road/residential stretches, rocks/stairs/boardwalks, beach access and dog-rule uncertainty, but do not import partial-loop geometry or difficulty.",
+        "Rules-safety lane found no active official closure, no direct protected-area/Natura/water-protection route span, nearby/off-route Vendelsöarna context only, dynamic RSG fire status, dog/beach-rule verification needs, coastal exposure/rocks/Löftaån meadow/rail-underpass cautions and low forestry risk.",
+        "All six K4 lane reports are in. Main thread decided no targeted follow-up batch is needed before synthesis because remaining issues are import/currentness caveats: official gap handling, K4-to-K5 network gap, beach dog rules, seasonal water/toilets, endpoint-service filtering, Rågelund waste coordinate and live Västtrafik/fire/currentness checks.",
+        "K4 synthesis complete: section JSON written at sections/hallandsleden-asa-frillesas.research.json. It is research-ready with caveats around official multipart GPX/API geometry gap, missing line.geometry, no exact OSM/Naturkartan K4 linework, exact K3 handoff, large official Frillesås-to-Steninge coastal gap, 22 official places, seasonal water/toilets, no free shelter/fireplace, no direct protected-area span, dog/beach rule verification and dynamic currentness checks.",
+        "Full Hallandsleden candidate JSON validation and git diff --check passed for K4 before commit."
       ]
     },
     "hallandsleden-steninge-haverdal": {
@@ -1078,6 +1102,45 @@
     }
   },
   "agentBatches": [
+    {
+      "batchId": "hallandsleden-asa-frillesas-initial-6-lane-2026-04-30",
+      "sectionId": "hallandsleden-asa-frillesas",
+      "startedAt": "2026-04-30T08:40:00Z",
+      "completedAt": "2026-04-30T09:20:00Z",
+      "status": "completed-and-synthesized",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "nickname": "Carson"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "nickname": "Darwin"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "nickname": "Beauvoir the 2nd"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "nickname": "Poincare the 2nd"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "nickname": "Rawls the 2nd"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "nickname": "Kuhn the 2nd"
+        }
+      ]
+    },
     {
       "batchId": "hallandsleden-tjoloholm-asa-initial-6-lane-2026-04-30",
       "sectionId": "hallandsleden-tjoloholm-asa",
@@ -5607,10 +5670,26 @@
       "fieldReports": "complete from field-report lane; no active closure found, local Tjolöholm and Näsbokrok/Åsa condition caveats and stale route-app risks recorded",
       "rulesSafety": "complete from rules-safety-currentness lane and main-thread baseline; Tjolöholm, Kungsbackafjorden, Näsbokrok, dog/fire/camping/currentness caveats recorded",
       "synthesis": "complete; section JSON written and validation passed before commit"
+    },
+    "hallandsleden-asa-frillesas": {
+      "overview": "complete from trail.research.json overview pass",
+      "officialSources": "complete from official-source lane and main-thread official page/API/GPX/places baseline",
+      "routeGeometry": "complete from route-geometry lane and main-thread baseline; official GPX/API geo_json canonical candidate is a 113-point, two-segment MultiLineString with one 112.88 m source gap, API line.geometry missing, OSM/Naturkartan exact K4 relation missing",
+      "endpointCoordinates": "complete from official GPX/API endpoints; K3 handoff exact at Åsa and K4-to-K5 is a large official coastal gap of about 67.2 km to K5 GPX start",
+      "facilities": "complete from facilities lane and main-thread baseline; 22 official places, core Åsa/Rågelund/Vallersvik/Torstensvik/Frillesås records and side/suppress decisions recorded",
+      "commuteAccess": "complete from transit lane and main-thread baseline; Åsa idrottsplats/Åsa station/start parking, Frillesås Korsväg/Frillesås parking and intermediate line 732 bailouts recorded",
+      "fieldReports": "complete from field-report lane; no active closure found, partial-overlap coastal condition reports and stale/route-app risks recorded",
+      "rulesSafety": "complete from rules-safety-currentness lane; no direct protected-area span, dynamic fire/dog/beach/currentness caveats recorded",
+      "synthesis": "complete; section JSON written and validation passed before commit"
     }
   },
   "knownGaps": [
-    "Only the overview and first twenty-eight sections have been researched/synthesized; K4-K10 still need the six-lane workflow.",
+    "Only the overview and first twenty-nine sections have been researched/synthesized; K5-K10 still need the six-lane workflow.",
+    "K4 research-ready caveat: official GPX/API geo_json is canonical, but it is a two-segment MultiLineString with a 112.88 m official gap on Åsa Kustpromenad that must be preserved or explicitly modeled.",
+    "K4 research-ready caveat: K3 handoff at Åsa is exact, but K4 does not hand off to K5; current K5 official GPX starts at Steninge 56.765755,12.630316, about 67.2 km from Frillesås. Do not stitch this official coastal gap.",
+    "K4 research-ready caveat: official places API returns 22 records including dense Åsa and Frillesås endpoint services, Rågelund/Vallersvik campings, beach toilets/water and transit stops; normalize with endpoint dedupe and service filtering.",
+    "K4 research-ready caveat: water is official at Vita Sand and Vallersvik, while Rågelund and Torstensvik toilets are seasonal 15/5-15/9; no official free shelter/campsite/fireplace was found.",
+    "K4 research-ready caveat: no direct protected-area/Natura/water-protection span was found, but beach dog rules, RSG fire status, Västtrafik schedules, parking rules and municipal/currentness checks must be reverified before import.",
     "K3: initial six-lane research is running; main-thread baseline found official GPX/API geo_json is a three-segment MultiLineString with 432 points, official distance 29 km, GPX desc 28.7 km, segment-sum 28.474 km and flattened 28.787 km.",
     "K3: official MultiLineString has two short gaps of about 203 m near Näsungevägen/Mor Annas väg and about 111 m near Badviksvägen/Åsa beach; synthesis must decide whether to preserve, bridge, or flag these gaps before navigation-grade import.",
     "K3: official places API returns 21 records including Tjolöholm shared-start services, Näsbokrok/Gårda Brygga toilets, Åsa endpoint services, Åsa Jutegård and some side/urban services; synthesis must filter food/lodging/camping and avoid dense service over-inclusion.",
@@ -5830,9 +5909,9 @@
     "S6 research-ready caveat: old Assman-Mästocka 16-17 km route-app/tourism sources are stale and must be suppressed."
   ],
   "nextActions": [
-    "Commit K3 research files before starting K4.",
-    "Start K4 hallandsleden-asa-frillesas six-lane workflow after K3 commit.",
-    "For K4, pay attention to the exact K3/K4 Åsa handoff, official page https://www.hallandsleden.se/etapp/asa-frillesas, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Asa_Frillesas.gpx, official 8.9 km easy route, Åsa endpoint service/access dedupe, Frillesås endpoint transit/access, coastal-route topology, route geometry continuity, water/facility filtering, protected/coastal rules and dynamic currentness caveats."
+    "Validate all Hallandsleden candidate JSON files and git diff whitespace, then commit K4 before starting K5.",
+    "Start K5 hallandsleden-steninge-haverdal after the K4 commit with six parallel research/report agents.",
+    "For K5, pay attention to the large official coastal gap before Steninge, official page https://www.hallandsleden.se/etapp/steninge-haverdal, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Steninge_Haverdal.gpx, official 7.3 km easy route, Steninge/Haverdal endpoint access and services, beach/reserve rules, route geometry continuity, water/facility filtering and dynamic currentness caveats."
   ],
   "handoffNotes": [
     "Work resumed on 2026-04-29 in /workspaces/hike-trails-codex-hallandsleden-research on branch codex/hallandsleden-research.",
@@ -5995,7 +6074,10 @@
     "sections/hallandsleden-mastocka-knared.research.json",
     "sections/hallandsleden-knared-ekegarden.research.json",
     "sections/hallandsleden-ekegarden-koarp.research.json",
-    "sections/hallandsleden-sandsjobacka-kungsbacka-c.research.json"
+    "sections/hallandsleden-sandsjobacka-kungsbacka-c.research.json",
+    "sections/hallandsleden-kungsbacka-c-tjoloholm.research.json",
+    "sections/hallandsleden-tjoloholm-asa.research.json",
+    "sections/hallandsleden-asa-frillesas.research.json"
   ],
   "meaningfulPasses": [
     {
@@ -6727,6 +6809,31 @@
       "id": "phase-2-k3-validation-passed-2026-04-30",
       "completedAt": "2026-04-30T08:35:00Z",
       "summary": "Validated all Hallandsleden candidate JSON files with jq and checked whitespace with git diff --check before committing K3."
+    },
+    {
+      "id": "phase-2-k4-initial-six-lane-batch-started-2026-04-30",
+      "completedAt": "2026-04-30T08:40:00Z",
+      "summary": "Committed K3 as 198979c, then started K4 Åsa - Frillesås six-lane research batch with agents Carson, Darwin, Beauvoir the 2nd, Poincare the 2nd, Rawls the 2nd and Kuhn the 2nd. Main thread retains all file-write ownership."
+    },
+    {
+      "id": "phase-2-k4-main-thread-baseline-2026-04-30",
+      "completedAt": "2026-04-30T09:00:00Z",
+      "summary": "Main thread baseline for K4 checked official page/API/GPX/places, K3 handoff and K5 coastal-gap topology, official route description, Åsa/Vita Sand/Rågelund/Vallersvik/Torstensvik/Frillesås facility context, Västtrafik line 732 context and OSM access/parking/bus-stop context. Official GPX/API geo_json is canonical candidate at 113 points/8.896 km flattened, but it is a two-segment MultiLineString with one 112.88 m source gap on Åsa Kustpromenad; API line.geometry is missing. Official places API returns 22 records and water/toilet category response returns four records, while no official free shelter/campsite/fireplace was found in the main-thread category pass. Åsa idrottsplats/Åsa station and Frillesås Korsväg/Frillesås parking access evidence is captured while agent lanes continue."
+    },
+    {
+      "id": "phase-2-k4-six-lane-reports-complete-synthesis-started-2026-04-30",
+      "completedAt": "2026-04-30T09:20:00Z",
+      "summary": "Received usable K4 reports from all six lanes. Reports confirm official GPX/API geo_json as canonical 113-point, two-part MultiLineString with a 112.88 m source gap, exact K3 handoff, large official coastal network gap before K5, 22 official places, core Åsa/Rågelund/Vallersvik/Torstensvik/Frillesås facilities, Åsa idrottsplats/Åsa station and Frillesås Korsväg access, no active closure, no direct protected-area/Natura/water-protection span, dynamic fire/dog/beach/currentness caveats and partial-overlap field-report risks. Main thread decided no targeted follow-up batch is needed before synthesis."
+    },
+    {
+      "id": "phase-2-k4-six-lane-synthesis-complete-2026-04-30",
+      "completedAt": "2026-04-30T09:25:00Z",
+      "summary": "Synthesized K4 Åsa - Frillesås into sections/hallandsleden-asa-frillesas.research.json after all six lane reports plus main-thread official/API/GPX/places/access/rules checks. Marked K4 research-ready with caveats around canonical official multipart GPX/API geo_json with one source gap, missing line.geometry, no exact OSM/Naturkartan K4 linework, exact K3 handoff, large official Frillesås-to-Steninge coastal gap, seasonal water/toilets, no free shelter/fireplace, endpoint-service filtering, no direct protected-area span and dynamic currentness checks."
+    },
+    {
+      "id": "phase-2-k4-validation-passed-2026-04-30",
+      "completedAt": "2026-04-30T09:30:00Z",
+      "summary": "Validated all Hallandsleden candidate JSON files with jq and checked whitespace with git diff --check before committing K4."
     }
   ]
 }
