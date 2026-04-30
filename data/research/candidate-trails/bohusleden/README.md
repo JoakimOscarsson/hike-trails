@@ -37,10 +37,14 @@ Files:
 - `sections/bohusleden-stage-27-hogstad-stromstad.research.json`: completed Stage 27 research packet.
 - `sections/*.research.json`: one section packet per official stage.
 - `mapdata/`: research-only candidate mapdata generated from the primary official WST/Hoodin GPX sources recorded in the section packets.
+- `geometry/protected-area-overlays/`: research-only official GIS source downloads for protected-area, Natura 2000, water-protection, regulatory-area and biotopskydd overlay QA.
+- `normalized-candidate/protected-area-overlays.research.json`: computed route/facility overlap artifact for rule-warning scoping.
 
 Phase 1 official-source pass on 2026-04-29: West Sweden Trails/Bohusleden currently lists 27 stages and a headline distance of about 350 km from Älvsåker to Strömstad. The official structured stage distances sum to 353.5 km.
 
 Mapdata hardening pass on 2026-04-30: `mapdata/sections/*.geojson` now contains one de-duplicated GeoJSON LineString per official stage, and `mapdata/bohusleden-candidate-section-geometries.geojson` contains the combined QA FeatureCollection. The mapdata package has 26 full official stage geometries ready for later normalization with caveats, plus one partial official Stage 21 geometry that is explicitly blocked for complete route import. `mapdata/index.json` records geometry metrics, continuity gaps, source policy, generated files and blocking issues. `mapdata/validation-report.json` records the JSON/GeoJSON shape checks and official GPX URL resolution checks.
+
+Protected-area overlay pass on 2026-04-30: `normalized-candidate/protected-area-overlays.research.json` now records route-bbox official GIS checks against Bohusleden candidate route geometry and facility points. The artifact retains 95 protected/restriction records: 47 with route overlap, 38 with facility overlap, 66 route-overlap records and 379 facility-overlap records across protected areas, Natura 2000, water-protection areas, regulatory areas and biotopskydd. Warning granularity is now resolved for normalization prep: use route-subsegment warnings for route overlaps, facility/site notes for point overlaps, and keep volatile fire, transit, closure and service checks as publication-time whole-trail/section checks. Stage 21 remains partial-geometry only; the overlay scopes the candidate linework and does not solve the missing full-stage corridor.
 
 Important early caveats:
 

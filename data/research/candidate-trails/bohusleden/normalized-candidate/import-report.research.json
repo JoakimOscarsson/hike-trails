@@ -92,7 +92,7 @@
     {
       "id": "publicationTimeRechecks-3",
       "status": "publicationTimeRechecks",
-      "details": "Final GIS line-buffer overlays for protected areas, water-protection zones and restriction subsegments."
+      "details": "Confirm the computed protected-area overlay remains current if source layers or candidate geometry change before publication."
     },
     {
       "id": "publicationTimeRechecks-4",
@@ -120,10 +120,6 @@
     {
       "id": "decision-5",
       "details": "Choose how pending OSM-only fire/water/shelter/picnic candidates are stored before verification."
-    },
-    {
-      "id": "decision-6",
-      "details": "Choose warning granularity for reserve, water-protection, dog, fire and camping rules after GIS overlay."
     }
   ],
   "blockerTriage": [
@@ -192,10 +188,10 @@
       "itemType": "blocker",
       "sourceId": "publicationTimeRechecks-3",
       "status": "publicationTimeRechecks",
-      "details": "Final GIS line-buffer overlays for protected areas, water-protection zones and restriction subsegments.",
-      "disposition": "fix-now",
+      "details": "Confirm the computed protected-area overlay remains current if source layers or candidate geometry change before publication.",
+      "disposition": "resolved-now",
       "owner": "candidate-gis",
-      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+      "action": "Candidate protected-area-overlays.research.json now records route-bbox protected-area, Natura 2000, water-protection, regulatory-area and biotopskydd checks against Bohusleden candidate route geometry and facility points. Warning granularity is route-subsegment for route polygon overlaps, facility/site-level for point overlaps, and publication-time whole-trail notices only for volatile live fire, transit, closure and service status."
     },
     {
       "id": "blocker-8",
@@ -256,23 +252,12 @@
       "disposition": "resolved-now",
       "owner": "candidate-data",
       "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
-    },
-    {
-      "id": "open-decision-14",
-      "itemType": "open-decision",
-      "sourceId": "decision-6",
-      "status": "open-decision",
-      "details": "Choose warning granularity for reserve, water-protection, dog, fire and camping rules after GIS overlay.",
-      "disposition": "fix-now",
-      "owner": "candidate-gis",
-      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
     }
   ],
   "triageSummary": {
-    "resolved-now": 9,
+    "resolved-now": 10,
     "runtime-integration-task": 1,
-    "defer-publication-time": 2,
-    "fix-now": 2
+    "defer-publication-time": 2
   },
   "fixesAppliedNow": [
     {
@@ -306,6 +291,16 @@
       "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
     },
     {
+      "id": "blocker-7",
+      "itemType": "blocker",
+      "sourceId": "publicationTimeRechecks-3",
+      "status": "publicationTimeRechecks",
+      "details": "Confirm the computed protected-area overlay remains current if source layers or candidate geometry change before publication.",
+      "disposition": "resolved-now",
+      "owner": "candidate-gis",
+      "action": "Candidate protected-area-overlays.research.json now records route-bbox protected-area, Natura 2000, water-protection, regulatory-area and biotopskydd checks against Bohusleden candidate route geometry and facility points. Warning granularity is route-subsegment for route polygon overlaps, facility/site-level for point overlaps, and publication-time whole-trail notices only for volatile live fire, transit, closure and service status."
+    },
+    {
       "id": "blocker-8",
       "itemType": "blocker",
       "sourceId": "publicationTimeRechecks-4",
@@ -366,28 +361,7 @@
       "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
     }
   ],
-  "fixNowBeforeRuntimeImport": [
-    {
-      "id": "blocker-7",
-      "itemType": "blocker",
-      "sourceId": "publicationTimeRechecks-3",
-      "status": "publicationTimeRechecks",
-      "details": "Final GIS line-buffer overlays for protected areas, water-protection zones and restriction subsegments.",
-      "disposition": "fix-now",
-      "owner": "candidate-gis",
-      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
-    },
-    {
-      "id": "open-decision-14",
-      "itemType": "open-decision",
-      "sourceId": "decision-6",
-      "status": "open-decision",
-      "details": "Choose warning granularity for reserve, water-protection, dog, fire and camping rules after GIS overlay.",
-      "disposition": "fix-now",
-      "owner": "candidate-gis",
-      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
-    }
-  ],
+  "fixNowBeforeRuntimeImport": [],
   "runtimeSchemaNeeded": [],
   "deferredBeforeRuntimeImport": [
     {
@@ -433,16 +407,14 @@
     "Review the 4296.3 m Stage 21-to-Stage 22 gap and keep it explicit.",
     "Compare official distances, computed distances and source contradictions before exposing distances.",
     "Run facility cluster/dedupe pass and verify pending/OSM-only/private/seasonal records before import.",
-    "Run final GIS overlays for protected areas, water-protection zones and restriction subsegments.",
+    "Use normalized-candidate/protected-area-overlays.research.json for protected-area, water-protection and restriction warning scoping, and rerun it if candidate geometry changes.",
     "Run live WST, fire, transit, bridge/raft/forestry, planned-burn and seasonal-service checks immediately before publication.",
     "Confirm no runtime app data, generated public data, shared scripts or package files are modified by the normalization-prep pass."
   ],
   "unresolvedBeforeRuntimeImport": [
     "runtime-integration-task: Runtime integration still needs a separate explicit import task.",
     "defer-publication-time: WST status/deviation widgets, fire bans, transit timetables, commercial opening hours and seasonal services.",
-    "defer-publication-time: Known bridge/raft/forestry/windfall/planned-burn notices.",
-    "fix-now: Final GIS line-buffer overlays for protected areas, water-protection zones and restriction subsegments.",
-    "fix-now: Choose warning granularity for reserve, water-protection, dog, fire and camping rules after GIS overlay."
+    "defer-publication-time: Known bridge/raft/forestry/windfall/planned-burn notices."
   ],
   "nextActions": [
     "Handle fixNowBeforeRuntimeImport first unless the linked item truly needs external data.",

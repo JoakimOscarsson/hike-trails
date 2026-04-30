@@ -58,6 +58,7 @@ export async function buildCandidateProtectedAreaOverlays({
 
   const facilities = await readJson(path.join(normalizedRoot, "facilities.research.json"));
   const geometryIndex = await readJson(path.join(normalizedRoot, "route-geometry-index.research.json"));
+  const routeLineIndex = await loadRouteLineIndex(projectRoot, geometryIndex.sections ?? []);
 
   const records = [];
   for (const descriptor of sourceDescriptors) {
@@ -74,7 +75,7 @@ export async function buildCandidateProtectedAreaOverlays({
     }
 
     const facilityOverlaps = findFacilityOverlaps(polygons, facilities.records ?? []);
-    const routeOverlaps = await findRouteOverlaps(projectRoot, polygons, geometryIndex.sections ?? []);
+    const routeOverlaps = findRouteOverlaps(polygons, routeLineIndex);
     records.push({
       overlayId: `${trailId}-${slugify(descriptor.areaName)}`,
       protectedArea: descriptor.areaName,
@@ -143,6 +144,7 @@ export async function buildCandidateLayerOverlays({
 
   const facilities = await readJson(path.join(normalizedRoot, "facilities.research.json"));
   const geometryIndex = await readJson(path.join(normalizedRoot, "route-geometry-index.research.json"));
+  const routeLineIndex = await loadRouteLineIndex(projectRoot, geometryIndex.sections ?? []);
 
   const records = [];
   for (const layer of layerSources) {
@@ -152,11 +154,14 @@ export async function buildCandidateLayerOverlays({
       const polygons = extractPolygons({ type: "FeatureCollection", features: [feature] });
       if (polygons.length === 0) continue;
       const facilityOverlaps = findFacilityOverlaps(polygons, facilities.records ?? []);
-      const routeOverlaps = await findRouteOverlaps(projectRoot, polygons, geometryIndex.sections ?? []);
+      const routeOverlaps = findRouteOverlaps(polygons, routeLineIndex);
       const properties = feature.properties ?? {};
-      const protectedArea = String(properties[layer.nameProperty] ?? properties.namn ?? properties.omradesnamn ?? `feature ${featureIndex + 1}`);
+      const protectedArea = String(
+        firstPresentProperty(properties, [...(layer.nameProperties ?? [layer.nameProperty]), "namn", "omradesnamn"]) ?? `feature ${featureIndex + 1}`
+      );
       const sourceId = properties[layer.idProperty] ?? properties.nvrid ?? properties.objectid ?? properties.OBJECTID ?? feature.id ?? null;
       const sourceType = layer.sourceTypeProperty ? properties[layer.sourceTypeProperty] : null;
+      const sourceProperties = selectSourceProperties(properties, layer.keepProperties);
       const record = {
         overlayId: `${trailId}-${slugify(layer.layerId)}-${slugify(protectedArea)}-${slugify(sourceId ?? featureIndex + 1)}`,
         protectedArea,
@@ -168,6 +173,7 @@ export async function buildCandidateLayerOverlays({
         sourceDownloads: [sourceDownload],
         recommendation: layer.recommendation,
         confidence: layer.confidence,
+        ...(Object.keys(sourceProperties).length > 0 ? { sourceProperties } : {}),
         routeOverlaps,
         facilityOverlaps
       };
@@ -233,13 +239,7 @@ function buildWfsUrl(baseUrl, typeName, cqlFilter, outputFormat = "application/j
 }
 
 async function fetchSourceGeojson(sourceDownloadRoot, descriptor, source) {
-  const response = await fetch(source.sourceUrl, {
-    headers: {
-      "user-agent": "hike-trails candidate data prep (research-only protected-area overlay builder)"
-    }
-  });
-  if (!response.ok) throw new Error(`HTTP ${response.status} ${response.statusText}: ${source.sourceUrl}`);
-  const text = await response.text();
+  const text = await fetchTextWithRetry(source.sourceUrl, descriptor.areaName);
   if (!text.trim().startsWith("{")) throw new Error(`Non-JSON source response for ${descriptor.areaName}: ${source.sourceUrl}`);
   const geojson = JSON.parse(text);
   if ((geojson.features ?? []).length === 0) throw new Error(`No source features for ${descriptor.areaName}: ${source.sourceName}`);
@@ -253,19 +253,53 @@ async function fetchSourceGeojson(sourceDownloadRoot, descriptor, source) {
 }
 
 async function fetchLayerGeojson(sourceDownloadRoot, layer) {
-  const response = await fetch(layer.sourceUrl, {
-    headers: {
-      "user-agent": "hike-trails candidate data prep (research-only protected-area overlay builder)"
-    }
-  });
-  if (!response.ok) throw new Error(`HTTP ${response.status} ${response.statusText}: ${layer.sourceUrl}`);
-  const text = await response.text();
+  const text = await fetchTextWithRetry(layer.sourceUrl, layer.layerId);
   if (!text.trim().startsWith("{")) throw new Error(`Non-JSON source response for ${layer.layerId}: ${layer.sourceUrl}`);
   const geojson = JSON.parse(text);
   const outputPath = path.join(sourceDownloadRoot, `${slugify(layer.layerId)}.geojson`);
   layer.outputPath = outputPath;
   await writeFile(outputPath, `${JSON.stringify(geojson)}\n`);
   return geojson;
+}
+
+async function fetchTextWithRetry(sourceUrl, label) {
+  const maxAttempts = 3;
+  let lastError = null;
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    try {
+      const response = await fetch(sourceUrl, {
+        headers: {
+          "user-agent": "hike-trails candidate data prep (research-only protected-area overlay builder)"
+        }
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status} ${response.statusText}`);
+      return await response.text();
+    } catch (error) {
+      lastError = error;
+      if (attempt < maxAttempts) await delay(500 * attempt);
+    }
+  }
+  throw new Error(`Failed to fetch ${label} after ${maxAttempts} attempts: ${lastError?.message ?? "unknown error"}`, { cause: lastError });
+}
+
+function delay(milliseconds) {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
+function selectSourceProperties(properties, keepProperties = []) {
+  return Object.fromEntries(
+    keepProperties
+      .filter((key) => properties[key] !== undefined && properties[key] !== null && properties[key] !== "")
+      .map((key) => [key, properties[key]])
+  );
+}
+
+function firstPresentProperty(properties, keys) {
+  for (const key of keys.filter(Boolean)) {
+    const value = properties[key];
+    if (value !== undefined && value !== null && String(value).trim() !== "") return value;
+  }
+  return null;
 }
 
 function findFacilityOverlaps(polygons, recordsToCheck) {
@@ -287,18 +321,35 @@ function findFacilityOverlaps(polygons, recordsToCheck) {
     .sort((left, right) => left.sectionId.localeCompare(right.sectionId, "en", { numeric: true }) || left.name.localeCompare(right.name));
 }
 
-async function findRouteOverlaps(projectRoot, polygons, sections) {
-  const overlaps = [];
+async function loadRouteLineIndex(projectRoot, sections) {
+  const routeLineIndex = [];
   for (const section of sections) {
-    const sectionRanges = [];
+    const files = [];
     for (const candidateGeojsonFile of section.candidateGeojsonFiles ?? []) {
       const geojson = await readJson(path.join(projectRoot, candidateGeojsonFile));
-      const lines = extractGeojsonLines(geojson);
-      for (const [lineIndex, line] of lines.entries()) {
+      files.push({
+        sourceGeojson: candidateGeojsonFile,
+        lines: extractGeojsonLines(geojson)
+      });
+    }
+    routeLineIndex.push({
+      sectionId: section.sectionId,
+      files
+    });
+  }
+  return routeLineIndex;
+}
+
+function findRouteOverlaps(polygons, routeLineIndex) {
+  const overlaps = [];
+  for (const section of routeLineIndex) {
+    const sectionRanges = [];
+    for (const file of section.files) {
+      for (const [lineIndex, line] of file.lines.entries()) {
         const rangesKm = linePolygonOverlapRanges(line, polygons);
         if (rangesKm.length > 0) {
           sectionRanges.push({
-            sourceGeojson: candidateGeojsonFile,
+            sourceGeojson: file.sourceGeojson,
             lineIndex,
             rangesKm
           });

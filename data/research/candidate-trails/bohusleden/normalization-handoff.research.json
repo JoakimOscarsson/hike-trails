@@ -57,7 +57,8 @@
       "mapdata/index.json for geometry metrics, source policy, continuity and blocked-import status",
       "mapdata/sections/*.geojson for one de-duplicated candidate GeoJSON LineString per official stage",
       "mapdata/bohusleden-candidate-section-geometries.geojson for combined QA",
-      "mapdata/validation-report.json for parse, shape, source URL and continuity checks"
+      "mapdata/validation-report.json for parse, shape, source URL and continuity checks",
+      "normalized-candidate/protected-area-overlays.research.json for research-only route-bbox protected-area, Natura 2000, water-protection, regulatory-area and biotopskydd overlaps"
     ],
     "sourceArtifactsToSuppress": [
       "mapdata/reference/bohusleden-stage-21-osm-old-unblazed-reference.geojson for import; retain only as old no-longer-blazed reference",
@@ -111,12 +112,14 @@
   },
   "ruleWarningPlan": {
     "protectedAreas": [
-      "Run final GIS line-buffer overlay before generating public protected-area or Natura 2000 warnings.",
-      "Use section rulesAndSafety for candidate warnings, but keep nearby/context-only areas out of route spans until overlay confirms intersection.",
+      "Research-only GIS overlay is computed: 95 protected/restriction records retained, with 47 route-overlapping areas, 38 facility-overlapping areas, 66 route-overlap records and 379 facility-overlap records across protected-area, Natura 2000, water-protection, regulatory-area and biotopskydd source layers.",
+      "Use route-subsegment warnings only where protected-area overlays intersect candidate route geometry; keep nearby/context-only areas out of route spans unless future authoritative geometry changes the result.",
+      "Use facility/site-level warnings where overlay polygons contain candidate facility points, especially shelter, fire, tenting, water, toilet and endpoint clusters.",
+      "Kynne älv regulatory-area overlap on the partial Stage 21 candidate line carries a seasonal bird/access restriction from 1/4 to 15/7; describe the condition explicitly and do not imply full Stage 21 corridor coverage until the missing geometry is resolved.",
       "Kynnefjall reserve stages need designated-place-only fire/tenting handling where section files require it."
     ],
     "waterProtection": [
-      "Assign water-protection warnings only after final GIS overlay confirms exact subsegments.",
+      "Assign water-protection warnings to the route subsegments and facility/site points confirmed by normalized-candidate/protected-area-overlays.research.json.",
       "Do not present natural water as potable; add contamination/washing/waste/toileting cautions where section files call for them."
     ],
     "fire": [
@@ -188,7 +191,7 @@
     "publicationTimeRechecks": [
       "WST status/deviation widgets, fire bans, transit timetables, commercial opening hours and seasonal services.",
       "Known bridge/raft/forestry/windfall/planned-burn notices.",
-      "Final GIS line-buffer overlays for protected areas, water-protection zones and restriction subsegments.",
+      "Confirm the computed protected-area overlay remains current if source layers or candidate geometry change before publication.",
       "Facility coordinate verification where section files mark records pending, approximate or conflicting."
     ]
   },
@@ -197,8 +200,7 @@
     "Choose snap policy for the 49.4 m Stage 8-to-Stage 9 Bottenstugan gap.",
     "Choose whether Bohusleden is represented as one chain with an explicit Stage 21 gap or as separate importable chains around Stage 21.",
     "Choose side-service/access metadata radius and visibility for remote northern endpoints and town service clusters.",
-    "Choose how pending OSM-only fire/water/shelter/picnic candidates are stored before verification.",
-    "Choose warning granularity for reserve, water-protection, dog, fire and camping rules after GIS overlay."
+    "Choose how pending OSM-only fire/water/shelter/picnic candidates are stored before verification."
   ],
   "validationChecklist": [
     "Parse trail.research.json, research-progress.json, all sections/*.research.json, mapdata/index.json, mapdata/validation-report.json and both new normalization handoff JSON files.",
@@ -212,7 +214,7 @@
     "Review the 4296.3 m Stage 21-to-Stage 22 gap and keep it explicit.",
     "Compare official distances, computed distances and source contradictions before exposing distances.",
     "Run facility cluster/dedupe pass and verify pending/OSM-only/private/seasonal records before import.",
-    "Run final GIS overlays for protected areas, water-protection zones and restriction subsegments.",
+    "Use normalized-candidate/protected-area-overlays.research.json for protected-area, water-protection and restriction warning scoping, and rerun it if candidate geometry changes.",
     "Run live WST, fire, transit, bridge/raft/forestry, planned-burn and seasonal-service checks immediately before publication.",
     "Confirm no runtime app data, generated public data, shared scripts or package files are modified by the normalization-prep pass."
   ]

@@ -546,6 +546,11 @@ const protectedAreaOverlayResolutionConfig = {
     triageResolvedSourceIds: ["rules"],
     action:
       "Candidate protected-area-overlays.research.json now records route-bbox protected-area, Natura 2000, water-protection and biotopskydd checks against all 23 generated Höglandsleden section geometries."
+  },
+  bohusleden: {
+    triageResolvedSourceIds: ["publicationTimeRechecks-3", "decision-6"],
+    action:
+      "Candidate protected-area-overlays.research.json now records route-bbox protected-area, Natura 2000, water-protection, regulatory-area and biotopskydd checks against Bohusleden candidate route geometry and facility points. Warning granularity is route-subsegment for route polygon overlaps, facility/site-level for point overlaps, and publication-time whole-trail notices only for volatile live fire, transit, closure and service status."
   }
 };
 
