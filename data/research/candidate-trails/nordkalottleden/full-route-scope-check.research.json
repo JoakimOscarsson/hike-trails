@@ -3,17 +3,19 @@
   "trailId": "nordkalottleden",
   "checkedAt": "2026-04-30",
   "status": "full-route-import-not-ready",
-  "conclusion": "The local Nordkalottleden packet is internally consistent for the 12-section Kilpisjarvi-Reisa-Kautokeino sector, but it is not full-trail coverage. Runtime import should wait until the missing Kilpisjarvi/Treriksroset-to-Sulitjelma and Kvikkjokk variant coverage is researched, normalized, and geometry-backed.",
+  "conclusion": "The local Nordkalottleden packet is internally consistent for the 12-section Kilpisjarvi-Reisa-Kautokeino sector, and a source-backed full-route section model now exists in full-route-section-model.research.json. Runtime import should still wait until the missing section packets, official-source geometry, facilities, rule warnings and shared-trail splits are normalized.",
   "localCoverage": {
     "scope": "Kilpisjarvi / Saarijarvi / Reisa / Kautokeino northern sector",
     "sectionResearchFiles": 12,
     "candidateGeometryFiles": 12,
     "normalizedCandidateArtifacts": true,
     "runtimeDataExists": false,
+    "fullRouteSectionModel": "full-route-section-model.research.json",
     "notes": [
       "The 12-section model follows the Reisa National Park Kilpisjarvi-Kautokeino hut/distance inventory.",
       "Generated candidate geometry uses Luontoon/Metsahallitus linework for Finnish legs, Geonorge/Turrutebasen linework for Norwegian legs, and a mixed official-source handoff for Kopmajoki-Somashytta.",
-      "Endpoint policies for Saarijarvi, Saraelv/Ovi Raishiin, Madam Bongos/Cunovuohppi, and the mixed source-boundary junction are explicit in the normalized candidate topology, but they only resolve the scoped northern sector."
+      "Endpoint policies for Saarijarvi, Saraelv/Ovi Raishiin, Madam Bongos/Cunovuohppi, and the mixed source-boundary junction are explicit in the normalized candidate topology, but they only resolve the scoped northern sector.",
+      "The 2026-04-30 full-route model prefers Kautokeino-Sulitjelma as the mainline and Kvikkjokk-Sulitjelma as a separate southern variant."
     ]
   },
   "localGitAndSiblingCheck": {
@@ -55,8 +57,8 @@
   "missingBeforeFullRuntimeImport": [
     {
       "area": "Kilpisjarvi / Treriksroset / Troms / Abisko / Gautelis",
-      "needed": "Research and normalize the central route from Kilpisjarvi through Treriksroset, Goldahytta, Gappohytta, Rostahytta, Dærtahytta, Dividalshytta, Vuomahytta, Gaskashytta, Altevasshytta, Lappjordhytta, Palnostugan, Abisko, Abiskojaure, and onward to Gautelis.",
-      "knownRisk": "E1 uses Abiskojaure-Unna Allakas-Cunojavri-Caihnavaggi-Gautelis, while Swedish/Naturkartan and field evidence may imply a different Nordkalottleden route group around Alesjaure, Salka, Hukejaure, and Gautelis."
+      "needed": "Write import-grade section packets and harvest official geometry for the central route from Kilpisjarvi through Treriksroset, Paltsa, Gappohytta, Rostahytta, Dærtahytta, Dividalshytta, Vuomahytta, Gaskashytta, Altevasshytta, Lappjordhytta, Palnostugan, Abisko, Abiskojaure, Alesjaure, Salka, Hukejaure and onward to Gautelis.",
+      "knownRisk": "The app policy now prefers the Naturkartan/UT-supported Alesjaure-Salka-Hukejaure-Gautelis route; the E1 Unna Allakas/Cunojavri/Caihnavaggi line remains a planning seed and must not overwrite the preferred mainline."
     },
     {
       "area": "Gautelis / Skoaddejavre / Sitashytta / Pauro / Røysvatn / Vaisaluokta",
@@ -75,14 +77,14 @@
     },
     {
       "area": "Kvikkjokk / Tarrekaise / Vaimok / Pieskehaure / Sulitjelma variant",
-      "needed": "Decide whether the Kvikkjokk framing is an alternate endpoint route group, access branch, or separate southern variant, then research it at the same level as runtime sections.",
+      "needed": "Research the selected separate southern variant at section-packet and geometry level, including the Padjelantaleden overlap from Kvikkjokk to Tarrekaise and the turn toward Vaimok, Pieskehaure and Sulitjelma.",
       "knownRisk": "This overlaps Padjelantaleden near Kvikkjokk/Tarrekaise but then turns toward Vaimok and Sulitjelma; it cannot be imported by simply reusing Padjelantaleden sections."
     }
   ],
   "recommendedNextSlice": {
-    "goal": "Create a full-route section model before importing Nordkalottleden.",
+    "goal": "Turn the full-route section model into import-grade candidate data before importing Nordkalottleden.",
     "steps": [
-      "Freeze the app route-group policy: main Kautokeino-Sulitjelma route plus optional Kvikkjokk variant, or a multi-endpoint trail with separate selectable branches.",
+      "Generate section research packets for full-route-section-model.research.json mainline orders 13-44 and variant orders K1-K5.",
       "Research central/south missing sections in batches using official regional sources first: Laponia/Naturkartan for Sweden, Luontoon/Metsähallitus for Finland, and UT/DNT/Geonorge/Kartverket for Norway.",
       "For any sections that overlap existing Kungsleden or Padjelantaleden data, reuse geometry only after confirming source identity, endpoint semantics, and facility/rule text fit Nordkalottleden.",
       "Generate candidate geometry for every full-route section and rerun candidate normalization before runtime import.",

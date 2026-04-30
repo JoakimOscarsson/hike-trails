@@ -1,0 +1,599 @@
+{
+  "schemaVersion": "candidate-full-route-section-model/v1",
+  "trailId": "nordkalottleden",
+  "checkedAt": "2026-04-30",
+  "status": "full-route-section-model-drafted-not-import-ready",
+  "conclusion": "A source-backed full-route model is now drafted for Nordkalottleden/Nordkalottruta/Kalottireitti. The preferred app framing should be a Kautokeino-to-Sulitjelma mainline, with a separate Kvikkjokk-to-Sulitjelma southern variant route group. The existing 12-section Reisa/Kasivarsi packet covers only the northern Kautokeino-Kilpisjarvi sector and must be reversed if used in the full-trail direction.",
+  "routeGroupPolicy": {
+    "preferredMainline": {
+      "id": "nordkalottleden-kautokeino-sulitjelma-mainline",
+      "direction": "Kautokeino / Guovdageaidnu to Sulitjelma / Sulidalbma",
+      "status": "preferred-full-route-model",
+      "rationale": [
+        "Reisa National Park describes the 800 km route as running from Sulitjelma to Kautokeino.",
+        "Laponia describes the Arctic Trail as starting at Guovdageaidnu/Kautokeino and ending in Sulidalbma/Sulitjelma and Huhttan/Kvikkjokk.",
+        "E1 Hiking Europe also frames Kautokeino-to-Sulitjelma as the route direction, but its stage table is only E1-scoped and must not be treated as the complete official inventory."
+      ]
+    },
+    "southernVariant": {
+      "id": "nordkalottleden-kvikkjokk-sulitjelma-variant",
+      "direction": "Kvikkjokk / Huhttan to Sulitjelma / Sulidalbma",
+      "status": "source-backed-alternate-route-group",
+      "rationale": [
+        "Laponia lists Huhttan/Kvikkjokk alongside Sulidalbma/Sulitjelma as southern endpoint framing.",
+        "Battrafik i Kvikkjokk describes a Kvikkjokk-Sulitjelma section that follows Padjelantaleden to Tarrekaise, then turns toward Vaimok, Pieskehaure and Sulitjelma.",
+        "Naturkartan has official Swedish segment pages for Tarrekaise-Kvikkjokk, Pieskehaure-Darreadno/Vaimok and Staddajakka-Pieskehaure/Mavas."
+      ]
+    },
+    "resolvedVariantDecisions": [
+      {
+        "id": "abisko-gautelis-preferred-mainline",
+        "decision": "Prefer the Abisko-Abiskojaure-Alesjaure-Salka-Duolbanjunni-Hukejaure-Norwegian border-Gautelis route for the app mainline.",
+        "evidence": [
+          "Naturkartan labels Abiskojaure-Alesjaure, Alesjaure-Salka, Duolbanjunni-Hukejaure and Norska gransen-Huvki as Kungsleden/Nordkalottleden or Nordkalottleden/Arctic Trail segments.",
+          "UT.no Narvikfjellene says Nordkalottruta crosses from Hukejaure in Sweden to Gautelishytta and continues south in Norway.",
+          "E1's Abiskojaure-Unna Allakas-Cunojavri-Caihnavaggi-Gautelis path should remain an alternate/planning seed because the E1 page itself says its overview only lists E1-identical or partly identical stages."
+        ],
+        "remainingWork": "Split the shared Kungsleden Sälka-Singi geometry at the Duolbanjunni/Nordkalottleden junction before runtime import."
+      },
+      {
+        "id": "paltsa-gappo-rosta-policy",
+        "decision": "Treat Treriksroset-Paltsa-Gappohytta-Rostahytta as the preferred official-source research model, but keep the E1 Goldahytta/Gappohytta evidence as a geometry cross-check until section geometry is harvested.",
+        "evidence": [
+          "Naturkartan has official Treriksroset-Paltsa and Gappo-Paltsa pages.",
+          "STF describes Paltsa as lying along Nordkalottleden just south of Treriksroset.",
+          "DNT Gappohytta and Rostahytta pages confirm the marked Gappo-Rosta route and current bridge warnings."
+        ],
+        "remainingWork": "Confirm final geometry through official linework before runtime import, especially around the Pältsa/Gappo/Rosta route alternatives and bridge-damage warnings."
+      }
+    ]
+  },
+  "sourceRegistry": [
+    {
+      "id": "reisa-national-park",
+      "url": "https://reisanasjonalpark.no/en/nordkalott-trail/",
+      "role": "official northern sector and 800 km framing"
+    },
+    {
+      "id": "laponia-arctic-trail",
+      "url": "https://laponia.nu/en/upplev/the-arctic-trail/",
+      "role": "official Laponia endpoint, overlap and route identity source"
+    },
+    {
+      "id": "e1-hiking-europe",
+      "url": "https://e1.hiking-europe.eu/en/hiking-trails/nordkalottruta-nordkalottleden",
+      "role": "E1-scoped stage and GPX seed; not complete official inventory"
+    },
+    {
+      "id": "ut-nordkalottruta",
+      "url": "https://ut.no/turforslag/1115070",
+      "role": "near-official/private DNT-platform overview with regional route summaries and hut logistics"
+    },
+    {
+      "id": "ut-narvikfjellene",
+      "url": "https://ut.no/utforsker/omrade/1253/narvikfjellan",
+      "role": "DNT regional context for Hukejaure-Gautelis and Narvikfjellene route continuation"
+    },
+    {
+      "id": "battrafik-kvikkjokk",
+      "url": "https://www.battrafikikvikkjokk.se/nordkalottleden_eng.html",
+      "role": "Kvikkjokk-Sulitjelma variant framing"
+    },
+    {
+      "id": "naturkartan-norrbotten",
+      "url": "https://www.naturkartan.se/sv/norrbottens-lan",
+      "role": "official Swedish segment pages from Länsstyrelsen Norrbotten/Laponiatjuottjudus"
+    },
+    {
+      "id": "ut-dnt-huts",
+      "url": "https://ut.no/",
+      "role": "DNT/UT hut pages for Norwegian route chain, service state and route warnings"
+    }
+  ],
+  "preferredMainlineSections": [
+    {
+      "order": 1,
+      "sectionId": "nordkalottleden-full-01-kautokeino-madam-bongos",
+      "from": "Kautokeino / Guovdageaidnu",
+      "to": "Madam Bongos fjellstue / Cunovuohppi legacy endpoint",
+      "distanceKm": 22,
+      "sourceIds": ["reisa-national-park"],
+      "localResearchMapping": "reversed nordkalottleden-kalottireitti-12-madam-bongos-kautokeino",
+      "status": "researched-in-existing-northern-packet"
+    },
+    {
+      "order": 2,
+      "sectionId": "nordkalottleden-full-02-madam-bongos-reisavannhytta",
+      "from": "Madam Bongos fjellstue / Cunovuohppi legacy endpoint",
+      "to": "Reisavannhytta / Raisjavrihytta",
+      "distanceKm": 29,
+      "sourceIds": ["reisa-national-park"],
+      "localResearchMapping": "reversed nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos",
+      "status": "researched-in-existing-northern-packet"
+    },
+    {
+      "order": 3,
+      "sectionId": "nordkalottleden-full-03-reisavannhytta-nedrefosshytta",
+      "from": "Reisavannhytta / Raisjavrihytta",
+      "to": "Nedrefosshytta",
+      "distanceKm": 30,
+      "sourceIds": ["reisa-national-park"],
+      "localResearchMapping": "reversed nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta",
+      "status": "researched-in-existing-northern-packet"
+    },
+    {
+      "order": 4,
+      "sectionId": "nordkalottleden-full-04-nedrefosshytta-sieimma",
+      "from": "Nedrefosshytta",
+      "to": "Sieimmastua / Sieimma",
+      "distanceKm": 19,
+      "sourceIds": ["reisa-national-park"],
+      "localResearchMapping": "reversed nordkalottleden-kalottireitti-09-sieimma-nedrefoss",
+      "status": "researched-in-existing-northern-packet"
+    },
+    {
+      "order": 5,
+      "sectionId": "nordkalottleden-full-05-sieimma-saraelv-ovi",
+      "from": "Sieimmastua / Sieimma",
+      "to": "Saraelv / Ovi Raishiin",
+      "distanceKm": 9,
+      "sourceIds": ["reisa-national-park"],
+      "localResearchMapping": "reversed nordkalottleden-kalottireitti-08-saraelv-sieimma",
+      "status": "researched-in-existing-northern-packet",
+      "notes": "Keep Saraelv/Ovi Raishiin compound endpoint policy from the existing normalized candidate topology."
+    },
+    {
+      "order": 6,
+      "sectionId": "nordkalottleden-full-06-saraelv-ovi-somashytta",
+      "from": "Saraelv / Ovi Raishiin",
+      "to": "Somashytta / Somajavri",
+      "distanceKm": 31,
+      "sourceIds": ["reisa-national-park"],
+      "localResearchMapping": "reversed nordkalottleden-kalottireitti-07-somashytta-saraelv",
+      "status": "researched-in-existing-northern-packet"
+    },
+    {
+      "order": 7,
+      "sectionId": "nordkalottleden-full-07-somashytta-kopmajoki",
+      "from": "Somashytta / Somajavri",
+      "to": "Kopmajoki / Goapmajohka",
+      "distanceKm": 3,
+      "sourceIds": ["reisa-national-park"],
+      "localResearchMapping": "reversed nordkalottleden-kalottireitti-06-kopmajoki-somashytta",
+      "status": "researched-in-existing-northern-packet"
+    },
+    {
+      "order": 8,
+      "sectionId": "nordkalottleden-full-08-kopmajoki-pihtsusjarvi",
+      "from": "Kopmajoki / Goapmajohka",
+      "to": "Pihtsusjarvi / Pitsusjarvi / Bihcosjavri",
+      "distanceKm": 10,
+      "sourceIds": ["reisa-national-park"],
+      "localResearchMapping": "reversed nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki",
+      "status": "researched-in-existing-northern-packet"
+    },
+    {
+      "order": 9,
+      "sectionId": "nordkalottleden-full-09-pihtsusjarvi-meekonjarvi",
+      "from": "Pihtsusjarvi / Pitsusjarvi / Bihcosjavri",
+      "to": "Meekonjarvi / Megonjavri",
+      "distanceKm": 12,
+      "sourceIds": ["reisa-national-park"],
+      "localResearchMapping": "reversed nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi",
+      "status": "researched-in-existing-northern-packet"
+    },
+    {
+      "order": 10,
+      "sectionId": "nordkalottleden-full-10-meekonjarvi-kuonjarjohka",
+      "from": "Meekonjarvi / Megonjavri",
+      "to": "Kuonjarjohka / Guonjarjohka",
+      "distanceKm": 10,
+      "sourceIds": ["reisa-national-park"],
+      "localResearchMapping": "reversed nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi",
+      "status": "researched-in-existing-northern-packet"
+    },
+    {
+      "order": 11,
+      "sectionId": "nordkalottleden-full-11-kuonjarjohka-saarijarvi",
+      "from": "Kuonjarjohka / Guonjarjohka",
+      "to": "Saarijarvi",
+      "distanceKm": 10,
+      "sourceIds": ["reisa-national-park"],
+      "localResearchMapping": "reversed nordkalottleden-kalottireitti-02-saarijarvi-kuonjarjohka",
+      "status": "researched-in-existing-northern-packet"
+    },
+    {
+      "order": 12,
+      "sectionId": "nordkalottleden-full-12-saarijarvi-kilpisjarvi",
+      "from": "Saarijarvi",
+      "to": "Kilpisjarvi",
+      "distanceKm": 11,
+      "sourceIds": ["reisa-national-park"],
+      "localResearchMapping": "reversed nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi",
+      "status": "researched-in-existing-northern-packet",
+      "notes": "Do not use the E1 18.5 km distance for this official Reisa/Luontoon leg without explaining the access-distance basis."
+    },
+    {
+      "order": 13,
+      "sectionId": "nordkalottleden-full-13-kilpisjarvi-treriksroset",
+      "from": "Kilpisjarvi",
+      "to": "Treriksroset / Three-Country Cairn",
+      "distanceKm": 11,
+      "sourceIds": ["naturkartan-norrbotten", "ut-nordkalottruta"],
+      "status": "section-model-source-backed-needs-section-file",
+      "notes": "Naturkartan BD02 access text confirms an 11 km hiking trail from Kilpisjarvi to Treriksroset; boat via Golddaluokta remains access metadata, not default hiking geometry."
+    },
+    {
+      "order": 14,
+      "sectionId": "nordkalottleden-full-14-treriksroset-paltsa",
+      "from": "Treriksroset / Three-Country Cairn",
+      "to": "Paltsa / Paltsastugan",
+      "distanceKm": 13,
+      "sourceIds": ["naturkartan-norrbotten"],
+      "status": "section-model-official-segment-needs-section-file"
+    },
+    {
+      "order": 15,
+      "sectionId": "nordkalottleden-full-15-paltsa-gappohytta",
+      "from": "Paltsa / Paltsastugan",
+      "to": "Gappohytta",
+      "distanceKm": 11,
+      "sourceIds": ["naturkartan-norrbotten", "ut-dnt-huts"],
+      "status": "section-model-official-segment-needs-section-file",
+      "notes": "Naturkartan has Gappo-Paltsa as an 11 km official Swedish page; confirm direction and Norwegian-side geometry during geometry build."
+    },
+    {
+      "order": 16,
+      "sectionId": "nordkalottleden-full-16-gappohytta-rostahytta",
+      "from": "Gappohytta",
+      "to": "Rostahytta",
+      "distanceKm": 18.9,
+      "sourceIds": ["e1-hiking-europe", "ut-dnt-huts"],
+      "status": "section-model-near-official-needs-official-geometry",
+      "notes": "DNT Gappohytta/Rostahytta pages confirm the marked route and current damaged bridge warnings; E1 supplies the provisional distance."
+    },
+    {
+      "order": 17,
+      "sectionId": "nordkalottleden-full-17-rostahytta-daertahytta",
+      "from": "Rostahytta",
+      "to": "Daertahytta",
+      "distanceKm": 16.3,
+      "sourceIds": ["e1-hiking-europe", "ut-dnt-huts"],
+      "status": "section-model-near-official-needs-official-geometry"
+    },
+    {
+      "order": 18,
+      "sectionId": "nordkalottleden-full-18-daertahytta-dividalshytta",
+      "from": "Daertahytta",
+      "to": "Dividalshytta",
+      "distanceKm": 23.8,
+      "sourceIds": ["e1-hiking-europe", "ut-dnt-huts"],
+      "status": "section-model-near-official-needs-official-geometry"
+    },
+    {
+      "order": 19,
+      "sectionId": "nordkalottleden-full-19-dividalshytta-vuomahytta",
+      "from": "Dividalshytta",
+      "to": "Vuomahytta",
+      "distanceKm": 18.3,
+      "sourceIds": ["e1-hiking-europe", "ut-dnt-huts"],
+      "status": "section-model-near-official-needs-official-geometry"
+    },
+    {
+      "order": 20,
+      "sectionId": "nordkalottleden-full-20-vuomahytta-gaskashytta",
+      "from": "Vuomahytta",
+      "to": "Gaskashytta",
+      "distanceKm": 16.9,
+      "sourceIds": ["e1-hiking-europe", "ut-dnt-huts"],
+      "status": "section-model-near-official-needs-official-geometry"
+    },
+    {
+      "order": 21,
+      "sectionId": "nordkalottleden-full-21-gaskashytta-altevasshytta",
+      "from": "Gaskashytta",
+      "to": "Altevasshytta",
+      "distanceKm": 12.2,
+      "sourceIds": ["e1-hiking-europe", "ut-dnt-huts"],
+      "status": "section-model-near-official-needs-official-geometry",
+      "notes": "DNT Gaskashytta gives the Altevasshytta-Gaskashytta route as 12 km; E1 gives 12.2 km."
+    },
+    {
+      "order": 22,
+      "sectionId": "nordkalottleden-full-22-altevasshytta-lappjordhytta",
+      "from": "Altevasshytta",
+      "to": "Lappjordhytta",
+      "distanceKm": 24.4,
+      "sourceIds": ["e1-hiking-europe", "ut-dnt-huts"],
+      "status": "section-model-near-official-needs-official-geometry"
+    },
+    {
+      "order": 23,
+      "sectionId": "nordkalottleden-full-23-lappjordhytta-palnostugan",
+      "from": "Lappjordhytta",
+      "to": "Palnostugan",
+      "distanceKm": 2.7,
+      "sourceIds": ["e1-hiking-europe", "ut-dnt-huts"],
+      "status": "section-model-near-official-needs-official-geometry",
+      "notes": "Earlier local geometry QA flagged a distance/geometry mismatch here; retain as targeted geometry check."
+    },
+    {
+      "order": 24,
+      "sectionId": "nordkalottleden-full-24-palnostugan-abisko",
+      "from": "Palnostugan",
+      "to": "Abisko Turiststation",
+      "distanceKm": 21.6,
+      "sourceIds": ["e1-hiking-europe", "ut-dnt-huts"],
+      "status": "section-model-near-official-needs-official-geometry"
+    },
+    {
+      "order": 25,
+      "sectionId": "nordkalottleden-full-25-abisko-abiskojaure",
+      "from": "Abisko Turiststation",
+      "to": "Abiskojaure",
+      "distanceKm": 14,
+      "sourceIds": ["naturkartan-norrbotten"],
+      "status": "section-model-official-segment-needs-section-file",
+      "notes": "Shared with Kungsleden; reuse only after confirming source identity and route notes fit Nordkalottleden."
+    },
+    {
+      "order": 26,
+      "sectionId": "nordkalottleden-full-26-abiskojaure-alesjaure",
+      "from": "Abiskojaure",
+      "to": "Alesjaure",
+      "distanceKm": 21,
+      "sourceIds": ["naturkartan-norrbotten"],
+      "status": "section-model-official-segment-needs-section-file",
+      "notes": "Shared with Kungsleden."
+    },
+    {
+      "order": 27,
+      "sectionId": "nordkalottleden-full-27-alesjaure-salka",
+      "from": "Alesjaure",
+      "to": "Salka",
+      "distanceKm": 25,
+      "sourceIds": ["naturkartan-norrbotten"],
+      "status": "section-model-official-segment-needs-section-file",
+      "notes": "Shared with Kungsleden."
+    },
+    {
+      "order": 28,
+      "sectionId": "nordkalottleden-full-28-salka-duolbanjunni-junction",
+      "from": "Salka",
+      "to": "Duolbanjunni / Nordkalottleden junction",
+      "distanceKm": null,
+      "sourceIds": ["naturkartan-norrbotten"],
+      "status": "geometry-split-needed",
+      "notes": "The official Nordkalottleden segment Duolbanjunni-Hukejaure starts at the junction west of Duolbanjunni. Runtime import needs a split from the shared Salka-Singi/Kungsleden geometry."
+    },
+    {
+      "order": 29,
+      "sectionId": "nordkalottleden-full-29-duolbanjunni-hukejaure",
+      "from": "Duolbanjunni / Nordkalottleden junction",
+      "to": "Hukejaure",
+      "distanceKm": 17,
+      "sourceIds": ["naturkartan-norrbotten"],
+      "status": "section-model-official-segment-needs-section-file"
+    },
+    {
+      "order": 30,
+      "sectionId": "nordkalottleden-full-30-hukejaure-gautelis",
+      "from": "Hukejaure",
+      "to": "Gautelishytta",
+      "distanceKm": 15,
+      "sourceIds": ["naturkartan-norrbotten", "ut-narvikfjellene", "ut-dnt-huts"],
+      "status": "section-model-source-backed-needs-geometry",
+      "notes": "Naturkartan BD93 gives Norska gransen-Huvki as 7 km and says the Norwegian side continues 8 km to Gautelishytta. UT Narvikfjellene confirms the Hukejaure-Gautelis crossing."
+    },
+    {
+      "order": 31,
+      "sectionId": "nordkalottleden-full-31-gautelis-skoaddejavre",
+      "from": "Gautelishytta",
+      "to": "Skoaddejavre",
+      "distanceKm": 16.8,
+      "sourceIds": ["e1-hiking-europe", "ut-dnt-huts"],
+      "status": "section-model-near-official-needs-official-geometry"
+    },
+    {
+      "order": 32,
+      "sectionId": "nordkalottleden-full-32-skoaddejavre-sitashytta",
+      "from": "Skoaddejavre",
+      "to": "Sitashytta / Sitasjaure",
+      "distanceKm": 19.5,
+      "sourceIds": ["e1-hiking-europe", "ut-dnt-huts"],
+      "status": "section-model-near-official-needs-official-geometry"
+    },
+    {
+      "order": 33,
+      "sectionId": "nordkalottleden-full-33-sitashytta-paurohytta",
+      "from": "Sitashytta / Sitasjaure",
+      "to": "Paurohytta",
+      "distanceKm": 21.2,
+      "sourceIds": ["e1-hiking-europe", "ut-dnt-huts"],
+      "status": "section-model-near-official-needs-official-geometry"
+    },
+    {
+      "order": 34,
+      "sectionId": "nordkalottleden-full-34-paurohytta-roysvatn",
+      "from": "Paurohytta",
+      "to": "Roysvatn",
+      "distanceKm": 27.1,
+      "sourceIds": ["e1-hiking-europe", "ut-dnt-huts"],
+      "status": "section-model-near-official-needs-official-geometry"
+    },
+    {
+      "order": 35,
+      "sectionId": "nordkalottleden-full-35-roysvatn-njallajavrre",
+      "from": "Roysvatn",
+      "to": "Njallajavrre / Gamma over Hellemobotn sector",
+      "distanceKm": null,
+      "sourceIds": ["ut-nordkalottruta", "ut-dnt-huts"],
+      "status": "section-model-needs-distance-and-geometry",
+      "notes": "Use UT Nordlandsruta stage material to split the long E1 Roysvatn-Vaisaluokta leg instead of importing a single coarse 51.2 km section."
+    },
+    {
+      "order": 36,
+      "sectionId": "nordkalottleden-full-36-njallajavrre-vaisaluokta",
+      "from": "Njallajavrre / Gamma over Hellemobotn sector",
+      "to": "Vaisaluokta",
+      "distanceKm": null,
+      "sourceIds": ["ut-nordkalottruta", "ut-dnt-huts"],
+      "status": "section-model-needs-distance-and-geometry",
+      "notes": "UT has a Nordlandsruta Vaisaluokta-to-Njallajavrre stage; verify exact endpoint and distance before import."
+    },
+    {
+      "order": 37,
+      "sectionId": "nordkalottleden-full-37-vaisaluokta-kutjaure",
+      "from": "Vaisaluokta",
+      "to": "Kutjaure",
+      "distanceKm": 18,
+      "sourceIds": ["naturkartan-norrbotten", "e1-hiking-europe"],
+      "status": "section-model-official-segment-needs-section-file"
+    },
+    {
+      "order": 38,
+      "sectionId": "nordkalottleden-full-38-kutjaure-laddejahka",
+      "from": "Kutjaure",
+      "to": "Laddejahka",
+      "distanceKm": 17,
+      "sourceIds": ["naturkartan-norrbotten", "e1-hiking-europe"],
+      "status": "section-model-official-segment-needs-section-file",
+      "notes": "Shared with Padjelantaleden; reuse runtime geometry only after confirming endpoint semantics."
+    },
+    {
+      "order": 39,
+      "sectionId": "nordkalottleden-full-39-laddejahka-arasluokta",
+      "from": "Laddejahka",
+      "to": "Arasluokta",
+      "distanceKm": 13,
+      "sourceIds": ["naturkartan-norrbotten", "e1-hiking-europe"],
+      "status": "section-model-official-segment-needs-section-file",
+      "notes": "Shared with Padjelantaleden."
+    },
+    {
+      "order": 40,
+      "sectionId": "nordkalottleden-full-40-arasluokta-staloluokta",
+      "from": "Arasluokta",
+      "to": "Staloluokta",
+      "distanceKm": 10,
+      "sourceIds": ["naturkartan-norrbotten", "e1-hiking-europe"],
+      "status": "section-model-official-segment-needs-section-file",
+      "notes": "Shared with Padjelantaleden."
+    },
+    {
+      "order": 41,
+      "sectionId": "nordkalottleden-full-41-staloluokta-staddajahka",
+      "from": "Staloluokta",
+      "to": "Staddajahka",
+      "distanceKm": 12,
+      "sourceIds": ["naturkartan-norrbotten", "e1-hiking-europe"],
+      "status": "section-model-official-segment-needs-section-file"
+    },
+    {
+      "order": 42,
+      "sectionId": "nordkalottleden-full-42-staddajahka-sarjesjaure",
+      "from": "Staddajahka",
+      "to": "Sarjesjaure / Sårjåsjaure",
+      "distanceKm": 5.6,
+      "sourceIds": ["naturkartan-norrbotten", "e1-hiking-europe"],
+      "status": "section-model-source-backed-needs-geometry",
+      "notes": "Naturkartan BD68 covers Staddajahka to Norwegian border as 10.5 km; E1 splits out Staddajahka-Sarjesjaure as 5.6 km."
+    },
+    {
+      "order": 43,
+      "sectionId": "nordkalottleden-full-43-sarjesjaure-sorjushytta",
+      "from": "Sarjesjaure / Sårjåsjaure",
+      "to": "Sorjushytta",
+      "distanceKm": 12.1,
+      "sourceIds": ["e1-hiking-europe", "ut-dnt-huts"],
+      "status": "section-model-near-official-needs-official-geometry"
+    },
+    {
+      "order": 44,
+      "sectionId": "nordkalottleden-full-44-sorjushytta-ny-sulitjelma",
+      "from": "Sorjushytta",
+      "to": "Ny-Sulitjelma / Sulitjelma access",
+      "distanceKm": 10.7,
+      "sourceIds": ["e1-hiking-europe", "ut-dnt-huts"],
+      "status": "section-model-near-official-needs-official-geometry",
+      "notes": "Decide whether app endpoint is Ny-Sulitjelma route endpoint with Sulitjelma access metadata, or Sulitjelma proper."
+    }
+  ],
+  "kvikkjokkVariantSections": [
+    {
+      "order": "K1",
+      "sectionId": "nordkalottleden-kvikkjokk-variant-01-kvikkjokk-tarrekaise",
+      "from": "Kvikkjokk / Huhttan",
+      "to": "Tarrekaise",
+      "distanceKm": 22,
+      "sourceIds": ["naturkartan-norrbotten", "battrafik-kvikkjokk"],
+      "status": "official-segment-shared-with-padjelantaleden",
+      "notes": "Includes Njunjes-Kvikkjokk 12 km plus 3 km boat in the official Naturkartan/Padjelantaleden presentation."
+    },
+    {
+      "order": "K2",
+      "sectionId": "nordkalottleden-kvikkjokk-variant-02-tarrekaise-darreadno",
+      "from": "Tarrekaise",
+      "to": "Darreadno / Tarraälvshyddan connector",
+      "distanceKm": null,
+      "sourceIds": ["naturkartan-norrbotten", "battrafik-kvikkjokk"],
+      "status": "connector-research-needed",
+      "notes": "Battrafik says the variant follows Padjelantaleden to Tarrekaise before turning toward Vaimok. Naturkartan BD73 starts at Pieskehaure-Darreadno/Vaimok, so the exact Tarrekaise-to-Darreadno connector must be extracted from official linework."
+    },
+    {
+      "order": "K3",
+      "sectionId": "nordkalottleden-kvikkjokk-variant-03-darreadno-vaimok",
+      "from": "Darreadno / Tarraälvshyddan connector",
+      "to": "Vaimok",
+      "distanceKm": 20,
+      "sourceIds": ["naturkartan-norrbotten"],
+      "status": "official-segment-needs-section-file",
+      "notes": "Reverse direction of Naturkartan BD73 Vaimok-Darreadno."
+    },
+    {
+      "order": "K4",
+      "sectionId": "nordkalottleden-kvikkjokk-variant-04-vaimok-pieskehaure",
+      "from": "Vaimok",
+      "to": "Pieskehaure",
+      "distanceKm": 20,
+      "sourceIds": ["naturkartan-norrbotten"],
+      "status": "official-segment-needs-section-file",
+      "notes": "Reverse direction of Naturkartan BD73 Pieskehaure-Vaimok."
+    },
+    {
+      "order": "K5",
+      "sectionId": "nordkalottleden-kvikkjokk-variant-05-pieskehaure-staddajahka",
+      "from": "Pieskehaure",
+      "to": "Staddajahka",
+      "distanceKm": 29,
+      "sourceIds": ["naturkartan-norrbotten"],
+      "status": "official-segment-needs-section-file",
+      "notes": "Reverse direction of Naturkartan BD72 Staddajahka-Pieskehaure. This joins the preferred mainline at Staddajahka."
+    }
+  ],
+  "importReadinessAfterThisPass": {
+    "fullSectionModelReady": true,
+    "allSectionsHaveResearchFiles": false,
+    "allSectionsHaveGeometry": false,
+    "preferredRouteGroupPolicyReady": true,
+    "kvikkjokkVariantPolicyReady": true,
+    "runtimeImportApproved": false,
+    "blockingItems": [
+      "Write section research packets for mainline orders 13-44 and variant orders K1-K5, or generate a structured section-research batch from this model.",
+      "Harvest official geometry for Swedish Naturkartan/Laponiatjuottjudus segments and Norwegian DNT/Geonorge/Turrutebasen segments.",
+      "Split shared Kungsleden/Padjelantaleden geometry where Nordkalottleden joins or leaves those trails.",
+      "Resolve the Paltsa/Gappo/Rostahytta route alternative and current bridge-damage warnings before public presentation.",
+      "Resolve the Roysvatn-Njallajavrre-Vaisaluokta long-leg split from Nordlandsruta/UT official route data.",
+      "Decide Ny-Sulitjelma versus Sulitjelma endpoint representation."
+    ]
+  },
+  "recommendedNextSlice": {
+    "goal": "Turn this full-route model into import-grade candidate data.",
+    "steps": [
+      "Generate section research packets for orders 13-44 and K1-K5 using this artifact as the source model.",
+      "Start with geometry/source harvest for official Naturkartan Swedish pages because these are the highest-confidence missing segments and overlap existing Kungsleden/Padjelantaleden data.",
+      "Then harvest Norwegian geometry from Geonorge/Turrutebasen/DNT-linked route data for Gappo-Rosta through Sulitjelma.",
+      "Rebuild normalized candidate artifacts and only then add Nordkalottleden to the runtime importer."
+    ]
+  }
+}

@@ -795,14 +795,14 @@
         "type": "endpoint variant",
         "description": "Several sources treat Sulitjelma as the Norwegian southern endpoint and Kvikkjokk as a Swedish alternate endpoint or variant.",
         "confidence": "medium-high",
-        "importHandling": "Do not collapse into one endpoint until section-level evidence resolves route groups."
+        "importHandling": "Resolved for app prep on 2026-04-30: model Kautokeino-Sulitjelma as the preferred mainline and Kvikkjokk-Sulitjelma as a separate southern variant route group."
       },
       {
         "id": "abisko-gautelis-variant-conflict",
         "type": "route variant conflict",
         "description": "E1 uses Abiskojaure-Unna Allakas-Cunojavri-Caihnavaggi-Gautelis, while OSM/Naturkartan/field reports indicate a Nordkalottleden variant via Abiskojaure-Alesjaure-Salka-Hukejaure-Gautelis.",
         "confidence": "high",
-        "importHandling": "Block runtime geometry stitching until Swedish official segment research resolves the app route group."
+        "importHandling": "Resolved for app prep on 2026-04-30: prefer Abiskojaure-Alesjaure-Salka-Duolbanjunni-Hukejaure-Gautelis for the app mainline; keep E1's Unna Allakas/Cunojavri/Caihnavaggi line only as an alternate/planning seed unless later official geometry contradicts this."
       },
       {
         "id": "gappohytta-rostahytta-paltsa-vs-high-route",
@@ -1450,13 +1450,13 @@
       "id": "abisko-gautelis-official-variant",
       "topic": "official route order",
       "details": "E1 GPX/stages use Abiskojaure-Unna Allakas-Cunojavri-Caihnavaggi-Gautelis while other sources indicate the Nordkalottleden path around Abisko/Gautelis may run via Alesjaure-Salka-Hukejaure.",
-      "importImpact": "Blocks section-level Swedish import until resolved."
+      "importImpact": "Resolved for app prep on 2026-04-30: use the Alesjaure-Salka-Hukejaure-Gautelis route group as the preferred mainline and retain E1 as an alternate/planning seed."
     },
     {
       "id": "south-endpoint-sulitjelma-kvikkjokk",
       "topic": "southern endpoint",
       "details": "Sources describe Sulitjelma, Kvikkjokk, or both as southern endpoint/variant logic.",
-      "importImpact": "Model as route groups or variants, not a single forced endpoint."
+      "importImpact": "Resolved for app prep on 2026-04-30: model Kautokeino-Sulitjelma as the preferred mainline and Kvikkjokk-Sulitjelma as a separate southern variant route group."
     }
   ],
   "researchIterations": [
@@ -1469,21 +1469,21 @@
     }
   ],
   "openQuestions": [
-    "Which section model should be the app import candidate: Reisa/Luontoon official northern legs plus Naturkartan Swedish segments, E1 north-to-south stage seed, or a custom route-group model with branches?",
-    "Is the official Abisko-Gautelis route for app import via Unna Allakas/Cunojavri/Caihnavaggi, or via Alesjaure/Sälka/Hukejaure?",
-    "How should the Sulitjelma and Kvikkjokk southern variants be represented: alternate endpoints, branch route groups, or separate candidate trails?",
     "Which bridge/currentness warnings are still active in the 2026 hiking season?",
     "Can Naturkartan Swedish linework be harvested as navigation-grade geometry, or should OSM/E1 GPX be used only as planning-grade seed?",
-    "Which hut/service points should become app facilities versus access/connection metadata?"
+    "Which hut/service points should become app facilities versus access/connection metadata?",
+    "How should Ny-Sulitjelma versus Sulitjelma endpoint representation be handled after official geometry confirms the final approach?",
+    "How should the Pältsa/Gappohytta/Rostahytta variants and current bridge warnings be represented in runtime route warnings?",
+    "How should the Røysvatn-Njallajávri-Vaisaluokta long-leg split be represented from official UT/Nordlandsruta data?"
   ],
   "importReadiness": {
     "overviewReady": true,
     "firstSectionResearchReady": true,
-    "sectionInventoryReady": false,
-    "geometryReady": "true for researched Reisa/Kasivarsi/Kautokeino 12-section candidate artifacts; false for whole-trail runtime import until endpoint/distance/variant policy is normalized, including section 7-8 Saraelv/Ovi continuity",
+    "sectionInventoryReady": "draft full-route section model ready in full-route-section-model.research.json; per-section research files still needed for mainline orders 13-44 and variant orders K1-K5",
+    "geometryReady": "true for researched Reisa/Kasivarsi/Kautokeino 12-section candidate artifacts; false for whole-trail runtime import until missing Swedish/Norwegian sections have official-source geometry and shared Kungsleden/Padjelantaleden splits are normalized",
     "facilitiesReady": false,
     "commuteAccessReady": false,
     "rulesReady": "overview plus first section",
-    "recommendedNextStep": "Use the research-only official-source geometry artifacts for human normalization review. Do not integrate runtime app data until Saarijarvi, section 7-8 Saraelv/Ovi, mixed-border and Madam Bongos/Cunovuohppi endpoint policies are resolved."
+    "recommendedNextStep": "Generate section research packets from full-route-section-model.research.json, then harvest official geometry and facility/rule data for the missing mainline and Kvikkjokk variant sections before runtime import."
   }
 }
