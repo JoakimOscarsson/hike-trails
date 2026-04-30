@@ -1,0 +1,1536 @@
+{
+  "schemaVersion": 1,
+  "trailId": "padjelantaleden",
+  "sectionId": "padjelantaleden-stage-09-tarrekaise-njunjes",
+  "sectionNumber": 9,
+  "name": "Etapp 9: STF Tarrekaise Fjällstuga - STF Njunjes Fjällstuga",
+  "from": "STF Tarrekaise Fjällstuga",
+  "to": "STF Njunjes Fjällstuga",
+  "distanceKm": {
+    "officialDisplay": 6,
+    "officialSourceClaims": [
+      {
+        "source": "STF Padjelantaleden",
+        "distanceKm": 6,
+        "notes": "STF lists stage 9 as STF Tarrekaise Fjällstuga - STF Njunjes Fjällstation, 6 km and 2-4 hours. The linked lodging source is STF Njunjes Fjällstuga, so 'Fjällstation' appears to be a heading/label inconsistency."
+      },
+      {
+        "source": "Naturkartan BD71 Tarrekaise-Kvikkjokk",
+        "distanceKm": 7,
+        "notes": "Naturkartan gives the Tarrekaise-Njunjes substage as 7 km and 2-4 hours while the grouped BD71 route is shown as 22 km."
+      },
+      {
+        "source": "Padjelanta.se Tarrekaise and Njunjes",
+        "distanceKm": 7,
+        "notes": "Padjelanta.se lists Tarrekaise-Njunjes/Njunjes-Tarrekaise as 7 km."
+      },
+      {
+        "source": "The Wild Ways 2013 stage table",
+        "distanceKm": 6.5,
+        "notes": "Third-party field-report table, useful as a corroborating middle value only."
+      },
+      {
+        "source": "Komoot planned stage",
+        "distanceKm": 6.81,
+        "notes": "Route-app planning data, not an official distance."
+      }
+    ],
+    "computedGeometryKm": {
+      "naturkartanBd71FullTarrekaiseToKvikkjokk": 22.613,
+      "naturkartanBd71Stage9Indices0To529": 7.01,
+      "naturkartanBd71Stage9NearestStfHutsIndices8To529": 6.935,
+      "osmRelation19059738Full": 22.563,
+      "osmRelation19059738Stage9ToNearestNjunjes": 6.821
+    },
+    "confidence": "high for official contradiction; high for about 7.0 km from Naturkartan GPX; keep STF 6 km as the primary STF display claim until normalization policy decides otherwise"
+  },
+  "estimatedTime": {
+    "officialStf": "2-4 hours",
+    "naturkartan": "2-4 hours",
+    "fieldReports": [
+      "Roversmountains reported Tarrekaise-Njunjes in about 3 hours.",
+      "I-Trekkings reported over 2 hours for the 6 km Tarrekaise-Njunjes leg on 2006-08-03.",
+      "Komoot planning data gives 1 hour 53 minutes, but Naturkartan and field reports support keeping the official 2-4 hour planning range."
+    ],
+    "confidence": "medium-high"
+  },
+  "difficulty": {
+    "officialRating": null,
+    "description": "No formal official grade found. Naturkartan describes the stage as short but strenuous, especially rocky and muddy in rain. Field reports repeatedly mention stones, mud, slippery duckboards, wet rock slabs, dense vegetation, and a steep rocky descent into Njunjes.",
+    "confidence": "medium-high"
+  },
+  "routeType": {
+    "type": "point-to-point remote hut-to-hut hiking stage",
+    "directionForImport": "Tarrekaise to Njunjes, matching STF north-to-south section order and Naturkartan BD71 stored direction",
+    "descriptionForApp": "A short but rough Tarradalen stage from Tarrekaise to Njunjes. The route leaves the Tarrekaise hut area through dense mountain birch and high vegetation, follows the north side of Tarraure and Luoppal with views toward Hilldo and Tarradalen, then climbs onto a more open plateau before a steep, rocky descent to STF Njunjes above Tarraätno. Wet weather can make the rocky ground, mud, boardwalks and descent noticeably slower than the distance suggests.",
+    "connectionsAndAlternates": [
+      {
+        "name": "Naturkartan BD71 combined route",
+        "description": "Naturkartan packages Tarrekaise-Njunjes and Njunjes-Kvikkjokk/Bobäcken access in one route record.",
+        "modelingRecommendation": "Split the GPX at Njunjes for section 9. Use BD71 points 0..529 for the official GPX segment, or 8..529 if the normalizer snaps the start to the closest STF Tarrekaise route point."
+      },
+      {
+        "name": "OSM Nordkalottruta Etapp 44 / relation 19059738",
+        "description": "OSM models the Tarrekaise-Kvikkjokk child relation and includes the southern access/ferry segment.",
+        "modelingRecommendation": "Use as planning-grade cross-check and for the section 10 boat/access split, not as primary section 9 linework while BD71 GPX is available."
+      },
+      {
+        "name": "Fiskflyg Tarrekaise and Njunjes pickup/drop-off",
+        "description": "Fiskflyg's 2026 Kvikkjokk-Stáloluokta route lists both hut locations as pickup/drop-off options.",
+        "modelingRecommendation": "Use hut coordinates as provisional access proxies only until exact landing coordinates are verified."
+      },
+      {
+        "name": "Njunjes bridge over Tarraätno",
+        "description": "A bridge just south/west of Njunjes is useful for camping or day trips across Tarraätno but is not needed for the section 9 main line.",
+        "modelingRecommendation": "Keep as access/nearby-route metadata, not a primary facility import for this stage unless downstream route modelling needs it."
+      },
+      {
+        "name": "Southern gateway toward Bobäcken and Kvikkjokk",
+        "description": "From Njunjes, the next official stage continues about 12 km toward Bobäcken followed by a boat to Kvikkjokk.",
+        "modelingRecommendation": "Do not attach Bobäcken/Kvikkjokk access geometry to section 9; preserve as gateway context and section 10 input."
+      }
+    ]
+  },
+  "officialSources": [
+    {
+      "id": "stf_padjelantaleden",
+      "title": "STF Padjelantaleden",
+      "url": "https://www.svenskaturistforeningen.se/guider-tips/leder/padjelantaleden/",
+      "accessed": "2026-04-29",
+      "type": "official trail overview and stage inventory",
+      "findings": [
+        "Lists stage 9 as STF Tarrekaise Fjällstuga - STF Njunjes Fjällstation.",
+        "Gives distance/time as 6 km and 2-4 hours.",
+        "Places the stage after Såmmarlappa-Tarrekaise and before Njunjes-Kvikkjokk in the official order.",
+        "Describes the stage as passing through Tarradalen with some stony terrain and Njunjes on a rock slab by Tarraätno."
+      ],
+      "confidence": "high for stage order, distance/time claim, and official identity; medium for the Njunjes 'Fjällstation' label because linked lodging source is Fjällstuga"
+    },
+    {
+      "id": "stf_padjelanta_trail_en",
+      "title": "STF Padjelanta Trail",
+      "url": "https://www.swedishtouristassociation.com/trails/padjelantatrail/",
+      "accessed": "2026-04-29",
+      "type": "official English trail overview",
+      "findings": [
+        "Supports the same STF stage chain and remote hut-to-hut context.",
+        "Useful for English naming/copy, but the Swedish page was the primary section-order source."
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "naturkartan_bd71",
+      "title": "Naturkartan BD71 Tarrekaise-Njunjes-Kvikkjokk",
+      "url": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk",
+      "downloadUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk.gpx",
+      "accessed": "2026-04-29",
+      "type": "official route description and GPX",
+      "findings": [
+        "Groups Tarrekaise-Njunjes and Njunjes-Kvikkjokk/Bobäcken in one route record.",
+        "Gives Tarrekaise-Njunjes as 7 km and 2-4 hours.",
+        "Describes the section as short but strenuous, rocky and muddy in rain.",
+        "Describes dense birch forest from Tarrekaise, proximity to Tarraure and Luoppal after Hilldo, an open plateau after Luoppal, and a steep rocky descent to Njunjes.",
+        "Provides the best official downloadable linework; BD71 must be split at Njunjes for section 9."
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "stf_tarrekaise",
+      "title": "STF Tarrekaise Fjällstuga",
+      "urls": [
+        "https://www.svenskaturistforeningen.se/boende/stf-tarrekaise-fjallstuga/",
+        "https://www.swedishtouristassociation.com/facilities/stf-tarrekaise-mountain-cabin/"
+      ],
+      "accessed": "2026-04-29",
+      "type": "official STF hut page with coordinate and services",
+      "findings": [
+        "Gives GPS coordinate N66.989827, E17.291026.",
+        "Lists 2026 opening periods 27 February-19 April and 26 June-6 September.",
+        "Describes two guest cabins with 26 beds, self-catering kitchen, help phone, card payment possible, cash recommended, and no mobile coverage.",
+        "Mentions bathing in Tarraure, the Hilldo plateau viewpoint, and Tarraälvshyddan/Vaimok side-route context."
+      ],
+      "confidence": "high for hut coordinate/services; medium-high for dynamic operating details"
+    },
+    {
+      "id": "padjelanta_se_tarrekaise",
+      "title": "Padjelanta.se Tarrekaise",
+      "url": "https://www.padjelanta.se/tarrekaise/",
+      "accessed": "2026-04-29",
+      "type": "regional hut page with coordinate and distances",
+      "findings": [
+        "Gives Tarrekaise coordinate 66.990257, 17.291454.",
+        "Places Tarrekaise on the north shore of Tarraure/Darrávrre inside Pärlälvens fjällurskog.",
+        "Lists distances: Såmmarlappa 13 km, Njunjes 7 km, Vaimok 22 km.",
+        "Lists 2026 summer opening and tent/day-visit pricing context."
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "stf_njunjes",
+      "title": "STF Njunjes Fjällstuga",
+      "urls": [
+        "https://www.svenskaturistforeningen.se/boende/stf-njunjes-fjallstuga/",
+        "https://www.swedishtouristassociation.com/facilities/stf-njunjes-mountain-cabin/"
+      ],
+      "accessed": "2026-04-29",
+      "type": "official STF hut page with coordinate, services, and current notice",
+      "findings": [
+        "Gives GPS coordinate N66.960321, E17.411197.",
+        "Lists 2026 opening periods 27 February-19 April and 26 June-6 September.",
+        "Describes two 10-bed rooms with kitchens/sleeping alcoves, safety room/help phone in the storehouse, limited pet room, card/Swish possible if Telia coverage works, and relatively good Telia GSM.",
+        "Posted a winter/current notice that Njunjes closed early on 2026-04-12 because river ice by the hut was too weak; the two-bed safety room remained."
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "padjelanta_se_njunjes",
+      "title": "Padjelanta.se Njunjes",
+      "url": "https://www.padjelanta.se/njunjes/",
+      "accessed": "2026-04-29",
+      "type": "regional hut page with coordinate and distances",
+      "findings": [
+        "Gives Njunjes coordinate 66.960302, 17.411290.",
+        "Lists Tarrekaise 7 km and Kvikkjokk/Bobäcken 12 km plus boat context.",
+        "Supports 2026 summer hut opening and hut-service context."
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "parlalvens_fjallurskog",
+      "title": "Länsstyrelsen Norrbotten Pärlälvens fjällurskog",
+      "url": "https://www.lansstyrelsen.se/norrbotten/besoksmal/naturreservat/parlalvens-fjallurskog.html",
+      "accessed": "2026-04-29",
+      "type": "official nature-reserve and rule context",
+      "findings": [
+        "States Pärlälvens fjällurskog includes Tarradalen and that both Padjelantaleden and Kungsleden pass through the area.",
+        "Allows hiking, camping, fires, berry/mushroom picking, snowmobiling on well-covered snow, and hunting/fishing under applicable laws.",
+        "Warns the area is periodically closed due to military activity and says to contact Försvarsmakten.",
+        "No stage-specific local closure was found on the destination page on 2026-04-29."
+      ],
+      "confidence": "high for reserve context; medium for real-time military non-impact"
+    },
+    {
+      "id": "fiskflyg_regular_services",
+      "title": "Fiskflyg scheduled flights and Kvikkjokk-Stáloluokta route",
+      "urls": [
+        "https://www.fiskflyg.se/en/reguljara-flygningar",
+        "https://www.fiskflyg.se/en/kvikkjokk-staloluokta",
+        "https://www.fiskflyg.se/kvikkjokk-staloluokta"
+      ],
+      "accessed": "2026-04-29",
+      "type": "official helicopter access",
+      "findings": [
+        "Lists the 2026 Kvikkjokk-Stáloluokta route as available 24 June-4 September.",
+        "Lists pickup/drop-off options including Njunjes and Tarrekaise.",
+        "No exact Njunjes or Tarrekaise landing coordinate was published in the sources checked.",
+        "Schedules are weather-dependent, pre-booking is required, and times may change with bus schedules."
+      ],
+      "confidence": "high for service existence; medium for proxy coordinates"
+    }
+  ],
+  "endpointCoordinates": {
+    "start": {
+      "selectedRouteEndpoint": {
+        "label": "STF Tarrekaise Fjällstuga",
+        "role": "official stage start and section 8 handoff",
+        "coordinates": {
+          "lat": 66.989827,
+          "lon": 17.291026
+        },
+        "coordinateSource": "STF Tarrekaise GPS coordinate, cross-checked with Padjelanta.se, current OSM hut node, Naturkartan BD71 route points, and section 8 endpoint research.",
+        "sourceUrls": [
+          "https://www.svenskaturistforeningen.se/boende/stf-tarrekaise-fjallstuga/",
+          "https://www.swedishtouristassociation.com/facilities/stf-tarrekaise-mountain-cabin/",
+          "https://www.padjelanta.se/tarrekaise/",
+          "https://www.openstreetmap.org/node/1356403665",
+          "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk.gpx"
+        ],
+        "confidence": "high",
+        "alternateCoordinates": [
+          {
+            "lat": 66.990257,
+            "lon": 17.291454,
+            "source": "Padjelanta.se Tarrekaise coordinate",
+            "gapFromSelectedMeters": 52.5,
+            "confidence": "high"
+          },
+          {
+            "lat": 66.9902465,
+            "lon": 17.2915576,
+            "source": "OSM node 1356403665, Tarrekaise Fjällstuga, timestamp 2026-04-05",
+            "gapFromSelectedMeters": 52.3,
+            "confidence": "medium-high"
+          },
+          {
+            "lat": 66.9903337027126,
+            "lon": 17.2908515735223,
+            "source": "Naturkartan BD71 stored GPX start point",
+            "gapFromSelectedMeters": 56.9,
+            "confidence": "high for route-line endpoint"
+          },
+          {
+            "lat": 66.989780717615,
+            "lon": 17.2913168263117,
+            "source": "Naturkartan BD71 nearest GPX point to STF Tarrekaise coordinate, index 8",
+            "gapFromSelectedMeters": 13.6,
+            "confidence": "high for route-line snap"
+          }
+        ],
+        "normalizationNote": "Use STF as the selected official hut coordinate for continuity with section 8. Preserve Padjelanta.se/OSM alternatives. For route geometry, decide whether to keep the BD71 start at index 0 or snap to index 8 near the STF coordinate."
+      }
+    },
+    "end": {
+      "selectedRouteEndpoint": {
+        "label": "STF Njunjes Fjällstuga",
+        "role": "official stage end and section 10 handoff",
+        "coordinates": {
+          "lat": 66.960321,
+          "lon": 17.411197
+        },
+        "coordinateSource": "STF Njunjes GPS coordinate, cross-checked with Padjelanta.se, OSM hut way center, and Naturkartan BD71 split point.",
+        "sourceUrls": [
+          "https://www.svenskaturistforeningen.se/boende/stf-njunjes-fjallstuga/",
+          "https://www.swedishtouristassociation.com/facilities/stf-njunjes-mountain-cabin/",
+          "https://www.padjelanta.se/njunjes/",
+          "https://www.openstreetmap.org/way/291141562",
+          "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk.gpx"
+        ],
+        "confidence": "high",
+        "alternateCoordinates": [
+          {
+            "lat": 66.960302,
+            "lon": 17.41129,
+            "source": "Padjelanta.se Njunjes coordinate",
+            "gapFromSelectedMeters": 4.6,
+            "confidence": "high"
+          },
+          {
+            "lat": 66.96030526,
+            "lon": 17.41139078,
+            "source": "OSM way 291141562 approximate hut building center",
+            "gapFromSelectedMeters": 8.7,
+            "confidence": "medium-high"
+          },
+          {
+            "lat": 66.9602492699256,
+            "lon": 17.4111024231293,
+            "source": "Naturkartan BD71 recommended Njunjes split point, index 529",
+            "gapFromSelectedMeters": 9,
+            "confidence": "high for route-line split"
+          },
+          {
+            "lat": 66.9604153,
+            "lon": 17.41047734,
+            "source": "OSM way 291141563 secondary cabin/building center",
+            "gapFromSelectedMeters": 33,
+            "confidence": "medium"
+          }
+        ],
+        "normalizationNote": "Use STF as selected hut endpoint. BD71 index 529 is close enough to serve as the route split; Padjelanta.se and OSM align within the hut cluster."
+      }
+    },
+    "coordinateConfidenceSummary": "Both endpoint hut coordinates are high-confidence official STF coordinates. Tarrekaise has a roughly 50 m spread between STF, Padjelanta.se/OSM and the BD71 start, while Njunjes sources cluster tightly within about 10 m."
+  },
+  "routeGeometry": {
+    "preferredGeometry": {
+      "source": "Naturkartan BD71 GPX",
+      "pageUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk",
+      "downloadUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk.gpx",
+      "sourceDistanceKm": {
+        "tarrekaiseNjunjesText": 7,
+        "nunjnesKvikkjokkText": "12 km plus 3 km boat",
+        "combinedBd71Text": 22
+      },
+      "computedStats": {
+        "fullPointCount": 1410,
+        "fullComputedDistanceKm": 22.613,
+        "storedStart": {
+          "lat": 66.9903337027126,
+          "lon": 17.2908515735223,
+          "label": "Tarrekaise side"
+        },
+        "storedEnd": {
+          "lat": 66.9508915191752,
+          "lon": 17.7110402707722,
+          "label": "Kvikkjokk-side route endpoint"
+        },
+        "maxPointSpacingMeters": 239.2,
+        "stepsOver500Meters": 0,
+        "nearestSelectedTarrekaiseCoordinate": {
+          "index": 8,
+          "lat": 66.989780717615,
+          "lon": 17.2913168263117,
+          "gapMeters": 13.6,
+          "cumulativeKmFromStoredStart": 0.075
+        },
+        "nearestPadjelantaTarrekaiseCoordinate": {
+          "index": 2,
+          "gapMeters": 7.2,
+          "cumulativeKmFromStoredStart": 0.027
+        },
+        "recommendedNjunjesSplit": {
+          "index": 529,
+          "lat": 66.9602492699256,
+          "lon": 17.4111024231293,
+          "gapMetersFromSelectedNjunjesCoordinate": 9,
+          "cumulativeKmFromStoredStart": 7.01
+        },
+        "nearestPadjelantaNjunjesCoordinate": {
+          "index": 530,
+          "gapMeters": 8,
+          "cumulativeKmFromStoredStart": 7.017
+        },
+        "stage9SegmentPointCountUsingIndices0To529": 530,
+        "stage9SegmentDistanceKmUsingIndices0To529": 7.01,
+        "stage9SegmentPointCountUsingNearestStfHuts8To529": 522,
+        "stage9SegmentDistanceKmUsingNearestStfHuts8To529": 6.935,
+        "stage9MaxPointSpacingMeters": 71.8,
+        "nearestBobackenArea": {
+          "index": 1368,
+          "lat": 66.9458400304499,
+          "lon": 17.6527051843245,
+          "gapMeters": 100.5,
+          "cumulativeKmFromStoredStart": 19.454
+        }
+      },
+      "storedDirection": "Tarrekaise to Njunjes to Kvikkjokk/Bobäcken-side endpoint, matching official section 9 direction",
+      "directionForImport": "Use BD71 points 0 through 529 for the official GPX segment with no reversal; if endpoint snapping is applied, use points 8 through 529 for the hut-to-hut route-line segment.",
+      "splitRecommendation": "Split BD71 at Njunjes index 529. Preserve the index 0 versus index 8 Tarrekaise start choice as a normalization decision because the stored GPX start is 56.9 m from STF Tarrekaise while index 8 is 13.6 m from the STF hut coordinate.",
+      "geometryGrade": "navigation-grade candidate with split and endpoint-offset caveats",
+      "confidence": "high"
+    },
+    "osmCrossCheck": {
+      "source": "OSM relation 19059738, Nordkalottruta Etapp 44: Tarrekaise - Kvikkjokk",
+      "url": "https://www.openstreetmap.org/relation/19059738",
+      "downloadUrl": "https://www.openstreetmap.org/api/0.6/relation/19059738/full",
+      "parentPadjelantaledenRelation": "https://www.openstreetmap.org/relation/897726",
+      "computedStats": {
+        "fullComputedDistanceKm": 22.563,
+        "pointCount": 615,
+        "maxVertexSpacingMeters": 277.6,
+        "stepsOver500Meters": 0,
+        "stage9TarrekaiseToNearestNjunjesKm": 6.821,
+        "stage9PointCount": 196,
+        "tarrekaiseStartGapMetersFromSelectedStfCoordinate": 44.9,
+        "njunjesSplitGapMetersFromSelectedStfCoordinate": 7.9,
+        "nunjnesToFerryStartWalkingKm": 12.354,
+        "ferrySegmentKm": 3.388
+      },
+      "direction": "Tarrekaise to Kvikkjokk; section 9 subsegment matches official direction.",
+      "geometryGrade": "good planning-grade cross-check with useful ferry/access modeling but sparser vertices",
+      "confidence": "medium-high"
+    },
+    "secondaryGeometry": [
+      {
+        "source": "Komoot planned stage",
+        "url": "https://www.komoot.com/tour/368969402",
+        "use": "Planning-distance and highlight corroboration only.",
+        "notes": "Lists Tarrekaise-Njunjes as 6.81 km / 1 hour 53 minutes and highlights lake-shore camping, Tarradalen views, and Njunjes."
+      },
+      {
+        "source": "Wikiloc Njunjes listings",
+        "url": "https://www.wikiloc.com/trails/hiking/sweden/norrbottens-lan/njunjes",
+        "use": "Third-party combined-stage corroboration only.",
+        "notes": "Includes a Tarrekaise-Kvikkjokk track of about 24.68 km, useful only as combined stage 9+10 context."
+      },
+      {
+        "source": "AllTrails Padjelantaleden whole-route listing",
+        "url": "https://www.alltrails.com/trail/sweden/norrbotten/padjelantaleden--2",
+        "use": "Whole-route currentness/review context only.",
+        "notes": "Not stage-specific enough for primary geometry."
+      }
+    ],
+    "standaloneKmlGeojson": {
+      "status": "not-found",
+      "notes": "KML, GeoJSON, and JSON variants for the Naturkartan BD71 slug returned 404 in the route-geometry and coordinator checks. GPX is the only confirmed official direct download."
+    },
+    "endpointGapNotes": [
+      "BD71 is a grouped route and does not encode Njunjes as a separate official stage split object.",
+      "The recommended BD71 Njunjes split is about 9 m from the selected STF Njunjes coordinate.",
+      "The BD71 stored Tarrekaise start is about 57 m from the selected STF Tarrekaise coordinate, while the nearest route point to STF Tarrekaise is index 8 at 13.6 m.",
+      "OSM relation 19059738 is sparser but agrees with the stage direction and endpoint vicinity and is valuable for section 10 ferry/access separation.",
+      "Official display distance conflicts: STF says 6 km, while Naturkartan/Padjelanta and computed BD71 support about 7 km."
+    ]
+  },
+  "commuteAccess": {
+    "summary": "Both endpoints are remote huts with no road, parking, bus or train access. The closest access points are the huts themselves as trail endpoints and Fiskflyg scheduled helicopter pickup/drop-off proxies. Kvikkjokk, Bobäcken, the Kvikkjokk heliport, bus 94, and Murjek station are downstream gateway context for section 10 and whole-trail access, not direct section 9 endpoints.",
+    "start": [
+      {
+        "name": "STF Tarrekaise Fjällstuga",
+        "type": "remote_hut_trail_endpoint",
+        "coordinates": {
+          "lat": 66.989827,
+          "lon": 17.291026
+        },
+        "distanceFromEndpointKm": 0,
+        "operatorNetwork": "STF hut; Padjelantaleden",
+        "sourceUrls": [
+          "https://www.svenskaturistforeningen.se/boende/stf-tarrekaise-fjallstuga/",
+          "https://www.padjelanta.se/tarrekaise/"
+        ],
+        "confidence": "high",
+        "caveats": "Trail-only endpoint with no road/parking/bus. STF and Padjelanta.se coordinates differ by about 50 m."
+      },
+      {
+        "name": "Fiskflyg Tarrekaise STF pickup/drop-off",
+        "type": "scheduled_helicopter",
+        "coordinates": {
+          "lat": 66.989827,
+          "lon": 17.291026
+        },
+        "distanceFromEndpointKm": 0,
+        "operatorNetwork": "Fiskflyg / Rotor Service Norden, Kvikkjokk-Stáloluokta route",
+        "sourceUrls": [
+          "https://www.fiskflyg.se/en/reguljara-flygningar",
+          "https://www.fiskflyg.se/en/kvikkjokk-staloluokta",
+          "https://www.fiskflyg.se/reguljara-flygningar"
+        ],
+        "confidence": "high for stop option, medium for proxy coordinate",
+        "caveats": "No exact landing coordinate found. 2026 route was listed for 24 Jun-4 Sep; pre-booking, weather, and bus connections affect actual service."
+      }
+    ],
+    "end": [
+      {
+        "name": "STF Njunjes Fjällstuga",
+        "type": "remote_hut_trail_endpoint",
+        "coordinates": {
+          "lat": 66.960321,
+          "lon": 17.411197
+        },
+        "distanceFromEndpointKm": 0,
+        "operatorNetwork": "STF hut; Padjelantaleden",
+        "sourceUrls": [
+          "https://www.svenskaturistforeningen.se/boende/stf-njunjes-fjallstuga/",
+          "https://www.padjelanta.se/njunjes/"
+        ],
+        "confidence": "high",
+        "caveats": "Trail-only endpoint with no road/parking/bus. Njunjes had an early winter 2026 closure notice because river ice by the hut was too weak; do not apply that winter-specific notice as a summer closure."
+      },
+      {
+        "name": "Fiskflyg Njunjes STF pickup/drop-off",
+        "type": "scheduled_helicopter",
+        "coordinates": {
+          "lat": 66.960321,
+          "lon": 17.411197
+        },
+        "distanceFromEndpointKm": 0,
+        "operatorNetwork": "Fiskflyg / Rotor Service Norden, Kvikkjokk-Stáloluokta route",
+        "sourceUrls": [
+          "https://www.fiskflyg.se/en/reguljara-flygningar",
+          "https://www.fiskflyg.se/en/kvikkjokk-staloluokta",
+          "https://www.fiskflyg.se/reguljara-flygningar"
+        ],
+        "confidence": "high for stop option, medium for proxy coordinate",
+        "caveats": "No exact landing coordinate found. 2026 route was listed for 24 Jun-4 Sep; pre-booking, weather, and bus connections affect actual service."
+      }
+    ],
+    "gateways": [
+      {
+        "name": "Bobäcken",
+        "type": "boat_landing_southern_trailhead_context",
+        "coordinates": {
+          "lat": 66.945046,
+          "lon": 17.654518
+        },
+        "distanceFromEndpointKm": 12,
+        "operatorNetwork": "Båttrafik i Kvikkjokk / Turism i Kvikkjokk AB",
+        "sourceUrls": [
+          "https://www.padjelanta.se/tarraalven/",
+          "https://www.battrafikikvikkjokk.se/",
+          "https://www.naturkartan.se/sv/norrbottens-lan/vindskydd-bobacken"
+        ],
+        "confidence": "medium-high for service, medium for coordinate",
+        "caveats": "Gateway for section 10, not section 9. Coordinate from OSM ferry terminal/gateway context may differ from Naturkartan shelter coordinate by about 100 m."
+      },
+      {
+        "name": "Kvikkjokk boat landing",
+        "type": "boat_terminal",
+        "coordinates": {
+          "lat": 66.950111,
+          "lon": 17.717397
+        },
+        "distanceFromEndpointKm": 15,
+        "operatorNetwork": "Båttrafik i Kvikkjokk / Turism i Kvikkjokk AB",
+        "sourceUrls": [
+          "https://www.padjelanta.se/tarraalven/",
+          "https://www.battrafikikvikkjokk.se/"
+        ],
+        "confidence": "medium-high",
+        "caveats": "Gateway for the official Njunjes-Kvikkjokk continuation: about 12 km walking from Njunjes to Bobäcken plus about 3 km boat."
+      },
+      {
+        "name": "Kvikkjokk Kyrkan",
+        "type": "bus_stop",
+        "coordinates": {
+          "lat": 66.951657,
+          "lon": 17.721524
+        },
+        "distanceFromEndpointKm": 15.3,
+        "operatorNetwork": "Länstrafiken Norrbotten line 94",
+        "sourceUrls": [
+          "https://www.iphone.fskab.se/ltn/Fjallinje91o94/260615_260816/Fjallinje91o94_94_260615_260816.pdf",
+          "https://www.svenskaturistforeningen.se/om-stf/stf-medlemsservice/faq/nar-gar-bussen-till-fran-kvikkjokk/"
+        ],
+        "confidence": "high for schedule source, medium for stop coordinate",
+        "caveats": "2026 PDF valid 15 Jun-16 Aug and updated 16 Apr 2026. Outside summer, STF/Padjelanta mention other bus combinations; recheck before publication."
+      },
+      {
+        "name": "Kvikkjokk Heliport",
+        "type": "helicopter_base",
+        "coordinates": {
+          "lat": 66.941943,
+          "lon": 17.739058
+        },
+        "distanceFromEndpointKm": 14.4,
+        "operatorNetwork": "Fiskflyg",
+        "sourceUrls": [
+          "https://www.fiskflyg.se/en/kvikkjokk",
+          "https://www.fiskflyg.se/en/reguljara-flygningar"
+        ],
+        "confidence": "medium",
+        "caveats": "Road-access helicopter base/gateway only. Fiskflyg says bus passengers should ask to get off at the helicopter base, about 1 km before the usual bus stop."
+      },
+      {
+        "name": "Kvikkjokk Fjällstation / parking",
+        "type": "road_parking_accommodation_gateway",
+        "coordinates": {
+          "lat": 66.953677,
+          "lon": 17.719566
+        },
+        "distanceFromEndpointKm": 15.2,
+        "operatorNetwork": "Kvikkjokk Fjällstation / STF gateway context",
+        "sourceUrls": [
+          "https://kvikkjokkfjallstation.se/kontakt/",
+          "https://www.swedishtouristassociation.com/facilities/stf-kvikkjokk-mountain-station/"
+        ],
+        "confidence": "high as gateway",
+        "caveats": "Parking is gateway-only; there is no parking at Tarrekaise, Njunjes, or Bobäcken."
+      },
+      {
+        "name": "Murjek station",
+        "type": "train_bus_transfer_gateway",
+        "coordinates": {
+          "lat": 66.484638,
+          "lon": 20.880985
+        },
+        "distanceFromEndpointKm": 161,
+        "operatorNetwork": "Rail plus Länstrafiken/Resplus gateway connections",
+        "sourceUrls": [
+          "https://www.svenskaturistforeningen.se/om-stf/stf-medlemsservice/faq/nar-gar-bussen-till-fran-kvikkjokk/",
+          "https://www.iphone.fskab.se/ltn/Fjallinje91o94/260615_260816/Fjallinje91o94_94_260615_260816.pdf"
+        ],
+        "confidence": "high as rail gateway, not section access",
+        "caveats": "Use only as whole-trail gateway context."
+      }
+    ],
+    "negativeFindings": [
+      "No road, parking, bus stop, train stop or public ferry landing found at Tarrekaise.",
+      "No road, parking, bus stop or public road ferry found at Njunjes.",
+      "Bobäcken and Kvikkjokk access belong to the next stage/gateway model, not to the section 9 mainline.",
+      "Fiskflyg landing coordinates for Tarrekaise and Njunjes were not found; hut coordinates are proxies only."
+    ]
+  },
+  "facilities": [
+    {
+      "id": "padjelantaleden-stage-09-tarrekaise-hut",
+      "name": "STF Tarrekaise Fjällstuga",
+      "candidateType": "lodging",
+      "coordinates": {
+        "lat": 66.989827,
+        "lon": 17.291026
+      },
+      "coordinateSource": "STF GPS coordinate; Padjelanta.se and OSM hut coordinates nearby.",
+      "description": "STF hut at the stage start near Tarraure/Darrávrre, with two guest cabins, 26 beds, self-catering kitchen, help phone, card payment possible, cash recommended, no mobile coverage, and hut-site tenting/service context.",
+      "sourceUrls": [
+        "https://www.svenskaturistforeningen.se/boende/stf-tarrekaise-fjallstuga/",
+        "https://www.swedishtouristassociation.com/facilities/stf-tarrekaise-mountain-cabin/",
+        "https://www.padjelanta.se/tarrekaise/",
+        "https://www.openstreetmap.org/node/1356403665"
+      ],
+      "routeProximity": {
+        "status": "near-route-start",
+        "distanceMeters": 14
+      },
+      "confidence": "high",
+      "importRecommendation": "import-or-deduplicate-with-section-08-endpoint"
+    },
+    {
+      "id": "padjelantaleden-stage-09-tarrekaise-help-phone-safety-room",
+      "name": "Tarrekaise help phone and safety room context",
+      "candidateType": "emergency_phone",
+      "coordinates": {
+        "lat": 66.989827,
+        "lon": 17.291026
+      },
+      "coordinateSource": "Attached to STF Tarrekaise hut coordinate; no separate help-phone coordinate found.",
+      "description": "Help-phone/safety-room context at STF Tarrekaise. Attach to hut unless standalone safety-room/emergency-phone POIs are supported.",
+      "sourceUrls": [
+        "https://www.svenskaturistforeningen.se/boende/stf-tarrekaise-fjallstuga/"
+      ],
+      "routeProximity": {
+        "status": "attached-to-hut",
+        "distanceMeters": 14
+      },
+      "confidence": "high for existence, medium for exact standalone coordinate",
+      "importRecommendation": "attach-to-hut-or-import-if-emergency-phone-taxonomy-supports"
+    },
+    {
+      "id": "padjelantaleden-stage-09-tarrekaise-tent-service",
+      "name": "Tarrekaise hut-site tenting/service",
+      "candidateType": "campsite",
+      "coordinates": {
+        "lat": 66.989827,
+        "lon": 17.291026
+      },
+      "coordinateSource": "Attached to STF/Padjelanta Tarrekaise hut coordinate; no separate tent-site coordinate found.",
+      "description": "Padjelanta.se lists tent/day-visit pricing for Tarrekaise. Treat as hut-site service metadata until a separate tenting area coordinate is verified.",
+      "sourceUrls": [
+        "https://www.padjelanta.se/tarrekaise/"
+      ],
+      "routeProximity": {
+        "status": "attached-to-hut",
+        "distanceMeters": 14
+      },
+      "confidence": "medium-high",
+      "importRecommendation": "attach-to-hut-pending-standalone-coordinate"
+    },
+    {
+      "id": "padjelantaleden-stage-09-tarrekaise-natural-water",
+      "name": "Tarraure / nearby natural water at Tarrekaise",
+      "candidateType": "water",
+      "coordinates": {
+        "lat": 66.9899,
+        "lon": 17.2925
+      },
+      "coordinateSource": "Approximate proxy from hut/lake/stream context; exact collection point not verified.",
+      "description": "Natural water context at Tarrekaise/Tarraure. Not a potable tap; treat/filter as needed and avoid contamination near the hut.",
+      "sourceUrls": [
+        "https://www.svenskaturistforeningen.se/boende/stf-tarrekaise-fjallstuga/",
+        "https://www.padjelanta.se/tarrekaise/"
+      ],
+      "routeProximity": {
+        "status": "start-area-proxy",
+        "distanceMeters": 70
+      },
+      "confidence": "medium",
+      "importRecommendation": "pending-or-attach-to-hut-with-untreated-water-caveat"
+    },
+    {
+      "id": "padjelantaleden-stage-09-tarrekaise-swimming",
+      "name": "Tarraure swimming near Tarrekaise",
+      "candidateType": "swimming",
+      "coordinates": {
+        "lat": 66.9899,
+        "lon": 17.2925
+      },
+      "coordinateSource": "Approximate proxy only; STF mentions bathing in Tarraure but no exact mapped point was found.",
+      "description": "Possible bathing/swimming near Tarrekaise on Lake Tarraure. Keep pending until a precise, suitable coordinate is verified.",
+      "sourceUrls": [
+        "https://www.svenskaturistforeningen.se/boende/stf-tarrekaise-fjallstuga/",
+        "https://www.swedishtouristassociation.com/facilities/stf-tarrekaise-mountain-cabin/"
+      ],
+      "routeProximity": {
+        "status": "start-area-proxy",
+        "distanceMeters": 70
+      },
+      "confidence": "medium for existence, low for coordinate",
+      "importRecommendation": "pending-do-not-import-standalone"
+    },
+    {
+      "id": "padjelantaleden-stage-09-tarrekaise-shop-suppressed",
+      "name": "Tarrekaise shop/provisions",
+      "candidateType": "food",
+      "coordinates": {
+        "lat": 66.989827,
+        "lon": 17.291026
+      },
+      "coordinateSource": "Hut coordinate only; no current active shop source found.",
+      "description": "Older reports mention Tarrekaise provisions, but current STF shop-map context indicates Tarrekaise is without a shop and field research found the old shop references stale.",
+      "sourceUrls": [
+        "https://www.svenskaturistforeningen.se/guider-tips/fjallen/fjallstugornas-butiker/",
+        "https://www.swedishtouristassociation.com/app/uploads/sites/2/2021/02/mountain-shops_map.pdf",
+        "https://www.fjeldsofsweden.com/tour/vaimok/28"
+      ],
+      "routeProximity": {
+        "status": "attached-to-hut",
+        "distanceMeters": 14
+      },
+      "confidence": "medium-high for suppressing active shop import",
+      "importRecommendation": "suppress-unless-current-stf-source-confirms-active-provisions"
+    },
+    {
+      "id": "padjelantaleden-stage-09-tarrekaise-east-firepit",
+      "name": "Firepit east of Tarrekaise / Tarraure",
+      "candidateType": "fireplace",
+      "coordinates": {
+        "lat": 66.9849025,
+        "lon": 17.318182
+      },
+      "coordinateSource": "OSM node 12050588378.",
+      "description": "OSM-only firepit/rest candidate east of Tarrekaise, near the route by Tarraure. Needs verification and fire-rule review before standalone import.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/12050588378"
+      ],
+      "routeProximity": {
+        "status": "near-route",
+        "distanceMeters": 16,
+        "alongRouteKm": 1.5
+      },
+      "confidence": "medium",
+      "importRecommendation": "pending-import-only-if-osm-firepits-are-accepted"
+    },
+    {
+      "id": "padjelantaleden-stage-09-informal-tarraure-glades-camping",
+      "name": "Informal tent spots near eastern Tarraure / forest glades / river",
+      "candidateType": "campsite",
+      "coordinates": null,
+      "coordinateSource": "Naturkartan area description and field-report context; no exact campsite coordinate verified.",
+      "description": "Naturkartan and field reports describe possible tenting in forest clearings, by the eastern part of Tarraure, at Luoppal, and near the river. These are area notes, not verified campsite POIs.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk",
+        "https://www.fjeldsofsweden.com/tour/vaimok/28",
+        "https://www.sim1.se/swe/north/tarrekaise/tarrekaise_01.html"
+      ],
+      "routeProximity": {
+        "status": "along-route-area",
+        "distanceMeters": null
+      },
+      "confidence": "medium-low",
+      "importRecommendation": "pending-route-note-only"
+    },
+    {
+      "id": "padjelantaleden-stage-09-hilldo-tarradalen-view",
+      "name": "Hilldo / Tarradalen viewpoint context",
+      "candidateType": "viewpoint",
+      "coordinates": {
+        "lat": 66.9865,
+        "lon": 17.314
+      },
+      "coordinateSource": "Rough route proxy from facilities lane; no mapped viewpoint point verified.",
+      "description": "Route area with views toward Hilldo and Tarradalen, mentioned by official/field sources. Keep pending without a verified mapped viewpoint.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk",
+        "https://www.komoot.com/tour/368969402"
+      ],
+      "routeProximity": {
+        "status": "near-route-proxy",
+        "distanceMeters": 24,
+        "alongRouteKm": 1.25
+      },
+      "confidence": "low-medium",
+      "importRecommendation": "pending-suppress-without-verified-point"
+    },
+    {
+      "id": "padjelantaleden-stage-09-njunjes-hut",
+      "name": "STF Njunjes Fjällstuga",
+      "candidateType": "lodging",
+      "coordinates": {
+        "lat": 66.960321,
+        "lon": 17.411197
+      },
+      "coordinateSource": "STF GPS coordinate; Padjelanta.se and OSM hut way center nearby.",
+      "description": "STF hut at the stage end above Tarraätno, with two 10-bed rooms, kitchen/sleeping alcoves, safety room/help phone in the storehouse, limited pet room, card/Swish possible if Telia coverage works, and relatively good Telia GSM.",
+      "sourceUrls": [
+        "https://www.svenskaturistforeningen.se/boende/stf-njunjes-fjallstuga/",
+        "https://www.swedishtouristassociation.com/facilities/stf-njunjes-mountain-cabin/",
+        "https://www.padjelanta.se/njunjes/",
+        "https://www.openstreetmap.org/way/291141562"
+      ],
+      "routeProximity": {
+        "status": "near-route-end",
+        "distanceMeters": 9
+      },
+      "confidence": "high",
+      "importRecommendation": "import-or-deduplicate-with-section-10-start"
+    },
+    {
+      "id": "padjelantaleden-stage-09-njunjes-help-phone-safety-room",
+      "name": "Njunjes safety room and help phone",
+      "candidateType": "emergency_phone",
+      "coordinates": {
+        "lat": 66.960321,
+        "lon": 17.411197
+      },
+      "coordinateSource": "Attached to STF Njunjes hut coordinate; STF says the storehouse contains the safety room/help phone but no separate coordinate was found.",
+      "description": "Safety room/help phone at STF Njunjes. Attach to hut unless standalone emergency-phone/safety-room POIs are supported.",
+      "sourceUrls": [
+        "https://www.svenskaturistforeningen.se/boende/stf-njunjes-fjallstuga/"
+      ],
+      "routeProximity": {
+        "status": "attached-to-hut",
+        "distanceMeters": 9
+      },
+      "confidence": "high for existence, medium for exact standalone coordinate",
+      "importRecommendation": "attach-to-hut-or-import-if-emergency-phone-taxonomy-supports"
+    },
+    {
+      "id": "padjelantaleden-stage-09-njunjes-tent-service",
+      "name": "Njunjes hut-site tenting/service",
+      "candidateType": "campsite",
+      "coordinates": {
+        "lat": 66.960321,
+        "lon": 17.411197
+      },
+      "coordinateSource": "Attached to STF/Padjelanta Njunjes hut coordinate; no separate tent-site coordinate found.",
+      "description": "Padjelanta.se lists tent/day-visit pricing for Njunjes. Field reports also mention camping across the nearby bridge. Treat as hut-site service metadata unless a separate tenting area coordinate is verified.",
+      "sourceUrls": [
+        "https://www.padjelanta.se/njunjes/",
+        "https://www.i-trekkings.net/carnet-outdoor/sammarlappa-tarrekaise-njunjes/"
+      ],
+      "routeProximity": {
+        "status": "attached-to-hut",
+        "distanceMeters": 9
+      },
+      "confidence": "medium-high",
+      "importRecommendation": "attach-to-hut-pending-standalone-coordinate"
+    },
+    {
+      "id": "padjelantaleden-stage-09-njunjes-natural-water",
+      "name": "Tarraätno natural water at Njunjes",
+      "candidateType": "water",
+      "coordinates": {
+        "lat": 66.9603,
+        "lon": 17.4112
+      },
+      "coordinateSource": "Hut/river coordinate proxy; exact water-collection point not verified.",
+      "description": "Natural water context at/near Njunjes and Tarraätno. Not a potable tap; treat/filter as needed and take care near the hut and river.",
+      "sourceUrls": [
+        "https://www.svenskaturistforeningen.se/boende/stf-njunjes-fjallstuga/",
+        "https://www.padjelanta.se/njunjes/"
+      ],
+      "routeProximity": {
+        "status": "end-area-proxy",
+        "distanceMeters": 9
+      },
+      "confidence": "medium-high",
+      "importRecommendation": "pending-or-attach-to-hut-with-untreated-water-caveat"
+    },
+    {
+      "id": "padjelantaleden-stage-09-njunjes-bridge",
+      "name": "Bridge south of Njunjes over Tarraätno",
+      "candidateType": "bridge",
+      "coordinates": {
+        "lat": 66.9598273,
+        "lon": 17.4101715
+      },
+      "coordinateSource": "OSM way 291141565.",
+      "description": "Bridge near Njunjes over Tarraätno, useful for camping/day trips across the river and south-side access notes. Not needed for the Tarrekaise-Njunjes mainline.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/way/291141565",
+        "https://www.svenskaturistforeningen.se/boende/stf-njunjes-fjallstuga/"
+      ],
+      "routeProximity": {
+        "status": "near-end-off-mainline",
+        "distanceMeters": 62
+      },
+      "confidence": "high",
+      "importRecommendation": "suppress-as-facility-use-route-access-note"
+    },
+    {
+      "id": "padjelantaleden-stage-09-njunjes-shop-suppressed",
+      "name": "Njunjes shop/provisions",
+      "candidateType": "food",
+      "coordinates": {
+        "lat": 66.960321,
+        "lon": 17.411197
+      },
+      "coordinateSource": "Hut coordinate only; no current active shop source found.",
+      "description": "No current source found showing Njunjes as a shop/provisions hut. Do not import as food/resupply unless STF confirms otherwise.",
+      "sourceUrls": [
+        "https://www.svenskaturistforeningen.se/guider-tips/fjallen/fjallstugornas-butiker/",
+        "https://www.swedishtouristassociation.com/app/uploads/sites/2/2021/02/mountain-shops_map.pdf"
+      ],
+      "routeProximity": {
+        "status": "attached-to-hut",
+        "distanceMeters": 9
+      },
+      "confidence": "medium-high for suppressing active shop import",
+      "importRecommendation": "suppress-unless-current-stf-source-confirms-active-provisions"
+    },
+    {
+      "id": "padjelantaleden-stage-09-hut-toilets",
+      "name": "Tarrekaise and Njunjes hut toilets",
+      "candidateType": "toilet",
+      "coordinates": null,
+      "coordinateSource": "General STF mountain-hut context only; no standalone toilet coordinates found in checked sources or OSM buffers.",
+      "description": "Likely hut-area toilet service context, but no importable standalone coordinates were verified for this section.",
+      "sourceUrls": [
+        "https://www.svenskaturistforeningen.se/boende/boendetyper/fjallstuga/"
+      ],
+      "routeProximity": {
+        "status": "hut-service-context",
+        "distanceMeters": null
+      },
+      "confidence": "low as standalone POI",
+      "importRecommendation": "pending-attach-to-huts-only-if-needed"
+    },
+    {
+      "id": "padjelantaleden-stage-09-stf-waste-policy",
+      "name": "STF hut waste handling policy",
+      "candidateType": "waste",
+      "coordinates": null,
+      "coordinateSource": "STF policy, hut-level only; no waste-bin coordinate.",
+      "description": "STF waste policy context for huts. Do not import as a waste-bin POI without a verified bin/service coordinate.",
+      "sourceUrls": [
+        "https://www.svenskaturistforeningen.se/guider-tips/fjallen/sophantering-fjallstuga/"
+      ],
+      "routeProximity": {
+        "status": "hut-policy-context",
+        "distanceMeters": null
+      },
+      "confidence": "high for policy, low for standalone POI",
+      "importRecommendation": "attach-to-huts-not-standalone"
+    },
+    {
+      "id": "padjelantaleden-stage-09-off-route-vaimok-side-firepit",
+      "name": "Off-route firepit west of Tarrekaise / Vaimok side",
+      "candidateType": "fireplace",
+      "coordinates": {
+        "lat": 66.9964279,
+        "lon": 17.2814094
+      },
+      "coordinateSource": "OSM node 12050588379.",
+      "description": "Firepit near the Tarrekaise/Vaimok side context, about 0.79 km off the section 9 line. More relevant to section 8 or the Vaimok connection than to Tarrekaise-Njunjes.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/12050588379"
+      ],
+      "routeProximity": {
+        "status": "off-route-connection-context",
+        "distanceMeters": 790
+      },
+      "confidence": "medium",
+      "importRecommendation": "suppress-for-section-09-pending-connection-task"
+    },
+    {
+      "id": "padjelantaleden-stage-09-tarraalvshyddan-connection",
+      "name": "Tarraälvshyddan / Vaimok connection metadata",
+      "candidateType": "route_connection",
+      "coordinates": {
+        "lat": 67.0047542,
+        "lon": 17.2315519
+      },
+      "coordinateSource": "Naturkartan/STF side-route facility context from section 8 facilities research.",
+      "description": "Off-stage STF rest cabin and Vaimok route context west of Tarrekaise. It is not on the Tarrekaise-Njunjes mainline.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/en/norrbottens-lan/tarraalvshyddan",
+        "https://www.swedishtouristassociation.com/facilities/stf-tarrekaise-mountain-cabin/"
+      ],
+      "routeProximity": {
+        "status": "off-stage",
+        "distanceMeters": null
+      },
+      "confidence": "medium-high",
+      "importRecommendation": "suppress-from-main-section-facilities-keep-as-connection-metadata"
+    },
+    {
+      "id": "padjelantaleden-stage-09-helicopter-access-proxies",
+      "name": "Tarrekaise and Njunjes helicopter access proxies",
+      "candidateType": "access",
+      "coordinates": null,
+      "coordinateSource": "Fiskflyg lists stops but no exact landing coordinates.",
+      "description": "Scheduled helicopter pickup/drop-off options on Fiskflyg's 2026 Kvikkjokk-Stáloluokta route. Use hut coordinates only as provisional access proxies.",
+      "sourceUrls": [
+        "https://www.fiskflyg.se/en/reguljara-flygningar",
+        "https://www.fiskflyg.se/en/kvikkjokk-staloluokta"
+      ],
+      "routeProximity": {
+        "status": "endpoint-access-context",
+        "distanceMeters": null
+      },
+      "confidence": "high for service, medium for proxy coordinate",
+      "importRecommendation": "access-metadata-only-not-helipad-import"
+    }
+  ],
+  "waterSources": {
+    "summary": "Natural water is available from Tarraure, Luoppal, Tarraätno, nearby streams and hut-area water sources, but no discrete official potable-water tap/point was found. Treat water as natural and condition-dependent, especially near huts, camps, river ice, and after high water.",
+    "records": [
+      {
+        "name": "Tarraure / Darrávrre near Tarrekaise",
+        "coordinates": {
+          "lat": 66.9899,
+          "lon": 17.2925
+        },
+        "source": "STF Tarrekaise and Padjelanta.se hut/lake context; coordinate is a hut/lake proxy.",
+        "reliability": "medium-high for availability, medium for drinkability without treatment",
+        "notes": "Natural lake/nearby stream context at the start; no potable tap coordinate verified."
+      },
+      {
+        "name": "Luoppal / Tarraure east-side lakeshore context",
+        "coordinates": null,
+        "source": "Naturkartan route description and field reports.",
+        "reliability": "medium",
+        "notes": "Official description says the route approaches Tarraure/Luoppal after Hilldo; field reports mention lakeside camping. Do not model as a precise water POI without coordinates."
+      },
+      {
+        "name": "Tarraätno at Njunjes",
+        "coordinates": {
+          "lat": 66.9603,
+          "lon": 17.4112
+        },
+        "source": "STF Njunjes/Padjelanta hut context and field reports; coordinate is hut/river proxy.",
+        "reliability": "medium-high for availability, medium for drinkability without treatment",
+        "notes": "STF's 2026 winter notice shows river ice/current conditions at Njunjes can be safety-relevant. Summer water availability is likely, but treatment and local judgment are still required."
+      },
+      {
+        "name": "STF hut natural water context",
+        "coordinates": null,
+        "source": "STF mountain-hut model; guests often fetch water from local natural sources.",
+        "reliability": "medium",
+        "notes": "Attach to Tarrekaise and Njunjes hut metadata only unless exact collection points are verified."
+      }
+    ],
+    "confidence": "medium"
+  },
+  "campingAndFire": {
+    "camping": [
+      {
+        "topic": "Pärlälvens fjällurskog camping",
+        "notes": "Camping is allowed under the Pärlälvens fjällurskog reserve page and decision context, subject to allemansrätten, reindeer-herding care, and no damage/disturbance.",
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/norrbotten/besoksmal/naturreservat/parlalvens-fjallurskog.html"
+        ],
+        "confidence": "high"
+      },
+      {
+        "topic": "Tarrekaise hut-site tenting/service",
+        "notes": "Padjelanta.se lists tent/day-visit pricing at Tarrekaise. Treat as hut-site service metadata until a separate tent area coordinate is verified.",
+        "sourceUrls": [
+          "https://www.padjelanta.se/tarrekaise/"
+        ],
+        "confidence": "medium-high"
+      },
+      {
+        "topic": "Eastern Tarraure, forest clearings, Luoppal and river camps",
+        "notes": "Naturkartan and field reports indicate possible camping by the eastern part of Tarraure, in forest clearings, at Luoppal, and near the river. Coordinates are area-level only; do not import as precise campsite POIs without verification.",
+        "sourceUrls": [
+          "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk",
+          "https://www.fjeldsofsweden.com/tour/vaimok/28",
+          "https://www.sim1.se/swe/north/tarrekaise/tarrekaise_01.html"
+        ],
+        "confidence": "medium"
+      },
+      {
+        "topic": "Njunjes hut-site and across-bridge camping",
+        "notes": "Padjelanta.se lists tent/day-visit pricing at Njunjes, and I-Trekkings reported tenting opposite the hut after crossing the suspension bridge. Keep exact campsite coordinates pending.",
+        "sourceUrls": [
+          "https://www.padjelanta.se/njunjes/",
+          "https://www.i-trekkings.net/carnet-outdoor/sammarlappa-tarrekaise-njunjes/"
+        ],
+        "confidence": "medium-high for hut-site service, medium for across-bridge exact tenting point"
+      }
+    ],
+    "fire": [
+      {
+        "topic": "Pärlälvens fire rule context",
+        "notes": "Pärlälvens fjällurskog page says making fires is allowed, but visitors may not damage plants/animals and fire bans/local fire restrictions override normal rules.",
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/norrbotten/besoksmal/naturreservat/parlalvens-fjallurskog.html",
+          "https://www.lansstyrelsen.se/norrbotten/samhalle/sakerhet-och-beredskap/brandrisk-och-eldningsforbud.html"
+        ],
+        "confidence": "high for rule/currentness pattern; dynamic for active bans"
+      },
+      {
+        "topic": "OSM firepit east of Tarrekaise",
+        "notes": "One OSM firepit candidate was found close to the route east of Tarrekaise at 66.9849025, 17.318182. Keep pending until verified and until import policy for OSM-only firepits in Pärlälvens fjällurskog is decided.",
+        "sourceUrls": [
+          "https://www.openstreetmap.org/node/12050588378"
+        ],
+        "confidence": "medium"
+      }
+    ],
+    "toilets": [
+      {
+        "name": "Tarrekaise hut toilet context",
+        "coordinates": null,
+        "notes": "No verified standalone coordinate found; keep pending and attach any service note to hut until verified.",
+        "confidence": "low"
+      },
+      {
+        "name": "Njunjes hut toilet context",
+        "coordinates": null,
+        "notes": "No verified standalone coordinate found; keep pending and attach any service note to hut until verified.",
+        "confidence": "low"
+      }
+    ]
+  },
+  "rulesAndSafety": {
+    "protectedArea": {
+      "name": "Pärlälvens fjällurskog nature reserve / Natura 2000",
+      "municipality": "Jokkmokk",
+      "county": "Norrbotten",
+      "sourceUrls": [
+        "https://www.lansstyrelsen.se/norrbotten/besoksmal/naturreservat/parlalvens-fjallurskog.html",
+        "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk"
+      ],
+      "confidence": "high"
+    },
+    "rules": [
+      {
+        "topic": "Camping and fires",
+        "rule": "The Pärlälvens fjällurskog destination page allows hiking, camping and fires, subject to no damage/disturbance and other applicable laws. County/local fire bans override normal fire permission.",
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/norrbotten/besoksmal/naturreservat/parlalvens-fjallurskog.html",
+          "https://www.lansstyrelsen.se/norrbotten/samhalle/sakerhet-och-beredskap/brandrisk-och-eldningsforbud.html"
+        ],
+        "confidence": "high"
+      },
+      {
+        "topic": "Dogs and reindeer",
+        "rule": "No Pärlälven-specific dog ban was found, but the reserve is reindeer-herding land. Dogs must be kept under strict control; Länsstyrelsen's 2026 notice says dogs in reindeer-herding areas must be leashed/enclosed where reindeer are present and herding is allowed, and general wildlife rules restrict loose dogs 1 March-20 August.",
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/norrbotten/om-oss/nyheter-och-press/nyheter---norrbotten/2026-02-05-koppeltvang-pa-hund-i-renskotselomrade.html",
+          "https://laponia.nu/en/det-saami-culture-within-the-world-heritage-site/reindeer/"
+        ],
+        "confidence": "high"
+      },
+      {
+        "topic": "Fishing and hunting",
+        "rule": "Fishing and hunting are allowed in Pärlälvens fjällurskog only under applicable laws and permits. Tarraure, Luoppal and Tarraätno water-specific rules must be checked before any app fishing context is published.",
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/norrbotten/besoksmal/naturreservat/parlalvens-fjallurskog.html",
+          "https://www.lansstyrelsen.se/download/18.42fea26019b2bf9219caeeb/1766062922690/Fiskeregler%20i%20fj%C3%A4llen%20-%20Jokkmokkskortet_2026_TA-web-utskrift.pdf"
+        ],
+        "confidence": "medium-high"
+      },
+      {
+        "topic": "Aircraft, helicopter and drones",
+        "rule": "The Pärlälvens reserve decision allows aircraft landing in the reserve context and Fiskflyg lists Tarrekaise/Njunjes pickup-dropoff service. No Pärlälven-specific drone ban was found in this pass, but Transportstyrelsen/LFV drone rules and nearby national-park restrictions remain dynamic and must be checked before publication.",
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/norrbotten/besoksmal/naturreservat/parlalvens-fjallurskog.html",
+          "https://www.fiskflyg.se/en/reguljara-flygningar",
+          "https://www.naturvardsverket.se/4afbd4/globalassets/nfs/2023/nfs-2023-15.pdf"
+        ],
+        "confidence": "medium-high"
+      },
+      {
+        "topic": "Mobile coverage and emergency",
+        "rule": "Do not rely on mobile coverage. STF Tarrekaise says there is no mobile coverage; STF Njunjes says Telia GSM is relatively good, card and Swish may work if coverage works, and a safety room/help phone remains available.",
+        "sourceUrls": [
+          "https://www.svenskaturistforeningen.se/boende/stf-tarrekaise-fjallstuga/",
+          "https://www.svenskaturistforeningen.se/boende/stf-njunjes-fjallstuga/"
+        ],
+        "confidence": "high"
+      }
+    ],
+    "stageSpecificSafety": [
+      {
+        "topic": "Short but strenuous terrain",
+        "notes": "Naturkartan calls Tarrekaise-Njunjes short but strenuous, with rocky and muddy ground in rain. Field reports support this with rocks, mud, slippery duckboards, wet stones and dense vegetation.",
+        "sourceUrls": [
+          "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk",
+          "https://www.fjeldsofsweden.com/tour/vaimok/28",
+          "https://www.i-trekkings.net/carnet-outdoor/sammarlappa-tarrekaise-njunjes/"
+        ],
+        "confidence": "high"
+      },
+      {
+        "topic": "Steep rocky descent into Njunjes",
+        "notes": "Official and field sources describe a climb to a plateau after Luoppal followed by a steep, rocky descent toward Njunjes. Wet stones on the descent were specifically flagged in a 2018 field report.",
+        "sourceUrls": [
+          "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk",
+          "https://www.fjeldsofsweden.com/tour/vaimok/28"
+        ],
+        "confidence": "medium-high"
+      },
+      {
+        "topic": "Njunjes winter river-ice closure",
+        "notes": "STF Njunjes closed early for winter on 2026-04-12 because river ice by the hut was too weak; the two-bed safety room remained. This is a winter/currentness safety note, not a summer closure.",
+        "sourceUrls": [
+          "https://www.svenskaturistforeningen.se/boende/stf-njunjes-fjallstuga/"
+        ],
+        "confidence": "high for the dated notice"
+      },
+      {
+        "topic": "General spring route/ice warnings",
+        "notes": "Länsstyrelsen's 2026-04-22 current-mountain information said route checking had stopped because snow and ice deteriorated, with unsafe ice and rapid changes on lakes and watercourses. This is seasonal context and must be rechecked for publication/travel.",
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/norrbotten/besoksmal/friluftsliv-och-allemansratt/aktuellt-i-fjallen.html"
+        ],
+        "confidence": "high for dated notice, dynamic for current impact"
+      },
+      {
+        "topic": "Pärlälvens fjällurskog military-closure risk",
+        "notes": "Pärlälvens fjällurskog can be periodically closed due to military activity; Länsstyrelsen says to contact Försvarsmakten. No stage-specific military closure was found on 2026-04-29, but this remains a must-check before publication/travel.",
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/norrbotten/besoksmal/naturreservat/parlalvens-fjallurskog.html"
+        ],
+        "confidence": "medium-high"
+      }
+    ],
+    "currentnessChecks": [
+      {
+        "checkedDate": "2026-04-29",
+        "source": "STF/Naturkartan/Padjelanta/Länsstyrelsen pages",
+        "result": "No explicit Tarrekaise-Njunjes summer closure or reroute found."
+      },
+      {
+        "checkedDate": "2026-04-29",
+        "source": "STF Njunjes",
+        "result": "Winter/current notice found: Njunjes closed early on 2026-04-12 due weak river ice by the hut; safety room remained."
+      },
+      {
+        "checkedDate": "2026-04-29",
+        "source": "Länsstyrelsen Aktuellt i fjällen",
+        "result": "General 2026-04-22 spring route-check/ice warnings found; no section-specific notice found."
+      },
+      {
+        "checkedDate": "2026-04-29",
+        "source": "STF hut pages",
+        "result": "Tarrekaise and Njunjes 2026 opening periods listed as 27 Feb-19 Apr and 26 Jun-6 Sep; Njunjes winter season ended early on 2026-04-12."
+      },
+      {
+        "checkedDate": "2026-04-29",
+        "source": "Fiskflyg 2026 pages",
+        "result": "Tarrekaise and Njunjes pickup/drop-off options found on the Kvikkjokk-Stáloluokta route; exact landing coordinates not found."
+      }
+    ]
+  },
+  "conditionReports": [
+    {
+      "source": "Roversmountains",
+      "url": "https://roversmountains.com/padjelantaleden-2/",
+      "reportDate": "older report, updated 2024",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Reported Tarrekaise-Njunjes in about 3 hours.",
+        "Immediately after Tarrekaise the route reaches the lake but soon enters dense green forest.",
+        "Despite only 6 km it has repeated ups/downs, and about 2 km before Njunjes it crosses an outlier of Njunjesvárre."
+      ],
+      "confidence": "medium-high"
+    },
+    {
+      "source": "I-Trekkings",
+      "url": "https://www.i-trekkings.net/carnet-outdoor/sammarlappa-tarrekaise-njunjes/",
+      "reportDate": "2006-08-03",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Combined Såmmarlappa-Tarrekaise-Njunjes day; Tarrekaise-Njunjes took over 2 hours for 6 km.",
+        "Notes rocks, forest, slippery duckboards, a rise after about 3 km, and a steep descent to Njunjes after the lake below Tarraure.",
+        "Tented opposite the hut after crossing the suspension bridge over Tarraätno."
+      ],
+      "confidence": "medium because the live page redirects, but indexed text is detailed"
+    },
+    {
+      "source": "Sim1",
+      "url": "https://www.sim1.se/swe/north/tarrekaise/tarrekaise_01.html",
+      "reportDate": "2006",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Reverse Njunjes-Tarrekaise report says the Njunjes hut warden warned of the climb; hiker found it steep but manageable.",
+        "Reports rocky open terrain with strong valley views, then a final forest stretch before Tarrekaise that felt long when tired.",
+        "Tarrekaise lakeside camping had heavy mosquitoes and alternative tent spots near Tarrekaise were limited by dense vegetation."
+      ],
+      "confidence": "high for historic conditions"
+    },
+    {
+      "source": "Fjelds of Sweden Kvikkjokk Circuit Day 2",
+      "url": "https://www.fjeldsofsweden.com/tour/kc/2",
+      "reportDate": "2006-08-01",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Reverse report describes lush forest above Njunjes, a short plateau with views, Luoppal lakeside camping, sparser forest/meadows, then dry/stony and jungle-like sections before Tarrekaise."
+      ],
+      "confidence": "medium-high"
+    },
+    {
+      "source": "Fjelds of Sweden Vaimok 2018 Day 28",
+      "url": "https://www.fjeldsofsweden.com/tour/vaimok/28",
+      "reportDate": "2018-08-18",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Tarrekaise-Bobäcken report says first part after Tarrekaise was stony/muddy, then drier under Hilldo.",
+        "Saw tents in forest and at Luoppal.",
+        "The climb used duckboards and sloping rock slabs; descent toward Njunjes had wet stones requiring caution."
+      ],
+      "confidence": "medium-high"
+    },
+    {
+      "source": "The Wild Ways",
+      "url": "https://www.the-wild-ways.de/tourenarchiv/2013-padjelantaleden/",
+      "reportDate": "2013-09",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Stage table gives Tarrekaise-Njunjes as 6.5 km.",
+        "September trip context had mild sunny autumn, freezing nights, very few hikers, and many huts beyond STF/BLT season context."
+      ],
+      "confidence": "medium"
+    },
+    {
+      "source": "Komoot",
+      "url": "https://www.komoot.com/tour/368969402",
+      "reportDate": "planned May/Jun 2021",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Planned Tarrekaise-Njunjes stage listed as 6.81 km, 1 hour 53 minutes, easy.",
+        "Highlights include lake-shore camping, Tarradalen views, and Njunjes hut."
+      ],
+      "confidence": "medium as route-app planning data, not condition evidence"
+    },
+    {
+      "source": "AllTrails",
+      "url": "https://www.alltrails.com/trail/sweden/norrbotten/padjelantaleden--2",
+      "reportDate": "whole-route reviews 2021-2024",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Recent whole-route reviews are not stage-specific but mention rain, mosquitoes, muddy/overgrown/rocky/snow tags, few hikers, good conditions in 2023/2024, and helpful cabin hosts."
+      ],
+      "confidence": "low for this exact stage"
+    }
+  ],
+  "sourceContradictions": [
+    {
+      "topic": "Section distance",
+      "claims": [
+        {
+          "source": "STF Padjelantaleden",
+          "claim": "Tarrekaise-Njunjes is 6 km."
+        },
+        {
+          "source": "Naturkartan BD71 and Padjelanta.se",
+          "claim": "Tarrekaise-Njunjes is 7 km."
+        },
+        {
+          "source": "BD71 GPX computation",
+          "claim": "Section is 7.010 km using points 0..529, or 6.935 km using nearest STF hut route points 8..529."
+        },
+        {
+          "source": "OSM relation 19059738",
+          "claim": "Section is about 6.821 km to nearest Njunjes split."
+        }
+      ],
+      "impact": "Import should preserve STF and Naturkartan/Padjelanta claims separately; a later normalization decision must choose display distance policy.",
+      "confidence": "high"
+    },
+    {
+      "topic": "Njunjes naming",
+      "claims": [
+        {
+          "source": "STF Padjelantaleden stage heading",
+          "claim": "Uses STF Njunjes Fjällstation."
+        },
+        {
+          "source": "STF lodging page, Padjelanta.se, OSM",
+          "claim": "Uses STF Njunjes Fjällstuga / Njunjes Fjällstuga."
+        }
+      ],
+      "impact": "Use Njunjes Fjällstuga for candidate data, note the STF stage-heading label inconsistency.",
+      "confidence": "medium-high"
+    },
+    {
+      "topic": "Difficulty",
+      "claims": [
+        {
+          "source": "Komoot",
+          "claim": "Easy, 1 hour 53 minutes."
+        },
+        {
+          "source": "Naturkartan and field reports",
+          "claim": "Short but strenuous, rocky/muddy/slippery with a steep descent."
+        }
+      ],
+      "impact": "Do not classify as easy without stronger official support; app copy should warn that the short distance can still be slow.",
+      "confidence": "medium-high"
+    },
+    {
+      "topic": "Tarrekaise/Njunjes resupply",
+      "claims": [
+        {
+          "source": "Older field reports",
+          "claim": "Tarrekaise sold basic provisions."
+        },
+        {
+          "source": "Current STF shop-map context and facilities lane",
+          "claim": "No current Tarrekaise or Njunjes shop/provisions listing found; Tarrekaise old shop references are stale."
+        }
+      ],
+      "impact": "Suppress food/resupply POIs unless a current STF source confirms active provisions.",
+      "confidence": "medium-high"
+    },
+    {
+      "topic": "Helicopter access exact coordinates",
+      "claims": [
+        {
+          "source": "Fiskflyg",
+          "claim": "Tarrekaise STF and Njunjes STF are pickup/drop-off options."
+        },
+        {
+          "source": "All checked sources",
+          "claim": "No exact landing coordinates found."
+        }
+      ],
+      "impact": "Use hut coordinates as access proxies only; do not import standalone helipad/landing POIs until verified.",
+      "confidence": "high"
+    }
+  ],
+  "researchIterations": [
+    {
+      "iteration": 1,
+      "type": "six-parallel-agent-section-research",
+      "startedAt": "2026-04-29T19:48:32+00:00",
+      "completedAt": "2026-04-29T20:05:31+00:00",
+      "lanes": [
+        {
+          "lane": "official-sources",
+          "agent": "Ramanujan",
+          "status": "completed",
+          "summary": "Confirmed official section order, STF 6 km/2-4 h claim, Naturkartan/Padjelanta 7 km claim, route description, hut coordinates/services, and Njunjes early winter 2026 weak-river-ice closure notice."
+        },
+        {
+          "lane": "route-geometry",
+          "agent": "Epicurus",
+          "status": "completed",
+          "summary": "Computed BD71 and OSM geometry, confirmed no reversal, split at Njunjes index 529, and documented GPX/KML/GeoJSON availability."
+        },
+        {
+          "lane": "facilities",
+          "agent": "Faraday",
+          "status": "completed",
+          "summary": "Collected hut, emergency, tenting, water, firepit, bridge, shop-suppression, and connection-metadata candidates with import recommendations."
+        },
+        {
+          "lane": "transit-access",
+          "agent": "Locke",
+          "status": "completed",
+          "summary": "Confirmed remote hut endpoints, Fiskflyg Tarrekaise/Njunjes proxies, and downstream Bobäcken/Kvikkjokk/Murjek gateway context with 2026 schedule caveats."
+        },
+        {
+          "lane": "field-reports",
+          "agent": "Kierkegaard",
+          "status": "completed",
+          "summary": "Collected field reports from Roversmountains, I-Trekkings, Sim1, Fjelds, The Wild Ways, Komoot, AllTrails and Wikiloc, emphasizing short-but-rough terrain and stale resupply reports."
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agent": "Lorentz",
+          "status": "completed",
+          "summary": "Confirmed Pärlälvens rules, dynamic fire/dog/reindeer/currentness caveats, 2026 hut seasons, Njunjes early winter closure, Fiskflyg access context, and military-closure risk."
+        }
+      ],
+      "synthesisDecision": "No second targeted agent batch launched. Official facts, route split, endpoints, access model, major facilities, rules/currentness and field reports are strong enough for a research-ready candidate file. Remaining items are normalization and currentness checks rather than source-discovery blockers."
+    }
+  ],
+  "openQuestions": [
+    "During normalization, decide whether stage 9 display distance follows STF's 6 km claim, Naturkartan/Padjelanta's 7 km claim, or a rounded computed geometry value; do not silently collapse the contradiction.",
+    "Decide whether final GPX geometry starts at BD71 point 0 or at point 8, the nearest route point to the STF Tarrekaise hut coordinate.",
+    "Verify exact Fiskflyg landing coordinates for Tarrekaise and Njunjes before importing any standalone helicopter/access POI.",
+    "Verify standalone coordinates for Tarrekaise and Njunjes toilets, emergency phones, and hut water collection points before importing them separately.",
+    "Do not import Tarrekaise or Njunjes food/provisions unless a current STF or operator source confirms active shop service.",
+    "Verify OSM firepit node 12050588378 and any informal campsites before importing them as facilities; otherwise keep as route/camping notes.",
+    "Keep Njunjes bridge and Bobäcken/Kvikkjokk gateway access out of section 9 mainline facilities unless section 10 or access modelling requires them.",
+    "Recheck STF hut opening/payment/current notices, Fiskflyg schedules, Bobäcken boat, Länstrafiken bus 94, Länsstyrelsen current mountain information, fire bans, fishing rules, and Pärlälvens military-closure status close to publication."
+  ],
+  "importReadiness": {
+    "status": "ready-for-normalization-with-caveats",
+    "readyForNormalization": true,
+    "readyForRuntimeImport": false,
+    "summary": "Section 9 is research-ready. Official stage identity, endpoint coordinates, BD71 GPX split, OSM cross-check, remote access model, primary hut facilities, rules/currentness and field reports are sufficient for a later normalization pass. Do not integrate into runtime data until distance policy, endpoint snapping, POI import policy and dynamic currentness checks are resolved.",
+    "blockersBeforeRuntimeImport": [
+      "Choose display-distance policy for STF 6 km versus Naturkartan/Padjelanta/computed about 7 km.",
+      "Choose route-line start snapping policy for BD71 index 0 versus index 8 at Tarrekaise.",
+      "Verify or suppress secondary POIs with approximate/proxy coordinates: swimming, Hilldo viewpoint, natural water, informal campsites, toilets, waste, and OSM firepit.",
+      "Confirm Tarrekaise/Njunjes provisions status before adding any food/resupply features.",
+      "Recheck all dynamic 2026 access/currentness sources shortly before publication."
+    ],
+    "recommendedNextStep": "Proceed to section 10 Njunjes-Kvikkjokk research with a six-lane batch, using BD71 section 10 split, Bobäcken boat, Kvikkjokk gateway, and OSM ferry modeling as priority topics."
+  }
+}

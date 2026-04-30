@@ -1,0 +1,1763 @@
+{
+  "schemaVersion": 1,
+  "trailId": "padjelantaleden",
+  "sectionId": "padjelantaleden-stage-10-njunjes-kvikkjokk",
+  "sectionNumber": 10,
+  "name": "Etapp 10: STF Njunjes Fjällstuga - STF Kvikkjokk Fjällstation",
+  "from": "STF Njunjes Fjällstuga",
+  "to": "STF Kvikkjokk Fjällstation via Bobäcken boat landing",
+  "distanceKm": {
+    "officialDisplay": "12+3",
+    "officialDisplayNotes": "STF presents this as 12+3 km to Kvikkjokk; the practical walking leg is Njunjes-Bobäcken, followed by boat over Tarraätno/Gamájåhkå delta to Kvikkjokk.",
+    "officialSourceClaims": [
+      {
+        "source": "STF Padjelantaleden",
+        "distanceKm": "12+3",
+        "notes": "Lists section 10 as STF Njunjes Fjällstuga - STF Kvikkjokk Fjällstation, 12+3 kilometer and 4-6 hours."
+      },
+      {
+        "source": "Naturkartan BD71 Tarrekaise-Kvikkjokk",
+        "distanceKm": "12+3",
+        "notes": "Lists Njunjes-Kvikkjokk as 12 km + 3 km boat, time 3-5 hours."
+      },
+      {
+        "source": "Padjelanta.se Njunjes/Kvikkjokk",
+        "distanceKm": 12,
+        "notes": "Lists Njunjes-Bobäcken as 12 km, with Bobäcken reached by boat from Kvikkjokk."
+      },
+      {
+        "source": "Field reports and route apps",
+        "distanceKm": "12-12.5 km walking or 15.4-16 km including boat",
+        "notes": "Reports vary depending on whether the Bobäcken-Kvikkjokk boat is included in the distance."
+      }
+    ],
+    "computedGeometryKm": {
+      "naturkartanBd71FullTarrekaiseToKvikkjokkSide": 22.613,
+      "naturkartanBd71NjunjesToBobackenIndex1371": 12.502,
+      "naturkartanBd71NjunjesToBobackenShelterRoughIndex1368": 12.445,
+      "naturkartanBd71PostBobackenAmbiguousSegment": 3.101,
+      "osmRelation19059738NjunjesToBobacken": 12.338,
+      "osmFerryWay686397933BobackenToKvikkjokk": 3.404
+    },
+    "confidence": "high for 12 km walking plus 3 km boat; high for computed 12.3-12.5 km walking line; medium-high for 3.4 km OSM ferry/access line"
+  },
+  "estimatedTime": {
+    "officialStf": "4-6 hours walking",
+    "naturkartan": "3-5 hours",
+    "fieldReports": [
+      "I-Trekkings reported Njunjes-Kvikkjokk as 13 km in 2 hours 50 minutes in 2006, with boat needed after the walk.",
+      "Wikiloc 2016 lists Njunjes-Kvikkjokk as 12.39 km and 2 hours 35 minutes, likely the walking leg only.",
+      "Hikr 2008 reverse report lists Kvikkjokk-Njunjes as 12 km and 4 hours after boat to Bobäcken.",
+      "Route-app totals that include the boat/gateway leg list about 15.4-16.1 km and 3.5-4.1 hours."
+    ],
+    "confidence": "medium-high"
+  },
+  "difficulty": {
+    "officialRating": null,
+    "description": "No formal official grade found. The walking is generally low-gradient forest trail, but official and field sources repeatedly flag wet/swampy ground, boardwalks, mosquitoes, bridges, rocky forest trail, monotonous conifer forest, and mud after rain. Treat as easy-to-moderate rather than purely easy, especially in wet or mosquito-heavy conditions.",
+    "confidence": "medium-high"
+  },
+  "routeType": {
+    "type": "point-to-point remote hut-to-gateway hiking stage with required boat/access transfer",
+    "directionForImport": "Njunjes to Bobäcken for the hiking geometry, then Bobäcken to Kvikkjokk as boat/access connector",
+    "descriptionForApp": "The final Padjelantaleden stage leaves STF Njunjes and descends through Tarradalen toward Kvikkjokk. The walking leg crosses wet ground, mixed forest, old hay meadows at Njunjes and Bäcken, the broad Njunjesjåhkå alluvial fan, rocky conifer forest, and bridges over Vallebäcken/Vállegårsså before reaching the wet, mosquito-prone forest and boat landing at Bobäcken. From Bobäcken the normal route requires a paid boat over Tarraätno/Gamájåhkå delta to Kvikkjokk, where STF Kvikkjokk Fjällstation provides lodging, food and transport connections.",
+    "connectionsAndAlternates": [
+      {
+        "name": "Naturkartan BD71 combined route",
+        "description": "Naturkartan packages Tarrekaise-Njunjes and Njunjes-Kvikkjokk in one GPX file.",
+        "modelingRecommendation": "Use BD71 points 529..1371 as the primary Njunjes-Bobäcken walking segment. Do not treat the post-Bobäcken BD71 points as the standard boat transfer without additional confirmation."
+      },
+      {
+        "name": "Bobäcken-Kvikkjokk boat transfer",
+        "description": "The normal southern access is the paid boat between Bobäcken/Padjelantaleden and Kvikkjokk.",
+        "modelingRecommendation": "Model as required access/connector metadata using OSM ferry way 686397933 and current boat-operator sources, not as hiking linework."
+      },
+      {
+        "name": "Gamájåhkå / Vallevárre-side continuation",
+        "description": "Naturkartan mentions an indistinct 4 km path toward Gamájåhkå opposite Kvikkjokk, but says the watercourse requires boat transport and cannot be forded.",
+        "modelingRecommendation": "Keep as ambiguous alternate/access note only; do not import as the standard section route."
+      },
+      {
+        "name": "Fiskflyg Njunjes pickup/drop-off",
+        "description": "Fiskflyg's 2026 Kvikkjokk-Stáloluokta route lists Njunjes as a pickup/drop-off option.",
+        "modelingRecommendation": "Use the hut coordinate as a provisional access proxy only until exact landing coordinates are verified."
+      },
+      {
+        "name": "Kvikkjokk gateway",
+        "description": "Kvikkjokk provides boat terminal, bus stop, road access, parking, STF fjällstation, shop, restaurant, café/bar, and Fiskflyg heliport context.",
+        "modelingRecommendation": "Attach as gateway/access metadata and endpoint services, not as facilities along the Njunjes-Bobäcken walking line."
+      }
+    ]
+  },
+  "officialSources": [
+    {
+      "id": "stf_padjelantaleden",
+      "title": "STF Padjelantaleden",
+      "url": "https://www.svenskaturistforeningen.se/guider-tips/leder/padjelantaleden/",
+      "accessed": "2026-04-29",
+      "type": "official trail overview and stage inventory",
+      "findings": [
+        "Lists stage 10 as STF Njunjes Fjällstuga - STF Kvikkjokk Fjällstation.",
+        "Gives distance/time as 12+3 kilometer and 4-6 hours walking.",
+        "Describes mixed forest followed by conifer forest, then swampy/wet ground before the boat transport over Tarraätno.",
+        "States STF Kvikkjokk Fjällstation has lodging, restaurant, bar, café and shop."
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "stf_padjelanta_trail_en",
+      "title": "STF Padjelanta Trail",
+      "url": "https://www.swedishtouristassociation.com/trails/padjelantatrail/",
+      "accessed": "2026-04-29",
+      "type": "official English trail overview",
+      "findings": [
+        "Supports the official endpoint chain and English naming context.",
+        "Useful as English copy support, but the Swedish STF page was the primary section-order source."
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "naturkartan_bd71",
+      "title": "Naturkartan BD71 Tarrekaise-Njunjes-Kvikkjokk",
+      "url": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk",
+      "downloadUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk.gpx",
+      "accessed": "2026-04-29",
+      "type": "official route description and GPX",
+      "findings": [
+        "Groups Tarrekaise-Njunjes and Njunjes-Kvikkjokk in one route record.",
+        "Lists Njunjes-Kvikkjokk as 12 km + 3 km boat, 3-5 hours.",
+        "Describes wet ground, mixed forest, old Njunjes homestead meadows, conifer forest, the Njunjesjåhkå alluvial fan, Bäcken meadows, rocky conifer forest, Vallebäcken/Vállegårsså bridges, wet mosquito-prone swamp forest, Bobäcken rest cabin and boat-order phone.",
+        "States the boat follows Tarraätno to Kvikkjokk.",
+        "States an indistinct 4 km continuation to Gamájåhkå is possible, but the watercourse cannot be forded and requires boat transport."
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "stf_njunjes",
+      "title": "STF Njunjes Fjällstuga",
+      "urls": [
+        "https://www.svenskaturistforeningen.se/boende/stf-njunjes-fjallstuga/",
+        "https://www.swedishtouristassociation.com/facilities/stf-njunjes-mountain-cabin/"
+      ],
+      "accessed": "2026-04-29",
+      "type": "official STF hut page with coordinate, services, and current notice",
+      "findings": [
+        "Gives GPS coordinate N66.960321, E17.411197.",
+        "Lists 2026 opening periods 27 February-19 April and 26 June-6 September.",
+        "Describes two 10-bed rooms, safety room/help phone in storehouse, relatively good Telia GSM, limited pet room, and card/Swish possibility if coverage works.",
+        "Says summer access from Kvikkjokk requires boat on Tarraälven and about 12 km of walking.",
+        "Posted a winter/current notice that Njunjes closed early on 2026-04-12 because river ice by the hut was too weak; the two-bed safety room remained."
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "padjelanta_se_njunjes",
+      "title": "Padjelanta.se Njunjes",
+      "url": "https://www.padjelanta.se/njunjes/",
+      "accessed": "2026-04-29",
+      "type": "regional hut page with coordinate and distances",
+      "findings": [
+        "Gives Njunjes coordinate 66.960302, 17.411290.",
+        "Lists Kvikkjokk/Bobäcken 12 km and Tarrekaise 7 km.",
+        "Supports hut opening, tent/day-visit pricing, and boat-gateway context."
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "naturkartan_bobacken",
+      "title": "Naturkartan Bobäcken / vindskydd",
+      "url": "https://www.naturkartan.se/sv/norrbottens-lan/vindskydd-bobacken",
+      "accessed": "2026-04-29",
+      "type": "official Bobäcken rest-cabin/shelter facility page",
+      "findings": [
+        "Describes Bobäcken as a rest cabin/stopover shelter at the Padjelantaleden boat landing area.",
+        "Facility lane found capacity 10, toilet and seasonal boat route; no stove, emergency overnight only, and no waste handling.",
+        "Useful official source for shelter/toilet/boat-order context, but coordinate still needs final snap verification."
+      ],
+      "confidence": "high for facility existence; medium-high for exact coordinate after cross-check"
+    },
+    {
+      "id": "battrafik_padjelantaleden",
+      "title": "Båttrafik i Kvikkjokk Padjelantaleden",
+      "urls": [
+        "https://battrafikikvikkjokk.se/padjelantaleden.html",
+        "https://www.battrafikikvikkjokk.se/"
+      ],
+      "accessed": "2026-04-29",
+      "type": "official local boat operator access source",
+      "findings": [
+        "States Padjelantaleden starts at Bobäcken, 3 km upstream on Tarraälven above the Kvikkjokk delta.",
+        "Lists ordered trips May-October 2026.",
+        "Lists regular departures 18 June-13 September 2026: Kvikkjokk to Padjelantaleden/Bobäcken at 09:00 and 13:30, extra 14:10 from 18-30 June, and Padjelantaleden/Bobäcken to Kvikkjokk at 09:30 and 14:00.",
+        "Payment can be by cash, card and Swish."
+      ],
+      "confidence": "high for 2026 schedule; dynamic and must be rechecked before publication"
+    },
+    {
+      "id": "padjelanta_tarraalven",
+      "title": "Padjelanta.se Tarraälven boat",
+      "url": "https://www.padjelanta.se/tarraalven/",
+      "accessed": "2026-04-29",
+      "type": "regional boat timetable and price source",
+      "findings": [
+        "Lists boat trips on Tarraälven between Kvikkjokk and Bobäcken.",
+        "Lists 2026 period 18 June-13 September, Kvikkjokk departures 09:00 and 13:30, Bobäcken departures 09:30 and 14:00, Kvikkjokk arrivals 10:00 and 14:30.",
+        "Says extra trips can be ordered at other times May-October.",
+        "Lists 2026 adult and child prices."
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "stf_kvikkjokk",
+      "title": "STF Kvikkjokk Fjällstation",
+      "urls": [
+        "https://www.svenskaturistforeningen.se/boende/stf-kvikkjokk-fjallstation/",
+        "https://www.svenskaturistforeningen.se/boende/stf-kvikkjokk-fjallstation/butik/",
+        "https://www.svenskaturistforeningen.se/boende/stf-kvikkjokk-fjallstation/boende/"
+      ],
+      "accessed": "2026-04-29",
+      "type": "official STF gateway lodging and service page",
+      "findings": [
+        "Provides the official stage endpoint service gateway.",
+        "Describes lodging, food service, shop/provisions/outdoor supplies, rental, self-catering kitchen, showers/toilets for paying users, and no own tent sites.",
+        "2026 renovation and seasonal-operation notes may affect service scope; verify exact summer service before public import."
+      ],
+      "confidence": "high for gateway identity and services; medium for exact current service scope"
+    },
+    {
+      "id": "padjelanta_kvikkjokk",
+      "title": "Padjelanta.se Kvikkjokk",
+      "url": "https://www.padjelanta.se/kvikkjokk/",
+      "accessed": "2026-04-29",
+      "type": "regional gateway page",
+      "findings": [
+        "Gives STF Kvikkjokk Fjällstation coordinate 66.953677, 17.719566 and address context.",
+        "Lists Bobäcken reached by boat from Kvikkjokk and 12 km onward to Njunjes."
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "parlalvens_fjallurskog",
+      "title": "Länsstyrelsen Norrbotten Pärlälvens fjällurskog",
+      "url": "https://www.lansstyrelsen.se/norrbotten/besoksmal/naturreservat/parlalvens-fjallurskog.html",
+      "accessed": "2026-04-29",
+      "type": "official nature-reserve and rule context",
+      "findings": [
+        "States both Kungsleden and Padjelantaleden pass through Pärlälvens fjällurskog.",
+        "Allows hiking, tenting, fires, berry/mushroom picking, and fishing/hunting under applicable laws.",
+        "Warns the area can be temporarily closed for military activity and says to contact Försvarsmakten.",
+        "No stage-specific Njunjes-Bobäcken closure/reroute was found on checked official pages on 2026-04-29."
+      ],
+      "confidence": "high for reserve context; medium for real-time non-closure"
+    },
+    {
+      "id": "ltn_bus_94_2026",
+      "title": "Länstrafiken Norrbotten Fjällinje 94 PDF",
+      "url": "https://www.iphone.fskab.se/ltn/Fjallinje91o94/260615_260816/Fjallinje91o94_94_260615_260816.pdf",
+      "accessed": "2026-04-29",
+      "type": "official 2026 summer bus timetable",
+      "findings": [
+        "PDF valid 15 June-16 August 2026, updated 16 April 2026.",
+        "Serves Kvikkjokk Kyrkan and Murjek/Jokkmokk connections.",
+        "Does not cover the full STF/boat season; late August and September require fresh journey-planner checks."
+      ],
+      "confidence": "high for PDF window"
+    }
+  ],
+  "endpointCoordinates": {
+    "start": {
+      "selectedRouteEndpoint": {
+        "label": "STF Njunjes Fjällstuga",
+        "role": "official stage start and section 9 handoff",
+        "coordinates": {
+          "lat": 66.960321,
+          "lon": 17.411197
+        },
+        "coordinateSource": "STF Njunjes GPS coordinate, cross-checked with Padjelanta.se, OSM hut way center, and Naturkartan BD71 split point.",
+        "sourceUrls": [
+          "https://www.svenskaturistforeningen.se/boende/stf-njunjes-fjallstuga/",
+          "https://www.swedishtouristassociation.com/facilities/stf-njunjes-mountain-cabin/",
+          "https://www.padjelanta.se/njunjes/",
+          "https://www.openstreetmap.org/way/291141562",
+          "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk.gpx"
+        ],
+        "confidence": "high",
+        "alternateCoordinates": [
+          {
+            "lat": 66.960302,
+            "lon": 17.41129,
+            "source": "Padjelanta.se Njunjes coordinate",
+            "gapFromSelectedMeters": 4.6,
+            "confidence": "high"
+          },
+          {
+            "lat": 66.96030526,
+            "lon": 17.41139078,
+            "source": "OSM way 291141562 approximate hut building center",
+            "gapFromSelectedMeters": 8.7,
+            "confidence": "medium-high"
+          },
+          {
+            "lat": 66.9602492699256,
+            "lon": 17.4111024231293,
+            "source": "Naturkartan BD71 Njunjes split point, index 529",
+            "gapFromSelectedMeters": 9,
+            "confidence": "high for route-line split"
+          },
+          {
+            "lat": 66.9603738,
+            "lon": 17.4113179,
+            "source": "OSM relation 19059738 Njunjes split",
+            "gapFromSelectedMeters": 7.9,
+            "confidence": "medium-high"
+          }
+        ],
+        "normalizationNote": "Use STF as selected hut endpoint. Use BD71 index 529 as the walking-route split for continuity with section 9."
+      }
+    },
+    "walkingEnd": {
+      "selectedRouteEndpoint": {
+        "label": "Bobäcken boat landing / Padjelantaleden walking endpoint",
+        "role": "practical hiking end and boat-transfer start",
+        "coordinates": {
+          "lat": 66.9450463,
+          "lon": 17.6545176
+        },
+        "coordinateSource": "OSM node 29088886 ferry terminal, cross-checked with Naturkartan BD71 route split, OSM Bobäcken shelter node and facilities lane.",
+        "sourceUrls": [
+          "https://www.openstreetmap.org/node/29088886",
+          "https://www.naturkartan.se/sv/norrbottens-lan/vindskydd-bobacken",
+          "https://battrafikikvikkjokk.se/padjelantaleden.html",
+          "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk.gpx"
+        ],
+        "confidence": "medium-high",
+        "alternateCoordinates": [
+          {
+            "lat": 66.945164,
+            "lon": 17.654517,
+            "source": "OSM node 10197762556 Bobäcken shelter/stopover cabin candidate",
+            "gapFromSelectedMeters": 13.1,
+            "confidence": "medium-high"
+          },
+          {
+            "lat": 66.94517813,
+            "lon": 17.65455498,
+            "source": "Vindskyddskartan Bobäcken coordinate from facilities lane",
+            "gapFromSelectedMeters": 14.8,
+            "confidence": "medium"
+          },
+          {
+            "lat": 66.9458654657478,
+            "lon": 17.6539885550834,
+            "source": "Naturkartan BD71 Bobäcken-near walking split, index 1371",
+            "gapFromSelectedMeters": 94,
+            "confidence": "high for route-line point, medium for actual landing snap"
+          },
+          {
+            "lat": 66.9458400304499,
+            "lon": 17.6527051843245,
+            "source": "Naturkartan BD71 point nearest earlier Bobäcken shelter rough coordinate, index 1368",
+            "gapFromSelectedMeters": 116,
+            "confidence": "high for route-line point"
+          }
+        ],
+        "normalizationNote": "Use OSM ferry terminal or shelter cluster for the boat/walking endpoint and snap the BD71 walking line to the final chosen Bobäcken point if final app geometry requires endpoint precision."
+      }
+    },
+    "end": {
+      "selectedRouteEndpoint": {
+        "label": "STF Kvikkjokk Fjällstation",
+        "role": "official section end and service gateway after boat transfer",
+        "coordinates": {
+          "lat": 66.953702,
+          "lon": 17.71952
+        },
+        "coordinateSource": "STF/Kvikkjokk Fjällstation coordinate from transit lane, cross-checked with Padjelanta.se and OSM.",
+        "sourceUrls": [
+          "https://www.svenskaturistforeningen.se/boende/stf-kvikkjokk-fjallstation/",
+          "https://www.padjelanta.se/kvikkjokk/",
+          "https://kvikkjokkfjallstation.se/kontakt/",
+          "https://www.openstreetmap.org/node/1356458317"
+        ],
+        "confidence": "high",
+        "alternateCoordinates": [
+          {
+            "lat": 66.953677,
+            "lon": 17.719566,
+            "source": "Padjelanta.se Kvikkjokk coordinate",
+            "gapFromSelectedMeters": 3.4,
+            "confidence": "high"
+          },
+          {
+            "lat": 66.9537277,
+            "lon": 17.7196067,
+            "source": "OSM node 1356458317 / facility center from facilities lane",
+            "gapFromSelectedMeters": 4.8,
+            "confidence": "medium-high"
+          },
+          {
+            "lat": 66.9501108,
+            "lon": 17.7173966,
+            "source": "OSM node 1437209072 Kvikkjokk boat terminal",
+            "gapFromSelectedMeters": 409.9,
+            "confidence": "medium-high for boat landing"
+          },
+          {
+            "lat": 66.9508915191752,
+            "lon": 17.7110402707722,
+            "source": "Naturkartan BD71 stored endpoint after post-Bobäcken ambiguous segment",
+            "gapFromSelectedMeters": 483.7,
+            "confidence": "medium for official endpoint; high for BD71 endpoint"
+          },
+          {
+            "lat": 66.9516569,
+            "lon": 17.7215238,
+            "source": "OSM node 1384209463 Kvikkjokk Kyrkan bus stop",
+            "gapFromSelectedMeters": 248.7,
+            "confidence": "medium-high for bus gateway"
+          }
+        ],
+        "normalizationNote": "Use STF Kvikkjokk as official endpoint/service gateway. Separately model the Kvikkjokk boat terminal as the access connector endpoint."
+      }
+    },
+    "coordinateConfidenceSummary": "Njunjes and Kvikkjokk facility coordinates are high-confidence. Bobäcken is medium-high because OSM ferry terminal, shelter node, and BD71 route split are within roughly 100 m but not identical; final normalization should choose a landing/shelter cluster point and snap route/access geometry intentionally."
+  },
+  "routeGeometry": {
+    "preferredGeometry": {
+      "source": "Naturkartan BD71 GPX, walking segment only",
+      "pageUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk",
+      "downloadUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk.gpx",
+      "sourceDistanceKm": {
+        "nunjnesKvikkjokkText": "12 km + 3 km boat",
+        "combinedBd71Text": 22
+      },
+      "computedStats": {
+        "fullPointCount": 1410,
+        "fullComputedDistanceKm": 22.613,
+        "storedStart": {
+          "lat": 66.9903337027126,
+          "lon": 17.2908515735223,
+          "label": "Tarrekaise side"
+        },
+        "storedEnd": {
+          "lat": 66.9508915191752,
+          "lon": 17.7110402707722,
+          "label": "Kvikkjokk-side/Gamájåhkå-side endpoint"
+        },
+        "maxPointSpacingMeters": 239.2,
+        "stepsOver500Meters": 0,
+        "recommendedNjunjesSplit": {
+          "index": 529,
+          "lat": 66.9602492699256,
+          "lon": 17.4111024231293,
+          "gapMetersFromSelectedNjunjesCoordinate": 9,
+          "cumulativeKmFromStoredStart": 7.01
+        },
+        "recommendedBobackenWalkingSplit": {
+          "index": 1371,
+          "lat": 66.9458654657478,
+          "lon": 17.6539885550834,
+          "gapMetersFromSelectedBobackenFerryTerminal": 94,
+          "gapMetersFromOsmShelterNode": 81.3,
+          "cumulativeKmFromStoredStart": 19.511
+        },
+        "alternateBobackenShelterRoughSplit": {
+          "index": 1368,
+          "lat": 66.9458400304499,
+          "lon": 17.6527051843245,
+          "gapMetersFromSelectedBobackenFerryTerminal": 116,
+          "cumulativeKmFromStoredStart": 19.454
+        },
+        "stage10WalkingSegmentPointCountUsingIndices529To1371": 843,
+        "stage10WalkingSegmentDistanceKmUsingIndices529To1371": 12.502,
+        "stage10WalkingMaxPointSpacingMeters": 192.6,
+        "postBobackenBd71Segment": {
+          "indices": "1371..1409",
+          "distanceKm": 3.101,
+          "pointCount": 39,
+          "notes": "Appears to follow the indistinct Gamájåhkå/Vallevárre-side walking alternative rather than the normal Bobäcken-Kvikkjokk ferry transfer."
+        },
+        "nearestKvikkjokkBoatTerminal": {
+          "index": 1408,
+          "lat": 66.9503089494104,
+          "lon": 17.7116285283712,
+          "gapMeters": 252.1,
+          "cumulativeKmFromStoredStart": 22.543
+        },
+        "nearestStfKvikkjokk": {
+          "index": 1409,
+          "lat": 66.9508915191752,
+          "lon": 17.7110402707722,
+          "gapMeters": 483.7,
+          "cumulativeKmFromStoredStart": 22.613
+        }
+      },
+      "storedDirection": "Tarrekaise to Njunjes to Bobäcken/Gamájåhkå-side endpoint; section 10 walking subsegment matches official direction after Njunjes",
+      "directionForImport": "Use BD71 points 529 through 1371 for the Njunjes-to-Bobäcken walking leg with no reversal. Model Bobäcken-Kvikkjokk separately as boat/access connector.",
+      "splitRecommendation": "Split BD71 at Njunjes index 529 and Bobäcken-near index 1371, then snap the walking end to the selected Bobäcken landing/shelter cluster if geometry normalization requires endpoint precision.",
+      "geometryGrade": "navigation-grade candidate for the walking segment with Bobäcken endpoint snap caveat",
+      "confidence": "high"
+    },
+    "boatAccessGeometry": {
+      "source": "OSM ferry way 686397933, Padjelantaleden - Kvikkjokk",
+      "url": "https://www.openstreetmap.org/way/686397933",
+      "operator": "Båttrafik i Kvikkjokk",
+      "computedStats": {
+        "distanceKm": 3.404,
+        "nodeCount": 47,
+        "from": {
+          "label": "Bobäcken OSM ferry terminal",
+          "lat": 66.9450463,
+          "lon": 17.6545176
+        },
+        "to": {
+          "label": "Kvikkjokk OSM ferry terminal",
+          "lat": 66.9501108,
+          "lon": 17.7173966
+        },
+        "kvikkjokkTerminalGapMetersToStfKvikkjokk": 409.9,
+        "kvikkjokkTerminalGapMetersToKvikkjokkKyrkanBusStop": 248.7
+      },
+      "directionForImport": "Model as required boat/access connector from Bobäcken to Kvikkjokk for the official southbound section.",
+      "geometryGrade": "planning/access-grade",
+      "confidence": "medium-high"
+    },
+    "osmCrossCheck": {
+      "source": "OSM relation 19059738, Nordkalottruta Etapp 44: Tarrekaise - Kvikkjokk",
+      "url": "https://www.openstreetmap.org/relation/19059738",
+      "downloadUrl": "https://www.openstreetmap.org/api/0.6/relation/19059738/full",
+      "parentPadjelantaledenRelation": "https://www.openstreetmap.org/relation/897726",
+      "computedStats": {
+        "fullComputedDistanceKm": 22.563,
+        "pointCount": 615,
+        "maxVertexSpacingMeters": 277.6,
+        "stepsOver500Meters": 0,
+        "nunjnesSplit": {
+          "index": 195,
+          "lat": 66.9603738,
+          "lon": 17.4113179,
+          "gapMetersFromSelectedNjunjesCoordinate": 7.9
+        },
+        "nunjnesToBobackenWalkingKm": 12.338,
+        "nunjnesToBobackenPointCount": 374,
+        "nunjnesToBobackenMaxSpacingMeters": 163.7,
+        "bobackenFerryTerminal": {
+          "osmNode": 29088886,
+          "lat": 66.9450463,
+          "lon": 17.6545176
+        },
+        "bobackenShelterNode": {
+          "osmNode": 10197762556,
+          "lat": 66.945164,
+          "lon": 17.654517
+        },
+        "ferryWay": {
+          "osmWay": 686397933,
+          "distanceKm": 3.404,
+          "nodes": 47
+        },
+        "kvikkjokkFerryTerminal": {
+          "osmNode": 1437209072,
+          "lat": 66.9501108,
+          "lon": 17.7173966
+        }
+      },
+      "direction": "Tarrekaise to Kvikkjokk; section 10 subsegment matches official direction.",
+      "geometryGrade": "good planning-grade cross-check with stronger Bobäcken/ferry endpoint modeling but sparser walking vertices",
+      "confidence": "medium-high"
+    },
+    "secondaryGeometry": [
+      {
+        "source": "AllTrails section page",
+        "url": "https://www.alltrails.com/trail/sweden/norrbotten/padjelantaleden-stage-7-njunjes-fjallstation-kvikkjokk-fjallstation",
+        "use": "Route-app distance/time corroboration only.",
+        "notes": "Lists Njunjes Fjällstation-Kvikkjokk Fjällstation as 15.4 km and 3.5-4 hours, but has no section reviews."
+      },
+      {
+        "source": "Komoot collection stage",
+        "url": "https://www.komoot.com/collection/1168572/durch-das-land-der-sami-auf-dem-padjelantaleden",
+        "use": "Route-app distance/time corroboration only.",
+        "notes": "Lists 'Stage 11: Njunjes to Kvikkjokk' as 16.06 km and 4h08."
+      },
+      {
+        "source": "Wikiloc Njunjes-Kvikkjokk 2016",
+        "url": "https://www.wikiloc.com/hiking-trails/njunjes-kvikkjokk-padjelantaleden-14113023",
+        "use": "Third-party walking-distance and field-condition corroboration.",
+        "notes": "Lists 12.39 km and 2h35, likely the walking segment to Bobäcken or a route omitting boat geometry."
+      }
+    ],
+    "standaloneKmlGeojson": {
+      "status": "not-found",
+      "notes": "KML, GeoJSON, and JSON variants for the Naturkartan BD71 slug returned 404 in geometry checks. GPX is the only confirmed official direct download."
+    },
+    "endpointGapNotes": [
+      "BD71 is a grouped route and must be split at Njunjes and Bobäcken for section 10.",
+      "BD71's Bobäcken-near point is about 94 m from the OSM Bobäcken ferry terminal and about 81 m from the OSM shelter node.",
+      "BD71's post-Bobäcken 3.1 km line should not be treated as the standard ferry; it appears to represent the indistinct Gamájåhkå/Vallevárre-side route mentioned by Naturkartan.",
+      "The official section title ends at STF Kvikkjokk Fjällstation, but the walking route ends at Bobäcken and the final connection is boat/access.",
+      "OSM relation 19059738 has useful ferry modeling through way 686397933 and should inform access-connector normalization."
+    ]
+  },
+  "commuteAccess": {
+    "summary": "The section start is a remote STF hut with no road or parking. The walking endpoint is Bobäcken, where the normal route requires a paid boat to Kvikkjokk. Kvikkjokk provides the real public-transport, road, lodging, food, parking and helicopter gateway. Do not imply road/parking access at Njunjes or Bobäcken.",
+    "start": [
+      {
+        "name": "STF Njunjes Fjällstuga",
+        "type": "remote_hut_trail_endpoint",
+        "coordinates": {
+          "lat": 66.960321,
+          "lon": 17.411197
+        },
+        "distanceFromEndpointKm": 0,
+        "operatorNetwork": "STF hut; Padjelantaleden",
+        "sourceUrls": [
+          "https://www.svenskaturistforeningen.se/boende/stf-njunjes-fjallstuga/",
+          "https://www.padjelanta.se/njunjes/"
+        ],
+        "confidence": "high",
+        "caveats": "Trail-only endpoint with no road/parking/bus. Njunjes had an early winter 2026 closure notice because river ice by the hut was too weak; do not apply that winter-specific notice as a summer closure."
+      },
+      {
+        "name": "Fiskflyg Njunjes STF pickup/drop-off",
+        "type": "scheduled_helicopter",
+        "coordinates": {
+          "lat": 66.960321,
+          "lon": 17.411197
+        },
+        "distanceFromEndpointKm": 0,
+        "operatorNetwork": "Fiskflyg / Rotor Service Norden, Kvikkjokk-Stáloluokta route",
+        "sourceUrls": [
+          "https://www.fiskflyg.se/en/reguljara-flygningar",
+          "https://www.fiskflyg.se/en/kvikkjokk-staloluokta"
+        ],
+        "confidence": "high for stop option, medium for proxy coordinate",
+        "caveats": "No exact landing coordinate found. 2026 route was listed for 24 Jun-4 Sep; pre-booking, weather, and bus connections affect actual service."
+      }
+    ],
+    "walkingEnd": [
+      {
+        "name": "Bobäcken",
+        "type": "boat_landing_walking_endpoint_shelter_phone_area",
+        "coordinates": {
+          "lat": 66.9450463,
+          "lon": 17.6545176
+        },
+        "distanceFromEndpointKm": 0,
+        "operatorNetwork": "Båttrafik i Kvikkjokk / Turism i Kvikkjokk AB; Padjelantaleden walking endpoint",
+        "sourceUrls": [
+          "https://www.openstreetmap.org/node/29088886",
+          "https://www.padjelanta.se/tarraalven/",
+          "https://battrafikikvikkjokk.se/padjelantaleden.html",
+          "https://www.naturkartan.se/sv/norrbottens-lan/vindskydd-bobacken"
+        ],
+        "confidence": "medium-high",
+        "caveats": "Coordinate from OSM ferry terminal; verify final landing/shelter snap before navigation-grade import. Naturkartan notes a rest cabin with a phone for boat ordering."
+      }
+    ],
+    "end": [
+      {
+        "name": "Båttrafik Kvikkjokk boat terminal",
+        "type": "boat_terminal",
+        "coordinates": {
+          "lat": 66.9501108,
+          "lon": 17.7173966
+        },
+        "distanceFromEndpointKm": 0,
+        "operatorNetwork": "Båttrafik i Kvikkjokk / Turism i Kvikkjokk AB",
+        "sourceUrls": [
+          "https://www.openstreetmap.org/node/1437209072",
+          "https://www.padjelanta.se/tarraalven/",
+          "https://battrafikikvikkjokk.se/padjelantaleden.html"
+        ],
+        "confidence": "high for schedule, medium-high for coordinate",
+        "caveats": "Boat is paid and should be booked/confirmed. Regular 2026 departures found for 18 Jun-13 Sep; request trips outside regular times may be possible May-October."
+      },
+      {
+        "name": "STF Kvikkjokk Fjällstation / service gateway",
+        "type": "lodging_food_shop_parking_gateway",
+        "coordinates": {
+          "lat": 66.953702,
+          "lon": 17.71952
+        },
+        "distanceFromEndpointKm": 0.41,
+        "operatorNetwork": "STF Kvikkjokk Fjällstation",
+        "sourceUrls": [
+          "https://www.svenskaturistforeningen.se/boende/stf-kvikkjokk-fjallstation/",
+          "https://kvikkjokkfjallstation.se/en/faq/",
+          "https://www.padjelanta.se/kvikkjokk/"
+        ],
+        "confidence": "high",
+        "caveats": "Official section endpoint and service gateway. STF FAQ says boat dock is about 200 m from the fjällstation and bus stop about 150 m; exact walked connector may differ from straight-line distance."
+      },
+      {
+        "name": "Kvikkjokk Kyrkan",
+        "type": "bus_stop",
+        "coordinates": {
+          "lat": 66.9516569,
+          "lon": 17.7215238
+        },
+        "distanceFromEndpointKm": 0.25,
+        "operatorNetwork": "Länstrafiken Norrbotten line 94 summer bus; line 47 off-season via Jokkmokk",
+        "sourceUrls": [
+          "https://www.openstreetmap.org/node/1384209463",
+          "https://www.iphone.fskab.se/ltn/Fjallinje91o94/260615_260816/Fjallinje91o94_94_260615_260816.pdf",
+          "https://lanstrafikennorrbotten.se/",
+          "https://kvikkjokkfjallstation.se/en/faq/"
+        ],
+        "confidence": "high for stop and summer line 94 schedule",
+        "caveats": "Line 94 PDF is valid 2026-06-15 to 2026-08-16, shorter than the STF/boat season. Late August and September require fresh journey-planner checks."
+      },
+      {
+        "name": "Kvikkjokk Heliport",
+        "type": "heliport",
+        "coordinates": {
+          "lat": 66.942085,
+          "lon": 17.738912
+        },
+        "distanceFromEndpointKm": 1.3,
+        "operatorNetwork": "Fiskflyg",
+        "sourceUrls": [
+          "https://www.openstreetmap.org/way/448029386",
+          "https://www.fiskflyg.se/en/reguljara-flygningar",
+          "https://www.fiskflyg.se/en/kvikkjokk-staloluokta"
+        ],
+        "confidence": "medium-high",
+        "caveats": "Travelers must pre-book and arrive 30 minutes before departure unless arriving by bus; times are approximate and weather/bus-schedule dependent. Fiskflyg says the base is about 1 km before the usual bus stop."
+      }
+    ],
+    "gateways": [
+      {
+        "name": "Murjek station",
+        "type": "train_bus_transfer_gateway",
+        "coordinates": {
+          "lat": 66.4846383,
+          "lon": 20.880985
+        },
+        "distanceFromEndpointKm": 148,
+        "operatorNetwork": "Rail via Murjek; Länstrafiken Norrbotten line 94 summer bus to Kvikkjokk",
+        "sourceUrls": [
+          "https://www.openstreetmap.org/node/13715267157",
+          "https://www.iphone.fskab.se/ltn/Fjallinje91o94/260615_260816/Fjallinje91o94_94_260615_260816.pdf",
+          "https://www.svenskaturistforeningen.se/boende/stf-kvikkjokk-fjallstation/"
+        ],
+        "confidence": "high as gateway transfer",
+        "caveats": "Not a section endpoint. Use only for public-transport planning."
+      }
+    ],
+    "negativeFindings": [
+      "No road, parking, bus stop or public ferry landing found at Njunjes except helicopter pickup/drop-off proxy.",
+      "No road or parking access should be implied at Bobäcken.",
+      "The Bobäcken-Kvikkjokk boat is required for the normal route; the Gamájåhkå continuation is indistinct and still requires boat transport across a non-fordable watercourse.",
+      "Line 94 does not cover the full late-summer STF/boat season."
+    ]
+  },
+  "facilities": [
+    {
+      "id": "padjelantaleden-stage-10-njunjes-hut",
+      "name": "STF Njunjes Fjällstuga",
+      "candidateType": "lodging",
+      "coordinates": {
+        "lat": 66.960321,
+        "lon": 17.411197
+      },
+      "coordinateSource": "STF GPS coordinate; Padjelanta.se and OSM hut way center nearby.",
+      "description": "STF hut at the stage start above Tarraätno, with two 10-bed rooms, kitchen/sleeping alcoves, safety room/help phone in the storehouse, limited pet room, card/Swish possible if Telia coverage works, and relatively good Telia GSM.",
+      "sourceUrls": [
+        "https://www.svenskaturistforeningen.se/boende/stf-njunjes-fjallstuga/",
+        "https://www.swedishtouristassociation.com/facilities/stf-njunjes-mountain-cabin/",
+        "https://www.padjelanta.se/njunjes/",
+        "https://www.openstreetmap.org/way/291141562"
+      ],
+      "routeProximity": {
+        "status": "near-route-start",
+        "distanceMeters": 9
+      },
+      "confidence": "high",
+      "importRecommendation": "import-or-deduplicate-with-section-09-endpoint"
+    },
+    {
+      "id": "padjelantaleden-stage-10-njunjes-help-phone-safety-room",
+      "name": "Njunjes safety room and help phone",
+      "candidateType": "emergency_phone",
+      "coordinates": {
+        "lat": 66.960321,
+        "lon": 17.411197
+      },
+      "coordinateSource": "Attached to STF Njunjes hut coordinate; STF says the storehouse contains the safety room/help phone but no separate coordinate was found.",
+      "description": "Safety room/help phone at STF Njunjes. Attach to hut unless standalone emergency-phone/safety-room POIs are supported.",
+      "sourceUrls": [
+        "https://www.svenskaturistforeningen.se/boende/stf-njunjes-fjallstuga/"
+      ],
+      "routeProximity": {
+        "status": "attached-to-hut",
+        "distanceMeters": 9
+      },
+      "confidence": "high for existence, medium for exact standalone coordinate",
+      "importRecommendation": "attach-to-hut-or-import-if-emergency-phone-taxonomy-supports"
+    },
+    {
+      "id": "padjelantaleden-stage-10-njunjes-tent-service",
+      "name": "Njunjes hut-site tenting/service",
+      "candidateType": "campsite",
+      "coordinates": {
+        "lat": 66.960321,
+        "lon": 17.411197
+      },
+      "coordinateSource": "Attached to STF/Padjelanta Njunjes hut coordinate; no separate tent-site coordinate found.",
+      "description": "Padjelanta.se lists tent/day-visit pricing for Njunjes. Treat as hut-site service metadata unless a separate tenting area coordinate is verified.",
+      "sourceUrls": [
+        "https://www.padjelanta.se/njunjes/"
+      ],
+      "routeProximity": {
+        "status": "attached-to-hut",
+        "distanceMeters": 9
+      },
+      "confidence": "medium",
+      "importRecommendation": "attach-to-hut-pending-standalone-coordinate"
+    },
+    {
+      "id": "padjelantaleden-stage-10-njunjes-natural-water",
+      "name": "Tarraätno natural water at Njunjes",
+      "candidateType": "water",
+      "coordinates": {
+        "lat": 66.9603,
+        "lon": 17.4112
+      },
+      "coordinateSource": "Hut/river coordinate proxy; exact water-collection point not verified.",
+      "description": "Natural water context at/near Njunjes and Tarraätno. Not a potable tap; treat/filter as needed and take care near the hut and river.",
+      "sourceUrls": [
+        "https://www.svenskaturistforeningen.se/boende/stf-njunjes-fjallstuga/",
+        "https://www.padjelanta.se/njunjes/"
+      ],
+      "routeProximity": {
+        "status": "start-area-proxy",
+        "distanceMeters": 9
+      },
+      "confidence": "medium-high",
+      "importRecommendation": "pending-or-attach-to-hut-with-untreated-water-caveat"
+    },
+    {
+      "id": "padjelantaleden-stage-10-njunjes-south-bridge",
+      "name": "Bridge south of Njunjes over Tarraätno",
+      "candidateType": "bridge",
+      "coordinates": {
+        "lat": 66.9598273,
+        "lon": 17.4101715
+      },
+      "coordinateSource": "OSM way 291141565.",
+      "description": "Bridge near Njunjes over Tarraätno, useful for access/day trips across the river. It is near the stage start but not part of the Njunjes-Bobäcken main walking line.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/way/291141565",
+        "https://www.svenskaturistforeningen.se/boende/stf-njunjes-fjallstuga/"
+      ],
+      "routeProximity": {
+        "status": "near-start-off-mainline",
+        "distanceMeters": 62
+      },
+      "confidence": "high",
+      "importRecommendation": "suppress-as-facility-use-route-access-note"
+    },
+    {
+      "id": "padjelantaleden-stage-10-njunjesjahka-bridge",
+      "name": "Njunjesjåhkå bridge",
+      "candidateType": "bridge",
+      "coordinates": {
+        "lat": 66.9568571,
+        "lon": 17.471449
+      },
+      "coordinateSource": "OSM way 1297206463.",
+      "description": "On-route bridge over/near Njunjesjåhkå, around 2.9 km from Njunjes. Naturkartan notes the route crosses a kilometre-wide alluvial fan in this area.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/way/1297206463",
+        "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk"
+      ],
+      "routeProximity": {
+        "status": "on-route",
+        "distanceMeters": 0,
+        "alongRouteKm": 2.93
+      },
+      "confidence": "medium-high",
+      "importRecommendation": "route-metadata-not-facility"
+    },
+    {
+      "id": "padjelantaleden-stage-10-on-route-firepit",
+      "name": "OSM firepit on Njunjes-Bobäcken",
+      "candidateType": "fireplace",
+      "coordinates": {
+        "lat": 66.9504806,
+        "lon": 17.5078246
+      },
+      "coordinateSource": "OSM node 12050588377.",
+      "description": "OSM-only firepit candidate close to the walking route, about 4.8 km from Njunjes. Needs verification and fire-rule review before standalone import.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/12050588377"
+      ],
+      "routeProximity": {
+        "status": "near-route",
+        "distanceMeters": 16,
+        "alongRouteKm": 4.79
+      },
+      "confidence": "medium",
+      "importRecommendation": "pending-import-only-if-osm-firepits-are-accepted"
+    },
+    {
+      "id": "padjelantaleden-stage-10-vallebacken-bridge",
+      "name": "Vallebäcken / Vállejåhkå bridge area",
+      "candidateType": "bridge",
+      "coordinates": {
+        "lat": 66.9483933,
+        "lon": 17.6161631
+      },
+      "coordinateSource": "OSM way 291134970 bridge proxy from facilities lane.",
+      "description": "Bridge/view/water area over Vallebäcken/Vállegårsså roughly 10.4 km from Njunjes. Naturkartan says after bridges over Vallebäcken the trail enters wet, mosquito-prone swamp forest toward Bobäcken.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/way/291134970",
+        "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk",
+        "https://www.battrafikikvikkjokk.se/dagstur_padjelantaleden.html"
+      ],
+      "routeProximity": {
+        "status": "near-route",
+        "distanceMeters": 17,
+        "alongRouteKm": 10.43
+      },
+      "confidence": "medium",
+      "importRecommendation": "bridge-as-route-metadata-viewpoint-pending"
+    },
+    {
+      "id": "padjelantaleden-stage-10-bobacken-raststuga",
+      "name": "Bobäcken Raststuga",
+      "candidateType": "shelter",
+      "coordinates": {
+        "lat": 66.945164,
+        "lon": 17.654517
+      },
+      "coordinateSource": "OSM node 10197762556, cross-checked with Vindskyddskartan coordinate 66.94517813, 17.65455498 and Naturkartan Bobäcken page.",
+      "description": "Rest cabin/stopover shelter at the Bobäcken walking endpoint and boat landing area. Facilities lane reports capacity 10, toilet and seasonal boat route; no stove, no mountain waste handling, and overnighting only for emergencies.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/norrbottens-lan/vindskydd-bobacken",
+        "https://www.openstreetmap.org/node/10197762556",
+        "https://vindskyddskartan.se/sv/shelter/4456/Bob%C3%A4cken"
+      ],
+      "routeProximity": {
+        "status": "walking-end-cluster",
+        "distanceMeters": 81
+      },
+      "confidence": "high",
+      "importRecommendation": "import-shelter-rest-cabin-with-no-planned-overnight-caveat"
+    },
+    {
+      "id": "padjelantaleden-stage-10-bobacken-toilet",
+      "name": "Bobäcken toilet/dass",
+      "candidateType": "toilet",
+      "coordinates": {
+        "lat": 66.945164,
+        "lon": 17.654517
+      },
+      "coordinateSource": "Shelter/landing proxy; Naturkartan Bobäcken facility context, no separate toilet coordinate verified.",
+      "description": "Toilet context at Bobäcken. Use only if site-level coordinate is acceptable or after a standalone toilet coordinate is verified.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/norrbottens-lan/vindskydd-bobacken"
+      ],
+      "routeProximity": {
+        "status": "walking-end-cluster",
+        "distanceMeters": 81
+      },
+      "confidence": "medium-high for facility, low-medium for exact coordinate",
+      "importRecommendation": "pending-import-if-site-level-coordinate-accepted"
+    },
+    {
+      "id": "padjelantaleden-stage-10-bobacken-boat-order-phone",
+      "name": "Bobäcken boat-order phone",
+      "candidateType": "phone",
+      "coordinates": {
+        "lat": 66.945164,
+        "lon": 17.654517
+      },
+      "coordinateSource": "Shelter/landing proxy; Naturkartan describes phone for boat ordering.",
+      "description": "Phone at/near Bobäcken rest cabin for ordering boat transport. Treat as access metadata, not as an emergency phone, until 2026 operation is verified.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk",
+        "https://www.naturkartan.se/sv/norrbottens-lan/vindskydd-bobacken"
+      ],
+      "routeProximity": {
+        "status": "walking-end-cluster",
+        "distanceMeters": 81
+      },
+      "confidence": "medium",
+      "importRecommendation": "access-metadata-do-not-model-as-emergency-phone"
+    },
+    {
+      "id": "padjelantaleden-stage-10-bobacken-boat-landing",
+      "name": "Bobäcken boat landing",
+      "candidateType": "ferry",
+      "coordinates": {
+        "lat": 66.9450463,
+        "lon": 17.6545176
+      },
+      "coordinateSource": "OSM node 29088886 ferry terminal.",
+      "description": "Boat landing and de facto southern Padjelantaleden walking endpoint. Normal route requires boat to/from Kvikkjokk.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/29088886",
+        "https://www.padjelanta.se/tarraalven/",
+        "https://battrafikikvikkjokk.se/padjelantaleden.html"
+      ],
+      "routeProximity": {
+        "status": "walking-end-access-connector",
+        "distanceMeters": 94
+      },
+      "confidence": "high for access role, medium-high for coordinate",
+      "importRecommendation": "access-connection-metadata"
+    },
+    {
+      "id": "padjelantaleden-stage-10-bobacken-natural-water",
+      "name": "Tarraätno / Bobäcken natural water",
+      "candidateType": "water",
+      "coordinates": {
+        "lat": 66.9450463,
+        "lon": 17.6545176
+      },
+      "coordinateSource": "Boat-landing/river proxy.",
+      "description": "Natural river water context at Bobäcken. Not a potable tap; treat/filter if used and consider boat traffic, sediment and local contamination.",
+      "sourceUrls": [
+        "https://www.padjelanta.se/tarraalven/",
+        "https://www.naturkartan.se/sv/norrbottens-lan/vindskydd-bobacken"
+      ],
+      "routeProximity": {
+        "status": "walking-end-area",
+        "distanceMeters": 94
+      },
+      "confidence": "medium",
+      "importRecommendation": "pending-route-note-only"
+    },
+    {
+      "id": "padjelantaleden-stage-10-kvikkjokk-boat-terminal",
+      "name": "Kvikkjokk boat terminal",
+      "candidateType": "ferry",
+      "coordinates": {
+        "lat": 66.9501108,
+        "lon": 17.7173966
+      },
+      "coordinateSource": "OSM node 1437209072.",
+      "description": "Kvikkjokk-side boat terminal for the Bobäcken/Padjelantaleden transfer.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/1437209072",
+        "https://www.padjelanta.se/tarraalven/",
+        "https://battrafikikvikkjokk.se/padjelantaleden.html"
+      ],
+      "routeProximity": {
+        "status": "boat-access-gateway",
+        "distanceMeters": null
+      },
+      "confidence": "high for access role, medium-high for coordinate",
+      "importRecommendation": "access-connection-metadata"
+    },
+    {
+      "id": "padjelantaleden-stage-10-kvikkjokk-fjallstation",
+      "name": "STF Kvikkjokk Fjällstation",
+      "candidateType": "lodging",
+      "coordinates": {
+        "lat": 66.953702,
+        "lon": 17.71952
+      },
+      "coordinateSource": "STF/Kvikkjokk Fjällstation coordinate, cross-checked with Padjelanta.se and OSM.",
+      "description": "Official stage endpoint and service gateway with lodging, food service, shop/provisions/outdoor supplies, rental, showers/toilets for paying users, self-catering kitchen, road access, bus connections and nearby parking. Verify 2026 renovation/service status before publication.",
+      "sourceUrls": [
+        "https://www.svenskaturistforeningen.se/boende/stf-kvikkjokk-fjallstation/",
+        "https://www.svenskaturistforeningen.se/boende/stf-kvikkjokk-fjallstation/butik/",
+        "https://www.svenskaturistforeningen.se/boende/stf-kvikkjokk-fjallstation/boende/",
+        "https://www.padjelanta.se/kvikkjokk/",
+        "https://kvikkjokkfjallstation.se/en/faq/"
+      ],
+      "routeProximity": {
+        "status": "official-gateway-end",
+        "distanceMeters": 410
+      },
+      "confidence": "high",
+      "importRecommendation": "import-or-attach-as-gateway-lodging-service"
+    },
+    {
+      "id": "padjelantaleden-stage-10-kvikkjokk-food-shop",
+      "name": "Kvikkjokk restaurant, café, bar, shop and rental",
+      "candidateType": "food",
+      "coordinates": {
+        "lat": 66.953702,
+        "lon": 17.71952
+      },
+      "coordinateSource": "Attached to STF Kvikkjokk Fjällstation coordinate; OSM restaurant at 66.9538099, 17.7195389 nearby.",
+      "description": "Gateway services at STF Kvikkjokk: restaurant, café/bar, shop/provisions, outdoor supplies and rental. Current service scope is seasonal and affected by 2026 renovation notes; verify before public import.",
+      "sourceUrls": [
+        "https://www.svenskaturistforeningen.se/boende/stf-kvikkjokk-fjallstation/",
+        "https://www.svenskaturistforeningen.se/boende/stf-kvikkjokk-fjallstation/butik/"
+      ],
+      "routeProximity": {
+        "status": "gateway-service",
+        "distanceMeters": 410
+      },
+      "confidence": "high for service category, medium for current operating scope",
+      "importRecommendation": "import-or-attach-to-fjallstation-after-currentness-check"
+    },
+    {
+      "id": "padjelantaleden-stage-10-kvikkjokk-parking",
+      "name": "Kvikkjokk parking near fjällstation",
+      "candidateType": "parking",
+      "coordinates": {
+        "lat": 66.9549767,
+        "lon": 17.7214988
+      },
+      "coordinateSource": "OSM way 38072855 approximate center; STF/Kvikkjokk gateway context.",
+      "description": "Gateway parking near Kvikkjokk Fjällstation. There is no road or parking at Njunjes or Bobäcken.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/way/38072855",
+        "https://kvikkjokkfjallstation.se/en/faq/"
+      ],
+      "routeProximity": {
+        "status": "gateway-parking",
+        "distanceMeters": 640
+      },
+      "confidence": "medium-high",
+      "importRecommendation": "access-metadata-or-import-parking"
+    },
+    {
+      "id": "padjelantaleden-stage-10-kvikkjokk-public-toilet",
+      "name": "Kvikkjokk public toilet",
+      "candidateType": "toilet",
+      "coordinates": {
+        "lat": 66.9528191,
+        "lon": 17.7279386
+      },
+      "coordinateSource": "OSM node 3607904560.",
+      "description": "OSM-only public toilet candidate in Kvikkjokk gateway area. Needs verification before standalone import.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/3607904560"
+      ],
+      "routeProximity": {
+        "status": "gateway-off-route",
+        "distanceMeters": 763
+      },
+      "confidence": "medium-low",
+      "importRecommendation": "pending-verification"
+    },
+    {
+      "id": "padjelantaleden-stage-10-kvikkjokk-defibrillator",
+      "name": "Kvikkjokk defibrillator",
+      "candidateType": "emergency",
+      "coordinates": {
+        "lat": 66.9514637,
+        "lon": 17.7217625
+      },
+      "coordinateSource": "OSM node 12151187653.",
+      "description": "OSM-only defibrillator candidate near Kvikkjokk church/bus area. Needs official verification before import.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/12151187653"
+      ],
+      "routeProximity": {
+        "status": "gateway-emergency-candidate",
+        "distanceMeters": null
+      },
+      "confidence": "medium-low",
+      "importRecommendation": "pending-verification"
+    },
+    {
+      "id": "padjelantaleden-stage-10-kvikkjokk-campsites",
+      "name": "Kvikkjokk campsite candidates",
+      "candidateType": "campsite",
+      "coordinates": null,
+      "coordinateSource": "OSM campsite centers around 66.94558,17.72729 and 66.94668,17.72709; not verified as official Padjelantaleden facilities.",
+      "description": "Gateway/off-route campsite candidates in Kvikkjokk area. STF Kvikkjokk source says it has no own tent sites; do not import as official trail facilities without a separate gateway research pass.",
+      "sourceUrls": [
+        "https://www.svenskaturistforeningen.se/boende/stf-kvikkjokk-fjallstation/boende/"
+      ],
+      "routeProximity": {
+        "status": "gateway-off-route",
+        "distanceMeters": null
+      },
+      "confidence": "low-medium",
+      "importRecommendation": "suppress-or-pending-gateway-research"
+    },
+    {
+      "id": "padjelantaleden-stage-10-hut-and-bobacken-waste-context",
+      "name": "Njunjes/Bobäcken/Kvikkjokk waste context",
+      "candidateType": "waste",
+      "coordinates": null,
+      "coordinateSource": "STF waste process and Naturkartan Bobäcken notes; no importable waste-bin coordinate.",
+      "description": "Njunjes waste should follow STF mountain-hut process; Naturkartan Bobäcken says no mountain waste handling. Do not import Bobäcken as a waste service.",
+      "sourceUrls": [
+        "https://www.svenskaturistforeningen.se/guider-tips/fjallen/sophantering-fjallstuga/",
+        "https://www.naturkartan.se/sv/norrbottens-lan/vindskydd-bobacken"
+      ],
+      "routeProximity": {
+        "status": "policy-context",
+        "distanceMeters": null
+      },
+      "confidence": "high for policy, low for standalone POI",
+      "importRecommendation": "suppress-as-standalone"
+    }
+  ],
+  "waterSources": {
+    "summary": "Natural water is present from Tarraätno, Njunjesjåhkå, Vallebäcken/Vállegårsså, wetland areas and Bobäcken/Tarraälven, but no discrete official potable-water tap was verified along the walking leg. Treat water as natural and condition-dependent. Kvikkjokk has service-water context through the fjällstation/gateway rather than a trail water source.",
+    "records": [
+      {
+        "name": "Tarraätno at Njunjes",
+        "coordinates": {
+          "lat": 66.9603,
+          "lon": 17.4112
+        },
+        "source": "STF Njunjes/Padjelanta hut context and field reports; coordinate is hut/river proxy.",
+        "reliability": "medium-high for availability, medium for drinkability without treatment",
+        "notes": "STF's 2026 winter notice shows river ice/current conditions at Njunjes can be safety-relevant. Summer water availability is likely, but treatment and local judgment are still required."
+      },
+      {
+        "name": "Njunjesjåhkå alluvial fan area",
+        "coordinates": {
+          "lat": 66.9568571,
+          "lon": 17.471449
+        },
+        "source": "Naturkartan route description and OSM bridge/crossing context.",
+        "reliability": "medium",
+        "notes": "Naturkartan describes a kilometre-wide alluvial fan. Water availability/quality can vary with season and sediment."
+      },
+      {
+        "name": "Vallebäcken / Vállegårsså",
+        "coordinates": {
+          "lat": 66.9483933,
+          "lon": 17.6161631
+        },
+        "source": "Naturkartan route description, Båttrafik day-trip description and OSM bridge proxy.",
+        "reliability": "medium",
+        "notes": "Bridge area near the later part of the route. Treat as natural water only, not a potable source."
+      },
+      {
+        "name": "Bobäcken / Tarraätno boat landing area",
+        "coordinates": {
+          "lat": 66.9450463,
+          "lon": 17.6545176
+        },
+        "source": "Boat landing/river context from Padjelanta.se, Båttrafik and Naturkartan.",
+        "reliability": "medium-high for availability, medium for drinkability without treatment",
+        "notes": "Natural river/delta water near boat traffic and landing. Treat/filter if used."
+      }
+    ],
+    "confidence": "medium"
+  },
+  "campingAndFire": {
+    "camping": [
+      {
+        "topic": "Pärlälvens fjällurskog camping",
+        "notes": "Camping is allowed under the Pärlälvens fjällurskog reserve page and decision context, subject to allemansrätten, reindeer-herding care, and no damage/disturbance.",
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/norrbotten/besoksmal/naturreservat/parlalvens-fjallurskog.html"
+        ],
+        "confidence": "high"
+      },
+      {
+        "topic": "Njunjes hut-site tenting/service",
+        "notes": "Padjelanta.se lists tent/day-visit pricing at Njunjes. Treat as hut-site service metadata until a separate tent area coordinate is verified.",
+        "sourceUrls": [
+          "https://www.padjelanta.se/njunjes/"
+        ],
+        "confidence": "medium"
+      },
+      {
+        "topic": "Field-report camping near Njunjes bridge and mid-route",
+        "notes": "Field reports support possible spots near/behind the Njunjes bridge and around 7-8 km from Bobäcken/Njunjes depending direction, but exact coordinates are weak and vegetation can limit camping.",
+        "sourceUrls": [
+          "https://sim1.se/swe/north/njunjes/njunjes_01.html",
+          "https://www.outdooractive.com/en/route/long-distance-hiking/lappland/kungsleden-with-detours-padjelantaleden/181165977/"
+        ],
+        "confidence": "medium-low",
+        "importRecommendation": "route-note-only"
+      },
+      {
+        "topic": "Bobäcken rest cabin emergency overnight only",
+        "notes": "Bobäcken rest cabin is a short-rest shelter with room for 10 and no stove; facilities lane says overnighting is only for emergencies. Do not model as planned lodging/camping.",
+        "sourceUrls": [
+          "https://www.naturkartan.se/sv/norrbottens-lan/vindskydd-bobacken"
+        ],
+        "confidence": "high"
+      },
+      {
+        "topic": "Kvikkjokk tenting",
+        "notes": "STF Kvikkjokk gateway has lodging and services, but STF source says it has no own tent sites. OSM campsite candidates near Kvikkjokk are gateway/off-route and need separate verification.",
+        "sourceUrls": [
+          "https://www.svenskaturistforeningen.se/boende/stf-kvikkjokk-fjallstation/boende/"
+        ],
+        "confidence": "medium-high"
+      }
+    ],
+    "fire": [
+      {
+        "topic": "Pärlälvens fire rule context",
+        "notes": "Pärlälvens fjällurskog page says making fires is allowed, but visitors may not damage plants/animals and fire bans/local fire restrictions override normal rules.",
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/norrbotten/besoksmal/naturreservat/parlalvens-fjallurskog.html",
+          "https://www.lansstyrelsen.se/norrbotten/samhalle/sakerhet-och-beredskap/brandrisk-och-eldningsforbud.html"
+        ],
+        "confidence": "high for rule/currentness pattern; dynamic for active bans"
+      },
+      {
+        "topic": "OSM firepit candidate",
+        "notes": "One OSM firepit candidate was found close to the route at 66.9504806, 17.5078246. Keep pending until verified and until import policy for OSM-only firepits in Pärlälvens fjällurskog is decided.",
+        "sourceUrls": [
+          "https://www.openstreetmap.org/node/12050588377"
+        ],
+        "confidence": "medium"
+      }
+    ],
+    "toilets": [
+      {
+        "name": "Njunjes hut toilet context",
+        "coordinates": null,
+        "notes": "No verified standalone coordinate found; keep pending and attach any service note to hut until verified.",
+        "confidence": "low"
+      },
+      {
+        "name": "Bobäcken toilet/dass",
+        "coordinates": {
+          "lat": 66.945164,
+          "lon": 17.654517
+        },
+        "notes": "Site-level shelter/landing proxy only; import if site-level coordinate is acceptable or after standalone toilet coordinate verification.",
+        "confidence": "medium"
+      },
+      {
+        "name": "Kvikkjokk gateway toilets",
+        "coordinates": null,
+        "notes": "STF Kvikkjokk has showers/toilets for paying users; one OSM-only public toilet candidate exists farther in the village and needs verification.",
+        "confidence": "medium"
+      }
+    ]
+  },
+  "rulesAndSafety": {
+    "protectedArea": {
+      "name": "Pärlälvens fjällurskog nature reserve / Natura 2000",
+      "municipality": "Jokkmokk",
+      "county": "Norrbotten",
+      "sourceUrls": [
+        "https://www.lansstyrelsen.se/norrbotten/besoksmal/naturreservat/parlalvens-fjallurskog.html",
+        "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk"
+      ],
+      "confidence": "high"
+    },
+    "rules": [
+      {
+        "topic": "Camping and fires",
+        "rule": "The Pärlälvens fjällurskog destination page allows hiking, tenting and fires, subject to no damage/disturbance and other applicable laws. County/local fire bans override normal fire permission.",
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/norrbotten/besoksmal/naturreservat/parlalvens-fjallurskog.html",
+          "https://www.lansstyrelsen.se/norrbotten/samhalle/sakerhet-och-beredskap/brandrisk-och-eldningsforbud.html"
+        ],
+        "confidence": "high for rule model; dynamic for active fire bans"
+      },
+      {
+        "topic": "Dogs and reindeer",
+        "rule": "All of Norrbotten is within reindeer-husbandry area. Länsstyrelsen's 2026-02-05 notice says dogs must be leashed or enclosed where reindeer are present and reindeer husbandry is allowed; general Swedish wildlife rules require extra supervision 1 March-20 August, practically leash in natural areas.",
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/norrbotten/om-oss/nyheter-och-press/nyheter---norrbotten/2026-02-05-koppeltvang-pa-hund-i-renskotselomrade.html",
+          "https://laponia.nu/en/det-saami-culture-within-the-world-heritage-site/reindeer/"
+        ],
+        "confidence": "high"
+      },
+      {
+        "topic": "Fishing and hunting",
+        "rule": "Pärlälven reserve allows fishing and hunting only under applicable permit rules. Fishing in state waters above the cultivation line requires permits via NatureIT/local sellers; grayling fishing is closed 10 May-10 June in Jokkmokk, natural bait is prohibited in flowing water, and trout fishing in flowing water is closed 1 September-31 December. Small-game hunting areas can be closed dynamically.",
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/norrbotten/besoksmal/naturreservat/parlalvens-fjallurskog.html",
+          "https://www.lansstyrelsen.se/norrbotten/djur/fiske/fiska-i-fjallen.html",
+          "https://www.lansstyrelsen.se/norrbotten/djur/jakt-och-vilt/jakt-i-fjallen.html"
+        ],
+        "confidence": "medium-high for general rules; exact water/area overlap needs NatureIT/Jokkmokkskortet check"
+      },
+      {
+        "topic": "Boat and water safety",
+        "rule": "The normal route requires boat transport between Bobäcken and Kvikkjokk. Naturkartan's alternative continuation toward Gamájåhkå is indistinct and still requires boat transport because the watercourse cannot be forded. STF boat guidance says Kvikkjokk boat waters are swift and there are no rowboats on this crossing.",
+        "sourceUrls": [
+          "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk",
+          "https://www.padjelanta.se/tarraalven/",
+          "https://www.svenskaturistforeningen.se/guider-tips/fjallen/batar-i-fjallen/"
+        ],
+        "confidence": "high for no-ford/boat requirement; medium for STF boat-page currentness because some STF boat guidance may lag 2026 operator pages"
+      },
+      {
+        "topic": "Mobile coverage and emergency",
+        "rule": "Njunjes has safety room/help phone and relatively good Telia GSM per STF. Bobäcken has a shelter phone for boat ordering per Naturkartan, but 2026 operation should be verified with the boat operator/Länsstyrelsen. Treat mobile coverage between Njunjes and Bobäcken as unreliable.",
+        "sourceUrls": [
+          "https://www.svenskaturistforeningen.se/boende/stf-njunjes-fjallstuga/",
+          "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk",
+          "https://www.naturkartan.se/sv/norrbottens-lan/vindskydd-bobacken"
+        ],
+        "confidence": "medium-high"
+      },
+      {
+        "topic": "Drones and aircraft",
+        "rule": "No Pärlälven visitor-page rule specifically banning drones was found, but general Transportstyrelsen/LFV drone rules, restricted/military-area checks, wildlife/reindeer disturbance rules and aerial-photo dissemination approval rules still apply.",
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/norrbotten/besoksmal/naturreservat/parlalvens-fjallurskog.html",
+          "https://www.transportstyrelsen.se/dronarflygguiden",
+          "https://www.lfv.se/tjanster/informationstjanster/lfvs-dronarkarta"
+        ],
+        "confidence": "medium"
+      }
+    ],
+    "stageSpecificSafety": [
+      {
+        "topic": "Wet forest, boardwalks and mosquitoes",
+        "notes": "Official and field sources describe wet/soggy ground, long marshes, boardwalks, wet/swampy forest, mosquitoes, humidity, dense vegetation and rocky/monotonous forest trail.",
+        "sourceUrls": [
+          "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk",
+          "https://wildnis-wandern.de/padjelantaleden/",
+          "https://www.i-trekkings.net/carnet-outdoor/njunjes-kvikkjokk/",
+          "https://sim1.se/swe/north/njunjes/njunjes_01.html"
+        ],
+        "confidence": "high"
+      },
+      {
+        "topic": "Vallebäcken/Vállegårsså bridges",
+        "notes": "Naturkartan says the route crosses bridges over Vallebäcken/Vállegårsså before wet swamp forest. Field reports mention multiple bridges and no normal-route required ford. No 2026 warning found for these bridges, but bridge/boardwalk status should be rechecked after spring flood.",
+        "sourceUrls": [
+          "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk",
+          "https://wildnis-wandern.de/padjelantaleden/"
+        ],
+        "confidence": "medium-high"
+      },
+      {
+        "topic": "No fordable Kvikkjokk-side substitute",
+        "notes": "Naturkartan says the optional Gamájåhkå continuation still requires boat transport and cannot be forded. Field reports and local reporting also support treating Bobäcken-Kvikkjokk as a required boat/access transfer.",
+        "sourceUrls": [
+          "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk",
+          "https://www.i-trekkings.net/carnet-outdoor/njunjes-kvikkjokk/",
+          "https://wildnis-wandern.de/padjelantaleden/"
+        ],
+        "confidence": "high"
+      },
+      {
+        "topic": "Spring ice and shoulder-season warnings",
+        "notes": "Länsstyrelsen warned on 2026-03-27 of weak ice/open water and on 2026-04-22 stopped checking winter routes because ice became unsafe. STF Njunjes closed early on 2026-04-12 because river ice by the hut was too weak. These are winter/spring-specific but important for shoulder-season safety.",
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/norrbotten/besoksmal/friluftsliv-och-allemansratt/aktuellt-i-fjallen.html",
+          "https://www.lansstyrelsen.se/norrbotten/besoksmal/friluftsliv-och-allemansratt/aktuellt-i-fjallen/aktuellt-i-fjallen/2026-04-22-lansstyrelsen-upphor-med-kontroll-av-leder.html",
+          "https://www.svenskaturistforeningen.se/boende/stf-njunjes-fjallstuga/"
+        ],
+        "confidence": "high for dated notices"
+      },
+      {
+        "topic": "Pärlälvens fjällurskog military-closure risk",
+        "notes": "Pärlälvens fjällurskog can be periodically closed due to military activity; Länsstyrelsen says to contact Försvarsmakten. No stage-specific military closure was found on 2026-04-29, but this remains a must-check before publication/travel.",
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/norrbotten/besoksmal/naturreservat/parlalvens-fjallurskog.html"
+        ],
+        "confidence": "medium-high"
+      }
+    ],
+    "currentnessChecks": [
+      {
+        "checkedDate": "2026-04-29",
+        "source": "STF/Naturkartan/Padjelanta/Länsstyrelsen pages",
+        "result": "No explicit Njunjes-Bobäcken summer closure or reroute found."
+      },
+      {
+        "checkedDate": "2026-04-29",
+        "source": "Båttrafik i Kvikkjokk and Padjelanta.se Tarraälven",
+        "result": "2026 boat schedule found for 18 Jun-13 Sep with request trips May-Oct; recheck before publication."
+      },
+      {
+        "checkedDate": "2026-04-29",
+        "source": "Länsstyrelsen Aktuellt i fjällen",
+        "result": "General 2026-04-22 spring route-check/ice warnings found; no section-specific summer notice found."
+      },
+      {
+        "checkedDate": "2026-04-29",
+        "source": "STF Njunjes",
+        "result": "Njunjes winter/current notice found: hut closed early on 2026-04-12 due weak river ice by the hut; safety room remained."
+      },
+      {
+        "checkedDate": "2026-04-29",
+        "source": "STF/Kvikkjokk Fjällstation",
+        "result": "Kvikkjokk gateway services found, but 2026 renovation/seasonal-operation notes mean exact restaurant/shop/service scope must be checked before publication."
+      }
+    ]
+  },
+  "conditionReports": [
+    {
+      "source": "Sim1",
+      "url": "https://sim1.se/swe/north/njunjes/njunjes_01.html",
+      "reportDate": "2006 trip report; practical boat note updated for 2017",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Kvikkjokk boat drops hikers at the trail.",
+        "Hike to Njunjes is easy/flat with some rocks, mostly birch forest, lush flowers, several bridges and strong mosquitoes.",
+        "Few camping spots early because vegetation was dense; plausible camp around 7-8 km from the boat landing near a waterfall."
+      ],
+      "confidence": "high for terrain/mosquito/camping observations, stale for boat times/prices"
+    },
+    {
+      "source": "I-Trekkings",
+      "url": "https://www.i-trekkings.net/carnet-outdoor/njunjes-kvikkjokk/",
+      "reportDate": "2006-08-04; published 2008-01-01; updated 2018-05-02",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Reported Njunjes-Kvikkjokk as 13 km in 2 hours 50 minutes.",
+        "Marked orange route, passes a lived-in wooden house, enters spruce forest after about an hour, crosses clearings and long marshes with boardwalks, and can feel long/monotonous.",
+        "Boat is needed after the walk; continuing on foot to Kvikkjokk was not possible in summer due an uncrossable torrent."
+      ],
+      "confidence": "high for historic field detail, stale for timetable/price"
+    },
+    {
+      "source": "Wildnis-Wandern",
+      "url": "https://wildnis-wandern.de/padjelantaleden/",
+      "reportDate": "August 2021 tour; page updated later",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Lists final stage as 12.5 km trekking plus 3.5 km boat.",
+        "Describes an easy final stage on a broad forest path through light spruce/birch forest, boardwalks over bogs, many wooden bridges, two suspension bridges over Vállebäcken, old forest with horsetails, wet mushrooms, mossy fallen trees, then Bobäcken hut and boat through the Tarraätno/Gamájåhkå delta to Kvikkjokk."
+      ],
+      "confidence": "high"
+    },
+    {
+      "source": "Far Far From Home",
+      "url": "https://farfarfromhome.com/padjelantaleden",
+      "reportDate": "2023-07-09",
+      "accessed": "2026-04-29",
+      "findings": [
+        "South-to-north combined Kvikkjokk-Tarrekaise stage reported as 22.9 km / 8h19.",
+        "Describes morning boat from Kvikkjokk, mosquito-heavy birch forest, enjoyable but difficult-enough track with bridges, Njunjes passed after 16 km, then marshy ground and climb after Njunjes.",
+        "Notes mosquitoes varied by year, fewer in 2023 than earlier."
+      ],
+      "confidence": "medium-high for recent conditions, medium for section split"
+    },
+    {
+      "source": "Wikiloc",
+      "url": "https://www.wikiloc.com/hiking-trails/njunjes-kvikkjokk-padjelantaleden-14113023",
+      "reportDate": "2016-07",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Njunjes-Kvikkjokk track listed as 12.39 km, 2h35, moderate, easy hiking.",
+        "Describes very humid/green conditions and possible mosquitoes."
+      ],
+      "confidence": "medium; route title says Kvikkjokk but distance likely covers only Njunjes-Bobäcken walking segment or omits boat geometry"
+    },
+    {
+      "source": "AllTrails section page",
+      "url": "https://www.alltrails.com/trail/sweden/norrbotten/padjelantaleden-stage-7-njunjes-fjallstation-kvikkjokk-fjallstation",
+      "reportDate": "published/crawled 2025; no reviews",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Lists Njunjes Fjällstation-Kvikkjokk Fjällstation as 15.4 km, 169 m gain, 3.5-4 h, moderate.",
+        "Page text flags damp swamp forest and mosquitoes near the last kilometres toward the boat landing, with easy but rocky path and nearby rapids."
+      ],
+      "confidence": "medium for route-app summary, low for user conditions because there are no section reviews"
+    },
+    {
+      "source": "Komoot collection",
+      "url": "https://www.komoot.com/collection/1168572/durch-das-land-der-sami-auf-dem-padjelantaleden",
+      "reportDate": "route-app planning collection",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Stage 'Njunjes to Kvikkjokk' lists 16.06 km, 4h08, moderate, 100 ft ascent and 500 ft descent."
+      ],
+      "confidence": "medium-low; useful for distance/time corroboration, not conditions"
+    },
+    {
+      "source": "Hikr.org",
+      "url": "https://www.hikr.org/tour/post12131.html",
+      "reportDate": "2008-07-31 hike; published 2009-03-05",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Reverse direction Kvikkjokk-Njunjes listed as 12 km / 4 hours after boat to Bobäcken.",
+        "Describes a good path via Bäcken to Njunjes."
+      ],
+      "confidence": "medium; brief and reverse direction but corroborates boat plus walking distance"
+    },
+    {
+      "source": "The Wild Ways",
+      "url": "https://www.the-wild-ways.de/tourenarchiv/2013-padjelantaleden/",
+      "reportDate": "2013-09",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Route profile lists Njunjes-Kvikkjokk as 16 km / boat.",
+        "Notes last two sections before Kvikkjokk pass through light birch forests and small swamp landscapes, and the summer/fall route starts/ends with a boat passage."
+      ],
+      "confidence": "medium for broad section character"
+    },
+    {
+      "source": "Outdooractive community route",
+      "url": "https://www.outdooractive.com/en/route/long-distance-hiking/lappland/kungsleden-with-detours-padjelantaleden/181165977/",
+      "reportDate": "broad route, 2020-era logistics",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Roadbook says near Njunjes some swampy/strenuous terrain and a good camping spot slightly south behind a bridge.",
+        "Bobäcken/Kvikkjokk dock segment goes through forest and dense vegetation, with boat times to consider."
+      ],
+      "confidence": "medium-low"
+    }
+  ],
+  "sourceContradictions": [
+    {
+      "topic": "Stage endpoint versus walking endpoint",
+      "claims": [
+        {
+          "source": "STF Padjelantaleden",
+          "claim": "Stage 10 is STF Njunjes Fjällstuga - STF Kvikkjokk Fjällstation."
+        },
+        {
+          "source": "Naturkartan, Padjelanta.se, boat operator and field reports",
+          "claim": "The walking leg ends at Bobäcken; the final 3 km to Kvikkjokk is boat transfer."
+        }
+      ],
+      "impact": "Candidate data must model Bobäcken as the walking endpoint and Kvikkjokk as official/service gateway reached by boat, not a continuous walking end.",
+      "confidence": "high"
+    },
+    {
+      "topic": "Estimated time",
+      "claims": [
+        {
+          "source": "STF",
+          "claim": "4-6 hours walking."
+        },
+        {
+          "source": "Naturkartan",
+          "claim": "3-5 hours."
+        },
+        {
+          "source": "Field reports/route apps",
+          "claim": "About 2h35-4h depending on whether boat/gateway segment is included."
+        }
+      ],
+      "impact": "Preserve official time sources separately; app normalization can choose display policy later.",
+      "confidence": "medium-high"
+    },
+    {
+      "topic": "Geometry after Bobäcken",
+      "claims": [
+        {
+          "source": "Naturkartan BD71 GPX",
+          "claim": "Continues about 3.1 km after Bobäcken to a Kvikkjokk-side endpoint."
+        },
+        {
+          "source": "Naturkartan text and boat/operator sources",
+          "claim": "Normal route uses boat from Bobäcken to Kvikkjokk; any Gamájåhkå continuation is indistinct and still requires boat transport."
+        },
+        {
+          "source": "OSM relation 19059738",
+          "claim": "Models Bobäcken-Kvikkjokk as ferry way 686397933."
+        }
+      ],
+      "impact": "Do not import BD71 post-Bobäcken line as the standard hiking or ferry route. Treat it as ambiguous alternate/access line pending further review.",
+      "confidence": "high"
+    },
+    {
+      "topic": "Protected-area wording",
+      "claims": [
+        {
+          "source": "Some STF/Naturkartan lodging page context",
+          "claim": "May label Njunjes/nearby hut context under Padjelanta/Laponia wording."
+        },
+        {
+          "source": "Padjelanta.se and Länsstyrelsen Pärlälvens fjällurskog",
+          "claim": "Njunjes and the section corridor are in/along Pärlälvens fjällurskog nature reserve."
+        }
+      ],
+      "impact": "Use Pärlälvens fjällurskog as controlling protected-area/rule context for section 10, while preserving Laponia/Padjelanta trail branding at the whole-trail level.",
+      "confidence": "medium-high"
+    },
+    {
+      "topic": "Boat schedules and older reports",
+      "claims": [
+        {
+          "source": "Older field reports",
+          "claim": "Contain older boat prices/times."
+        },
+        {
+          "source": "Båttrafik i Kvikkjokk and Padjelanta.se accessed 2026-04-29",
+          "claim": "Provide 2026 schedule and prices."
+        }
+      ],
+      "impact": "Use 2026 operator sources for access data. Keep older report logistics as stale historical context only.",
+      "confidence": "high"
+    },
+    {
+      "topic": "Kvikkjokk service currentness",
+      "claims": [
+        {
+          "source": "STF stage and Kvikkjokk pages",
+          "claim": "Kvikkjokk has lodging, restaurant, bar/café, shop and rental/services."
+        },
+        {
+          "source": "STF/Kvikkjokk 2026 service notes",
+          "claim": "Renovation and seasonal operation can affect exact restaurant/shop/service scope."
+        }
+      ],
+      "impact": "Import gateway services only after a currentness check close to publication.",
+      "confidence": "medium-high"
+    }
+  ],
+  "researchIterations": [
+    {
+      "iteration": 1,
+      "type": "six-parallel-agent-section-research",
+      "startedAt": "2026-04-29T20:23:18+00:00",
+      "completedAt": "2026-04-29T20:52:36+00:00",
+      "lanes": [
+        {
+          "lane": "official-sources",
+          "agent": "Linnaeus",
+          "status": "completed",
+          "summary": "Confirmed STF/Naturkartan/Padjelanta section identity, official distances/time, detailed official route description, 2026 boat and bus access, Njunjes/Bobäcken/Kvikkjokk services, Pärlälvens rules/currentness, GPX availability, and endpoint ambiguity."
+        },
+        {
+          "lane": "route-geometry",
+          "agent": "Mencius",
+          "status": "completed",
+          "summary": "Computed BD71 and OSM geometry, confirmed BD71 walking split at Njunjes index 529 and Bobäcken index 1371, identified post-Bobäcken BD71 as ambiguous Gamájåhkå-side line, and recommended OSM ferry way 686397933 for boat/access connector."
+        },
+        {
+          "lane": "facilities",
+          "agent": "Curie",
+          "status": "completed",
+          "summary": "Collected Njunjes hut services, bridge/firepit route metadata, Bobäcken shelter/toilet/phone/boat-landing cluster, and Kvikkjokk gateway lodging/food/shop/parking/toilet/emergency candidates with import recommendations."
+        },
+        {
+          "lane": "transit-access",
+          "agent": "Feynman",
+          "status": "completed",
+          "summary": "Confirmed Njunjes as remote start, Bobäcken as walking endpoint, Kvikkjokk as boat/road/bus/heli gateway, with 2026 boat/Fiskflyg/STF/bus season caveats and coordinates."
+        },
+        {
+          "lane": "field-reports",
+          "agent": "Plato",
+          "status": "completed",
+          "summary": "Collected field reports from Sim1, I-Trekkings, Wildnis-Wandern, Far Far From Home, Wikiloc, AllTrails, Komoot, Hikr, The Wild Ways and Outdooractive, emphasizing forest walking, wet/mosquito sections, bridges, weak camping coordinates and boat requirement."
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agent": "Dewey",
+          "status": "completed",
+          "summary": "Confirmed Pärlälvens rules/currentness, fire/dog/reindeer/fishing/hunting/boat/emergency/drone caveats, no stage-specific closure found, spring ice warnings, and must-recheck items."
+        }
+      ],
+      "synthesisDecision": "No second targeted agent batch launched. The official section identity, walking/boat endpoint model, BD71 and OSM geometry, Bobäcken access cluster, Kvikkjokk gateway services, field reports, and currentness/rule caveats are sufficient for a research-ready candidate. Remaining items are normalization decisions and currentness checks rather than source-discovery blockers."
+    }
+  ],
+  "openQuestions": [
+    "During normalization, decide whether section 10 display distance should appear as STF's '12+3 km', a separate 12 km walking plus 3 km boat model, or a computed 12.5 km walking plus 3.4 km ferry/access model.",
+    "Decide how to represent official endpoint 'STF Kvikkjokk Fjällstation' while preserving Bobäcken as the walking endpoint and Kvikkjokk as boat/gateway endpoint.",
+    "Choose final Bobäcken snap point among OSM ferry terminal, OSM shelter/rest cabin and BD71 route-line split; verify with authoritative map/field source before navigation-grade import.",
+    "Do not import BD71 post-Bobäcken segment as standard route until the Gamájåhkå/Vallevárre-side alternative is separately researched.",
+    "Verify Bobäcken shelter phone operation in 2026 and whether it reaches all active boat operators.",
+    "Verify exact standalone coordinates for Bobäcken toilet, Njunjes toilet, hut water points, OSM firepit, Kvikkjokk public toilet and Kvikkjokk defibrillator before importing separately.",
+    "Recheck Båttrafik i Kvikkjokk, Padjelanta.se Tarraälven, Länstrafiken line 94/47, Fiskflyg, STF Njunjes, STF Kvikkjokk renovation/service status, Pärlälven/Försvarsmakten closures, fire bans, fishing/hunting rules, bridge/boardwalk status and Länsstyrelsen current-mountain notices close to publication."
+  ],
+  "importReadiness": {
+    "status": "ready-for-normalization-with-caveats",
+    "readyForNormalization": true,
+    "readyForRuntimeImport": false,
+    "summary": "Section 10 is research-ready. The official STF section is Njunjes-Kvikkjokk, but the practical model is Njunjes-to-Bobäcken walking geometry plus required Bobäcken-to-Kvikkjokk boat/access connector and Kvikkjokk service gateway. Do not integrate into runtime data until endpoint modeling, Bobäcken snap choice, access-connector geometry, POI import policy and dynamic currentness checks are resolved.",
+    "blockersBeforeRuntimeImport": [
+      "Choose display-distance and endpoint policy for 12+3 km, Bobäcken walking endpoint and Kvikkjokk official gateway.",
+      "Verify final Bobäcken landing/rest-cabin coordinates and snap walking/boat geometry intentionally.",
+      "Treat BD71 post-Bobäcken as ambiguous alternate until separately researched.",
+      "Verify or suppress secondary POIs with approximate/proxy/single-source coordinates: hut toilets, Bobäcken toilet/phone, OSM firepit, Kvikkjokk toilet/defibrillator/campsites, water points and informal campsites.",
+      "Recheck all dynamic 2026 access/currentness sources shortly before publication."
+    ],
+    "recommendedNextStep": "Review the complete candidate-trail research set for consistency, then run a later normalization-only pass that turns sections 1-10 into importable trail, geometry and POI candidates without editing runtime app data."
+  }
+}

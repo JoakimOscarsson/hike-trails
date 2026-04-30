@@ -1,0 +1,715 @@
+{
+  "schemaVersion": "1.0",
+  "trailId": "padjelantaleden",
+  "researchType": "caveat-resolution",
+  "trailName": "Padjelantaleden",
+  "accessedDate": "2026-04-29",
+  "status": "research-ready-for-normalization-planning",
+  "scope": {
+    "included": [
+      "Resolve repeated caveats into explicit normalization/import recommendations where public sources are sufficient.",
+      "Recheck dynamic 2026 access, hut-service, rule, and current-condition sources.",
+      "Classify remaining caveats as either resolved policy decisions, publication-date rechecks, or source-exhausted unknowns."
+    ],
+    "excluded": [
+      "No runtime data integration.",
+      "No generated app outputs.",
+      "No edits outside data/research/candidate-trails/padjelantaleden/."
+    ]
+  },
+  "currentSourcePass": {
+    "summary": "The major caveats are now resolvable as normalization policies rather than blockers. Dynamic facts such as schedules, seasonal bridges, fire bans, ferry operation, and hut services remain publication-date rechecks. Several standalone POI caveats are source-exhausted because public sources verify the service at the hut/camp but do not publish separate coordinates.",
+    "sourcesChecked": [
+      {
+        "sourceName": "Road to Ritsem summer 2026",
+        "url": "https://roadtoritsem.com/sommar/",
+        "accessedDate": "2026-04-29",
+        "keyFindings": [
+          "Summer 2026 page is live.",
+          "Train irregularity due to planned railway work affects bus departures.",
+          "Ritsem tour 1 runs 18 July-5 September 2026.",
+          "Ritsem tour 2 has Gällivare starts 22 June-30 August 2026 and Ritsem starts 23 June-31 August 2026.",
+          "Schedules are tied to booking partners and should be rechecked before publication."
+        ],
+        "confidence": "high for current source date; medium for future runtime use"
+      },
+      {
+        "sourceName": "Akkajaure / M/S Storlule 2026",
+        "url": "https://www.padjelanta.se/akkajaure/",
+        "accessedDate": "2026-04-29",
+        "keyFindings": [
+          "2026 timetable is published for 26 June-6 September 2026.",
+          "No prebooking; payment on site by cash, card, or Swish.",
+          "Strong wind may cancel service.",
+          "Moving piers and weather cancellation mean this is access metadata, not reliable hiking geometry."
+        ],
+        "confidence": "high for current source date; medium-high for 2026 season planning"
+      },
+      {
+        "sourceName": "Fiskflyg scheduled flights 2026",
+        "url": "https://www.fiskflyg.se/reguljara-flygningar",
+        "accessedDate": "2026-04-29",
+        "keyFindings": [
+          "Daily high-season flights are offered to Staloluokta from Kvikkjokk or Ritsem with possible drop-off along the way.",
+          "Kvikkjokk-Staloluokta period is 24 June-4 September 2026.",
+          "Ritsem-Staloluokta period is 24 June-4 September 2026.",
+          "Ritsem-Vaisa/Akkastugorna period is 24 June-4 September 2026.",
+          "Aktse-Kvikkjokk and Stora Sjöfallet-Aktse scheduled routes are not operated in 2026.",
+          "Exact helipad/landing coordinates for intermediate stops are not published."
+        ],
+        "confidence": "high for dates and service list; low for exact landing coordinates"
+      },
+      {
+        "sourceName": "BLT pricing and opening times Swedish page",
+        "url": "https://padjelanta.com/priset-och-oppet/",
+        "accessedDate": "2026-04-29",
+        "keyFindings": [
+          "Swedish page is updated to prices for season 2026.",
+          "All BLT cabin camps are listed with opening period 28 June-6 September.",
+          "Dogs are only allowed, leashed, in Badjelánnda National Park from 1 January to 30 April.",
+          "Winter has no provisions sales at BLT camps.",
+          "The page says card payment is possible at all BLT cabin camps, but several hut pages still caution cash-only for the host kiosk."
+        ],
+        "confidence": "high for Swedish 2026 opening period; medium for payment details because hut pages differ"
+      },
+      {
+        "sourceName": "BLT pricing and opening times English page",
+        "url": "https://padjelanta.com/en/pricing-and-opening-times/",
+        "accessedDate": "2026-04-29",
+        "keyFindings": [
+          "English page still says pricing 2025 and opening period 28 June-6 September 2025.",
+          "Use the Swedish page as the current 2026 source and record the English page as stale."
+        ],
+        "confidence": "high for stale-source risk"
+      },
+      {
+        "sourceName": "BLT cabin and map page",
+        "url": "https://padjelanta.com/en/cabins-and-map/",
+        "accessedDate": "2026-04-29",
+        "keyFindings": [
+          "One cabin remains open year-round at each BLT cabin camp.",
+          "All camps have an emergency phone.",
+          "Summer sales common to all camps include maps, fishing licenses, fabric patches, stickers, pins, and information material.",
+          "Detailed food availability varies by individual hut page and can sell out late season."
+        ],
+        "confidence": "high for hut-level emergency phone; low for standalone phone coordinates"
+      },
+      {
+        "sourceName": "BLT individual hut pages",
+        "urls": [
+          "https://padjelanta.com/stugor/gisuris/",
+          "https://padjelanta.com/stugor/laddejahka/",
+          "https://padjelanta.com/stugor/arasluokta/",
+          "https://padjelanta.com/stugor/staloluokta/",
+          "https://padjelanta.com/stugor/duottar/",
+          "https://padjelanta.com/stugor/darreluoppal/",
+          "https://padjelanta.com/stugor/staddajahka/"
+        ],
+        "accessedDate": "2026-04-29",
+        "keyFindings": [
+          "BLT hut pages publish hut coordinates in Swedish grid notation and list beds, hosts, broad sales, and caveats.",
+          "Gisuris, Låddejåhkå, Árasluokta, Duottar, Darreluoppal, and Stáddajåhkå list basic canned/dry provisions with availability caveats.",
+          "Stáloluokta lists a small local sale and says Parfa's kiosk has stopped selling.",
+          "No individual hut page publishes separate coordinates for toilet, emergency phone, water point, waste, or helicopter landing."
+        ],
+        "confidence": "high for hut-level facilities; low for standalone sub-facility coordinates"
+      },
+      {
+        "sourceName": "Laponia current information",
+        "url": "https://laponia.nu/aktuell-information-i-varldsarvet/",
+        "accessedDate": "2026-04-29",
+        "keyFindings": [
+          "Latest general note on the page is dated 12 February 2026.",
+          "Badjelánnda and Sarek bridges are listed as lifted for winter 2025/2026.",
+          "The page still links to M/S Storlule 2025 in some places, so it must be cross-checked with Padjelanta.se for 2026 boat details.",
+          "No active summer 2026 bridge deployment notice was found on 2026-04-29."
+        ],
+        "confidence": "high for current notice state on access date; low for summer bridge state until late June"
+      },
+      {
+        "sourceName": "Laponia rules / conduct page",
+        "url": "https://laponia.nu/foreskrifter-qr/",
+        "accessedDate": "2026-04-29",
+        "keyFindings": [
+          "Leashed dogs are allowed in Laponia national parks from 1 January to 30 April, with limited route exceptions outside Padjelantaleden's Badjelánnda sections.",
+          "Dog sledding, organized larger/repeated activities, and drone use in Padjelanta/Badjelánnda require permission.",
+          "Cycling is prohibited inside national parks and nature reserves except on specified roads.",
+          "Bållávrjåhkå and Varvvek are named as the only summer bridges in Badjelánnda; deployment is normally around the last week of June and removal around mid-September, depending on water and snow."
+        ],
+        "confidence": "high for rules and seasonal-bridge policy"
+      },
+      {
+        "sourceName": "Padjelanta / Badjelánnda national park page at Laponia",
+        "url": "https://laponia.nu/nationalparker-och-naturreservat/badjelannda/",
+        "accessedDate": "2026-04-29",
+        "keyFindings": [
+          "Dogs are prohibited in Padjelanta/Badjelánnda during summer and autumn; leashed dogs are allowed 1 January-30 April.",
+          "Fire is allowed within Laponia using loose sticks and branches on the ground, but cutting or breaking wood, shrubs, or bark is prohibited.",
+          "Drone/aircraft rules require permission and include low-flight/start/landing restrictions."
+        ],
+        "confidence": "high for static rules"
+      },
+      {
+        "sourceName": "Länsstyrelsen Norrbotten current mountain information",
+        "url": "https://www.lansstyrelsen.se/norrbotten/besoksmal/friluftsliv-och-allemansratt/aktuellt-i-fjallen.html",
+        "accessedDate": "2026-04-29",
+        "keyFindings": [
+          "Page is the current channel for state trail operational information in Norrbotten.",
+          "2026-04-22 notice says Länsstyrelsen has stopped checking trails due to deteriorated snow and ice conditions.",
+          "This is a winter/spring safety notice rather than a summer Padjelantaleden route closure.",
+          "High water and weather alerts are specifically called out as rapidly changing hazards."
+        ],
+        "confidence": "high for currentness channel; low for summer route status until closer to departure/publication"
+      },
+      {
+        "sourceName": "Sveriges Nationalparker service page",
+        "url": "https://www.sverigesnationalparker.se/sv/upptack-nationalparkerna/padjelantabadjelannda-nationalpark/besok-parken/service-i-parken",
+        "accessedDate": "2026-04-29",
+        "keyFindings": [
+          "Dry toilets are available at cabin camps along Padjelanta/Badjelánndaleden.",
+          "Water in the park is usually clear and clean and can often be drunk from running streams and watercourses.",
+          "This supports hut-level toilet and natural-water notes but not separate importable coordinates."
+        ],
+        "confidence": "high for hut-level service; low for discrete POI coordinates"
+      },
+      {
+        "sourceName": "STF Såmmarlappa Fjällstuga page",
+        "url": "https://www.svenskaturistforeningen.se/boende/stf-sammarlappa-fjallstuga/",
+        "accessedDate": "2026-04-29",
+        "keyFindings": [
+          "2026 opening periods are 27 February-19 April and 26 June-6 September.",
+          "The hut lists a shop with small assortment, emergency room, emergency phone, wood shed, and no mobile coverage.",
+          "GPS coordinates are published.",
+          "The page confirms summer boat access is needed for the Kvikkjokk-side start of Padjelantaleden."
+        ],
+        "confidence": "high for hut-level service and coordinates"
+      },
+      {
+        "sourceName": "STF Tarrekaise Fjällstuga page",
+        "url": "https://www.svenskaturistforeningen.se/boende/stf-tarrekaise-fjallstuga/",
+        "accessedDate": "2026-04-29",
+        "keyFindings": [
+          "2026 opening periods are 27 February-19 April and 26 June-6 September.",
+          "The page confirms hut beds, emergency phone in the hall, no mobile coverage, card payment possible with cash recommended.",
+          "The service list does not include a shop.",
+          "GPS coordinates are published."
+        ],
+        "confidence": "high for hut-level service and no-shop decision"
+      },
+      {
+        "sourceName": "STF Njunjes Fjällstuga page",
+        "url": "https://www.svenskaturistforeningen.se/boende/stf-njunjes-fjallstuga/",
+        "accessedDate": "2026-04-29",
+        "keyFindings": [
+          "2026 opening periods are 27 February-19 April and 26 June-6 September, with a separate spring 2026 early-closure notice due to weak river ice.",
+          "The page confirms emergency phone in the storage building, relatively good Telia GSM coverage, card payment and limited Swish by subscription.",
+          "The service list does not include a shop.",
+          "GPS coordinates are published."
+        ],
+        "confidence": "high for hut-level service and no-shop decision"
+      },
+      {
+        "sourceName": "STF Kvikkjokk Mountain Station page",
+        "url": "https://www.swedishtouristassociation.com/facilities/stf-kvikkjokk-mountain-station/",
+        "accessedDate": "2026-04-29",
+        "keyFindings": [
+          "Renovation affects late winter 2026, with restaurant limitations during that period.",
+          "The normal description lists restaurant, bar/cafe, shop with food and outdoor items, sauna, Wi-Fi, parking, and bus access within 1 km.",
+          "Travel information says summer access uses train to Murjek and direct bus 94 to Kvikkjokk.",
+          "GPS coordinates are published."
+        ],
+        "confidence": "high for gateway services, but service details require seasonal recheck"
+      },
+      {
+        "sourceName": "Tarraälven / Båttrafik i Kvikkjokk",
+        "url": "https://www.padjelanta.se/tarraalven/",
+        "accessedDate": "2026-04-29",
+        "keyFindings": [
+          "Public page still lists a 2025 timetable on access date.",
+          "Boat trips run between Kvikkjokk and Bobäcken, where Padjelantaleden begins.",
+          "Extra trips may be ordered May-October by phone.",
+          "Because 2026 public timetable was not found, mark this as a required publication-date recheck."
+        ],
+        "confidence": "high for operator/contact and route concept; low for 2026 timetable"
+      },
+      {
+        "sourceName": "Länstrafiken / line 94 public timetable evidence",
+        "url": "https://www.iphone.fskab.se/ltn/Fjallinje91o94/260604_260920/Fjallinje91o94_91_260604_260920.pdf",
+        "accessedDate": "2026-04-29",
+        "keyFindings": [
+          "Search results expose a 2026 PDF valid 4 June-20 September 2026 for Fjällinje 91/94, updated 27 October 2025.",
+          "STF Kvikkjokk says line 94 is the summer bus between Murjek/Jokkmokk and Kvikkjokk.",
+          "Use Länstrafiken or Resplus as the publication-time authority rather than cached third-party schedule sites."
+        ],
+        "confidence": "medium-high for 2026 season existence; medium for exact times until direct PDF review in normalization"
+      }
+    ],
+    "sourceContradictions": [
+      {
+        "topic": "BLT 2026 opening/pricing",
+        "contradiction": "Swedish pricing page is updated to 2026 while English pricing page remains 2025.",
+        "resolution": "Use Swedish page as the current source; cite English page only as stale-source risk.",
+        "importImpact": "No blocker for research; recheck BLT pages before publication."
+      },
+      {
+        "topic": "BLT payment methods",
+        "contradiction": "Swedish pricing page says card payment is possible at all BLT cabin camps; individual hut pages still warn cash-only for host kiosk purchases.",
+        "resolution": "Model payment as operational note, not a facility attribute. Tell users to carry cash where copy is later written.",
+        "importImpact": "No POI import impact."
+      },
+      {
+        "topic": "Stáloluokta provisions",
+        "contradiction": "Older/front-page messaging says kiosk closed for season, while current hut page says smaller local sales may occur and Parfa's kiosk has stopped.",
+        "resolution": "Do not model Stáloluokta as guaranteed resupply. Import hut/lodging; add provisions only as caveated seasonal service if current operator page is rechecked.",
+        "importImpact": "Suppress guaranteed grocery/shop feature."
+      },
+      {
+        "topic": "Tarraälven boat schedule",
+        "contradiction": "Padjelanta.se still shows 2025 timetable on access date despite 2026 season planning elsewhere.",
+        "resolution": "Use route/operator/contact as access metadata but mark schedule as publication-date recheck.",
+        "importImpact": "No fixed 2026 departure times in candidate import."
+      },
+      {
+        "topic": "Laponia boat links",
+        "contradiction": "Laponia current page still links to a 2025 M/S Storlule timetable while Padjelanta.se Akkajaure page has 2026 timetable.",
+        "resolution": "Use Padjelanta.se Akkajaure as current boat timetable; keep Laponia page as conditions/current-notices channel.",
+        "importImpact": "No blocker."
+      }
+    ]
+  },
+  "globalResolutions": {
+    "displayDistancePolicy": {
+      "decision": "Use official operator/source display distances in the candidate trail data and preserve computed geometry length separately for normalization QA.",
+      "rationale": "The source set consistently shows 0.5-1.5 km differences caused by endpoint snaps, grouped GPX splits, boat/access inclusion, and rounding. Replacing official stage distances with computed line length would hide source contradictions and make user-facing distances unstable.",
+      "sectionSpecificRules": [
+        "Stage 1: preserve official 2 + 14 km; model Ritsem-Änonjálmme as boat access and Änonjálmme/Gisuris as walking geometry.",
+        "Stage 8: preserve official 13 km while flagging computed linework around 11.55-11.61 km.",
+        "Stage 9: preserve STF 6 km as primary official display if following STF stage inventory; if the app requires geometry-rounded display, use 7 km and cite Naturkartan/Padjelanta/computed linework. Do not silently collapse this contradiction.",
+        "Stage 10: display as 12 km walking + 3 km boat/access, not as one continuous hiking distance."
+      ],
+      "confidence": "high",
+      "remainingAction": "Normalization pass should add explicit fields for officialDisplayDistance, computedGeometryKm, and distanceContradictions."
+    },
+    "geometryPolicy": {
+      "decision": "Use official/public route linework as the canonical walking geometry, split grouped Naturkartan GPX files at documented indices, and model boat/ferry legs as access connectors rather than hiking geometry.",
+      "rationale": "The best geometry sources are grouped Naturkartan GPXs and OSM relations. Hut centroids, ferry terminals, and route-line endpoints do not always coincide; forcing every route endpoint to hut coordinates would introduce artificial line segments.",
+      "rules": [
+        "Do not import full grouped Naturkartan GPXs as single sections.",
+        "Do not extend a route to a hut centroid unless the route-line gap is small or a visible access path supports the extension.",
+        "Where endpoint gap is more than roughly 50-100 m, preserve route-line endpoint and attach the hut as a nearby facility/access note unless later geometry review proves a connector.",
+        "Treat Stage 1 Ritsem-Änonjálmme and Stage 10 Bobäcken-Kvikkjokk as boat/access connectors.",
+        "Treat BD71 post-Bobäcken line as an ambiguous Gamájåhkå/Vallevárre-side alternate until separately researched."
+      ],
+      "confidence": "high",
+      "remainingAction": "Normalization pass should implement a split-and-snap table using section research files, not this file alone."
+    },
+    "commuteAccessPolicy": {
+      "decision": "Separate public transit hubs, scheduled boat/ferry access, helicopter access, and remote hut endpoints. Do not force every stage endpoint to have a conventional bus/train commute point.",
+      "rationale": "Padjelantaleden is remote; many official section endpoints are huts with no road access. Modeling hut-to-hut stages as if each endpoint has public transit would be misleading.",
+      "rules": [
+        "Ritsem and Kvikkjokk are gateway commute endpoints.",
+        "Änonjálmme/Áhkká and Bobäcken are boat/ferry access endpoints.",
+        "BLT/STF huts without scheduled transit are remote trail endpoints.",
+        "Fiskflyg stops should be access metadata using published route/stop names; do not import standalone helipad POIs without exact published coordinates.",
+        "Line boats or local boat shuttles without stable landing coordinates should be access metadata unless exact landings are verified."
+      ],
+      "confidence": "high",
+      "remainingAction": "Recheck all 2026 access providers before publication because schedules are dynamic."
+    },
+    "facilityImportPolicy": {
+      "decision": "Import major huts, stations, shelters, ferry terminals, and verified named infrastructure. Attach unseparated hut services to the parent hut rather than importing standalone POIs without coordinates.",
+      "rationale": "Public sources verify many services at hut/camp level but generally do not publish coordinates for individual dry toilets, emergency phones, water points, waste, or wood sheds. Importing guessed coordinates would violate the no-invented-coordinates rule.",
+      "importAsFacilities": [
+        "STF/BLT hut camps with published hut coordinates.",
+        "STF Kvikkjokk and STF Ritsem gateway facilities.",
+        "Bobäcken shelter/landing if final snap is verified against OSM/Naturkartan/source data.",
+        "Named bridges and official route infrastructure where coordinates are mapped and source confidence is sufficient."
+      ],
+      "attachToParentFacility": [
+        "Hut dry toilets unless separately mapped and verified.",
+        "Hut emergency phones unless separately mapped and verified.",
+        "Hut water collection notes unless separately mapped and verified.",
+        "Hut waste, wood, sauna, kitchen, payment, and provisions notes."
+      ],
+      "suppressOrKeepPending": [
+        "OSM-only firepits until official or field verification.",
+        "Informal campsites/tent pitches without durable coordinates.",
+        "Helicopter landing points without published coordinates.",
+        "Guaranteed food/provisions for Tarrekaise and Njunjes because current STF pages do not list shops.",
+        "Guaranteed Stáloluokta grocery/kiosk resupply because current text says only small sales may occur and Parfa's kiosk has stopped."
+      ],
+      "confidence": "high",
+      "remainingAction": "Normalization pass should classify each section facility as import, attach, suppress, pending, or accessMetadata."
+    },
+    "rulesAndSafetyPolicy": {
+      "decision": "Static park rules are sufficiently resolved for research; operational safety remains dynamic and requires publication-time recheck.",
+      "staticRulesResolved": [
+        "Dogs are prohibited in Padjelanta/Badjelánnda during summer and autumn; leashed dogs are allowed 1 January-30 April.",
+        "Fire is allowed using loose ground material, but cutting/breaking wood, shrubs, or bark is prohibited; obey fire bans.",
+        "Drone/aircraft operation, dog sledding, organized larger/repeated activities, and low aircraft start/landing require relevant permission.",
+        "Cycling is prohibited inside national parks and reserves except on specified roads.",
+        "Fishing requires correct permit and is only allowed in specified waters."
+      ],
+      "dynamicRisksToRecheck": [
+        "Fire bans.",
+        "Bridge deployment/removal and bridge damage.",
+        "High water and weather warnings.",
+        "Boat/ferry cancellations.",
+        "Road to Ritsem service changes due to train work.",
+        "STF/BLT hut opening/service changes.",
+        "Pärlälven/Försvarsmakten closure status near the southern approach.",
+        "Hunting/reindeer-area restrictions where relevant."
+      ],
+      "confidence": "high for static rules; medium for current 2026 conditions"
+    }
+  },
+  "sectionResolutions": [
+    {
+      "sectionId": "padjelantaleden-stage-01-ritsem-akka-gisuris",
+      "resolvedCaveats": [
+        {
+          "topic": "Ritsem versus Änonjálmme/Áhkká walking start",
+          "resolution": "Ritsem is a gateway and boat-access hub. The hiking geometry should start at Änonjálmme/Áhkká landing or the through-trail point nearest it, then pass Akka to Gisuris.",
+          "importDecision": "Model Ritsem-Änonjálmme as access connector, not hiking geometry.",
+          "confidence": "high"
+        },
+        {
+          "topic": "Sjnjuvtjudisjávrásjjåhkå rest area/toilet and informal tent places",
+          "resolution": "Public sources are insufficient for standalone coordinate-grade import.",
+          "importDecision": "Keep pending or route note. Do not import standalone until coordinates are verified.",
+          "confidence": "medium-high"
+        },
+        {
+          "topic": "Gisuris emergency phone/toilet coordinates",
+          "resolution": "BLT verifies emergency phone at all camps and dry toilets are present at cabin camps, but separate coordinates are not public.",
+          "importDecision": "Attach phone/toilet to Gisuris hut facility; suppress standalone phone/toilet POIs.",
+          "confidence": "high"
+        }
+      ],
+      "remainingCaveats": [
+        "Recheck M/S Storlule, Road to Ritsem, Fiskflyg, fire bans, and current notices before publication."
+      ],
+      "normalizationReadiness": "ready-with-access-and-poi-policy"
+    },
+    {
+      "sectionId": "padjelantaleden-stage-02-gisuris-laddejahka",
+      "resolvedCaveats": [
+        {
+          "topic": "OSM relation versus cropped Naturkartan geometry",
+          "resolution": "Use OSM relation 19111627 as the canonical normalization candidate because it is continuous, directionally stage-specific, and agrees with cropped Naturkartan within small endpoint differences. Keep cropped Naturkartan BD58+BD57 as cross-check.",
+          "importDecision": "Normalize from OSM relation unless later normalizer has a stronger local rule preferring official Naturkartan crops.",
+          "confidence": "high"
+        },
+        {
+          "topic": "Gisuris and Låddejåhkå sub-facility coordinates",
+          "resolution": "Public sources verify hut-level toilets/phones/water but not separate points.",
+          "importDecision": "Attach to hut facilities, not standalone POIs.",
+          "confidence": "high"
+        }
+      ],
+      "remainingCaveats": [
+        "Verify Vuojatädno/Varggá bridge snap during geometry normalization.",
+        "Keep tent-place coordinates pending."
+      ],
+      "normalizationReadiness": "ready"
+    },
+    {
+      "sectionId": "padjelantaleden-stage-03-laddejahka-arasluokta",
+      "resolvedCaveats": [
+        {
+          "topic": "Árasluokta route-line endpoint versus hut coordinate",
+          "resolution": "Use reversed Naturkartan BD59 as walking geometry. Preserve route-line endpoint and import Árasluokta hut as nearby facility unless the normalizer confirms a short official connector.",
+          "importDecision": "Do not artificially extend route by hut centroid alone.",
+          "confidence": "high"
+        },
+        {
+          "topic": "Miellädno bridge-warning confusion",
+          "resolution": "Do not attach Laponia Álggajávrre/Miellädno bridge warning to this section unless a later map/source pass proves it is the same bridge.",
+          "importDecision": "Keep as source contradiction note only.",
+          "confidence": "medium-high"
+        },
+        {
+          "topic": "Árasluokta emergency phone/water and tent pitches",
+          "resolution": "Service is verified at camp level but public standalone coordinates remain unavailable.",
+          "importDecision": "Attach to hut; keep tent pitches as area notes.",
+          "confidence": "high"
+        }
+      ],
+      "remainingCaveats": [
+        "Verify exact Árasluokta access path/snap if runtime requires endpoint at hut coordinate."
+      ],
+      "normalizationReadiness": "ready"
+    },
+    {
+      "sectionId": "padjelantaleden-stage-04-arasluokta-staloluokta",
+      "resolvedCaveats": [
+        {
+          "topic": "Hut-coordinate versus route-line endpoint gaps",
+          "resolution": "Use reversed Naturkartan BD60 as walking geometry; treat both huts as facilities if the route line does not terminate exactly on hut centroids.",
+          "importDecision": "Endpoint snapping is a normalization choice, not a research blocker.",
+          "confidence": "high"
+        },
+        {
+          "topic": "Árasluokta chapel/kyrkkåta and picnic candidates",
+          "resolution": "Árasluokta page verifies a church kåta in the settlement but does not provide a separate coordinate. Picnic candidates are not strongly verified.",
+          "importDecision": "Attach chapel/kyrkkåta as hut/settlement note or keep pending; suppress picnic POI unless verified.",
+          "confidence": "medium"
+        },
+        {
+          "topic": "Stáloluokta provisions",
+          "resolution": "Current hut page supports only small/variable local sales and says Parfa's kiosk has stopped.",
+          "importDecision": "Do not import guaranteed grocery/shop. Attach caveated seasonal provisions to Stáloluokta hut only after publication-time recheck.",
+          "confidence": "high"
+        }
+      ],
+      "remainingCaveats": [
+        "OSM-only campsite/toilet/waste candidates need verification before standalone import."
+      ],
+      "normalizationReadiness": "ready"
+    },
+    {
+      "sectionId": "padjelantaleden-stage-05-staloluokta-duottar",
+      "resolvedCaveats": [
+        {
+          "topic": "BD69 split at Duottar",
+          "resolution": "Use grouped Naturkartan BD69 split from Stáloluokta to Duottar and preserve official display distance. Duottar hut centroid offset is a snap decision.",
+          "importDecision": "Preserve route line; attach Duottar hut as facility if endpoint gap remains material.",
+          "confidence": "high"
+        },
+        {
+          "topic": "Bållávrjåhkå bridge currentness",
+          "resolution": "Laponia identifies Bållávrjåhkå as one of Badjelánnda's summer bridges, normally installed late June and removed mid-September. As of 2026-04-29, current page says Badjelánnda bridges are lifted for winter 2025/2026 and no summer deployment notice was found.",
+          "importDecision": "Keep bridge as important route infrastructure, but add publication-time currentness recheck.",
+          "confidence": "high for seasonal policy; low for current summer deployment"
+        },
+        {
+          "topic": "Stáloluokta/Duottar provisions",
+          "resolution": "Model as hut-level, seasonal, variable service only; not guaranteed resupply.",
+          "importDecision": "Attach to huts with caveat after recheck; do not create separate shop POIs except Stáloluokta if a current local kiosk coordinate/source is later confirmed.",
+          "confidence": "high"
+        }
+      ],
+      "remainingCaveats": [
+        "Secondary POIs need coordinate verification."
+      ],
+      "normalizationReadiness": "ready"
+    },
+    {
+      "sectionId": "padjelantaleden-stage-06-duottar-darreluoppal",
+      "resolvedCaveats": [
+        {
+          "topic": "Official 11 km versus computed 9.75-10.0 km",
+          "resolution": "Preserve official display distance of 11 km and record computed geometry separately.",
+          "importDecision": "Do not replace official display with computed line length.",
+          "confidence": "high"
+        },
+        {
+          "topic": "BD69 split and hut offsets",
+          "resolution": "Use BD69 split for walking geometry; treat Duottar and Darreluoppal huts as nearby facilities if endpoint gaps remain.",
+          "importDecision": "Endpoint snap in normalization; no research blocker.",
+          "confidence": "high"
+        },
+        {
+          "topic": "Darreluoppal helicopter and hut sub-facilities",
+          "resolution": "Fiskflyg publishes Tarraluoppal/Darreluoppal drop-off concept but not exact landing coordinates; BLT verifies hut-level phone/toilet/services only.",
+          "importDecision": "Helicopter is access metadata; hut sub-facilities attach to hut.",
+          "confidence": "high"
+        }
+      ],
+      "remainingCaveats": [
+        "Ford/bridge infrastructure should be checked against final route geometry and current Laponia notices before publication."
+      ],
+      "normalizationReadiness": "ready"
+    },
+    {
+      "sectionId": "padjelantaleden-stage-07-darreluoppal-sammarlappa",
+      "resolvedCaveats": [
+        {
+          "topic": "BD70 split at Såmmarlappa",
+          "resolution": "Use grouped Naturkartan BD70 split/reversed as documented in the section file. Preserve official 15 km display.",
+          "importDecision": "Geometry is normalization-ready after split/reversal.",
+          "confidence": "high"
+        },
+        {
+          "topic": "Såmmarlappa endpoint coordinate differences",
+          "resolution": "Use STF published coordinates for hut facility; use route-line split for geometry unless the final normalizer chooses a verified connector.",
+          "importDecision": "Do not force route endpoint to hut centroid by default.",
+          "confidence": "high"
+        },
+        {
+          "topic": "Såmmarlappa line boat and helicopter",
+          "resolution": "Treat as access metadata; exact landing/operation coordinates are not public enough for standalone POIs.",
+          "importDecision": "No standalone boat landing or helipad import until verified.",
+          "confidence": "medium-high"
+        },
+        {
+          "topic": "Slihtajåhkå bridge currentness",
+          "resolution": "Keep as route infrastructure but recheck Laponia/Länsstyrelsen/Naturkartan near publication.",
+          "importDecision": "Currentness recheck, not a research blocker.",
+          "confidence": "medium-high"
+        }
+      ],
+      "remainingCaveats": [
+        "Fords/camp-pitches/toilets need coordinate verification before standalone import."
+      ],
+      "normalizationReadiness": "ready"
+    },
+    {
+      "sectionId": "padjelantaleden-stage-08-sammarlappa-tarrekaise",
+      "resolvedCaveats": [
+        {
+          "topic": "Official 13 km versus computed 11.55-11.61 km",
+          "resolution": "Preserve official 13 km display; store computed line length separately.",
+          "importDecision": "No silent replacement of official distance.",
+          "confidence": "high"
+        },
+        {
+          "topic": "BD70 split/reversal",
+          "resolution": "Use BD70 split/reversed section geometry documented in the section file.",
+          "importDecision": "Geometry normalization-ready after split/reversal.",
+          "confidence": "high"
+        },
+        {
+          "topic": "Tarrekaise provisions",
+          "resolution": "Current STF Tarrekaise page does not list a shop, while Såmmarlappa does list a small shop.",
+          "importDecision": "Suppress Tarrekaise provisions/shop; import or attach Såmmarlappa small shop as hut-level service.",
+          "confidence": "high"
+        },
+        {
+          "topic": "Vaimok/Tarraälvshyddan",
+          "resolution": "These are side-route/connection context rather than section-8 mainline facilities.",
+          "importDecision": "Model as connection metadata only unless a separate alternate-route task is opened.",
+          "confidence": "high"
+        }
+      ],
+      "remainingCaveats": [
+        "Hut toilets/firepits/bridges/swimming/viewpoints need coordinate/currentness verification before standalone import."
+      ],
+      "normalizationReadiness": "ready"
+    },
+    {
+      "sectionId": "padjelantaleden-stage-09-tarrekaise-njunjes",
+      "resolvedCaveats": [
+        {
+          "topic": "STF 6 km versus Naturkartan/Padjelanta/computed about 7 km",
+          "resolution": "Keep the contradiction explicit. If following STF as primary official source, display 6 km and store computed 6.94-7.01 km. If the runtime normalizer requires geometry-rounded distance, use 7 km and cite Naturkartan/Padjelanta/computed linework.",
+          "importDecision": "Normalization policy decision, no longer an unresolved research gap.",
+          "confidence": "high"
+        },
+        {
+          "topic": "BD71 start point 0 versus point 8",
+          "resolution": "Use BD71 point 0 if preserving official GPX segment exactly; use point 8 if snapping to nearest STF Tarrekaise hut coordinate. Record the chosen snap in normalization metadata.",
+          "importDecision": "Either is valid if documented; do not change distance silently.",
+          "confidence": "high"
+        },
+        {
+          "topic": "Tarrekaise/Njunjes food/provisions",
+          "resolution": "Current STF pages do not list shop service for either Tarrekaise or Njunjes.",
+          "importDecision": "Suppress provisions/shop POIs for both huts.",
+          "confidence": "high"
+        },
+        {
+          "topic": "Firepit 12050588378 and informal campsites",
+          "resolution": "OSM-only or field-report-only evidence is insufficient for standalone import.",
+          "importDecision": "Keep pending/suppressed unless a later field/official source verifies.",
+          "confidence": "medium-high"
+        },
+        {
+          "topic": "Njunjes bridge and Bobäcken/Kvikkjokk access",
+          "resolution": "These belong to section 10/access model rather than section 9 mainline.",
+          "importDecision": "Do not duplicate into section 9 facilities except as onward-access note.",
+          "confidence": "high"
+        }
+      ],
+      "remainingCaveats": [
+        "Verify standalone coordinates for toilets, emergency phones, water, swimming, and viewpoint candidates if later imported separately."
+      ],
+      "normalizationReadiness": "ready"
+    },
+    {
+      "sectionId": "padjelantaleden-stage-10-njunjes-kvikkjokk",
+      "resolvedCaveats": [
+        {
+          "topic": "Official Kvikkjokk endpoint versus Bobäcken walking endpoint",
+          "resolution": "Model section 10 as Njunjes-Bobäcken walking geometry plus Bobäcken-Kvikkjokk boat/access connector. Kvikkjokk remains the official gateway endpoint and user-facing destination.",
+          "importDecision": "Stop hiking geometry at Bobäcken; model ferry/boat separately.",
+          "confidence": "high"
+        },
+        {
+          "topic": "BD71 post-Bobäcken segment",
+          "resolution": "Treat as ambiguous Gamájåhkå/Vallevárre-side alternate until separately researched.",
+          "importDecision": "Do not import as standard section 10 route.",
+          "confidence": "high"
+        },
+        {
+          "topic": "Bobäcken snap choice",
+          "resolution": "Use OSM ferry terminal/shelter cluster and BD71 split as candidate snaps; final snap should be documented during normalization. The public evidence is sufficient to identify the cluster but not to guarantee a single navigation-grade point.",
+          "importDecision": "Import as access/shelter cluster only after snap review.",
+          "confidence": "medium-high"
+        },
+        {
+          "topic": "Bobäcken phone/toilet",
+          "resolution": "Public sources are not strong enough for standalone phone/toilet coordinate-grade import.",
+          "importDecision": "Suppress or keep pending unless verified by Naturkartan/OSM/field source in normalization.",
+          "confidence": "medium"
+        },
+        {
+          "topic": "Tarraälven boat schedule",
+          "resolution": "Route/operator concept is verified, but 2026 timetable was not found on the public Padjelanta.se page on 2026-04-29.",
+          "importDecision": "Keep as required access connector with schedule recheck; no fixed timetable in candidate import.",
+          "confidence": "high for route, low for 2026 times"
+        },
+        {
+          "topic": "Kvikkjokk gateway services",
+          "resolution": "STF Kvikkjokk gateway services are current enough for research but winter 2026 renovation and seasonal service require recheck before publication.",
+          "importDecision": "Import as gateway facility candidate; attach service details after currentness recheck.",
+          "confidence": "high"
+        }
+      ],
+      "remainingCaveats": [
+        "Recheck Båttrafik i Kvikkjokk, line 94/47, STF Kvikkjokk, fire bans, Pärlälven/Försvarsmakten closures, and current mountain notices before publication.",
+        "Verify exact standalone coordinates for public toilet, defibrillator, firepit, and campsite candidates before import."
+      ],
+      "normalizationReadiness": "ready-with-access-connector-model"
+    }
+  ],
+  "remainingGapsByType": {
+    "resolvedAsPolicy": [
+      "Official versus computed distances.",
+      "Grouped GPX split strategy.",
+      "Hut centroid versus route-line endpoint gaps.",
+      "Remote hut endpoints without public transit.",
+      "Boat/ferry legs as access connectors.",
+      "Hut sub-facilities attached to parent hut."
+    ],
+    "requiresPublicationRecheck": [
+      "Road to Ritsem booking partner times and service changes.",
+      "M/S Storlule service status and weather cancellations.",
+      "Fiskflyg schedule and stop availability.",
+      "Båttrafik i Kvikkjokk 2026 timetable.",
+      "Länstrafiken line 94/47 schedules.",
+      "BLT/STF hut opening, payment, shop/provisions, and renovation notices.",
+      "Fire bans and weather/high-water warnings.",
+      "Laponia summer bridge deployment/removal and bridge damage.",
+      "Pärlälven/Försvarsmakten restrictions near the southern approach."
+    ],
+    "sourceExhaustedOrPendingCoordinateVerification": [
+      "Standalone hut toilets, emergency phones, water points, and waste points.",
+      "Exact helicopter landing coordinates.",
+      "Line-boat landing coordinates away from well-mapped ferry terminals.",
+      "OSM-only firepits and informal campsites.",
+      "Minor rest areas, viewpoints, picnic sites, and swimming spots without durable coordinates.",
+      "Bobäcken phone/toilet and Kvikkjokk public toilet/defibrillator unless verified by a stronger source."
+    ]
+  },
+  "importReadiness": {
+    "readyForNormalizationPlanning": true,
+    "readyForRuntimeImport": false,
+    "whyNotRuntimeReady": [
+      "Runtime import requires a normalizer to choose and document distance fields, endpoint snaps, geometry splits, and access connector modeling.",
+      "Dynamic 2026 access/currentness sources need rechecking close to publication.",
+      "Several POIs must be attached/suppressed rather than imported as standalone guessed coordinates."
+    ],
+    "recommendedNextSafeStep": "Create a normalization-only plan under data/research/candidate-trails/padjelantaleden/ that maps each section to officialDisplayDistance, computedGeometryKm, geometrySource, split indices, endpoint snap policy, access connectors, and facility import actions. Do not touch runtime app data."
+  }
+}
