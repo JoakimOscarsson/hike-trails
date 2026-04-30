@@ -173,6 +173,59 @@ const importConfigs = {
       lastFetchedAt: "2026-04-30"
     }
   },
+  padjelantaleden: {
+    name: "Padjelantaleden",
+    region: "Norrbottens län",
+    country: "Sweden",
+    difficulty: "Moderate to strenuous",
+    estimatedTime: "10 stages",
+    season: "June-September",
+    routeType: "Point to point with boat access",
+    description:
+      "A remote hut-to-hut mountain trail from the Ritsem/Akka access area to Kvikkjokk through Padjelanta/Badjelánnda and the Laponia World Heritage landscape.",
+    gettingThere:
+      "Use Ritsem and Kvikkjokk as the main gateway anchors. The northern start requires M/S Storlule or private boat access across Akkajaure, and the southern finish normally requires the Bobäcken-Kvikkjokk boat transfer.",
+    utilities: [
+      "BLT and STF huts are the main service nodes; many services are seasonal and remote.",
+      "Boat, helicopter, hut, payment, food-stock, bridge, weather and gateway transit conditions must be checked before travel."
+    ],
+    waterSources: [
+      "Mountain streams and natural water are common but should be treated unless a section lists a verified potable source.",
+      "Carry enough water across exposed sections, especially where section notes warn about dry ground or long distances between huts."
+    ],
+    notes: [
+      "Imported from normalized candidate research on 2026-04-30.",
+      "Runtime distance uses the normalized section display distances and totals about 140 km; official overview sources vary between about 140 km, 150 km, 150-160 km and 160 km depending on endpoints and access legs.",
+      "The M/S Storlule, Bobäcken-Kvikkjokk, helicopter and local line-boat services are access metadata, not continuous walking geometry.",
+      "Stage 1 uses researched OSM relation geometry because the public Naturkartan GPX includes the alternate Vájsáluokta approach; stage 2 uses OSM relation geometry because Naturkartan splits the stage across access-mixed records.",
+      "Stages 3-10 use Naturkartan GPX geometry with researched split/reversal policy. Hut centroids are not force-snapped where that would invent unsourced approach linework.",
+      "Protected-area rules, fire bans, reindeer/herding restrictions, bridge status, boat timetables, hut opening conditions and weather remain publication-time checks."
+    ],
+    routeGroupNames: {
+      "padjelantaleden-mainline": "Ritsem/Akka-Kvikkjokk mainline"
+    },
+    manualRouteSectionIds: [
+      "padjelantaleden-stage-01-ritsem-akka-gisuris",
+      "padjelantaleden-stage-10-njunjes-kvikkjokk"
+    ],
+    sectionNotesById: {
+      "padjelantaleden-stage-01-ritsem-akka-gisuris": [
+        "Route geometry is the walking leg from the Akka/Änonjálmme side toward Gisuris. Ritsem access requires M/S Storlule or private boat across Akkajaure and is not walking geometry."
+      ],
+      "padjelantaleden-stage-02-gisuris-laddejahka": [
+        "Route geometry uses researched OSM relation 19111627 because the official Naturkartan linework is split across BD58 and BD57 with Kutjaure/Nordkalottleden access context."
+      ],
+      "padjelantaleden-stage-10-njunjes-kvikkjokk": [
+        "Route geometry is the Njunjes-to-Bobäcken walking leg. The usual Bobäcken-Kvikkjokk finish is a boat transfer and current operator details must be checked."
+      ]
+    },
+    sectionNoteLimit: 7,
+    source: {
+      provider: "stf-padjelanta-naturkartan-candidate-research",
+      url: "https://www.svenskaturistforeningen.se/guider-tips/leder/padjelantaleden/",
+      lastFetchedAt: "2026-04-30"
+    }
+  },
   hoglandsleden: {
     name: "Höglandsleden",
     region: "Jönköpings län / Kalmar län",
@@ -424,6 +477,7 @@ async function buildTrailSystem(trailId, config) {
 
   const sectionGeometryById = new Map((routeGeometryIndex.sections ?? []).map((section) => [section.sectionId, section]));
   const normalFacilitiesBySectionId = groupNormalFacilities(facilities.records ?? []);
+  const geometryEndpointsById = await readGeometryEndpointsById(trailId, routeSections.sections ?? [], sectionGeometryById);
   const orderedSections = [...(routeSections.sections ?? [])]
     .sort((left, right) => sectionOrderValue(left) - sectionOrderValue(right))
     .map((section) =>
@@ -432,7 +486,8 @@ async function buildTrailSystem(trailId, config) {
         section,
         sectionGeometryById.get(section.sectionId),
         normalFacilitiesBySectionId.get(section.sectionId) ?? [],
-        config
+        config,
+        geometryEndpointsById.get(section.sectionId)
       )
     );
   const runtimeRouteGroups = toRuntimeRouteGroups(routeTopology.routeGroups ?? [], config);
@@ -476,19 +531,23 @@ async function buildTrailSystem(trailId, config) {
   };
 }
 
-function toRuntimeSection(trailId, section, geometryRecord, normalFacilities, config = {}) {
+function toRuntimeSection(trailId, section, geometryRecord, normalFacilities, config = {}, geometryEndpoints) {
   const routePath = `/routes/hiking/${trailId}/sections/${section.sectionId}.geojson`;
   const timingNotes = estimatedTimeNotes(section.estimatedTime);
   const configNotes = config.sectionNotesById?.[section.sectionId] ?? [];
   const noteLimit = config.sectionNoteLimit ?? 6;
-  const caveatNotes = uniqueStrings([...configNotes, ...geometryStatusNotes(geometryRecord), ...(section.caveats ?? []), ...timingNotes]).slice(
-    0,
-    noteLimit
-  );
+  const caveatNotes = uniqueStrings([
+    ...configNotes,
+    ...geometryStatusNotes(geometryRecord),
+    ...(section.caveats ?? []).filter(isRuntimeSectionNote),
+    ...timingNotes.filter(isRuntimeSectionNote)
+  ]).slice(0, noteLimit);
+  const normalizedStart = endpointLatLon(section.endpoints, "start");
+  const normalizedEnd = endpointLatLon(section.endpoints, "end");
   const endpointCoordinates = {
-    source: "candidate-normalized-route",
-    start: endpointLatLon(section.endpoints, "start"),
-    end: endpointLatLon(section.endpoints, "end")
+    source: normalizedStart || normalizedEnd ? "candidate-normalized-route" : "candidate-normalized-route-geometry",
+    start: normalizedStart ?? geometryEndpoints?.start,
+    end: normalizedEnd ?? geometryEndpoints?.end
   };
   return {
     id: section.sectionId,
@@ -498,7 +557,7 @@ function toRuntimeSection(trailId, section, geometryRecord, normalFacilities, co
     to: section.to,
     distanceKm: section.distance?.displayDistanceKm ?? section.distance?.officialDistanceKm ?? section.sourceSummary?.computedDistanceKm,
     estimatedTime: estimatedTimeDisplay(section.estimatedTime),
-    description: `${section.from} to ${section.to}. Candidate import from normalized research; verify current notices before publication.`,
+    description: `${section.from} to ${section.to}. Check current trail, access and service notices before departure.`,
     utilities: sectionUtilities(normalFacilities),
     waterSources: sectionWaterSources(normalFacilities),
     notes: caveatNotes,
@@ -533,6 +592,18 @@ function geometryStatusNotes(geometryRecord) {
   ];
 }
 
+function isRuntimeSectionNote(value) {
+  const text = String(value ?? "").trim().toLowerCase();
+  if (!text) return false;
+  if (text.endsWith("?")) return false;
+  if (/^(verify|confirm|check|recheck|resolve|choose|decide|find or verify|treat informal|keep .* (metadata|out of|pending)|do not)/.test(text)) {
+    return false;
+  }
+  return !/(during normalization|before .*publication|before runtime|shortly before import|verify exact|verify whether|verify .* before|decide whether|decide how|resolve how|choose final|find or verify|do not import|do not .* unless|normalization policy decides|later map check|runtime import|broad app estimate|retain both source claims)/.test(
+    text
+  );
+}
+
 function groupNormalFacilities(records) {
   const grouped = new Map();
   for (const record of records) {
@@ -563,7 +634,16 @@ function toRuntimeFacility(record) {
 
 function facilityDescription(record) {
   const pieces = [record.description, ...(record.caveats ?? []).slice(0, 2)].filter(Boolean);
-  return pieces.join(" ");
+  return sanitizeRuntimeText(pieces.join(" "));
+}
+
+function sanitizeRuntimeText(value) {
+  return String(value ?? "")
+    .replace(/\b[Vv]erify\b/g, "Check")
+    .replace(/\bbefore (public\/user-facing )?publication\b/g, "before relying on it")
+    .replace(/\bpublic-facing publication\b/g, "travel")
+    .replace(/\bpublic import\b/g, "travel")
+    .trim();
 }
 
 function sectionUtilities(facilities) {
@@ -681,6 +761,31 @@ async function writePublicRouteFiles(trailId, sections) {
   );
 }
 
+async function readGeometryEndpointsById(trailId, routeSections, sectionGeometryById) {
+  const endpointsById = new Map();
+  await Promise.all(
+    routeSections.map(async (section) => {
+      const sectionId = section.sectionId;
+      try {
+        const sourcePath = routeGeometryPath(trailId, { id: sectionId }, sectionGeometryById.get(sectionId));
+        const geojson = await readJson(sourcePath);
+        const lines = [];
+        collectLineStrings({ type: "FeatureCollection", features: runtimeRouteFeatures(geojson) }, lines);
+        const firstLine = lines.find((line) => line.length > 0);
+        const lastLine = [...lines].reverse().find((line) => line.length > 0);
+        if (!firstLine || !lastLine) return;
+        endpointsById.set(sectionId, {
+          start: toLatLon(firstLine[0]),
+          end: toLatLon(lastLine.at(-1))
+        });
+      } catch {
+        // Candidate imports may be inspected before geometry has been generated.
+      }
+    })
+  );
+  return endpointsById;
+}
+
 function toRouteFeatureCollection(trailId, section, candidateGeojson) {
   const features = runtimeRouteFeatures(candidateGeojson);
   return {
@@ -734,6 +839,19 @@ function collectCoordinates(value, coordinates) {
   }
 }
 
+function collectLineStrings(value, lines) {
+  if (!value) return;
+  if (value.type === "FeatureCollection") {
+    for (const feature of value.features ?? []) collectLineStrings(feature, lines);
+  } else if (value.type === "Feature") {
+    collectLineStrings(value.geometry, lines);
+  } else if (value.type === "LineString") {
+    lines.push(value.coordinates ?? []);
+  } else if (value.type === "MultiLineString") {
+    for (const line of value.coordinates ?? []) lines.push(line);
+  }
+}
+
 function routeGeometryPath(trailId, section, geometryRecord) {
   const declaredPath = geometryRecord?.candidateGeojsonFiles?.[0];
   if (declaredPath) return path.resolve(projectRoot, declaredPath);
@@ -754,6 +872,10 @@ function runtimeRouteFeatures(candidateGeojson) {
 
 function toLonLat(latLon) {
   return [latLon[1], latLon[0]];
+}
+
+function toLatLon(lonLat) {
+  return [round(lonLat[1], 6), round(lonLat[0], 6)];
 }
 
 function endpointLatLon(endpoints, position) {
@@ -791,8 +913,10 @@ function uniqueStrings(values) {
 
 function estimatedTimeDisplay(value) {
   if (typeof value === "string" && value.trim()) return value.trim();
-  if (value && typeof value === "object" && typeof value.official === "string" && value.official.trim()) {
-    return value.official.trim();
+  if (value && typeof value === "object") {
+    for (const key of ["official", "officialStf", "stf", "naturkartan", "derived"]) {
+      if (typeof value[key] === "string" && value[key].trim()) return value[key].trim();
+    }
   }
   return "No official estimate";
 }

@@ -20,8 +20,8 @@
   "generatedCounts": {
     "routeSections": 10,
     "geometrySections": 10,
-    "geometrySectionsWithCandidateGeojson": 0,
-    "routeTopologyDecisions": 1,
+    "geometrySectionsWithCandidateGeojson": 10,
+    "routeTopologyDecisions": 4,
     "routeGroups": 1,
     "routeTopologyConnections": 2,
     "facilities": 254,
@@ -30,9 +30,12 @@
     "ruleWarnings": 214
   },
   "routeTopologySummary": {
-    "status": "candidate-display-and-topology-decisions-applied",
+    "status": "candidate-topology-and-geometry-normalization-recorded",
     "decisionIds": [
-      "padjelantaleden-headline-distance-policy"
+      "padjelantaleden-headline-distance-policy",
+      "padjelantaleden-source-and-split-policy",
+      "padjelantaleden-access-connector-policy",
+      "padjelantaleden-hut-service-policy"
     ],
     "routeGroupIds": [
       "padjelantaleden-mainline"
@@ -102,9 +105,9 @@
       "sourceId": "blocker-1",
       "status": "unresolved",
       "details": "Runtime import requires a normalizer to choose and document distance fields, endpoint snaps, geometry splits, and access connector modeling.",
-      "disposition": "runtime-schema-needed",
-      "owner": "runtime-importer",
-      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Padjelantaleden now has a documented runtime import policy: all 10 sections have candidate GeoJSON, stages 1-2 use researched OSM relations where official GPX is not section-clean, stages 3-10 use split/reversed Naturkartan GPX, access boats/helicopter/alternates stay metadata, and hut services are imported only when coordinate confidence supports normal records."
     },
     {
       "id": "blocker-2",
@@ -144,7 +147,7 @@
       "details": "Decide whether to publish an official headline distance before geometry split review, because official/tourism sources vary between about 140 km, 150 km, 150-160 km, and 160 km.",
       "disposition": "resolved-now",
       "owner": "candidate-data",
-      "action": "Distance policy now suppresses a single headline total and keeps contradictory whole-trail claims as metadata."
+      "action": "Padjelantaleden now has a documented runtime import policy: all 10 sections have candidate GeoJSON, stages 1-2 use researched OSM relations where official GPX is not section-clean, stages 3-10 use split/reversed Naturkartan GPX, access boats/helicopter/alternates stay metadata, and hut services are imported only when coordinate confidence supports normal records."
     },
     {
       "id": "open-decision-6",
@@ -152,9 +155,9 @@
       "sourceId": "decision-2",
       "status": "open-decision",
       "details": "Decide the app connector model for M/S Storlule, Kvikkjokk-Bobäcken, helicopter midpoint access and the Gamájåhkå walking alternative.",
-      "disposition": "runtime-schema-needed",
-      "owner": "runtime-importer",
-      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Padjelantaleden now has a documented runtime import policy: all 10 sections have candidate GeoJSON, stages 1-2 use researched OSM relations where official GPX is not section-clean, stages 3-10 use split/reversed Naturkartan GPX, access boats/helicopter/alternates stay metadata, and hut services are imported only when coordinate confidence supports normal records."
     },
     {
       "id": "open-decision-7",
@@ -162,9 +165,9 @@
       "sourceId": "decision-3",
       "status": "open-decision",
       "details": "Decide whether hut toilets, emergency phones, water points, waste points and seasonal shop/provisions should be standalone facilities or attached to parent hut records.",
-      "disposition": "defer-publication-time",
-      "owner": "publication-check",
-      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Padjelantaleden now has a documented runtime import policy: all 10 sections have candidate GeoJSON, stages 1-2 use researched OSM relations where official GPX is not section-clean, stages 3-10 use split/reversed Naturkartan GPX, access boats/helicopter/alternates stay metadata, and hut services are imported only when coordinate confidence supports normal records."
     },
     {
       "id": "open-decision-8",
@@ -178,11 +181,20 @@
     }
   ],
   "triageSummary": {
-    "runtime-schema-needed": 2,
-    "defer-publication-time": 2,
-    "resolved-now": 4
+    "resolved-now": 7,
+    "defer-publication-time": 1
   },
   "fixesAppliedNow": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "blocker-1",
+      "status": "unresolved",
+      "details": "Runtime import requires a normalizer to choose and document distance fields, endpoint snaps, geometry splits, and access connector modeling.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Padjelantaleden now has a documented runtime import policy: all 10 sections have candidate GeoJSON, stages 1-2 use researched OSM relations where official GPX is not section-clean, stages 3-10 use split/reversed Naturkartan GPX, access boats/helicopter/alternates stay metadata, and hut services are imported only when coordinate confidence supports normal records."
+    },
     {
       "id": "blocker-3",
       "itemType": "blocker",
@@ -211,7 +223,27 @@
       "details": "Decide whether to publish an official headline distance before geometry split review, because official/tourism sources vary between about 140 km, 150 km, 150-160 km, and 160 km.",
       "disposition": "resolved-now",
       "owner": "candidate-data",
-      "action": "Distance policy now suppresses a single headline total and keeps contradictory whole-trail claims as metadata."
+      "action": "Padjelantaleden now has a documented runtime import policy: all 10 sections have candidate GeoJSON, stages 1-2 use researched OSM relations where official GPX is not section-clean, stages 3-10 use split/reversed Naturkartan GPX, access boats/helicopter/alternates stay metadata, and hut services are imported only when coordinate confidence supports normal records."
+    },
+    {
+      "id": "open-decision-6",
+      "itemType": "open-decision",
+      "sourceId": "decision-2",
+      "status": "open-decision",
+      "details": "Decide the app connector model for M/S Storlule, Kvikkjokk-Bobäcken, helicopter midpoint access and the Gamájåhkå walking alternative.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Padjelantaleden now has a documented runtime import policy: all 10 sections have candidate GeoJSON, stages 1-2 use researched OSM relations where official GPX is not section-clean, stages 3-10 use split/reversed Naturkartan GPX, access boats/helicopter/alternates stay metadata, and hut services are imported only when coordinate confidence supports normal records."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "decision-3",
+      "status": "open-decision",
+      "details": "Decide whether hut toilets, emergency phones, water points, waste points and seasonal shop/provisions should be standalone facilities or attached to parent hut records.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Padjelantaleden now has a documented runtime import policy: all 10 sections have candidate GeoJSON, stages 1-2 use researched OSM relations where official GPX is not section-clean, stages 3-10 use split/reversed Naturkartan GPX, access boats/helicopter/alternates stay metadata, and hut services are imported only when coordinate confidence supports normal records."
     },
     {
       "id": "open-decision-8",
@@ -225,28 +257,7 @@
     }
   ],
   "fixNowBeforeRuntimeImport": [],
-  "runtimeSchemaNeeded": [
-    {
-      "id": "blocker-1",
-      "itemType": "blocker",
-      "sourceId": "blocker-1",
-      "status": "unresolved",
-      "details": "Runtime import requires a normalizer to choose and document distance fields, endpoint snaps, geometry splits, and access connector modeling.",
-      "disposition": "runtime-schema-needed",
-      "owner": "runtime-importer",
-      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
-    },
-    {
-      "id": "open-decision-6",
-      "itemType": "open-decision",
-      "sourceId": "decision-2",
-      "status": "open-decision",
-      "details": "Decide the app connector model for M/S Storlule, Kvikkjokk-Bobäcken, helicopter midpoint access and the Gamájåhkå walking alternative.",
-      "disposition": "runtime-schema-needed",
-      "owner": "runtime-importer",
-      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
-    }
-  ],
+  "runtimeSchemaNeeded": [],
   "deferredBeforeRuntimeImport": [
     {
       "id": "blocker-2",
@@ -254,16 +265,6 @@
       "sourceId": "blocker-2",
       "status": "unresolved",
       "details": "Dynamic 2026 access/currentness sources need rechecking close to publication.",
-      "disposition": "defer-publication-time",
-      "owner": "publication-check",
-      "action": "Keep as a publication-time checklist item because the underlying fact can change."
-    },
-    {
-      "id": "open-decision-7",
-      "itemType": "open-decision",
-      "sourceId": "decision-3",
-      "status": "open-decision",
-      "details": "Decide whether hut toilets, emergency phones, water points, waste points and seasonal shop/provisions should be standalone facilities or attached to parent hut records.",
       "disposition": "defer-publication-time",
       "owner": "publication-check",
       "action": "Keep as a publication-time checklist item because the underlying fact can change."
@@ -277,10 +278,7 @@
     "Before publication/runtime import, recheck all dynamic access/currentness sources listed in caveats-resolution.research.json."
   ],
   "unresolvedBeforeRuntimeImport": [
-    "runtime-schema-needed: Runtime import requires a normalizer to choose and document distance fields, endpoint snaps, geometry splits, and access connector modeling.",
-    "defer-publication-time: Dynamic 2026 access/currentness sources need rechecking close to publication.",
-    "runtime-schema-needed: Decide the app connector model for M/S Storlule, Kvikkjokk-Bobäcken, helicopter midpoint access and the Gamájåhkå walking alternative.",
-    "defer-publication-time: Decide whether hut toilets, emergency phones, water points, waste points and seasonal shop/provisions should be standalone facilities or attached to parent hut records."
+    "defer-publication-time: Dynamic 2026 access/currentness sources need rechecking close to publication."
   ],
   "nextActions": [
     "Handle fixNowBeforeRuntimeImport first unless the linked item truly needs external data.",

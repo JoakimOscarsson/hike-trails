@@ -1,0 +1,368 @@
+{
+  "schemaVersion": "padjelantaleden-candidate-geometry-build-report/v1",
+  "trailId": "padjelantaleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-geojson-written",
+  "runtimeImportApproved": false,
+  "outputDirectory": "data/research/candidate-trails/padjelantaleden/geometry/candidate",
+  "buildPolicy": {
+    "sourcePriority": "Use the researched stage-specific OSM relations for stages 1-2 where Naturkartan linework is grouped or access-mixed; use Naturkartan GPX splits/reversals for stages 3-10.",
+    "connectorPolicy": "M/S Storlule, Bobäcken-Kvikkjokk boat transfer, helicopter access and local line boats remain access metadata rather than walking geometry.",
+    "endpointPolicy": "Preserve researched route-line split points. Do not snap to hut centroids where that would invent unsourced approach geometry."
+  },
+  "sources": [
+    {
+      "id": 19111628,
+      "type": "osm-relation-full",
+      "url": "https://api.openstreetmap.org/api/0.6/relation/19111628/full",
+      "rawFile": "data/research/candidate-trails/padjelantaleden/geometry/candidate/source-downloads/osm-relation-19111628-stage-1.xml"
+    },
+    {
+      "id": 19111627,
+      "type": "osm-relation-full",
+      "url": "https://api.openstreetmap.org/api/0.6/relation/19111627/full",
+      "rawFile": "data/research/candidate-trails/padjelantaleden/geometry/candidate/source-downloads/osm-relation-19111627-stage-2.xml"
+    },
+    {
+      "id": "naturkartan-bd59-laddejahka-arasluokta",
+      "type": "naturkartan-gpx",
+      "url": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd59-mellan-ladejakkstugorna-och-arasluoktastugorna.gpx",
+      "rawFile": "data/research/candidate-trails/padjelantaleden/geometry/candidate/source-downloads/naturkartan-bd59-laddejahka-arasluokta.gpx"
+    },
+    {
+      "id": "naturkartan-bd60-arasluokta-staloluokta",
+      "type": "naturkartan-gpx",
+      "url": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd60-mellan-arasluoktastugorna-och-staloluokta.gpx",
+      "rawFile": "data/research/candidate-trails/padjelantaleden/geometry/candidate/source-downloads/naturkartan-bd60-arasluokta-staloluokta.gpx"
+    },
+    {
+      "id": "naturkartan-bd69-staloluokta-duottar-darreluoppal",
+      "type": "naturkartan-gpx",
+      "url": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd69-fran-staloluokta-via-touttarstugorna-till-tarraluoppalstugorna.gpx",
+      "rawFile": "data/research/candidate-trails/padjelantaleden/geometry/candidate/source-downloads/naturkartan-bd69-staloluokta-duottar-darreluoppal.gpx"
+    },
+    {
+      "id": "naturkartan-bd70-darreluoppal-sammarlappa-tarrekaise",
+      "type": "naturkartan-gpx",
+      "url": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd70-fran-tarraluoppalstugorna-via-sammarluoppastugan-till-tarrekaisestugorna.gpx",
+      "rawFile": "data/research/candidate-trails/padjelantaleden/geometry/candidate/source-downloads/naturkartan-bd70-darreluoppal-sammarlappa-tarrekaise.gpx"
+    },
+    {
+      "id": "naturkartan-bd71-tarrekaise-njunjes-kvikkjokk",
+      "type": "naturkartan-gpx",
+      "url": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk.gpx",
+      "rawFile": "data/research/candidate-trails/padjelantaleden/geometry/candidate/source-downloads/naturkartan-bd71-tarrekaise-njunjes-kvikkjokk.gpx"
+    }
+  ],
+  "sections": [
+    {
+      "sectionId": "padjelantaleden-stage-01-ritsem-akka-gisuris",
+      "status": "candidate-geojson-written",
+      "source": "OSM relation 19111628",
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/relation/19111628/full",
+      "outputGeojson": "data/research/candidate-trails/padjelantaleden/geometry/candidate/sections/padjelantaleden-stage-01-ritsem-akka-gisuris.geojson",
+      "officialDisplayDistanceKm": 16,
+      "computedDistanceKm": 14.916,
+      "pointCount": 569,
+      "startLatLon": [
+        67.6472487,
+        17.3699408
+      ],
+      "endLatLon": [
+        67.5593453,
+        17.1992742
+      ],
+      "notes": "OSM relation 19111628 is used because the grouped BD58 GPX includes the alternate Vájsáluokta approach and does not isolate the official walking leg cleanly."
+    },
+    {
+      "sectionId": "padjelantaleden-stage-02-gisuris-laddejahka",
+      "status": "candidate-geojson-written",
+      "source": "OSM relation 19111627",
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/relation/19111627/full",
+      "outputGeojson": "data/research/candidate-trails/padjelantaleden/geometry/candidate/sections/padjelantaleden-stage-02-gisuris-laddejahka.geojson",
+      "officialDisplayDistanceKm": 23,
+      "computedDistanceKm": 22.053,
+      "pointCount": 244,
+      "startLatLon": [
+        67.5593453,
+        17.1992742
+      ],
+      "endLatLon": [
+        67.463747,
+        16.902015
+      ],
+      "notes": "OSM relation 19111627 is used because the official Naturkartan linework is split across BD58 and BD57 with Kutjaure/Nordkalottleden access geometry."
+    },
+    {
+      "sectionId": "padjelantaleden-stage-03-laddejahka-arasluokta",
+      "status": "candidate-geojson-written",
+      "source": "Naturkartan BD59 GPX",
+      "sourceUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd59-mellan-ladejakkstugorna-och-arasluoktastugorna.gpx",
+      "outputGeojson": "data/research/candidate-trails/padjelantaleden/geometry/candidate/sections/padjelantaleden-stage-03-laddejahka-arasluokta.geojson",
+      "officialDisplayDistanceKm": 13,
+      "computedDistanceKm": 12.971,
+      "pointCount": 849,
+      "startLatLon": [
+        67.4637448,
+        16.9019026
+      ],
+      "endLatLon": [
+        67.3728981,
+        16.8043421
+      ],
+      "notes": "BD59 is stored Árasluokta-to-Låddejåhkå, so it is reversed for the STF north-to-south section order."
+    },
+    {
+      "sectionId": "padjelantaleden-stage-04-arasluokta-staloluokta",
+      "status": "candidate-geojson-written",
+      "source": "Naturkartan BD60 GPX",
+      "sourceUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd60-mellan-arasluoktastugorna-och-staloluokta.gpx",
+      "outputGeojson": "data/research/candidate-trails/padjelantaleden/geometry/candidate/sections/padjelantaleden-stage-04-arasluokta-staloluokta.geojson",
+      "officialDisplayDistanceKm": 10,
+      "computedDistanceKm": 10.157,
+      "pointCount": 703,
+      "startLatLon": [
+        67.3728981,
+        16.8043421
+      ],
+      "endLatLon": [
+        67.3189239,
+        16.6949459
+      ],
+      "notes": "BD60 is stored Stáloluokta-to-Árasluokta, so it is reversed for the STF north-to-south section order."
+    },
+    {
+      "sectionId": "padjelantaleden-stage-05-staloluokta-duottar",
+      "status": "candidate-geojson-written",
+      "source": "Naturkartan BD69 GPX",
+      "sourceUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd69-fran-staloluokta-via-touttarstugorna-till-tarraluoppalstugorna.gpx",
+      "outputGeojson": "data/research/candidate-trails/padjelantaleden/geometry/candidate/sections/padjelantaleden-stage-05-staloluokta-duottar.geojson",
+      "officialDisplayDistanceKm": 18,
+      "computedDistanceKm": 17.795,
+      "pointCount": 802,
+      "startLatLon": [
+        67.3189239,
+        16.6949459
+      ],
+      "endLatLon": [
+        67.2686526,
+        17.0362514
+      ],
+      "notes": "BD69 is split at the researched Duottar index 419 and the Stáloluokta-side endpoint, then reversed to Stáloluokta-to-Duottar."
+    },
+    {
+      "sectionId": "padjelantaleden-stage-06-duottar-darreluoppal",
+      "status": "candidate-geojson-written",
+      "source": "Naturkartan BD69 GPX",
+      "sourceUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd69-fran-staloluokta-via-touttarstugorna-till-tarraluoppalstugorna.gpx",
+      "outputGeojson": "data/research/candidate-trails/padjelantaleden/geometry/candidate/sections/padjelantaleden-stage-06-duottar-darreluoppal.geojson",
+      "officialDisplayDistanceKm": 11,
+      "computedDistanceKm": 9.753,
+      "pointCount": 420,
+      "startLatLon": [
+        67.2686526,
+        17.0362514
+      ],
+      "endLatLon": [
+        67.1928513,
+        17.1227082
+      ],
+      "notes": "BD69 points 0 through 419 are reversed to keep the shared Duottar split continuous with stage 5."
+    },
+    {
+      "sectionId": "padjelantaleden-stage-07-darreluoppal-sammarlappa",
+      "status": "candidate-geojson-written",
+      "source": "Naturkartan BD70 GPX",
+      "sourceUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd70-fran-tarraluoppalstugorna-via-sammarluoppastugan-till-tarrekaisestugorna.gpx",
+      "outputGeojson": "data/research/candidate-trails/padjelantaleden/geometry/candidate/sections/padjelantaleden-stage-07-darreluoppal-sammarlappa.geojson",
+      "officialDisplayDistanceKm": 15,
+      "computedDistanceKm": 14.928,
+      "pointCount": 869,
+      "startLatLon": [
+        67.1928513,
+        17.1227082
+      ],
+      "endLatLon": [
+        67.0683321,
+        17.159448
+      ],
+      "notes": "BD70 is split at the researched Såmmarlappa index 469 and reversed from Darreluoppal to Såmmarlappa."
+    },
+    {
+      "sectionId": "padjelantaleden-stage-08-sammarlappa-tarrekaise",
+      "status": "candidate-geojson-written",
+      "source": "Naturkartan BD70 GPX",
+      "sourceUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd70-fran-tarraluoppalstugorna-via-sammarluoppastugan-till-tarrekaisestugorna.gpx",
+      "outputGeojson": "data/research/candidate-trails/padjelantaleden/geometry/candidate/sections/padjelantaleden-stage-08-sammarlappa-tarrekaise.geojson",
+      "officialDisplayDistanceKm": 13,
+      "computedDistanceKm": 11.608,
+      "pointCount": 470,
+      "startLatLon": [
+        67.0683321,
+        17.159448
+      ],
+      "endLatLon": [
+        66.9903337,
+        17.2908516
+      ],
+      "notes": "BD70 points 0 through 469 are reversed to keep the shared Såmmarlappa split continuous with stage 7."
+    },
+    {
+      "sectionId": "padjelantaleden-stage-09-tarrekaise-njunjes",
+      "status": "candidate-geojson-written",
+      "source": "Naturkartan BD71 GPX",
+      "sourceUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk.gpx",
+      "outputGeojson": "data/research/candidate-trails/padjelantaleden/geometry/candidate/sections/padjelantaleden-stage-09-tarrekaise-njunjes.geojson",
+      "officialDisplayDistanceKm": 6,
+      "computedDistanceKm": 7.01,
+      "pointCount": 530,
+      "startLatLon": [
+        66.9903337,
+        17.2908516
+      ],
+      "endLatLon": [
+        66.9602493,
+        17.4111024
+      ],
+      "notes": "BD71 points 0 through 529 are used so the route remains continuous with the BD70 Tarrekaise endpoint; the STF display distance remains 6 km."
+    },
+    {
+      "sectionId": "padjelantaleden-stage-10-njunjes-kvikkjokk",
+      "status": "candidate-geojson-written",
+      "source": "Naturkartan BD71 GPX",
+      "sourceUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd71-mellan-tarrekaisestugorna-och-kvikkjokk.gpx",
+      "outputGeojson": "data/research/candidate-trails/padjelantaleden/geometry/candidate/sections/padjelantaleden-stage-10-njunjes-kvikkjokk.geojson",
+      "officialDisplayDistanceKm": 15,
+      "computedDistanceKm": 12.502,
+      "pointCount": 843,
+      "startLatLon": [
+        66.9602493,
+        17.4111024
+      ],
+      "endLatLon": [
+        66.9458655,
+        17.6539886
+      ],
+      "notes": "BD71 points 529 through 1371 represent the Njunjes-to-Bobäcken walking leg only; Bobäcken-Kvikkjokk remains boat/access metadata."
+    }
+  ],
+  "continuity": [
+    {
+      "fromSectionId": "padjelantaleden-stage-01-ritsem-akka-gisuris",
+      "toSectionId": "padjelantaleden-stage-02-gisuris-laddejahka",
+      "gapMeters": 0,
+      "fromEndLatLon": [
+        67.5593453,
+        17.1992742
+      ],
+      "toStartLatLon": [
+        67.5593453,
+        17.1992742
+      ]
+    },
+    {
+      "fromSectionId": "padjelantaleden-stage-02-gisuris-laddejahka",
+      "toSectionId": "padjelantaleden-stage-03-laddejahka-arasluokta",
+      "gapMeters": 4.8,
+      "fromEndLatLon": [
+        67.463747,
+        16.902015
+      ],
+      "toStartLatLon": [
+        67.4637448,
+        16.9019026
+      ]
+    },
+    {
+      "fromSectionId": "padjelantaleden-stage-03-laddejahka-arasluokta",
+      "toSectionId": "padjelantaleden-stage-04-arasluokta-staloluokta",
+      "gapMeters": 0,
+      "fromEndLatLon": [
+        67.3728981,
+        16.8043421
+      ],
+      "toStartLatLon": [
+        67.3728981,
+        16.8043421
+      ]
+    },
+    {
+      "fromSectionId": "padjelantaleden-stage-04-arasluokta-staloluokta",
+      "toSectionId": "padjelantaleden-stage-05-staloluokta-duottar",
+      "gapMeters": 0,
+      "fromEndLatLon": [
+        67.3189239,
+        16.6949459
+      ],
+      "toStartLatLon": [
+        67.3189239,
+        16.6949459
+      ]
+    },
+    {
+      "fromSectionId": "padjelantaleden-stage-05-staloluokta-duottar",
+      "toSectionId": "padjelantaleden-stage-06-duottar-darreluoppal",
+      "gapMeters": 0,
+      "fromEndLatLon": [
+        67.2686526,
+        17.0362514
+      ],
+      "toStartLatLon": [
+        67.2686526,
+        17.0362514
+      ]
+    },
+    {
+      "fromSectionId": "padjelantaleden-stage-06-duottar-darreluoppal",
+      "toSectionId": "padjelantaleden-stage-07-darreluoppal-sammarlappa",
+      "gapMeters": 0,
+      "fromEndLatLon": [
+        67.1928513,
+        17.1227082
+      ],
+      "toStartLatLon": [
+        67.1928513,
+        17.1227082
+      ]
+    },
+    {
+      "fromSectionId": "padjelantaleden-stage-07-darreluoppal-sammarlappa",
+      "toSectionId": "padjelantaleden-stage-08-sammarlappa-tarrekaise",
+      "gapMeters": 0,
+      "fromEndLatLon": [
+        67.0683321,
+        17.159448
+      ],
+      "toStartLatLon": [
+        67.0683321,
+        17.159448
+      ]
+    },
+    {
+      "fromSectionId": "padjelantaleden-stage-08-sammarlappa-tarrekaise",
+      "toSectionId": "padjelantaleden-stage-09-tarrekaise-njunjes",
+      "gapMeters": 0,
+      "fromEndLatLon": [
+        66.9903337,
+        17.2908516
+      ],
+      "toStartLatLon": [
+        66.9903337,
+        17.2908516
+      ]
+    },
+    {
+      "fromSectionId": "padjelantaleden-stage-09-tarrekaise-njunjes",
+      "toSectionId": "padjelantaleden-stage-10-njunjes-kvikkjokk",
+      "gapMeters": 0,
+      "fromEndLatLon": [
+        66.9602493,
+        17.4111024
+      ],
+      "toStartLatLon": [
+        66.9602493,
+        17.4111024
+      ]
+    }
+  ]
+}

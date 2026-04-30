@@ -577,7 +577,7 @@
     },
     {
       "trailId": "padjelantaleden",
-      "status": "candidate-display-and-topology-decisions-applied",
+      "status": "candidate-topology-and-geometry-normalization-recorded",
       "decisionsApplied": [
         {
           "id": "padjelantaleden-headline-distance-policy",
@@ -585,6 +585,27 @@
             "decision-1"
           ],
           "decision": "Do not publish a single official headline distance yet; use section-level display distances and preserve the 140/150/150-160/160 km source claims until geometry split review."
+        },
+        {
+          "id": "padjelantaleden-source-and-split-policy",
+          "fixNowItemRefs": [
+            "blocker-1"
+          ],
+          "decision": "Use researched OSM relation geometry for stages 1-2 because the Naturkartan records are grouped or access-mixed; use Naturkartan GPX splits/reversals for stages 3-10, preserving route-line endpoints instead of inventing hut-centroid connectors."
+        },
+        {
+          "id": "padjelantaleden-access-connector-policy",
+          "fixNowItemRefs": [
+            "decision-2"
+          ],
+          "decision": "Keep M/S Storlule, Bobäcken-Kvikkjokk, helicopter access, Virihaure local boats and the Gamájåhkå walking alternative as access/description metadata for the initial runtime import, not seamless walking geometry."
+        },
+        {
+          "id": "padjelantaleden-hut-service-policy",
+          "fixNowItemRefs": [
+            "decision-3"
+          ],
+          "decision": "Import normal hut/service records where coordinates are explicit; attach or suppress weak standalone hut amenities, and keep seasonal opening/payment/stock conditions in descriptions and publication-time checks."
         }
       ],
       "routeGroups": [
@@ -630,7 +651,7 @@
         }
       ],
       "remainingGeometryWork": [
-        "Complete geometry split review and connector/runtime schema work for boats, helicopter access and alternates."
+        "Run publication-time checks for volatile boats, helicopter access, hut openings, bridge status, fire bans, protected-area notices and gateway transit before exposing the route as final."
       ]
     },
     {

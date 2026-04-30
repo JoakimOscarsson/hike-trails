@@ -341,13 +341,31 @@ const topologyDecisionConfig = {
     triageResolvedAction: "Route topology now keeps the Etapp 8 cabin gap as metadata and approves candidate-only prototype work."
   },
   padjelantaleden: {
-    status: "candidate-display-and-topology-decisions-applied",
+    status: "candidate-topology-and-geometry-normalization-recorded",
     decisionsApplied: [
       {
         id: "padjelantaleden-headline-distance-policy",
         fixNowItemRefs: ["decision-1"],
         decision:
           "Do not publish a single official headline distance yet; use section-level display distances and preserve the 140/150/150-160/160 km source claims until geometry split review."
+      },
+      {
+        id: "padjelantaleden-source-and-split-policy",
+        fixNowItemRefs: ["blocker-1"],
+        decision:
+          "Use researched OSM relation geometry for stages 1-2 because the Naturkartan records are grouped or access-mixed; use Naturkartan GPX splits/reversals for stages 3-10, preserving route-line endpoints instead of inventing hut-centroid connectors."
+      },
+      {
+        id: "padjelantaleden-access-connector-policy",
+        fixNowItemRefs: ["decision-2"],
+        decision:
+          "Keep M/S Storlule, Bobäcken-Kvikkjokk, helicopter access, Virihaure local boats and the Gamájåhkå walking alternative as access/description metadata for the initial runtime import, not seamless walking geometry."
+      },
+      {
+        id: "padjelantaleden-hut-service-policy",
+        fixNowItemRefs: ["decision-3"],
+        decision:
+          "Import normal hut/service records where coordinates are explicit; attach or suppress weak standalone hut amenities, and keep seasonal opening/payment/stock conditions in descriptions and publication-time checks."
       }
     ],
     routeGroups: [{ groupId: "padjelantaleden-mainline", kind: "mainline", allSections: true, status: "candidate-topology-explicit" }],
@@ -374,9 +392,12 @@ const topologyDecisionConfig = {
         contradictionPolicy: "Suppress single headline total; show section distances and source-claim caveats."
       }
     ],
-    remainingGeometryWork: ["Complete geometry split review and connector/runtime schema work for boats, helicopter access and alternates."],
-    triageResolvedSourceIds: ["decision-1"],
-    triageResolvedAction: "Distance policy now suppresses a single headline total and keeps contradictory whole-trail claims as metadata."
+    remainingGeometryWork: [
+      "Run publication-time checks for volatile boats, helicopter access, hut openings, bridge status, fire bans, protected-area notices and gateway transit before exposing the route as final."
+    ],
+    triageResolvedSourceIds: ["blocker-1", "decision-1", "decision-2", "decision-3"],
+    triageResolvedAction:
+      "Padjelantaleden now has a documented runtime import policy: all 10 sections have candidate GeoJSON, stages 1-2 use researched OSM relations where official GPX is not section-clean, stages 3-10 use split/reversed Naturkartan GPX, access boats/helicopter/alternates stay metadata, and hut services are imported only when coordinate confidence supports normal records."
   },
   sjuharadsleden: {
     status: "candidate-topology-and-geometry-normalization-recorded",
@@ -1859,15 +1880,20 @@ function normalizeDistance(value, mapdata) {
     value.preferredOfficialKm,
     value.normalizedApproxWalkingKm,
     value.officialDistanceKm,
-    value.displayDistanceKm
+    value.displayDistanceKm,
+    distanceExpressionTotal(value.officialDisplay),
+    distanceExpressionTotal(value.officialText),
+    value.officialDisplay,
+    value.officialText
   ]);
   const computed = firstNumber([
-    value.computedGeometryKm,
     value.computedGeometryDistanceKm,
     value.computedNaturkartanGpx,
     value.osmComputed,
     value.naturkartan,
-    value.computed
+    value.computed,
+    selectedComputedGeometryValues(value.computedGeometryKm),
+    value.computedGeometryKm
   ]);
   result.officialDistanceKm = official ?? result.officialDistanceKm;
   result.computedGeometryDistanceKm = computed ?? result.computedGeometryDistanceKm;
@@ -1894,6 +1920,20 @@ function firstNumber(values) {
     }
   }
   return null;
+}
+
+function distanceExpressionTotal(value) {
+  if (typeof value !== "string" || !value.includes("+")) return null;
+  const numbers = [...value.matchAll(/\d+(?:[.,]\d+)?/g)].map((match) => Number(match[0].replace(",", ".")));
+  if (numbers.length < 2 || numbers.some((number) => !Number.isFinite(number))) return null;
+  return numbers.reduce((sum, number) => sum + number, 0);
+}
+
+function selectedComputedGeometryValues(value) {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return [];
+  const entries = Object.entries(value);
+  const preferred = entries.filter(([key]) => !/full|combined|post/i.test(key));
+  return (preferred.length ? preferred : entries).map(([, entryValue]) => entryValue);
 }
 
 function normalizeEndpoints(endpointCoordinates) {
@@ -1925,6 +1965,8 @@ function extractSourceDirection(data) {
   return (
     data.routeGeometry?.recommendedGeometry?.directionRelativeToOfficialOrder ??
     data.routeGeometry?.recommendedGeometry?.sourceDirection ??
+    data.routeGeometry?.preferredGeometry?.directionForImport ??
+    data.routeGeometry?.preferredGeometry?.storedDirection ??
     data.mapdata?.directionRelativeToOfficialOrder ??
     null
   );
@@ -1940,6 +1982,7 @@ function inferRouteGroupHint(trailId, data, handoff) {
 function extractRouteSourceSummary(data) {
   const routeGeometry = data.routeGeometry ?? {};
   const recommended = routeGeometry.recommendedGeometry ?? {};
+  const preferred = routeGeometry.preferredGeometry ?? {};
   const primaryGeometry = routeGeometry.primaryGeometry ?? {};
   const primaryCandidate = routeGeometry.primaryCandidate ?? {};
   const primary = routeGeometry.primary ?? {};
@@ -1953,6 +1996,7 @@ function extractRouteSourceSummary(data) {
   return prune({
     source:
       recommended.source ??
+      preferred.source ??
       routeGeometry.recommendedSource ??
       primaryGeometry.provider ??
       primaryGeometry.source ??
@@ -1967,6 +2011,9 @@ function extractRouteSourceSummary(data) {
     sourceUrl:
       recommended.sourceUrl ??
       routeGeometry.gpxUrl ??
+      preferred.downloadUrl ??
+      preferred.url ??
+      preferred.pageUrl ??
       primaryGeometry.url ??
       primaryCandidate.url ??
       primary.url ??
@@ -1978,6 +2025,7 @@ function extractRouteSourceSummary(data) {
       null,
     gpxUrl:
       routeGeometry.gpxUrl ??
+      preferred.downloadUrl ??
       (primaryGeometry.type?.toLowerCase?.().includes("gpx") ? primaryGeometry.url : null) ??
       (primary.sourceFormat?.toLowerCase?.() === "gpx" ? primary.url : null) ??
       (officialGeometry.type?.toLowerCase?.() === "gpx" ? officialGeometry.url : null) ??
@@ -1987,6 +2035,7 @@ function extractRouteSourceSummary(data) {
       recommended.classification ??
       routeGeometry.geometryQuality ??
       routeGeometry.navigationGrade ??
+      preferred.geometryGrade ??
       primary.geometryGrade ??
       primaryGeometry.geometryQuality ??
       primaryGeometry.grade ??
@@ -1997,6 +2046,7 @@ function extractRouteSourceSummary(data) {
       null,
     confidence:
       recommended.confidence ??
+      preferred.confidence ??
       primaryGeometry.confidence ??
       primaryCandidate.confidence ??
       primary.confidence ??
@@ -2004,9 +2054,16 @@ function extractRouteSourceSummary(data) {
       officialGeometry.confidence ??
       null,
     canDraw: mapdata.canDraw ?? null,
-    pointCount: mapdata.pointCount ?? primary.pointCount ?? officialGeometry.trackPoints ?? null,
+    pointCount: mapdata.pointCount ?? preferred.computedStats?.pointCount ?? preferred.computedStats?.fullPointCount ?? primary.pointCount ?? officialGeometry.trackPoints ?? null,
     computedDistanceKm:
       mapdata.computedDistanceKm ??
+      preferred.computedStats?.computedDistanceKm ??
+      preferred.computedStats?.stage5SegmentDistanceKmUsingIndex419 ??
+      preferred.computedStats?.stage6SegmentDistanceKmUsingIndex419 ??
+      preferred.computedStats?.stage7SegmentDistanceKmUsingIndex469 ??
+      preferred.computedStats?.stage8SegmentDistanceKmUsingIndex469 ??
+      preferred.computedStats?.stage9SegmentDistanceKmUsingIndices0To529 ??
+      preferred.computedStats?.stage10WalkingSegmentDistanceKmUsingIndices529To1371 ??
       primaryGeometry.computedDistanceKm ??
       primary.computedDistanceKm?.normalized ??
       primary.computedDistanceKm ??

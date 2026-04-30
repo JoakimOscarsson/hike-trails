@@ -1,6 +1,6 @@
 # Padjelantaleden Research
 
-Status: research-only candidate with all 10 section packets complete, caveats resolved into normalization policy, and initial `normalized-candidate/` artifacts generated. Do not auto-import.
+Status: imported to runtime source data on 2026-04-30, with all 10 section packets complete, caveats resolved into normalization policy, and candidate route geometry generated.
 
 Trail ID: `padjelantaleden`
 
@@ -15,18 +15,28 @@ Aliases and source spellings:
 
 ## Scope
 
-This folder prepares Padjelantaleden for later import without touching runtime data. It should remain isolated under:
+This folder is the provenance and rebuild workspace for the Padjelantaleden runtime import. The imported app data now lives under:
 
-`data/research/candidate-trails/padjelantaleden/`
+- `data/source/hiking/padjelantaleden/`
+- `public/routes/hiking/padjelantaleden/`
 
-Do not integrate this trail into `data/source/hiking/**`, `public/data/**`, `public/routes/**`, or any generated app output until a later explicit import task.
+Research artifacts remain isolated under `data/research/candidate-trails/padjelantaleden/` and should be rebuilt before re-importing runtime shards.
 
 Current handoff files:
 
 - `normalization-handoff.research.json`: current per-trail normalization handoff.
 - `normalized-candidate/`: generated route, geometry, facility, rule-warning, and import-report artifacts.
+- `geometry/candidate/`: generated candidate route GeoJSON plus source downloads and build report.
 - `caveats-resolution.research.json`: caveat resolution across all 10 sections.
 - `research-progress.json`: current section completion ledger.
+
+Runtime import summary:
+
+- Runtime display distance: 140 km from the normalized section distances.
+- Candidate walking geometry total: 133.693 km.
+- Route files: 10/10 section GeoJSON files.
+- Manual route status: stage 1 and stage 10, because M/S Storlule and Bobäcken-Kvikkjokk boat/access legs are access metadata rather than walking geometry.
+- Validation: `npm run data:candidate-normalization:check`, `npm run data:candidate:import -- padjelantaleden`, `npm run data:build`, `npm run data:validate`, and `npm run data:check` passed on 2026-04-30.
 
 ## Phase 1 Overview
 
@@ -55,11 +65,11 @@ Headline distance is inconsistent across official and tourism sources:
 - Padjelanta.se: a little over 14 Swedish mil and at least 10 days.
 - The summed STF stage distances above are about 140 km when the marked walking and named boat components are counted literally.
 
-Import policy: use per-section distances from the official stage inventory, retain the 140/150/160 km contradiction in source caveats, and avoid deriving a single authoritative headline length until route geometry is split and reviewed.
+Import policy: use per-section distances from the official stage inventory, retain the 140/150/160 km contradiction in source caveats, and avoid presenting a single source as the authoritative whole-trail distance. The app runtime distance uses the normalized section sum.
 
 ## Access And Connections
 
-Key access/connection records to model later:
+Key access/connection records modeled as access metadata rather than walking geometry:
 
 - M/S Storlule boat across Áhkkájávrre/Akkajaure between Ritsem/Rijtjem and Änonjálmme/Áhkká/Vájsáluokta. Weather can cancel sailings.
 - Boat from Kvikkjokk to/from Bobäcken over Tarraälven/Tarraätno for the southern access.
@@ -107,6 +117,14 @@ OSM has incomplete but useful route relations for several Padjelantaleden groupe
 
 OSM/Naturkartan section numbering does not match STF's 10-day stage numbering. Treat OSM as a geometry cross-check, not as the section authority.
 
+Implemented candidate geometry policy:
+
+- Stages 1-2 use researched OSM relation geometry because the Naturkartan GPX records are grouped or mixed with access/alternate route linework.
+- Stages 3-10 use Naturkartan GPX with the documented split/reversal policy from the section research.
+- The stage chain is continuous after splitting, except for a 4.8 m source offset between stage 2 and stage 3.
+- M/S Storlule, Bobäcken-Kvikkjokk, helicopter access, local Virihaure boats, and the Gamájåhkå walking alternative are not drawn as mainline walking geometry.
+- Rebuild with `npm run data:candidate-geometry:padjelantaleden`, then `npm run data:candidate-normalization:build`.
+
 ## Sources Checked
 
 - STF Padjelantaleden overview: https://www.svenskaturistforeningen.se/guider-tips/leder/padjelantaleden/
@@ -133,12 +151,18 @@ OSM/Naturkartan section numbering does not match STF's 10-day stage numbering. T
 - Road to Ritsem 2025 high-season timetable PDF: https://roadtoritsem.com/wp-content/uploads/2025/05/2025-Road-to-Ritsem-hogsasong.pdf
 - Länstrafiken/Fjällinje 94 2025 PDF: https://www.iphone.fskab.se/ltn/Fjallinje91o94/250616_250817/Fjallinje91o94_94_250616_250817.pdf
 
-Accessed date for this overview pass: 2026-04-29.
+Accessed date for the latest import-prep check: 2026-04-30.
+
+Latest live-source notes:
+
+- STF still presents the trail as 160 km, 9-10 stages, and stage 10 as 12 + 3 km with boat transport over Tarraätno.
+- Padjelanta.se now exposes 2026 gateway transport links and describes the trail as a little over 14 mil / at least 10 days.
+- The Padjelanta.se Tarraälven page lists a 2026 Kvikkjokk-Bobäcken timetable for 18/6-13/9.
+- BLT English pricing/opening text still shows 2025 pricing/opening details, so hut prices/opening conditions remain publication-time checks.
 
 ## Remaining Overview Risks
 
-- 2026 summer public-transport and boat timetables were not consistently published or discoverable during this pass; several official sources still expose 2025 timetables.
-- Naturkartan GPX linework is planning-grade until split against official stage endpoints and checked with OSM and hut/access coordinates.
+- Dynamic public-transport, boat, helicopter, hut pricing/opening and bridge/current-condition sources still need a publication-time refresh.
 - Stage 1's official naming mixes `Ritsem`, `Änonjálmme`, and `STF Akka`; the import should separate boat access from walking geometry.
-- Stage 2 is the weakest geometry mapping in the overview because Naturkartan splits it across a northern grouped route and a Kutjaure connector route.
+- Stage 2 remains the weakest source-policy compromise because the runtime geometry uses OSM relation 19111627 where Naturkartan splits the official stage across a northern grouped route and a Kutjaure connector route.
 - Several hut names have Swedish, Lule Sámi, and variant spellings: Gisuris/Kisuris, Låddejåhkå/Låddejåkkå, Duottar/Tuottar, Darreluoppal/Tarraluoppal, Stáloluokta/Staloluokta.
