@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-30T00:20:00Z",
-  "currentPhase": "Phase 2 section research complete through hallandsleden-gyltige-simlangsdalen; next section is hallandsleden-simlangsdalen-halmstad",
+  "lastUpdated": "2026-04-30T01:05:00Z",
+  "currentPhase": "Phase 2 section research complete through hallandsleden-simlangsdalen-halmstad; next section is hallandsleden-simlangsdalen-mastocka",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -22,7 +22,8 @@
     "hallandsleden-frodeparken-oskarstrom",
     "hallandsleden-oskarstrom-gyltige",
     "hallandsleden-kvarnforsen-gyltige",
-    "hallandsleden-gyltige-simlangsdalen"
+    "hallandsleden-gyltige-simlangsdalen",
+    "hallandsleden-simlangsdalen-halmstad"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -566,19 +567,41 @@
       "sectionNumber": "S5",
       "name": "Simlångsdalen - Halmstad",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-gpx-discovered-map-api-line-empty-or-sparse-needs-parsing",
-      "startEndCoordinateStatus": "not-yet-validated-gpx-endpoints-needed",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-from-official-source-lane",
+      "routeGeometryStatus": "complete-from-route-geometry-lane",
+      "startEndCoordinateStatus": "complete-from-route-geometry-lane",
+      "commuteAccessStatus": "complete-from-transit-access-lane",
+      "facilityResearchStatus": "complete-from-facilities-lane",
+      "rulesSafetyStatus": "complete-from-rules-safety-currentness-lane",
+      "synthesisStatus": "complete-section-json-written",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
         "Run six independent section research lanes and synthesize findings.",
         "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
         "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision.",
+        "S5 batch started using six research lanes.",
+        "Pay special attention to Simlångsdalen branch handoff, Halmstad endpoint/access/service-density filtering, long 28 km geometry, official GPX/API geo_json versus empty overview line.geometry, urban/rural transition, Fylleån/Nissan/road crossings, Halmstad services and protected-area/currentness context.",
+        "Main-thread baseline: official GPX Sodra_Simlangsdalen_Halmstad has 257 points, computed length 27.927 km, metadata timestamp 2025-06-23T09:26:50+02:00, HTTP last-modified 2025-06-27, desc Total: 28 km.",
+        "Main-thread baseline: official GPX starts Simlångsdalen 56.720708,13.130518 and ends Halmstad Resecentrum area 56.669363,12.863402; start is 6.46 m from S4 end.",
+        "Main-thread baseline: Hallandsleden segment map API for simlangsdalen-halmstad returned no usable geo_json or line.geometry despite official GPX availability; use GPX pending geometry lane.",
+        "Main-thread baseline: official page describes mostly old Bolmenbanan embankment through Simlångsdalen, Marbäck and Skedala, then Brogård to Fylleån/Fylleleden, Hagön, Östra Stranden beach, industrial area, Nissan and Halmstad Resecentrum.",
+        "Main-thread baseline: Naturkartan site 22048 Halmstad C - Simlångsdalen has current endpoint-aligned shape, 242 vertices, computed 27.831 km, length 27.8 km, updated 2026-04-03; title/direction is reverse of official S5.",
+        "Main-thread baseline: official places API returned 17 records dominated by Halmstad endpoint and urban/service records plus Simlångsdalen, Bolmenbanan rest place, off-route Danska Fall leakage and several toilet records.",
+        "Route-geometry lane confirmed official GPX and Hallandsleden API geo_json match exactly at 257 points/27.927 km from Simlångsdalen 56.720708,13.130518 to Halmstad 56.669363,12.863402; use GPX/API geo_json for import.",
+        "Route-geometry lane found Hallandsleden API line.geometry null/empty, Naturkartan site 22048 endpoint-identical but simplified at 27.831 km and reverse title, and OSM relation 12884365 reverse-direction/gap-heavy/shorter; suppress OSM as direct import geometry.",
+        "Transit-access lane confirmed Simlångsdalen start has strong bus access at Hallandstrafiken Simlångsdalen stop about 12 m from start and Halmstad end has strong train/bus access at Halmstad C/Resecentrum within about 13-75 m.",
+        "Transit-access lane recorded S5 ferry exclusion: Halmstad ferry terminal is about 2.1 km from endpoint, not practical, no foot passengers, and Grenaa-Halmstad route discontinued 2026-04-30.",
+        "Facilities lane marked core import candidates: Simlångsdalen bus/village/Tempo/Dalens/Tallhöjden, Rastplats utmed Bolmenbanan, Östra Stranden/Gröningen seasonal toilet/beach, Halmstad Resecentrum, bus-station toilet, Grand Hotel, Kaptenshamn and Halmstad Tourist Information.",
+        "Facilities lane marked pending/access metadata candidates: Simlångsdalen map/bike parking/Qstar/Mountain Biking service, SnokarBo/Björkelund/Fåglasjö/Brogård side clusters, Snöstorps kyrka side highlight and Södra vägen/Halmstad slott toilet.",
+        "Facilities lane suppressions: Danska Fall rest/toilet/waterfall leakage, Hagön camping/reserve as non-core facility records, Söderpiren toilet and dense Halmstad urban amenity noise.",
+        "Rules-safety lane found no active S5 closure/reroute and recorded Fylleån Natura 2000 spans, Torvsjön water-protection span, Fylleån/Storsjön landscape-protection spans, Hagön reserve rules, nearby Trönninge ängar/Fylleåns dalgång constraints, Halmstad public-place/dog/camping rules, road/rail/river crossing cautions and future-work watches.",
+        "Official-source and field-report lanes returned empty completions on first try; both were re-queued for structured report resend at 2026-04-30T00:49:00Z.",
+        "Official-source lane confirmed S5 canonical identity/order/distance/difficulty, official page description, GPX/API geometry, endpoint topology, official places/facilities, no official campsite/water, Halmstad/Simlångsdalen access, and stale reverse/old-distance source risks.",
+        "Field-report lane found no active S5 closure/reroute; resolved past issues include 2024 Banvallsleden bridge replacement and March 2026 Resecentrum lift closure.",
+        "Field-report lane supports terrain notes: paved/flat Bolmenbanan embankment first, then Fylleleden gravel/path/pasture/gates and steeper/hillier portions, plus urban/industrial/Nissan endpoint approach.",
+        "Field-report lane flags old 18 km/20.11 km Halmstad-Simlångsdalen route-app/guide distances and old Gyltige-Assman/Assman-Mästocka stage names as stale; do not import.",
+        "S5 synthesis complete: section JSON written and marked research-ready-with-caveats. Remaining import caveats are dense Halmstad service filtering, no confirmed S5 public water/shelter/camping/fireplace, seasonal Östra Stranden toilets, dynamic Hallandstrafiken/fire/rules/currentness checks, and stale old 18-20 km source suppression."
       ]
     },
     "hallandsleden-simlangsdalen-mastocka": {
@@ -4142,6 +4165,284 @@
       "synthesizedAt": "2026-04-30T00:20:00Z",
       "synthesisOutput": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-gyltige-simlangsdalen.research.json",
       "synthesisSummary": "S4 synthesized as research-ready-with-caveats. Official GPX/API geo_json is canonical; Hallandsleden API line.geometry is stale and must be suppressed. Key caveats: Gyltige water/toilet conflict, Hule toilet distance variation and reserve rules, weak Gyltige transit, strong Simlångsdalen bus access, highway 25 crossing warning, Fylleån Natura 2000 crossing, Simlångsdalen-Hule water-protection span, stale Gyltige-Assman slug/source risks and branch-node snapping at Gyltige/Simlångsdalen."
+    },
+    {
+      "batchId": "hallandsleden-simlangsdalen-halmstad-initial-6-lane-2026-04-30",
+      "sectionId": "hallandsleden-simlangsdalen-halmstad",
+      "startedAt": "2026-04-30T00:23:00Z",
+      "status": "complete-section-synthesized",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "nickname": "Carson"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "nickname": "Darwin"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "nickname": "Beauvoir the 2nd"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "nickname": "Poincare the 2nd"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "nickname": "Rawls the 2nd"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "nickname": "Kuhn the 2nd"
+        }
+      ],
+      "requestedOutputs": [
+        "official facts",
+        "geometry verification",
+        "facilities",
+        "transit/access",
+        "field reports",
+        "rules/safety/currentness"
+      ],
+      "notes": [
+        "Research only; agents must not edit files. Main thread owns final JSON/progress writes.",
+        "Focus on Simlångsdalen branch handoff, Halmstad endpoint/access/service-density filtering, long-stage geometry, official GPX/API geometry versus empty overview line.geometry, urban/rural transition, Fylleån/Nissan/road crossings, Halmstad services and protected/currentness context."
+      ],
+      "receivedReports": [
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "receivedAt": "2026-04-30T00:37:00Z",
+          "summary": "S5 geometry lane confirmed official GPX and Hallandsleden API geo_json exactly match: 257 points, 27.927 km computed, start 56.720708,13.130518 and end 56.669363,12.863402. Hallandsleden API line.geometry is null/empty. Naturkartan site 22048 is endpoint-identical but simplified at 27.831 km and has reverse visible title Halmstad C - Simlångsdalen. OSM relation 12884365 confirms corridor but is reverse-direction, gap-heavy and shorter by computed member length; use as validation only.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/simlangsdalen-halmstad",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Simlangsdalen_Halmstad.gpx",
+            "https://www.naturkartan.se/sv/hallands-lan/halmstad-simlangsdalen-hallandsleden",
+            "https://api.naturkartan.se/v3.2/sites/22048",
+            "https://www.naturkartan.se/sv/hallands-lan/halmstad-simlangsdalen-hallandsleden.gpx",
+            "https://www.openstreetmap.org/relation/12884365",
+            "https://www.openstreetmap.org/relation/16241773",
+            "https://overpass-api.de/api/interpreter"
+          ],
+          "geometryFindings": [
+            "Official GPX metadata name Sodra_Simlangsdalen_Halmstad, creator FME(R) 2024.2.1.0, timestamp 2025-06-23T09:26:50+02:00, desc Total: 28 km, elevation range 0.5-85.2 m.",
+            "Official GPX bounds min 56.632240,12.858455 and max 56.720713,13.130518.",
+            "S4 end to S5 start gap 6.5 m; S5 start to S6 start gap 1.9 m; S5 Halmstad endpoint is terminal for this branch.",
+            "OSM Fylleåleden relation 16241773 overlaps only the Brogård/Fylleån part and is local corroboration only.",
+            "Localized crossing/currentness points include road 25 near Simlångsdalen, road 25/Växjövägen near Skedala/Marbäck, Fylleån near Brogård, E6/E20, road 15/Laholmsvägen and Nissan near Halmstad."
+          ],
+          "importImpacts": [
+            "Use official GPX or Hallandsleden API geo_json as canonical navigation/planning-grade geometry.",
+            "Suppress Hallandsleden API line.geometry because it is empty.",
+            "Use Naturkartan only as corroborating simplified linework and be explicit that its title direction is reverse.",
+            "Use OSM relation 12884365 only for endpoint/corridor validation; do not import directly."
+          ]
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "receivedAt": "2026-04-30T00:37:00Z",
+          "summary": "S5 transit-access lane confirmed both endpoints have strong public transport. Simlångsdalen start is effectively at the bus-stop area with Hallandstrafiken Simlångsdalen stop about 12 m away and line 318 as the best current service to verify. Halmstad end is at Halmstad Resecentrum/Halmstad C with bus stop Bredgatan about 13 m away and rail/bus hub access within about 53-284 m.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/simlangsdalen-halmstad",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Simlangsdalen_Halmstad.gpx",
+            "https://www.openstreetmap.org/node/1797668994",
+            "https://www.openstreetmap.org/node/12534187374",
+            "https://www.openstreetmap.org/node/8476150857",
+            "https://www.hallandstrafiken.se/download/18.8d6fd9e198bb80313a2dc8f/1755694149634/Halmstad_rc_A3_2025_18_aug.pdf",
+            "https://www.hallandstrafiken.se/",
+            "https://www.naturkartan.se/en/hallands-lan/halmstad-simlangsdalen-hallandsleden",
+            "https://www.stenalinetravel.com/routes/grenaa-halmstad"
+          ],
+          "endpointFindings": [
+            "Simlångsdalen bus stop 56.720754,13.130341 is about 12 m from S5 start, high confidence, Hallandstrafiken line 318; verify live departures.",
+            "Simlångsdalen parking candidate 56.720964,13.129910 is about 47 m from start, medium confidence, signage/use needs verification.",
+            "Ljungblomman stop 56.719705,13.125000 is about 355 m from start and is named by Naturkartan as a usable corridor stop.",
+            "Halmstad Bredgatan bus stop 56.669296,12.863586 is about 13 m from endpoint, medium-high confidence.",
+            "Halmstad C rail station 56.669297,12.864254 is about 53 m from endpoint and is the best broader public-transport hub.",
+            "Halmstad Resecentrum bus platforms are about 129-284 m from endpoint and supported by Hallandstrafiken station map.",
+            "Halmstad C parking candidates are within about 84-142 m but parking rules/fees should be verified."
+          ],
+          "caveats": [
+            "Line 318 is a rural service with date-dependent frequency/headways; use Hallandstrafiken planner for exact departures.",
+            "Naturkartan also names bus 145 from Halmstad Resecentrum to Simlångsdalen, but treat as secondary until current service is verified.",
+            "Halmstad ferry terminal is about 2.1 km from the endpoint, does not take foot passengers for this route, and the Grenaa-Halmstad route is discontinued as of 2026-04-30; exclude as S5 access."
+          ],
+          "importImpacts": [
+            "Model Simlångsdalen start with high-confidence bus access and nearby parking caveats.",
+            "Model Halmstad end with Halmstad C/Resecentrum rail/bus access and avoid over-expanding to all city services.",
+            "Record ferry exclusion to prevent false access metadata."
+          ]
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "receivedAt": "2026-04-30T00:45:00Z",
+          "summary": "S5 facilities lane identified core import candidates at Simlångsdalen, along the Bolmenbanan/Fylleån/coastal route, and at Halmstad Resecentrum, plus side/pending candidates and suppressions. It found no official mid-route campsite, no official S5 drinking-water record and no official Hallandsleden shelter record; treat water as service-based at Simlångsdalen/Halmstad unless separately verified.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/simlangsdalen-halmstad",
+            "https://www.hallandsleden.se/plats/hallplats-simlangsdalen",
+            "https://www.hallandsleden.se/plats/simlangsdalenthe-village-simlangsdalen",
+            "https://www.hallandsleden.se/plats/tempo-simlangsdalen",
+            "https://www.hallandsleden.se/plats/tallhojden-hotell-restaurang",
+            "https://www.hallandsleden.se/plats/rastplats-utmed-bolmenbanan",
+            "https://www.hallandsleden.se/plats/halmstad-resecentrum",
+            "https://www.hallandsleden.se/plats/toalett-busstationen-halmstad",
+            "https://www.halmstad.se/upplevaochgora/offentligatoaletter.n3810.html",
+            "https://www.naturkartan.se/en/hallands-lan/halmstad-simlangsdalen-hallandsleden",
+            "https://halmstad.naturskyddsforeningen.se/bjorkelund/",
+            "https://www.openstreetmap.org"
+          ],
+          "importCandidates": [
+            "Hållplats Simlångsdalen 56.72069887,13.13051214: public_transport/access, import.",
+            "Simlångsdalen village/tourist info 56.71928873,13.12090516, Tempo Simlångsdalen 56.71914154,13.12317967, Dalens Pizzeria 56.7203105,13.1282354 and Tallhöjden 56.71967000,13.12042000: start services, import with service-density judgment.",
+            "Rastplats utmed Bolmenbanan 56.70744205,13.05171006: picnic/rest area 4 m from route around km 5.81, import.",
+            "Östra Stranden/Gröningen toilet and beach access 56.65084029,12.87397027: seasonal coastal toilet/beach access, import with seasonal metadata.",
+            "Halmstad Resecentrum 56.66924066,12.86397816, bus-station toilet 56.67041139,12.86577793, Grand Hotel 56.66986893,12.86370442, Kaptenshamn 56.66815070,12.86060470 and Halmstad Tourist Information 56.67351793,12.86284742: endpoint access/services, import curated subset."
+          ],
+          "pendingOrSuppress": [
+            "Pending/access metadata: Simlångsdalen map board/bicycle parking, Qstar Simlångsdalen, Mountain Biking in Halmstad, SnokarBo shelter/firepit, Björkelund toilet/parking, Fåglasjö/Skedala side cluster, Brogård/Fylleån side facilities, Snöstorps kyrka side highlight and Toalett Södra vägen/Halmstad slott.",
+            "Suppress/core exclude: official Danska Fall rest/toilet/waterfall leakage about 1.3-1.5 km off S5, Hagön camping/reserve as non-core facility records, Söderpiren toilet and dense Halmstad urban restaurants/shops/parking."
+          ],
+          "importImpacts": [
+            "Do not bulk-import dense Halmstad urban amenities; curate endpoint access, toilet, lodging and tourist information.",
+            "Do not import OSM side firepits/waste/toilets as official S5 core facilities without side-facility policy.",
+            "Import Östra Stranden toilets with seasonal caveat."
+          ]
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "receivedAt": "2026-04-30T00:45:00Z",
+          "summary": "S5 rules/safety lane found no active S5 official closure/reroute. Import-relevant constraints include Fylleån Natura 2000 spans, Torvsjön water-protection area, Fylleån/Storsjön landscape-protection spans, Hagön reserve rules, Halmstad public-place/dog/camping rules, dynamic fire-risk/fire-ban policy, road/rail/water crossing cautions and future-watch projects at road 25, Östra Stranden, Resecentrum and Söderbron.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/simlangsdalen-halmstad",
+            "https://hallandsleden.se/report/simlangsdalen-halmstad",
+            "https://geodata.naturvardsverket.se/n2000/wfs",
+            "https://geodata.naturvardsverket.se/naturvardsregistret/wfs",
+            "https://www.halmstad.se/byggaboochmiljo/vattenochavlopp/vattenskyddsomraden.n3787.html",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/hagon.html",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/tronninge-angar.html",
+            "https://www.halmstad.se/kommunochpolitik/kommunfakta/lokalaforeskrifter.n1402.html",
+            "https://hallandsleden.se/item/kolla-brandrisken-4/h1orikco24kzjjuuyczmerpw6s8fe3it",
+            "https://www.halmstad.se/omsorgochstod/tryggochsaker/krisochberedskap/brandriskprognos.n1495.html",
+            "https://www.halmstad.se/omsorgochstod/tryggochsaker/krisochberedskap/eldningsforbud.n2027.html",
+            "https://www.hallandsleden.se/item/vandra-under-jaktsasongen/fxm1j3j5ltmdkd65aqrztndfqhr3txnq",
+            "https://geodpags.skogsstyrelsen.se/arcgis/rest/services/Geodataportal/GeodataportalVisaSkogsbruk/MapServer/5"
+          ],
+          "importImpacts": [
+            "Do not import active closure/reroute.",
+            "Import Fylleån Natura 2000 spans near km 0.86-1.34 and 16.56-16.62 and Fylleån water/bridge/flood/currentness cautions.",
+            "Import Torvsjön water-protection span near km 7.17-7.43 and Fylleån/Storsjön landscape-protection spans as works/planning constraints.",
+            "Import Hagön reserve rules around km 21.64-22.94: no loose dogs, no camping/caravan, no fires, no motor vehicles except designated roads/parking and no vegetation/wildlife damage.",
+            "Treat Trönninge ängar and Fylleåns dalgång rules as nearby/detour constraints, not direct S5 route restrictions unless geometry changes.",
+            "Import dynamic fire-risk, dog leash/seasonal beach dog restrictions, camping restrictions, seasonal hunting and road/rail/water crossing cautions.",
+            "Track road 25, Östra Stranden, Resecentrum and Söderbron as future-watch items only."
+          ]
+        },
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "receivedAt": "2026-04-30T00:55:00Z",
+          "summary": "S5 official-source lane confirmed canonical identity Simlångsdalen - Halmstad, Södra delleden local order 5, official order 21, 28 km, blue/medium difficulty and no official time. It confirmed official page description, GPX/API geometry, Simlångsdalen branch topology, Halmstad Resecentrum endpoint, official place inventory, no S5 official campsite/shelter, no S5 official drinking-water POI, and official currentness/fire-risk map-source caveats.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/simlangsdalen-halmstad",
+            "https://www.hallandsleden.se/en/etapp/simlangsdalen-halmstad",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Simlangsdalen_Halmstad.gpx",
+            "https://www.hallandsleden.se/plats/halmstad-resecentrum",
+            "https://www.hallandsleden.se/plats/hallplats-simlangsdalen",
+            "https://www.naturkartan.se/en/hallands-lan/halmstad-simlangsdalen-hallandsleden",
+            "https://www.halmstad.se/upplevaochgora/idrottmotionochfriluftsliv/friluftslivochmotion/vandringslederochmotionsspar.n1167.html",
+            "https://www.destinationhalmstad.se/uppleva/bra-att-veta/resa-till-halmstad",
+            "https://www.lansstyrelsen.se/download/18.45f58e4d18180023efb26599/1656917775222/Bevarandeplan%20Fylle%C3%A5n.pdf",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/hagon.html",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/danska-fall.html",
+            "https://hallandsleden.se/en/item/kolla-brandrisken-4/h1orikco24kzjjuuyczmerpw6s8fe3it"
+          ],
+          "sourceFindings": [
+            "Official page describes old Bolmenbanan embankment 1889-1966 through Simlångsdalen, Marbäck and Skedala, then Brogård/Fylleån/Hagön/Östra Stranden, industrial area, Nissan and Halmstad Resecentrum.",
+            "Official difficulty detail: mostly paved old railway embankment with no hills, then Fylleleden gravel roads/paths from Brogård with steep places but mostly easy walking.",
+            "Official sights include Snöstorps kyrka and Björkelund; route character includes Bolmenbanan, Fylleån, Hagön, Östra Stranden and Nissan.",
+            "Dedicated Hallandsleden API has 257-coordinate LineString and elevation points despite overview line.geometry being empty/sparse; use dedicated API/GPX.",
+            "Simlångsdalen is a branch node where S4 ends and S5/S6 start within a few meters; Halmstad endpoint is Halmstad Resecentrum/Halmstad C.",
+            "Naturkartan is the same corridor in reverse name Halmstad C - Simlångsdalen, with useful access/signage details but non-canonical direction.",
+            "Länsstyrelsen Danska Fall current notice about parking maintenance 15-20 April 2026 is only relevant if Danska Fall is imported as associated/nearby; not a core S5 closure."
+          ],
+          "contradictions": [
+            "Hallandsleden official distance 28 km vs Naturkartan 27.8 km.",
+            "Official direction/name Simlångsdalen - Halmstad vs Naturkartan reverse Halmstad C - Simlångsdalen.",
+            "Halmstad municipality still says Hallandsleden is 435 km; use current Hallandsleden 612 km/35-section inventory.",
+            "Official places API includes multiple Halmstad toilets/services and Danska Fall items that require geometry/policy filtering.",
+            "No official S5 campsite/shelter or drinking-water place found despite generic Hallandsleden/Destination statements about campsites at stage ends."
+          ],
+          "importImpacts": [
+            "Use Hallandsleden page/API/GPX for canonical identity/order/distance/difficulty and geometry.",
+            "Use Naturkartan for reverse-direction access/signage corroboration only.",
+            "Do not infer S5 campsite/shelter/water without specific POI verification.",
+            "Classify Halmstad services and Danska Fall as endpoint/associated/nearby unless geometry confirms core adjacency.",
+            "Attach Fylleån and Hagön protected/rules context where geometry supports it."
+          ]
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "receivedAt": "2026-04-30T00:55:00Z",
+          "summary": "S5 field-report lane found no active S5-specific closure or reroute in checked official, Naturkartan, Halmstad municipal notices, route apps and blogs. It found resolved past access/works items: Banvallsleden bridge replacement between Marbäck and Skärkered resolved 2024-05-29, Halmstad Resecentrum lift closure resolved 2026-03-26 and Norre Katts Park/Nissan path closure resolved 2024-10-09. It also identified stale 18 km / 20.11 km route-app/guide distances and old Gyltige-Assman/Assman-Mästocka stage names to suppress.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/simlangsdalen-halmstad",
+            "https://hallandsleden.se/report/simlangsdalen-halmstad",
+            "https://www.naturkartan.se/en/hallands-lan/halmstad-simlangsdalen-hallandsleden",
+            "https://sv.wikiloc.com/spar-cykla/halmstad-simlangsdalen-hallandsleden-57554261",
+            "https://www.wikiloc.com/running-trails/hallandsleden-4-tallhojden-halmstad-sur-tracedetrail-fr-53418471",
+            "https://www.halmstad.se/upplevaochgora/idrottmotionochfriluftsliv/friluftslivochmotion/vandringslederochmotionsspar.n1167.html",
+            "https://www.halmstad.se/driftinformation/arkiv/gangochcykelvagenmellanhalmstadochsimlangsdalenstangsav.14293.html",
+            "https://www.halmstad.se/driftinformation/arkiv/hissavstangdvidresecentrum.21345.html",
+            "https://www.halmstad.se/driftinformation/arkiv/norrekattsparksgangochcykelbanaavstangd.15389.html",
+            "https://www.destinationhalmstad.se/en/experience/nature-and-the-outdoor-life/hallandsleden---435-km-hiking-trail",
+            "https://www.aventyrligare.se/vandringsled/HalmstadSimlangsdalen-598",
+            "https://vandrarna.se/vandring-halmstad/",
+            "https://www.utsidan.se/forum/threads/hallandsleden-vandring-genom-sverige.86938/",
+            "https://www.alltrails.com/sv-se/sweden/halland/simlangsdalen",
+            "https://www.komoot.com/smarttour/e2119352934/hylte-trail"
+          ],
+          "conditionSignals": [
+            "No active closure or reroute found.",
+            "Surface/terrain: mostly paved/flat Bolmenbanan railway embankment until Brogård; Fylleleden is gravel roads/paths with gates/pasture and some steeper/hillier sections.",
+            "Waymarking: Naturkartan says route uses Hylteleden marking to Snöstorps kyrka, Fylleåleden to Brogård, then Hylteleden toward Simlångsdalen; no current marking defect found.",
+            "Bridge works on Halmstad-Simlångsdalen/Banvallsleden between Marbäck and Skärkered are historical/resolved, not an active closure.",
+            "No confirmed S5-specific forestry/storm damage, bridge damage, active flood closure or active endpoint obstruction found.",
+            "Water: no verified natural/potable source; older Utsidan trail-wide reports said water sources were poorly marked and hikers should carry water/refill in villages."
+          ],
+          "contradictions": [
+            "Current official S5 28 km vs older Wikiloc/Äventyrligare/Vandrarna/Destination Halmstad 18-20 km Halmstad-Simlångsdalen evidence.",
+            "Official S5 direction Simlångsdalen-Halmstad vs Naturkartan/route-app reverse Halmstad-Simlångsdalen direction.",
+            "General statements that stage ends have shelters/toilets/fireplaces conflict with no clear S5 official shelter/campsite in section-specific evidence.",
+            "Fylleleden difficulty appears easy/scenic in tourism descriptions but Halmstad municipality says high difficulty on some stretches; official blue/medium reconciles this."
+          ],
+          "importImpacts": [
+            "Do not import active closure/reroute.",
+            "Import terrain/currentness notes for paved embankment, gravel/pasture/gates and steeper Fylleleden parts.",
+            "Do not import old 18 km/20.11 km distances, old stage names or cycling-only restrictions as current S5 facts.",
+            "Do not infer shelter/toilet/water from generic sources without specific S5 POIs.",
+            "Optional low-confidence note: carry water/refill at services because no reliable S5 drinking-water source was found."
+          ]
+        }
+      ],
+      "mainThreadBaseline": {
+        "completedAt": "2026-04-30T00:28:00Z",
+        "summary": "Main thread checked S5 official page, official GPX, Hallandsleden segment map API, places API, Södra segment list, Naturkartan site 22048 and adjacent endpoint continuity. Official GPX Sodra_Simlangsdalen_Halmstad is a 257-point 27.927 km line from Simlångsdalen 56.720708,13.130518 to Halmstad Resecentrum area 56.669363,12.863402; desc Total: 28 km, timestamp 2025-06-23T09:26:50+02:00, HTTP last-modified 2025-06-27. Hallandsleden map API for trackSegment=simlangsdalen-halmstad returned no usable geo_json or line.geometry despite official GPX availability. Official page describes old Bolmenbanan embankment through Simlångsdalen, Marbäck and Skedala, then Brogård/Fylleleden/Fylleån to Hagön, Östra Stranden, industrial area, Nissan and Halmstad Resecentrum. Naturkartan site 22048 Halmstad C - Simlångsdalen is endpoint-aligned with 242 vertices/27.831 km and updated 2026-04-03, but the title/direction is reverse of the official S5 order. Official places API returned 17 records: Simlångsdalen start services, Halmstad Resecentrum/Grand Hotel/tourist info/hostel, Bolmenbanan rest place, multiple Halmstad/Östra Stranden toilets and off-route Danska Fall leakage."
+      },
+      "completedAt": "2026-04-30T00:55:00Z",
+      "synthesizedAt": "2026-04-30T01:05:00Z",
+      "synthesisOutput": "sections/hallandsleden-simlangsdalen-halmstad.research.json",
+      "synthesisSummary": "Synthesized S5 Simlångsdalen - Halmstad into a research-ready section JSON after all six lane reports plus main-thread official/API/GPX/Naturkartan/places checks. Canonical geometry is official GPX/API geo_json 257 points/27.927 km; Hallandsleden line.geometry is empty; Naturkartan is reverse-named/simplified; OSM is validation only. Both endpoints have strong transit. No official S5 campsite/shelter/fireplace or standalone potable-water POI was found. Dense Halmstad/Danska Fall facility leakage, seasonal toilets, protected-area/local rules and stale old distance sources are recorded as caveats."
     }
   ],
   "sourceCoverage": {
@@ -4186,10 +4487,21 @@
       "fieldReports": "complete from field-reports lane; no active closure found, highway 25 warning and stale-source risks recorded",
       "rulesSafety": "complete from rules-safety-currentness lane; protected/water/fire/dog/hunting/forestry/currentness recorded",
       "synthesis": "complete; section JSON written"
+    },
+    "hallandsleden-simlangsdalen-halmstad": {
+      "overview": "complete from trail.research.json overview pass",
+      "officialSources": "complete from official-source lane and main-thread official page/API/GPX/places baseline",
+      "routeGeometry": "complete from geometry lane and main-thread baseline; official GPX/API geo_json preferred, line.geometry empty, OSM suppressed",
+      "endpointCoordinates": "complete from geometry lane/main baseline; Simlångsdalen S4/S5/S6 branch handoff and Halmstad terminal endpoint recorded",
+      "facilities": "complete from facilities lane; import/pending/suppress decisions recorded",
+      "commuteAccess": "complete from transit-access lane; Simlångsdalen and Halmstad endpoints both have strong public transport",
+      "fieldReports": "complete from field-report lane; no active closure/reroute found, resolved past works and stale route-app distances recorded",
+      "rulesSafety": "complete from rules-safety-currentness lane; protected/water/fire/dog/hunting/forestry/road-currentness recorded",
+      "synthesis": "complete; section JSON written and validation passed before commit"
     }
   },
   "knownGaps": [
-    "Only the overview and first twenty sections have been researched/synthesized; 15 later sections still need the six-lane workflow.",
+    "Only the overview and first twenty-one sections have been researched/synthesized; 14 later sections still need the six-lane workflow.",
     "Coastal Hallandsleden is incomplete by official statement; future import must model gaps instead of stitching a continuous coast.",
     "Older sources may report 435 km / 26 stages / 3 parts; live official source reports 612 km / 35 sections / 4 subtrails.",
     "Paper maps printed June 2022 are stale for 2024 rerouted sections.",
@@ -4364,12 +4676,17 @@
     "S4 research-ready caveat: Naturkartan linework is endpoint-aligned but slug remains gyltige-assman-hallandsleden; do not derive boundaries from slug.",
     "S4 research-ready caveat: Gyltige water/toilet remains conflicting across Destination Halmstad/OSM and Hallandsleden data; verify before importing as public amenities.",
     "S4 research-ready caveat: Gyltige public transit is weak, while Simlångsdalen bus access is strong but needs live Hallandstrafiken schedule checks.",
-    "S4 research-ready caveat: import highway 25 crossing warning, Fylleån Natura 2000 crossing, Hule reserve rules and Simlångsdalen-Hule water-protection context as dynamic/currentness caveats."
+    "S4 research-ready caveat: import highway 25 crossing warning, Fylleån Natura 2000 crossing, Hule reserve rules and Simlångsdalen-Hule water-protection context as dynamic/currentness caveats.",
+    "S5 research-ready caveat: official GPX/API geo_json is canonical while Hallandsleden line.geometry is empty; Naturkartan is reverse-named/simplified and OSM relation 12884365 is reverse/gap-heavy validation only.",
+    "S5 research-ready caveat: no official S5 campsite, shelter, fireplace or standalone public drinking-water POI was found; use service-based refill context only until verified.",
+    "S5 research-ready caveat: dense Halmstad urban services, Danska Fall leakage and side clusters need filtering before normalization; Östra Stranden toilets are seasonal.",
+    "S5 research-ready caveat: import Fylleån Natura 2000, Torvsjön water-protection, Hagön reserve and Halmstad public-place/dog/camping rules as dynamic/currentness caveats.",
+    "S5 research-ready caveat: old 18 km / 20.11 km Halmstad-Simlångsdalen route-app/guide distances and old Gyltige-Assman/Assman-Mästocka naming are stale and must be suppressed."
   ],
   "nextActions": [
-    "Validate S4 JSON/progress/README and commit Add Hallandsleden S4 research.",
-    "Start S5 hallandsleden-simlangsdalen-halmstad with six parallel lanes: official sources, route geometry, facilities, transit/access, field reports, rules/safety/currentness.",
-    "For S5, pay special attention to Simlångsdalen branch handoff, Halmstad endpoint/access/service density, highway/urban crossings, Fylleån/Nissan/protected-area context, official GPX/API geometry and old Halmstad-Simlångsdalen source risks."
+    "Commit S5 research before starting S6.",
+    "Resume Phase 2 with S6 hallandsleden-simlangsdalen-mastocka using the six required research/report lanes.",
+    "For S6, run a main-thread baseline against the official page, official GPX Sodra_Simlangsdalen_Mastocka_250818.gpx, Hallandsleden API linework, places API, Naturkartan/OSM, adjacent S4/S5/S7 continuity and endpoint access."
   ],
   "handoffNotes": [
     "Work resumed on 2026-04-29 in /workspaces/hike-trails-codex-hallandsleden-research on branch codex/hallandsleden-research.",
@@ -4480,7 +4797,11 @@
     "S4 main-thread baseline: Simlångsdalen is a branch node where S4 end is within 6.46 m of S5 start and 4.95 m of S6 start.",
     "S4 section JSON is written at data/research/candidate-trails/hallandsleden/sections/hallandsleden-gyltige-simlangsdalen.research.json and is research-ready-with-caveats.",
     "Commit S4 before starting S5 per user instruction to commit between sections.",
-    "S5 next target: hallandsleden-simlangsdalen-halmstad, official page https://www.hallandsleden.se/etapp/simlangsdalen-halmstad, starts Simlångsdalen and ends Halmstad."
+    "S5 next target: hallandsleden-simlangsdalen-halmstad, official page https://www.hallandsleden.se/etapp/simlangsdalen-halmstad, starts Simlångsdalen and ends Halmstad.",
+    "S5 active target: hallandsleden-simlangsdalen-halmstad, official page https://www.hallandsleden.se/etapp/simlangsdalen-halmstad, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Simlangsdalen_Halmstad.gpx, distance 28 km, medium.",
+    "S5 section JSON is written at data/research/candidate-trails/hallandsleden/sections/hallandsleden-simlangsdalen-halmstad.research.json and is research-ready-with-caveats.",
+    "Commit S5 before starting S6 per user instruction to commit between sections.",
+    "S6 next target: hallandsleden-simlangsdalen-mastocka, official page https://www.hallandsleden.se/etapp/simlangsdalen-mastocka, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Simlangsdalen_Mastocka_250818.gpx, distance 26 km, hard; starts Simlångsdalen and ends Mästocka."
   ],
   "filesWritten": [
     "README.md",
@@ -4505,7 +4826,8 @@
     "sections/hallandsleden-frodeparken-oskarstrom.research.json",
     "sections/hallandsleden-oskarstrom-gyltige.research.json",
     "sections/hallandsleden-kvarnforsen-gyltige.research.json",
-    "sections/hallandsleden-gyltige-simlangsdalen.research.json"
+    "sections/hallandsleden-gyltige-simlangsdalen.research.json",
+    "sections/hallandsleden-simlangsdalen-halmstad.research.json"
   ],
   "meaningfulPasses": [
     {
@@ -5002,6 +5324,11 @@
       "id": "phase-2-s4-six-lane-synthesis-complete-2026-04-30",
       "completedAt": "2026-04-30T00:20:00Z",
       "summary": "Synthesized S4 Gyltige - Simlångsdalen into sections/hallandsleden-gyltige-simlangsdalen.research.json after all six lane reports plus main-thread official/API/GPX/Naturkartan/places checks. Marked S4 research-ready with caveats around canonical official GPX/API geo_json versus stale Hallandsleden line.geometry and old Naturkartan slug, Gyltige water/toilet conflict, Hule reserve rules/toilet distance, weak Gyltige transit, strong Simlångsdalen bus access, highway 25 crossing, Fylleån Natura 2000, Simlångsdalen-Hule water-protection and dynamic fire/forestry/transit checks."
+    },
+    {
+      "id": "phase-2-s5-six-lane-synthesis-complete-2026-04-30",
+      "completedAt": "2026-04-30T01:05:00Z",
+      "summary": "Synthesized S5 Simlångsdalen - Halmstad into sections/hallandsleden-simlangsdalen-halmstad.research.json after all six lane reports plus main-thread official/API/GPX/Naturkartan/places checks. Marked S5 research-ready with caveats around canonical official GPX/API geo_json versus empty Hallandsleden line.geometry, reverse/simplified Naturkartan, gap-heavy OSM, Simlångsdalen branch topology, strong endpoint transit, no official S5 water/shelter/camping/fireplace, dense Halmstad/Danska Fall service filtering, seasonal toilets, Fylleån/Torvsjön/Hagön/Halmstad rules, resolved works and stale old distance sources."
     }
   ]
 }
