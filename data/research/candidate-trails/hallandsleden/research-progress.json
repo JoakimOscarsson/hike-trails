@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-30T12:50:00Z",
-  "currentPhase": "Phase 2 K7 validation passed; ready to commit hallandsleden-tylosand-halmstad-c",
+  "lastUpdated": "2026-04-30T14:30:00Z",
+  "currentPhase": "Phase 2 K8 validation passed; ready to commit hallandsleden-halmstad-c-paarp",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -34,7 +34,8 @@
     "hallandsleden-asa-frillesas",
     "hallandsleden-steninge-haverdal",
     "hallandsleden-haverdal-tylosand",
-    "hallandsleden-tylosand-halmstad-c"
+    "hallandsleden-tylosand-halmstad-c",
+    "hallandsleden-halmstad-c-paarp"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -1073,19 +1074,21 @@
       "sectionNumber": "K8",
       "name": "Halmstad C - Påarp",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-gpx-discovered-map-api-line-empty-or-sparse-needs-parsing",
-      "startEndCoordinateStatus": "not-yet-validated-gpx-endpoints-needed",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-from-official-source-lane-and-main-thread-official-page-api-gpx-places-baseline",
+      "routeGeometryStatus": "complete-official-gpx-api-geo-json-continuous-linestring-trkseg-573-points-computed-14-655-km-navigation-grade",
+      "startEndCoordinateStatus": "complete-start-56-669375-12-863491-end-56-601432-12-917788-k7-handoff-5-34-m-k9-handoff-3-23-m",
+      "commuteAccessStatus": "complete-from-transit-access-lane-official-places-osm-and-main-thread-baseline",
+      "facilityResearchStatus": "complete-from-facilities-lane-official-places-osm-and-main-thread-baseline",
+      "rulesSafetyStatus": "complete-from-rules-safety-currentness-lane-and-main-thread-protected-area-beach-fire-currentness-baseline",
+      "synthesisStatus": "complete-section-json-written",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
-        "Run six independent section research lanes and synthesize findings.",
-        "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
-        "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Use official GPX/API geo_json as canonical K8 geometry; suppress API line.geometry, guessed Naturkartan slugs, OSM adjacent/local/inland/bicycle geometry and route-app partials unless later QA proves exact match.",
+        "Later normalization should decide whether to snap the 5.34 m K7/K8 Halmstad C handoff and 3.23 m K8/K9 Påarp handoff.",
+        "No official public drinking-water, free campsite, free shelter or official trail fireplace record was found on K8; keep OSM-only Trönninge/Östra water and Steglebacken/Trönninge fire/picnic candidates pending unless confirmed.",
+        "Filter dense Halmstad C, Östra stranden, Hagön, Påarp and Laxvik food, lodging, beach, camping and urban-service records so only trail-relevant public facilities are imported.",
+        "Import Hagön and Trönninge ängar reserve spans/rules; model Fylleån Natura/Ramsar, Skäret access-ban context and Strandområdet Påarp-Fylleåns mynning landscape-protection context carefully so nearby or partial overlays do not become false route closures.",
+        "Recheck Halmstad official-beach dog/horse restrictions, fire-ban/brandrisk status, Hallandstrafiken schedules, Halmstad C/Fredsgatan/Södra infarten/Östra works and official closures immediately before import."
       ]
     },
     "hallandsleden-paarp-mellbystrand": {
@@ -1132,6 +1135,47 @@
     }
   },
   "agentBatches": [
+    {
+      "batchId": "hallandsleden-halmstad-c-paarp-initial-6-lane-2026-04-30",
+      "sectionId": "hallandsleden-halmstad-c-paarp",
+      "startedAt": "2026-04-30T13:00:00Z",
+      "completedAt": "2026-04-30T14:00:00Z",
+      "status": "completed-and-synthesized",
+      "synthesisFile": "sections/hallandsleden-halmstad-c-paarp.research.json",
+      "synthesisDecision": "All six K8 lanes returned enough evidence for synthesis. No targeted follow-up batch needed before writing the section file; remaining issues are import-time checks and caveats around service filtering, no official public water/free-campsite/free-shelter, OSM-only water/fire/picnic candidates, Hagön and Trönninge ängar route spans/rules, Fylleån/Skäret/landscape-protection context, beach dog/horse/fire rules, Halmstad C and Södra infarten/Östra stranden works and live transit/currentness.",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "nickname": "Carson"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "nickname": "Darwin"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "nickname": "Beauvoir the 2nd"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "nickname": "Poincare the 2nd"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "nickname": "Rawls the 2nd"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "nickname": "Kuhn the 2nd"
+        }
+      ]
+    },
     {
       "batchId": "hallandsleden-tylosand-halmstad-c-initial-6-lane-2026-04-30",
       "sectionId": "hallandsleden-tylosand-halmstad-c",
@@ -5865,10 +5909,27 @@
       "fieldReports": "complete from field-report lane; no active closure found, Prins Bertils stig partial/overlong reports and resolved municipal works/currentness caveats recorded",
       "rulesSafety": "complete from rules-safety-currentness lane; Alet reserve direct route span, nearby Tylön/Eketånga/Möllegård context, beach dog/horse/fire/currentness and works caveats recorded",
       "synthesis": "complete; section JSON written and validation passed before commit"
+    },
+    "hallandsleden-halmstad-c-paarp": {
+      "overview": "complete from trail.research.json overview pass",
+      "officialSources": "complete from official-source lane and main-thread official page/API/GPX/places baseline",
+      "routeGeometry": "complete from route-geometry lane and main-thread baseline; official GPX/API geo_json canonical candidate is a 573-point LineString, official 14.6 km, GPX desc 14.7 km and computed 14.655 km",
+      "endpointCoordinates": "complete from official GPX/API endpoints; K7-to-K8 handoff 5.34 m and K8-to-K9 handoff 3.23 m",
+      "facilities": "complete from facilities lane and main-thread baseline; 29 official places, core toilet/beach/transit/sights/food/lodging records and OSM-only water/fire/picnic candidates ready for synthesis",
+      "commuteAccess": "complete from transit-access lane and main-thread baseline; Halmstad Resecentrum/Bredgatan/Halmstad C start and Påarp Kattegattväg/Påarp end access plus intermediate access candidates recorded",
+      "fieldReports": "complete from field-report lane; no active closure found, sparse exact K8 field reports, partial Fylleån/Östra stranden/Hagön context and Halmstad C works-currentness caveats recorded",
+      "rulesSafety": "complete from rules-safety-currentness lane; Hagön and Trönninge ängar direct route spans, Fylleån/Skäret/landscape-protection context, Halmstad beach dog/fire/public-place/currentness and Halmstad C/Fredsgatan works caveats recorded",
+      "synthesis": "complete; section JSON written and validation passed before commit"
     }
   },
   "knownGaps": [
-    "Only the overview and first thirty-two sections have been researched/synthesized; K8-K10 still need the six-lane workflow.",
+    "Only the overview and first thirty-three sections have been researched/synthesized; K9-K10 still need the six-lane workflow.",
+    "K8 research-ready caveat: official GPX/API geo_json is a continuous 573-point LineString/trkseg from 56.669375,12.863491 to 56.601432,12.917788, official 14.6 km, GPX desc 14.7 km and computed 14.655 km; suppress API line.geometry, guessed Naturkartan slugs and OSM adjacent/local/inland/bicycle linework for K8 import.",
+    "K8 research-ready caveat: K7-to-K8 Halmstad C handoff is about 5.34 m and K8-to-K9 Påarp handoff is about 3.23 m; later normalization should decide whether to snap endpoints.",
+    "K8 research-ready caveat: official places API returned 29 records but no official drinking-water, free-campsite, free-shelter or trail fireplace category; OSM-only Trönninge/Östra water and Steglebacken/Trönninge fire/picnic candidates need verification.",
+    "K8 research-ready caveat: Hagöns naturreservat intersects the route around km 5.404-5.650 and 5.679-6.127, and Trönninge ängars naturreservat around km 7.379-9.115; model Fylleån, Skäret and landscape-protection context carefully.",
+    "K8 research-ready caveat: filter dense Halmstad C, Östra stranden, Hagön, Påarp and Laxvik urban/beach/private services so the import set stays trail-relevant.",
+    "K8 research-ready caveat: recheck Halmstad official-beach dog/horse restrictions, fire-ban/brandrisk status, Hallandstrafiken live schedules, Halmstad C/Fredsgatan/Södra infarten/Östra works and any official closures before import.",
     "K7 research-ready caveat: official GPX/API geo_json is canonical candidate as a continuous 626-point LineString/trkseg from 56.646321,12.728667 to 56.669360,12.863408, official 15 km, GPX desc 14.7 km and computed 14.673 km; full Prins Bertils stig linework is overlong/non-canonical for K7.",
     "K7 research-ready caveat: K6-to-K7 Tylösand handoff is about 0.92 m and K7-to-K8 Halmstad C handoff is about 5.34 m; later normalization should decide whether to snap endpoints.",
     "K7 research-ready caveat: official places API returned 43 records but no official drinking-water, free-campsite, free-shelter or trail fireplace category; keep OSM-only water/fire candidates pending unless confirmed.",
@@ -6109,9 +6170,9 @@
     "S6 research-ready caveat: old Assman-Mästocka 16-17 km route-app/tourism sources are stale and must be suppressed."
   ],
   "nextActions": [
-    "Commit K7 research files.",
-    "After the K7 commit, start K8 Halmstad C - Påarp six-lane research.",
-    "For K8, pay attention to official page https://www.hallandsleden.se/etapp/halmstad-c-paarp, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_HalmstadC_Paarp.gpx, official 14.6 km easy route, K7/K8 Halmstad C handoff, K8/K9 Påarp handoff, Halmstad C and Påarp endpoint access, coastal/urban service filtering, route geometry continuity, Halmstad/Laholm coastal/public-place rules and dynamic currentness caveats."
+    "Validate K8 section JSON, README and research-progress, then commit K8 before starting K9.",
+    "After K8 commit, start K9 six-lane research for hallandsleden-paarp-mellbystrand / Påarp - Mellbystrand.",
+    "For K9, use official page https://www.hallandsleden.se/etapp/paarp-mellbystrand and official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Paarp_Mellbystrand.gpx; focus on official 13 km easy section, K8/K9 Påarp handoff, K9/K10 Mellbystrand handoff, Påarp/Laxvik/Mellbystrand transit/access, coastal/beach facilities, protected-area/rules/currentness and service filtering."
   ],
   "handoffNotes": [
     "Work resumed on 2026-04-29 in /workspaces/hike-trails-codex-hallandsleden-research on branch codex/hallandsleden-research.",
@@ -7110,6 +7171,31 @@
       "id": "phase-2-k7-validation-passed-2026-04-30",
       "completedAt": "2026-04-30T12:50:00Z",
       "summary": "Validated the K7 section JSON, all Hallandsleden candidate JSON files and whitespace before committing K7."
+    },
+    {
+      "id": "phase-2-k8-initial-six-lane-batch-started-2026-04-30",
+      "completedAt": "2026-04-30T13:00:00Z",
+      "summary": "Committed K7 as e780717, then started K8 Halmstad C - Påarp six-lane research batch with agents Carson, Darwin, Beauvoir the 2nd, Poincare the 2nd, Rawls the 2nd and Kuhn the 2nd. Main thread retains all file-write ownership."
+    },
+    {
+      "id": "phase-2-k8-main-thread-baseline-2026-04-30",
+      "completedAt": "2026-04-30T13:35:00Z",
+      "summary": "Main thread baseline for K8 checked official page/API/GPX/places, K7 and K9 endpoint topology, OSM/Overpass access and facility context, Halmstad/Påarp beach and transit context, Trafikverket Halmstad C/Fredsgatan works, Halmstad dog/fire/public-place rules and Länsstyrelsen protected-area pages. Official GPX/API geo_json is a continuous 573-point LineString/trkseg from 56.669375,12.863491 to 56.601432,12.917788, with official 14.6 km, GPX desc 14.7 km and computed 14.655 km. Handoffs are 5.34 m to K7 and 3.23 m to K9. Official places API returns 29 records and no official dricksvatten/lager-rastplats/vindskydd category. Overlays indicate Hagön direct route spans approx km 5.404-5.650 and 5.679-6.127, plus Trönninge ängar approx km 7.379-9.115; Fylleån Natura 2000 context applies at/near the river crossing."
+    },
+    {
+      "id": "phase-2-k8-six-lane-reports-complete-synthesis-started-2026-04-30",
+      "completedAt": "2026-04-30T14:05:00Z",
+      "summary": "Received usable K8 reports from all six lanes. Reports confirm official GPX/API geo_json as canonical 573-point continuous LineString/trkseg, 5.34 m K7 handoff and 3.23 m K9 handoff, 29 official places, strong Halmstad C/Resecentrum start access, practical Påarp Kattegattväg/Påarp end bus access, no active official closure, Hagön and Trönninge ängar direct reserve spans, Fylleån/Skäret/landscape-protection context, no official public drinking water/free campsite/free shelter, OSM-only water/fire/picnic pending candidates, Halmstad beach dog/horse/fire rules, Halmstad C and Södra infarten/Östra stranden works-currentness watch and sparse exact field reports. Main thread decided no targeted follow-up batch is needed before synthesis."
+    },
+    {
+      "id": "phase-2-k8-six-lane-synthesis-complete-2026-04-30",
+      "completedAt": "2026-04-30T14:25:00Z",
+      "summary": "Wrote sections/hallandsleden-halmstad-c-paarp.research.json from the six K8 lane reports and main-thread baseline. The section is research-ready with caveats around official distance rounding, endpoint snapping, dense Halmstad/Östra stranden/Hagön/Påarp/Laxvik service filtering, no official public water/free shelter/free campsite/trail fireplace, OSM-only water/fire/picnic candidates, Hagön and Trönninge ängar reserve rules, Fylleån/Skäret/landscape-protection context and dynamic beach/fire/transit/works/currentness checks."
+    },
+    {
+      "id": "phase-2-k8-validation-passed-2026-04-30",
+      "completedAt": "2026-04-30T14:30:00Z",
+      "summary": "Validated the K8 section JSON, all Hallandsleden candidate JSON files and whitespace before committing K8."
     }
   ]
 }
