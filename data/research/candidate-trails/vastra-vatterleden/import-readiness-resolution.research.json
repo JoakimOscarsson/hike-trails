@@ -1,0 +1,282 @@
+{
+  "schemaVersion": "trail-static-import-readiness-resolution-v1",
+  "trailId": "vastra-vatterleden",
+  "createdAt": "2026-04-29T20:58:28Z",
+  "lastUpdated": "2026-04-29T20:58:28Z",
+  "scope": "Research-only resolution of candidate import blockers. No runtime hiking source data, generated public data, route files or shared scripts were edited.",
+  "staticImportReadiness": {
+    "readyForCandidateNormalization": true,
+    "readyForStaticRuntimeImportAfterNormalization": true,
+    "readyForImmediateRuntimeImport": false,
+    "reasonImmediateRuntimeImportIsFalse": "Runtime import and generated-data edits are explicitly out of scope for this worktree. The remaining items are implementation/currentness checks, not unresolved trail identity research."
+  },
+  "summary": [
+    "All eight official stages now have enough evidence for candidate normalization handoff.",
+    "The previous not-import-ready items were resolved as normalization decisions, suppression decisions, protected-area overlay decisions or volatile-data policies.",
+    "Route geometry still needs a separate normalization implementation pass before runtime import, but the research no longer has an unresolved main/alternate choice that should block candidate normalization.",
+    "Transit, fire bans, forestry notices, business hours, bathing quality and shelter maintenance are volatile and should not be treated as durable static trail facts."
+  ],
+  "routeNormalizationDecisions": [
+    {
+      "sectionId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+      "status": "resolved-to-normalization-decision",
+      "decision": "Model one official stage with explicit variants. Do not import the incomplete full-stage Naturkartan GPX as stage geometry. Prefer a primary/default geometry that aligns with the current official 31 km display by using the direct south shortcut, while preserving the official north alternatives via Djäknatorp and Djäknasundet and the Källebacken/Undenäs route as alternate geometry.",
+      "evidence": [
+        "Current official stage display/PDF uses 31 km.",
+        "Full-stage Naturkartan GPX downloaded during research was incomplete at about 16.95 km and did not reach Forsvik.",
+        "Official Google/Naturkartan segment accounting shows longer Källebacken variants around 35-37 km and direct-south estimates around 29-31 km depending north branch."
+      ],
+      "importHandling": "Ready for candidate normalization; runtime app must support or explicitly suppress alternates before generated import.",
+      "confidence": "medium-high"
+    },
+    {
+      "sectionId": "vastra-vatterleden-etapp-2-forsvik-molltorp",
+      "status": "resolved-to-normalization-decision",
+      "decision": "Use Forsvik-Fröjden, direct Fröjden-Bygget and Bygget-Mölltorp as the primary continuity route. Preserve Fröjden-Skackastugan and Skackastugan-Bygget as an official shelter-side alternate/branch.",
+      "evidence": [
+        "Official/Naturkartan segment GPX totals about 11.9 km for the direct line and about 13.3 km through Skackastugan/Bergsudden.",
+        "The official 13 km headline can be preserved as display distance while measured branch lengths remain geometry metadata.",
+        "Mölltorp endpoint mismatch is an OSM boundary issue, not an official-source uncertainty."
+      ],
+      "importHandling": "Ready for candidate normalization; direct branch is primary, Skackastugan/Bergsudden is alternate/facility-side geometry.",
+      "confidence": "medium-high"
+    },
+    {
+      "sectionId": "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa",
+      "status": "already-normalization-ready",
+      "decision": "Assemble the two official mainline segments in official order and keep Klevaberget as a separate side spur. Do not import the raw OSM boundary mismatch at Mölltorp.",
+      "confidence": "high"
+    },
+    {
+      "sectionId": "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+      "status": "already-normalization-ready",
+      "decision": "Assemble the four official mainline segments in official order and keep the Skarpås shelter spur separate.",
+      "confidence": "high"
+    },
+    {
+      "sectionId": "vastra-vatterleden-etapp-5-hjo-bastasen",
+      "status": "already-normalization-ready",
+      "decision": "Reverse both official GPX components, assemble them in official Hjo-Baståsen order, and deduplicate the small Baståsen backtrack.",
+      "confidence": "high"
+    },
+    {
+      "sectionId": "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+      "status": "already-normalization-ready",
+      "decision": "Use the official mainline in correct direction and preserve side spurs separately.",
+      "confidence": "high"
+    },
+    {
+      "sectionId": "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult",
+      "status": "already-normalization-ready",
+      "decision": "Model the continuous mainline from First Camp Hökensås to the Gagnån/stage-8 junction, plus the official Fagerhult access connector as separate access geometry.",
+      "confidence": "high"
+    },
+    {
+      "sectionId": "vastra-vatterleden-etapp-8-fagerhult-mullsjo",
+      "status": "already-normalization-ready",
+      "decision": "Model one official stage with two reversed Naturkartan/Smålandsleden GPX child components, a Fagerhult access connector, and a Hotel Mullsjö to Mullsjö centrum access connector. Prefer the Naturkartan Hotel Mullsjö endpoint and keep the OSM/E1 endpoint as access cross-check.",
+      "confidence": "high"
+    }
+  ],
+  "protectedAreaOverlayResolution": {
+    "status": "research-overlay-complete-for-candidate-normalization",
+    "method": "Official Naturvårdsverket Naturvårdsregistret and Natura 2000 REST/WKT boundaries were checked against current Naturkartan/official GPX route components using SWEREF99 TM point/segment overlay logic. This was a research pass only; no normalized geometry files were created.",
+    "primaryBoundarySources": [
+      "https://geodata.naturvardsverket.se/naturvardsregistret/rest/v3/openapi",
+      "https://geodata.naturvardsverket.se/n2000/rest/v3/openapi"
+    ],
+    "decisions": [
+      {
+        "area": "Tiveden national park",
+        "nvrId": "2001216",
+        "decision": "Do not apply national-park rules section-wide to stage 1. No official stage-1 GPX component checked in this pass intersected the national-park boundary."
+      },
+      {
+        "area": "Valekleven-Ombo öar, Granvik, Bölets ängar, Bölskullen and Håketjärnarna",
+        "decision": "Apply protected-area rules only to stage-1 route variants or connectors that actually overlap those protected areas. Stage-wide rule attachment would be too broad."
+      },
+      {
+        "area": "Stora Röå",
+        "nvrId": "2000600",
+        "decision": "Stage 3 and the start of stage 4 overlap Stora Röå. Use Stora Röå rules for the overlapping route/facility context."
+      },
+      {
+        "area": "Röå alsumpskog / Natura 2000 SE0540160",
+        "nvrId": "2000336",
+        "natura2000Code": "SE0540160",
+        "decision": "No direct main-route hit found in the current overlay. Do not attach Röå alsumpskog rules unless a future connector or revised geometry proves overlap."
+      },
+      {
+        "area": "Hjoåns dalgång / Natura 2000 SE0540214",
+        "nvrId": "2000411",
+        "natura2000Code": "SE0540214",
+        "decision": "Stages 4 and 5 overlap Hjoåns dalgång. The mapped Hjoåns fire/rest point is inside the reserve boundary and should remain suppressed or pending because the standing reserve rule prohibits fire."
+      },
+      {
+        "area": "Västra Vättern Natura 2000 SE0540225",
+        "natura2000Code": "SE0540225",
+        "decision": "The Hjo route is near the lake/Natura 2000 area but the checked route line did not intersect the protected water polygon. Do not attach water-area rules unless a water/shore connector is modeled."
+      },
+      {
+        "area": "Hökensås naturvårdsområde and Hyltan naturreservat",
+        "nvrIds": [
+          "2001952",
+          "2002586",
+          "2000412"
+        ],
+        "decision": "Stages 6 and 7 overlap Hökensås NVO; stage 6 also intersects Hyltan. Hållsdammsbäcken shelter lies in the Hökensås NVO context, not in Gagnån. Apply Hökensås NVO rules to Hållsdammsbäcken rather than Gagnån no-fire/no-tenting rules."
+      },
+      {
+        "area": "Gagnån / Natura 2000 SE0310409",
+        "nvrId": "2001372",
+        "natura2000Code": "SE0310409",
+        "decision": "Stage 8 overlaps Gagnån at the start/Gagnån area. Stage 7 comes close at the endpoint but should not receive Gagnån no-fire/no-tent rules for Hållsdammsbäcken or the broader stage-7 facility set."
+      },
+      {
+        "area": "Ryfors, Stråkens strandskogar, Västra Fagerhult, Norra Fågelås and nearby Mullsjö/Stråken areas",
+        "decision": "No direct main-route overlap was found for the checked route components. Keep these as nearby/continuation context only unless future access geometry proves overlap."
+      }
+    ],
+    "confidence": "medium-high",
+    "remainingRuntimeRequirement": "Repeat the overlay against the final normalized route geometries before generated runtime import if the normalization process changes route components or connector inclusion."
+  },
+  "transitResolution": {
+    "status": "current-source-stale-risk-resolved",
+    "decisions": [
+      {
+        "topic": "Baståsen access",
+        "decision": "Current Västtrafik line 402 confirms Baståsen A and Baståsen B stop records valid 2025-12-14 to 2026-12-12. This resolves the earlier statement that Baståsen had no confirmed current transit, but exact stop-side coordinates and walking connector still need verification before importing Baståsen as a high-confidence coordinate POI.",
+        "sourceUrl": "https://www.vasttrafik.se/en/travel-planning/timetables/line/9011014340200000/",
+        "confidence": "high for current line/stop names, medium for endpoint access because stop coordinates/connector are not verified"
+      },
+      {
+        "topic": "Rödåkra / line 405",
+        "decision": "Do not import old Rödåkra/line 405 text as current transit. Västtrafik's Skaraborg change page says line 405 Hjo-Tidaholm was withdrawn and points Hjo-Tidaholm travel to new line 415 or Närtrafik. Current line 405 on Västtrafik is a different Svaneholm-Kinna service.",
+        "sourceUrls": [
+          "https://www.vasttrafik.se/info/skaraborg/",
+          "https://www.vasttrafik.se/en/travel-planning/Timetables/line/9011014240500000/"
+        ],
+        "confidence": "high"
+      },
+      {
+        "topic": "Hjo, Hökensås, Fagerhult and Mullsjö access",
+        "decision": "Keep existing current transit candidates but recheck planner data before runtime display. Current official pages support line 321 Tidaholm-Hökensås, line 406 Hjo-Brandstorp/Fagerhult and line 415 Hjo-Korsberga-Tidaholm for the 2025-12-14 to 2026-12-12 timetable period.",
+        "sourceUrls": [
+          "https://www.vasttrafik.se/en/travel-planning/timetables/line/9011014332100000/",
+          "https://www.vasttrafik.se/en/travel-planning/timetables/line/9011014340600000/",
+          "https://www.vasttrafik.se/en/travel-planning/timetables/line/9011014341500000/"
+        ],
+        "confidence": "medium-high"
+      }
+    ],
+    "runtimePolicy": "Transit schedule availability is volatile. Candidate files can store stop/line/source evidence and caveats, but runtime display should requery Västtrafik/JLT/Resrobot before publishing current departures or access promises."
+  },
+  "facilityImportDecisions": [
+    {
+      "topic": "Hjoåns dalgång fireplace",
+      "decision": "Suppress or keep pending; do not import as usable fireplace without an official exception. Overlay places it inside Hjoåns dalgång, whose reserve rules prohibit fire.",
+      "confidence": "high"
+    },
+    {
+      "topic": "Hållsdammsbäcken",
+      "decision": "Model as Hökensås-context shelter/rest facility, not Gagnån-context no-fire/no-tenting facility. Keep roof/maintenance currentness and fireplace usability pending for runtime display.",
+      "confidence": "medium-high"
+    },
+    {
+      "topic": "Natural water",
+      "decision": "Do not import lakes, streams or springs as potable unless a reliable official drinking-water source is verified. Keep natural water as non-potable/caveated context only.",
+      "confidence": "high"
+    },
+    {
+      "topic": "Commercial services and optional town businesses",
+      "decision": "Keep only first-party/current services with coordinates as candidate records; otherwise leave as optional access/service context pending currentness and app-scope decisions.",
+      "confidence": "medium-high"
+    }
+  ],
+  "volatileDataPolicy": [
+    {
+      "topic": "fire bans and fire risk",
+      "decision": "Do not hard-code same-day fire-ban state from research. Use MSB Brandrisk Ute/Krisinformation/Länsstyrelsen or municipal fire-ban sources immediately before runtime display.",
+      "sources": [
+        "https://www.msb.se/en/about-msb2/communication-channels/the-app-brandrisk-ute-fire-danger-outdoors/",
+        "https://www.krisinformation.se/en/hazards-and-risks/gras--och-skogsbrand/fire-bans"
+      ]
+    },
+    {
+      "topic": "forestry notifications",
+      "decision": "Treat forestry notification overlays as a volatile pre-publication check, not static trail data. Skogsstyrelsen provides open geodata/MapServer access for avverkningsanmälda områden; exact polygon-to-normalized-route-buffer overlay should be run only after final route normalization.",
+      "sources": [
+        "https://www.skogsstyrelsen.se/e-tjanster-och-kartor/karttjanster/skogsstyrelsens-geodata/",
+        "https://geodpags.skogsstyrelsen.se/arcgis/rest/services/Geodataportal/GeodataportalVisaAvverkningsanmalan/MapServer"
+      ]
+    },
+    {
+      "topic": "business hours, campsite/shop opening, bathing quality and shelter maintenance",
+      "decision": "Leave these as currentness checks before runtime display. Do not block candidate normalization on them unless the app intends to import the specific facility as a live service."
+    }
+  ],
+  "remainingBeforeRuntimeImport": [
+    "Implement normalized route/alternate/connector geometries in a separate safe pass.",
+    "Repeat protected-area overlays against the final normalized geometry set if geometry changes.",
+    "Verify exact coordinates for Baståsen A/B and any other transit stop intended as a coordinate POI.",
+    "Run exact Skogsstyrelsen polygon-to-route-buffer overlay only after route normalization.",
+    "Recheck same-day fire bans, transit planner output, business/service hours, bathing-water quality and shelter maintenance before public runtime display."
+  ],
+  "sourcesConsulted": [
+    {
+      "title": "Naturvårdsverket Naturvårdsregistret REST/OpenAPI",
+      "url": "https://geodata.naturvardsverket.se/naturvardsregistret/rest/v3/openapi",
+      "accessedAt": "2026-04-29"
+    },
+    {
+      "title": "Naturvårdsverket Natura 2000 REST/OpenAPI",
+      "url": "https://geodata.naturvardsverket.se/n2000/rest/v3/openapi",
+      "accessedAt": "2026-04-29"
+    },
+    {
+      "title": "Västtrafik line 402 Skövde-Hjo",
+      "url": "https://www.vasttrafik.se/en/travel-planning/timetables/line/9011014340200000/",
+      "accessedAt": "2026-04-29"
+    },
+    {
+      "title": "Västtrafik Skaraborg traffic changes",
+      "url": "https://www.vasttrafik.se/info/skaraborg/",
+      "accessedAt": "2026-04-29"
+    },
+    {
+      "title": "Västtrafik line 321 Tidaholm-Hökensås",
+      "url": "https://www.vasttrafik.se/en/travel-planning/timetables/line/9011014332100000/",
+      "accessedAt": "2026-04-29"
+    },
+    {
+      "title": "Västtrafik line 406 Hjo-Brandstorp/Fagerhult",
+      "url": "https://www.vasttrafik.se/en/travel-planning/timetables/line/9011014340600000/",
+      "accessedAt": "2026-04-29"
+    },
+    {
+      "title": "Västtrafik line 415 Hjo-Korsberga-Tidaholm",
+      "url": "https://www.vasttrafik.se/en/travel-planning/timetables/line/9011014341500000/",
+      "accessedAt": "2026-04-29"
+    },
+    {
+      "title": "MSB Brandrisk Ute",
+      "url": "https://www.msb.se/en/about-msb2/communication-channels/the-app-brandrisk-ute-fire-danger-outdoors/",
+      "accessedAt": "2026-04-29"
+    },
+    {
+      "title": "Krisinformation.se fire bans",
+      "url": "https://www.krisinformation.se/en/hazards-and-risks/gras--och-skogsbrand/fire-bans",
+      "accessedAt": "2026-04-29"
+    },
+    {
+      "title": "Skogsstyrelsens geodata descriptions",
+      "url": "https://www.skogsstyrelsen.se/e-tjanster-och-kartor/karttjanster/skogsstyrelsens-geodata/",
+      "accessedAt": "2026-04-29"
+    },
+    {
+      "title": "Skogsstyrelsen avverkningsanmälan MapServer",
+      "url": "https://geodpags.skogsstyrelsen.se/arcgis/rest/services/Geodataportal/GeodataportalVisaAvverkningsanmalan/MapServer",
+      "accessedAt": "2026-04-29"
+    }
+  ]
+}
