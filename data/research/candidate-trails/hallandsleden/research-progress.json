@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-30T01:05:00Z",
-  "currentPhase": "Phase 2 section research complete through hallandsleden-simlangsdalen-halmstad; next section is hallandsleden-simlangsdalen-mastocka",
+  "lastUpdated": "2026-04-30T02:05:00Z",
+  "currentPhase": "Phase 2 section research complete through hallandsleden-simlangsdalen-mastocka; next section is hallandsleden-mastocka-knared",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -23,7 +23,8 @@
     "hallandsleden-oskarstrom-gyltige",
     "hallandsleden-kvarnforsen-gyltige",
     "hallandsleden-gyltige-simlangsdalen",
-    "hallandsleden-simlangsdalen-halmstad"
+    "hallandsleden-simlangsdalen-halmstad",
+    "hallandsleden-simlangsdalen-mastocka"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -610,19 +611,64 @@
       "sectionNumber": "S6",
       "name": "Simlångsdalen - Mästocka",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-map-line-discovered-needs-gpx-cross-check",
-      "startEndCoordinateStatus": "official-map-line-endpoints-captured-needs-validation",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-from-official-source-lane",
+      "routeGeometryStatus": "complete-from-route-geometry-lane",
+      "startEndCoordinateStatus": "complete-from-route-geometry-lane",
+      "commuteAccessStatus": "complete-from-transit-access-lane",
+      "facilityResearchStatus": "complete-from-facilities-lane",
+      "rulesSafetyStatus": "complete-from-rules-safety-currentness-lane",
+      "synthesisStatus": "complete-section-json-written",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
         "Run six independent section research lanes and synthesize findings.",
         "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
         "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision.",
+        "S6 batch started using six research lanes.",
+        "Pay special attention to Simlångsdalen as a shared S4/S5/S6 branch node, the hard 26 km inland route, official GPX Sodra_Simlangsdalen_Mastocka_250818.gpx, official map line versus GPX, Mästocka endpoint access/transit, rural facilities/water/camping/fire/toilet evidence, protected-area/rules/currentness context and stale old Assman/Mästocka source risks.",
+        "Main-thread baseline: official Swedish page confirms Simlångsdalen - Mästocka, 26 km, red/hard, route through Simlångsdalen, Fylleån/Brearedssjön, Danska Fall, Gårdshult, Linghult, Mästocka ljunghed, around Björsjö, ending at Lägerplats Mästocka by the bathing place.",
+        "Main-thread baseline: official difficulty prose says varied roads and paths, some hills but no long steep parts; path may be muddy leaving Gårdshult pastures and under the power line.",
+        "Main-thread baseline: official GPX/API geo_json has 550 points, computed 24.990 km, desc Total: 26.2 km, metadata time 2025-06-23T07:26:50.000Z, HTTP last-modified 2025-08-29, start Simlångsdalen 56.720716,13.130545, end Mästocka/Björsjön 56.607918,13.245417.",
+        "Main-thread baseline: Hallandsleden API length_in_meters is 26000/hard but overview line.geometry is 674 points/16.658 km from 56.689895,13.158974 to 56.609299,13.248396; likely stale Assman-Mästocka segment and should be suppressed unless geometry lane proves otherwise.",
+        "Main-thread baseline: S6 GPX start is within about 5 m of S4 end and about 2 m of S5 start, confirming Simlångsdalen branch-node continuity; S6 end is close to S7 Mästocka map-line start but offset from S7 GPX still needs verification.",
+        "Main-thread baseline: official places API returned 15 S6 records: Simlångsdalen bus/village/Tempo/Tallhöjden, Danska Fall rest/toilet/waterfall, Gårdshult reserve/rest, Linghult terraces, Kersti sten, Mästocka ljunghed, Lägerplats Mästocka, Dricksvatten i Mästocka and off-route Ulvereds Hjorthägn.",
+        "Main-thread baseline: official place proximity to GPX puts Hållplats Simlångsdalen at km 0, Tempo/village/Tallhöjden around km 0.46-0.58, Danska Fall around km 2.65-2.86, Gårdshult around km 5.0, Linghult around km 14.25, Kersti sten around km 20.54, Mästocka ljunghed around km 23.93 and Mästocka campsite/water around km 24.97.",
+        "Main-thread baseline: Naturkartan site 22050 slug assman-mastocka-hallandsleden is visible as Simlångsdalen - Mästocka, 26.0 km; its GPX has 520 points and matches official GPX endpoints/length closely despite old Assman slug.",
+        "Main-thread baseline: OSM relation 7396988 is named Hallandsleden Etappen Simlångsdalen - Mästocka, distance 26, from Simlångsdalen to Mästocka; relation geometry still needs a geometry-lane gap/order check.",
+        "Main-thread baseline: no OSM/Hallandstrafiken bus stops were found within the immediate Mästocka endpoint bbox; broad OSM fallback stops begin around 9.1 km straight-line away at Uddared/Kattarp/Skogaby, so endpoint public transit is likely weak unless transit lane finds a better current service.",
+        "Main-thread baseline: OSM and Länsstyrelsen show Mästocka endpoint access/facilities including campsite/toilet/water near 56.6077-56.6080,13.2452-13.2458, small parking near 56.605909,13.247510 and reserve parking Mästocka ljunghed around 56.612477,13.242714 / Länsstyrelsen WGS84 56°36’45” 13°14’32”.",
+        "Main-thread baseline: Länsstyrelsen pages confirm Hallandsleden passes Danska Fall, Gårdshult and Mästocka ljunghed reserves; Danska Fall permits one-night tenting under allemansrätten but prohibits unleashed dogs/riding/motor vehicles and parking outside designated places; Gårdshult prohibits camping, fires and unleashed dogs; Mästocka ljunghed prohibits fires, camping/caravan/RV overnight 22:00-06:00, drones/model aircraft and dogs/horses inside fenced areas 1 Apr-1 Dec.",
+        "Main-thread baseline: S6 GPX end at 56.607918,13.245417 is 0.89 m from S7 GPX start at 56.607910,13.245416, confirming precise Mästocka handoff to S7.",
+        "Transit-access lane confirmed start access: Simlångsdalen bus stop 56.720754,13.130341 is about 13 m from S6 GPX start and is the best public-transport endpoint; Hallandstrafiken service is rural/date-dependent and needs live planner checks.",
+        "Transit-access lane confirmed start alternates: Ljungblomman bus stop about 356 m, Brearedsskolan about 435 m, Simlångsdalen center parking about 48 m but unlabeled, and Simlångsdalen public parking about 590 m with OSM access=yes/fee=no/capacity 20.",
+        "Transit-access lane confirmed Mästocka endpoint has no close regular transit found; import Mästocka ljunghed official parking around 56.612292,13.242422 / OSM way 174970403 about 0.52 km from endpoint as primary confirmed end access.",
+        "Transit-access lane found closest mapped Mästocka-side Hallandstrafiken stops are distant: Uddared/Kattarp about 9.1 km straight-line, Knäred about 10.9 km and Laholm station about 17 km; do not mark Mästocka as normal transit-accessible without strong caveats.",
+        "Transit-access lane recommended Danska Fall parking as useful early-stage access only, not an endpoint; no ferry/boat/rowboat transfer applies to S6.",
+        "Field-report lane found no active S6-specific closure/reroute in official page/deviation page, Naturkartan, searched municipal pages, Wikiloc, Pacer, AllTrails, Outdooractive or blogs as of 2026-04-30; confidence medium because absence is not proof.",
+        "Field-report lane found a recent full-section Wikiloc track recorded July 2025/uploaded 2025-07-24: Simlångsdalen-Mästocka, 15.9 mi/25.6 km, moderate, passing Danska Fall at about 2.5 km, with no warnings/comments.",
+        "Field-report lane found recent partial Danska Fall/Gårdshult AllTrails condition signals through April 2026: generally good/well maintained but recurring muddy reports, especially wet/leaf-covered paths and local steep/forest sections.",
+        "Field-report lane found no S6-specific resolved closure/bridge/forestry/storm damage notice; a 2021 Wikiloc local-loop crossing issue at Danska Fall is stale/local and should not be imported as active.",
+        "Field-report lane supports terrain notes: varied roads/paths, forest/Assman valley/wetlands/heath, mud after Gårdshult pastures, tricky footing under power line and map/GPS usefulness around Danska Fall/Gårdshult junctions.",
+        "Field-report lane flags stale source risks: Pacer/Outdooractive/Destination Simlångsdalen/Destination Halmstad still use old Assman-Mästocka framing and 16-17 km distances; suppress as canonical data.",
+        "Field-report lane notes currentness: Mästocka ljunghed heath management/burning/grazing is landscape context only; dynamic fire-ban checks remain required; reserve restrictions override generic route-app dog-friendly tags.",
+        "Official-source lane confirmed canonical identity/order/distance/difficulty: S6 Simlångsdalen - Mästocka, official order 22, Södra local order 6, 26 km, red/hard, no official estimated time.",
+        "Official-source lane confirmed official app-description content: route crosses Fylleån, follows Brearedssjön/Assman/Danska Fall/Gårdshult/Linghult/Mästocka ljunghed, circles Björsjö and ends at Lägerplats Mästocka.",
+        "Official-source lane confirmed official places and facility facts: seasonal Dricksvatten i Mästocka 15 Apr-15 Oct, Lägerplats Mästocka with shelter/fireplaces/firewood/dry toilet/cold-water shower/bathing/jetty, Simlångsdalen services, Danska Fall/Gårdshult/Linghult/Kersti sten/Mästocka ljunghed POIs and Ulvereds as off-route/side service.",
+        "Official-source lane flags stale aliases/distances: Naturkartan slug and tourism/route-app sources retain Assman-Mästocka and old 16-17 km distances; use current official Simlångsdalen-Mästocka/26 km only.",
+        "Route-geometry lane confirmed official GPX and Hallandsleden API geo_json match exactly: 550 points, computed 24.990 km, start 56.720716,13.130545, end 56.607918,13.245417, direction Simlångsdalen to Mästocka, elevation 64.9-171.5 m, Last-Modified 2025-08-29.",
+        "Route-geometry lane confirmed Hallandsleden line.geometry is stale/partial: 674 points/16.658 km from 56.689895,13.158974 to 56.609299,13.248396, 3841 m from official start and 238 m from official end; suppress for import.",
+        "Route-geometry lane confirmed Naturkartan site 22050/API/GPX is endpoint-identical/planning-grade despite old assman-mastocka slug; OSM relation 7396988 has correct S6 tags but broken/reversed/branchy member order and stale/incomplete Mästocka endpoint.",
+        "Route-geometry lane confirmed endpoint continuity: S6 start is about 5.0 m from S4 end and 1.9 m from S5 start; S6 end is 0.9 m from S7 start.",
+        "Route-geometry lane recorded crossing/currentness clues: road 25/Brearedsvägen, Tönnersjövägen/N559 and Fylleån bridge, wooden path bridge near Danska Fall, Assman, Börjeån, Brostorpaån and Harsprångsledningen/power line.",
+        "Facilities lane identified import candidates: Hållplats Simlångsdalen, Simlångsdalen village/tourist info, Tempo, Dalens Pizzeria, Tallhöjden, Rastplats/Toalett/Vattenfall Danska Fall, Gårdshults naturreservat/Rastplats Gårdshult, Linghult terraces, Kersti sten, Mästocka ljunghed, Lägerplats Mästocka and Dricksvatten i Mästocka.",
+        "Facilities lane marked access/secondary candidates: Mästocka/Björsjön parking, Danska Fall parking, Gårdshult parking, Qstar, Mountain Biking in Halmstad, Simlångsdalen recycling, caravan-site record, Ulvereds side service and OSM lean-to near Danska Fall pending.",
+        "Facilities lane suppressions: public-transport shelters as hiking shelters, duplicate Mästocka subfacility OSM nodes to merge, generic Simlångsdalen amenity noise, Gårdshult campsite/fireplace inference, Danska Fall campsite as a facility, S7 next-section facilities and Laholm broad Björsjön coordinate as facility coordinate.",
+        "Rules-safety lane found no active S6 closure/reroute; Danska Fall parking maintenance 15-20 Apr 2026 is expired by 2026-04-30 and not a trail closure; Gårdshult/Mästocka pages show no current news notices.",
+        "Rules-safety lane mapped protected-area spans: Fylleån Natura around km 0.89-0.93; Danska Fall reserve/Natura km 1.85-3.27; Gårdshult reserve/Natura km 3.63-6.34/5.76; Mästocka ljunghed reserve/Natura km 22.40-24.74/23.64-24.74.",
+        "Rules-safety lane found no Simlångsdalen-Hule water-protection intersection; nearby reserves Hyltan-Bökhult/Vännet/Göstorp skog are detour/nearby context only unless geometry changes.",
+        "Rules-safety lane recorded reserve rules: Danska Fall no loose dogs/riding/motor/off-road cycling/vegetation damage and park only designated places; Gårdshult no camping/caravan/fire/riding/loose dogs; Mästocka ljunghed no tents/fire/drones/model aircraft/overnight camper parking and no dog/horse inside fenced areas 1 Apr-1 Dec.",
+        "Rules-safety lane recorded forestry/currentness risks within 250 m, especially Skogsstyrelsen A 38174-2022 essentially on the GPX near km 9.57; dynamic fire-ban, dog/livestock/hunting and road/water crossing cautions remain required.",
+        "S6 synthesis complete: section JSON written and marked research-ready-with-caveats. Remaining import caveats are stale Hallandsleden line.geometry suppression, old Assman-Mästocka source suppression, Simlångsdalen/Mästocka node snapping, weak Mästocka transit, seasonal Mästocka water, reserve/campsite rule boundary handling, side-service filtering and dynamic fire/transit/forestry/currentness checks."
       ]
     },
     "hallandsleden-mastocka-knared": {
@@ -4443,6 +4489,209 @@
       "synthesizedAt": "2026-04-30T01:05:00Z",
       "synthesisOutput": "sections/hallandsleden-simlangsdalen-halmstad.research.json",
       "synthesisSummary": "Synthesized S5 Simlångsdalen - Halmstad into a research-ready section JSON after all six lane reports plus main-thread official/API/GPX/Naturkartan/places checks. Canonical geometry is official GPX/API geo_json 257 points/27.927 km; Hallandsleden line.geometry is empty; Naturkartan is reverse-named/simplified; OSM is validation only. Both endpoints have strong transit. No official S5 campsite/shelter/fireplace or standalone potable-water POI was found. Dense Halmstad/Danska Fall facility leakage, seasonal toilets, protected-area/local rules and stale old distance sources are recorded as caveats."
+    },
+    {
+      "batchId": "hallandsleden-simlangsdalen-mastocka-initial-6-lane-2026-04-30",
+      "sectionId": "hallandsleden-simlangsdalen-mastocka",
+      "startedAt": "2026-04-30T01:06:00Z",
+      "status": "complete-section-synthesized",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "nickname": "Carson"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "nickname": "Darwin"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "nickname": "Beauvoir the 2nd"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "nickname": "Poincare the 2nd"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "nickname": "Rawls the 2nd"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "nickname": "Kuhn the 2nd"
+        }
+      ],
+      "requestedOutputs": [
+        "official facts",
+        "geometry verification",
+        "facilities",
+        "transit/access",
+        "field reports",
+        "rules/safety/currentness"
+      ],
+      "notes": [
+        "Research only; agents must not edit files. Main thread owns final JSON/progress writes.",
+        "Focus on Simlångsdalen branch handoff, hard 26 km Simlångsdalen-Mästocka route, official GPX/API/overview linework consistency, rural access and sparse services, Mästocka endpoint, water/camping/fire/toilet evidence, protected-area/currentness and stale Assman/Mästocka source risks."
+      ],
+      "receivedReports": [
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "receivedAt": "2026-04-30T01:32:00Z",
+          "summary": "Confirmed strong Simlångsdalen start access at bus stop about 13 m from GPX start, plus nearby Simlångsdalen parking. Confirmed weak Mästocka public transport: primary end access is Mästocka ljunghed official parking about 0.52 km away; closest mapped Hallandstrafiken fallback stops are Uddared/Kattarp around 9.1 km, Knäred around 10.9 km and Laholm station about 17 km, all requiring caveats. Danska Fall parking is useful early-stage access only; no ferry/boat/rowboat applies.",
+          "keySources": [
+            "https://www.openstreetmap.org/node/1797668994",
+            "https://transitapp.com/en/region/halland/hallandstrafiken/bus-318",
+            "https://www.hallandstrafiken.se/res-med-oss/sok-resa/hallplatser",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/mastocka-ljunghed.html",
+            "https://www.openstreetmap.org/way/174970403",
+            "https://www.openstreetmap.org/node/4948307175",
+            "https://www.openstreetmap.org/node/12773087165",
+            "https://www.openstreetmap.org/node/12772977104",
+            "https://www.openstreetmap.org/node/285158318"
+          ],
+          "importImpacts": [
+            "Import Simlångsdalen bus stop as high-confidence start transit.",
+            "Import Simlångsdalen public parking as practical start parking; keep the closest unlabeled parking as lower-confidence/local candidate.",
+            "Import Mästocka ljunghed official parking as primary end access.",
+            "Do not classify Mästocka as direct transit-accessible; distant fallback stops require schedule and road-safety validation."
+          ]
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "receivedAt": "2026-04-30T01:34:00Z",
+          "summary": "Found no active S6-specific closure/reroute as of 2026-04-30. Recent signals include a July 2025 Wikiloc full Simlångsdalen-Mästocka track and 2026 AllTrails reports for the Danska Fall/Gårdshult subarea showing generally good/well-maintained conditions with recurring mud/leaf-cover/footing caveats. No S6-specific resolved works found. Stale sources still use Assman-Mästocka and 16-17 km distances; suppress those for canonical import.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/simlangsdalen-mastocka",
+            "https://hallandsleden.se/report/simlangsdalen-mastocka",
+            "https://www.naturkartan.se/sv/hallands-lan/assman-mastocka-hallandsleden",
+            "https://www.wikiloc.com/hiking-trails/europe-full-length-pt2-stage-106-simlangsdalen-mastocka-223368076",
+            "https://www.alltrails.com/trail/sweden/halland/danska-fall-gardshult",
+            "https://www.alltrails.com/trail/sweden/halland/fyllean-danska-fall-naturreservat-gardshult",
+            "https://www.bejegard.se/vandring/halland/hallandsleden/hallandsleden-gyltige-gardshult-12-km/",
+            "https://www.mypacer.com/routes/oi0etm/hallandsleden-stage-assman-m%C3%A4stocka-hiking-trail-hallands-l%C3%A4n",
+            "https://www.destinationsimlangsdalen.se/copy-15-of-pensionat-s%C3%A5gknorren-2",
+            "https://www.destinationhalmstad.se/en/experience/nature-and-the-outdoor-life/hallandsleden---435-km-hiking-trail"
+          ],
+          "importImpacts": [
+            "Do not import active closure/reroute.",
+            "Import terrain/currentness notes for mud, varied surfaces and power-line footing caution.",
+            "Do not import old Assman-Mästocka name or 16-17 km distance as canonical.",
+            "Do not use partial AllTrails/Wikiloc loop geometry as S6 geometry."
+          ]
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "receivedAt": "2026-04-30T01:52:00Z",
+          "summary": "Found no active S6 closure/reroute. Recorded Fylleån Natura 2000, Danska Fall/Gårdshult/Mästocka ljunghed reserve and Natura spans, strict reserve rules, dynamic fire/dog/livestock/hunting policy, roads/water crossings/power-line cautions, expired Danska Fall parking maintenance and forestry notifications near the GPX including A 38174-2022 near km 9.57.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/simlangsdalen-mastocka",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/danska-fall.html",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/gardshult.html",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/mastocka-ljunghed.html",
+            "https://geodata.naturvardsverket.se/naturvardsregistret/wfs",
+            "https://geodata.naturvardsverket.se/n2000/wfs",
+            "https://geodpags.skogsstyrelsen.se/arcgis/rest/services/Geodataportal/GeodataportalVisaSkogsbruk/MapServer/5",
+            "https://hallandsleden.se/item/kolla-brandrisken-4/h1orikco24kzjjuuyczmerpw6s8fe3it",
+            "https://www.hallandsleden.se/item/vandra-under-jaktsasongen/fxm1j3j5ltmdkd65aqrztndfqhr3txnq"
+          ],
+          "importImpacts": [
+            "Do not import active closure/reroute.",
+            "Import protected-area spans and rule caveats.",
+            "Keep Mästocka campsite/fire/water distinct from Mästocka ljunghed reserve restrictions.",
+            "Attach dynamic fire/hunting/forestry/currentness caveats."
+          ]
+        },
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "receivedAt": "2026-04-30T01:52:00Z",
+          "summary": "Confirmed canonical S6 identity/order/distance/difficulty, official page description and sights, official GPX/API geometry metadata, Simlångsdalen branch topology, Mästocka/S7 endpoint, official places/facilities including seasonal Mästocka water and campsite, reserve-rule source context and stale Assman-Mästocka/old-distance risks.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/simlangsdalen-mastocka",
+            "https://www.hallandsleden.se/en/etapp/simlangsdalen-mastocka",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Simlangsdalen_Mastocka_250818.gpx",
+            "https://www.hallandsleden.se/plats/lagerplats-mastocka",
+            "https://www.hallandsleden.se/plats/dricksvatten-i-mastocka",
+            "https://www.naturkartan.se/sv/hallands-lan/assman-mastocka-hallandsleden",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/danska-fall.html",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/gardshult.html",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/mastocka-ljunghed.html",
+            "https://www.destinationhalmstad.se/en/experience/nature-and-the-outdoor-life/hallandsleden---435-km-hiking-trail"
+          ],
+          "importImpacts": [
+            "Use current Hallandsleden identity/order/distance/difficulty.",
+            "Use GPX/API start and end coordinates.",
+            "Import Mästocka campsite/toilet/fire/bathing/seasonal water and attach reserve-rule context.",
+            "Store Assman-Mästocka as stale alias only."
+          ]
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "receivedAt": "2026-04-30T01:52:00Z",
+          "summary": "Confirmed official GPX/API geo_json exact match: 550 points, computed 24.990 km, start 56.720716,13.130545, end 56.607918,13.245417, direction Simlångsdalen-Mästocka, elevation 64.9-171.5 m. Hallandsleden line.geometry is stale/partial 16.658 km and should be suppressed. Naturkartan site 22050 is endpoint-identical/planning-grade despite old slug. OSM relation 7396988 has correct tags but broken/reversed/branchy geometry; validation only. Endpoint continuity S4/S5/S7 verified.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/simlangsdalen-mastocka",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Simlangsdalen_Mastocka_250818.gpx",
+            "https://www.naturkartan.se/sv/hallands-lan/assman-mastocka-hallandsleden",
+            "https://www.naturkartan.se/sv/hallands-lan/assman-mastocka-hallandsleden.gpx",
+            "https://www.openstreetmap.org/relation/7396988",
+            "https://www.openstreetmap.org/relation/7396989",
+            "https://overpass-api.de/api/interpreter"
+          ],
+          "importImpacts": [
+            "Import official GPX/API geo_json as navigation-grade geometry.",
+            "Suppress Hallandsleden line.geometry.",
+            "Use Naturkartan as corroboration only.",
+            "Use OSM only for validation/stale-risk notes."
+          ]
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "receivedAt": "2026-04-30T01:52:00Z",
+          "summary": "Identified core import candidates at Simlångsdalen, Danska Fall, Gårdshult, Linghult, Kersti sten, Mästocka ljunghed and Mästocka/Björsjön endpoint. Confirmed Lägerplats Mästocka as combined endpoint facility with shelter/fireplaces/firewood/dry toilet/seasonal water/cold shower/swimming/picnic/waste. Marked Mästocka/Danska Fall/Gårdshult parking as access metadata, Ulvereds as side service and multiple OSM/dense village/next-section records for suppression or merge.",
+          "keySources": [
+            "https://www.hallandsleden.se/plats/hallplats-simlangsdalen",
+            "https://www.hallandsleden.se/plats/tempo-simlangsdalen",
+            "https://www.hallandsleden.se/plats/toalett-danska-fall",
+            "https://www.hallandsleden.se/plats/rastplats-danska-fall",
+            "https://www.hallandsleden.se/plats/gardshults-naturreservat",
+            "https://www.hallandsleden.se/plats/rastplats-gardshult",
+            "https://www.hallandsleden.se/plats/akerterrasser-och-odlingsrosen-i-linghult",
+            "https://www.hallandsleden.se/plats/kersti-sten",
+            "https://www.hallandsleden.se/plats/mastocka-ljunghed",
+            "https://www.hallandsleden.se/plats/lagerplats-mastocka",
+            "https://www.hallandsleden.se/plats/dricksvatten-i-mastocka",
+            "https://www.laholm.se/uppleva-och-gora/idrott-motion-och-friluftsliv/friluftsliv-och-motion/insjobad",
+            "https://www.naturkartan.se/en/hallands-lan/grillplats-bjorsjon",
+            "https://www.openstreetmap.org/node/5573738188"
+          ],
+          "importImpacts": [
+            "Import core official on-route facilities and endpoint campsite/water.",
+            "Model parking as access metadata.",
+            "Merge duplicate Mästocka subfacility nodes unless separate icons are required.",
+            "Suppress old/side/noisy facility leakage and camping/fire inferences forbidden by reserve rules."
+          ]
+        }
+      ],
+      "mainThreadBaseline": {
+        "completedAt": "2026-04-30T01:18:00Z",
+        "summary": "Main thread checked S6 official page, official GPX, Hallandsleden API map, official places API, Naturkartan site 22050/GPX, OSM relation tags/stops/facilities and Länsstyrelsen reserve pages. Official GPX/API geo_json is a 550-point line from Simlångsdalen 56.720716,13.130545 to Mästocka/Björsjön 56.607918,13.245417, computed 24.990 km with GPX desc Total: 26.2 km and official rounded 26 km. Hallandsleden overview line.geometry is a likely stale 16.658 km Assman-Mästocka line from 56.689895,13.158974 to 56.609299,13.248396, not a full S6 import geometry. Official places API returned 15 records including start services, Danska Fall/Gårdshult/Linghult/Kersti sten/Mästocka ljunghed and Mästocka campsite/water. Naturkartan slug is old assman-mastocka but current title/endpoints match. Mästocka transit appears weak from OSM baseline, with nearest mapped bus stops about 9 km away unless the transit lane finds better current data. Reserve-rule baseline recorded Danska Fall, Gårdshult and Mästocka ljunghed restrictions. S6 end is 0.89 m from S7 GPX start, confirming precise Mästocka handoff."
+      },
+      "completedAt": "2026-04-30T01:52:00Z",
+      "synthesizedAt": "2026-04-30T02:05:00Z",
+      "synthesisOutput": "sections/hallandsleden-simlangsdalen-mastocka.research.json",
+      "synthesisSummary": "Synthesized S6 Simlångsdalen - Mästocka into a research-ready section JSON after all six lane reports plus main-thread official/API/GPX/Naturkartan/places/OSM/reserve checks. Canonical geometry is official GPX/API geo_json 550 points/24.990 km computed, official 26 km, with exact Simlångsdalen branch and Mästocka S7 handoffs. Hallandsleden line.geometry is a stale 16.658 km Assman-Mästocka partial line to suppress; Naturkartan corroborates endpoints despite old slug; OSM is validation only. Start transit is strong, Mästocka transit is weak. Mästocka campsite/seasonal water and reserve/rules/currentness caveats are recorded."
     }
   ],
   "sourceCoverage": {
@@ -4498,10 +4747,21 @@
       "fieldReports": "complete from field-report lane; no active closure/reroute found, resolved past works and stale route-app distances recorded",
       "rulesSafety": "complete from rules-safety-currentness lane; protected/water/fire/dog/hunting/forestry/road-currentness recorded",
       "synthesis": "complete; section JSON written and validation passed before commit"
+    },
+    "hallandsleden-simlangsdalen-mastocka": {
+      "overview": "complete from trail.research.json overview pass",
+      "officialSources": "complete from official-source lane and main-thread official page/API/places baseline",
+      "routeGeometry": "complete from route-geometry lane and main-thread baseline; official GPX/API geo_json preferred, line.geometry suppressed, Naturkartan corroborates, OSM validation only",
+      "endpointCoordinates": "complete from route-geometry lane; Simlångsdalen branch and Mästocka S7 handoff verified",
+      "facilities": "complete from facilities lane; import/pending/suppress decisions recorded",
+      "commuteAccess": "complete from transit-access lane; Simlångsdalen direct bus access, Mästocka no close transit and primary confirmed access via reserve parking/car/pickup",
+      "fieldReports": "complete from field-report lane; no active closure found, recent partial/full field signals and stale Assman-Mästocka source risks recorded",
+      "rulesSafety": "complete from rules-safety-currentness lane; protected-area/fire/dog/hunting/forestry/road-currentness recorded",
+      "synthesis": "complete; section JSON written and validation passed before commit"
     }
   },
   "knownGaps": [
-    "Only the overview and first twenty-one sections have been researched/synthesized; 14 later sections still need the six-lane workflow.",
+    "Only the overview and first twenty-two sections have been researched/synthesized; 13 later sections still need the six-lane workflow.",
     "Coastal Hallandsleden is incomplete by official statement; future import must model gaps instead of stitching a continuous coast.",
     "Older sources may report 435 km / 26 stages / 3 parts; live official source reports 612 km / 35 sections / 4 subtrails.",
     "Paper maps printed June 2022 are stale for 2024 rerouted sections.",
@@ -4681,12 +4941,19 @@
     "S5 research-ready caveat: no official S5 campsite, shelter, fireplace or standalone public drinking-water POI was found; use service-based refill context only until verified.",
     "S5 research-ready caveat: dense Halmstad urban services, Danska Fall leakage and side clusters need filtering before normalization; Östra Stranden toilets are seasonal.",
     "S5 research-ready caveat: import Fylleån Natura 2000, Torvsjön water-protection, Hagön reserve and Halmstad public-place/dog/camping rules as dynamic/currentness caveats.",
-    "S5 research-ready caveat: old 18 km / 20.11 km Halmstad-Simlångsdalen route-app/guide distances and old Gyltige-Assman/Assman-Mästocka naming are stale and must be suppressed."
+    "S5 research-ready caveat: old 18 km / 20.11 km Halmstad-Simlångsdalen route-app/guide distances and old Gyltige-Assman/Assman-Mästocka naming are stale and must be suppressed.",
+    "S6 research-ready caveat: official GPX/API geo_json is canonical while Hallandsleden line.geometry is a stale/partial 16.658 km Assman-Mästocka line and must be suppressed.",
+    "S6 research-ready caveat: Naturkartan title/endpoints are current but slug remains assman-mastocka-hallandsleden; OSM relation 7396988 has correct tags but broken/reversed/branchy geometry and is validation only.",
+    "S6 research-ready caveat: Mästocka endpoint has confirmed parking/campsite access but weak public transit; nearest mapped bus fallbacks are about 9-11 km away and need live schedule/road-safety validation.",
+    "S6 research-ready caveat: Lägerplats Mästocka and Dricksvatten i Mästocka are confirmed endpoint facilities, but water is seasonal 15 Apr-15 Oct and fire use is dynamic.",
+    "S6 research-ready caveat: Gårdshult and Mästocka ljunghed reserve no-fire/no-camping rules must be kept distinct from Björsjön campsite permissions; verify boundary before user-facing rule copy.",
+    "S6 research-ready caveat: import Danska Fall/Gårdshult/Mästocka protected-area spans, power-line/road/water crossing cautions and forestry notification A 38174-2022 near km 9.57 as currentness caveats.",
+    "S6 research-ready caveat: old Assman-Mästocka 16-17 km route-app/tourism sources are stale and must be suppressed."
   ],
   "nextActions": [
-    "Commit S5 research before starting S6.",
-    "Resume Phase 2 with S6 hallandsleden-simlangsdalen-mastocka using the six required research/report lanes.",
-    "For S6, run a main-thread baseline against the official page, official GPX Sodra_Simlangsdalen_Mastocka_250818.gpx, Hallandsleden API linework, places API, Naturkartan/OSM, adjacent S4/S5/S7 continuity and endpoint access."
+    "Commit S6 research before starting S7.",
+    "Resume Phase 2 with S7 hallandsleden-mastocka-knared using the six required research/report lanes.",
+    "For S7, run a main-thread baseline against the official page, official GPX Sodra_Mastocka_Knared.gpx, Hallandsleden API linework, places API, Naturkartan/OSM, adjacent S6/S8 continuity and endpoint access in Mästocka and Knäred."
   ],
   "handoffNotes": [
     "Work resumed on 2026-04-29 in /workspaces/hike-trails-codex-hallandsleden-research on branch codex/hallandsleden-research.",
@@ -4801,7 +5068,11 @@
     "S5 active target: hallandsleden-simlangsdalen-halmstad, official page https://www.hallandsleden.se/etapp/simlangsdalen-halmstad, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Simlangsdalen_Halmstad.gpx, distance 28 km, medium.",
     "S5 section JSON is written at data/research/candidate-trails/hallandsleden/sections/hallandsleden-simlangsdalen-halmstad.research.json and is research-ready-with-caveats.",
     "Commit S5 before starting S6 per user instruction to commit between sections.",
-    "S6 next target: hallandsleden-simlangsdalen-mastocka, official page https://www.hallandsleden.se/etapp/simlangsdalen-mastocka, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Simlangsdalen_Mastocka_250818.gpx, distance 26 km, hard; starts Simlångsdalen and ends Mästocka."
+    "S6 next target: hallandsleden-simlangsdalen-mastocka, official page https://www.hallandsleden.se/etapp/simlangsdalen-mastocka, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Simlangsdalen_Mastocka_250818.gpx, distance 26 km, hard; starts Simlångsdalen and ends Mästocka.",
+    "S6 active target: hallandsleden-simlangsdalen-mastocka, official page https://www.hallandsleden.se/etapp/simlangsdalen-mastocka, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Simlangsdalen_Mastocka_250818.gpx, distance 26 km, hard.",
+    "S6 section JSON is written at data/research/candidate-trails/hallandsleden/sections/hallandsleden-simlangsdalen-mastocka.research.json and is research-ready-with-caveats.",
+    "Commit S6 before starting S7 per user instruction to commit between sections.",
+    "S7 next target: hallandsleden-mastocka-knared, official page https://www.hallandsleden.se/etapp/mastocka-knared, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Mastocka_Knared.gpx, distance 17 km, medium; starts Mästocka and ends Knäred."
   ],
   "filesWritten": [
     "README.md",
@@ -4827,7 +5098,8 @@
     "sections/hallandsleden-oskarstrom-gyltige.research.json",
     "sections/hallandsleden-kvarnforsen-gyltige.research.json",
     "sections/hallandsleden-gyltige-simlangsdalen.research.json",
-    "sections/hallandsleden-simlangsdalen-halmstad.research.json"
+    "sections/hallandsleden-simlangsdalen-halmstad.research.json",
+    "sections/hallandsleden-simlangsdalen-mastocka.research.json"
   ],
   "meaningfulPasses": [
     {
@@ -5329,6 +5601,51 @@
       "id": "phase-2-s5-six-lane-synthesis-complete-2026-04-30",
       "completedAt": "2026-04-30T01:05:00Z",
       "summary": "Synthesized S5 Simlångsdalen - Halmstad into sections/hallandsleden-simlangsdalen-halmstad.research.json after all six lane reports plus main-thread official/API/GPX/Naturkartan/places checks. Marked S5 research-ready with caveats around canonical official GPX/API geo_json versus empty Hallandsleden line.geometry, reverse/simplified Naturkartan, gap-heavy OSM, Simlångsdalen branch topology, strong endpoint transit, no official S5 water/shelter/camping/fireplace, dense Halmstad/Danska Fall service filtering, seasonal toilets, Fylleån/Torvsjön/Hagön/Halmstad rules, resolved works and stale old distance sources."
+    },
+    {
+      "id": "phase-2-s6-initial-six-lane-batch-started-2026-04-30",
+      "completedAt": "2026-04-30T01:06:00Z",
+      "summary": "Started S6 Simlångsdalen - Mästocka six-lane research batch with agents Carson, Darwin, Beauvoir the 2nd, Poincare the 2nd, Rawls the 2nd and Kuhn the 2nd. Main thread retains all file-write ownership."
+    },
+    {
+      "id": "phase-2-s6-main-thread-baseline-2026-04-30",
+      "completedAt": "2026-04-30T01:18:00Z",
+      "summary": "Main thread baseline for S6 checked official page/API/GPX/places, Naturkartan, OSM and reserve pages. Official GPX/API geo_json is the likely canonical full Simlångsdalen-Mästocka geometry; Hallandsleden overview line.geometry appears to be a stale short Assman-Mästocka segment. Official places and major reserve-rule/access caveats are captured in progress while agent lanes continue."
+    },
+    {
+      "id": "phase-2-s6-transit-access-lane-received-2026-04-30",
+      "completedAt": "2026-04-30T01:32:00Z",
+      "summary": "Received S6 transit/access lane. It confirms direct Simlångsdalen bus access at the start, nearby Simlångsdalen parking, primary Mästocka end access via official reserve parking/car/pickup, no close Mästocka transit, distant bus fallbacks around 9-11 km, and no ferry/boat/rowboat context."
+    },
+    {
+      "id": "phase-2-s6-field-report-lane-received-2026-04-30",
+      "completedAt": "2026-04-30T01:34:00Z",
+      "summary": "Received S6 field-report lane. It found no active S6 closure/reroute, a recent July 2025 full-section Wikiloc track, 2026 partial Danska Fall/Gårdshult condition signals with recurring mud/footing caveats, no resolved S6 works, and stale old Assman-Mästocka/16-17 km source risks to suppress."
+    },
+    {
+      "id": "phase-2-s6-official-source-lane-received-2026-04-30",
+      "completedAt": "2026-04-30T01:52:00Z",
+      "summary": "Received S6 official-source lane. It confirmed canonical identity/order/distance/difficulty, official route description, GPX/API metadata, official places/facilities including Mästocka campsite and seasonal water, reserve-rule source context, and stale Assman-Mästocka alias/distance risks."
+    },
+    {
+      "id": "phase-2-s6-route-geometry-lane-received-2026-04-30",
+      "completedAt": "2026-04-30T01:52:00Z",
+      "summary": "Received S6 route-geometry lane. It confirmed official GPX/API geo_json as navigation-grade and endpoint-continuous, identified Hallandsleden line.geometry as stale partial geometry to suppress, Naturkartan as endpoint-identical corroboration and OSM as validation only."
+    },
+    {
+      "id": "phase-2-s6-facilities-lane-received-2026-04-30",
+      "completedAt": "2026-04-30T01:52:00Z",
+      "summary": "Received S6 facilities lane. It categorized core import candidates, access metadata, pending side services and suppressions, with high-confidence endpoint facility details for Lägerplats Mästocka/Dricksvatten i Mästocka."
+    },
+    {
+      "id": "phase-2-s6-rules-safety-lane-received-2026-04-30",
+      "completedAt": "2026-04-30T01:52:00Z",
+      "summary": "Received S6 rules/safety/currentness lane. It found no active closure/reroute, mapped reserve/Natura spans and rule restrictions, recorded dynamic fire/dog/hunting/forestry/road/water cautions and forestry notifications near the route."
+    },
+    {
+      "id": "phase-2-s6-six-lane-synthesis-complete-2026-04-30",
+      "completedAt": "2026-04-30T02:05:00Z",
+      "summary": "Synthesized S6 Simlångsdalen - Mästocka into sections/hallandsleden-simlangsdalen-mastocka.research.json after all six lane reports plus main-thread official/API/GPX/Naturkartan/OSM/places/reserve checks. Marked S6 research-ready with caveats around canonical GPX/API geo_json versus stale line.geometry, old Assman-Mästocka sources, Simlångsdalen and Mästocka node handoffs, weak Mästocka transit, confirmed endpoint campsite/seasonal water, protected-area rules, forestry/currentness and dynamic fire/transit checks."
     }
   ]
 }
