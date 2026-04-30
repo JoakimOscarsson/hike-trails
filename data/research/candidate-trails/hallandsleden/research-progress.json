@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-30T16:10:00Z",
-  "currentPhase": "Phase 2 K9 validation passed; commit pending for hallandsleden-paarp-mellbystrand",
+  "lastUpdated": "2026-04-30T17:35:00Z",
+  "currentPhase": "Phase 2 complete: all 35 current official Hallandsleden sections have research-ready candidate files; K10 committed",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -36,7 +36,8 @@
     "hallandsleden-haverdal-tylosand",
     "hallandsleden-tylosand-halmstad-c",
     "hallandsleden-halmstad-c-paarp",
-    "hallandsleden-paarp-mellbystrand"
+    "hallandsleden-paarp-mellbystrand",
+    "hallandsleden-mellbystrand-bastad-station"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -1122,23 +1123,107 @@
       "sectionNumber": "K10",
       "name": "Mellbystrand - Båstad station",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-gpx-discovered-map-api-line-empty-or-sparse-needs-parsing",
-      "startEndCoordinateStatus": "not-yet-validated-gpx-endpoints-needed",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-from-official-sources-lane-and-main-thread-official-page-api-gpx-places-baseline",
+      "routeGeometryStatus": "complete-from-route-geometry-lane-and-main-thread-baseline-official-gpx-api-geo-json-182-points-computed-12-144-km-planning-grade-due-762-82m-sparse-segment",
+      "startEndCoordinateStatus": "complete-start-56-514711-12-949898-end-56-432153-12-906457-k9-handoff-10-82-m-bastad-station-stop-toilet-within-20-m",
+      "commuteAccessStatus": "complete-from-transit-access-lane-and-main-thread-baseline-mellbystrand-start-and-bastad-station-bus-train-end-found",
+      "facilityResearchStatus": "complete-from-facilities-lane-and-main-thread-baseline-49-official-place-records-found-with-heavy-side-service-filtering-needed",
+      "rulesSafetyStatus": "complete-from-rules-safety-currentness-lane-and-main-thread-protected-area-beach-fire-currentness-baseline",
+      "synthesisStatus": "complete-section-json-written",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
-        "Run six independent section research lanes and synthesize findings.",
-        "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
-        "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Use official GPX/API geo_json as canonical K10 geometry, but keep it planning-grade until the 762.82 m sparse segment near the early beach corridor is manually QAed.",
+        "Use official page/API name Mellbystrand - Båstad station as canonical; preserve GPX track-name omission of station only as a source artifact.",
+        "Decide endpoint snapping for the approximately 10.82 m K9-to-K10 Mellbystrand handoff and model Båstad station/Skåneleden terminal context without importing Skåneleden connector geometry into K10.",
+        "Filter the 49 official place records strictly: import route-adjacent official toilets, beach/swimming records, core Skummeslöv services and Båstad station access; suppress far Hemmeslövsstrand, Malen and Båstad town/harbour leakage unless side-service policy supports them.",
+        "Keep Hökafältet water as K9/shared endpoint metadata rather than on-route K10 water; confirm OSM-only Mellbyvägen water before import.",
+        "Confirm OSM-only BBQ/grill candidates at Mellbystrand and Allarp/Hemmeslöv before importing any fire facility.",
+        "Import Södra Skummeslöv reserve span/rules around km 7.301-8.546, with no-fire, no overnight tent/caravan/camper setup, dog-leash and bird-disturbance restrictions.",
+        "Recheck Laholm beach dog/horse/camping/motor rules, reserve works/burn plans, Laholm lighting works, Båstad station services/parking fees, fire/Brandrisk and Hallandstrafiken/Skånetrafiken schedules immediately before import."
       ]
     }
   },
   "agentBatches": [
+    {
+      "batchId": "hallandsleden-mellbystrand-bastad-station-initial-6-lane-2026-04-30",
+      "sectionId": "hallandsleden-mellbystrand-bastad-station",
+      "startedAt": "2026-04-30T16:15:00Z",
+      "completedAt": "2026-04-30T17:05:00Z",
+      "status": "completed-and-synthesized",
+      "synthesisFile": "sections/hallandsleden-mellbystrand-bastad-station.research.json",
+      "synthesisDecision": "All six K10 lanes returned usable evidence and main-thread baseline resolved official GPX/API, places, endpoint, access, protected-area and currentness context. No targeted follow-up batch was needed before writing the section file; remaining issues are import-time caveats around the official 762.82 m sparse geometry segment, endpoint snapping, Skåneleden terminal context, dense side-service filtering, OSM-only water/BBQ candidates, Södra Skummeslöv rules, Laholm beach rules, Båstad station services/parking, live fire and transit/currentness checks.",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "nickname": "Carson"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "nickname": "Darwin"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "nickname": "Beauvoir the 2nd"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "nickname": "Poincare the 2nd"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "nickname": "Rawls the 2nd"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "nickname": "Kuhn the 2nd"
+        }
+      ],
+      "receivedReports": [
+        {
+          "lane": "official-sources",
+          "receivedAt": "2026-04-30T16:50:00Z",
+          "summary": "Confirmed official K10 identity, order, 12 km/easy/no-time metadata, route description from Strandhotellet/Mellbystrand via Laholmsbukten, Skummeslövsstrand, Södra Skummeslöv and residential areas to Båstad station, official GPX/API/places sources, Skåneleden terminal context and no visible official K10 closure."
+        },
+        {
+          "lane": "route-geometry",
+          "receivedAt": "2026-04-30T17:05:00Z",
+          "summary": "Confirmed official GPX/API geo_json as canonical exact-match geometry with 182 points, computed 12.144 km, start 56.514711,12.949898 and end 56.432153,12.906457. K9 handoff is 10.82 m, Båstad station stop/toilet are within about 15-20 m, no exact OSM/Naturkartan K10 relation was found, and a 762.82 m official sparse point gap makes the geometry planning-grade until manual QA."
+        },
+        {
+          "lane": "facilities",
+          "receivedAt": "2026-04-30T17:05:00Z",
+          "summary": "Classified route-adjacent official toilets, start/end access records, Skummeslöv services, Båstad station cluster, private/side camping/lodging, Hökafältet/Mellbystrand shared endpoint records, OSM-only water/BBQ candidates and suppressions for Hemmeslövsstrand, Malen and Båstad town/harbour leakage."
+        },
+        {
+          "lane": "transit-access",
+          "receivedAt": "2026-04-30T16:50:00Z",
+          "summary": "Confirmed Mellbystrand bus/parking start access, Båstad station bus/train/toilet/parking endpoint access, cross-county Hallandstrafiken/Skånetrafiken context, intermediate stops and no ferry/rowboat/bus transfer requirement."
+        },
+        {
+          "lane": "field-reports",
+          "receivedAt": "2026-04-30T16:50:00Z",
+          "summary": "Found no active K10 closure; collected partial/adjacent AllTrails, Aktiva Seniorer, Wikiloc, Naturkartan Kustslingan, tourism and Båstad C station context with clear stale/partial-source caveats."
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "receivedAt": "2026-04-30T16:50:00Z",
+          "summary": "Confirmed Södra Skummeslöv direct route span/rules, nearby reserve distinctions, Laholm beach dog/horse/camping/motor rules, no official K10 closure, 2026 reserve-burn and Laholm lighting-works currentness caveats, and dynamic fire/currentness checks."
+        }
+      ],
+      "mainThreadBaseline": {
+        "completedAt": "2026-04-30T16:40:00Z",
+        "summary": "Main thread checked K10 official page, English page, official GPX, Hallandsleden tokenized map API and places API, K9 endpoint continuity, OSM/Overpass hiking relations, Skåneleden terminal connector, Södra Skummeslöv protected-area overlay, Laholm/Båstad currentness and core facility/access route-proximity clues. Official GPX/API geo_json is canonical at 182 points and 12.144 km, with start 56.514711,12.949898, end 56.432153,12.906457 and a 762.82 m sparse segment needing QA. K9/K10 handoff is 10.82 m, official places API returns 49 records requiring heavy filtering, and Södra Skummeslöv intersects roughly km 7.301-8.546."
+      },
+      "synthesizedAt": "2026-04-30T17:20:00Z",
+      "synthesisOutput": "sections/hallandsleden-mellbystrand-bastad-station.research.json",
+      "synthesisSummary": "Synthesized K10 Mellbystrand - Båstad station into a research-ready section JSON after all six lane reports plus main-thread official/API/GPX/places/access/rules checks. Canonical geometry is official GPX/API geo_json, 182 points and 12.144 km computed, but planning-grade due the 762.82 m sparse segment. Endpoint access is strong at Mellbystrand and Båstad station. Core official toilets, Skummeslöv services, Södra Skummeslöv reserve rules and Båstad station access are ready for normalization, while OSM-only water/BBQ, side-service filtering, endpoint snapping, Skåneleden terminal context and live fire/transit/currentness checks remain import-time caveats."
+    },
     {
       "batchId": "hallandsleden-paarp-mellbystrand-initial-6-lane-2026-04-30",
       "sectionId": "hallandsleden-paarp-mellbystrand",
@@ -5976,10 +6061,27 @@
       "fieldReports": "complete from re-prompted field-report lane and main-thread baseline; no active K9 closure found, official July 2025 comment, Naturvandra 2025 partial report, AllTrails partial-condition reports and Laholm/Hökafältet currentness caveats recorded",
       "rulesSafety": "complete from re-prompted rules-safety-currentness lane and main-thread baseline; Gullbranna, Tönnersa, Hökafältet, Natura 2000 spans, Laholm/Halmstad beach rules, fire policy, Lagaoset/Genevadsån hazards and currentness caveats recorded",
       "synthesis": "complete; section JSON written and validation passed before commit"
+    },
+    "hallandsleden-mellbystrand-bastad-station": {
+      "overview": "complete from trail.research.json overview pass",
+      "officialSources": "complete from official-sources lane and main-thread baseline covering official page, English page, tokenized map API, official GPX, places API, important-info page, report form, Södra Skummeslöv and Skåneleden terminal context",
+      "routeGeometry": "complete from route-geometry lane and main-thread baseline; official GPX/API geo_json canonical candidate is a 182-point LineString, official 12 km, GPX desc 12.2 km and computed 12.144 km, planning-grade due a 762.82 m sparse segment; no exact OSM/Naturkartan K10 relation found",
+      "endpointCoordinates": "complete from official GPX/API endpoints; K9-to-K10 handoff 10.82 m and Båstad station stop/toilet within about 15-20 m of official endpoint",
+      "facilities": "complete from facilities lane and main-thread baseline; 49 official places with route-adjacent toilets, beaches, Skummeslöv services and Båstad station access, plus side-service suppressions and OSM-only water/BBQ pending candidates recorded",
+      "commuteAccess": "complete from transit-access lane and main-thread baseline; Mellbystrand bus/parking start and Båstad station bus/train/toilet/parking end recorded, with Hallandstrafiken/Skånetrafiken live-schedule caveats",
+      "fieldReports": "complete from field-report lane and main-thread baseline; no active K10 closure found, partial/adjacent AllTrails/Aktiva Seniorer/Wikiloc/Naturkartan Kustslingan/tourism/Båstad C context recorded with stale/partial-source caveats",
+      "rulesSafety": "complete from rules-safety-currentness lane and main-thread baseline; Södra Skummeslöv direct span/rules, Laholm beach rules, nearby reserve distinctions, 2026 burn/lighting-work currentness and dynamic fire/currentness checks recorded",
+      "synthesis": "complete; section JSON written and validation passed before commit"
     }
   },
   "knownGaps": [
-    "Only the overview and first thirty-four sections have been researched/synthesized; K10 still needs the six-lane workflow.",
+    "All 35 current official Hallandsleden sections have been researched and synthesized into candidate section files; remaining work is normalization/import planning only.",
+    "K10 research-ready caveat: official GPX/API geo_json is a 182-point LineString from 56.514711,12.949898 to 56.432153,12.906457, official 12 km, GPX desc 12.2 km and computed 12.144 km; use official geometry as canonical but keep it planning-grade until the 762.82 m sparse segment near the early beach corridor is manually QAed.",
+    "K10 research-ready caveat: K9-to-K10 Mellbystrand handoff is about 10.82 m; Båstad station/Skåneleden terminal context is strong but Skåneleden connector geometry should not be imported as K10 geometry.",
+    "K10 research-ready caveat: official places API returned 49 records with heavy side-service leakage; import route-adjacent official toilets, beach records, core Skummeslöv services and Båstad station access, and suppress or side-model far Hemmeslövsstrand, Malen and Båstad town/harbour records.",
+    "K10 research-ready caveat: Hökafältet water is reliable but about 761 m north/behind K10 start and belongs better to K9/shared endpoint metadata; OSM-only Mellbyvägen water and Mellbystrand/Allarp BBQ candidates need confirmation.",
+    "K10 research-ready caveat: Södra Skummeslöv nature reserve intersects the route around km 7.301-8.546; import no-fire, no overnight tent/caravan/camper setup, dog-leash/birdlife and disturbance restrictions with exact rule-source citations.",
+    "K10 research-ready caveat: recheck Laholm beach dog/horse/camping/motor rules, planned 2026 reserve burns, Laholm lighting works, Båstad station services/parking fees, fire/Brandrisk status and Hallandstrafiken/Skånetrafiken schedules immediately before import.",
     "K9 research-ready caveat: official GPX/API geo_json is a continuous 255-point LineString/trkseg from 56.601437,12.917840 to 56.514695,12.949724, official 13 km, GPX desc 13.5 km and computed 13.434 km; suppress API line.geometry, missing Naturkartan and local/cycling/route-app linework; keep OSM relation 20187273 as reverse-direction corroboration only.",
     "K9 research-ready caveat: K8-to-K9 Påarp handoff is about 3.23 m and K9-to-K10 Mellbystrand handoff is about 10.82 m; later normalization should decide whether to snap endpoints.",
     "K9 research-ready caveat: official places API returned 20 records in the main query while the official-source lane saw 21 including Burgers & Dreams; resolve the API count/query variation and service filtering before import.",
@@ -6232,15 +6334,15 @@
     "S6 research-ready caveat: old Assman-Mästocka 16-17 km route-app/tourism sources are stale and must be suppressed."
   ],
   "nextActions": [
-    "Commit K9 before starting K10.",
-    "After K9 commit, start K10 six-lane research for hallandsleden-mellbystrand-bastad-station / Mellbystrand - Båstad station.",
-    "For K10, use official page https://www.hallandsleden.se/etapp/mellbystrand-bastad-station, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Mellbystrand_Bastad.gpx, official 12 km easy section, K9/K10 Mellbystrand handoff, Båstad station endpoint and Kusten terminal/Skåne boundary/Skåneleden or transit handoff, plus Laholm/Båstad coastal rules/currentness."
+    "Use this branch as the research-ready Hallandsleden candidate packet; do not integrate it into runtime data without a separate explicit import task.",
+    "Next safe project step after this research branch is a normalization/import-planning review that resolves geometry QA flags, endpoint snapping, taxonomy mapping, side-service filtering, facility dedupe and live currentness checks without writing runtime app data."
   ],
   "handoffNotes": [
     "Work resumed on 2026-04-29 in /workspaces/hike-trails-codex-hallandsleden-research on branch codex/hallandsleden-research.",
     "Only files under data/research/candidate-trails/hallandsleden/ were written.",
     "Do not edit source/runtime/generated app data. Do not run forbidden generated-data/import commands.",
     "Overview files are complete for Phase 1.",
+    "K10 Mellbystrand - Båstad station was synthesized into sections/hallandsleden-mellbystrand-bastad-station.research.json on 2026-04-30; all 35 current official Hallandsleden sections now have research-ready candidate files. JSON validation and git diff --check passed before the K10 commit.",
     "N7 initial six-lane agent batch started 2026-04-29T19:50:16Z with agents Popper, Newton, Bernoulli, Euler, Pasteur, and Mencius, and was synthesized into sections/hallandsleden-akulla-astad.research.json at 2026-04-29T20:06:11Z.",
     "N8 initial six-lane agent batch started 2026-04-29T20:09:28Z with agents Goodall, Kepler, Peirce, Hilbert, Kant, and Volta, and was synthesized into sections/hallandsleden-varberg-akulla.research.json at 2026-04-29T20:26:09Z.",
     "M1 initial six-lane agent batch started 2026-04-29T20:28:19Z with agents Einstein, Wegener, Ohm, Rawls, Hooke, and Arendt; Einstein errored from context exhaustion and was replaced by Turing for official-source research. M1 synthesized into sections/hallandsleden-akulla-ullared.research.json at 2026-04-29T20:45:45Z.",
@@ -7288,6 +7390,31 @@
       "id": "phase-2-k9-validation-passed-2026-04-30",
       "completedAt": "2026-04-30T16:10:00Z",
       "summary": "Validated the K9 section JSON, all Hallandsleden candidate JSON files and whitespace before committing K9."
+    },
+    {
+      "id": "phase-2-k10-initial-six-lane-batch-started-2026-04-30",
+      "completedAt": "2026-04-30T16:15:00Z",
+      "summary": "Committed K9 as 40cbcc8, then started K10 Mellbystrand - Båstad station six-lane research batch with agents Carson, Darwin, Beauvoir the 2nd, Poincare the 2nd, Rawls the 2nd and Kuhn the 2nd. Main thread retains all file-write ownership."
+    },
+    {
+      "id": "phase-2-k10-main-thread-baseline-2026-04-30",
+      "completedAt": "2026-04-30T16:40:00Z",
+      "summary": "Main thread baseline for K10 checked official page, English page, official GPX, Hallandsleden tokenized map API and places API, K9 endpoint continuity, OSM/Overpass hiking relations, Skåneleden terminal connector, Södra Skummeslöv protected-area overlay, Laholm/Båstad currentness and core facility/access route-proximity clues. Official GPX/API geo_json is canonical at 182 points and 12.144 km, with a 762.82 m sparse segment needing QA. K9/K10 handoff is 10.82 m, official places API returns 49 records requiring heavy filtering, and Södra Skummeslöv intersects roughly km 7.301-8.546."
+    },
+    {
+      "id": "phase-2-k10-six-lane-reports-complete-synthesis-started-2026-04-30",
+      "completedAt": "2026-04-30T17:05:00Z",
+      "summary": "Received usable K10 reports from all six lanes. Reports confirm official GPX/API geo_json as canonical planning-grade geometry with a 762.82 m sparse segment, strong Mellbystrand and Båstad station endpoint access, no active official K10 closure, 49 official places with heavy service filtering needed, OSM-only water/BBQ pending candidates, Södra Skummeslöv reserve span/rules, Laholm beach rules, Skåneleden terminal context and partial/stale route-app field-report caveats. Main thread decided no targeted follow-up batch is needed before synthesis."
+    },
+    {
+      "id": "phase-2-k10-six-lane-synthesis-complete-2026-04-30",
+      "completedAt": "2026-04-30T17:20:00Z",
+      "summary": "Wrote sections/hallandsleden-mellbystrand-bastad-station.research.json from the six K10 lane reports and main-thread baseline. The section is research-ready with caveats around official distance rounding, GPX track-name alias, 762.82 m geometry QA, endpoint snapping, Båstad station/Skåneleden terminal context, official place-feed side-service leakage, OSM-only water/BBQ candidates, Södra Skummeslöv rules, Laholm beach rules and dynamic fire/transit/currentness checks."
+    },
+    {
+      "id": "phase-2-k10-validation-passed-2026-04-30",
+      "completedAt": "2026-04-30T17:30:00Z",
+      "summary": "Validated the K10 section JSON, all Hallandsleden candidate JSON files and whitespace before committing K10."
     }
   ]
 }
