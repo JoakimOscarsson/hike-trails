@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-30T06:10:00Z",
-  "currentPhase": "Phase 2 K1 complete and validated; ready to commit before starting hallandsleden-kungsbacka-c-tjoloholm",
+  "lastUpdated": "2026-04-30T07:30:00Z",
+  "currentPhase": "Phase 2 K2 complete and validated; ready to commit before starting hallandsleden-tjoloholm-asa",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -28,7 +28,8 @@
     "hallandsleden-mastocka-knared",
     "hallandsleden-knared-ekegarden",
     "hallandsleden-ekegarden-koarp",
-    "hallandsleden-sandsjobacka-kungsbacka-c"
+    "hallandsleden-sandsjobacka-kungsbacka-c",
+    "hallandsleden-kungsbacka-c-tjoloholm"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -842,19 +843,43 @@
       "sectionNumber": "K2",
       "name": "Kungsbacka C - Tjolöholm",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-gpx-discovered-map-api-line-empty-or-sparse-needs-parsing",
-      "startEndCoordinateStatus": "not-yet-validated-gpx-endpoints-needed",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-official-source-lane-main-thread-baseline-and-targeted-follow-up",
+      "routeGeometryStatus": "complete-official-gpx-api-geojson-canonical-line-geometry-empty-naturkartan-osm-suppressed",
+      "startEndCoordinateStatus": "complete-official-gpx-api-endpoints-high-confidence-k1-handoff-17m-k3-handoff-0m",
+      "commuteAccessStatus": "complete-strong-kungsbacka-c-torpa-smedja-bus-walk-and-tjoloholm-parking-caveats",
+      "facilityResearchStatus": "complete-core-facilities-ready-kvarndammet-approximate-and-water-silverlyckans-pending",
+      "rulesSafetyStatus": "complete-tjoloholm-active-reserve-kungsbackafjorden-seasonal-warning-no-active-closure",
+      "synthesisStatus": "complete-section-json-written-and-validation-passed",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
         "Run six independent section research lanes and synthesize findings.",
         "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
         "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision.",
+        "K2 batch started using six research lanes.",
+        "Pay special attention to the K1/K2 Kungsbacka C station handoff, official GPX Kust_Kungsbacka_Tjoloholm.gpx, official 22 km easy route, coastal-route topology, Tjolöholm endpoint access and estate facilities/rules, commute options, Kungsbacka urban service filtering and coastal-route currentness caveats.",
+        "Main-thread baseline found the official GPX Kust_Kungsbacka_Tjoloholm.gpx is HTTP 200, Last-Modified 2025-06-23, ETag ad75f6e215cdcdda885d8d600236f3eb, name Kungsbacka C - Tjolöholm, metadata name Kust_Kungsbacka_Tjoloholm, metadata time 2025-06-23T09:31:07+02:00, desc Total: 22.2 km, 281 points, computed 22.140 km, start 57.489500,12.078674 and end 57.403123,12.106947.",
+        "Main-thread baseline found Hallandsleden section-specific API geo_json matches the official GPX exactly: 281 points, computed 22.140 km, start 57.489500,12.078674, end 57.403123,12.106947, official API length 22000 m, easy/Grön difficulty and no official time.",
+        "Main-thread baseline found Hallandsleden API line object has only properties and no line.geometry for K2; treat the GPX/API geo_json as canonical candidate pending geometry lane.",
+        "Main-thread baseline verified endpoint handoffs: K1 GPX end 57.489648,12.078760 to K2 GPX start 57.489500,12.078674 is about 17.24 m, and K2 GPX end 57.403123,12.106947 to K3 GPX start 57.403121,12.106944 is about 0.29 m.",
+        "Official page baseline: the section goes past Stortorget, follows Kungsbackaån out of central Kungsbacka, uses cycleway and a 1600s stone bridge, continues on winding asphalt roads through agricultural landscape with Kungsbackafjorden views, passes Fjärås station for fika, climbs forested Stuteribergen toward Kvarndammet where there is a wind shelter, then follows small gravel roads to Allmogebyn at Tjolöholms slott.",
+        "Official places API baseline returned 19 K2 records: Best Western Hotell Halland, Dahls Bageributik Fjärås, Hemköp Torget Kungsbacka, Hållplats Asserlundsvägen, Hållplats Fjärås station, Hållplats Hanhalsvägen, Hållplats Hålabäck södra, Hållplats Torpa skola, Hållplats Torpa smedja, Kungsbacka Resecentrum, Montana Pizzeria, Onsala Herrgård B&B, Röda Stugan Trädgårdscafé & Butik, Tempo Fjärås, Tjolöholms Slott - bo på godset, Toalett Borgmästareplatsen, Toalett och dricksvatten Kungsbacka, Toalett Tjolöholm and Vandrarhemmet Nattmössan.",
+        "Facility baseline route-proximity check: Kungsbacka Resecentrum is about 59 m from the K2 start, Best Western about 20 m from route km 0.06, Hemköp and Kungsbacka torg toilet/water about 57-63 m from route km 0.36, Hålabäck södra about 99 m from route km 3.11, Hanhalsvägen about 27 m from route km 5.71, Fjärås station about 47 m from route km 12.66, Torpa skola about 47 m from route km 14.25, Torpa smedja about 78 m from route km 16.68, Tjolöholm accommodation about 29 m from route km 22.09, Tjolöholm main parking about 62 m from route end, OSM Kvarndammet center about 72 m from route km 20.42 and Tjolöholm toilet about 636 m from route end.",
+        "Access baseline: start access at Kungsbacka C/Kungsbacka Resecentrum is strong bus/rail. Tjolöholm official access says train to Kungsbacka then Västtrafik bus 732 toward Frillesås to Torpa Smedja, followed by a 3.5 km walk; Länsstyrelsen gives the same bus/access pattern. Tjolöholm estate parking is large and fee-based; official GPS is N 57 23.903 E 12 6.188 and OSM parking near the route end is around 57.40307,12.10592.",
+        "Protected-area/currentness baseline: Länsstyrelsen says Tjolöholm nature reserve has been protected since 2025 and will be inaugurated on 2026-05-31, with 445 ha, nine marked trails, Kvarndammet/Bergssjön wind shelter and grill, parking/toilets/bath/service, and rules covering designated parking/camping/fire, leashed dogs, no drones and no camping vehicles in the reserve 22:00-06:00. Kungsbackafjorden reserve/Natura 2000 and bird-access restrictions may affect adjacent coast/fjord context and need lane verification against the K2 GPX.",
+        "Naturkartan baseline found no live K2 Hallandsleden route page by search, but found useful Tjolöholm/Stuteristigen/Tjolöholm badplats/Kungsbackafjorden context. OSM baseline did not find an exact current Hallandsleden K2 hiking relation in the K2 corridor; older inland Hallandsleden relations and local Tjolöholm routes should be validation/context only.",
+        "Official-source lane confirmed K2 identity/order/distance/difficulty/no-time, official description, GPX/API metadata, official 19-place list, Tjolöholm/Kungsbackafjorden official reserve context, empty API line.geometry, distance 22 km vs GPX 22.2 km caveat and Kvarndammet shelter coordinate gap.",
+        "Route-geometry lane confirmed official GPX/API geo_json as canonical navigation-grade geometry, 281 points/22.140 km, exact API/GPX match, K1 handoff 17.2 m, K3 handoff 0.3 m, no live Naturkartan K2 linework and no exact OSM K2 relation.",
+        "Facilities lane classified core records for shared Kungsbacka endpoint services, Nattmössan, Kvarndammet shelter/fireplace, Tjolöholm lodging, Storstugan, parking and toilets; it marked Fjärås services, Silverlyckans Camping, Tjolöholm drinking water, beach and visitor centre as side/pending, and dense Kungsbacka/remote facilities as suppress.",
+        "Transit-access lane confirmed strong Kungsbacka C rail/bus start, Torpa Smedja as official Västtrafik 732 Tjolöholm access with about 3.5 km walking, fee-based Tjolöholm estate parking with approximate visitor coordinate, no ferry/boat and no demand-responsive access found.",
+        "Field-report lane found no active K2 closure/reroute, a 2026-03-28 partial reverse field report from Torpa Smedja through Tjolöholm/Kvarndammet/Fjärås station, recent 2024-2025 Tjolöholm local-loop reports showing good conditions but rocky/steep/slippery endpoint terrain, and stale/partial route-app contamination risks.",
+        "Rules-safety lane found Tjolöholm nature reserve span approx km 19.75-21.76, Kungsbackafjorden NR/Natura context approx km 21.80-22.14, no active closure, no confirmed potable water, dynamic fire policy, road/rail/water/coastal hazards and forestry notification/currentness caveats.",
+        "Main thread decided K2 needs a narrow targeted follow-up before synthesis for Kvarndammet shelter/fireplace coordinate, Tjolöholm endpoint service/parking/water coordinates and Kungsbackafjorden bird-protection rule overlap.",
+        "Facilities coordinate follow-up found no exact Kvarndammet shelter/fireplace coordinate in official/Naturkartan/Länsstyrelsen/OSM sources; best approximate options are a route-shore proxy 57.412917,12.112529 and a route-aligned proximity anchor 57.413946,12.113803 near Kvarndammet. OSM lake center 57.4144363,12.1131465 is less useful for trail UI.",
+        "Geometry follow-up independently recommended Kvarndammet route-aligned anchor 57.413946,12.113803 at route km 20.440, about 1.272 km before the K2 end, and confirmed Tjolöholm endpoint parking candidates 57.4031398,12.1058845 / 57.4030675,12.1059154 about 62-64 m from the GPX end and toilet cluster 57.4025042,12.1027405 / 57.4025236,12.1027520 about 260-262 m from the GPX end.",
+        "Rules-boundary follow-up confirmed Tjolöholm nature reserve rules are legally effective from 2025-12-20 despite public inauguration on 2026-05-31. It found no machine-readable seven-area bird-protection polygon for Kungsbackafjorden; import Saltängen/Tjolöholm as a nearby seasonal warning from 1 Mar-30 Jun, not as a confirmed K2 closure or reroute.",
+        "K2 synthesis complete: section JSON written at sections/hallandsleden-kungsbacka-c-tjoloholm.research.json. It is research-ready with caveats around canonical official GPX/API geometry, missing line.geometry, no exact OSM/Naturkartan K2 linework, Kungsbacka endpoint dedupe, Tjolöholm transit/parking/water caveats, Kvarndammet approximate shelter/fireplace coordinate, active Tjolöholm reserve rules, Kungsbackafjorden seasonal warning, off-route official services, Silverlyckans verification and dynamic currentness checks.",
+        "Full Hallandsleden candidate JSON validation and git diff --check passed for K2 before commit."
       ]
     },
     "hallandsleden-tjoloholm-asa": {
@@ -1027,6 +1052,69 @@
     }
   },
   "agentBatches": [
+    {
+      "batchId": "hallandsleden-kungsbacka-c-tjoloholm-initial-6-lane-2026-04-30",
+      "sectionId": "hallandsleden-kungsbacka-c-tjoloholm",
+      "startedAt": "2026-04-30T06:15:00Z",
+      "status": "completed-targeted-follow-up-complete-synthesis-underway",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "nickname": "Carson"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "nickname": "Darwin"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "nickname": "Beauvoir the 2nd"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "nickname": "Poincare the 2nd"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "nickname": "Rawls the 2nd"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "nickname": "Kuhn the 2nd"
+        }
+      ]
+    },
+    {
+      "batchId": "hallandsleden-kungsbacka-c-tjoloholm-targeted-follow-up-2026-04-30",
+      "sectionId": "hallandsleden-kungsbacka-c-tjoloholm",
+      "startedAt": "2026-04-30T06:45:00Z",
+      "completedAt": "2026-04-30T07:05:00Z",
+      "status": "completed",
+      "focus": "Resolve Kvarndammet shelter/fireplace coordinates, Tjolöholm endpoint parking/toilet/water/service coordinates and Kungsbackafjorden bird-protection/current rules overlap before K2 synthesis.",
+      "agents": [
+        {
+          "lane": "facilities-coordinate-follow-up",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "nickname": "Beauvoir the 2nd"
+        },
+        {
+          "lane": "geometry-proximity-follow-up",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "nickname": "Darwin"
+        },
+        {
+          "lane": "rules-boundary-follow-up",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "nickname": "Kuhn the 2nd"
+        }
+      ]
+    },
     {
       "batchId": "hallandsleden-alvsaker-naturum-fjaras-bracka-initial-6-lane-2026-04-29",
       "sectionId": "hallandsleden-alvsaker-naturum-fjaras-bracka",
@@ -5433,10 +5521,26 @@
       "fieldReports": "complete from field-report lane; no active closure found, partial Sandsjöbacka condition context and stale-source risks recorded",
       "rulesSafety": "complete from rules-safety-currentness lane; Sandsjöbacka start reserve span, no active closure and road/rail/river/currentness caveats recorded",
       "synthesis": "complete; section JSON written and validation passed before commit"
+    },
+    "hallandsleden-kungsbacka-c-tjoloholm": {
+      "overview": "complete from trail.research.json overview pass",
+      "officialSources": "complete from official-source lane and main-thread official page/API/GPX/places/Tjoloholm/Kungsbackafjorden baseline plus targeted follow-up",
+      "routeGeometry": "complete from route-geometry lane and targeted geometry follow-up; official GPX/API geo_json canonical with 281 points and 22.140 km computed, API line.geometry empty, no exact OSM K2 relation found and Naturkartan K2 route not found",
+      "endpointCoordinates": "main-thread baseline complete from official GPX/API endpoints; K1 handoff about 17.24 m and K3 handoff about 0.29 m",
+      "facilities": "complete from facilities lane and targeted follow-up; Kvarndammet shelter/fireplace coordinate is approximate and water/Silverlyckans/visitor-centre decisions are recorded as pending or side-context",
+      "commuteAccess": "complete from transit lane; Kungsbacka C start is strong bus/rail, Tjolöholm public transit depends on Torpa Smedja plus about 3.5 km walking, and endpoint parking is strong but needs live fee/currentness checks",
+      "fieldReports": "complete from field-report lane; no active closure found, partial 2026 field report and Tjoloholm local-loop condition caveats recorded",
+      "rulesSafety": "complete from rules-safety-currentness lane and targeted boundary follow-up; Tjoloholm active reserve rules, Kungsbackafjorden seasonal warning caveat and no-active-closure finding are recorded",
+      "synthesis": "complete; section JSON written and validation passed before commit"
     }
   },
   "knownGaps": [
-    "Only the overview and first twenty-six sections have been researched/synthesized; 9 coastal sections still need the six-lane workflow.",
+    "Only the overview and first twenty-seven sections have been researched/synthesized; K3-K10 still need the six-lane workflow.",
+    "K2: official GPX/API geo_json is canonical with 281 points and 22.140 km computed; Hallandsleden line.geometry is missing and no exact OSM K2 relation was found in the corridor.",
+    "K2: official places API returns 19 records, including many urban Kungsbacka and side/service records; synthesis must filter dense city services, off-route Fjärås services and endpoint Tjolöholm facilities carefully.",
+    "K2: Tjolöholm endpoint access is strong by car/parking but public transport requires Västtrafik bus 732 to Torpa Smedja plus about 3.5 km walking unless the transit lane finds a better live option.",
+    "K2: Tjolöholm nature reserve is newly protected since 2025 with inauguration on 2026-05-31; import copy must use exact dates and recheck current rules/geometry before normalization.",
+    "K2: Kvarndammet shelter/fireplace exists according to official/Länsstyrelsen/Naturkartan text, but exact shelter/fireplace coordinates were not found; use approximate route-aligned anchor 57.413946,12.113803 only with an approximate-coordinate caveat.",
     "K1: official GPX/API geo_json is canonical; Hallandsleden line.geometry is missing, Naturkartan K1 is stale/unavailable and no exact OSM Hallandsleden K1 relation was found.",
     "K1: Sandsjöbacka start is parking/trailhead-first with weak fixed-route transit; Grönabur/Sandsjöbacka start parking is supported, while Högsered/Närtrafik evidence should remain reserve-access context unless verified for the K1 start.",
     "K1: no official campsite/shelter/fireplace was found; Sandsjöbacka reserve start rules prohibit tent/caravan camping and restrict fires to designated places.",
@@ -5645,9 +5749,9 @@
     "S6 research-ready caveat: old Assman-Mästocka 16-17 km route-app/tourism sources are stale and must be suppressed."
   ],
   "nextActions": [
-    "Commit K1 research files before starting K2.",
-    "Start K2 six-lane workflow for hallandsleden-kungsbacka-c-tjoloholm after the K1 commit.",
-    "For K2, pay attention to the Kungsbacka C station handoff, official GPX Kust_Kungsbacka_Tjoloholm.gpx, official 22 km easy route, coastal-route and Tjolöholm endpoint access, Tjolöholm facilities/rules, commute options, Kungsbacka urban service filtering and any coastal-route currentness caveats."
+    "Commit K2 research files before starting K3.",
+    "Start K3 hallandsleden-tjoloholm-asa six-lane workflow after K2 commit.",
+    "For K3, pay attention to the exact K2/K3 handoff, official page https://www.hallandsleden.se/etapp/tjoloholm-asa, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Tjoloholm_Asa.gpx, official 29 km easy route, Tjolöholm reserve/Kungsbackafjorden continuation, Åsa endpoint transit/access, coastal-route topology, long-section water/facility gaps and dynamic restrictions/currentness caveats."
   ],
   "handoffNotes": [
     "Work resumed on 2026-04-29 in /workspaces/hike-trails-codex-hallandsleden-research on branch codex/hallandsleden-research.",
@@ -6487,6 +6591,36 @@
       "id": "phase-2-k1-validation-passed-2026-04-30",
       "completedAt": "2026-04-30T06:10:00Z",
       "summary": "Validated all Hallandsleden candidate JSON files with jq and checked whitespace with git diff --check before committing K1."
+    },
+    {
+      "id": "phase-2-k2-initial-six-lane-batch-started-2026-04-30",
+      "completedAt": "2026-04-30T06:15:00Z",
+      "summary": "Started K2 Kungsbacka C - Tjolöholm six-lane research batch with agents Carson, Darwin, Beauvoir the 2nd, Poincare the 2nd, Rawls the 2nd and Kuhn the 2nd. Main thread retains all file-write ownership."
+    },
+    {
+      "id": "phase-2-k2-main-thread-baseline-2026-04-30",
+      "completedAt": "2026-04-30T06:30:00Z",
+      "summary": "Main thread baseline for K2 checked official page/API/GPX/places, K1 and K3 endpoint continuity, Naturkartan search/context pages, Länsstyrelsen Tjolöholm and Kungsbackafjorden context, Tjolöholm visitor access/opening pages and OSM/Nominatim/Overpass access/facility context. Official GPX/API geo_json is canonical candidate at 281 points/22.140 km with start 57.489500,12.078674 and end 57.403123,12.106947; API line.geometry is empty. Kungsbacka C start access is strong, Tjolöholm end has strong fee-based parking but bus access depends on Torpa Smedja plus about 3.5 km walking, official places are many and require city/side-service filtering, and Tjolöholm reserve/currentness caveats are recorded while agent lanes continue."
+    },
+    {
+      "id": "phase-2-k2-six-lane-reports-complete-targeted-follow-up-started-2026-04-30",
+      "completedAt": "2026-04-30T06:45:00Z",
+      "summary": "All six K2 lane reports are in. Main thread started a narrow targeted follow-up for Kvarndammet shelter/fireplace coordinates, Tjolöholm endpoint parking/toilet/water/service coordinates and Kungsbackafjorden bird-protection/current rules overlap before synthesis."
+    },
+    {
+      "id": "phase-2-k2-targeted-follow-up-complete-synthesis-started-2026-04-30",
+      "completedAt": "2026-04-30T07:05:00Z",
+      "summary": "Completed K2 targeted follow-up. Exact Kvarndammet shelter/fireplace coordinates were not findable from checked sources, so synthesis will use approximate route-aligned anchor 57.413946,12.113803 with caveat. Tjolöholm endpoint parking/toilet candidates and active reserve legal date are verified, and Kungsbackafjorden bird restrictions will be modeled as a nearby seasonal warning rather than confirmed K2 closure."
+    },
+    {
+      "id": "phase-2-k2-six-lane-synthesis-complete-2026-04-30",
+      "completedAt": "2026-04-30T07:25:00Z",
+      "summary": "Synthesized K2 Kungsbacka C - Tjolöholm into sections/hallandsleden-kungsbacka-c-tjoloholm.research.json after all six lane reports, main-thread baseline and targeted follow-up. Marked K2 research-ready with caveats around canonical official GPX/API geo_json, missing line.geometry, no exact Naturkartan/OSM K2 linework, Tjolöholm transit/parking/water caveats, Kvarndammet approximate shelter/fireplace coordinate, active Tjolöholm reserve rules and Kungsbackafjorden seasonal warning."
+    },
+    {
+      "id": "phase-2-k2-validation-passed-2026-04-30",
+      "completedAt": "2026-04-30T07:30:00Z",
+      "summary": "Validated all Hallandsleden candidate JSON files with jq and checked whitespace with git diff --check before committing K2."
     }
   ]
 }
