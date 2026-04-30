@@ -428,6 +428,25 @@ async function validateNormalizedCandidateArtifacts(prep, manifest) {
     if (importReport.generatedCounts?.ruleWarnings !== (ruleWarnings.records ?? []).length) {
       addError(scope, "import report ruleWarnings count must match rule warnings artifact");
     }
+    const routeSectionIds = new Set((routeSections.sections ?? []).map((section) => section.sectionId));
+    const protectedAreaOverlayPath = path.join(artifactRoot, "protected-area-overlays.research.json");
+    if (await pathExists(protectedAreaOverlayPath)) {
+      const protectedAreaOverlays = await readJson(protectedAreaOverlayPath);
+      validateArtifactHeader(scope, protectedAreaOverlays, trailId, "candidate-protected-area-overlays/v1");
+      if (!Array.isArray(protectedAreaOverlays.records) || protectedAreaOverlays.records.length === 0) {
+        addError(scope, "protected-area-overlays must include records when present");
+      }
+      for (const record of protectedAreaOverlays.records ?? []) {
+        if (!record.overlayId || !record.protectedArea) {
+          addError(scope, "protected-area overlay records must include overlayId and protectedArea");
+        }
+        for (const segment of record.affectedSectionSegments ?? []) {
+          if (segment.sectionId && !routeSectionIds.has(segment.sectionId)) {
+            addError(scope, `protected-area overlay ${record.overlayId} references unknown section ${segment.sectionId}`);
+          }
+        }
+      }
+    }
     if (importReport.runtimeImportApproved !== false) {
       addError(scope, "import report runtimeImportApproved must remain false");
     }
@@ -444,7 +463,6 @@ async function validateNormalizedCandidateArtifacts(prep, manifest) {
     }
 
     validateUnique(scope, "route section IDs", (routeSections.sections ?? []).map((section) => section.sectionId));
-    const routeSectionIds = new Set((routeSections.sections ?? []).map((section) => section.sectionId));
     const facilityIds = new Set((facilities.records ?? []).map((facility) => facility.facilityId));
     validateUnique(scope, "route group IDs", (routeTopology.routeGroups ?? []).map((group) => group.groupId));
     validateUnique(scope, "route topology connection IDs", (routeTopology.connections ?? []).map((connection) => connection.connectionId));

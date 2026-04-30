@@ -509,12 +509,21 @@ const facilityClusterResolutionConfig = {
   }
 };
 
+const protectedAreaOverlayResolutionConfig = {
+  hogakustenleden: {
+    triageResolvedSourceIds: ["hogakustenleden-protected-area-clipping"],
+    action:
+      "Candidate protected-area-overlays.research.json now makes Skuleberget, Skuleskogen, Balesudden and Hörnsjön rule scope machine-readable by section and route-chainage, based on the targeted caveat-resolution boundary pass."
+  }
+};
+
 for (const trailId of includedTrails) {
   const trailRoot = path.join(candidateRoot, trailId);
   const normalizedRoot = path.join(trailRoot, "normalized-candidate");
   await mkdir(normalizedRoot, { recursive: true });
 
   const handoff = await readJson(path.join(trailRoot, "normalization-handoff.research.json"));
+  const caveatResolution = await readOptionalJson(path.join(trailRoot, "caveat-resolution.research.json"));
   const sections = await readSections(trailRoot);
   const geojsonFiles = (await walkFiles(trailRoot))
     .filter((filePath) => filePath.endsWith(".geojson") && !filePath.includes(`${path.sep}normalized-candidate${path.sep}`))
@@ -526,6 +535,7 @@ for (const trailId of includedTrails) {
   const facilities = buildFacilities(trailId, sections);
   const facilityClusters = buildFacilityClusters(trailId, routeSections, facilities);
   const ruleWarnings = buildRuleWarnings(trailId, sections, handoff);
+  const protectedAreaOverlays = buildProtectedAreaOverlays(trailId, routeSections, caveatResolution);
   const importReport = buildImportReport(trailId, handoff, routeSections, geometryIndex, routeTopology, facilities, facilityClusters, ruleWarnings);
 
   await writeJson(path.join(normalizedRoot, "route-sections.research.json"), routeSections);
@@ -534,6 +544,9 @@ for (const trailId of includedTrails) {
   await writeJson(path.join(normalizedRoot, "facilities.research.json"), facilities);
   await writeJson(path.join(normalizedRoot, "facility-clusters.research.json"), facilityClusters);
   await writeJson(path.join(normalizedRoot, "rule-warnings.research.json"), ruleWarnings);
+  if (protectedAreaOverlays) {
+    await writeJson(path.join(normalizedRoot, "protected-area-overlays.research.json"), protectedAreaOverlays);
+  }
   await writeJson(path.join(normalizedRoot, "import-report.research.json"), importReport);
 
   batchSummary.push({
@@ -639,6 +652,15 @@ for (const row of batchSummary) {
 
 async function readJson(filePath) {
   return JSON.parse(await readFile(filePath, "utf8"));
+}
+
+async function readOptionalJson(filePath) {
+  try {
+    return await readJson(filePath);
+  } catch (error) {
+    if (error.code === "ENOENT") return null;
+    throw error;
+  }
 }
 
 async function writeJson(filePath, value) {
@@ -1182,6 +1204,66 @@ function buildRuleWarnings(trailId, sections, handoff) {
   };
 }
 
+function buildProtectedAreaOverlays(trailId, routeSections, caveatResolution) {
+  const boundaryResolutions = caveatResolution?.protectedAreaBoundaryResolutions;
+  if (!Array.isArray(boundaryResolutions) || boundaryResolutions.length === 0) return null;
+  const sectionByNumber = new Map(routeSections.sections.map((section) => [String(section.sectionNumber), section]));
+  const records = boundaryResolutions.map((resolution, index) => {
+    const affectedSectionSegments = (resolution.routePortions ?? []).map((routePortion) =>
+      parseProtectedAreaRoutePortion(routePortion, sectionByNumber)
+    );
+    return prune({
+      overlayId: `${trailId}-${slugify(resolution.protectedArea ?? `protected-area-${index + 1}`)}`,
+      protectedArea: resolution.protectedArea,
+      affectedSections: resolution.affectedSections ?? [],
+      affectedSectionSegments,
+      recommendation: resolution.recommendation ?? null,
+      confidence: resolution.confidence ?? null,
+      sourceUrls: normalizeSourceUrls(resolution),
+      sourceResolutionIndex: index
+    });
+  });
+  return {
+    schemaVersion: "candidate-protected-area-overlays/v1",
+    trailId,
+    lastUpdated,
+    status: "candidate-gis-overlay-scoped-research-only",
+    runtimeImportApproved: false,
+    sourceArtifact: `${trailId}/caveat-resolution.research.json`,
+    method:
+      "Targeted caveat-resolution boundary pass converted into machine-readable section/chainage scopes for candidate rule-warning normalization.",
+    summary: {
+      protectedAreas: records.length,
+      affectedSections: [...new Set(records.flatMap((record) => record.affectedSections ?? []))].length,
+      scopedSegments: records.reduce((count, record) => count + (record.affectedSectionSegments?.length ?? 0), 0)
+    },
+    records
+  };
+}
+
+function parseProtectedAreaRoutePortion(routePortion, sectionByNumber) {
+  const text = String(routePortion);
+  const sectionMatch = text.match(/section\s+(\d+)/i);
+  const sectionNumber = sectionMatch?.[1] ?? null;
+  const section = sectionNumber ? sectionByNumber.get(sectionNumber) : null;
+  const ranges = [...text.matchAll(/km\s+([0-9.]+)\s*-\s*([0-9.]+)/gi)].map((match) => ({
+    startKm: Number(match[1]),
+    endKm: Number(match[2])
+  }));
+  const overlapStatus = /no meaningful line overlap|no line overlap/i.test(text)
+    ? "no-line-overlap"
+    : ranges.length > 0
+      ? "overlap"
+      : "described";
+  return prune({
+    sectionId: section?.sectionId ?? null,
+    sectionNumber,
+    overlapStatus,
+    rangesKm: ranges,
+    description: text
+  });
+}
+
 function buildImportReport(trailId, handoff, routeSections, geometryIndex, routeTopology, facilities, facilityClusters, ruleWarnings) {
   const minimumArtifacts = shared.resolvedSharedDecisions.candidateArtifactLayout.minimumArtifacts;
   const manifestEntry = trailManifestById.get(trailId);
@@ -1314,6 +1396,15 @@ function classifyTriageItem(trailId, item) {
       disposition: "resolved-now",
       owner: "candidate-facilities",
       action: facilityClusterResolution.action
+    };
+  }
+  const protectedAreaOverlayResolution = protectedAreaOverlayResolutionConfig[trailId];
+
+  if (protectedAreaOverlayResolution?.triageResolvedSourceIds?.includes(item.sourceId)) {
+    return {
+      disposition: "resolved-now",
+      owner: "candidate-gis",
+      action: protectedAreaOverlayResolution.action
     };
   }
 
