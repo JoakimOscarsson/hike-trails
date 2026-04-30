@@ -1,0 +1,182 @@
+{
+  "trailSystemId": "sjuharadsleden",
+  "id": "sjuharadsleden-etapp-7-blackered-prangens-camping",
+  "stageNumber": 7,
+  "name": "Sjuhäradsleden, etapp 7: Blackered - Prångens Camping",
+  "from": "Blackered",
+  "to": "Prångens Camping",
+  "distanceKm": 12,
+  "estimatedTime": "3 hours",
+  "description": "Blackered to Prångens Camping. Candidate import from normalized research; verify current notices before publication.",
+  "utilities": [
+    "Brunnsnäs roadside parking/information (parking)",
+    "Prångens Camping (camping)"
+  ],
+  "waterSources": [
+    "No verified potable water source is listed for this section; carry water and treat natural water."
+  ],
+  "notes": [
+    "Naturkartan carries a whole-trail warning that Sjuhäradsleden is not fully quality-assured and may have signage/passability/accessibility shortcomings, while Västsverige says stages 3-7 are quality-assured.",
+    "Naturkartan GPX/API and Västsverige KML all contain an 838.6 m chord near Prången/Ulricehamn. OSM corroborates the corridor but is also simplified with a 559.7 m segment.",
+    "The Naturkartan route-line endpoint is about 255 m from the converted Borås Prångens Camping coordinate and about 274 m from the KML campsite POI; OSM ends between these. The named endpoint and route-line endpoint should be modeled separately until normalization chooses a policy.",
+    "Västsverige still mentions Kommskälet about 2 km from Blackered, but current GTFS/Västtrafik checks found no current stop under Komskälet, Kommskälet or Blackered.",
+    "Official text says there are no prepared rest areas along the section, while OSM has benches/waste/picnic micro-amenities near the Prången approach.",
+    "Densify/resample the 838.6 m Naturkartan/KML chord and OSM long chord before route import."
+  ],
+  "facilities": [
+    {
+      "id": "sjuharadsleden-etapp-7-blackered-prangens-camping-facilities-0-blackered-trailhead",
+      "name": "Blackered trailhead",
+      "type": "trail-junction",
+      "sectionId": "sjuharadsleden-etapp-7-blackered-prangens-camping",
+      "coordinates": [
+        57.766228,
+        13.282276
+      ],
+      "description": "Start access area for Etapp 7 at Blackered. Official material says parking and information exist at the endpoint. Deduplicate with section 6 Blackered end access.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.boras.se/download/18.66558cf31730da0c2e5d36f/1593762406167/Sjuh%C3%A4radsleden%20etapp%207%2C%20karta.pdf",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 0
+      }
+    },
+    {
+      "id": "sjuharadsleden-etapp-7-blackered-prangens-camping-facilities-1-brunns-kyrkoruin",
+      "name": "Brunns kyrkoruin",
+      "type": "heritage",
+      "sectionId": "sjuharadsleden-etapp-7-blackered-prangens-camping",
+      "coordinates": [
+        57.799445,
+        13.368512
+      ],
+      "description": "Church ruin west of Ulricehamn, highlighted by official tourism for section 7 and likely from the 1100s. Field/blog sources report a collapse-risk warning and reinforcement/bracing; treat it as a heritage POI with caution, not as a trail closure. Verify whether the ruin is legally classified as a building monument/fornlämning and whether any official access restrictions are posted.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.murberg.se/Sidor/Kyrkoruin%20Ulricehamn%2025.1%20Brunn/Kyrkoruin%20Ulricehamn%2025.1%20Brunn.htm",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 130
+      }
+    },
+    {
+      "id": "sjuharadsleden-etapp-7-blackered-prangens-camping-facilities-3-brunnsnas-roadside-parking-information",
+      "name": "Brunnsnäs roadside parking/information",
+      "type": "parking",
+      "sectionId": "sjuharadsleden-etapp-7-blackered-prangens-camping",
+      "coordinates": [
+        57.8016415,
+        13.3805309
+      ],
+      "description": "OSM-only access point near the Brunnsnäs/Åsunden side, late in the stage. It is not an official stage endpoint. Verify current public parking rules before user-facing import.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.openstreetmap.org/node/16785991",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 160
+      }
+    },
+    {
+      "id": "sjuharadsleden-etapp-7-blackered-prangens-camping-facilities-5-prangens-camping",
+      "name": "Prångens Camping",
+      "type": "camping",
+      "sectionId": "sjuharadsleden-etapp-7-blackered-prangens-camping",
+      "coordinates": [
+        57.8021388,
+        13.4067791
+      ],
+      "description": "Paid endpoint camping/service cluster near Åsunden with tent/camping pitches, cabins, ställplatser, WC, showers, fresh water, kitchen, waste, latrine/greywater handling, cafe, grill area, parking, beach, playground, minigolf and Wi-Fi. Customer/guest utilities should be modeled as paid or opening-hour dependent. Deduplicate with Prångens badplats and endpoint board/parking/toilet objects. Do not model camping utilities as free public trail utilities.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://prangenscamping.se/",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 115
+      }
+    },
+    {
+      "id": "sjuharadsleden-etapp-7-blackered-prangens-camping-facilities-6-prangens-endpoint-information-parking-toilet",
+      "name": "Prångens endpoint information/parking/toilet",
+      "type": "trail-junction",
+      "sectionId": "sjuharadsleden-etapp-7-blackered-prangens-camping",
+      "coordinates": [
+        57.801619,
+        13.412034
+      ],
+      "description": "Official end access cluster for Etapp 7. Borås PDF shows information, parking and toilet at Prångens Camping; exact object placement is better modeled through the camping/badplats facility cluster when possible. Route-line endpoint, Borås/KML campsite POI and OSM camping polygon do not coincide exactly; deduplicate before normalization.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.boras.se/download/18.66558cf31730da0c2e5d36f/1593762406167/Sjuh%C3%A4radsleden%20etapp%207%2C%20karta.pdf",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 0
+      }
+    },
+    {
+      "id": "sjuharadsleden-etapp-7-blackered-prangens-camping-facilities-7-asunden-prangen-prangens-badplats",
+      "name": "Åsunden Prången / Prångens badplats",
+      "type": "swimming",
+      "sectionId": "sjuharadsleden-etapp-7-blackered-prangens-camping",
+      "coordinates": [
+        57.8017001,
+        13.4056699
+      ],
+      "description": "Endpoint bathing-place next to Prångens Camping with shallow sandy beach, 90 m pier, toilet with changing/baby room, canoe rental, minigolf, mini shop, beach volleyball and playground. Deduplicate with Prångens Camping utilities and treat water-quality/current bathing info as dynamic.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://www.openstreetmap.org/node/6945751132",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 170
+      }
+    },
+    {
+      "id": "sjuharadsleden-etapp-7-blackered-prangens-camping-facilities-8-sturebadet-kallbadhuset-cluster",
+      "name": "Sturebadet / Kallbadhuset cluster",
+      "type": "swimming",
+      "sectionId": "sjuharadsleden-etapp-7-blackered-prangens-camping",
+      "coordinates": [
+        57.79783,
+        13.408595
+      ],
+      "description": "Ulricehamn lakeside service/bathing cluster about 0.5-0.7 km from the section end, with piers, accessible bathing ramp, toilet, grill, sand beach, dog swim, nearby Kallbadhus and cafe/restaurant. Not on the official section endpoint; import only if nearby Ulricehamn services are in scope.",
+      "source": {
+        "provider": "candidate-research",
+        "url": "https://badplats.nu/ulricehamn/sturebadet/",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 600
+      }
+    }
+  ],
+  "source": {
+    "provider": "candidate-research",
+    "url": "https://www.naturkartan.se/sv/vastra-gotalands-lan/sjuharadsleden-etapp-7.gpx",
+    "lastFetchedAt": "2026-04-30"
+  },
+  "route": {
+    "status": "ready",
+    "sourceFormat": "geojson",
+    "geojsonPath": "/routes/hiking/sjuharadsleden/sections/sjuharadsleden-etapp-7-blackered-prangens-camping.geojson"
+  },
+  "endpointCoordinates": {
+    "source": "candidate-normalized-route",
+    "start": [
+      57.766228,
+      13.282276
+    ],
+    "end": [
+      57.801619,
+      13.412034
+    ]
+  }
+}
