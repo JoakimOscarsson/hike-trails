@@ -12,6 +12,12 @@ Each candidate trail may contain:
 - `integration-dedupe.research.json`: cross-section dedupe notes to apply during import.
 - `README.md`: human-facing status and integration notes.
 
+Shared coordination files:
+
+- `normalization-prep.research.json`: batch-level status and phase tracking.
+- `shared-importer-decisions.research.json`: shared importer-model decisions for distances, geometry, connectors, partial sections, direction reversal, facilities, rule warnings, and overlap dedupe.
+- `manifest.json`: machine-readable candidate inventory.
+
 ## Current Inventory
 
 | Trail ID | Name | Files | Readiness | Notes |
