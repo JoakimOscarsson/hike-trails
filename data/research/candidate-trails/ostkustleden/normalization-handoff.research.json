@@ -1,0 +1,214 @@
+{
+  "schemaVersion": "candidate-normalization-handoff/v1",
+  "trailId": "ostkustleden",
+  "lastUpdated": "2026-04-30",
+  "status": "ready-for-candidate-normalization-planning",
+  "sectionCoverage": {
+    "officialSectionCount": 8,
+    "researchedSectionCount": 8,
+    "coverageStatus": "complete-for-research-handoff",
+    "canonicalTrail": {
+      "displayName": "Ostkustleden",
+      "type": "closed ring split into eight official linear stages",
+      "canonicalStartFinish": "Lilla Hycklinge"
+    },
+    "sectionIds": [
+      "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "ostkustleden-etapp-2-nynas-lonhult",
+      "ostkustleden-etapp-3-lonhult-krokstorp",
+      "ostkustleden-etapp-4-krokstorp-mortfors",
+      "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+    ],
+    "distancePolicy": "Use official section-page display distances where straightforward. For Etapp 5, display about 19 km and preserve Naturkartan 21.4 km as a duplicate-geometry artifact note; keep computed GPX lengths as geometry metadata.",
+    "displayDistanceKmBySection": [
+      16,
+      20.6,
+      20.5,
+      17.4,
+      19,
+      18.4,
+      21.6,
+      16.9
+    ],
+    "displayDistanceKmTotal": 150.4
+  },
+  "geometryPlan": {
+    "planReference": "normalization-plan.research.json",
+    "reusePolicy": "Use normalization-plan.research.json as the detailed geometry plan. Do not duplicate the full per-section transform list in this handoff.",
+    "summary": [
+      "Implement geometry transforms in a staging script or notebook under candidate research first; do not write public/data, public/routes or data/source/hiking until the user explicitly requests runtime integration.",
+      "For each normalized section, preserve raw source URL, transform instructions, computed length, official display distance, endpoint gap notes and route-page marker caveats.",
+      "Before runtime import, run a map visual review of every repaired multi-track section against the official PDF/map viewer and adjacent section endpoints.",
+      "Do not silently drop route-piece joins; store join distances in metadata where they exceed normal GPS jitter."
+    ],
+    "highLevelRepairs": [
+      "Etapp 1 uses track 1 followed by reversed track 2, with the official GPX endpoint retained for continuity and Nynäs/Nynässtugan kept as stage-goal facility/access metadata.",
+      "Etapp 3, Etapp 4, Etapp 5 and Etapp 8 require documented sequencing, reversal and/or duplicate-piece repair from normalization-plan.research.json.",
+      "Etapp 6 must be reversed to official Stjärneberg-to-Lilla Laxemar direction.",
+      "Etapp 7 can use official GPX unchanged in stored Lilla Laxemar-to-Hällveberg direction.",
+      "Etapp 8 closes the digital ring using official GPX endpoint; Lilla Hycklinge cabin marker remains endpoint facility/access metadata pending a separately sourced access leg."
+    ],
+    "unknowns": [
+      "unknown/recheck: final visual QA against official PDF/map viewer for repaired multi-track sections before runtime import.",
+      "unknown/recheck: whether a separately sourced access leg should be added from Etapp 8 official GPX end to Lilla Hycklinge cabin."
+    ]
+  },
+  "facilityPlan": {
+    "planReference": "normalization-plan.research.json:facilityImportPlan",
+    "sourcePolicy": [
+      "Import as candidate facilities only where normalization-plan.research.json says records are high-confidence and source-backed.",
+      "Cabin-yard wells, taps, toilets, fireplaces, grills and woodsheds where no separate source-backed coordinate exists should remain facility metadata or clustered subfacilities.",
+      "Access/service clusters such as Närtrafik, taxi/pickup dependencies, Figeholm, Fårbo, Klintemåla, Stensjö by service, Tilias and other food/lodging/shop/marina clusters should remain access or service metadata unless route-adjacent and source-backed."
+    ],
+    "importAsCandidateFacilities": [
+      "Official endpoint cabin clusters: Nynäs, Lönhult, Krokstorp, Mörtfors, Stjärneberg, Lilla Laxemar, Hällveberg, Lilla Hycklinge.",
+      "High-confidence official access/parking/toilet records already present in section files, subject to duplicate resolution.",
+      "High-confidence official POIs such as Snäckedal and Stensjö by, preserving access restrictions."
+    ],
+    "pendingOrSuppress": [
+      "Narrative POIs without exact coordinates.",
+      "Approximate locality/lake-centroid swimming records.",
+      "Protected-area or water-protection context not confirmed by GIS overlay."
+    ],
+    "dedupeKeysToReview": [
+      "Shared endpoint cabins between adjacent stages.",
+      "Mörtfors toilets/parking records shared between Etapp 4 and Etapp 5.",
+      "Krokstorp cabin/toilet/well records shared between Etapp 3 and Etapp 4.",
+      "Lilla Laxemar records shared between Etapp 6 and Etapp 7.",
+      "Hällveberg records shared between Etapp 7 and Etapp 8."
+    ],
+    "unknowns": [
+      "unknown/recheck: publication-time cabin availability, fees, water reliability, water quality and exact subfacility coordinates where section files mark them pending."
+    ]
+  },
+  "ruleWarningPlan": {
+    "planReference": "normalization-plan.research.json:rulesAndCurrentnessPlan",
+    "staticRulePolicy": [
+      "Official reserve/cultural-reserve rules where the source says the route passes through the area, such as Humlenäs and Stensjö by.",
+      "Cabin-specific no-outdoor-fire/no-electricity/boil-water wording from current official cabin pages, with accessed dates."
+    ],
+    "requiresGisOverlayBeforeRuleImport": [
+      "Bråbygden Natura 2000",
+      "Krokshult reserve context",
+      "Misterhults skärgård reserve/Natura 2000 C-areas",
+      "Stamsjövägen reserve",
+      "Fårbo water-protection area",
+      "Virån Natura 2000",
+      "biotopskydd SK 568-2007",
+      "other water-protection areas near route context"
+    ],
+    "publicationTimeChecks": [
+      "Fire bans and fire-risk warnings.",
+      "KLT fixed-route and Närtrafik service.",
+      "Cabin availability and fees.",
+      "Water reliability and quality.",
+      "Hunting signs/notices.",
+      "Forestry and route passability."
+    ],
+    "unknowns": [
+      "unknown/recheck: boundary-sensitive rules after final normalized geometry.",
+      "unknown/recheck: current KLT/Närtrafik, fire-risk, hunting, forestry and cabin/water status at publication time."
+    ]
+  },
+  "importOrder": [
+    {
+      "step": 1,
+      "name": "Use normalization-plan.research.json as the controlling plan",
+      "notes": "Do not duplicate or rewrite its full per-section details here."
+    },
+    {
+      "step": 2,
+      "name": "Build candidate-only geometry prototype",
+      "notes": "Implement transforms under data/research/candidate-trails/ostkustleden/ only."
+    },
+    {
+      "step": 3,
+      "name": "Run visual QA and endpoint checks",
+      "notes": "Compare repaired multi-track sections against official PDF/map viewer and adjacent section endpoints."
+    },
+    {
+      "step": 4,
+      "name": "Dedupe cabin and endpoint facility clusters",
+      "notes": "Use facilityPlan.dedupeKeysToReview before producing import rows."
+    },
+    {
+      "step": 5,
+      "name": "Apply GIS-scoped rule warnings",
+      "notes": "Attach boundary-sensitive rules only after overlay against final normalized geometry."
+    },
+    {
+      "step": 6,
+      "name": "Publication-time currentness review",
+      "notes": "Recheck volatile facts before runtime import."
+    }
+  ],
+  "blockers": [
+    {
+      "scope": "runtime-import",
+      "status": "blocked-until-explicit-import-task",
+      "details": "Ready for normalization planning, not runtime import."
+    },
+    {
+      "scope": "geometry",
+      "status": "candidate-implementation-required",
+      "details": "Runtime import still needs an explicit import task, geometry implementation and visual QA."
+    },
+    {
+      "scope": "rules",
+      "status": "unknown/recheck",
+      "details": "Boundary-sensitive rules require GIS overlays against final normalized geometry."
+    },
+    {
+      "scope": "currentness",
+      "status": "unknown/recheck",
+      "details": "Cabin availability/fees, water reliability/quality, KLT/Närtrafik, fire risk, hunting signs/notices, forestry and route passability are publication-time checks."
+    }
+  ],
+  "openDecisionsForUser": [
+    {
+      "decision": "Decide whether runtime import should include a separately sourced access leg from Etapp 8 official GPX end to the Lilla Hycklinge cabin, or keep the 156.4 m gap as metadata only.",
+      "whyItMatters": "The normalization plan keeps the official GPX endpoint to close the digital ring and treats the cabin marker as endpoint facility/access metadata unless a sourced access leg is approved."
+    },
+    {
+      "decision": "Decide whether optional narrative POIs and approximate swim/access points should be included in the first runtime import or left pending.",
+      "whyItMatters": "Many are useful but lack exact coordinates or require side-service/access modeling."
+    },
+    {
+      "decision": "Approve candidate-only geometry normalization prototype before any shared runtime source data is touched.",
+      "whyItMatters": "The existing plan explicitly says to prototype and QA under candidate research first."
+    }
+  ],
+  "validationChecklist": [
+    "JSON parse this handoff and every changed research file.",
+    "Confirm normalization-plan.research.json remains the controlling detailed plan.",
+    "Verify all 8 section files exist and match sectionCoverage.sectionIds.",
+    "Implement candidate-only geometry transforms with raw source URL, transform instruction, computed length, display distance and endpoint gap metadata.",
+    "Run visual QA against official PDF/map viewer for repaired multi-track sections.",
+    "Confirm Etapp 8 closes the digital ring at the official GPX endpoint and does not silently snap to Lilla Hycklinge cabin.",
+    "Review duplicate endpoint cabin/toilet/well/parking records before import rows.",
+    "Run GIS overlays for all ruleWarningPlan.requiresGisOverlayBeforeRuleImport entries before static rule import.",
+    "Recheck fire bans, KLT/Närtrafik, cabin availability/fees, water, hunting signs/notices and forestry/passability before runtime publication.",
+    "Keep all outputs research-only until the user explicitly requests runtime integration."
+  ],
+  "statusDetails": {
+    "researchStatus": "normalization-plan-and-current-verification-complete-research-only",
+    "normalizationReadiness": "ready-for-candidate-normalization-planning",
+    "runtimeImportReadiness": "not-ready-for-runtime-import",
+    "sourceFiles": [
+      "README.md",
+      "trail.research.json",
+      "research-progress.json",
+      "caveat-resolution.research.json",
+      "current-verification.research.json",
+      "normalization-plan.research.json",
+      "sections/*.research.json"
+    ],
+    "notes": [
+      "This handoff intentionally reuses normalization-plan.research.json rather than duplicating every repair instruction.",
+      "All eight sections are researched and static caveats now have a controlling policy, but runtime import still needs an explicit import task, geometry implementation, GIS overlays for boundary-sensitive rules, duplicate facility resolution and publication-time checks for unstable facts."
+    ]
+  }
+}

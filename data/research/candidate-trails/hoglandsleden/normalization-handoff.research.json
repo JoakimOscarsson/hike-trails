@@ -1,0 +1,268 @@
+{
+  "schemaVersion": "candidate-normalization-handoff/v1",
+  "trailId": "hoglandsleden",
+  "lastUpdated": "2026-04-30",
+  "status": "ready-for-candidate-normalization-with-caveats",
+  "sectionCoverage": {
+    "officialSectionCount": 23,
+    "researchedSectionCount": 23,
+    "coverageStatus": "complete-for-research-handoff",
+    "sectionIds": [
+      "hoglandsleden-ho01-vastra-lagern-skuruhatt",
+      "hoglandsleden-ho02-skuruhatt-valbacken",
+      "hoglandsleden-ho03-valbacken-mariannelund",
+      "hoglandsleden-ho04-valbacken-lilla-bjalkerum",
+      "hoglandsleden-ho05-lilla-bjalkerum-adelfors",
+      "hoglandsleden-ho06-adelfors-hogarps-kulturreservat",
+      "hoglandsleden-ho07-hogarps-kulturreservat-lemnhult",
+      "hoglandsleden-ho08-lemnhult-lindshammar",
+      "hoglandsleden-ho09-lindshammar-ramkvilla",
+      "hoglandsleden-ho10-ramkvilla-asa",
+      "hoglandsleden-ho11-asa-hultsjo",
+      "hoglandsleden-ho12-hultsjo-savsjo",
+      "hoglandsleden-ho13-savsjo-forsa",
+      "hoglandsleden-ho14-forsa-vikskvarn",
+      "hoglandsleden-ho15-vikskvarn-lovhult",
+      "hoglandsleden-ho16-lovhult-ranneborg",
+      "hoglandsleden-ho17-ranneborg-skuruhatt",
+      "hoglandsleden-ho18-vikskvarn-tomtabacken",
+      "hoglandsleden-ho19-tomtabacken-hok",
+      "hoglandsleden-ho20-hok-byarum",
+      "hoglandsleden-ho21-byarum-skillingaryd",
+      "hoglandsleden-ho22-skillingaryd-asafors",
+      "hoglandsleden-ho23-asafors-karringabacka"
+    ],
+    "distancePolicy": [
+      "Use per-stage official distances for normalization; do not import a single headline distance without topology context.",
+      "Smålandsleden overview says ca 300 km as a loop; municipalities/tourism say 44 mil/440 km; official HÖ1-HÖ23 stage pages total 428.6 km. Working interpretation: ca 300 km refers to the main loop, 44 mil refers to all branches/connectors."
+    ],
+    "topologyForNormalization": {
+      "mainLoop": {
+        "description": "HÖ2 plus HÖ4-HÖ17 form a closed loop from Skuruhatt via Valbacken, Lilla Bjälkerum, Ädelfors, Högarp, Lemnhult, Lindshammar, Ramkvilla, Asa, Hultsjö, Sävsjö, Forsa, Vikskvarn, Lövhult, Ränneborg, and back to Skuruhatt.",
+        "sectionIds": [
+          "hoglandsleden-ho02-skuruhatt-valbacken",
+          "hoglandsleden-ho04-valbacken-lilla-bjalkerum",
+          "hoglandsleden-ho05-lilla-bjalkerum-adelfors",
+          "hoglandsleden-ho06-adelfors-hogarps-kulturreservat",
+          "hoglandsleden-ho07-hogarps-kulturreservat-lemnhult",
+          "hoglandsleden-ho08-lemnhult-lindshammar",
+          "hoglandsleden-ho09-lindshammar-ramkvilla",
+          "hoglandsleden-ho10-ramkvilla-asa",
+          "hoglandsleden-ho11-asa-hultsjo",
+          "hoglandsleden-ho12-hultsjo-savsjo",
+          "hoglandsleden-ho13-savsjo-forsa",
+          "hoglandsleden-ho14-forsa-vikskvarn",
+          "hoglandsleden-ho15-vikskvarn-lovhult",
+          "hoglandsleden-ho16-lovhult-ranneborg",
+          "hoglandsleden-ho17-ranneborg-skuruhatt"
+        ]
+      },
+      "connectorsAndBranches": [
+        {
+          "name": "Västra Lägern-Skuruhatt connector",
+          "sectionIds": [
+            "hoglandsleden-ho01-vastra-lagern-skuruhatt"
+          ],
+          "handling": "connector/branch route group; do not flatten into the main loop"
+        },
+        {
+          "name": "Valbacken-Mariannelund connector",
+          "sectionIds": [
+            "hoglandsleden-ho03-valbacken-mariannelund"
+          ],
+          "handling": "connector route group toward Mariannelund/Emilleden/Kalmar county context"
+        },
+        {
+          "name": "Vikskvarn-Kärringabacka west branch",
+          "sectionIds": [
+            "hoglandsleden-ho18-vikskvarn-tomtabacken",
+            "hoglandsleden-ho19-tomtabacken-hok",
+            "hoglandsleden-ho20-hok-byarum",
+            "hoglandsleden-ho21-byarum-skillingaryd",
+            "hoglandsleden-ho22-skillingaryd-asafors",
+            "hoglandsleden-ho23-asafors-karringabacka"
+          ],
+          "handling": "branch route group toward Järnbärarleden/Hestra"
+        }
+      ],
+      "topologyCaveats": [
+        "Smålandsleden overview says 'three etapper' connect to other systems/counties, but the current HÖ18-HÖ23 west branch consists of six official stage pages. Treat this as ambiguous wording until the section synthesis confirms intended route-group modeling.",
+        "Older Eksjö municipal wording divides Höglandsleden into four parts/delleder, which does not directly match the current HÖ1-HÖ23 official stage numbering."
+      ]
+    }
+  },
+  "geometryPlan": {
+    "sourcePolicy": [
+      "Use official Naturkartan per-stage GPX as canonical route geometry unless a section file gives a more specific repair instruction.",
+      "No official single whole-trail GPX/KML/GeoJSON was found in phase 1.",
+      "OSM Höglandsleden relations reference older PDFs and older naming; use only as supplemental geometry/context."
+    ],
+    "sectionSpecificInstructions": [
+      "For HÖ18, use official title and GPX direction, not the slug, for section direction.",
+      "For HÖ16, use 24.1 km from the official info panel.",
+      "For HÖ23, official GPX is canonical; API v3.2 is simplified display-grade linework and direct KML/GeoJSON/JSON downloads were unavailable.",
+      "For HÖ23, use the HÖ23 official GPX or the research-only derived GeoJSON artifact for geometry planning; remove/tolerate the duplicate point during final normalization.",
+      "For HÖ23, OSM relation 15427025 spans Grönelund-Kärringabacka across HÖ22+HÖ23; do not import it as standalone HÖ23 without clipping/extraction."
+    ],
+    "normalizationActions": [
+      "Assemble route groups from the topology in sectionCoverage.topologyForNormalization.",
+      "Preserve per-section source URLs, official display distance, computed GPX distance and endpoint gap notes from section packets.",
+      "Run endpoint continuity checks before route group generation; use tolerance where section research records near-identical but not coordinate-identical handoffs.",
+      "Generate candidate-only QA artifacts under this trail folder if visual review is needed."
+    ],
+    "unknowns": [
+      "unknown/recheck: Exactly which municipalities and counties each stage traverses, especially HÖ10-HÖ11 around Asa/Kronoberg and HÖ23 around Kärringabacka/Gnosjö.",
+      "unknown/recheck: Whether official route groups should be modeled as main loop plus three connectors, main loop plus east/north/west branches, or another route-builder topology."
+    ]
+  },
+  "facilityPlan": {
+    "sourcePolicy": [
+      "Import only section-file facilities with source-backed coordinates and clear public access/currentness status.",
+      "Model commercial, bookable or customer-only services as commercial/access metadata unless the section file explicitly says they are public trail facilities.",
+      "Do not infer drinking water from lakes, streams, shelters or private/bookable services."
+    ],
+    "deduplicationTargets": [
+      "Skuruhatt/Skurugata shared endpoint facilities across HÖ1, HÖ2 and HÖ17.",
+      "Valbacken shared endpoint facilities across HÖ2, HÖ3 and HÖ4.",
+      "Ädelfors shared endpoint facilities across HÖ5 and HÖ6.",
+      "Högarp shared endpoint facilities across HÖ6 and HÖ7.",
+      "Vikskvarn shared endpoint facilities across HÖ14, HÖ15 and HÖ18.",
+      "Byarum/Grönelund/Skillingaryd and Åsafors shared facilities across HÖ20-HÖ23."
+    ],
+    "importWithCaveats": [
+      "Official shelter, fireplace, toilet, parking, transit and water records from section files after dedupe and coordinate/currentness review.",
+      "Bookable or seasonal services only with opening/access caveats in descriptions.",
+      "Weak rural transit only as caveated access metadata, not as simple high-confidence endpoint transit."
+    ],
+    "pendingOrSuppress": [
+      "For HÖ23, the OSM/TillSkogs lean-to at 57.4633969/13.8393272 should be suppressed from import until field or official verification; OSM history includes a DWG revert for undocumented import.",
+      "For HÖ23, Sörgården is private/customer lodging context only; do not import its parking or amenities as public trail facilities.",
+      "For HÖ23, no official on-route water/toilet/fireplace/food/waste/swimming/parking facility was found directly on the section beyond endpoint access metadata.",
+      "For HÖ23, no public potable water was found and official text warns of few rest places; carry enough water/food."
+    ],
+    "unknowns": [
+      "unknown/recheck: Which official nearby facilities have exact coordinates and should be imported versus treated as access metadata, side trips, commercial services, or pending records."
+    ]
+  },
+  "ruleWarningPlan": {
+    "staticRulePolicy": [
+      "Scope protected-area restrictions by GIS boundary intersection before attaching them to section segments or facilities.",
+      "Use section-level protected-area notes from the research packets; do not apply whole-trail reserve warnings globally.",
+      "Represent water scarcity, unreliable natural water and unavailable public potable water as rule warnings or section notes rather than potable-water facilities."
+    ],
+    "liveCheckPolicy": [
+      "Before publication or trip guidance, recheck live fire-ban status and post-Storm-Dave/current trail clearance.",
+      "Fire-ban status is volatile and must not be imported as static permission.",
+      "JLT Närtrafik should not be imported as general hiker shuttle access because it is resident/address-based prebooked rural demand transport."
+    ],
+    "ruleWarningsToCarry": [
+      "Protected-area rules may override allemansrätten where the route or facility is proven to enter the protected area.",
+      "Several sections have weak/no potable water; carry enough water unless a verified managed source is imported.",
+      "Several endpoint and rural bus options are sparse, indirect or coordinate-pending; require current timetable verification."
+    ],
+    "unknowns": [
+      "unknown/recheck: Whether any current closures, reroutes, forestry works, hunting-season advisories, water reliability warnings, or protected-area restrictions affect individual stages."
+    ]
+  },
+  "importOrder": [
+    {
+      "step": 1,
+      "name": "Parse and index all HÖ1-HÖ23 section packets",
+      "notes": "Use trail.research.json officialSectionOrder as the authoritative section inventory."
+    },
+    {
+      "step": 2,
+      "name": "Normalize per-section geometry",
+      "notes": "Use official per-stage GPX, apply section-specific direction/duplicate/gap instructions, and keep QA metadata."
+    },
+    {
+      "step": 3,
+      "name": "Create route groups",
+      "notes": "Prepare main loop plus connector/branch groups; keep topology decision explicit."
+    },
+    {
+      "step": 4,
+      "name": "Dedupe shared endpoint facilities",
+      "notes": "Resolve shared junction clusters before importing user-facing facilities."
+    },
+    {
+      "step": 5,
+      "name": "Apply rule-warning and access policies",
+      "notes": "Run GIS overlays and attach rule warnings only where supported."
+    },
+    {
+      "step": 6,
+      "name": "Candidate-only validation",
+      "notes": "Validate JSON, geometry continuity, facility coordinates, suppressions and unknown/recheck items before any runtime data work."
+    }
+  ],
+  "blockers": [
+    {
+      "scope": "runtime-import",
+      "status": "blocked-until-explicit-import-task",
+      "details": "No runtime data has been imported."
+    },
+    {
+      "scope": "topology",
+      "status": "normalization-decision-needed",
+      "details": "Whether official route groups should be modeled as main loop plus three connectors, main loop plus east/north/west branches, or another route-builder topology."
+    },
+    {
+      "scope": "rules",
+      "status": "unknown/recheck",
+      "details": "Protected-area boundary overlays and live fire-ban/currentness checks are still required before user-facing runtime import."
+    },
+    {
+      "scope": "facilities",
+      "status": "unknown/recheck",
+      "details": "Shared endpoint clusters, commercial/customer-only services, weak transit and unverified water/shelter records need normalization review."
+    }
+  ],
+  "openDecisionsForUser": [
+    {
+      "decision": "Choose the route-builder topology for Höglandsleden.",
+      "optionsFromResearch": [
+        "main loop plus three connectors",
+        "main loop plus east/north/west branches",
+        "another route-builder topology"
+      ],
+      "whyItMatters": "The official distance and stage structure only make sense if the app distinguishes the ca 300 km loop from branch/connector material."
+    },
+    {
+      "decision": "Decide whether official access trails such as Mariannelund-HÖ3, Sävsjö C, Hok station, Byarum kyrka, Skillingaryd station and Lyngemadens naturreservat should be first-class route groups or access metadata.",
+      "whyItMatters": "They are mentioned officially, but should not be silently merged into HÖ section geometry."
+    },
+    {
+      "decision": "Decide app scope for bookable/commercial services and very weak rural transit.",
+      "whyItMatters": "Several useful services exist, but importing them as ordinary public trail facilities would overstate access."
+    }
+  ],
+  "validationChecklist": [
+    "JSON parse this handoff and every changed research file.",
+    "Verify all 23 expected section files exist and match officialSectionOrder.",
+    "Check every normalized section retains source URL, official distance, computed distance and transform notes.",
+    "Verify route group distances separately for main loop, HÖ1, HÖ3 and HÖ18-HÖ23 branch.",
+    "Run endpoint-gap checks at Skuruhatt, Valbacken, Vikskvarn, Byarum/Grönelund, Åsafors and Kärringabacka.",
+    "Run duplicate facility detection for every shared endpoint cluster listed in facilityPlan.deduplicationTargets.",
+    "Confirm no private/customer-only service is imported as a public facility.",
+    "Run protected-area GIS overlays before importing static reserve/cultural-reserve rule warnings.",
+    "Recheck live fire bans, current trail clearance, transit schedules and water reliability before runtime publication.",
+    "Keep all outputs research-only until the user explicitly requests runtime integration."
+  ],
+  "statusDetails": {
+    "researchStatus": "phase-2-complete-caveats-addressed",
+    "normalizationReadiness": "ready-for-candidate-normalization-with-caveats",
+    "runtimeImportReadiness": "not-ready-for-runtime-import",
+    "sourceFiles": [
+      "README.md",
+      "trail.research.json",
+      "research-progress.json",
+      "sections/*.research.json",
+      "geometry/hoglandsleden-ho23-asafors-karringabacka.official-gpx-derived.geojson"
+    ],
+    "notes": [
+      "HÖ1-HÖ23 are complete for research handoff; runtime import/normalization has not been performed.",
+      "HÖ23 targeted caveat-resolution pass completed: remaining caveats are now explicit import rules or live pre-publication checks, not unresolved structural blockers."
+    ]
+  }
+}

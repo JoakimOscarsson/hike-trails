@@ -1,63 +1,277 @@
 {
-  "schemaVersion": 1,
-  "lastUpdated": "2026-04-28",
+  "schemaVersion": 2,
+  "lastUpdated": "2026-04-30",
   "purpose": "Inventory of research-only candidate trail data that must be normalized before app integration.",
   "statusDefinitions": {
     "research-only": "Useful research packet, but not app-ready and not consumed by current scripts.",
+    "normalization-prep": "Full section research exists and a normalization handoff is being prepared.",
     "normalization-ready": "Ready for a scoped importer to convert into normalized source data.",
-    "app-source-ready": "Normalized source data exists under the app source-data contract."
+    "app-source-ready": "Normalized source data exists under the app source-data contract.",
+    "reference-only": "Used as context for dedupe or existing app behavior, not part of the current import batch."
   },
+  "sharedPrepFile": "normalization-prep.research.json",
   "trails": [
     {
-      "id": "stockholm-archipelago-trail",
-      "name": "Stockholm Archipelago Trail",
-      "readiness": "research-only",
+      "id": "bohusleden",
+      "name": "Bohusleden",
+      "readiness": "normalization-prep",
       "currentAppInput": false,
-      "path": "data/research/candidate-trails/stockholm-archipelago-trail",
+      "path": "data/research/candidate-trails/bohusleden",
       "files": {
         "trailSummary": "trail.research.json",
-        "sectionFiles": 0,
-        "integrationDedupe": null
+        "researchProgress": "research-progress.json",
+        "sectionFiles": 27,
+        "geometryDirectory": null,
+        "mapdataDirectory": "mapdata",
+        "normalizationHandoff": "normalization-handoff.research.json"
       },
       "notes": [
-        "This is still a whole-trail research file.",
-        "Split and normalize before adding to app source data."
+        "Mapdata exists for stages 1-20 and 22-27.",
+        "Stage 21 is a partial/self-navigation geometry blocker and must not be silently bridged."
       ]
     },
     {
-      "id": "upplandsleden",
-      "name": "Upplandsleden",
-      "aliases": [
-        "uppsalaleden"
-      ],
-      "readiness": "research-only",
+      "id": "hallandsleden",
+      "name": "Hallandsleden",
+      "readiness": "normalization-prep",
       "currentAppInput": false,
-      "path": "data/research/candidate-trails/upplandsleden",
+      "path": "data/research/candidate-trails/hallandsleden",
       "files": {
         "trailSummary": "trail.research.json",
-        "sectionFiles": 44,
-        "integrationDedupe": "integration-dedupe.research.json"
+        "researchProgress": "research-progress.json",
+        "sectionFiles": 35,
+        "geometryDirectory": "geometry",
+        "mapdataDirectory": null,
+        "normalizationHandoff": "normalization-handoff.research.json"
       },
       "notes": [
-        "The files use the trail ID upplandsleden.",
-        "Contains numbered etapper and slinga/loop packets.",
-        "Run dedupe and normalization before adding to app source data."
+        "Canonical and draw-ready geometry artifacts exist for all current official sections.",
+        "Final import must preserve official segment breaks and visible network gaps unless explicitly resolved."
+      ]
+    },
+    {
+      "id": "hogakustenleden",
+      "name": "Höga Kustenleden",
+      "readiness": "normalization-prep",
+      "currentAppInput": false,
+      "path": "data/research/candidate-trails/hogakustenleden",
+      "files": {
+        "trailSummary": "trail.research.json",
+        "researchProgress": "research-progress.json",
+        "sectionFiles": 9,
+        "geometryDirectory": null,
+        "mapdataDirectory": null,
+        "normalizationHandoff": "normalization-handoff.research.json"
+      },
+      "notes": [
+        "Needs a candidate geometry artifact build.",
+        "Carry section 2 distance and section 7 difficulty contradictions into normalization."
+      ]
+    },
+    {
+      "id": "hoglandsleden",
+      "name": "Höglandsleden",
+      "readiness": "normalization-prep",
+      "currentAppInput": false,
+      "path": "data/research/candidate-trails/hoglandsleden",
+      "files": {
+        "trailSummary": "trail.research.json",
+        "researchProgress": "research-progress.json",
+        "sectionFiles": 23,
+        "geometryDirectory": "geometry",
+        "mapdataDirectory": null,
+        "normalizationHandoff": "normalization-handoff.research.json"
+      },
+      "notes": [
+        "Section research is complete.",
+        "Only partial geometry artifacts are currently packaged."
+      ]
+    },
+    {
+      "id": "kungsleden",
+      "name": "Kungsleden",
+      "readiness": "normalization-prep",
+      "currentAppInput": false,
+      "path": "data/research/candidate-trails/kungsleden",
+      "files": {
+        "trailSummary": "trail.research.json",
+        "researchProgress": "research-progress.json",
+        "sectionFiles": 27,
+        "geometryDirectory": null,
+        "mapdataDirectory": null,
+        "normalizationHandoff": "normalization-handoff.research.json"
+      },
+      "notes": [
+        "Geometry QA exists in geometry-qa-2026-04-30.research.json.",
+        "Source/licensing and endpoint conventions remain importer decisions."
+      ]
+    },
+    {
+      "id": "nordkalottleden",
+      "name": "Nordkalottleden",
+      "readiness": "normalization-prep",
+      "currentAppInput": false,
+      "path": "data/research/candidate-trails/nordkalottleden",
+      "files": {
+        "trailSummary": "trail.research.json",
+        "researchProgress": "research-progress.json",
+        "sectionFiles": 12,
+        "geometryDirectory": "geometry",
+        "mapdataDirectory": null,
+        "normalizationHandoff": "normalization-handoff.research.json"
+      },
+      "notes": [
+        "Official-source geometry artifacts exist.",
+        "Endpoint and connector gaps must remain explicit during import."
+      ]
+    },
+    {
+      "id": "ostkustleden",
+      "name": "Ostkustleden",
+      "readiness": "normalization-prep",
+      "currentAppInput": false,
+      "path": "data/research/candidate-trails/ostkustleden",
+      "files": {
+        "trailSummary": "trail.research.json",
+        "researchProgress": "research-progress.json",
+        "sectionFiles": 8,
+        "geometryDirectory": null,
+        "mapdataDirectory": null,
+        "normalizationHandoff": "normalization-handoff.research.json"
+      },
+      "notes": [
+        "Has caveat-resolution, normalization-plan, and current-verification files.",
+        "Needs candidate-only geometry prototype and visual QA before runtime import."
+      ]
+    },
+    {
+      "id": "padjelantaleden",
+      "name": "Padjelantaleden",
+      "readiness": "normalization-prep",
+      "currentAppInput": false,
+      "path": "data/research/candidate-trails/padjelantaleden",
+      "files": {
+        "trailSummary": "trail.research.json",
+        "researchProgress": "research-progress.json",
+        "sectionFiles": 10,
+        "geometryDirectory": null,
+        "mapdataDirectory": null,
+        "normalizationHandoff": "normalization-handoff.research.json"
+      },
+      "notes": [
+        "Caveat-resolution file exists.",
+        "Remote access, hut clusters, and seasonal bridge/boat status need explicit import handling."
+      ]
+    },
+    {
+      "id": "sjuharadsleden",
+      "name": "Sjuhäradsleden",
+      "readiness": "normalization-prep",
+      "currentAppInput": false,
+      "path": "data/research/candidate-trails/sjuharadsleden",
+      "files": {
+        "trailSummary": "trail.research.json",
+        "researchProgress": "research-progress.json",
+        "sectionFiles": 10,
+        "geometryDirectory": null,
+        "mapdataDirectory": null,
+        "normalizationHandoff": "normalization-handoff.research.json"
+      },
+      "notes": [
+        "Caveat-resolution file exists.",
+        "Next work is geometry cleanup, endpoint/facility dedupe, and protected-area clipping."
+      ]
+    },
+    {
+      "id": "tjustleden",
+      "name": "Tjustleden",
+      "readiness": "normalization-prep",
+      "currentAppInput": false,
+      "path": "data/research/candidate-trails/tjustleden",
+      "files": {
+        "trailSummary": "trail.research.json",
+        "researchProgress": "research-progress.json",
+        "sectionFiles": 9,
+        "geometryDirectory": null,
+        "mapdataDirectory": null,
+        "normalizationHandoff": "normalization-handoff.research.json"
+      },
+      "notes": [
+        "Normalization decisions file exists.",
+        "Requires importer support for official/computed distance, tails/connectors, direction reversal, and pending/suppress states."
+      ]
+    },
+    {
+      "id": "vastra-vatterleden",
+      "name": "Västra Vätterleden",
+      "readiness": "normalization-prep",
+      "currentAppInput": false,
+      "path": "data/research/candidate-trails/vastra-vatterleden",
+      "files": {
+        "trailSummary": "trail.research.json",
+        "researchProgress": "research-progress.json",
+        "sectionFiles": 8,
+        "geometryDirectory": null,
+        "mapdataDirectory": null,
+        "normalizationHandoff": "normalization-handoff.research.json"
+      },
+      "notes": [
+        "Static import-readiness and risk-resolution files exist.",
+        "Needs route, branch, and access connector geometry normalization."
       ]
     },
     {
       "id": "vikingaleden",
       "name": "Vikingaleden",
-      "readiness": "research-only",
+      "readiness": "normalization-prep",
       "currentAppInput": false,
       "path": "data/research/candidate-trails/vikingaleden",
       "files": {
-        "trailSummary": null,
+        "trailSummary": "trail.research.json",
+        "researchProgress": "research-progress.json",
         "sectionFiles": 12,
-        "integrationDedupe": null
+        "geometryDirectory": null,
+        "mapdataDirectory": null,
+        "normalizationHandoff": "normalization-handoff.research.json"
       },
       "notes": [
-        "Contains per-section packets only.",
-        "Several sections overlap or reuse Upplandsleden context; dedupe during import."
+        "Sections 7-12 overlap Upplandsleden sections 11-16.",
+        "Dedupe geometry, facilities, aliases, and rule warnings against existing Upplandsleden context before import."
+      ]
+    },
+    {
+      "id": "upplandsleden",
+      "name": "Upplandsleden",
+      "readiness": "reference-only",
+      "currentAppInput": true,
+      "path": "data/research/candidate-trails/upplandsleden",
+      "files": {
+        "trailSummary": "trail.research.json",
+        "researchProgress": null,
+        "sectionFiles": 44,
+        "geometryDirectory": null,
+        "mapdataDirectory": null,
+        "integrationDedupe": "integration-dedupe.research.json"
+      },
+      "notes": [
+        "Reference context for Vikingaleden overlap and existing app behavior."
+      ]
+    },
+    {
+      "id": "stockholm-archipelago-trail",
+      "name": "Stockholm Archipelago Trail",
+      "readiness": "reference-only",
+      "currentAppInput": true,
+      "path": "data/research/candidate-trails/stockholm-archipelago-trail",
+      "files": {
+        "trailSummary": "trail.research.json",
+        "researchProgress": null,
+        "sectionFiles": 0,
+        "geometryDirectory": null,
+        "mapdataDirectory": null
+      },
+      "notes": [
+        "Existing app trail and separate research packet; not part of the current 12-trail batch."
       ]
     }
   ]

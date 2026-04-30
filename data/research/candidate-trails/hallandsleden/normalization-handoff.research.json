@@ -1,0 +1,207 @@
+{
+  "schemaVersion": "candidate-normalization-handoff/v1",
+  "trailId": "hallandsleden",
+  "lastUpdated": "2026-04-30",
+  "status": "normalization-prep-complete-research-only",
+  "sectionCoverage": {
+    "expected": {
+      "totalSections": 35,
+      "bySubtrail": {
+        "N1-N8": 8,
+        "M1-M8": 8,
+        "S1-S9": 9,
+        "K1-K10": 10
+      },
+      "source": "trail.research.json current official Hallandsleden inventory from 2026-04-29"
+    },
+    "researched": {
+      "totalSections": 35,
+      "status": "all section research files are research-ready with caveats"
+    },
+    "geometryReady": {
+      "totalSections": 35,
+      "canonicalGeojsonWritten": 35,
+      "drawReadyGeojsonWritten": 35,
+      "unresolvedMissingGeometrySections": 0,
+      "manifest": "geometry/geometry-index.research.json"
+    },
+    "blockedSections": [],
+    "partialOrPolicySections": [
+      {
+        "sectionId": "hallandsleden-veddige-nosslinge",
+        "sectionNumber": "N5",
+        "reason": "official-multisegment-breaks",
+        "handoffNote": "Preserve the four-part MultiLineString/gap handling; geometry-index records max official break 1908.67 m."
+      },
+      {
+        "sectionId": "hallandsleden-tjoloholm-asa",
+        "sectionNumber": "K3",
+        "reason": "official-multisegment-breaks",
+        "handoffNote": "Official gaps are about 203 m and 111 m; preserve as MultiLineString until an explicit connector policy exists."
+      },
+      {
+        "sectionId": "hallandsleden-asa-frillesas",
+        "sectionNumber": "K4",
+        "reason": "official-multisegment-breaks and official-network-gap-after-section",
+        "handoffNote": "Preserve the 112.88 m official segment break and the official Frillesas-to-Steninge coastal network gap; do not stitch to K5."
+      },
+      {
+        "sectionId": "hallandsleden-mellbystrand-bastad-station",
+        "sectionNumber": "K10",
+        "reason": "planning-grade sparse segment QA",
+        "handoffNote": "Keep the 762.82 m sparse-segment QA caveat before navigation-grade use."
+      }
+    ]
+  },
+  "geometryPlan": {
+    "sourceArtifactsToUse": [
+      "trail.research.json for official inventory and section order",
+      "sections/*.research.json for section caveats, endpoint notes, facilities, rules and do-not-import guidance",
+      "geometry/geometry-index.research.json as the geometry manifest",
+      "geometry/canonical/*.geojson for provenance and normalization",
+      "geometry/draw-ready/*.geojson for display QA only"
+    ],
+    "sourceArtifactsToSuppress": [
+      "Official API line.geometry fields when section research says they are empty, stale or misleading",
+      "Older Naturkartan, OSM, route-app or paper-map-derived linework when section files mark it stale, validation-only or non-canonical"
+    ],
+    "transformPolicy": [
+      "Use canonical GeoJSON as exact official GPX track/segment coordinates converted to GeoJSON.",
+      "Use draw-ready GeoJSON only for display QA; it linearly densifies long intra-segment official jumps over 250 m toward a 75 m target step and does not change official segment breaks.",
+      "Do not treat draw-ready interpolation points as field-verified trail turns.",
+      "Do not bridge official MultiLineString or track/segment breaks unless a later verified connector source is found.",
+      "Do not add invented connector geometry across the K4-to-K5 coastal network gap."
+    ],
+    "endpointContinuityIssues": [
+      "N5 has four-part MultiLineString/gap handling and the practical endpoint is at Gallarpasjon/Gallarp rather than Nosslinge church.",
+      "N8 official GPX endpoint sits about 60-65 m from the shared Akulla junction.",
+      "S1/S2 handoff gap at Oskarstrom is 2.94 m.",
+      "K1/K2 handoff gap at Kungsbacka C is about 17 m.",
+      "K3 has official gaps of about 203 m near Nasungevagen/Mor Annas vag and 111 m near Badviksvagen/Asa beach.",
+      "K4-to-K5 is a large official coastal gap and K5/K6 Haverdal handoff is about 13 m.",
+      "K6/K7 handoff is about 1 m, K7/K8 is about 5.34 m, K8/K9 is about 3.23 m, and K9/K10 is about 10.82 m.",
+      "Branch nodes at Akulla, Astad/Byasjon, Kvarnforsen, Frodeparken, Gyltige, Simlangsdalen, Halmstad C and Koarp need explicit graph/topology decisions rather than a single linear chain."
+    ],
+    "blockedGeometry": [
+      "None missing locally; hard geometry blockers are policy decisions around official breaks, endpoint snapping and the K4-to-K5 official coastal network gap."
+    ]
+  },
+  "facilityPlan": {
+    "dedupeClusterPolicy": [
+      "Cluster shared endpoint facilities before section import, especially Kungsbacka C, Tjoloholm, Akulla/Yasjon, Byasjon/Astad, Gyltige, Simlangsdalen, Halmstad C, Haverdal, Mastocka, Ekegarden and Koarp.",
+      "Cluster same-site shelter, fireplace, toilet, water, waste, information board and parking records before creating user-facing markers.",
+      "Keep commercial/private services and public transport stops as access or nearby-service metadata unless the section file marks them core on-route facilities.",
+      "Use section routeProximity and importDecision/import notes where present; do not bulk-import all official places API records."
+    ],
+    "suppressOrPendingClasses": [
+      "Suppress stale-stage, adjacent-stage and old-segmentation facility leakage called out in section files.",
+      "Keep OSM-only water/fire/picnic candidates pending until verified by official, manager, field or current source evidence.",
+      "Do not model natural waters, springs, lakes or shelters as potable water unless the section file has a verified drinking-water source.",
+      "Do not model public transport shelters as hiking shelters.",
+      "Do not import side-service records beyond the eventual side-service radius/policy."
+    ],
+    "highRiskFacilityCategories": [
+      "Drinking water that is seasonal, conditional, private, staffed-only, dry-risk or absent from official water POIs.",
+      "Shelter, campsite and tenting records inside or near reserves with no-fire/no-camping/designated-place rules.",
+      "Fireplaces, grills and firewood records because dynamic fire bans and reserve rules can override prepared sites.",
+      "Toilets and showers with seasonal, staffed, vandalism-closure or opening-hours caveats.",
+      "Dense urban/beach/resort services around Kungsbacka, Varberg, Ullared, Halmstad, Tylosand, Mellbystrand and Bastad station."
+    ]
+  },
+  "ruleWarningPlan": {
+    "protectedAreas": [
+      "Use section rulesAndSafety plus final GIS line-buffer overlay before assigning reserve, Natura 2000, bird-protection or access-ban warnings.",
+      "Keep nearby/context-only areas out of route spans unless final overlay confirms intersection."
+    ],
+    "waterProtection": [
+      "Model water-protection context from section files only after final GIS overlay confirms exact subsegments.",
+      "Do not mark natural water potable; carry contamination/washing/waste/toileting cautions where section research calls for them."
+    ],
+    "fire": [
+      "Use established fireplaces only where imported and legal.",
+      "Reserve-specific fire rules override general right-of-public-access guidance.",
+      "Run live MSB/municipality/rescue-service fire-risk and fire-ban checks immediately before publication/import."
+    ],
+    "dogs": [
+      "Carry the official 1 March-20 August strict-supervision/leash-period guidance.",
+      "Add beach, reserve, livestock/pasture and local dog-rule caveats from each section file."
+    ],
+    "camping": [
+      "Do not generalize allemansratten into a formal campsite.",
+      "Encode no-camping/designated-place/two-night/seasonal rules exactly where section files and final GIS overlay support them."
+    ],
+    "liveChecksBeforePublication": [
+      "Official Hallandsleden current information and reroute pages",
+      "Transit timetables and seasonal services",
+      "Closures, bridge/path works, forestry/hunting notices and beach rules",
+      "Water/toilet/shop/cafe/service opening and seasonal availability"
+    ]
+  },
+  "importOrder": [
+    {
+      "step": 1,
+      "slice": "geometry-only dry run",
+      "sections": "All 35 canonical files",
+      "notes": "Validate schema, coordinate order, distance tolerances and endpoint graph without writing runtime app data."
+    },
+    {
+      "step": 2,
+      "slice": "simple LineString sections",
+      "sections": "All sections except N5, K3 and K4",
+      "notes": "Carry long-internal-segment draw-ready caveats; defer publication until facility/rule policies are resolved."
+    },
+    {
+      "step": 3,
+      "slice": "official break policy",
+      "sections": "N5, K3 and K4",
+      "notes": "Import only after deciding how official MultiLineString breaks are represented."
+    },
+    {
+      "step": 4,
+      "slice": "coastal topology",
+      "sections": "K1-K10",
+      "notes": "Treat K4-to-K5 as an explicit official network gap; do not imply continuous coastal coverage through Falkenberg/Varberg."
+    },
+    {
+      "step": 5,
+      "slice": "facilities and rules",
+      "sections": "All researched sections",
+      "notes": "Run dedupe, GIS overlays and live checks before user-facing publication."
+    }
+  ],
+  "blockers": {
+    "hardBlockers": [
+      "Runtime integration still needs a separate explicit import task.",
+      "Need normalization decisions for endpoint snapping, official segment-break handling, side-service filtering, facility dedupe and taxonomy mapping.",
+      "K4 Frillesas does not currently connect to K5 Steninge in the official coastal inventory; keep visible as a network gap unless an official connector is later published."
+    ],
+    "publicationTimeRechecks": [
+      "Transit, closures/reroutes, fire status, beach/reserve rules and seasonal services immediately before publication/import.",
+      "Water, toilet, cafe/shop, shelter/campsite and private/commercial service availability.",
+      "Final protected-area and water-protection GIS overlays before public rule warnings."
+    ]
+  },
+  "openDecisionsForUser": [
+    "Choose endpoint snapping threshold and whether snapped graph nodes preserve original official endpoints in provenance metadata.",
+    "Choose representation for official MultiLineString breaks: preserve as route gaps, model as warning spans, or require external connector evidence.",
+    "Choose how to show the K4-to-K5 official coastal network gap in runtime UX.",
+    "Choose side-service radius and categories for dense urban/beach/resort areas.",
+    "Choose whether facilities marked conditional/private/seasonal/pending are imported as hidden review records, user-facing caveated markers, or deferred.",
+    "Choose rule-warning granularity: whole-section warning, subsegment warning after GIS overlay, or facility/site-level rule notes."
+  ],
+  "validationChecklist": [
+    "Parse trail.research.json, research-progress.json, all sections/*.research.json, geometry/geometry-index.research.json and both new normalization handoff JSON files.",
+    "Confirm expected section count is 35 and every section has canonical and draw-ready geometry.",
+    "Confirm no unresolvedMissingGeometrySections in geometry-index.research.json.",
+    "Validate every canonical/draw-ready GeoJSON Feature geometry type and coordinate order.",
+    "Confirm draw-ready geometry is not used as canonical provenance.",
+    "Confirm N5, K3 and K4 official breaks are preserved and not bridged by generated geometry.",
+    "Confirm K4-to-K5 is represented as a known official network gap.",
+    "Run endpoint gap report and review all snaps above the chosen threshold.",
+    "Compare official distances, computed distances and section source contradictions before exposing distances.",
+    "Run facility cluster/dedupe pass and verify pending/OSM-only/private/seasonal records before import.",
+    "Run final GIS overlays for protected areas, water-protection zones and restriction subsegments.",
+    "Run live fire, transit, closure/reroute, seasonal service and beach/reserve rule checks immediately before publication.",
+    "Confirm no runtime app data, generated public data, shared scripts or package files are modified by the normalization-prep pass."
+  ]
+}

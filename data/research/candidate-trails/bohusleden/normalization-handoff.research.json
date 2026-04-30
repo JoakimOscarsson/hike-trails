@@ -1,0 +1,219 @@
+{
+  "schemaVersion": "candidate-normalization-handoff/v1",
+  "trailId": "bohusleden",
+  "lastUpdated": "2026-04-30",
+  "status": "normalization-prep-complete-research-only-stage-21-blocked",
+  "sectionCoverage": {
+    "expected": {
+      "totalSections": 27,
+      "source": "trail.research.json official West Sweden Trails API order, stages 1-27"
+    },
+    "researched": {
+      "totalSections": 27,
+      "status": "all 27 official stages have section research packets"
+    },
+    "geometryReady": {
+      "candidateGeoJsonFiles": 27,
+      "fullOfficialGeometryCount": 26,
+      "partialOfficialGeometryCount": 1,
+      "navigationReadyForNormalizationCount": 26,
+      "blockedForCompleteRouteImportCount": 1,
+      "manifest": "mapdata/index.json",
+      "validationReport": "mapdata/validation-report.json"
+    },
+    "blockedSections": [
+      {
+        "sectionId": "bohusleden-stage-21-flotemarkson-porsas",
+        "sectionNumber": 21,
+        "status": "blocked-for-complete-route-import",
+        "reason": "Official WST/Hoodin and Naturkartan geometry is about 4.4 km partial line, but official distance is 14 km and text says the middle is unmarked/self-navigation."
+      }
+    ],
+    "partialOrPolicySections": [
+      {
+        "sectionId": "bohusleden-stage-8-grandalen-bottenstugan",
+        "sectionNumber": 8,
+        "reason": "Stage 8-to-Stage 9 continuity gap",
+        "handoffNote": "Stage 8 to Stage 9 has a small official continuity gap of about 49.4 m at Bottenstugan; review before route-chain import rather than silently snapping."
+      },
+      {
+        "sectionId": "bohusleden-stage-21-flotemarkson-porsas",
+        "sectionNumber": 21,
+        "reason": "partial official geometry only",
+        "handoffNote": "Official WST/Hoodin GPX, Naturkartan and current OSM linework cover only about 4.389 km while the official stage is 14 km."
+      },
+      {
+        "sectionId": "bohusleden-stage-22-porsas-nornas",
+        "sectionNumber": 22,
+        "reason": "Stage 21-to-Stage 22 gap context",
+        "handoffNote": "4.296 km straight-line gap from the Stage 21 WST/Hoodin GPX end to the Stage 22 start; do not stitch automatically."
+      }
+    ]
+  },
+  "geometryPlan": {
+    "sourceArtifactsToUse": [
+      "trail.research.json for official stage order and overview contradictions",
+      "sections/*.research.json for stage caveats, facilities, access, rules and do-not-import guidance",
+      "mapdata/index.json for geometry metrics, source policy, continuity and blocked-import status",
+      "mapdata/sections/*.geojson for one de-duplicated candidate GeoJSON LineString per official stage",
+      "mapdata/bohusleden-candidate-section-geometries.geojson for combined QA",
+      "mapdata/validation-report.json for parse, shape, source URL and continuity checks"
+    ],
+    "sourceArtifactsToSuppress": [
+      "mapdata/reference/bohusleden-stage-21-osm-old-unblazed-reference.geojson for import; retain only as old no-longer-blazed reference",
+      "OSM relations and route-app tracks when section files mark them QA-only, stale, overlong, endpoint-offset or non-canonical",
+      "Legacy Lindome/Blavattnerna southern-start naming except as stale alias risk"
+    ],
+    "transformPolicy": [
+      "Primary section geometry is WST/Hoodin official GPX, de-duplicated only for consecutive duplicate coordinates.",
+      "All generated mapdata uses GeoJSON coordinate order [longitude, latitude].",
+      "No simplification, snapping or routing was applied.",
+      "Do not create an invented Stage 21 full route from straight lines, automatic routing or stale/unblazed relations.",
+      "GPX elevations/timestamps are not reliable for several northern sections; use linework only where section files say elevations are zero/unusable."
+    ],
+    "endpointContinuityIssues": [
+      "Stages 1-7 chain exactly or negligibly, then Stage 8 to Stage 9 has a 49.4 m small-known-gap at Bottenstugan.",
+      "Stages 9-20 chain exactly or negligibly to Stage 21 start.",
+      "Stage 21 to Stage 22 has a 4296.3 m blocking-or-intentional-gap; known Stage 21 partial-geometry/self-navigation gap; do not stitch automatically.",
+      "Stages 22-27 chain exactly or negligibly after the Stage 21 gap.",
+      "OSM endpoint offsets around Kynnefjalls natur and Vaktarekullen are QA context only; WST/Hoodin remains primary."
+    ],
+    "blockedGeometry": [
+      {
+        "sectionId": "bohusleden-stage-21-flotemarkson-porsas",
+        "status": "not-ready-full-stage-geometry-blocked",
+        "resolutionRequired": "Obtain authoritative full route corridor from Tanum municipality/WST or encode a deliberate partial/self-navigation model. Do not auto-stitch the gap."
+      }
+    ]
+  },
+  "facilityPlan": {
+    "dedupeClusterPolicy": [
+      "Cluster endpoint and same-site facilities before import, especially Delsjobadet/Skatas, Kasjobadet/Jonsered, Bottenstugan, Stenshult, Kaserna, Borgmastarbruket, Harska, KynnefjallsNatur, Vaktarekullen, Flotemarkson/Holmen, Porsas, Krokstrand, Hogstad and Stromstad.",
+      "Merge same-site shelter, fireplace, toilet, water, waste, information-board, parking and bathing records where section files describe one cluster.",
+      "Keep access connectors, bus stops, train stations, taxi/Nartrafik and parking as access metadata unless the section file marks them route facilities.",
+      "Keep commercial/private/staffed services as conditional nearby-service metadata unless verified as public always-available trail service."
+    ],
+    "suppressOrPendingClasses": [
+      "Do not import Stage 21 old/unblazed OSM relation as current route or facility spine.",
+      "Suppress distant off-route place-feed artifacts unless the app later supports off-route access/service metadata.",
+      "Keep OSM-only firepits, water points, shelters and picnic sites pending until verified by official, manager, field or current source evidence.",
+      "Do not mark natural waters, lakes, springs or untreated sources as potable.",
+      "Do not import closed/unsafe/ruined/private structures as usable shelters or lodging."
+    ],
+    "highRiskFacilityCategories": [
+      "Drinking water that is unconfirmed potable, boil/treat/carry-backup, staffed-only, private/conditional, seasonal or absent from WST drinking-water places.",
+      "Fireplaces and grills where reserve rules, fire bans, old bridges/rafts or local signage may prohibit use.",
+      "Campsites/tenting claims inside reserves where no-camping, designated-place or no-fire rules apply.",
+      "Remote endpoint access and sparse transit in Stages 18-24, especially Vaktarekullen, Flotemarkson, Porsas and Nornas corridor.",
+      "Bridge, raft, forestry, windfall and planned-burn currentness around Stages 5, 6, 8, 9, 15, 16 and 18-20.",
+      "Coordinate-review clusters noted in progress, including Stora Hassungaredssjon/Stage 1, Stenshult/Stage 12, Saveleken/Stage 19, Kasebo/Stage 20, Bjornerodspiggen/Stage 26 and endpoint service clusters in Stromstad/Stage 27."
+    ]
+  },
+  "ruleWarningPlan": {
+    "protectedAreas": [
+      "Run final GIS line-buffer overlay before generating public protected-area or Natura 2000 warnings.",
+      "Use section rulesAndSafety for candidate warnings, but keep nearby/context-only areas out of route spans until overlay confirms intersection.",
+      "Kynnefjall reserve stages need designated-place-only fire/tenting handling where section files require it."
+    ],
+    "waterProtection": [
+      "Assign water-protection warnings only after final GIS overlay confirms exact subsegments.",
+      "Do not present natural water as potable; add contamination/washing/waste/toileting cautions where section files call for them."
+    ],
+    "fire": [
+      "Use established fireplaces only where imported and current rules allow.",
+      "Fire bans can prohibit all open fire, including prepared fireplaces.",
+      "Live-check krisinformation.se, county/municipality or rescue service before publication."
+    ],
+    "dogs": [
+      "Carry West Sweden Trails guidance that dogs require extra strict supervision 1 March-20 August and should be kept as strictly as if on a physical leash within one meter.",
+      "Reserve, pasture, cattle/horse and local leash rules override generic guidance."
+    ],
+    "camping": [
+      "Do not present stages as generally tent-friendly when WST campsite category returned no items or reserve rules constrain camping.",
+      "Encode no-camping/designated-place/prepared-campsite limits exactly from section files and final GIS overlay."
+    ],
+    "liveChecksBeforePublication": [
+      "WST status/deviation widgets and Naturkartan/current route notes",
+      "Fire bans and fire-risk status",
+      "Vasttrafik timetables, Nartrafik eligibility and replacement-bus notices",
+      "Commercial/private opening hours and seasonal water/toilet/service availability",
+      "Bridge, raft, forestry, windfall, planned-burn and storm-damage notices"
+    ]
+  },
+  "importOrder": [
+    {
+      "step": 1,
+      "slice": "geometry-only validation",
+      "sections": "Stages 1-20 and 22-27",
+      "notes": "Use mapdata/sections/*.geojson; exclude Stage 21 from complete-route import."
+    },
+    {
+      "step": 2,
+      "slice": "southern chain",
+      "sections": "Stages 1-8",
+      "notes": "Stop before the Stage 8-to-Stage 9 Bottenstugan gap and decide snap policy."
+    },
+    {
+      "step": 3,
+      "slice": "middle chain",
+      "sections": "Stages 9-20",
+      "notes": "Import as full official geometry with section caveats; stop at Stage 21 start."
+    },
+    {
+      "step": 4,
+      "slice": "northern chain after blocked gap",
+      "sections": "Stages 22-27",
+      "notes": "Import as a separate chain unless Stage 21 partial/self-navigation policy is approved."
+    },
+    {
+      "step": 5,
+      "slice": "Stage 21 special model",
+      "sections": "Stage 21 only",
+      "notes": "Do not import as complete route. Only proceed if authoritative full route geometry is obtained or the app deliberately supports partial/self-navigation metadata."
+    },
+    {
+      "step": 6,
+      "slice": "facilities and rules",
+      "sections": "All researched sections",
+      "notes": "Run cluster dedupe, pending/suppress filtering, GIS overlays and live checks before user-facing publication."
+    }
+  ],
+  "blockers": {
+    "hardBlockers": [
+      "Stage 21 remains partial official geometry only and must not be imported as a complete route.",
+      "Runtime integration still needs a separate explicit import task.",
+      "A deliberate decision is required before any Stage 21 partial/self-navigation route model is represented.",
+      "Do not bridge, snap or auto-route the 4.296 km Stage 21-to-Stage 22 gap."
+    ],
+    "publicationTimeRechecks": [
+      "WST status/deviation widgets, fire bans, transit timetables, commercial opening hours and seasonal services.",
+      "Known bridge/raft/forestry/windfall/planned-burn notices.",
+      "Final GIS line-buffer overlays for protected areas, water-protection zones and restriction subsegments.",
+      "Facility coordinate verification where section files mark records pending, approximate or conflicting."
+    ]
+  },
+  "openDecisionsForUser": [
+    "Exclude Stage 21 entirely from route import, request authoritative full geometry from Tanum municipality/WST, or implement an explicit partial/self-navigation model.",
+    "Choose snap policy for the 49.4 m Stage 8-to-Stage 9 Bottenstugan gap.",
+    "Choose whether Bohusleden is represented as one chain with an explicit Stage 21 gap or as separate importable chains around Stage 21.",
+    "Choose side-service/access metadata radius and visibility for remote northern endpoints and town service clusters.",
+    "Choose how pending OSM-only fire/water/shelter/picnic candidates are stored before verification.",
+    "Choose warning granularity for reserve, water-protection, dog, fire and camping rules after GIS overlay."
+  ],
+  "validationChecklist": [
+    "Parse trail.research.json, research-progress.json, all sections/*.research.json, mapdata/index.json, mapdata/validation-report.json and both new normalization handoff JSON files.",
+    "Confirm expected stage count is 27 and section research count is 27.",
+    "Confirm mapdata totals: 26 full official geometries, 1 partial official geometry and 1 blocked complete-route import.",
+    "Validate every mapdata/sections/*.geojson file is a GeoJSON Feature LineString with [longitude, latitude] coordinates and no consecutive duplicate coordinates.",
+    "Confirm combined FeatureCollection has 27 features.",
+    "Confirm all WST/Hoodin GPX source URLs still resolve before publication if source freshness matters.",
+    "Confirm Stage 21 is excluded from complete-route import and no straight-line/auto-routed connector is generated.",
+    "Review the 49.4 m Stage 8-to-Stage 9 gap before route-chain import.",
+    "Review the 4296.3 m Stage 21-to-Stage 22 gap and keep it explicit.",
+    "Compare official distances, computed distances and source contradictions before exposing distances.",
+    "Run facility cluster/dedupe pass and verify pending/OSM-only/private/seasonal records before import.",
+    "Run final GIS overlays for protected areas, water-protection zones and restriction subsegments.",
+    "Run live WST, fire, transit, bridge/raft/forestry, planned-burn and seasonal-service checks immediately before publication.",
+    "Confirm no runtime app data, generated public data, shared scripts or package files are modified by the normalization-prep pass."
+  ]
+}

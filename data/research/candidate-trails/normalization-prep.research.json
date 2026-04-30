@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "candidate-normalization-prep/v1",
+  "lastUpdated": "2026-04-30",
+  "purpose": "Shared coordination file for preparing research-only candidate trail packets for later normalized app import.",
+  "scope": {
+    "includedTrails": [
+      "bohusleden",
+      "hallandsleden",
+      "hogakustenleden",
+      "hoglandsleden",
+      "kungsleden",
+      "nordkalottleden",
+      "ostkustleden",
+      "padjelantaleden",
+      "sjuharadsleden",
+      "tjustleden",
+      "vastra-vatterleden",
+      "vikingaleden"
+    ],
+    "referenceOnlyTrails": [
+      "upplandsleden",
+      "stockholm-archipelago-trail"
+    ],
+    "runtimeImport": false
+  },
+  "handoffFileContract": {
+    "pathPattern": "data/research/candidate-trails/<trail-id>/normalization-handoff.research.json",
+    "schemaVersion": "candidate-normalization-handoff/v1",
+    "requiredTopLevelKeys": [
+      "schemaVersion",
+      "trailId",
+      "lastUpdated",
+      "status",
+      "sectionCoverage",
+      "geometryPlan",
+      "facilityPlan",
+      "ruleWarningPlan",
+      "importOrder",
+      "blockers",
+      "openDecisionsForUser",
+      "validationChecklist"
+    ],
+    "notes": [
+      "The handoff files are research-only planning artifacts.",
+      "Do not wire runtime code or generated public data directly to these files.",
+      "If source evidence is missing or stale, mark it as unknown/recheck rather than inferring facts."
+    ]
+  },
+  "sharedNormalizationPrinciples": {
+    "routeGeometry": [
+      "Preserve official GPX/API segment breaks unless a trail-specific handoff explicitly authorizes a connector.",
+      "Record official displayed distance separately from computed geometry distance.",
+      "Represent non-walking transfers, ferry/boat legs, access spurs, alternate branches, and self-navigation gaps as explicit connector or access metadata rather than silently snapping linework.",
+      "Keep blocked or partial sections out of complete-route import until the app deliberately supports a partial/self-navigation model."
+    ],
+    "facilities": [
+      "Normalize facilities by cluster first, then split into typed subfacilities only when source coordinates and app taxonomy support it.",
+      "Keep OSM-only, field-report-only, stale, private/customer-only, or source-contradictory amenities in pending/suppress states unless a trail-specific handoff says otherwise.",
+      "Treat commercial hours, seasonal services, transit schedules, boat operations, water reliability, cabin availability, and firewood availability as publication-time rechecks."
+    ],
+    "ruleWarnings": [
+      "Separate hiker-facing safety/rule warnings from import-maintenance notes.",
+      "Scope protected-area, water-protection, fire, dog, camping, cycling, hunting, and closure rules to the route portions they actually affect when geometry supports it.",
+      "Recheck dynamic fire bans, storm/forestry damage, temporary route notices, and transport disruptions immediately before public display."
+    ],
+    "dedupe": [
+      "Deduplicate overlapping routes and aliases before runtime import, especially Vikingaleden sections 7-12 against Upplandsleden.",
+      "Do not duplicate existing app facilities or route shards; create explicit aliases or alternateRouteRefs where appropriate."
+    ]
+  },
+  "executionPhases": [
+    {
+      "phase": 1,
+      "name": "Per-trail normalization handoff",
+      "status": "complete",
+      "output": "One normalization-handoff.research.json per included trail"
+    },
+    {
+      "phase": 2,
+      "name": "Shared importer contract decisions",
+      "status": "pending",
+      "output": "Final decisions for connectors, partial/self-navigation sections, official vs computed distance, direction reversal, and pending/suppress facility states"
+    },
+    {
+      "phase": 3,
+      "name": "Candidate normalized artifacts",
+      "status": "pending",
+      "output": "Candidate-only normalized route/facility/rule artifacts under each trail folder"
+    },
+    {
+      "phase": 4,
+      "name": "Runtime app integration",
+      "status": "blocked-until-explicit-request",
+      "output": "Normalized source data and generated runtime shards"
+    }
+  ]
+}

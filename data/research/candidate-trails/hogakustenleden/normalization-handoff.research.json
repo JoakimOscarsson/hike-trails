@@ -1,0 +1,219 @@
+{
+  "schemaVersion": "candidate-normalization-handoff/v1",
+  "trailId": "hogakustenleden",
+  "lastUpdated": "2026-04-30",
+  "status": "ready-for-normalization-with-caveats",
+  "sectionCoverage": {
+    "status": "complete",
+    "expectedSectionCount": 9,
+    "completedSectionCount": 9,
+    "officialOrder": [
+      {
+        "order": 1,
+        "sectionId": "hogakustenleden-section-1-hornoberget-lovvik",
+        "name": "Hornöberget - Lövvik"
+      },
+      {
+        "order": 2,
+        "sectionId": "hogakustenleden-section-2-lovvik-gavik",
+        "name": "Lövvik - Gavik"
+      },
+      {
+        "order": 3,
+        "sectionId": "hogakustenleden-section-3-gavik-lappudden",
+        "name": "Gavik - Lappudden"
+      },
+      {
+        "order": 4,
+        "sectionId": "hogakustenleden-section-4-lappudden-ullanger",
+        "name": "Lappudden - Ullånger"
+      },
+      {
+        "order": 5,
+        "sectionId": "hogakustenleden-section-5-ullanger-skuleberget",
+        "name": "Ullånger - Skuleberget"
+      },
+      {
+        "order": 6,
+        "sectionId": "hogakustenleden-section-6-skuleberget-entre-syd",
+        "name": "Skuleberget - Entré Syd"
+      },
+      {
+        "order": 7,
+        "sectionId": "hogakustenleden-section-7-entre-syd-entre-nord",
+        "name": "Entré Syd - Entré Nord"
+      },
+      {
+        "order": 8,
+        "sectionId": "hogakustenleden-section-8-entre-nord-balesudden",
+        "name": "Entré Nord - Balesudden"
+      },
+      {
+        "order": 9,
+        "sectionId": "hogakustenleden-section-9-balesudden-ornskoldsvik",
+        "name": "Balesudden - Örnsköldsvik"
+      }
+    ],
+    "coverageNotes": [
+      "All section importReadiness values are ready-for-normalization-with-caveats.",
+      "Active Höga Kusten tourism pages and current Naturkartan section pages are the baseline.",
+      "Older 7-stage and 13-stage variants are legacy/reference caveats."
+    ]
+  },
+  "geometryPlan": {
+    "primarySource": "Active Höga Kusten tourism pages and current Naturkartan section pages baseline.",
+    "secondarySource": "Older 7-stage and 13-stage variants are legacy/reference caveats.",
+    "distancePolicy": "Section 2 distance policy resolved-display-official-distance; use 26.8 km display; store computed geometry metadata; do not use Naturkartan 23.7 as primary.",
+    "difficultyPolicy": "Section 7 difficulty: prefer conservative Naturkartan red/krävande while preserving Höga Kusten Medel caveat.",
+    "endpointPolicy": "Ullånger endpoint offset: preserve 24.8 m offset between section 4 and 5 GPX; logical junction/access node only if graph needs one.",
+    "sectionSpecificActions": [
+      {
+        "sectionId": "hogakustenleden-section-2-lovvik-gavik",
+        "action": "Use Höga Kusten 26.8 km while preserving Naturkartan/GPX contradictions metadata."
+      },
+      {
+        "sectionId": "hogakustenleden-section-4-lappudden-ullanger",
+        "action": "Preserve 24.8 m Ullånger endpoint offset."
+      },
+      {
+        "sectionId": "hogakustenleden-section-7-entre-syd-entre-nord",
+        "action": "Model Slåttdalsskrevan as hazard/avoid-through-passage/current-route warning and prefer conservative Naturkartan red/krävande difficulty while preserving Höga Kusten Medel caveat."
+      },
+      {
+        "sectionId": "hogakustenleden-section-9-balesudden-ornskoldsvik",
+        "action": "Use Naturkartan/direct hidden GPX not wrong Höga Kusten embedded GPX."
+      }
+    ],
+    "unknowns": [
+      "unknown/recheck: final route/facility clipping against protected areas before runtime import.",
+      "unknown/recheck: final transit stop identifiers if authoritative Trafiklab/ResRobot IDs are available during import."
+    ]
+  },
+  "facilityPlan": {
+    "status": "ready-for-normalization-with-pending-facility-items",
+    "policy": [
+      "Replace DinTur/Fskab research stop ids with authoritative GTFS or ResRobot IDs if available during import.",
+      "Nationalparksbussen/Världsarvsbussen 2026 suppressed unless new official timetable.",
+      "Model seasonal boats as optional seasonal onward/side access only, not required trail crossings."
+    ],
+    "candidateImports": [
+      "Promote high-confidence section facilities after protected-area clipping and currentness verification.",
+      "Keep Hålviken/Näske as cluster-level toilets and dedupe Köpmanholmen.",
+      "Import Balesudden viewpoint and Varvsberget viewpoint if section packet coordinates and source confidence pass validation."
+    ],
+    "pendingOrSuppressedFacilities": [
+      "Authoritative Trafiklab/ResRobot stop IDs require API key.",
+      "Nationalparksbussen/Världsarvsbussen 2026 suppressed unless new official timetable.",
+      "Grönsviksfjärden water unresolved.",
+      "Fjärdbotten cabin count contradictory; avoid hard count.",
+      "Ryd toilet verify.",
+      "Älgaberget informal campsite suppress/pending.",
+      "Vedasjön rest POI no precise coord.",
+      "Entré Syd fireplace no separate fire POI.",
+      "Kälsviken/Tärnättvattnen no dependable potable water.",
+      "Genesön suppress as transit.",
+      "Hörnsjön tent-site low-confidence/pending.",
+      "Varvsberget restaurant current opening unverified.",
+      "Haffestuga/Bergom OSM-only pending.",
+      "Gårdtjärnbäcken water suppress."
+    ]
+  },
+  "ruleWarningPlan": {
+    "status": "protected-area-and-currentness-warnings-ready-for-normalization",
+    "protectedAreaApplications": [
+      "Skuleberget reserve sections 5/6, route portions section 5 approx km 16.12-19.62 + edge reentries, section 6 km 0.00-0.54. Apply only to portions/endpoints.",
+      "Skuleskogen national park sections 6/7/8, section 6 approx km 9.95-10.13 and 10.60-10.86, section 7 essentially whole line 0-7.50, section 8 no meaningful overlap after Entré Nord start. Apply full rules to section 7; section 6 endpoints/approach only; not all section 8.",
+      "Balesudden reserve section 8 approx km 12.20-18.29; section 9 no line overlap, Sandlågan start adjacent/outside. Apply to section 8 reserve segment and nearby facilities; not whole section 9.",
+      "Hörnsjön reserve section 9 approx km 15.71-17.18."
+    ],
+    "staticWarningsToCarry": [
+      "Slåttdalsskrevan status resolved-as-hazard-not-formal-closure; official wording says passage through not recommended due rockfall; no formal legal closure found. Model hazard/avoid-through-passage/use current route.",
+      "Hörnsjön active notice: 2026-01-09 lighted track out of function until further notice; carry caveat/recheck.",
+      "Section 7 cycling: suppress; current GPX not Kuststigen cycling corridor except tiny overlap."
+    ],
+    "dynamicPublicationChecks": [
+      "Recheck Slåttdalsskrevan before publishing.",
+      "Recheck Hörnsjön notice before publishing.",
+      "Fire-ban status: no countywide ban on access date; dynamic recheck.",
+      "Recheck transit, seasonal boats, facility opening/currentness, and protected-area rule applicability before public display."
+    ]
+  },
+  "importOrder": [
+    "1. Import/parse the 9 current sections in official order.",
+    "2. Normalize route geometry from current Höga Kusten and Naturkartan section sources, keeping legacy 7-stage and 13-stage sources as caveats only.",
+    "3. Apply section 2 official-distance display policy and preserve computed/Naturkartan contradiction metadata.",
+    "4. Apply section 7 difficulty and Slåttdalsskrevan hazard/current-route warnings.",
+    "5. Preserve the Ullånger 24.8 m endpoint offset unless a logical junction/access node is needed by the graph.",
+    "6. Clip route segments and facilities against Skuleberget, Skuleskogen, Balesudden, and Hörnsjön only where recorded.",
+    "7. Promote verified facilities and keep pending/suppressed items out of public normalized facilities.",
+    "8. Replace transit IDs with authoritative GTFS/ResRobot IDs if available; otherwise keep research IDs caveated.",
+    "9. Run dynamic currentness/fire/transit/boat/service checks before publication."
+  ],
+  "blockers": [
+    {
+      "id": "hogakustenleden-protected-area-clipping",
+      "status": "blocks-runtime-rule-import",
+      "description": "Protected-area rules: apply Skuleskogen, Skuleberget, Balesudden, Hörnsjön rules only to affected portions recorded in packets/caveat file."
+    },
+    {
+      "id": "hogakustenleden-transit-authoritative-ids",
+      "status": "blocks-automated-transit-import",
+      "description": "DinTur available through Trafiklab APIs but require API key; DinTur/Fskab planner stop-area IDs and WGS84 coords are research-grade, not final national IDs. Replace with Trafiklab/ResRobot before automated transit import if key available."
+    },
+    {
+      "id": "hogakustenleden-currentness-rechecks",
+      "status": "blocks-publication",
+      "description": "Slåttdalsskrevan, Hörnsjön notice, fire-ban status, transit, seasonal boats, and service opening/currentness require recheck before publication."
+    },
+    {
+      "id": "hogakustenleden-pending-facilities",
+      "status": "blocks-public-facility-exposure",
+      "description": "Pending/suppressed facility items must remain out of public normalized facilities until verified."
+    }
+  ],
+  "openDecisionsForUser": [
+    {
+      "id": "hogakustenleden-section-2-distance-display",
+      "decision": "Use Höga Kusten 26.8 km while preserving Naturkartan/GPX contradictions metadata.",
+      "currentRecommendation": "yes"
+    },
+    {
+      "id": "hogakustenleden-section-7-difficulty",
+      "decision": "Prefer conservative Naturkartan red/krävande while preserving Höga Kusten Medel caveat.",
+      "currentRecommendation": "yes"
+    },
+    {
+      "id": "hogakustenleden-2026-shuttle",
+      "decision": "Suppress Nationalparksbussen/Världsarvsbussen 2026 unless new official timetable appears.",
+      "currentRecommendation": "yes"
+    },
+    {
+      "id": "hogakustenleden-seasonal-boats",
+      "decision": "Model seasonal boats as optional seasonal onward/side access only, not required trail crossings.",
+      "currentRecommendation": "yes"
+    }
+  ],
+  "validationChecklist": [
+    "JSON parses successfully.",
+    "No runtime app data, generated public data, shared scripts, or package files changed.",
+    "All 9 current section files are represented in sectionCoverage.",
+    "Section 2 distance display caveat is carried into geometryPlan.",
+    "Section 7 difficulty and Slåttdalsskrevan warning are carried into geometryPlan/ruleWarningPlan.",
+    "Protected-area rule applications are limited to recorded affected portions.",
+    "Transit ID limitations and 2026 shuttle suppression remain explicit.",
+    "Pending/suppressed facilities remain out of public normalized facilities until verified."
+  ],
+  "statusDetails": {
+    "researchStatus": "section-caveats-synced-after-targeted-resolution",
+    "normalizationStatus": "ready-for-normalization-with-caveats",
+    "runtimeImportReady": false,
+    "summary": "All 9 current sections are researched and synchronized with the overview. Active Höga Kusten tourism pages and current Naturkartan section pages are the baseline. Older 7-stage and 13-stage variants are legacy/reference caveats.",
+    "sourceFilesReviewed": [
+      "README.md",
+      "trail.research.json",
+      "research-progress.json",
+      "caveat-resolution.research.json",
+      "sections/*.research.json"
+    ]
+  }
+}
