@@ -1,6 +1,9 @@
 # Västra Vätterleden Research
 
-Status: research-only candidate trail. All 8 official section research files are written. Do not import into runtime app data yet.
+Status: imported to runtime data from the candidate packet. All 8 official
+section research files are written and retained as source evidence; the app
+consumes the generated `data/source/hiking`, `public/data/trail-systems`, and
+route GeoJSON outputs.
 
 Trail id: `vastra-vatterleden`
 
@@ -18,8 +21,9 @@ Current scope:
 
 - Official trail: Västra Vätterleden, north-to-south from Stenkällegården/Tiveden toward Mullsjö.
 - Official structure: 8 stages, with Rankåsleden treated as a side route/alternate, not a numbered Västra Vätterleden stage.
-- Research mode: candidate data only. No edits are to be made to `data/source/hiking/**`, `public/data/**`, `public/routes/**`, or generated runtime outputs.
-- Current completion: overview, section research, import-risk resolution, normalized candidate artifacts, research-only candidate geometry and protected-area overlay scoping are complete enough for a normalization handoff, but not for runtime import.
+- Runtime mode: imported. Regenerate app data through the candidate importer; do
+  not wire runtime code directly to these research files.
+- Current completion: overview, section research, import-risk resolution, normalized candidate artifacts, research-only candidate geometry and protected-area overlay scoping are complete enough for runtime import.
 
 Important early caveats:
 
@@ -32,5 +36,5 @@ Important early caveats:
 
 Next safe step:
 
-- Plan the runtime importer mapping from the research-only candidate geometry and protected-area overlay artifacts.
-- Do not integrate into `data/source/hiking/**`, `public/data/**`, `public/routes/**`, or generated runtime outputs until explicitly requested.
+- Use the runtime importer mapping from the research-only candidate geometry and protected-area overlay artifacts.
+- Keep variant/access caveats current if the official route geometry or protected-area boundaries change.

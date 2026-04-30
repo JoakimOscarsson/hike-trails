@@ -1,6 +1,9 @@
 # Candidate Trails
 
-These trail datasets are research results, not app-ready source data.
+These folders hold the research packets, normalization handoffs, and import-prep
+artifacts for candidate trails. Several candidates have now been promoted into
+runtime source/public data; the inventory below is the source of truth for each
+trail's current import posture.
 
 ## Layout
 
@@ -55,4 +58,8 @@ Candidate artifact commands:
 
 ## Integration Rule
 
-Do not point runtime code, generator scripts, or validation rules directly at this folder unless the task is explicitly about importing candidate trails. Integration should produce normalized source data under the future `data/source/trail-systems/<trail-id>/` contract, then generated runtime shards under `public/data/`.
+Do not point runtime code, generator scripts, or validation rules directly at this
+folder. Runtime integration must go through the candidate importer and produce
+normalized source data under `data/source/hiking/<trail-id>/`, generated public
+trail-system shards under `public/data/trail-systems/<trail-id>/`, and route
+GeoJSON under `public/routes/hiking/<trail-id>/`.

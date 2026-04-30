@@ -1,6 +1,9 @@
 # Ostkustleden Research
 
-Status: research-only candidate packet with normalized candidate artifacts, generated GPX geometry and protected-area overlays. Do not import into runtime app data until an explicit runtime import task is opened.
+Status: imported to runtime data from the candidate packet. The research files,
+normalized candidate artifacts, generated GPX geometry and protected-area
+overlays remain source evidence only; the app consumes the generated
+`data/source/hiking`, `public/data/trail-systems`, and route GeoJSON outputs.
 
 Trail id: `ostkustleden`
 
@@ -35,7 +38,7 @@ Ostkustleden is a closed ring with start and finish at Lilla Hycklinge. Official
 - Döderhults Naturskyddsförening and Oskarshamn describe the whole trail as 16 mil / about 160 km.
 - Naturkartan's current per-stage distances sum to 152.8 km.
 - Döderhults Naturskyddsförening's per-stage rounded descriptions sum to about 154 km.
-- Naturkartan provides GPX download URLs for all eight section pages. Research-only GeoJSON now exists for all eight sections; preserve the Etapp 8 cabin gap as topology metadata and re-review geometry before runtime import.
+- Naturkartan provides GPX download URLs for all eight section pages. Research-only GeoJSON now exists for all eight sections; the Etapp 8 cabin gap is preserved as topology metadata in the runtime import.
 - Naturkartan also provides section map PDFs for all eight stages, and Oskarshamn hosts a 2025 brochure PDF.
 
 ## Known Early Import Risks
@@ -48,4 +51,6 @@ Ostkustleden is a closed ring with start and finish at Lilla Hycklinge. Official
 
 ## Safe Next Step
 
-Use the candidate geometry, normalized candidate artifacts and protected-area overlay report for runtime-import planning. Re-run overlays if route geometry, connector inclusion or official protected-area boundaries change.
+Use the candidate geometry, normalized candidate artifacts and protected-area
+overlay report when regenerating the runtime import. Re-run overlays if route
+geometry, connector inclusion or official protected-area boundaries change.

@@ -1,6 +1,8 @@
 # Högakustenleden Research
 
-Status: research-only candidate. Do not import into runtime app data yet.
+Status: imported to runtime data from the candidate packet. The research files
+remain source evidence only; the app consumes the generated `data/source/hiking`,
+`public/data/trail-systems`, and route GeoJSON outputs.
 
 Trail ID: `hogakustenleden`
 
@@ -19,8 +21,7 @@ unless a newer official update changes the current structure.
 
 ## Import Posture
 
-Ready for normalization with caveats. Keep the packet research-only until the
-normalization pass resolves:
+Imported with the following caveats retained as notes or import decisions:
 
 - Section 2 distance display policy: use the Höga Kusten 26.8 km value while
   preserving Naturkartan/GPX distance contradictions as metadata.

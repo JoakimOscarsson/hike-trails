@@ -1,10 +1,12 @@
 # Tjustleden research candidate
 
 Trail ID: `tjustleden`
-Research status: Phase 1 overview and Phase 2 section research completed for Etapp 1-9. Blocker triage/normalization decisions captured for later import planning.
+Research status: Phase 1 overview and Phase 2 section research completed for Etapp 1-9. Blocker triage/normalization decisions captured and promoted into runtime import for the nine mainline stages.
 Last updated: 2026-04-30T00:00:00+00:00
 
-This directory is a research-only candidate workspace. It is not wired into runtime hiking data and should not be used by the app until a later normalization/import step.
+This directory is a research candidate workspace. The app now uses the generated
+runtime data under `data/source/hiking/tjustleden`, `public/data/trail-systems`,
+and `public/routes/hiking`; these research files remain source evidence only.
 
 ## Trail overview
 
@@ -86,6 +88,11 @@ See `normalization-decisions.json` for blocker-by-blocker decisions. Current pol
 
 ## Handoff status
 
-All nine official main-stage section files are research-ready candidate files. They are not runtime app data and are not import-ready without a later normalization/import design pass.
+All nine official main-stage section files have been promoted into runtime app
+data. Official loops and connectors remain documented here as caveated extras
+outside the selected mainline runtime route.
 
-Remaining work is now pre-import verification rather than broad trail research: exact coordinates for pending facilities, legal parking, trip-date transit checks, import-grade protected-area/water-protection overlays, acute/fire/currentness checks, and service opening/currentness checks.
+Remaining work is publication/currentness verification rather than broad trail
+research: exact coordinates for pending facilities, legal parking, trip-date
+transit checks, acute/fire/currentness checks, and service opening/currentness
+checks.

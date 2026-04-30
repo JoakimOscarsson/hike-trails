@@ -1,10 +1,12 @@
 # Hallandsleden Research
 
-Status: research-only candidate trail packet. Do not import these files automatically.
+Status: imported to runtime data from the candidate packet. The research files
+remain source evidence only; the app consumes the generated `data/source/hiking`,
+`public/data/trail-systems`, and route GeoJSON outputs.
 
 Trail ID: `hallandsleden`
 
-Phase 1 overview is complete from the live official Hallandsleden site/API as accessed 2026-04-29. Phase 2 has completed research files for all 35 current official sections: N1-N8, M1-M8, S1-S9, and K1-K10. These files are research-ready candidate data only and have not been integrated into runtime app data.
+Phase 1 overview is complete from the live official Hallandsleden site/API as accessed 2026-04-29. Phase 2 has completed research files for all 35 current official sections: N1-N8, M1-M8, S1-S9, and K1-K10. Runtime import now preserves the branched inland network and the official coastal gap as selectable chains.
 
 ## Files
 

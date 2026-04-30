@@ -1,6 +1,8 @@
 # Höglandsleden Research
 
-Status: research-only candidate trail. Do not import into runtime app data yet.
+Status: imported to runtime data from the candidate packet. The research files
+remain source evidence only; the app consumes the generated `data/source/hiking`,
+`public/data/trail-systems`, and route GeoJSON outputs.
 
 Trail ID: `hoglandsleden`
 
@@ -15,7 +17,7 @@ Trail ID: `hoglandsleden`
 
 ## Handoff Status
 
-This branch currently contains the whole-trail overview plus completed HÖ1, HÖ2, HÖ3, HÖ4, HÖ5, HÖ6, HÖ7, HÖ8, HÖ9, HÖ10, HÖ11, HÖ12, HÖ13, HÖ14, HÖ15, HÖ16, HÖ17, HÖ18, HÖ19, HÖ20, HÖ21, HÖ22, and HÖ23 section research.
+This packet contains the whole-trail overview plus completed HÖ1, HÖ2, HÖ3, HÖ4, HÖ5, HÖ6, HÖ7, HÖ8, HÖ9, HÖ10, HÖ11, HÖ12, HÖ13, HÖ14, HÖ15, HÖ16, HÖ17, HÖ18, HÖ19, HÖ20, HÖ21, HÖ22, and HÖ23 section research. Runtime import now exposes the primary loop and official branch topology as selectable chains.
 
 - Whole-trail overview: complete for candidate handoff.
 - HÖ1 Västra Lägern - Skuruhatt: complete for research handoff and ready for normalization with caveats.
@@ -42,7 +44,7 @@ This branch currently contains the whole-trail overview plus completed HÖ1, HÖ
 - HÖ22 Skillingaryd - Åsafors: complete for research handoff and ready for normalization with caveats.
 - HÖ23 Åsafors - Kärringabacka: complete for research handoff and ready for normalization; targeted caveat pass completed. Remaining issues are explicit import rules or live pre-publication checks, not unresolved structural blockers.
 
-All 23 sections now have research-only generated GPX GeoJSON under `geometry/candidate/sections/`. HÖ23 also retains the earlier targeted research GeoJSON at `geometry/hoglandsleden-ho23-asafors-karringabacka.official-gpx-derived.geojson` as a source cross-check. These files are for later import planning only and are not runtime app data.
+All 23 sections now have research-only generated GPX GeoJSON under `geometry/candidate/sections/`. HÖ23 also retains the earlier targeted research GeoJSON at `geometry/hoglandsleden-ho23-asafors-karringabacka.official-gpx-derived.geojson` as a source cross-check. These files are retained as research inputs; runtime data is generated separately under the app data directories.
 
 ## Current Official Structure
 
@@ -73,4 +75,4 @@ This topology is represented in the normalized candidate artifacts as main loop 
 
 ## Safety Notes
 
-This directory is intentionally isolated from runtime data. Do not edit `data/source/hiking/**`, `public/data/**`, `public/routes/**`, or generated outputs from this research thread.
+This directory is intentionally isolated from runtime data. Use the candidate importer to regenerate runtime data rather than wiring app code directly to these research files.
