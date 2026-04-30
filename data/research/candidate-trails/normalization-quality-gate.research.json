@@ -1,0 +1,202 @@
+{
+  "schemaVersion": "candidate-normalization-quality-gate/v1",
+  "lastUpdated": "2026-04-30",
+  "status": "passed-for-candidate-artifact-start",
+  "scope": {
+    "includedTrails": [
+      "bohusleden",
+      "hallandsleden",
+      "hogakustenleden",
+      "hoglandsleden",
+      "kungsleden",
+      "nordkalottleden",
+      "ostkustleden",
+      "padjelantaleden",
+      "sjuharadsleden",
+      "tjustleden",
+      "vastra-vatterleden",
+      "vikingaleden"
+    ],
+    "referenceOnlyTrails": [
+      "upplandsleden",
+      "stockholm-archipelago-trail"
+    ],
+    "runtimeImportApproved": false
+  },
+  "checks": [
+    {
+      "id": "json-and-geojson-parse",
+      "status": "passed",
+      "details": "All JSON and GeoJSON files under data/research/candidate-trails parse successfully."
+    },
+    {
+      "id": "handoff-contract",
+      "status": "passed",
+      "details": "All 12 included trails have normalization-handoff.research.json with the required top-level keys, scalar status, open decisions, validation checklist, geometry plan, facility plan, rule warning plan and import order."
+    },
+    {
+      "id": "section-coverage",
+      "status": "passed",
+      "details": "Manifest section counts match actual section research files for all 12 included trails."
+    },
+    {
+      "id": "shared-decision-coverage",
+      "status": "passed",
+      "details": "Shared importer decisions cover distances, geometry, endpoint continuity, topology, partial/self-navigation handling, direction reversal, facilities, rule warnings, overlap dedupe and source currentness for every included trail."
+    },
+    {
+      "id": "existing-app-consistency",
+      "status": "passed",
+      "details": "Parking/transit, informal tenting, private/seasonal services, heritage/attractions, hiker-facing rule warnings and overlap dedupe now have explicit shared policies before runtime import."
+    },
+    {
+      "id": "runtime-write-safety",
+      "status": "passed",
+      "details": "This prep remains research-only. No runtime app source data or generated public route data is approved for these candidate trails yet."
+    }
+  ],
+  "knownAllowedHeterogeneity": [
+    {
+      "scope": "handoff detail fields",
+      "status": "allowed-for-phase-3",
+      "details": "Handoff detail shapes vary because the trails came from separate research branches. The strict importer contract is the shared decision file plus the required handoff top-level keys; phase 3 candidate artifacts should normalize detailed blocker/facility/rule records into the candidate artifact schema."
+    },
+    {
+      "scope": "blockers",
+      "status": "allowed-for-phase-3",
+      "details": "Some handoffs use blocker arrays and some use structured hardBlockers/publicationTimeRechecks. Candidate import reports must emit one normalized blocker list per trail before runtime import."
+    },
+    {
+      "scope": "geometry availability",
+      "status": "expected",
+      "details": "Hallandsleden, Bohusleden and Nordkalottleden already include substantial geometry artifacts; several other trails still need candidate geometry builds during phase 3."
+    }
+  ],
+  "readinessMatrix": [
+    {
+      "trailId": "bohusleden",
+      "sectionFiles": 27,
+      "phase3Start": "route geometry candidate artifact for importable stages 1-20 and 22-27",
+      "knownBlockers": [
+        "stage-21-partial-self-navigation",
+        "stage-8-to-9-reviewed-walk-connection",
+        "stage-21-to-22-known-gap"
+      ]
+    },
+    {
+      "trailId": "hallandsleden",
+      "sectionFiles": 35,
+      "phase3Start": "canonical/draw-ready geometry index plus explicit official gap records",
+      "knownBlockers": [
+        "official-multisegment-breaks",
+        "k4-to-k5-official-network-gap"
+      ]
+    },
+    {
+      "trailId": "hogakustenleden",
+      "sectionFiles": 9,
+      "phase3Start": "candidate geometry build and caveat-preserving section distance/difficulty mapping",
+      "knownBlockers": [
+        "protected-area-clipping",
+        "currentness-rechecks",
+        "seasonal-boat-access-model"
+      ]
+    },
+    {
+      "trailId": "hoglandsleden",
+      "sectionFiles": 23,
+      "phase3Start": "topology model for main loop, branches and access/connectors",
+      "knownBlockers": [
+        "route-topology-selection",
+        "partial-geometry-package",
+        "weak-rural-transit-currentness"
+      ]
+    },
+    {
+      "trailId": "kungsleden",
+      "sectionFiles": 27,
+      "phase3Start": "source-approved geometry selection and connector model",
+      "knownBlockers": [
+        "source-licensing",
+        "boat-rowboat-ferry-connectors",
+        "hut-cluster-subfacility-policy"
+      ]
+    },
+    {
+      "trailId": "nordkalottleden",
+      "sectionFiles": 12,
+      "phase3Start": "12-section researched model with explicit endpoint and connector gaps",
+      "knownBlockers": [
+        "not-whole-trail-model",
+        "endpoint-spur-policy",
+        "legacy-access-endpoint-handling"
+      ]
+    },
+    {
+      "trailId": "ostkustleden",
+      "sectionFiles": 8,
+      "phase3Start": "candidate-only ring geometry prototype and visual QA",
+      "knownBlockers": [
+        "geometry-prototype-required",
+        "etapp-8-endpoint-gap",
+        "protected-area-overlays"
+      ]
+    },
+    {
+      "trailId": "padjelantaleden",
+      "sectionFiles": 10,
+      "phase3Start": "distance policy, remote access connectors and hut-cluster normalization",
+      "knownBlockers": [
+        "headline-distance-selection",
+        "boat-helicopter-access-connectors",
+        "seasonal-bridge-and-service-rechecks"
+      ]
+    },
+    {
+      "trailId": "sjuharadsleden",
+      "sectionFiles": 10,
+      "phase3Start": "geometry cleanup, endpoint/facility dedupe and protected-area clipping",
+      "knownBlockers": [
+        "quality-assurance-caveat",
+        "natural-water-not-potable",
+        "unofficial-shelter-verification"
+      ]
+    },
+    {
+      "trailId": "tjustleden",
+      "sectionFiles": 9,
+      "phase3Start": "schema-ready route artifact with distances, tails/connectors and source direction metadata",
+      "knownBlockers": [
+        "official-vs-computed-distance-fields",
+        "loops-and-connectors-model",
+        "natural-water-suppression"
+      ]
+    },
+    {
+      "trailId": "vastra-vatterleden",
+      "sectionFiles": 8,
+      "phase3Start": "candidate route, branch and access connector geometry",
+      "knownBlockers": [
+        "route-variant-geometry",
+        "rankasleden-future-connector",
+        "optional-business-currentness"
+      ]
+    },
+    {
+      "trailId": "vikingaleden",
+      "sectionFiles": 12,
+      "phase3Start": "Upplandsleden overlap dedupe model for sections 7-12",
+      "knownBlockers": [
+        "canonical-upplandsleden-overlap",
+        "shared-facility-dedupe",
+        "branch-context-amenities-pending"
+      ]
+    }
+  ],
+  "nextActions": [
+    "Run npm run data:candidate-normalization:check before and after phase 3 candidate artifact edits.",
+    "Start phase 3 with candidate-only normalized artifacts under data/research/candidate-trails/<trail-id>/normalized-candidate/.",
+    "Use shared-importer-decisions.research.json as the batch contract and each trail handoff as trail-specific risk input.",
+    "Do not generate runtime source/public data until a separate runtime integration task is explicitly requested."
+  ]
+}

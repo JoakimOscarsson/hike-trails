@@ -1,0 +1,202 @@
+{
+  "schemaVersion": "candidate-normalization-handoff/v1",
+  "trailId": "tjustleden",
+  "lastUpdated": "2026-04-30",
+  "status": "research-ready-not-import-ready",
+  "sectionCoverage": {
+    "status": "complete",
+    "expectedSectionCount": 9,
+    "completedSectionCount": 9,
+    "officialOrder": [
+      {
+        "order": 1,
+        "sectionId": "tjustleden-etapp-1-mortfors-getterum-getgolen",
+        "name": "Mörtfors - Getterum - Getgölen"
+      },
+      {
+        "order": 2,
+        "sectionId": "tjustleden-etapp-2-getgolen-hjorted-svartestrom",
+        "name": "Getgölen - Hjorted - Svarteström"
+      },
+      {
+        "order": 3,
+        "sectionId": "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn",
+        "name": "Svarteström - Lunds by - Valstad kvarn"
+      },
+      {
+        "order": 4,
+        "sectionId": "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall",
+        "name": "Valstad kvarn - Hjorten - Törnsfall"
+      },
+      {
+        "order": 5,
+        "sectionId": "tjustleden-etapp-5-tornsfall-almvik-hallingeberg",
+        "name": "Törnsfall - Almvik - Hallingeberg"
+      },
+      {
+        "order": 6,
+        "sectionId": "tjustleden-etapp-6-hallingeberg-karrum-odensvi",
+        "name": "Hallingeberg - Karrum - Odensvi"
+      },
+      {
+        "order": 7,
+        "sectionId": "tjustleden-etapp-7-odensvi-dalhem-bjorndalen",
+        "name": "Odensvi - Dalhem - Björndalen"
+      },
+      {
+        "order": 8,
+        "sectionId": "tjustleden-etapp-8-bjorndalen-mockelhult-lermon",
+        "name": "Björndalen - Möckelhult - Lermon"
+      },
+      {
+        "order": 9,
+        "sectionId": "tjustleden-etapp-9-lermon-kolsebro-falerum",
+        "name": "Lermon - Kolsebro - Falerum"
+      }
+    ],
+    "coverageNotes": [
+      "Naturkartan/Västervik GPX is available for all 9 main stages plus connectors/loops.",
+      "OSM stages 1-8 are QA cross-checks; there is no clean OSM Tjustleden relation for stage 9.",
+      "The official 200 km figure includes loops/connectors; the 9 main stages sum to about 159 km by official stage distances.",
+      "Branch/connectors remain separate from the 9-stage mainline unless the runtime import explicitly supports tails/connectors."
+    ]
+  },
+  "geometryPlan": {
+    "primarySource": "Official GPX primary.",
+    "secondarySource": "OSM relation quality/contamination resolved: official GPX primary; OSM polluted/mislabeled QA-only.",
+    "distancePolicy": "Use current official section distance as primary public/display; store computed GPX separately as geometryDerivedDistanceKm.",
+    "directionPolicy": "Normalize displayed/imported geometry to official written order; reverse sections 4 and 6; keep source direction metadata.",
+    "endpointPolicy": "Do not silently snap GPX endpoints to shelters/transit/parking/OSM; preserve endpoints and model nearby clusters/tails/connectors with provenance.",
+    "sectionSpecificActions": [
+      {
+        "sectionId": "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall",
+        "action": "Reverse official GPX in normalization and preserve sourceDirection/directionRelativeToOfficialOrder metadata."
+      },
+      {
+        "sectionId": "tjustleden-etapp-6-hallingeberg-karrum-odensvi",
+        "action": "Reverse official GPX in normalization and preserve sourceDirection/directionRelativeToOfficialOrder metadata. Keep the OSM 2018 reroute note south of Sixgölen as QA/currentness context."
+      },
+      {
+        "sectionId": "tjustleden-etapp-8-bjorndalen-mockelhult-lermon",
+        "action": "Keep Etapp 8 final 111.4 m Lermon shelter/end tail; Etapp 9 starts at shared earlier vertex; treat tail as Etapp 8 terminal/facility tail not gap/duplicate."
+      },
+      {
+        "sectionId": "tjustleden-etapp-9-lermon-kolsebro-falerum",
+        "action": "Use raw official Etapp 9 GPX as canonical Tjustleden stage line from Lermon to Östgötaleden/länsgränsen handoff; model Falerum continuation as documented endpoint access tail/connector, not silent mutation."
+      }
+    ],
+    "unknowns": [
+      "unknown/recheck: final normalized geometry before protected-area and water-area overlays.",
+      "unknown/recheck: authoritative import mapping for loops/connectors/tails before runtime import."
+    ]
+  },
+  "facilityPlan": {
+    "status": "pending-facility-import-checks",
+    "policy": [
+      "Only high-confidence on-route exact coords; pending/approx/commercial/currentness/off-route remain pending/access metadata.",
+      "Rural sparse/school-calendar stops caveated; trip-date verification.",
+      "Default main-stage potable water/trail waste suppressed unless exact/current official point-source evidence; natural water not potable evidence."
+    ],
+    "candidateImports": [
+      "Promote only high-confidence, on-route, exact-coordinate facilities after coordinate/currentness verification.",
+      "Use endpoint clusters for shelters, parking, transit, and access points where the GPX endpoint and facility/access point are near but not identical."
+    ],
+    "pendingOrSuppressedFacilities": [
+      "Pending/suppress/access metadata do not block route import; coordinate/currentness verify facilities before import.",
+      "Transit/parking converted-to-pre-import-check: do not block route normalization; keep confidence/caveats/access distance; trip-date KLT/Östgötatrafiken/Krösatågen/heritage rail; legal parking verify.",
+      "No fresh-water sources along trail per overview; suppress natural water as potable unless reliable point source verified.",
+      "unknown/recheck: exact Mörtfors shelter/toilet, KLT/GTFS, protected overlays, parking, service currentness, and individual section facility coordinates where marked open in the section packets."
+    ]
+  },
+  "ruleWarningPlan": {
+    "status": "dynamic-currentness-checks-required",
+    "staticWarningsToCarry": [
+      "Respect dwellings/grazing animals.",
+      "Fireplaces present but fire bans/restrictions dynamic.",
+      "Acute notices, fire bans, SMHI fire risk, forestry passability, service hours, timetables are import-day checks."
+    ],
+    "dynamicPublicationChecks": [
+      "2026-04-30 acute-info recheck still showed current notices for Etapp 6 only, but currentness remains publication-day.",
+      "Protected/water area overlays converted-to-import-grade-gis-check: require final overlays after endpoint/tail/reversal decisions; apply rules only affected segments.",
+      "Recheck KLT/Östgötatrafiken/Krösatågen/heritage rail and legal parking before public display.",
+      "Recheck fire bans/restrictions and SMHI fire risk before publication."
+    ]
+  },
+  "importOrder": [
+    "1. Confirm runtime schema/import support for officialDistanceKm, computedGeometryDistanceKm, endpoint clusters, tails/connectors, and source-direction reversal metadata.",
+    "2. Import/parse the 9 section packets in official Mörtfors-to-Falerum order.",
+    "3. Normalize official GPX geometry, reversing sections 4 and 6 and preserving source direction metadata.",
+    "4. Apply official-distance display policy while storing computed geometry distances for QA.",
+    "5. Preserve GPX endpoints and model nearby facilities, access points, tails, and connectors as separate provenance-bearing clusters.",
+    "6. Apply final protected/water-area overlays after endpoint/tail/reversal decisions.",
+    "7. Promote only verified high-confidence facilities; keep pending, approximate, commercial/currentness, and off-route items pending/access metadata.",
+    "8. Run dynamic acute/fire/forestry/service/transit checks before publication."
+  ],
+  "blockers": [
+    {
+      "id": "tjustleden-schema-import-support",
+      "status": "blocks-runtime-import",
+      "description": "Route normalization is still not runtime-import-ready until the importer/schema can represent officialDistanceKm, computedGeometryDistanceKm, endpoint clusters, tails/connectors, and source-direction reversal metadata."
+    },
+    {
+      "id": "tjustleden-distance-fields",
+      "status": "blocks-clean-distance-import",
+      "description": "Importers should support officialDistanceKm and computedGeometryDistanceKm; caveat material differences."
+    },
+    {
+      "id": "tjustleden-normalized-geometry-before-overlays",
+      "status": "blocks-rule-overlays",
+      "description": "Final normalized geometry before overlays."
+    },
+    {
+      "id": "tjustleden-pending-facility-pois",
+      "status": "blocks-public-facility-exposure",
+      "description": "Pending facility POIs."
+    },
+    {
+      "id": "tjustleden-live-checks",
+      "status": "blocks-publication",
+      "description": "Transit/parking/acute/fire/forestry/service live checks."
+    }
+  ],
+  "openDecisionsForUser": [
+    {
+      "id": "tjustleden-runtime-schema-expansion",
+      "decision": "Allow candidate importer/schema work before runtime import so officialDistanceKm, computedGeometryDistanceKm, endpoint clusters, tails/connectors, and source-direction reversal metadata can be represented.",
+      "currentRecommendation": "yes"
+    },
+    {
+      "id": "tjustleden-connectors-publication-scope",
+      "decision": "Keep loops/connectors out of the main 9-stage route unless the import supports separate connector/tail objects.",
+      "currentRecommendation": "yes"
+    },
+    {
+      "id": "tjustleden-natural-water-display",
+      "decision": "Suppress natural water as potable unless reliable point-source evidence is verified.",
+      "currentRecommendation": "yes"
+    }
+  ],
+  "validationChecklist": [
+    "JSON parses successfully.",
+    "No runtime app data, generated public data, shared scripts, or package files changed.",
+    "All 9 section files are represented in sectionCoverage.",
+    "Schema/import-support blockers from normalization-decisions.json are preserved.",
+    "Sections 4 and 6 reversal requirements are carried into geometryPlan.",
+    "Etapp 8 Lermon tail and Etapp 9 Falerum endpoint/access-tail decisions are carried into geometryPlan.",
+    "Facility plan suppresses unverified potable water and keeps weak transit/parking as pre-import checks.",
+    "Dynamic acute, fire, forestry, service, and transit checks remain publication blockers."
+  ],
+  "statusDetails": {
+    "researchStatus": "blocker-triage-complete",
+    "normalizationStatus": "research-ready-not-import-ready",
+    "runtimeImportReady": false,
+    "summary": "Phase 1 overview and Phase 2 section research are complete for Etapp 1-9. Blocker triage and normalization decisions are captured in normalization-decisions.json. Keep research-only until runtime schema/import mapping supports the documented distance, direction, endpoint, tail, connector, and source-direction metadata.",
+    "sourceFilesReviewed": [
+      "README.md",
+      "trail.research.json",
+      "research-progress.json",
+      "normalization-decisions.json",
+      "sections/*.research.json"
+    ]
+  }
+}

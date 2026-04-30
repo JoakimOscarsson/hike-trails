@@ -79,11 +79,12 @@
     }
   ],
   "protectedAreaOverlayResolution": {
-    "status": "research-overlay-complete-for-candidate-normalization",
-    "method": "Official Naturvårdsverket Naturvårdsregistret and Natura 2000 REST/WKT boundaries were checked against current Naturkartan/official GPX route components using SWEREF99 TM point/segment overlay logic. This was a research pass only; no normalized geometry files were created.",
+    "status": "candidate-normalized-overlay-complete-for-normalization",
+    "method": "Official Naturvårdsverket Naturvårdsregistret and Natura 2000 REST/WKT boundaries were checked against current Naturkartan/official GPX route components using SWEREF99 TM point/segment overlay logic. On 2026-04-30, the named NVR/Natura 2000 WFS polygons were rerun against the generated candidate GeoJSON and normalized candidate facility points, producing normalized-candidate/protected-area-overlays.research.json.",
     "primaryBoundarySources": [
       "https://geodata.naturvardsverket.se/naturvardsregistret/rest/v3/openapi",
-      "https://geodata.naturvardsverket.se/n2000/rest/v3/openapi"
+      "https://geodata.naturvardsverket.se/n2000/rest/v3/openapi",
+      "https://geodata.naturvardsverket.se/geoserver/wfs"
     ],
     "decisions": [
       {
@@ -138,7 +139,7 @@
       }
     ],
     "confidence": "medium-high",
-    "remainingRuntimeRequirement": "Repeat the overlay against the final normalized route geometries before generated runtime import if the normalization process changes route components or connector inclusion."
+    "remainingRuntimeRequirement": "Repeat the overlay before generated runtime import only if route geometry, connector inclusion or protected-area source boundaries change."
   },
   "transitResolution": {
     "status": "current-source-stale-risk-resolved",

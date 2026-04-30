@@ -1,0 +1,290 @@
+{
+  "schemaVersion": "candidate-protected-area-overlays/v1",
+  "trailId": "sjuharadsleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-gis-overlay-computed-research-only",
+  "runtimeImportApproved": false,
+  "sourceArtifact": "sjuharadsleden/caveat-resolution.research.json",
+  "method": "Fetched the protected-area WFS polygons listed by the caveat-resolution packet and checked all normalized candidate facility points plus all candidate route GeoJSON segments.",
+  "summary": {
+    "protectedAreas": 4,
+    "protectedAreasWithRouteOverlap": 2,
+    "protectedAreasWithFacilityOverlap": 3,
+    "routeOverlapRecords": 3,
+    "facilityOverlapRecords": 11
+  },
+  "records": [
+    {
+      "overlayId": "sjuharadsleden-klippan-naturreservat",
+      "protectedArea": "Klippan naturreservat",
+      "nvrid": "2000802",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr:PS.ProtectedSites.NR&outputFormat=application/json&srsName=EPSG:4326&CQL_FILTER=nvrid=%272000802%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/sjuharadsleden/geometry/protected-area-overlays/source-downloads/klippan-naturreservat-2000802.geojson"
+      ],
+      "sourceCheckResult": "No GPX vertices and no route segments intersected the Klippan naturreservat polygon in this check. Closest sampled route point was approximately 16 m from the reserve boundary.",
+      "recommendation": "Do not attach Klippan reserve rules to section 1 as a route-overlap rule. Keep a proximity note only if desired.",
+      "confidence": "medium-high",
+      "caveat": "This is a computational check against current NVR WFS geometry and GPX vertices/segments; a future GIS pipeline can repeat it with production geometry.",
+      "routeOverlaps": [],
+      "facilityOverlaps": [
+        {
+          "facilityId": "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-14-klippan-accessible-bench-table",
+          "sectionId": "sjuharadsleden-etapp-1-hindas-station-hestrafors-if",
+          "name": "Klippan accessible bench table",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            57.68924,
+            12.481444
+          ]
+        },
+        {
+          "facilityId": "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-13-klippan-accessible-grill-place",
+          "sectionId": "sjuharadsleden-etapp-1-hindas-station-hestrafors-if",
+          "name": "Klippan accessible grill place",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            57.689143,
+            12.481321
+          ]
+        }
+      ]
+    },
+    {
+      "overlayId": "sjuharadsleden-aras-naturreservat",
+      "protectedArea": "Årås naturreservat",
+      "nvrid": "2013532",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr:PS.ProtectedSites.NR&outputFormat=application/json&srsName=EPSG:4326&CQL_FILTER=nvrid=%272013532%27",
+        "https://www.lansstyrelsen.se/vastra-gotaland/besoksmal/naturreservat/aras.html"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/sjuharadsleden/geometry/protected-area-overlays/source-downloads/aras-naturreservat-2013532.geojson"
+      ],
+      "sourceCheckResult": "Årås route/start and Struntfiskeboa shelter/firepit coordinates fall inside Årås naturreservat.",
+      "recommendation": "Apply Årås reserve context to the endpoint cluster. Suppress Struntfiskeboa firepit under the reserve no-fire rule; keep shelter overnight/use status pending.",
+      "confidence": "high",
+      "caveat": null,
+      "routeOverlaps": [
+        {
+          "sectionId": "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/sjuharadsleden/geometry/candidate/sections/sjuharadsleden-etapp-9-bone-kyrka-aras-sateri.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 10.612,
+                  "endKm": 10.999
+                },
+                {
+                  "startKm": 11.218,
+                  "endKm": 11.438
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/sjuharadsleden/geometry/candidate/sections/sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 0,
+                  "endKm": 0.016
+                },
+                {
+                  "startKm": 0.149,
+                  "endKm": 1.166
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "facilityOverlaps": [
+        {
+          "facilityId": "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri-facilities-10-aras-parking-and-information",
+          "sectionId": "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri",
+          "name": "Årås parking and information",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import-as-access",
+          "coordinatesLatLon": [
+            57.8853444,
+            13.6473004
+          ]
+        },
+        {
+          "facilityId": "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri-facilities-9-struntfiskeboa-firepit",
+          "sectionId": "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri",
+          "name": "Struntfiskeboa firepit",
+          "candidateType": null,
+          "state": "suppress",
+          "importAction": "suppress",
+          "coordinatesLatLon": [
+            57.8843006,
+            13.6416705
+          ]
+        },
+        {
+          "facilityId": "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri-facilities-8-struntfiskeboa-vindskydd",
+          "sectionId": "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri",
+          "name": "Struntfiskeboa vindskydd",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            57.8843241,
+            13.6417722
+          ]
+        },
+        {
+          "facilityId": "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-0-aras-sateri-aras-kvarn-trailhead",
+          "sectionId": "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo",
+          "name": "Årås säteri / Årås kvarn trailhead",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            57.885586,
+            13.647172
+          ]
+        },
+        {
+          "facilityId": "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-2-struntfiskeboa-vindskydd",
+          "sectionId": "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo",
+          "name": "Struntfiskeboa vindskydd",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            57.884324,
+            13.641772
+          ]
+        }
+      ]
+    },
+    {
+      "overlayId": "sjuharadsleden-ryfors-naturreservat-ryfors-gammelskog",
+      "protectedArea": "Ryfors naturreservat / Ryfors gammelskog",
+      "nvrid": "2001381",
+      "status": "no-candidate-overlap",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr:PS.ProtectedSites.NR&outputFormat=application/json&srsName=EPSG:4326&CQL_FILTER=nvrid=%272001381%27",
+        "https://www.lansstyrelsen.se/jonkoping/besoksmal/naturreservat/ryfors-gammelskog.html"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/sjuharadsleden/geometry/protected-area-overlays/source-downloads/ryfors-naturreservat-ryfors-gammelskog-2001381.geojson"
+      ],
+      "sourceCheckResult": "Checked section-10 candidate coordinates did not fall inside the NVR Ryfors polygon in this point check, although the trail/facility context remains adjacent and the Länsstyrelsen page lists Ryfors visitor services.",
+      "recommendation": "Do not blanket-apply Ryfors rules to every Ryfors-area facility without object-level clipping. Keep Ryfors reserve rules as nearby/protected-area context and apply to objects only when the production spatial check confirms overlap.",
+      "confidence": "medium",
+      "caveat": null,
+      "routeOverlaps": [],
+      "facilityOverlaps": []
+    },
+    {
+      "overlayId": "sjuharadsleden-strakens-strandskogar-naturreservat",
+      "protectedArea": "Stråkens strandskogar naturreservat",
+      "nvrid": "2065122",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr:PS.ProtectedSites.NR&outputFormat=application/json&srsName=EPSG:4326&CQL_FILTER=nvrid=%272065122%27",
+        "https://www.lansstyrelsen.se/jonkoping/besoksmal/naturreservat/strakens-strandskogar.html"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/sjuharadsleden/geometry/protected-area-overlays/source-downloads/strakens-strandskogar-naturreservat-2065122.geojson"
+      ],
+      "sourceCheckResult": "Several section-10 final-corridor facility candidates fall inside Stråkens strandskogar. The reserve allows fires only at designated places and with brought firewood.",
+      "recommendation": "Trollsjön fireplace can be shown only if treated as an official designated place; Grillplats nära Mullsjö remains pending because its evidence is unofficial. Do not import free camping claims.",
+      "confidence": "high for point-in-polygon; medium for exact fire-object legality until authority facility designation is confirmed",
+      "caveat": null,
+      "routeOverlaps": [
+        {
+          "sectionId": "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/sjuharadsleden/geometry/candidate/sections/sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 15.212,
+                  "endKm": 16.321
+                },
+                {
+                  "startKm": 17.341,
+                  "endKm": 19.618
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "facilityOverlaps": [
+        {
+          "facilityId": "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-12-grillplats-nara-mullsjo",
+          "sectionId": "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo",
+          "name": "Grillplats nära Mullsjö",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            57.9038,
+            13.84217
+          ]
+        },
+        {
+          "facilityId": "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-6-ryfors-reserve-entrance-cluster",
+          "sectionId": "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo",
+          "name": "Ryfors reserve entrance cluster",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            57.904338,
+            13.834007
+          ]
+        },
+        {
+          "facilityId": "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-11-straken-naturbad",
+          "sectionId": "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo",
+          "name": "Stråken naturbad",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            57.90819,
+            13.84667
+          ]
+        },
+        {
+          "facilityId": "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-9-trollsjon-rastplats",
+          "sectionId": "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo",
+          "name": "Trollsjön rastplats",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            57.912022,
+            13.853315
+          ]
+        }
+      ]
+    }
+  ]
+}

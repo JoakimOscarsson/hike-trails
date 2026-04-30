@@ -1,0 +1,208 @@
+{
+  "schemaVersion": "candidate-route-geometry-index/v1",
+  "trailId": "tjustleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-normalized-research-only",
+  "runtimeImportApproved": false,
+  "geometryPolicy": {
+    "decision": "Use selected canonical route geometry as provenance, and create separate display-ready geometry only when needed for rendering.",
+    "coordinatePolicy": "All candidate GeoJSON must be WGS84 longitude-latitude coordinate order. Transform EPSG:3006 or other source CRS before candidate artifact output and record the transform.",
+    "sourcePriority": [
+      "Official trail-manager GPX/API/GeoJSON or official state trail linework when source policy allows it.",
+      "Current official presentation source such as Naturkartan when it is the trail manager's public map baseline.",
+      "OSM/Waymarked/third-party sources only as QA, fallback or explicit low-confidence source when the handoff says so."
+    ],
+    "segmentPolicy": "Preserve official track, segment and MultiLineString breaks unless an explicit sourced connector is modeled.",
+    "densificationPolicy": "Densification is allowed only for draw/display artifacts and must not be treated as field-verified trail geometry.",
+    "simplificationPolicy": "Do not simplify canonical candidate geometry until an importer-specific tolerance is chosen and visually QAed."
+  },
+  "sourceArtifactsToUse": [],
+  "sourceArtifactsToSuppress": [],
+  "discoveredGeojsonFiles": [
+    "data/research/candidate-trails/tjustleden/geometry/candidate/sections/tjustleden-etapp-1-mortfors-getterum-getgolen.geojson",
+    "data/research/candidate-trails/tjustleden/geometry/candidate/sections/tjustleden-etapp-2-getgolen-hjorted-svartestrom.geojson",
+    "data/research/candidate-trails/tjustleden/geometry/candidate/sections/tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn.geojson",
+    "data/research/candidate-trails/tjustleden/geometry/candidate/sections/tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall.geojson",
+    "data/research/candidate-trails/tjustleden/geometry/candidate/sections/tjustleden-etapp-5-tornsfall-almvik-hallingeberg.geojson",
+    "data/research/candidate-trails/tjustleden/geometry/candidate/sections/tjustleden-etapp-6-hallingeberg-karrum-odensvi.geojson",
+    "data/research/candidate-trails/tjustleden/geometry/candidate/sections/tjustleden-etapp-7-odensvi-dalhem-bjorndalen.geojson",
+    "data/research/candidate-trails/tjustleden/geometry/candidate/sections/tjustleden-etapp-8-bjorndalen-mockelhult-lermon.geojson",
+    "data/research/candidate-trails/tjustleden/geometry/candidate/sections/tjustleden-etapp-9-lermon-kolsebro-falerum.geojson"
+  ],
+  "summary": {
+    "candidate-geojson-present": 9
+  },
+  "sections": [
+    {
+      "sectionId": "tjustleden-etapp-1-mortfors-getterum-getgolen",
+      "sourceFile": "data/research/candidate-trails/tjustleden/sections/tjustleden-etapp-1-mortfors-getterum-getgolen.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/tjustleden/geometry/candidate/sections/tjustleden-etapp-1-mortfors-getterum-getgolen.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturkartan / Vastervik Outdoor",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/mortfors-getterum-getgolen-tjustleden-etapp-1.gpx",
+        "gpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/mortfors-getterum-getgolen-tjustleden-etapp-1.gpx",
+        "classification": "navigation-grade for app display/basic following; still field-verify before import",
+        "confidence": "high",
+        "computedDistanceKm": 18.689
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "tjustleden-etapp-2-getgolen-hjorted-svartestrom",
+      "sourceFile": "data/research/candidate-trails/tjustleden/sections/tjustleden-etapp-2-getgolen-hjorted-svartestrom.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/tjustleden/geometry/candidate/sections/tjustleden-etapp-2-getgolen-hjorted-svartestrom.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturkartan / Västervik Outdoor",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/getgolen-hjorted-svartestrom-tjustleden-etapp-2.gpx",
+        "gpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/getgolen-hjorted-svartestrom-tjustleden-etapp-2.gpx",
+        "classification": "planning-grade; likely navigation-grade only after endpoint-overlap decision and optional densification around the 596 m step",
+        "confidence": "medium-high",
+        "computedDistanceKm": 18.325
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn",
+      "sourceFile": "data/research/candidate-trails/tjustleden/sections/tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/tjustleden/geometry/candidate/sections/tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturkartan / Västervik Outdoor",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/svartestrom-lunds-by-valstad-kvarn-tjustleden-etapp-3.gpx",
+        "gpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/svartestrom-lunds-by-valstad-kvarn-tjustleden-etapp-3.gpx",
+        "classification": "navigation-grade for the official main route line, with distance and endpoint/facility snapping caveats",
+        "confidence": "high for line direction and coordinate sequence; medium for official distance labeling",
+        "computedDistanceKm": 15.71
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall",
+      "sourceFile": "data/research/candidate-trails/tjustleden/sections/tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/tjustleden/geometry/candidate/sections/tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturkartan / Västervik Outdoor",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/valstad-kvarn-hjorten-tornsfall-tjustleden-etapp-4.gpx",
+        "gpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/valstad-kvarn-hjorten-tornsfall-tjustleden-etapp-4.gpx",
+        "classification": "line itself is navigation-grade for the main route after reversing, but section record remains planning-grade until distance and endpoint snapping decisions are resolved",
+        "confidence": "high for line sequence; medium for official distance and endpoint policy",
+        "computedDistanceKm": 11.753
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "tjustleden-etapp-5-tornsfall-almvik-hallingeberg",
+      "sourceFile": "data/research/candidate-trails/tjustleden/sections/tjustleden-etapp-5-tornsfall-almvik-hallingeberg.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/tjustleden/geometry/candidate/sections/tjustleden-etapp-5-tornsfall-almvik-hallingeberg.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturkartan / Västervik Outdoor",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/tornsfall-almvik-hallingeberg-tjustleden-etapp-5.gpx",
+        "gpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/tornsfall-almvik-hallingeberg-tjustleden-etapp-5.gpx",
+        "classification": "navigation-grade linework with endpoint-normalization caveats at the Section 4 handoff",
+        "confidence": "high",
+        "computedDistanceKm": 21.225
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "tjustleden-etapp-6-hallingeberg-karrum-odensvi",
+      "sourceFile": "data/research/candidate-trails/tjustleden/sections/tjustleden-etapp-6-hallingeberg-karrum-odensvi.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/tjustleden/geometry/candidate/sections/tjustleden-etapp-6-hallingeberg-karrum-odensvi.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturkartan / Västervik Outdoor",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/hallingeberg-karrum-odensvi-tjustleden-etapp-6.gpx",
+        "gpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/hallingeberg-karrum-odensvi-tjustleden-etapp-6.gpx",
+        "classification": "mostly navigation-grade baseline, but not current for temporary 2026 Lundaborg/Amerika condition notices",
+        "confidence": "high",
+        "computedDistanceKm": 20.928
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "tjustleden-etapp-7-odensvi-dalhem-bjorndalen",
+      "sourceFile": "data/research/candidate-trails/tjustleden/sections/tjustleden-etapp-7-odensvi-dalhem-bjorndalen.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/tjustleden/geometry/candidate/sections/tjustleden-etapp-7-odensvi-dalhem-bjorndalen.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturkartan / Västervik Outdoor",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/odensvi-dalhem-bjorndalen-tjustleden-etapp-7.gpx",
+        "gpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/odensvi-dalhem-bjorndalen-tjustleden-etapp-7.gpx",
+        "classification": "planning-grade to mostly navigation-grade official baseline; import should review sparse 200-307 m steps and the 20 km vs 22.279 km distance mismatch",
+        "confidence": "high",
+        "computedDistanceKm": 22.279
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "tjustleden-etapp-8-bjorndalen-mockelhult-lermon",
+      "sourceFile": "data/research/candidate-trails/tjustleden/sections/tjustleden-etapp-8-bjorndalen-mockelhult-lermon.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/tjustleden/geometry/candidate/sections/tjustleden-etapp-8-bjorndalen-mockelhult-lermon.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturkartan / Västervik Outdoor",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/tjustleden-etapp-8-bjorndalen-mockelhult-lermon.gpx",
+        "gpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/tjustleden-etapp-8-bjorndalen-mockelhult-lermon.gpx",
+        "classification": "official display/import geometry with coarse sampling; planning-grade to mostly navigation-grade baseline, not turn-by-turn precision",
+        "confidence": "high",
+        "computedDistanceKm": 14.069
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "tjustleden-etapp-9-lermon-kolsebro-falerum",
+      "sourceFile": "data/research/candidate-trails/tjustleden/sections/tjustleden-etapp-9-lermon-kolsebro-falerum.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/tjustleden/geometry/candidate/sections/tjustleden-etapp-9-lermon-kolsebro-falerum.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturkartan / Västervik Outdoor",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/tjustleden-etapp-9-lermon-kolsebro-falerum.gpx",
+        "gpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/tjustleden-etapp-9-lermon-kolsebro-falerum.gpx",
+        "classification": "high-quality official linework for Lermon to Östgötaleden/länsgränsen handoff, but semantically incomplete for a Falerum station endpoint",
+        "confidence": "high for raw geometry, medium-low for full named-stage endpoint semantics",
+        "computedDistanceKm": 10.446591
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    }
+  ]
+}

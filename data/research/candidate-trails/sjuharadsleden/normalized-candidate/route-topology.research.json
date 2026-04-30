@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "candidate-route-topology/v1",
+  "trailId": "sjuharadsleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-topology-and-geometry-normalization-recorded",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "sjuharadsleden/normalization-handoff.research.json",
+  "sharedDecisionFile": "shared-importer-decisions.research.json",
+  "topologyPolicy": {
+    "decision": "Use route groups for walked official route topology and connections for transfers between route entries.",
+    "routeGroupKinds": {
+      "mainline": "Primary continuous official section chain for the selected trail model.",
+      "branch": "Official alternate or side branch that can be hiked as trail, but should not be silently merged into the mainline.",
+      "access": "Official or strongly supported approach route to/from public transport, village, trailhead or another trail.",
+      "connector": "Walked link between route groups or nearby route sections where it is part of the trail model."
+    },
+    "connectionsUse": "Use connections.json-style records for non-section transfers or continuity records between sections: ferry, bus, road transfer, rowboat, short walk transfer, same-island continuity, or mode none for a known gap with no usable transfer geometry.",
+    "officialRowboatRule": "If a rowboat crossing is an official route entry in its own right, model it as a section route with strong warnings. Otherwise model it as a rowboat connection or access/side metadata."
+  },
+  "topologySourceSummary": {
+    "importOrder": [
+      "1. Import/parse section research packets in official section order.",
+      "2. Build Naturkartan-primary route geometry and preserve section boundaries.",
+      "3. Apply section 6 Rölle cleanup, section 7 chord densification, section 8 component handling, and section 10 OSM reversal only for QA if used.",
+      "4. Build endpoint and access/facility clusters without snapping route-line endpoints to services.",
+      "5. Run protected-area clipping for route segments and facility points.",
+      "6. Promote only verified facilities; keep pending/suppressed/service-only facilities out of public normalized facilities.",
+      "7. Attach rule warnings and dynamic publication-day checks.",
+      "8. Validate normalized research output before any runtime/public data import."
+    ]
+  },
+  "decisionsApplied": [
+    {
+      "id": "sjuharadsleden-mainline-selected",
+      "decision": "Keep the researched 10-section mainline order. Section 6 uses the selected Rölle mainline components and section 7 has a generated densified candidate GeoJSON before overlay work."
+    }
+  ],
+  "routeGroups": [
+    {
+      "groupId": "sjuharadsleden-mainline",
+      "kind": "mainline",
+      "status": "candidate-topology-recorded",
+      "sectionIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if",
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega",
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan",
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar",
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna",
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered",
+        "sjuharadsleden-etapp-7-blackered-prangens-camping",
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka",
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri",
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+      ]
+    }
+  ],
+  "connections": [],
+  "displayPolicies": [],
+  "remainingGeometryWork": [
+    "Review the generated section 6 Rölle mainline selection and section 7 densification during final map QA before runtime route import."
+  ],
+  "unresolvedSectionRefs": []
+}

@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "candidate-route-topology/v1",
+  "trailId": "ostkustleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-topology-decisions-applied",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "ostkustleden/normalization-handoff.research.json",
+  "sharedDecisionFile": "shared-importer-decisions.research.json",
+  "topologyPolicy": {
+    "decision": "Use route groups for walked official route topology and connections for transfers between route entries.",
+    "routeGroupKinds": {
+      "mainline": "Primary continuous official section chain for the selected trail model.",
+      "branch": "Official alternate or side branch that can be hiked as trail, but should not be silently merged into the mainline.",
+      "access": "Official or strongly supported approach route to/from public transport, village, trailhead or another trail.",
+      "connector": "Walked link between route groups or nearby route sections where it is part of the trail model."
+    },
+    "connectionsUse": "Use connections.json-style records for non-section transfers or continuity records between sections: ferry, bus, road transfer, rowboat, short walk transfer, same-island continuity, or mode none for a known gap with no usable transfer geometry.",
+    "officialRowboatRule": "If a rowboat crossing is an official route entry in its own right, model it as a section route with strong warnings. Otherwise model it as a rowboat connection or access/side metadata."
+  },
+  "topologySourceSummary": {
+    "importOrder": [
+      {
+        "step": 1,
+        "name": "Use normalization-plan.research.json as the controlling plan",
+        "notes": "Do not duplicate or rewrite its full per-section details here."
+      },
+      {
+        "step": 2,
+        "name": "Build candidate-only geometry prototype",
+        "notes": "Implement transforms under data/research/candidate-trails/ostkustleden/ only."
+      },
+      {
+        "step": 3,
+        "name": "Run visual QA and endpoint checks",
+        "notes": "Compare repaired multi-track sections against official PDF/map viewer and adjacent section endpoints."
+      },
+      {
+        "step": 4,
+        "name": "Dedupe cabin and endpoint facility clusters",
+        "notes": "Use facilityPlan.dedupeKeysToReview before producing import rows."
+      },
+      {
+        "step": 5,
+        "name": "Apply GIS-scoped rule warnings",
+        "notes": "Attach boundary-sensitive rules only after overlay against final normalized geometry."
+      },
+      {
+        "step": 6,
+        "name": "Publication-time currentness review",
+        "notes": "Recheck volatile facts before runtime import."
+      }
+    ],
+    "geometryPlanSummary": [
+      "Implement geometry transforms in a staging script or notebook under candidate research first; do not write public/data, public/routes or data/source/hiking until the user explicitly requests runtime integration.",
+      "For each normalized section, preserve raw source URL, transform instructions, computed length, official display distance, endpoint gap notes and route-page marker caveats.",
+      "Before runtime import, run a map visual review of every repaired multi-track section against the official PDF/map viewer and adjacent section endpoints.",
+      "Do not silently drop route-piece joins; store join distances in metadata where they exceed normal GPS jitter."
+    ]
+  },
+  "decisionsApplied": [
+    {
+      "id": "ostkustleden-etapp-8-cabin-gap-policy",
+      "fixNowItemRefs": [
+        "decision-1"
+      ],
+      "decision": "Keep the 156.4 m Etapp 8 official-GPX-to-Lilla-Hycklinge-cabin gap as metadata only unless a separate authoritative access leg is sourced."
+    },
+    {
+      "id": "ostkustleden-candidate-geometry-prototype-scope",
+      "fixNowItemRefs": [
+        "decision-3"
+      ],
+      "decision": "Approve candidate-only geometry normalization under the research folder; runtime source data remains untouched until a separate import task."
+    }
+  ],
+  "routeGroups": [
+    {
+      "groupId": "ostkustleden-main-ring",
+      "kind": "mainline",
+      "status": "candidate-topology-explicit",
+      "sectionIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+        "ostkustleden-etapp-2-nynas-lonhult",
+        "ostkustleden-etapp-3-lonhult-krokstorp",
+        "ostkustleden-etapp-4-krokstorp-mortfors",
+        "ostkustleden-etapp-5-mortfors-stjarneberg",
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "connectionId": "ostkustleden-etapp-8-to-lilla-hycklinge-cabin",
+      "fromSectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "toSectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "mode": "none",
+      "status": "metadata-only-cabin-gap",
+      "distanceMetersApprox": 156.4,
+      "importPolicy": "Do not add an access leg to the default route until separately sourced."
+    }
+  ],
+  "displayPolicies": [],
+  "remainingGeometryWork": [
+    "Review generated protected-area overlays before runtime import and repeat them if route geometry or protected-area source boundaries change."
+  ],
+  "unresolvedSectionRefs": []
+}

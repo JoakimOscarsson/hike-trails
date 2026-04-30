@@ -1,0 +1,602 @@
+{
+  "schemaVersion": "candidate-route-sections/v1",
+  "trailId": "tjustleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-normalized-research-only",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "tjustleden/normalization-handoff.research.json",
+  "sharedDecisionFile": "shared-importer-decisions.research.json",
+  "distancePolicy": {
+    "officialDistanceKm": "Trail-manager or selected official user-facing distance.",
+    "computedGeometryDistanceKm": "Distance computed from selected normalized geometry.",
+    "displayDistanceKm": "Defaults to officialDistanceKm unless a trail-specific handoff selects a different value.",
+    "distanceCaveats": "Source contradictions, rounded totals, stale values and measured-distance notes."
+  },
+  "sections": [
+    {
+      "sectionId": "tjustleden-etapp-1-mortfors-getterum-getgolen",
+      "sourceFile": "data/research/candidate-trails/tjustleden/sections/tjustleden-etapp-1-mortfors-getterum-getgolen.research.json",
+      "order": 1,
+      "sectionNumber": 1,
+      "name": "Mörtfors - Getterum - Getgölen. Tjustleden etapp 1",
+      "from": "Mörtfors",
+      "to": "Getgölen",
+      "distance": {
+        "officialDistanceKm": 19,
+        "displayDistanceKm": 19
+      },
+      "difficulty": {
+        "officialLabel": "Grön - enkel",
+        "municipalityLabel": "Mestadels lätt",
+        "confidence": "high",
+        "notes": "Vastervik Outdoor/Naturkartan uses 'Grön - enkel'; Vastervik municipality uses 'Mestadels lätt'. Treat as equivalent easy-stage labels."
+      },
+      "routeType": "linear main stage",
+      "endpoints": {
+        "start": {
+          "label": "Mörtfors / trail start about 1 km south of Mörtfors",
+          "coordinatesLatLon": [
+            57.5181140365873,
+            16.4561989132613
+          ],
+          "confidence": "high for route endpoint; low for exact shelter/toilet coordinate",
+          "caveats": [
+            "Do not use central Mörtfors as the section start coordinate.",
+            "The official start shelter/toilet exists per official facts, but its facility-specific coordinate is not verified."
+          ]
+        },
+        "end": {
+          "label": "Getgölen / Lilla Getgöl shelter area",
+          "coordinatesLatLon": [
+            57.5871418180042,
+            16.2935606419627
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Use the specific shelter/toilet facility coordinates for POI imports rather than the line endpoint."
+          ]
+        }
+      },
+      "routeStatus": "research-ready-not-import-ready",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturkartan / Vastervik Outdoor",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/mortfors-getterum-getgolen-tjustleden-etapp-1.gpx",
+        "gpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/mortfors-getterum-getgolen-tjustleden-etapp-1.gpx",
+        "classification": "navigation-grade for app display/basic following; still field-verify before import",
+        "confidence": "high",
+        "computedDistanceKm": 18.689
+      },
+      "caveats": [
+        "Official Swedish pages use Mörtfors and Getgölen; slugs and app IDs use Mortfors/Getgolen without diacritics.",
+        "Vastervik Outdoor/Naturkartan says 'Grön - enkel'; Vastervik municipality says 'Mestadels lätt'.",
+        "Older/basic official facts mention shelters at start and end; 2026 advice and municipality page add the mid-stage ArkNat shelter at Tällsjön.",
+        "Older Etapp 1 PDF says a trash bag exists; current Naturskyddsforeningen guidance says there is no trash pickup and visitors must pack out waste.",
+        "Official sources say shelter/TC at start, but available coordinates near Mörtfors may refer to Ostkustleden/Mörtfors raststuga rather than the exact Tjustleden Etapp 1 start facility.",
+        "Västervik fire pages conflict on built-up-area seasonal dates: 1 May-30 September vs 2 May-29 September.",
+        "Agent header check saw HTTP 200 with Content-Length: 0, while direct body download succeeded and yielded 1373 points.",
+        "Verify the exact coordinate of the Mörtfors start shelter and TC; do not reuse the GPX start point as a facility coordinate without confirmation.",
+        "Confirm whether the GPX start coordinate lies inside Mörtfors naturreservat or only adjacent to it using GIS/protected-area overlay.",
+        "Confirm KLT stop coordinates and service patterns from official KLT GTFS/trip planner for Mörtfors E22, Bryggeriet, and Getterum.",
+        "Verify practical walking access distances from bus stops to start/end, not only straight-line distances.",
+        "Find precise coordinates for Stora Ramm/Tällsjön bathing rocks, Ramnesund ruin/cairn, Mörtfors hillfort/viewpoint, and Getterums by/Åsen if they are to become POIs."
+      ]
+    },
+    {
+      "sectionId": "tjustleden-etapp-2-getgolen-hjorted-svartestrom",
+      "sourceFile": "data/research/candidate-trails/tjustleden/sections/tjustleden-etapp-2-getgolen-hjorted-svartestrom.research.json",
+      "order": 2,
+      "sectionNumber": 2,
+      "name": "Getgölen - Hjorted - Svarteström, Tjustleden etapp 2",
+      "from": "Getgölen",
+      "to": "Svarteström",
+      "distance": {
+        "officialDistanceKm": 18,
+        "displayDistanceKm": 18
+      },
+      "estimatedTime": "6-7 hours",
+      "difficulty": {
+        "officialLabel": "Grön - enkel",
+        "municipalityLabel": "Lätt",
+        "confidence": "high",
+        "notes": "Västervik Outdoor/Naturkartan uses 'Grön - enkel'; Västervik municipality uses 'Lätt'. Treat these as equivalent easy-stage labels."
+      },
+      "routeType": "linear main stage with official connector/loop at Ankarsrumsslingan",
+      "endpoints": {
+        "start": {
+          "label": "Getgölen / Lilla Getgöl shelter area",
+          "coordinatesLatLon": [
+            57.5869851865204,
+            16.2938978243619
+          ],
+          "confidence": "high",
+          "caveats": [
+            "Use the specific shelter/toilet facility coordinates for POI imports rather than the line endpoint.",
+            "Deduplicate the Getgöl endpoint facilities with Etapp 1."
+          ]
+        },
+        "end": {
+          "label": "Svarteström / Stora Flugen shelter-stage handoff",
+          "coordinatesLatLon": [
+            57.6728077156987,
+            16.3691631375826
+          ],
+          "confidence": "high for shelter/stage handoff; medium-low for whether to trim official Etapp 2 GPX here",
+          "caveats": [
+            "Normalization decision is to retain the official GPX final guidepost point as tail/overlap metadata rather than trimming silently at the shelter/Etapp 3 start.",
+            "Endpoint facilities should use the shelter/toilet coordinates, not the section-2 GPX final point."
+          ]
+        }
+      },
+      "routeStatus": "research-ready-not-import-ready",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturkartan / Västervik Outdoor",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/getgolen-hjorted-svartestrom-tjustleden-etapp-2.gpx",
+        "gpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/getgolen-hjorted-svartestrom-tjustleden-etapp-2.gpx",
+        "classification": "planning-grade; likely navigation-grade only after endpoint-overlap decision and optional densification around the 596 m step",
+        "confidence": "medium-high",
+        "computedDistanceKm": 18.325
+      },
+      "caveats": [
+        "Confirm exact Getgöl small-parking coordinate and whether it is public/appropriate to show.",
+        "Run a proper GIS overlay for Borgberget naturreservat against the main route and Ankarsrumsslingan connector.",
+        "Verify whether any Hjorted water-protection-area rules intersect the route.",
+        "Verify Hjorteds Mopedmuseum current operating status before importing as a POI.",
+        "Confirm current opening hours/availability for Hjorted grocery, Långsjön camping, and other commercial services at normalization time.",
+        "Check exact KLT trip availability for a real date; rural/school lines are sparse and may be school-calendar-dependent."
+      ]
+    },
+    {
+      "sectionId": "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn",
+      "sourceFile": "data/research/candidate-trails/tjustleden/sections/tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn.research.json",
+      "order": 3,
+      "sectionNumber": 3,
+      "name": "Svarteström - Lunds by - Valstad kvarn, Tjustleden etapp 3",
+      "from": "Svarteström",
+      "to": "Valstad kvarn",
+      "distance": {
+        "officialDistanceKm": 18,
+        "displayDistanceKm": 18
+      },
+      "difficulty": "Blå - medel; Västervik municipality describes it as bitvis något kuperad",
+      "routeType": "point-to-point",
+      "endpoints": {
+        "start": {
+          "label": "Svarteström shelter / Stora Flugen handoff",
+          "coordinatesLatLon": [
+            57.6728077156987,
+            16.3691631375826
+          ],
+          "source": "Official Naturkartan Etapp 3 GPX first point; identical to Naturkartan API shape start within rounding.",
+          "confidence": "high",
+          "caveats": [
+            "This is also the preferred Etapp 2/Etapp 3 stage handoff. Etapp 2 official GPX continues about 0.29 km beyond this point, creating an import overlap to resolve later."
+          ]
+        },
+        "end": {
+          "label": "Valstad kvarn route endpoint / Etapp 4 handoff area",
+          "coordinatesLatLon": [
+            57.7352588592981,
+            16.48684345625
+          ],
+          "source": "Official Naturkartan Etapp 3 GPX final point; identical to Naturkartan API shape end within rounding.",
+          "confidence": "medium-high",
+          "caveats": [
+            "High confidence for route-line endpoint and Etapp 4 handoff area; exact Valstad shelter object matching is unresolved because facility points sit 65-190 m from the GPX endpoint and OSM has multiple nearby shelter-like nodes."
+          ]
+        }
+      },
+      "routeStatus": "research-ready-not-import-ready",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturkartan / Västervik Outdoor",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/svartestrom-lunds-by-valstad-kvarn-tjustleden-etapp-3.gpx",
+        "gpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/svartestrom-lunds-by-valstad-kvarn-tjustleden-etapp-3.gpx",
+        "classification": "navigation-grade for the official main route line, with distance and endpoint/facility snapping caveats",
+        "confidence": "high for line direction and coordinate sequence; medium for official distance labeling",
+        "computedDistanceKm": 15.71
+      },
+      "caveats": [
+        "Resolve Valstad shelter object matching between Naturkartan coordinate and OSM nodes 8891098795/9992171458 before import.",
+        "Confirm exact public parking at Svarteström shelter and Valstad kvarn.",
+        "Verify safe walking routes/road shoulders between Svarteström and Falsterbo Gård/Gustavsberg/Ankarsrum, and between Valstad kvarn and Verkebäcksbron/Gunnebo.",
+        "Perform final KLT/Smalspåret trip-date service checks, including school-line and summer-reduction caveats.",
+        "Coordinate-verify Stora Flugen ridge rest/view, Fagertorp croft remains, Ekenäs/Tjursbosjön bronze-age remains, and exact Valstad/Hvalstad mill museum point before importing as POIs.",
+        "Run import-grade GIS overlays for protected areas and water-protection areas even though the quick screen found no main-route intersection.",
+        "Re-check acute-info and fire-ban sources close to publication/trip date.",
+        "Verify whether Gladhammars gruvor visitor firepit/bench/waste facilities should be trail POIs, connector metadata, or suppressed."
+      ]
+    },
+    {
+      "sectionId": "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall",
+      "sourceFile": "data/research/candidate-trails/tjustleden/sections/tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall.research.json",
+      "order": 4,
+      "sectionNumber": 4,
+      "name": "Valstad kvarn - Hjorten - Törnsfall, Tjustleden etapp 4",
+      "from": "Valstad kvarn",
+      "to": "Törnsfall / Mösjön",
+      "distance": {
+        "officialDistanceKm": 14,
+        "displayDistanceKm": 14
+      },
+      "difficulty": "Grön - enkel; Västervik municipality uses Lätt",
+      "routeType": "point-to-point",
+      "endpoints": {
+        "start": {
+          "label": "Valstad kvarn route endpoint / Etapp 3 handoff area",
+          "coordinatesLatLon": [
+            57.7352991960203,
+            16.4873344020996
+          ],
+          "source": "Official Etapp 4 GPX last point and Naturkartan API shape last point, reversed to official Valstad kvarn -> Törnsfall order.",
+          "confidence": "high for route endpoint and stage handoff; medium for exact shelter/trailhead snap",
+          "caveats": [
+            "Valstad shelter object matching remains unresolved across Naturkartan and nearby OSM nodes. Normalization policy is to preserve official GPX endpoints and keep shelter/toilet as nearby endpoint-cluster POIs unless a later importer creates an explicit provenance-backed access stub."
+          ]
+        },
+        "end": {
+          "label": "Törnsfall / Mösjön route endpoint",
+          "coordinatesLatLon": [
+            57.8069375,
+            16.4568023
+          ],
+          "source": "Official Etapp 4 GPX first point and Naturkartan API shape first point, reversed to official order.",
+          "confidence": "high",
+          "caveats": [
+            "Section 5 official GPX starts about 90.9 m away, though OSM Etapp 5 starts at this Section 4 endpoint. Shelter/toilet are about 100 m beyond the GPX endpoint."
+          ]
+        }
+      },
+      "routeStatus": "research-ready-not-import-ready",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturkartan / Västervik Outdoor",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/valstad-kvarn-hjorten-tornsfall-tjustleden-etapp-4.gpx",
+        "gpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/valstad-kvarn-hjorten-tornsfall-tjustleden-etapp-4.gpx",
+        "classification": "line itself is navigation-grade for the main route after reversing, but section record remains planning-grade until distance and endpoint snapping decisions are resolved",
+        "confidence": "high for line sequence; medium for official distance and endpoint policy",
+        "computedDistanceKm": 11.753
+      },
+      "caveats": [
+        "Verify exact Mösjön water source type and potability before importing any drinking-water POI.",
+        "Confirm whether Mjösjön and Mösjön naming refers to two distinct lakes/locations and keep them separate if so.",
+        "Verify public/overnight parking at Valstad kvarn and Törnsfall church/school.",
+        "Verify safe walking routes from Valstad to Ringsbo/Verkebäcksbron and from Mösjön/Törnsfall to Törnsfalls Kyrkskola/Kvistrum.",
+        "Coordinate-verify Ulriksberg, Stora Svinnaren rest point, Mjösjön bathing/rest point, and Hjorten rest opportunities before import.",
+        "Re-check Marsbäcken connector waymarking status, Marsbäcken property access, and Rock View exact coordinate before importing connector facilities.",
+        "Re-check acute-info, fire-ban, KLT/Smalspåret service, and line 160 roadwork close to publication/trip date."
+      ]
+    },
+    {
+      "sectionId": "tjustleden-etapp-5-tornsfall-almvik-hallingeberg",
+      "sourceFile": "data/research/candidate-trails/tjustleden/sections/tjustleden-etapp-5-tornsfall-almvik-hallingeberg.research.json",
+      "order": 5,
+      "sectionNumber": 5,
+      "name": "Törnsfall - Almvik - Hallingeberg, Tjustleden etapp 5",
+      "from": "Törnsfall / Mösjön",
+      "to": "Hallingeberg / Källtorp",
+      "distance": {
+        "officialDistanceKm": 21,
+        "displayDistanceKm": 21
+      },
+      "difficulty": "Blå - medel; Västervik municipality describes the section as having kuperade partier",
+      "routeType": "point-to-point",
+      "endpoints": {
+        "start": {
+          "label": "Törnsfall / Mösjön shelter route start",
+          "coordinatesLatLon": [
+            57.8077534285237,
+            16.4567185788202
+          ],
+          "source": "Official Etapp 5 GPX first point and Naturkartan API shape first point.",
+          "confidence": "high for route start; medium for cross-section boundary policy",
+          "caveats": [
+            "Official Section 5 starts at/near the shelter, about 90.9 m north of the Section 4 official endpoint/OSM guidepost. OSM Etapp 5 begins at the Section 4 endpoint, so later normalization must choose whether to preserve official GPX start or snap the stage boundary to the shared guidepost."
+          ]
+        },
+        "end": {
+          "label": "Hallingeberg / Källtorp route end",
+          "coordinatesLatLon": [
+            57.8427674973181,
+            16.2379388929933
+          ],
+          "source": "Official Etapp 5 GPX final point and Naturkartan API shape final point.",
+          "confidence": "high",
+          "caveats": [
+            "Official text simplifies the endpoint as Hallingeberg but describes the actual stage target as the Källtorp/Källtorpsstugan cottage. Exact end toilet coordinate remains unresolved."
+          ]
+        }
+      },
+      "routeStatus": "research-ready-not-import-ready",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturkartan / Västervik Outdoor",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/tornsfall-almvik-hallingeberg-tjustleden-etapp-5.gpx",
+        "gpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/tornsfall-almvik-hallingeberg-tjustleden-etapp-5.gpx",
+        "classification": "navigation-grade linework with endpoint-normalization caveats at the Section 4 handoff",
+        "confidence": "high",
+        "computedDistanceKm": 21.225
+      },
+      "caveats": [
+        "Official Section 5 GPX/API starts at/near the Mösjön shelter, about 90.9 m from the official Section 4 Törnsfall endpoint/OSM guidepost. OSM Etapp 5 starts at the Section 4 endpoint.",
+        "Naturkartan API reports publish_gpx=false for site 21837, but the direct .gpx endpoint works and official pages expose the route.",
+        "OSM relation 3199981 is older, about 0.75 km longer than official GPX/API, and diverges by hundreds of meters in the early/mid route.",
+        "Naturkartan/Västervik Outdoor use Blå - medel, while Västervik municipality text describes kuperade partier. Pacer labels the route hard.",
+        "2026 Tjust practical advice says water can be obtained at/near Mösjön, but OSM toilet object has drinking_water=no and no exact water source was identified.",
+        "Official text uses Källtorp/Källtorpsstugan/undantagsstugan Källtorp; OSM uses Undantagsstugan Källstorp; Naturkartan slug includes hallingeberg-svedstugan.",
+        "Official route text mentions a naturvårdsområde with deciduous forest near Borgareberget/Blekhem, but rules-lane WFS checks found no current formal protected-area polygon on the Section 5 GPX corridor.",
+        "Nearest fixed stops at both endpoints are school-route or weak rural stops, while practical access is mostly booked Närtrafik.",
+        "Verify exact Källtorp/Källtorpsstugan endpoint toilet coordinate.",
+        "Verify exact Hallingeberg church toilet-building/drinking-water coordinate before importing water.",
+        "Confirm whether water at/near Mösjön is public/potable; current evidence conflicts with OSM drinking_water=no at the start toilet.",
+        "Confirm whether KLT Närtrafik Almvik will pick up/drop off at or near the Mösjön/Törnsfall shelter or only at Törnsfalls Kyrkskola/another agreed point."
+      ]
+    },
+    {
+      "sectionId": "tjustleden-etapp-6-hallingeberg-karrum-odensvi",
+      "sourceFile": "data/research/candidate-trails/tjustleden/sections/tjustleden-etapp-6-hallingeberg-karrum-odensvi.research.json",
+      "order": 6,
+      "sectionNumber": 6,
+      "name": "Hallingeberg - Karrum - Odensvi, Tjustleden etapp 6",
+      "from": "Hallingeberg / Källtorp",
+      "to": "Odensvi / Kyrksjön",
+      "distance": {
+        "officialDistanceKm": 21,
+        "displayDistanceKm": 21
+      },
+      "difficulty": "Blå - medel; Västervik municipality describes the section as Något kuperad",
+      "routeType": "point-to-point main stage, with a described connection/branch from Frö to Odensvi village and a separate related Hängesten loop",
+      "endpoints": {
+        "start": {
+          "label": "Hallingeberg / Källtorp official-order route start",
+          "coordinatesLatLon": [
+            57.8428029864335,
+            16.2376858005966
+          ],
+          "source": "Official Etapp 6 GPX final point, used as the first point after reversing to official Hallingeberg-to-Odensvi order.",
+          "confidence": "high",
+          "caveats": [
+            "Official public labels say Hallingeberg, but detailed text starts north of Hallingeberg church at Källtorpet/Källtorpsstugan. The start dry-toilet coordinate and legal parking are unresolved."
+          ]
+        },
+        "end": {
+          "label": "Odensvi / Kyrksjön official-order route end",
+          "coordinatesLatLon": [
+            57.9043657601798,
+            16.1318288346221
+          ],
+          "source": "Official Etapp 6 GPX first point, used as the final point after reversing to official Hallingeberg-to-Odensvi order.",
+          "confidence": "high for route endpoint; medium for facility-cluster snapping",
+          "caveats": [
+            "Official facts simplify the endpoint as Odensvi, but the stage target is the shelter in the northwestern part of Kyrksjön. Odensvi village, bath, shop, camping, and hostel are access/connection metadata rather than the main route endpoint."
+          ]
+        }
+      },
+      "routeStatus": "research-ready-not-import-ready",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturkartan / Västervik Outdoor",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/hallingeberg-karrum-odensvi-tjustleden-etapp-6.gpx",
+        "gpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/hallingeberg-karrum-odensvi-tjustleden-etapp-6.gpx",
+        "classification": "mostly navigation-grade baseline, but not current for temporary 2026 Lundaborg/Amerika condition notices",
+        "confidence": "high",
+        "computedDistanceKm": 20.928
+      },
+      "caveats": [
+        "Official section descriptions run Hallingeberg/Källtorp to Odensvi/Kyrksjön, but official GPX/API linework is stored in the opposite direction.",
+        "Official facts simplify the endpoints as Hallingeberg - Odensvi, while detailed text places the start at Källtorpet/Källtorpsstugan and the end at the shelter in northwest Kyrksjön. Odensvi village facilities are via a connection at Frö.",
+        "Västervik Outdoor/Naturkartan classify the section as Blå - medel, while Västervik municipality says Något kuperad.",
+        "2026 practical advice says Sixgöl may work if boiled, while crowd data marks water quality unknown and official advice says the stage has little drinking water.",
+        "Official static route pages present the stage normally, but the trail-owner acute page has active 2026 notices at Lundaborg and Amerika.",
+        "OSM relation 3206134 has a 2018 reroute note south of Sixgöl and diverges from the official 2026 GPX/API line; naive OSM assembly has discontinuities.",
+        "Geometry lane reported API linework with publish_gpx=false despite the direct GPX URL working. Coordinator direct API attempts were inconsistent.",
+        "Sources vary between Sixgö/Sixgöl and Källtorp/Källtorpsstugan/Källstorp/Kalltorp.",
+        "Recheck Naturskyddsföreningen acute information immediately before import; the 2026 Lundaborg/Amerika notices may change or be resolved.",
+        "No official mapped geometry was found for the 2026 Lundaborg alternate path or the 350 m Amerika muddy bypass; do not invent detour geometry.",
+        "Verify whether the 2018 OSM reroute south of Sixgöl is fully reflected in the current official GPX/API.",
+        "Resolve exact coordinate and name for the Källtorp start toilet."
+      ]
+    },
+    {
+      "sectionId": "tjustleden-etapp-7-odensvi-dalhem-bjorndalen",
+      "sourceFile": "data/research/candidate-trails/tjustleden/sections/tjustleden-etapp-7-odensvi-dalhem-bjorndalen.research.json",
+      "order": 7,
+      "sectionNumber": 7,
+      "name": "Odensvi - Dalhem - Björndalen, Tjustleden etapp 7",
+      "from": "Odensvi / Kyrksjön",
+      "to": "Björndalen / Stora Vrången",
+      "distance": {
+        "officialDistanceKm": 20,
+        "displayDistanceKm": 20
+      },
+      "difficulty": "Blå - medel; Västervik municipality describes the section as Kuperade partier",
+      "routeType": "point-to-point main stage with unmarked Odensviholm side trip, Tynn/Rånestad livestock-avoidance road option, Karlsberg/Risebo service connector, and Rundslinga Dalhem as separate related geometry",
+      "endpoints": {
+        "start": {
+          "label": "Odensvi / Kyrksjön official-order route start",
+          "coordinatesLatLon": [
+            57.9043657601798,
+            16.1318288346221
+          ],
+          "source": "Official Etapp 7 GPX first point.",
+          "confidence": "high for route endpoint; medium-high for facility-cluster snapping",
+          "caveats": [
+            "Official public labels say Odensvi, but the stage begins at the shelter in the northwestern part of Kyrksjön. Odensvi village/bath/shop/camping are roughly 2.3-2.5 km off the main route and should be modeled as access/service context, not the stage start."
+          ]
+        },
+        "end": {
+          "label": "Björndalen / Stora Vrången official-order route end",
+          "coordinatesLatLon": [
+            58.0165948853958,
+            16.1817473258124
+          ],
+          "source": "Official Etapp 7 GPX final point.",
+          "confidence": "high for route endpoint; high for endpoint facility cluster",
+          "caveats": [
+            "The official GPX endpoint is slightly west of the shelter/toilet cluster and about 35.5 m from the official Etapp 8 start. Normalize as one Björndalen/Stora Vrången endpoint cluster unless import requires exact per-section geometry endpoints."
+          ]
+        }
+      },
+      "routeStatus": "research-ready-not-import-ready",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturkartan / Västervik Outdoor",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/odensvi-dalhem-bjorndalen-tjustleden-etapp-7.gpx",
+        "gpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/odensvi-dalhem-bjorndalen-tjustleden-etapp-7.gpx",
+        "classification": "planning-grade to mostly navigation-grade official baseline; import should review sparse 200-307 m steps and the 20 km vs 22.279 km distance mismatch",
+        "confidence": "high",
+        "computedDistanceKm": 22.279
+      },
+      "caveats": [
+        "Verify exact Dalhem church drinking-water tap coordinate, accessibility, and seasonality.",
+        "Confirm current opening/operation for Odensvi lanthandel/cafe/lodging/camping before modeling them as access services.",
+        "Confirm Risebo connector marking/currentness and whether OSM relation 8421040 should be normalized as a separate connector.",
+        "Run import-grade Stora Vrången reserve and water-protection-area polygon overlays.",
+        "Check KLT line 29/30 journeys for intended travel date and decide whether Lilla Dalhem, Dalhem kyrka, and Odensviholm are practical enough for app access copy.",
+        "Verify legal/public parking at Kyrksjön, Dalhem, and Björndalen/Stora Vrången; none was confirmed by official sources.",
+        "Clarify the care-section contradiction for Dalhems kyrka to Björndalens vindskydd with Naturskyddsföreningen i Tjust.",
+        "Recheck acute trail information and fire-ban status immediately before import/publication.",
+        "Decide whether unmarked/unclear attractions such as Odensviholm side trip, small Kisavägen fort, Patt, Karlstorp ruin, and Nämndemansryggarna should be imported, suppressed, or retained only as description text."
+      ]
+    },
+    {
+      "sectionId": "tjustleden-etapp-8-bjorndalen-mockelhult-lermon",
+      "sourceFile": "data/research/candidate-trails/tjustleden/sections/tjustleden-etapp-8-bjorndalen-mockelhult-lermon.research.json",
+      "order": 8,
+      "sectionNumber": 8,
+      "name": "Björndalen - Möckelhult - Lermon, Tjustleden etapp 8",
+      "from": "Björndalen / Stora Vrången",
+      "to": "Lermon",
+      "distance": {
+        "officialDistanceKm": 15,
+        "displayDistanceKm": 15
+      },
+      "difficulty": "Blå - medel; Västervik municipality describes the section as Kuperade partier",
+      "routeType": "point-to-point main stage with a separate Överum/Holmsjöleden connector and a related Rundslinga Björndalen loop",
+      "endpoints": {
+        "start": {
+          "label": "Björndalen / Stora Vrången official-order route start",
+          "coordinatesLatLon": [
+            58.0165614467114,
+            16.1823472660035
+          ],
+          "source": "Official Etapp 8 GPX first point.",
+          "confidence": "high",
+          "caveats": [
+            "This is the same practical Björndalen/Stora Vrången cluster as the Etapp 7 endpoint. Reserve rules apply in this area."
+          ]
+        },
+        "end": {
+          "label": "Lermon official-order route end",
+          "coordinatesLatLon": [
+            58.0807436071336,
+            16.2801081687212
+          ],
+          "source": "Official Etapp 8 GPX final point.",
+          "confidence": "high for route endpoint; medium-high for section-continuity modeling",
+          "caveats": [
+            "The official Etapp 9 start is on the Etapp 8 GPX at vertex 237, before Etapp 8's final 111.4 m terminal tail to the Lermon shelter/end cluster. Preserve this tail explicitly rather than treating the 101.7 m straight-line offset as a broken handoff."
+          ]
+        }
+      },
+      "routeStatus": "research-ready-not-import-ready",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturkartan / Västervik Outdoor",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/tjustleden-etapp-8-bjorndalen-mockelhult-lermon.gpx",
+        "gpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/tjustleden-etapp-8-bjorndalen-mockelhult-lermon.gpx",
+        "classification": "official display/import geometry with coarse sampling; planning-grade to mostly navigation-grade baseline, not turn-by-turn precision",
+        "confidence": "high",
+        "computedDistanceKm": 14.069
+      },
+      "caveats": [
+        "Verify exact Lermon toilet, fireplace, and informal swimming/shore-access coordinates before importing those as distinct records.",
+        "Verify current Överums Vandrarhem operation and Coop Överum opening/service status before publication.",
+        "Confirm the exact stop and walking route for the road 35 bus access mentioned in the 2026 practical advice.",
+        "Run final import-grade Stora Vrången reserve polygon overlay and apply reserve warnings only to the affected main-route segment.",
+        "If importing the Överum connector, run import-grade overlay for Skogsstyrelsen biotope-protection object SK 384-2003 and verify connector-side access/parking.",
+        "Verify Lilla Dalhem, Baldersberg, Snötomta Gamla Skolan, Kasinge, and Överum journeys with KLT for the intended travel date; school transport is not baseline access.",
+        "Verify legal/public parking at Björndalen and Lermon; no official endpoint parking guarantee was found.",
+        "Recheck acute trail information and fire-ban status immediately before import/publication."
+      ]
+    },
+    {
+      "sectionId": "tjustleden-etapp-9-lermon-kolsebro-falerum",
+      "sourceFile": "data/research/candidate-trails/tjustleden/sections/tjustleden-etapp-9-lermon-kolsebro-falerum.research.json",
+      "order": 9,
+      "sectionNumber": 9,
+      "name": "Lermon - Kolsebro - Falerum, Tjustleden etapp 9",
+      "from": "Lermon",
+      "to": "Falerum",
+      "distance": {
+        "officialDistanceKm": 13,
+        "displayDistanceKm": 13
+      },
+      "difficulty": "Kuperade partier; no official Blå - medel value found on checked Etapp 9 pages",
+      "routeType": "point-to-point main stage with official Ukna connector and Falerum/Östgötaleden access geometry; official GPX currently ends at the Östgötaleden/länsgränsen handoff before Falerum",
+      "endpoints": {
+        "start": {
+          "label": "Lermon official-order route start / Section 8 shared vertex",
+          "coordinatesLatLon": [
+            58.080006282017,
+            16.279085084458
+          ],
+          "source": "Official Etapp 9 GPX first point; matches Etapp 8 vertex 237.",
+          "confidence": "high",
+          "caveats": [
+            "This is the official Etapp 9 geometry start and the Section 8 shared vertex. The actual Lermon shelter cluster is about 95-112 m away on the Etapp 8 terminal tail, so endpoint facilities and route continuity must be modeled deliberately."
+          ]
+        },
+        "end": {
+          "label": "Official Etapp 9 GPX endpoint / Östgötaleden länsgränsen handoff east of Falerum",
+          "coordinatesLatLon": [
+            58.1360823907214,
+            16.2410422290856
+          ],
+          "source": "Official Etapp 9 GPX final point.",
+          "confidence": "high for raw GPX handoff endpoint; low as the semantic Falerum/station endpoint",
+          "caveats": [
+            "Official pages call the stage Lermon-Falerum and publish 13 km, but the official Etapp 9 GPX stops east of Falerum at the Östgötaleden/länsgränsen handoff. Use the raw endpoint for source fidelity, and model a documented Falerum tail/connector if displaying the stage as ending at Falerum."
+          ]
+        },
+        "semanticEndAccess": {
+          "label": "Falerum station / Falerum startplats access area",
+          "coordinatesLatLon": [
+            58.1433890304035,
+            16.2077304821919
+          ],
+          "source": "KLT stop-area coordinate for Falerums station; corroborated by OSM station node and Naturkartan Falerum startplats.",
+          "confidence": "high for access node; medium for exact normalized trail endpoint pending Falerum-tail decision",
+          "caveats": [
+            "Not the official Etapp 9 GPX endpoint. Treat as access/connector metadata until geometry policy decides whether to append the official Rundslinga Falerum tail."
+          ]
+        }
+      },
+      "routeStatus": "research-ready-not-import-ready",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "source": "Naturkartan / Västervik Outdoor",
+        "sourceUrl": "https://www.naturkartan.se/sv/kalmar-lan/tjustleden-etapp-9-lermon-kolsebro-falerum.gpx",
+        "gpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/tjustleden-etapp-9-lermon-kolsebro-falerum.gpx",
+        "classification": "high-quality official linework for Lermon to Östgötaleden/länsgränsen handoff, but semantically incomplete for a Falerum station endpoint",
+        "confidence": "high for raw geometry, medium-low for full named-stage endpoint semantics",
+        "computedDistanceKm": 10.446591
+      },
+      "caveats": [
+        "Official pages and PDFs say Lermon-Falerum is 13 km, but the official Etapp 9 GPX computes 10.446591 km and ends at the Östgötaleden/länsgränsen handoff about 2.1-2.4 km before Falerum station/startplats. Official Rundslinga Falerum GPX supplies a 2.614598 km tail that reconciles total length to 13.061188 km.",
+        "Municipality lists Kuperade partier. The usual Naturkartan/Västervik Outdoor color difficulty was not found on checked Etapp 9 pages, despite appearing on earlier stages.",
+        "Official facts say timber shelters and TC at start/end. Lermon shelter is well supported; the Falerum/end shelter/toilet interpretation depends on whether the end is raw GPX handoff, Falerum station, or the Åkervristen/Falerum connector-tail facility cluster.",
+        "Older PDF/connector facts mention trash sacks/bins, while current trail-owner guidance says there has been no routine trash pickup on Tjustleden for many years.",
+        "Field reports used filtered natural water, while 2026 trail-owner advice says no drinking water before Falerum.",
+        "Official GPX did not clearly intersect Ekhultebergen in simple overlay but passed within about 3-4 m near the Falerum end.",
+        "Verify exact Lermon toilet, fireplace, swimming/shore, and parking coordinates; merge with Section 8 Lermon endpoint facilities.",
+        "Verify whether any end-stage shelter/TC should be represented at Falerum, Åkervristen, or only as connector metadata.",
+        "Verify exact Falerum drinking-water and toilet coordinates and availability.",
+        "Verify current MariNettes Mat & Café hours, exact coordinate, and whether it should be imported as Falerum access service.",
+        "Run import-grade overlay for Stjälkhammar reserve and apply rules only to the affected segment.",
+        "Run import-grade snapping/overlay for Ekhultebergen reserve/Natura around the Falerum tail/Östgötaleden end."
+      ]
+    }
+  ]
+}

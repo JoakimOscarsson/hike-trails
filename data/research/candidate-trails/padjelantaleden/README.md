@@ -1,6 +1,6 @@
 # Padjelantaleden Research
 
-Status: research-only candidate. Overview and section 1 are complete for handoff; sections 2-10 remain pending. Do not auto-import.
+Status: research-only candidate with all 10 section packets complete, caveats resolved into normalization policy, and initial `normalized-candidate/` artifacts generated. Do not auto-import.
 
 Trail ID: `padjelantaleden`
 
@@ -20,6 +20,13 @@ This folder prepares Padjelantaleden for later import without touching runtime d
 `data/research/candidate-trails/padjelantaleden/`
 
 Do not integrate this trail into `data/source/hiking/**`, `public/data/**`, `public/routes/**`, or any generated app output until a later explicit import task.
+
+Current handoff files:
+
+- `normalization-handoff.research.json`: current per-trail normalization handoff.
+- `normalized-candidate/`: generated route, geometry, facility, rule-warning, and import-report artifacts.
+- `caveats-resolution.research.json`: caveat resolution across all 10 sections.
+- `research-progress.json`: current section completion ledger.
 
 ## Phase 1 Overview
 

@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "candidate-route-topology/v1",
+  "trailId": "hoglandsleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-topology-decisions-applied",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "hoglandsleden/normalization-handoff.research.json",
+  "sharedDecisionFile": "shared-importer-decisions.research.json",
+  "topologyPolicy": {
+    "decision": "Use route groups for walked official route topology and connections for transfers between route entries.",
+    "routeGroupKinds": {
+      "mainline": "Primary continuous official section chain for the selected trail model.",
+      "branch": "Official alternate or side branch that can be hiked as trail, but should not be silently merged into the mainline.",
+      "access": "Official or strongly supported approach route to/from public transport, village, trailhead or another trail.",
+      "connector": "Walked link between route groups or nearby route sections where it is part of the trail model."
+    },
+    "connectionsUse": "Use connections.json-style records for non-section transfers or continuity records between sections: ferry, bus, road transfer, rowboat, short walk transfer, same-island continuity, or mode none for a known gap with no usable transfer geometry.",
+    "officialRowboatRule": "If a rowboat crossing is an official route entry in its own right, model it as a section route with strong warnings. Otherwise model it as a rowboat connection or access/side metadata."
+  },
+  "topologySourceSummary": {
+    "importOrder": [
+      {
+        "step": 1,
+        "name": "Parse and index all HÖ1-HÖ23 section packets",
+        "notes": "Use trail.research.json officialSectionOrder as the authoritative section inventory."
+      },
+      {
+        "step": 2,
+        "name": "Normalize per-section geometry",
+        "notes": "Use official per-stage GPX, apply section-specific direction/duplicate/gap instructions, and keep QA metadata."
+      },
+      {
+        "step": 3,
+        "name": "Create route groups",
+        "notes": "Prepare main loop plus connector/branch groups; keep topology decision explicit."
+      },
+      {
+        "step": 4,
+        "name": "Dedupe shared endpoint facilities",
+        "notes": "Resolve shared junction clusters before importing user-facing facilities."
+      },
+      {
+        "step": 5,
+        "name": "Apply rule-warning and access policies",
+        "notes": "Use generated GIS overlays and attach rule warnings only where supported."
+      },
+      {
+        "step": 6,
+        "name": "Candidate-only validation",
+        "notes": "Validate JSON, geometry continuity, facility coordinates, suppressions and unknown/recheck items before any runtime data work."
+      }
+    ]
+  },
+  "decisionsApplied": [
+    {
+      "id": "hoglandsleden-route-builder-topology",
+      "fixNowItemRefs": [
+        "decision-1"
+      ],
+      "decision": "Model Höglandsleden as a main loop with official branches rather than one undifferentiated chain: HÖ3 as the Mariannelund branch and HÖ18-HÖ23 as the Tomtabacken-Kärringabacka branch."
+    }
+  ],
+  "routeGroups": [
+    {
+      "groupId": "hoglandsleden-main-loop",
+      "kind": "mainline",
+      "status": "candidate-topology-explicit",
+      "sectionIds": [
+        "hoglandsleden-ho01-vastra-lagern-skuruhatt",
+        "hoglandsleden-ho02-skuruhatt-valbacken",
+        "hoglandsleden-ho04-valbacken-lilla-bjalkerum",
+        "hoglandsleden-ho05-lilla-bjalkerum-adelfors",
+        "hoglandsleden-ho06-adelfors-hogarps-kulturreservat",
+        "hoglandsleden-ho07-hogarps-kulturreservat-lemnhult",
+        "hoglandsleden-ho08-lemnhult-lindshammar",
+        "hoglandsleden-ho09-lindshammar-ramkvilla",
+        "hoglandsleden-ho10-ramkvilla-asa",
+        "hoglandsleden-ho11-asa-hultsjo",
+        "hoglandsleden-ho12-hultsjo-savsjo",
+        "hoglandsleden-ho13-savsjo-forsa",
+        "hoglandsleden-ho14-forsa-vikskvarn",
+        "hoglandsleden-ho15-vikskvarn-lovhult",
+        "hoglandsleden-ho16-lovhult-ranneborg",
+        "hoglandsleden-ho17-ranneborg-skuruhatt"
+      ],
+      "notes": "Main loop/primary official chain through Skuruhatt, Valbacken, Sävsjö, Vikskvarn, Ränneborg and back to Skuruhatt."
+    },
+    {
+      "groupId": "hoglandsleden-mariannelund-branch",
+      "kind": "branch",
+      "status": "candidate-topology-explicit",
+      "sectionIds": [
+        "hoglandsleden-ho03-valbacken-mariannelund"
+      ],
+      "notes": "Official branch from Valbacken to Mariannelund."
+    },
+    {
+      "groupId": "hoglandsleden-tomtabacken-karringabacka-branch",
+      "kind": "branch",
+      "status": "candidate-topology-explicit",
+      "sectionIds": [
+        "hoglandsleden-ho18-vikskvarn-tomtabacken",
+        "hoglandsleden-ho19-tomtabacken-hok",
+        "hoglandsleden-ho20-hok-byarum",
+        "hoglandsleden-ho21-byarum-skillingaryd",
+        "hoglandsleden-ho22-skillingaryd-asafors",
+        "hoglandsleden-ho23-asafors-karringabacka"
+      ],
+      "notes": "Official branch from Vikskvarn through Tomtabacken, Hok, Byarum and Skillingaryd to Kärringabacka."
+    }
+  ],
+  "connections": [
+    {
+      "connectionId": "hoglandsleden-valbacken-branch-junction",
+      "fromSectionId": "hoglandsleden-ho02-skuruhatt-valbacken",
+      "toSectionId": "hoglandsleden-ho03-valbacken-mariannelund",
+      "mode": "walk",
+      "status": "official-branch-junction",
+      "importPolicy": "Represent HÖ3 as a branch from the Valbacken junction."
+    },
+    {
+      "connectionId": "hoglandsleden-vikskvarn-branch-junction",
+      "fromSectionId": "hoglandsleden-ho14-forsa-vikskvarn",
+      "toSectionId": "hoglandsleden-ho18-vikskvarn-tomtabacken",
+      "mode": "walk",
+      "status": "official-branch-junction",
+      "importPolicy": "Represent HÖ18-HÖ23 as the Tomtabacken/Kärringabacka branch from Vikskvarn."
+    }
+  ],
+  "displayPolicies": [],
+  "remainingGeometryWork": [
+    "Complete candidate geometry package for the selected route groups before runtime import."
+  ],
+  "unresolvedSectionRefs": []
+}

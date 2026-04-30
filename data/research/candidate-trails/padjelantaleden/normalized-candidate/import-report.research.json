@@ -1,0 +1,291 @@
+{
+  "schemaVersion": "candidate-import-report/v1",
+  "trailId": "padjelantaleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-artifacts-generated-research-only",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "padjelantaleden/normalization-handoff.research.json",
+  "artifactFiles": [
+    "route-sections.research.json",
+    "route-geometry-index.research.json",
+    "facilities.research.json",
+    "rule-warnings.research.json",
+    "import-report.research.json"
+  ],
+  "supplementalArtifactFiles": [
+    "route-topology.research.json",
+    "facility-clusters.research.json"
+  ],
+  "manifestSectionFiles": 10,
+  "generatedCounts": {
+    "routeSections": 10,
+    "geometrySections": 10,
+    "geometrySectionsWithCandidateGeojson": 0,
+    "routeTopologyDecisions": 1,
+    "routeGroups": 1,
+    "routeTopologyConnections": 2,
+    "facilities": 254,
+    "facilityClusters": 177,
+    "dedupeCandidateClusters": 67,
+    "ruleWarnings": 214
+  },
+  "routeTopologySummary": {
+    "status": "candidate-display-and-topology-decisions-applied",
+    "decisionIds": [
+      "padjelantaleden-headline-distance-policy"
+    ],
+    "routeGroupIds": [
+      "padjelantaleden-mainline"
+    ],
+    "connectionIds": [
+      "padjelantaleden-ritsem-akka-boat-access",
+      "padjelantaleden-kvikkjokk-bobacken-boat-access"
+    ]
+  },
+  "facilityClusterSummary": {
+    "totalFacilities": 254,
+    "clusterCount": 177,
+    "multiFacilityClusters": 49,
+    "dedupeCandidateClusters": 67,
+    "byRecommendedAction": {
+      "single-record": 110,
+      "dedupe-related-site-cluster": 10,
+      "keep-suppressed": 21,
+      "dedupe-duplicate-facility": 26,
+      "attach-child-amenities-to-parent": 10
+    }
+  },
+  "blockers": [
+    {
+      "id": "blocker-1",
+      "status": "unresolved",
+      "details": "Runtime import requires a normalizer to choose and document distance fields, endpoint snaps, geometry splits, and access connector modeling."
+    },
+    {
+      "id": "blocker-2",
+      "status": "unresolved",
+      "details": "Dynamic 2026 access/currentness sources need rechecking close to publication."
+    },
+    {
+      "id": "blocker-3",
+      "status": "unresolved",
+      "details": "Several POIs must be attached/suppressed rather than imported as standalone guessed coordinates."
+    },
+    {
+      "id": "blocker-4",
+      "status": "unresolved",
+      "details": "README.md status is older than research-progress.json and caveats-resolution.research.json; use the progress ledger and caveat-resolution packet for current coverage."
+    }
+  ],
+  "openDecisions": [
+    {
+      "id": "decision-1",
+      "details": "Decide whether to publish an official headline distance before geometry split review, because official/tourism sources vary between about 140 km, 150 km, 150-160 km, and 160 km."
+    },
+    {
+      "id": "decision-2",
+      "details": "Decide the app connector model for M/S Storlule, Kvikkjokk-Bobäcken, helicopter midpoint access and the Gamájåhkå walking alternative."
+    },
+    {
+      "id": "decision-3",
+      "details": "Decide whether hut toilets, emergency phones, water points, waste points and seasonal shop/provisions should be standalone facilities or attached to parent hut records."
+    },
+    {
+      "id": "decision-4",
+      "details": "Decide whether OSM-only firepits, informal campsites, minor rest areas, viewpoints, picnic sites and swimming spots without durable coordinates should remain suppressed/pending."
+    }
+  ],
+  "blockerTriage": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "blocker-1",
+      "status": "unresolved",
+      "details": "Runtime import requires a normalizer to choose and document distance fields, endpoint snaps, geometry splits, and access connector modeling.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    },
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "blocker-2",
+      "status": "unresolved",
+      "details": "Dynamic 2026 access/currentness sources need rechecking close to publication.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "blocker-3",
+      "status": "unresolved",
+      "details": "Several POIs must be attached/suppressed rather than imported as standalone guessed coordinates.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "blocker-4",
+      "status": "unresolved",
+      "details": "README.md status is older than research-progress.json and caveats-resolution.research.json; use the progress ledger and caveat-resolution packet for current coverage.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Updated Padjelantaleden README status to reflect completed 10-section research and generated candidate artifacts."
+    },
+    {
+      "id": "open-decision-5",
+      "itemType": "open-decision",
+      "sourceId": "decision-1",
+      "status": "open-decision",
+      "details": "Decide whether to publish an official headline distance before geometry split review, because official/tourism sources vary between about 140 km, 150 km, 150-160 km, and 160 km.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Distance policy now suppresses a single headline total and keeps contradictory whole-trail claims as metadata."
+    },
+    {
+      "id": "open-decision-6",
+      "itemType": "open-decision",
+      "sourceId": "decision-2",
+      "status": "open-decision",
+      "details": "Decide the app connector model for M/S Storlule, Kvikkjokk-Bobäcken, helicopter midpoint access and the Gamájåhkå walking alternative.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "decision-3",
+      "status": "open-decision",
+      "details": "Decide whether hut toilets, emergency phones, water points, waste points and seasonal shop/provisions should be standalone facilities or attached to parent hut records.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "open-decision-8",
+      "itemType": "open-decision",
+      "sourceId": "decision-4",
+      "status": "open-decision",
+      "details": "Decide whether OSM-only firepits, informal campsites, minor rest areas, viewpoints, picnic sites and swimming spots without durable coordinates should remain suppressed/pending.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    }
+  ],
+  "triageSummary": {
+    "runtime-schema-needed": 2,
+    "defer-publication-time": 2,
+    "resolved-now": 4
+  },
+  "fixesAppliedNow": [
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "blocker-3",
+      "status": "unresolved",
+      "details": "Several POIs must be attached/suppressed rather than imported as standalone guessed coordinates.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "blocker-4",
+      "status": "unresolved",
+      "details": "README.md status is older than research-progress.json and caveats-resolution.research.json; use the progress ledger and caveat-resolution packet for current coverage.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Updated Padjelantaleden README status to reflect completed 10-section research and generated candidate artifacts."
+    },
+    {
+      "id": "open-decision-5",
+      "itemType": "open-decision",
+      "sourceId": "decision-1",
+      "status": "open-decision",
+      "details": "Decide whether to publish an official headline distance before geometry split review, because official/tourism sources vary between about 140 km, 150 km, 150-160 km, and 160 km.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Distance policy now suppresses a single headline total and keeps contradictory whole-trail claims as metadata."
+    },
+    {
+      "id": "open-decision-8",
+      "itemType": "open-decision",
+      "sourceId": "decision-4",
+      "status": "open-decision",
+      "details": "Decide whether OSM-only firepits, informal campsites, minor rest areas, viewpoints, picnic sites and swimming spots without durable coordinates should remain suppressed/pending.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    }
+  ],
+  "fixNowBeforeRuntimeImport": [],
+  "runtimeSchemaNeeded": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "blocker-1",
+      "status": "unresolved",
+      "details": "Runtime import requires a normalizer to choose and document distance fields, endpoint snaps, geometry splits, and access connector modeling.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    },
+    {
+      "id": "open-decision-6",
+      "itemType": "open-decision",
+      "sourceId": "decision-2",
+      "status": "open-decision",
+      "details": "Decide the app connector model for M/S Storlule, Kvikkjokk-Bobäcken, helicopter midpoint access and the Gamájåhkå walking alternative.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    }
+  ],
+  "deferredBeforeRuntimeImport": [
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "blocker-2",
+      "status": "unresolved",
+      "details": "Dynamic 2026 access/currentness sources need rechecking close to publication.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "decision-3",
+      "status": "open-decision",
+      "details": "Decide whether hut toilets, emergency phones, water points, waste points and seasonal shop/provisions should be standalone facilities or attached to parent hut records.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    }
+  ],
+  "validationChecklist": [
+    "Parse trail.research.json, research-progress.json, caveats-resolution.research.json and all sections/*.research.json as JSON.",
+    "Confirm section count remains 10 and every section listed in officialSectionOrder has a matching sections/*.research.json file.",
+    "Confirm no files outside data/research/candidate-trails/padjelantaleden/ are changed by the normalization-handoff task.",
+    "Before runtime work, document officialDisplayDistance, computedGeometryKm, geometrySource, split indices, endpoint snap policy, access connectors and facility import actions per section.",
+    "Before publication/runtime import, recheck all dynamic access/currentness sources listed in caveats-resolution.research.json."
+  ],
+  "unresolvedBeforeRuntimeImport": [
+    "runtime-schema-needed: Runtime import requires a normalizer to choose and document distance fields, endpoint snaps, geometry splits, and access connector modeling.",
+    "defer-publication-time: Dynamic 2026 access/currentness sources need rechecking close to publication.",
+    "runtime-schema-needed: Decide the app connector model for M/S Storlule, Kvikkjokk-Bobäcken, helicopter midpoint access and the Gamájåhkå walking alternative.",
+    "defer-publication-time: Decide whether hut toilets, emergency phones, water points, waste points and seasonal shop/provisions should be standalone facilities or attached to parent hut records."
+  ],
+  "nextActions": [
+    "Handle fixNowBeforeRuntimeImport first unless the linked item truly needs external data.",
+    "Keep pending-review and suppress facility states out of runtime output.",
+    "Run final GIS overlays and live publication checks before user-facing rule warnings.",
+    "Do not write app runtime source data from this report without an explicit runtime integration task."
+  ]
+}

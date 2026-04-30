@@ -8,7 +8,9 @@ Trail ID: `hogakustenleden`
 
 The local candidate packet now has all 9 current sections researched under
 `sections/*.research.json`, plus a synchronized `research-progress.json` and
-`trail.research.json` overview.
+`trail.research.json` overview. The normalized candidate packet also includes
+`protected-area-overlays.research.json`, which converts the caveat-resolution
+boundary pass into section/chainage rule scopes.
 
 Use the active Höga Kusten tourism pages and current Naturkartan section pages
 as the baseline. Older 7-stage and 13-stage variants appear in official or
@@ -27,7 +29,7 @@ normalization pass resolves:
 - Slåttdalsskrevan: model as hazard/avoid-through-passage/current-route
   warning, and recheck official notices before publishing.
 - Protected-area rules: apply Skuleskogen, Skuleberget, Balesudden, and
-  Hörnsjön rules only to the affected route portions recorded in the section
-  packets and caveat resolution file.
+  Hörnsjön rules only to the affected route portions recorded in
+  `normalized-candidate/protected-area-overlays.research.json`.
 - Transit: replace DinTur/Fskab research stop ids with authoritative GTFS or
   ResRobot ids if available during import.

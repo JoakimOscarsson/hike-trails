@@ -11,6 +11,8 @@ Phase 1 overview is complete from the live official Hallandsleden site/API as ac
 - `trail.research.json`: whole-trail overview, official source URLs, subtrail structure, section inventory, overview rules/currentness risks.
 - `research-progress.json`: resumable progress ledger for this trail.
 - `geometry/`: research-only candidate geometry artifacts generated from all 35 official GPX files. `canonical/*.geojson` preserves exact official GPX track/segment coordinates, `draw-ready/*.geojson` linearly densifies long intra-segment jumps over 250 m for rendering while preserving official segment breaks, and `geometry-index.research.json` records source hashes, gaps and caveats.
+- `geometry/protected-area-overlays/`: research-only official GIS source downloads for protected-area, Natura 2000, water-protection, regulatory-area and biotopskydd overlay QA.
+- `normalized-candidate/protected-area-overlays.research.json`: computed canonical-route/facility overlap artifact for rule-warning scoping.
 - `sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json`: N1 section research synthesized from the required six-lane agent batch.
 - `sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json`: N2 section research synthesized from the required six-lane agent batch.
 - `sections/hallandsleden-askhults-by-stattared.research.json`: N3 section research synthesized from the required six-lane agent batch.
@@ -57,6 +59,10 @@ The current official site reports Hallandsleden as 612 km. The live official sec
 - Kusten: 10 sections, 143.2 km
 
 The inland route is branched rather than a single line. It meets Bohusleden at Älvsåker in the north and Skåneleden at Koarp in the south. The coastal route is still being completed; official text says coastal stages in Falkenberg and Varberg are planned to be added during 2026-2027.
+
+## Protected-Area Overlay Pass
+
+Overlay pass on 2026-04-30: `normalized-candidate/protected-area-overlays.research.json` records route-bbox official GIS checks against Hallandsleden canonical candidate route geometry and facility points. Draw-ready geometry is excluded because it is display QA only. The artifact retains 87 protected/restriction records: 68 with route overlap, 18 with facility overlap, 91 route-overlap records and 98 facility-overlap records across protected areas, Natura 2000, water-protection areas, regulatory areas and biotopskydd. Warning granularity is now resolved for normalization prep: use route-subsegment warnings for canonical route overlaps, facility/site notes for point overlaps, and keep volatile fire, transit, closure, beach-rule and service checks as publication-time whole-trail/section checks.
 
 ## Source Caveats
 

@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "candidate-route-topology/v1",
+  "trailId": "padjelantaleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-display-and-topology-decisions-applied",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "padjelantaleden/normalization-handoff.research.json",
+  "sharedDecisionFile": "shared-importer-decisions.research.json",
+  "topologyPolicy": {
+    "decision": "Use route groups for walked official route topology and connections for transfers between route entries.",
+    "routeGroupKinds": {
+      "mainline": "Primary continuous official section chain for the selected trail model.",
+      "branch": "Official alternate or side branch that can be hiked as trail, but should not be silently merged into the mainline.",
+      "access": "Official or strongly supported approach route to/from public transport, village, trailhead or another trail.",
+      "connector": "Walked link between route groups or nearby route sections where it is part of the trail model."
+    },
+    "connectionsUse": "Use connections.json-style records for non-section transfers or continuity records between sections: ferry, bus, road transfer, rowboat, short walk transfer, same-island continuity, or mode none for a known gap with no usable transfer geometry.",
+    "officialRowboatRule": "If a rowboat crossing is an official route entry in its own right, model it as a section route with strong warnings. Otherwise model it as a rowboat connection or access/side metadata."
+  },
+  "topologySourceSummary": {
+    "importOrder": [
+      {
+        "phase": "preflight",
+        "actions": [
+          "Review caveats-resolution.research.json together with the 10 section research files before any normalization work.",
+          "Map each section to officialDisplayDistance, computedGeometryKm, geometrySource, split indices, endpoint snap policy, access connectors, and facility import actions."
+        ]
+      },
+      {
+        "phase": "sections",
+        "sectionIds": [
+          "padjelantaleden-stage-01-ritsem-akka-gisuris",
+          "padjelantaleden-stage-02-gisuris-laddejahka",
+          "padjelantaleden-stage-03-laddejahka-arasluokta",
+          "padjelantaleden-stage-04-arasluokta-staloluokta",
+          "padjelantaleden-stage-05-staloluokta-duottar",
+          "padjelantaleden-stage-06-duottar-darreluoppal",
+          "padjelantaleden-stage-07-darreluoppal-sammarlappa",
+          "padjelantaleden-stage-08-sammarlappa-tarrekaise",
+          "padjelantaleden-stage-09-tarrekaise-njunjes",
+          "padjelantaleden-stage-10-njunjes-kvikkjokk"
+        ]
+      },
+      {
+        "phase": "connectors",
+        "connectorNames": [
+          "M/S Storlule Ritsem-Änonjálmme/Vájsáluokta",
+          "Kvikkjokk-Bobäcken boat",
+          "Stáloluokta helicopter midpoint access",
+          "Vájsáluokta/Kutjaure northern alternative",
+          "Gamájåhkå walking alternative near Kvikkjokk"
+        ]
+      }
+    ]
+  },
+  "decisionsApplied": [
+    {
+      "id": "padjelantaleden-headline-distance-policy",
+      "fixNowItemRefs": [
+        "decision-1"
+      ],
+      "decision": "Do not publish a single official headline distance yet; use section-level display distances and preserve the 140/150/150-160/160 km source claims until geometry split review."
+    }
+  ],
+  "routeGroups": [
+    {
+      "groupId": "padjelantaleden-mainline",
+      "kind": "mainline",
+      "status": "candidate-topology-explicit",
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris",
+        "padjelantaleden-stage-02-gisuris-laddejahka",
+        "padjelantaleden-stage-03-laddejahka-arasluokta",
+        "padjelantaleden-stage-04-arasluokta-staloluokta",
+        "padjelantaleden-stage-05-staloluokta-duottar",
+        "padjelantaleden-stage-06-duottar-darreluoppal",
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa",
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise",
+        "padjelantaleden-stage-09-tarrekaise-njunjes",
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "connectionId": "padjelantaleden-ritsem-akka-boat-access",
+      "fromSectionId": "padjelantaleden-stage-01-ritsem-akka-gisuris",
+      "mode": "boat",
+      "status": "access-connector-metadata",
+      "importPolicy": "Keep M/S Storlule and trailhead boat access as connector/access metadata, not walking route geometry."
+    },
+    {
+      "connectionId": "padjelantaleden-kvikkjokk-bobacken-boat-access",
+      "fromSectionId": "padjelantaleden-stage-10-njunjes-kvikkjokk",
+      "mode": "boat",
+      "status": "access-connector-metadata",
+      "importPolicy": "Keep Kvikkjokk-Bobäcken boat logistics in the description/connector layer until runtime connector support exists."
+    }
+  ],
+  "displayPolicies": [
+    {
+      "scope": "whole-trail",
+      "displayDistanceKm": null,
+      "contradictionPolicy": "Suppress single headline total; show section distances and source-claim caveats."
+    }
+  ],
+  "remainingGeometryWork": [
+    "Complete geometry split review and connector/runtime schema work for boats, helicopter access and alternates."
+  ],
+  "unresolvedSectionRefs": []
+}

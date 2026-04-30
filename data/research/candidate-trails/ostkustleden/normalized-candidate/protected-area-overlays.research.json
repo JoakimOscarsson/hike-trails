@@ -1,0 +1,883 @@
+{
+  "schemaVersion": "candidate-protected-area-overlays/v1",
+  "trailId": "ostkustleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-gis-overlay-computed-research-only",
+  "runtimeImportApproved": false,
+  "sourceArtifact": "ostkustleden/normalization-handoff.research.json",
+  "method": "Fetched official Naturvårdsverket NVR/Natura 2000/water-protection WFS polygons plus Skogsstyrelsen biotopskydd ArcGIS GeoJSON for the boundary-sensitive Ostkustleden rule list, then checked all normalized candidate facility points and generated candidate GPX route GeoJSON segments.",
+  "summary": {
+    "protectedAreas": 15,
+    "protectedAreasWithRouteOverlap": 7,
+    "protectedAreasWithFacilityOverlap": 7,
+    "routeOverlapRecords": 13,
+    "facilityOverlapRecords": 26
+  },
+  "records": [
+    {
+      "overlayId": "ostkustleden-humlenas-reserve-and-natura-2000",
+      "protectedArea": "Humlenäs reserve and Natura 2000",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NR&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272002273%27",
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-n2k%3APS.ProtectedSites.Natura2000&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=omradesnamn%3D%27Humlen%C3%A4s%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/ostkustleden/geometry/protected-area-overlays/source-downloads/humlenas-reserve-and-natura-2000-nature-reserve-2002273.geojson",
+        "data/research/candidate-trails/ostkustleden/geometry/protected-area-overlays/source-downloads/humlenas-reserve-and-natura-2000-natura-2000-humlenas.geojson"
+      ],
+      "recommendation": "Attach Humlenäs visitor rules only to the overlapping Nynäs/Humlenäs route and facility context.",
+      "confidence": "high",
+      "routeOverlaps": [
+        {
+          "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/ostkustleden/geometry/candidate/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.geojson",
+              "lineIndex": 1,
+              "rangesKm": [
+                {
+                  "startKm": 0,
+                  "endKm": 0.364
+                },
+                {
+                  "startKm": 0.476,
+                  "endKm": 0.832
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/ostkustleden/geometry/candidate/sections/ostkustleden-etapp-2-nynas-lonhult.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 0,
+                  "endKm": 1.365
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "facilityOverlaps": [
+        {
+          "facilityId": "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-9-bord-humlenas",
+          "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+          "name": "Bord, Humlenäs",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            57.357742,
+            16.266326
+          ]
+        },
+        {
+          "facilityId": "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-8-humlenas-farm-dry-toilet",
+          "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+          "name": "Humlenäs farm dry toilet",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            57.361095,
+            16.266156
+          ]
+        },
+        {
+          "facilityId": "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-10-humlenas-naturreservat",
+          "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+          "name": "Humlenäs naturreservat",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import-as-access",
+          "coordinatesLatLon": [
+            57.361464,
+            16.263466
+          ]
+        },
+        {
+          "facilityId": "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-6-nynas-dry-toilet",
+          "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+          "name": "Nynäs dry toilet",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            57.359085,
+            16.256439
+          ]
+        },
+        {
+          "facilityId": "ostkustleden-etapp-2-nynas-lonhult-facilities-1-nynas-dry-toilet",
+          "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+          "name": "Nynäs dry toilet",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            57.3590847,
+            16.2564388
+          ]
+        }
+      ]
+    },
+    {
+      "overlayId": "ostkustleden-brabygden-natura-2000",
+      "protectedArea": "Bråbygden Natura 2000",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-n2k%3APS.ProtectedSites.Natura2000&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=omradesnamn%3D%27Br%C3%A5bygden%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/ostkustleden/geometry/protected-area-overlays/source-downloads/brabygden-natura-2000-natura-2000-brabygden.geojson"
+      ],
+      "recommendation": "Use as environmental/context warning only where final route geometry intersects the Natura 2000 polygon.",
+      "confidence": "medium-high",
+      "routeOverlaps": [
+        {
+          "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/ostkustleden/geometry/candidate/sections/ostkustleden-etapp-2-nynas-lonhult.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 6.085,
+                  "endKm": 6.376
+                },
+                {
+                  "startKm": 6.506,
+                  "endKm": 6.712
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "facilityOverlaps": [
+        {
+          "facilityId": "ostkustleden-etapp-2-nynas-lonhult-facilities-16-brabo-b-b-och-cafe",
+          "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+          "name": "Bråbo B&B och Café",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import-as-access",
+          "coordinatesLatLon": [
+            57.3401903,
+            16.1644476
+          ]
+        },
+        {
+          "facilityId": "ostkustleden-etapp-2-nynas-lonhult-watersources-3-brahultsjon-brahultesjon-bathing-water-context",
+          "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+          "name": "Bråhultsjön / Bråhultesjön bathing-water context",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            57.35339748571479,
+            16.17513466938698
+          ]
+        },
+        {
+          "facilityId": "ostkustleden-etapp-2-nynas-lonhult-facilities-2-brahultsjons-badplats",
+          "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+          "name": "Bråhultsjöns badplats",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            57.35339748571479,
+            16.17513466938698
+          ]
+        },
+        {
+          "facilityId": "ostkustleden-etapp-2-nynas-lonhult-facilities-5-brahultsjons-badplats-dry-toilet",
+          "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+          "name": "Bråhultsjöns badplats dry toilet",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "attach-to-parent",
+          "coordinatesLatLon": [
+            57.35339748571479,
+            16.17513466938698
+          ]
+        },
+        {
+          "facilityId": "ostkustleden-etapp-2-nynas-lonhult-facilities-4-brahultsjons-badplats-grillplats",
+          "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+          "name": "Bråhultsjöns badplats grillplats",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            57.3533851,
+            16.1752322
+          ]
+        },
+        {
+          "facilityId": "ostkustleden-etapp-2-nynas-lonhult-facilities-3-brahultsjons-badplats-rest-area",
+          "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+          "name": "Bråhultsjöns badplats rest area",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            57.35339748571479,
+            16.17513466938698
+          ]
+        }
+      ]
+    },
+    {
+      "overlayId": "ostkustleden-krokshult-reserve-and-natura-2000",
+      "protectedArea": "Krokshult reserve and Natura 2000",
+      "status": "no-candidate-overlap",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NR&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272002269%27",
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-n2k%3APS.ProtectedSites.Natura2000&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=omradesnamn%3D%27Krokshult%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/ostkustleden/geometry/protected-area-overlays/source-downloads/krokshult-reserve-and-natura-2000-nature-reserve-2002269.geojson",
+        "data/research/candidate-trails/ostkustleden/geometry/protected-area-overlays/source-downloads/krokshult-reserve-and-natura-2000-natura-2000-krokshult.geojson"
+      ],
+      "recommendation": "Do not apply Krokshult rules unless the final route/access geometry intersects.",
+      "confidence": "medium-high",
+      "routeOverlaps": [],
+      "facilityOverlaps": []
+    },
+    {
+      "overlayId": "ostkustleden-misterhults-skargard-nature-reserve",
+      "protectedArea": "Misterhults skärgård nature reserve",
+      "status": "no-candidate-overlap",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NR&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272002259%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/ostkustleden/geometry/protected-area-overlays/source-downloads/misterhults-skargard-nature-reserve-nature-reserve-2002259.geojson"
+      ],
+      "recommendation": "Keep as off-route coastal/archipelago context unless route or access geometry intersects.",
+      "confidence": "medium-high",
+      "routeOverlaps": [],
+      "facilityOverlaps": []
+    },
+    {
+      "overlayId": "ostkustleden-tjustgol-nature-reserve",
+      "protectedArea": "Tjustgöl nature reserve",
+      "status": "no-candidate-overlap",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NR&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272053929%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/ostkustleden/geometry/protected-area-overlays/source-downloads/tjustgol-nature-reserve-nature-reserve-2053929.geojson"
+      ],
+      "recommendation": "Do not attach Tjustgöl rules to stage 6 unless final geometry intersects the reserve boundary.",
+      "confidence": "medium-high",
+      "routeOverlaps": [],
+      "facilityOverlaps": []
+    },
+    {
+      "overlayId": "ostkustleden-figeholm-reserve-and-natura-2000",
+      "protectedArea": "Figeholm reserve and Natura 2000",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NR&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272012989%27",
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-n2k%3APS.ProtectedSites.Natura2000&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=omradesnamn%3D%27Figeholm%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/ostkustleden/geometry/protected-area-overlays/source-downloads/figeholm-reserve-and-natura-2000-nature-reserve-2012989.geojson",
+        "data/research/candidate-trails/ostkustleden/geometry/protected-area-overlays/source-downloads/figeholm-reserve-and-natura-2000-natura-2000-figeholm.geojson"
+      ],
+      "recommendation": "Attach Figeholm reserve visitor rules to overlapping stage-7 route/facility context.",
+      "confidence": "high",
+      "routeOverlaps": [
+        {
+          "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/ostkustleden/geometry/candidate/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 13.053,
+                  "endKm": 15.396
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "facilityOverlaps": []
+    },
+    {
+      "overlayId": "ostkustleden-stamsjovagen-nature-reserve",
+      "protectedArea": "Stamsjövägen nature reserve",
+      "status": "no-candidate-overlap",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.NR&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272022669%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/ostkustleden/geometry/protected-area-overlays/source-downloads/stamsjovagen-nature-reserve-nature-reserve-2022669.geojson"
+      ],
+      "recommendation": "Keep as nearby Fårbo/E22 context unless final route/access geometry intersects.",
+      "confidence": "medium-high",
+      "routeOverlaps": [],
+      "facilityOverlaps": []
+    },
+    {
+      "overlayId": "ostkustleden-stensjo-by-cultural-reserve",
+      "protectedArea": "Stensjö by cultural reserve",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-nvr%3APS.ProtectedSites.KR&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272054561%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/ostkustleden/geometry/protected-area-overlays/source-downloads/stensjo-by-cultural-reserve-cultural-reserve-2054561.geojson"
+      ],
+      "recommendation": "Attach cultural-reserve rules to overlapping stage-8 route and facility context.",
+      "confidence": "high",
+      "routeOverlaps": [
+        {
+          "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/ostkustleden/geometry/candidate/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.geojson",
+              "lineIndex": 1,
+              "rangesKm": [
+                {
+                  "startKm": 0,
+                  "endKm": 0.004
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/ostkustleden/geometry/candidate/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.geojson",
+              "lineIndex": 2,
+              "rangesKm": [
+                {
+                  "startKm": 0,
+                  "endKm": 0.864
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/ostkustleden/geometry/candidate/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.geojson",
+              "lineIndex": 3,
+              "rangesKm": [
+                {
+                  "startKm": 0,
+                  "endKm": 0.573
+                },
+                {
+                  "startKm": 0.649,
+                  "endKm": 1.854
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/ostkustleden/geometry/candidate/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.geojson",
+              "lineIndex": 7,
+              "rangesKm": [
+                {
+                  "startKm": 2.253,
+                  "endKm": 2.267
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "facilityOverlaps": [
+        {
+          "facilityId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-3-stensjo-by-kulturreservat-village",
+          "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+          "name": "Stensjö by kulturreservat / village",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            57.3455546,
+            16.4664022
+          ]
+        },
+        {
+          "facilityId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-4-stensjo-by-parking",
+          "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+          "name": "Stensjö by parking",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import-as-access",
+          "coordinatesLatLon": [
+            57.3446619,
+            16.4667458
+          ]
+        },
+        {
+          "facilityId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-6-stensjo-by-picnic-site",
+          "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+          "name": "Stensjö by picnic site",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            57.3449578,
+            16.466313
+          ]
+        },
+        {
+          "facilityId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-5-stensjo-by-toilets",
+          "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+          "name": "Stensjö by toilets",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            57.3446658,
+            16.466473
+          ]
+        }
+      ]
+    },
+    {
+      "overlayId": "ostkustleden-virans-vattensystem-natura-2000",
+      "protectedArea": "Viråns vattensystem Natura 2000",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=ps-n2k%3APS.ProtectedSites.Natura2000&outputFormat=application%2Fjson&srsName=EPSG%3A4326&CQL_FILTER=omradesnamn%3D%27Vir%C3%A5ns+vattensystem%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/ostkustleden/geometry/protected-area-overlays/source-downloads/virans-vattensystem-natura-2000-natura-2000-virans-vattensystem.geojson"
+      ],
+      "recommendation": "Attach Natura 2000 context only where final stage-8 route geometry intersects the river-system polygon.",
+      "confidence": "medium-high",
+      "routeOverlaps": [
+        {
+          "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/ostkustleden/geometry/candidate/sections/ostkustleden-etapp-2-nynas-lonhult.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 1.341,
+                  "endKm": 1.426
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/ostkustleden/geometry/candidate/sections/ostkustleden-etapp-3-lonhult-krokstorp.geojson",
+              "lineIndex": 9,
+              "rangesKm": [
+                {
+                  "startKm": 0.689,
+                  "endKm": 0.833
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/ostkustleden/geometry/candidate/sections/ostkustleden-etapp-7-lilla-laxemar-hallveberg.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 20.754,
+                  "endKm": 20.798
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/ostkustleden/geometry/candidate/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.geojson",
+              "lineIndex": 3,
+              "rangesKm": [
+                {
+                  "startKm": 0.189,
+                  "endKm": 0.225
+                }
+              ]
+            },
+            {
+              "sourceGeojson": "data/research/candidate-trails/ostkustleden/geometry/candidate/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.geojson",
+              "lineIndex": 7,
+              "rangesKm": [
+                {
+                  "startKm": 1.271,
+                  "endKm": 1.284
+                },
+                {
+                  "startKm": 1.638,
+                  "endKm": 1.666
+                },
+                {
+                  "startKm": 2.245,
+                  "endKm": 2.267
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "facilityOverlaps": [
+        {
+          "facilityId": "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-17-hummeln",
+          "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+          "name": "Hummeln",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            57.373105,
+            16.254432
+          ]
+        },
+        {
+          "facilityId": "ostkustleden-etapp-1-lilla-hycklinge-nynas-watersources-2-lake-hummeln-emergency-raw-water",
+          "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+          "name": "Lake Hummeln emergency/raw water",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            57.373105,
+            16.254432
+          ]
+        },
+        {
+          "facilityId": "ostkustleden-etapp-2-nynas-lonhult-watersources-1-lake-hummeln-raw-emergency-water",
+          "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+          "name": "Lake Hummeln raw/emergency water",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            57.373105,
+            16.254432
+          ]
+        }
+      ]
+    },
+    {
+      "overlayId": "ostkustleden-hummeln-kristdala-water-protection-area",
+      "protectedArea": "Hummeln/Kristdala water-protection area",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeNames=am-restriction%3AAM.drinkingWaterProtectionArea&outputFormat=json&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272058321%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/ostkustleden/geometry/protected-area-overlays/source-downloads/hummeln-kristdala-water-protection-area-water-protection-area-2058321.geojson"
+      ],
+      "recommendation": "Attach water-protection caveats only to overlapping route/facility context near Hummeln/Kristdala.",
+      "confidence": "medium-high",
+      "routeOverlaps": [
+        {
+          "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/ostkustleden/geometry/candidate/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.geojson",
+              "lineIndex": 1,
+              "rangesKm": [
+                {
+                  "startKm": 0.488,
+                  "endKm": 1.068
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/ostkustleden/geometry/candidate/sections/ostkustleden-etapp-2-nynas-lonhult.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 0.887,
+                  "endKm": 1.826
+                },
+                {
+                  "startKm": 1.964,
+                  "endKm": 2.054
+                },
+                {
+                  "startKm": 2.228,
+                  "endKm": 2.614
+                },
+                {
+                  "startKm": 3.314,
+                  "endKm": 3.626
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "facilityOverlaps": [
+        {
+          "facilityId": "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-8-humlenas-farm-dry-toilet",
+          "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+          "name": "Humlenäs farm dry toilet",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import",
+          "coordinatesLatLon": [
+            57.361095,
+            16.266156
+          ]
+        },
+        {
+          "facilityId": "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-17-hummeln",
+          "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+          "name": "Hummeln",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            57.373105,
+            16.254432
+          ]
+        },
+        {
+          "facilityId": "ostkustleden-etapp-1-lilla-hycklinge-nynas-watersources-2-lake-hummeln-emergency-raw-water",
+          "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+          "name": "Lake Hummeln emergency/raw water",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            57.373105,
+            16.254432
+          ]
+        },
+        {
+          "facilityId": "ostkustleden-etapp-2-nynas-lonhult-watersources-1-lake-hummeln-raw-emergency-water",
+          "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+          "name": "Lake Hummeln raw/emergency water",
+          "candidateType": null,
+          "state": "pending-review",
+          "importAction": "pending-review",
+          "coordinatesLatLon": [
+            57.373105,
+            16.254432
+          ]
+        },
+        {
+          "facilityId": "ostkustleden-etapp-2-nynas-lonhult-facilities-17-rasviks-badplats",
+          "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+          "name": "Råsviks badplats",
+          "candidateType": null,
+          "state": "suppress",
+          "importAction": "suppress",
+          "coordinatesLatLon": [
+            57.37291562571036,
+            16.23802640963547
+          ]
+        }
+      ]
+    },
+    {
+      "overlayId": "ostkustleden-eckern-and-djupetrask-water-protection-area",
+      "protectedArea": "Eckern and Djupeträsk water-protection area",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeNames=am-restriction%3AAM.drinkingWaterProtectionArea&outputFormat=json&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272011726%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/ostkustleden/geometry/protected-area-overlays/source-downloads/eckern-and-djupetrask-water-protection-area-water-protection-area-2011726.geojson"
+      ],
+      "recommendation": "Attach water-protection caveats only where final route/facility geometry intersects.",
+      "confidence": "medium-high",
+      "routeOverlaps": [
+        {
+          "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/ostkustleden/geometry/candidate/sections/ostkustleden-etapp-1-lilla-hycklinge-nynas.geojson",
+              "lineIndex": 0,
+              "rangesKm": [
+                {
+                  "startKm": 0,
+                  "endKm": 0.038
+                },
+                {
+                  "startKm": 0.323,
+                  "endKm": 0.71
+                },
+                {
+                  "startKm": 0.87,
+                  "endKm": 1.394
+                },
+                {
+                  "startKm": 1.497,
+                  "endKm": 1.633
+                },
+                {
+                  "startKm": 1.836,
+                  "endKm": 2.527
+                },
+                {
+                  "startKm": 2.609,
+                  "endKm": 4.073
+                },
+                {
+                  "startKm": 5.045,
+                  "endKm": 5.334
+                },
+                {
+                  "startKm": 5.883,
+                  "endKm": 6.425
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+          "status": "route-segment-overlap",
+          "overlaps": [
+            {
+              "sourceGeojson": "data/research/candidate-trails/ostkustleden/geometry/candidate/sections/ostkustleden-etapp-8-hallveberg-lilla-hycklinge.geojson",
+              "lineIndex": 5,
+              "rangesKm": [
+                {
+                  "startKm": 0,
+                  "endKm": 0.013
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "facilityOverlaps": [
+        {
+          "facilityId": "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-2-busshallplats-lilla-hycklinge",
+          "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+          "name": "Busshållplats Lilla Hycklinge",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import-as-access",
+          "coordinatesLatLon": [
+            57.276143,
+            16.379913
+          ]
+        },
+        {
+          "facilityId": "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-0-lilla-hycklinge-trailhead-etapp-1-start",
+          "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+          "name": "Lilla Hycklinge trailhead / Etapp 1 start",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import-as-access",
+          "coordinatesLatLon": [
+            57.276033,
+            16.382461
+          ]
+        }
+      ]
+    },
+    {
+      "overlayId": "ostkustleden-farbo-water-protection-area",
+      "protectedArea": "Fårbo water-protection area",
+      "status": "overlap-detected",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeNames=am-restriction%3AAM.drinkingWaterProtectionArea&outputFormat=json&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272011723%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/ostkustleden/geometry/protected-area-overlays/source-downloads/farbo-water-protection-area-water-protection-area-2011723.geojson"
+      ],
+      "recommendation": "Keep as nearby environmental constraint unless final route/access geometry intersects.",
+      "confidence": "medium-high",
+      "routeOverlaps": [],
+      "facilityOverlaps": [
+        {
+          "facilityId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg-facilities-15-farbo-stugby",
+          "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+          "name": "Fårbo Stugby",
+          "candidateType": null,
+          "state": "normal",
+          "importAction": "import-as-access",
+          "coordinatesLatLon": [
+            57.37625380159855,
+            16.4882844523554
+          ]
+        }
+      ]
+    },
+    {
+      "overlayId": "ostkustleden-bockara-water-protection-area",
+      "protectedArea": "Bockara water-protection area",
+      "status": "no-candidate-overlap",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeNames=am-restriction%3AAM.drinkingWaterProtectionArea&outputFormat=json&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272011724%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/ostkustleden/geometry/protected-area-overlays/source-downloads/bockara-water-protection-area-water-protection-area-2011724.geojson"
+      ],
+      "recommendation": "Do not attach water-protection caveats unless final route/access geometry intersects.",
+      "confidence": "medium-high",
+      "routeOverlaps": [],
+      "facilityOverlaps": []
+    },
+    {
+      "overlayId": "ostkustleden-alvehult-water-protection-area",
+      "protectedArea": "Älvehult water-protection area",
+      "status": "no-candidate-overlap",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/geoserver/ows?service=WFS&version=2.0.0&request=GetFeature&typeNames=am-restriction%3AAM.drinkingWaterProtectionArea&outputFormat=json&srsName=EPSG%3A4326&CQL_FILTER=nvrid%3D%272011725%27"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/ostkustleden/geometry/protected-area-overlays/source-downloads/alvehult-water-protection-area-water-protection-area-2011725.geojson"
+      ],
+      "recommendation": "Do not attach water-protection caveats unless final route/access geometry intersects.",
+      "confidence": "medium-high",
+      "routeOverlaps": [],
+      "facilityOverlaps": []
+    },
+    {
+      "overlayId": "ostkustleden-biotopskydd-sk-568-2007",
+      "protectedArea": "Biotopskydd SK 568-2007",
+      "status": "no-candidate-overlap",
+      "sourceUrls": [
+        "https://geodpags.skogsstyrelsen.se/arcgis/rest/services/Geodataportal/GeodataportalVisaBiotopskydd/MapServer/0/query?f=geojson&where=Beteckn%3D%27SK%20568-2007%27&outFields=*&outSR=4326"
+      ],
+      "sourceDownloads": [
+        "data/research/candidate-trails/ostkustleden/geometry/protected-area-overlays/source-downloads/biotopskydd-sk-568-2007-biotope-protection-area-sk-568-2007.geojson"
+      ],
+      "recommendation": "Attach biotope-protection context only where final stage-8 route/access geometry intersects.",
+      "confidence": "medium-high",
+      "routeOverlaps": [],
+      "facilityOverlaps": []
+    }
+  ]
+}

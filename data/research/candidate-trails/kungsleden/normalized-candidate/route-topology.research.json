@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "candidate-route-topology/v1",
+  "trailId": "kungsleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-topology-recorded-needs-geometry-and-source-policy",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "kungsleden/normalization-handoff.research.json",
+  "sharedDecisionFile": "shared-importer-decisions.research.json",
+  "topologyPolicy": {
+    "decision": "Use route groups for walked official route topology and connections for transfers between route entries.",
+    "routeGroupKinds": {
+      "mainline": "Primary continuous official section chain for the selected trail model.",
+      "branch": "Official alternate or side branch that can be hiked as trail, but should not be silently merged into the mainline.",
+      "access": "Official or strongly supported approach route to/from public transport, village, trailhead or another trail.",
+      "connector": "Walked link between route groups or nearby route sections where it is part of the trail model."
+    },
+    "connectionsUse": "Use connections.json-style records for non-section transfers or continuity records between sections: ferry, bus, road transfer, rowboat, short walk transfer, same-island continuity, or mode none for a known gap with no usable transfer geometry.",
+    "officialRowboatRule": "If a rowboat crossing is an official route entry in its own right, model it as a section route with strong warnings. Otherwise model it as a rowboat connection or access/side metadata."
+  },
+  "topologySourceSummary": {
+    "importOrder": [
+      {
+        "phase": "preflight",
+        "actions": [
+          "Confirm source/licensing approval for Naturvardsverket/Lansstyrelsen, Naturkartan, OSM/Waymarked, transit feeds and field-report metadata.",
+          "Use the generated research-only candidate GeoJSON and route-geometry-build.research.json for geometry QA; runtime import still needs source approval, endpoint-zone handling and typed boat/rowboat/road connectors."
+        ]
+      },
+      {
+        "phase": "sections",
+        "sectionIds": [
+          "kungsleden-section-01-abisko-abiskojaure",
+          "kungsleden-section-02-abiskojaure-alesjaure",
+          "kungsleden-section-03-alesjaure-tjaktja",
+          "kungsleden-section-04-tjaktja-salka",
+          "kungsleden-section-05-salka-singi",
+          "kungsleden-section-06-singi-kaitumjaure",
+          "kungsleden-section-07-kaitumjaure-teusajaure",
+          "kungsleden-section-08-teusajaure-vakkotavare",
+          "kungsleden-section-09-saltoluokta-sitojaure",
+          "kungsleden-section-10-sitojaure-aktse",
+          "kungsleden-section-11-aktse-parte",
+          "kungsleden-section-12-parte-kvikkjokk",
+          "kungsleden-section-13-kvikkjokk-tsielekjakkstugan",
+          "kungsleden-section-14-tsielekjakkstugan-pitealven",
+          "kungsleden-section-15-pitealven-gasaklahko",
+          "kungsleden-section-16-gasaklahko-vuonatjviken",
+          "kungsleden-section-17-vuonatjviken-jackvik",
+          "kungsleden-section-18-jackvik-adolfstrom",
+          "kungsleden-section-19-adolfstrom-sjnulttjie",
+          "kungsleden-section-20-sjnulttjie-ravfallsstugan",
+          "kungsleden-section-21-ravfallsstugan-ammarnas",
+          "kungsleden-section-22-ammarnas-aigert",
+          "kungsleden-section-23-aigert-serve",
+          "kungsleden-section-24-serve-tarnasjo",
+          "kungsleden-section-25-tarnasjo-syter",
+          "kungsleden-section-26-syter-viterskalet",
+          "kungsleden-section-27-viterskalet-hemavan"
+        ]
+      },
+      {
+        "phase": "connectors",
+        "connectorIds": [
+          "kungsleden-transfer-vakkotavare-saltoluokta",
+          "kungsleden-boat-teusajaure",
+          "kungsleden-boat-sitojaure-svine",
+          "kungsleden-boat-laitaure-aktse",
+          "kungsleden-boat-sakkat-kvikkjokk",
+          "kungsleden-boat-riebnes",
+          "kungsleden-rowboat-kapellstrommen"
+        ],
+        "suppressedFromMainline": [
+          "kungsleden-access-singi-kebnekaise-nikkaluokta"
+        ]
+      }
+    ]
+  },
+  "decisionsApplied": [
+    {
+      "id": "kungsleden-selected-section-chain",
+      "decision": "Keep the researched 27-section chain as the candidate topology, with non-walk transfers and water/road crossings represented as explicit connector metadata during the later importer pass."
+    }
+  ],
+  "routeGroups": [
+    {
+      "groupId": "kungsleden-mainline",
+      "kind": "mainline",
+      "status": "candidate-topology-recorded",
+      "sectionIds": [
+        "kungsleden-section-01-abisko-abiskojaure",
+        "kungsleden-section-02-abiskojaure-alesjaure",
+        "kungsleden-section-03-alesjaure-tjaktja",
+        "kungsleden-section-04-tjaktja-salka",
+        "kungsleden-section-05-salka-singi",
+        "kungsleden-section-06-singi-kaitumjaure",
+        "kungsleden-section-07-kaitumjaure-teusajaure",
+        "kungsleden-section-08-teusajaure-vakkotavare",
+        "kungsleden-section-09-saltoluokta-sitojaure",
+        "kungsleden-section-10-sitojaure-aktse",
+        "kungsleden-section-11-aktse-parte",
+        "kungsleden-section-12-parte-kvikkjokk",
+        "kungsleden-section-13-kvikkjokk-tsielekjakkstugan",
+        "kungsleden-section-14-tsielekjakkstugan-pitealven",
+        "kungsleden-section-15-pitealven-gasaklahko",
+        "kungsleden-section-16-gasaklahko-vuonatjviken",
+        "kungsleden-section-17-vuonatjviken-jackvik",
+        "kungsleden-section-18-jackvik-adolfstrom",
+        "kungsleden-section-19-adolfstrom-sjnulttjie",
+        "kungsleden-section-20-sjnulttjie-ravfallsstugan",
+        "kungsleden-section-21-ravfallsstugan-ammarnas",
+        "kungsleden-section-22-ammarnas-aigert",
+        "kungsleden-section-23-aigert-serve",
+        "kungsleden-section-24-serve-tarnasjo",
+        "kungsleden-section-25-tarnasjo-syter",
+        "kungsleden-section-26-syter-viterskalet",
+        "kungsleden-section-27-viterskalet-hemavan"
+      ]
+    }
+  ],
+  "connections": [],
+  "displayPolicies": [],
+  "remainingGeometryWork": [
+    "Transform EPSG:3006 official geometry to WGS84, assemble multi-part lines, apply endpoint-zone snapping policy and reverse directions where needed.",
+    "Resolve source-policy and connector taxonomy decisions before runtime import."
+  ],
+  "unresolvedSectionRefs": []
+}

@@ -1,0 +1,5689 @@
+{
+  "schemaVersion": "candidate-facility-clusters/v1",
+  "trailId": "padjelantaleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-normalized-research-only",
+  "runtimeImportApproved": false,
+  "facilityStatePolicy": {
+    "decision": "Normalize facilities through explicit import actions, not by deleting caveats.",
+    "candidateImportActions": [
+      "import",
+      "import-as-access",
+      "import-as-rule-warning",
+      "attach-to-parent",
+      "side-trip-metadata",
+      "pending-review",
+      "suppress"
+    ],
+    "runtimeMapping": [
+      "Only import, import-as-access, import-as-rule-warning and attach-to-parent records may become runtime data.",
+      "Pending-review and suppress records remain in research/candidate artifacts and must not appear as normal user-facing facilities.",
+      "Side-trip metadata can become user-facing only if the route or POI is intentionally modeled as a side trip."
+    ],
+    "parentClusterPolicy": "Cluster first, then split typed subfacilities only where coordinates, confidence and app taxonomy justify separate markers.",
+    "parkingAndTransitPolicy": "Parking and transit should be treated consistently with existing app trails: import verified, useful access records as user-facing parking/transit facilities or accessPoints, dedupe them by cluster, and keep timetable/parking-rule details caveated and live-checkable.",
+    "informalTentingPolicy": "Informal tenting remains a separate candidate category. Promote to runtime camping only when rules and coordinates support it; otherwise keep as caveated rule/access text or pending-review.",
+    "privateCommercialPolicy": "Private, customer-only, seasonal or opening-hours-dependent services can be imported only with clear caveats and publication-time recheck requirements."
+  },
+  "summary": {
+    "totalFacilities": 254,
+    "clusterCount": 177,
+    "multiFacilityClusters": 49,
+    "dedupeCandidateClusters": 67,
+    "byRecommendedAction": {
+      "single-record": 110,
+      "dedupe-related-site-cluster": 10,
+      "keep-suppressed": 21,
+      "dedupe-duplicate-facility": 26,
+      "attach-child-amenities-to-parent": 10
+    }
+  },
+  "clusters": [
+    {
+      "clusterId": "padjelantaleden-coord-67-1859-17-1290-hazard",
+      "clusterKey": "coord-67.1859-17.1290-hazard",
+      "representativeName": "Mapped small fords on first half of stage",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-07-first-half-ford-cluster"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        {
+          "lat": 67.185899,
+          "lon": 17.128979
+        },
+        {
+          "lat": 67.17372,
+          "lon": 17.126921
+        },
+        {
+          "lat": 67.170696,
+          "lon": 17.126312
+        },
+        {
+          "lat": 67.155297,
+          "lon": 17.127959
+        }
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-coord-67-3239-16-6952-trail-junction",
+      "clusterKey": "coord-67.3239-16.6952-trail-junction",
+      "representativeName": "Stáloluokta Virihaure piers / boat access",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-04-staloluokta-piers"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-04-arasluokta-staloluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        {
+          "lat": 67.3239184,
+          "lon": 16.6951969
+        },
+        {
+          "lat": 67.3239636,
+          "lon": 16.6952906
+        },
+        {
+          "lat": 67.3244618,
+          "lon": 16.6942614
+        }
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-coord-67-5633-17-2163-hazard",
+      "clusterKey": "coord-67.5633-17.2163-hazard",
+      "representativeName": "Gisuris nearby bridges",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-14-gisuris-nearby-bridges"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        {
+          "lat": 67.563253,
+          "lon": 17.216333
+        },
+        {
+          "lat": 67.56206,
+          "lon": 17.216285
+        },
+        {
+          "lat": 67.560945,
+          "lon": 17.21613
+        }
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-name-arasluokta-picnic-table",
+      "clusterKey": "name-arasluokta-picnic-table",
+      "representativeName": "Árasluokta picnic table",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-03-arasluokta-picnic-table",
+        "padjelantaleden-stage-04-arasluokta-picnic-table"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta",
+        "padjelantaleden-stage-04-arasluokta-staloluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction",
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "rest-area"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "padjelantaleden-name-bridge-south-of-njunjes-over-tarraatno",
+      "clusterKey": "name-bridge-south-of-njunjes-over-tarraatno",
+      "representativeName": "Bridge south of Njunjes over Tarraätno",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-09-njunjes-bridge",
+        "padjelantaleden-stage-10-njunjes-south-bridge"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-09-tarrekaise-njunjes",
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 10
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "padjelantaleden-name-gieddejahka-luoppal-bridge-near-staloluokta",
+      "clusterKey": "name-gieddejahka-luoppal-bridge-near-staloluokta",
+      "representativeName": "Gieddejåhkå / Luoppal bridge near Stáloluokta",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-04-gieddejohka-luoppal-bridge",
+        "padjelantaleden-stage-05-gieddejahka-bridge"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-04-arasluokta-staloluokta",
+        "padjelantaleden-stage-05-staloluokta-duottar"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-name-sammarlappa-picnic-table",
+      "clusterKey": "name-sammarlappa-picnic-table",
+      "representativeName": "Såmmarlappa picnic table",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-07-sammarlappa-picnic-table",
+        "padjelantaleden-stage-08-sammarlappa-picnic-table"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa",
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "padjelantaleden-name-staloluokta-helipad-kvikkjokk-route",
+      "clusterKey": "name-staloluokta-helipad-kvikkjokk-route",
+      "representativeName": "Stáloluokta helipad - Kvikkjokk route",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-04-staloluokta-helipad-kvikkjokk",
+        "padjelantaleden-stage-05-staloluokta-helipad-kvikkjokk"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-04-arasluokta-staloluokta",
+        "padjelantaleden-stage-05-staloluokta-duottar"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction",
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "attraction"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "padjelantaleden-name-staloluokta-helipad-ritsem-route",
+      "clusterKey": "name-staloluokta-helipad-ritsem-route",
+      "representativeName": "Stáloluokta helipad - Ritsem route",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-04-staloluokta-helipad-ritsem",
+        "padjelantaleden-stage-05-staloluokta-helipad-ritsem"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-04-arasluokta-staloluokta",
+        "padjelantaleden-stage-05-staloluokta-duottar"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction",
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "attraction"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "padjelantaleden-name-tarraure-swimming-near-tarrekaise",
+      "clusterKey": "name-tarraure-swimming-near-tarrekaise",
+      "representativeName": "Tarraure swimming near Tarrekaise",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-08-tarrekaise-swimming",
+        "padjelantaleden-stage-09-tarrekaise-swimming"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise",
+        "padjelantaleden-stage-09-tarrekaise-njunjes"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-9-vuojatadno-bridge-near-akka",
+      "clusterKey": "single-padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-9-vuojatadno-bridge-near-akka",
+      "representativeName": "Vuojatädno bridge near Akka",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-9-vuojatadno-bridge-near-akka"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-11-sjnjuvtjudisjahka-bridge-near-gisuris",
+      "clusterKey": "single-padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-11-sjnjuvtjudisjahka-bridge-near-gisuris",
+      "representativeName": "Sjnjuvtjudisjåhkå bridge near Gisuris",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-11-sjnjuvtjudisjahka-bridge-near-gisuris"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-15-treparksmotet-meeting-of-three-national-parks",
+      "clusterKey": "single-padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-15-treparksmotet-meeting-of-three-national-parks",
+      "representativeName": "Treparksmötet / meeting of three national parks",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-15-treparksmotet-meeting-of-three-national-parks"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "viewpoint"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [
+        "viewpoint"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-02-eastern-small-bridge-1",
+      "clusterKey": "single-padjelantaleden-stage-02-eastern-small-bridge-1",
+      "representativeName": "Stage 2 small bridge east of Vuojatädno/Varggá",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-02-eastern-small-bridge-1"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-02-eastern-small-bridge-2",
+      "clusterKey": "single-padjelantaleden-stage-02-eastern-small-bridge-2",
+      "representativeName": "Stage 2 small bridge before Vuojatädno/Varggá",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-02-eastern-small-bridge-2"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-02-laddejahka-bridge",
+      "clusterKey": "single-padjelantaleden-stage-02-laddejahka-bridge",
+      "representativeName": "Bridge east of Låddejåhkå hut",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-02-laddejahka-bridge"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-02-vuojatedno-vargga-bridge-cluster-1",
+      "clusterKey": "single-padjelantaleden-stage-02-vuojatedno-vargga-bridge-cluster-1",
+      "representativeName": "Vuojatädno/Varggá suspension bridge cluster, north/east bridge",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-02-vuojatedno-vargga-bridge-cluster-1"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-02-vuojatedno-vargga-bridge-cluster-2",
+      "clusterKey": "single-padjelantaleden-stage-02-vuojatedno-vargga-bridge-cluster-2",
+      "representativeName": "Vuojatädno/Varggá suspension bridge cluster, middle bridge",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-02-vuojatedno-vargga-bridge-cluster-2"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-02-vuojatedno-vargga-bridge-cluster-3",
+      "clusterKey": "single-padjelantaleden-stage-02-vuojatedno-vargga-bridge-cluster-3",
+      "representativeName": "Vuojatädno/Varggá suspension bridge cluster, 100 m bridge",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-02-vuojatedno-vargga-bridge-cluster-3"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-03-arasluokta-church-hut",
+      "clusterKey": "single-padjelantaleden-stage-03-arasluokta-church-hut",
+      "representativeName": "Árasluokta church hut / chapel context",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-03-arasluokta-church-hut"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-03-arasluokta-virehaure-boat",
+      "clusterKey": "single-padjelantaleden-stage-03-arasluokta-virehaure-boat",
+      "representativeName": "Árasluokta boat transport on Virihaure/Virihávrre",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-03-arasluokta-virehaure-boat"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-03-laddejahka-suspension-bridge-canyon",
+      "clusterKey": "single-padjelantaleden-stage-03-laddejahka-suspension-bridge-canyon",
+      "representativeName": "Låddejåhkå suspension bridge and canyon",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-03-laddejahka-suspension-bridge-canyon"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-03-laddejahka-west-bridge",
+      "clusterKey": "single-padjelantaleden-stage-03-laddejahka-west-bridge",
+      "representativeName": "Small bridge east of Låddejåhkå hut",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-03-laddejahka-west-bridge"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-03-mielladno-bridge",
+      "clusterKey": "single-padjelantaleden-stage-03-mielladno-bridge",
+      "representativeName": "Miellädno suspension bridge",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-03-mielladno-bridge"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-03-parkagubben-rock",
+      "clusterKey": "single-padjelantaleden-stage-03-parkagubben-rock",
+      "representativeName": "Pårkagubben rock formation",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-03-parkagubben-rock"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-03-virihaure-sulitelma-view",
+      "clusterKey": "single-padjelantaleden-stage-03-virihaure-sulitelma-view",
+      "representativeName": "Virihaure and Sulitelma view",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-03-virihaure-sulitelma-view"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-04-arasjahka-bridge",
+      "clusterKey": "single-padjelantaleden-stage-04-arasjahka-bridge",
+      "representativeName": "Árasjåhkå suspension bridge",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-04-arasjahka-bridge"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-04-arasluokta-staloluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-05-ballavrjahka-bridge",
+      "clusterKey": "single-padjelantaleden-stage-05-ballavrjahka-bridge",
+      "representativeName": "Bållávrjåhkå suspension bridge",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-05-ballavrjahka-bridge"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-05-staloluokta-duottar"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-05-duottar-side-wade-1",
+      "clusterKey": "single-padjelantaleden-stage-05-duottar-side-wade-1",
+      "representativeName": "Duottar-side wade / stream crossing 1",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-05-duottar-side-wade-1"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-05-staloluokta-duottar"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-05-duottar-side-wade-2",
+      "clusterKey": "single-padjelantaleden-stage-05-duottar-side-wade-2",
+      "representativeName": "Duottar-side wade / stream crossing 2",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-05-duottar-side-wade-2"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-05-staloluokta-duottar"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-06-darreluoppal-approach-bridge",
+      "clusterKey": "single-padjelantaleden-stage-06-darreluoppal-approach-bridge",
+      "representativeName": "Darreluoppal approach bridge",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-06-darreluoppal-approach-bridge"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-06-duottar-darreluoppal"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-06-garrajavratja-ford-cluster",
+      "clusterKey": "single-padjelantaleden-stage-06-garrajavratja-ford-cluster",
+      "representativeName": "Gårråjávrátja ford cluster",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-06-garrajavratja-ford-cluster"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-06-duottar-darreluoppal"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-06-highest-point",
+      "clusterKey": "single-padjelantaleden-stage-06-highest-point",
+      "representativeName": "Padjelantaleden highest point / Tarradalen view",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-06-highest-point"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-06-duottar-darreluoppal"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-06-mid-stage-bridge",
+      "clusterKey": "single-padjelantaleden-stage-06-mid-stage-bridge",
+      "representativeName": "Mid-stage Padjelantaleden bridge",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-06-mid-stage-bridge"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-06-duottar-darreluoppal"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-07-darreluoppal-boundary-helicopter",
+      "clusterKey": "single-padjelantaleden-stage-07-darreluoppal-boundary-helicopter",
+      "representativeName": "Darreluoppal national-park-boundary helicopter pickup/drop-off",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-07-darreluoppal-boundary-helicopter"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-07-darreluoppal-start-bridge",
+      "clusterKey": "single-padjelantaleden-stage-07-darreluoppal-start-bridge",
+      "representativeName": "Bridge/path near Darreluoppal start",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-07-darreluoppal-start-bridge"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-07-darreluoppal-start-ford",
+      "clusterKey": "single-padjelantaleden-stage-07-darreluoppal-start-ford",
+      "representativeName": "Unnamed route ford south of Darreluoppal",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-07-darreluoppal-start-ford"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-07-sammarlappa-helicopter",
+      "clusterKey": "single-padjelantaleden-stage-07-sammarlappa-helicopter",
+      "representativeName": "Såmmarlappa helicopter pickup/drop-off",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-07-sammarlappa-helicopter"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-07-slihtajahka-bridge",
+      "clusterKey": "single-padjelantaleden-stage-07-slihtajahka-bridge",
+      "representativeName": "Hängbro Slihtajåhkå",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-07-slihtajahka-bridge"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-07-tarraalven-rapids-excursion",
+      "clusterKey": "single-padjelantaleden-stage-07-tarraalven-rapids-excursion",
+      "representativeName": "Tarraälven rapids/canyon excursion from Såmmarlappa",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-07-tarraalven-rapids-excursion"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-07-unnamed-bench",
+      "clusterKey": "single-padjelantaleden-stage-07-unnamed-bench",
+      "representativeName": "Unnamed bench",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-07-unnamed-bench"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-08-helicopter-access-proxies",
+      "clusterKey": "single-padjelantaleden-stage-08-helicopter-access-proxies",
+      "representativeName": "Såmmarlappa and Tarrekaise helicopter access proxies",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-08-helicopter-access-proxies"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-08-hilldo-viewpoint",
+      "clusterKey": "single-padjelantaleden-stage-08-hilldo-viewpoint",
+      "representativeName": "Hilldo plateau viewpoint above Tarrekaise",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-08-hilldo-viewpoint"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-08-midstage-firepit",
+      "clusterKey": "single-padjelantaleden-stage-08-midstage-firepit",
+      "representativeName": "OSM firepit/rest spot on section 8",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-08-midstage-firepit"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-08-nordkalottleden-side-bridge",
+      "clusterKey": "single-padjelantaleden-stage-08-nordkalottleden-side-bridge",
+      "representativeName": "Nordkalottleden side bridge near Bádurgårsså / Tarraälvshyddan branch",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-08-nordkalottleden-side-bridge"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-08-small-bridges-after-sammarlappa",
+      "clusterKey": "single-padjelantaleden-stage-08-small-bridges-after-sammarlappa",
+      "representativeName": "Small bridges after Såmmarlappa",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-08-small-bridges-after-sammarlappa"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-08-tarrekaise-approach-firepit",
+      "clusterKey": "single-padjelantaleden-stage-08-tarrekaise-approach-firepit",
+      "representativeName": "OSM firepit near Tarrekaise approach",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-08-tarrekaise-approach-firepit"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-08-vaimok-branch-junction",
+      "clusterKey": "single-padjelantaleden-stage-08-vaimok-branch-junction",
+      "representativeName": "Nordkalottleden / Vaimok branch junction",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-08-vaimok-branch-junction"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-09-helicopter-access-proxies",
+      "clusterKey": "single-padjelantaleden-stage-09-helicopter-access-proxies",
+      "representativeName": "Tarrekaise and Njunjes helicopter access proxies",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-09-helicopter-access-proxies"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-09-tarrekaise-njunjes"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-09-hilldo-tarradalen-view",
+      "clusterKey": "single-padjelantaleden-stage-09-hilldo-tarradalen-view",
+      "representativeName": "Hilldo / Tarradalen viewpoint context",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-09-hilldo-tarradalen-view"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-09-tarrekaise-njunjes"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-09-off-route-vaimok-side-firepit",
+      "clusterKey": "single-padjelantaleden-stage-09-off-route-vaimok-side-firepit",
+      "representativeName": "Off-route firepit west of Tarrekaise / Vaimok side",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-09-off-route-vaimok-side-firepit"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-09-tarrekaise-njunjes"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-09-tarraalvshyddan-connection",
+      "clusterKey": "single-padjelantaleden-stage-09-tarraalvshyddan-connection",
+      "representativeName": "Tarraälvshyddan / Vaimok connection metadata",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-09-tarraalvshyddan-connection"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-09-tarrekaise-njunjes"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-09-tarrekaise-east-firepit",
+      "clusterKey": "single-padjelantaleden-stage-09-tarrekaise-east-firepit",
+      "representativeName": "Firepit east of Tarrekaise / Tarraure",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-09-tarrekaise-east-firepit"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-09-tarrekaise-njunjes"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-10-njunjesjahka-bridge",
+      "clusterKey": "single-padjelantaleden-stage-10-njunjesjahka-bridge",
+      "representativeName": "Njunjesjåhkå bridge",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-10-njunjesjahka-bridge"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-10-on-route-firepit",
+      "clusterKey": "single-padjelantaleden-stage-10-on-route-firepit",
+      "representativeName": "OSM firepit on Njunjes-Bobäcken",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-10-on-route-firepit"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-single-padjelantaleden-stage-10-vallebacken-bridge",
+      "clusterKey": "single-padjelantaleden-stage-10-vallebacken-bridge",
+      "representativeName": "Vallebäcken / Vállejåhkå bridge area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-10-vallebacken-bridge"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-akka",
+      "clusterKey": "site-akka",
+      "representativeName": "Akka hut toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-7-akka-hut-toilet"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-akka-ahkka",
+      "clusterKey": "site-akka-ahkka",
+      "representativeName": "STF Akka Fjällstuga / Áhkká",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-6-stf-akka-fjallstuga-ahkka"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "emergency-phone",
+        "lodging",
+        "service",
+        "shelter",
+        "water"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "emergency-phone",
+        "service",
+        "shelter",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-akka-akka",
+      "clusterKey": "site-akka-akka",
+      "representativeName": "STF Akka Fjällstuga / Akka helicopter landing",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka-commuteaccess-start-0-stf-akka-fjallstuga-akka-helicopter-landing"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-akka-local",
+      "clusterKey": "site-akka-local",
+      "representativeName": "Akka hut local water",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-8-akka-local-water-source",
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-watersources-0-akka-hut-local-water"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-anonjalmme-ahkka",
+      "clusterKey": "site-anonjalmme-ahkka",
+      "representativeName": "Änonjálmme / Áhkká landing",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-commuteaccess-end-1-anonjalmme-ahkka-landing",
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-commuteaccess-start-3-anonjalmme-ahkka-landing",
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-4-anonjalmme-ahkka-landing",
+        "padjelantaleden-stage-02-gisuris-laddejahka-commuteaccess-start-1-anonjalmme-ahkka-boat-landing"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris",
+        "padjelantaleden-stage-02-gisuris-laddejahka"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 2
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "trail-junction",
+        "transit"
+      ],
+      "candidateTypes": [
+        "trail-junction",
+        "transit"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "padjelantaleden-site-arasluokta",
+      "clusterKey": "site-arasluokta",
+      "representativeName": "Árasluokta emergency phone",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-03-arasluokta-emergency-phone",
+        "padjelantaleden-stage-04-arasluokta-emergency-phone"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta",
+        "padjelantaleden-stage-04-arasluokta-staloluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "emergency-phone"
+      ],
+      "candidateTypes": [
+        "emergency-phone"
+      ],
+      "parentCandidateType": "emergency-phone",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-arasluokta-arasluoktastugorna",
+      "clusterKey": "site-arasluokta-arasluoktastugorna",
+      "representativeName": "BLT Árasluokta Fjällstuga / Árasluoktastugorna",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-04-arasluokta-hut",
+        "padjelantaleden-stage-04-arasluokta-staloluokta-commuteaccess-start-0-arasluokta-arasluoktastugorna-local-virihaure-boat-access"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-04-arasluokta-staloluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging",
+        "transit"
+      ],
+      "candidateTypes": [
+        "lodging",
+        "transit"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "padjelantaleden-site-arasluokta-camp",
+      "clusterKey": "site-arasluokta-camp",
+      "representativeName": "BLT Árasluokta Fjällstuga / cabin camp",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-03-arasluokta-hut"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-arasluokta-camper",
+      "clusterKey": "site-arasluokta-camper",
+      "representativeName": "Árasluokta tent-camper service",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-03-arasluokta-tent-service"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-arasluokta-chapel",
+      "clusterKey": "site-arasluokta-chapel",
+      "representativeName": "Árasluokta chapel / church hut",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-04-arasluokta-chapel"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-04-arasluokta-staloluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "padjelantaleden-site-arasluokta-dry",
+      "clusterKey": "site-arasluokta-dry",
+      "representativeName": "Árasluokta dry toilet",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-03-arasluokta-dry-toilet",
+        "padjelantaleden-stage-04-arasluokta-toilet"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta",
+        "padjelantaleden-stage-04-arasluokta-staloluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 4
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-arasluokta-provisions",
+      "clusterKey": "site-arasluokta-provisions",
+      "representativeName": "Árasluokta provisions / BLT kiosk",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-03-arasluokta-provisions",
+        "padjelantaleden-stage-04-arasluokta-provisions"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta",
+        "padjelantaleden-stage-04-arasluokta-staloluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-arasluoktastugorna",
+      "clusterKey": "site-arasluoktastugorna",
+      "representativeName": "BLT Árasluoktastugorna",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta-commuteaccess-end-0-blt-arasluoktastugorna"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-backcountry-place",
+      "clusterKey": "site-backcountry-place",
+      "representativeName": "Backcountry tent place north/east of Gisuris",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-12-backcountry-tent-place-north-east-of-gisuris"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-backtrack-staloluokta",
+      "clusterKey": "site-backtrack-staloluokta",
+      "representativeName": "Backtrack to Stáloluokta helicopter access",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-05-staloluokta-duottar-commuteaccess-end-2-backtrack-to-staloluokta-helicopter-access",
+        "padjelantaleden-stage-06-duottar-darreluoppal-commuteaccess-start-2-backtrack-to-staloluokta-helicopter-access"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-05-staloluokta-duottar",
+        "padjelantaleden-stage-06-duottar-darreluoppal"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-ballavrjahka",
+      "clusterKey": "site-ballavrjahka",
+      "representativeName": "Bållávrjåhkå water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-05-ballavrjahka-water"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-05-staloluokta-duottar"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-ballavrjahka-pitches",
+      "clusterKey": "site-ballavrjahka-pitches",
+      "representativeName": "Bållávrjåhkå tent pitches",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-05-ballavrjahka-tent-pitches"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-05-staloluokta-duottar"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-battrafik-kvikkjokk",
+      "clusterKey": "site-battrafik-kvikkjokk",
+      "representativeName": "Båttrafik Kvikkjokk boat terminal",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk-commuteaccess-end-0-battrafik-kvikkjokk-boat-terminal"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-bobacken",
+      "clusterKey": "site-bobacken",
+      "representativeName": "Bobäcken boat landing",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-10-bobacken-boat-landing"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-bobacken-dass",
+      "clusterKey": "site-bobacken-dass",
+      "representativeName": "Bobäcken toilet/dass",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-10-bobacken-toilet"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-bobacken-order",
+      "clusterKey": "site-bobacken-order",
+      "representativeName": "Bobäcken boat-order phone",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-10-bobacken-boat-order-phone"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "emergency-phone"
+      ],
+      "candidateTypes": [
+        "emergency-phone"
+      ],
+      "parentCandidateType": "emergency-phone",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-bobacken-raststuga",
+      "clusterKey": "site-bobacken-raststuga",
+      "representativeName": "Bobäcken Raststuga",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-10-bobacken-raststuga"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-cafe-eno",
+      "clusterKey": "site-cafe-eno",
+      "representativeName": "Café Eno Änonjálmme",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-5-cafe-eno-anonjalmme"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-darreluoppal",
+      "clusterKey": "site-darreluoppal",
+      "representativeName": "Darreluoppal toilets",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-06-darreluoppal-emergency-phone",
+        "padjelantaleden-stage-07-darreluoppal-toilets"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-06-duottar-darreluoppal",
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 7
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "emergency-phone",
+        "toilet"
+      ],
+      "candidateTypes": [
+        "emergency-phone",
+        "toilet"
+      ],
+      "parentCandidateType": "emergency-phone",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "padjelantaleden-site-darreluoppal-dry",
+      "clusterKey": "site-darreluoppal-dry",
+      "representativeName": "Darreluoppal dry toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-06-darreluoppal-toilet"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-06-duottar-darreluoppal"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-darreluoppal-host",
+      "clusterKey": "site-darreluoppal-host",
+      "representativeName": "Darreluoppal hut-host provisions",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-07-darreluoppal-provisions"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-darreluoppal-lake",
+      "clusterKey": "site-darreluoppal-lake",
+      "representativeName": "Darreluoppal lake/fishing context",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-06-darreluoppal-fishing-context"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-06-duottar-darreluoppal"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "padjelantaleden-site-darreluoppal-provisions",
+      "clusterKey": "site-darreluoppal-provisions",
+      "representativeName": "Darreluoppal provisions / cabin-host sales",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-06-darreluoppal-provisions"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-06-duottar-darreluoppal"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-darreluoppal-tarraluoppal",
+      "clusterKey": "site-darreluoppal-tarraluoppal",
+      "representativeName": "BLT Darreluoppal / Tarraluoppal cabins",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-05-staloluokta-duottar-commuteaccess-end-1-darreluoppal-tarraluoppal-onward-helicopter-related-gateway",
+        "padjelantaleden-stage-06-darreluoppal-hut",
+        "padjelantaleden-stage-06-duottar-darreluoppal-commuteaccess-end-0-darreluoppal-tarraluoppal-boundary-pickup-drop-off",
+        "padjelantaleden-stage-06-duottar-darreluoppal-commuteaccess-start-1-darreluoppal-tarraluoppal-boundary-pickup-drop-off",
+        "padjelantaleden-stage-07-darreluoppal-hut",
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa-commuteaccess-start-0-darreluoppal-tarraluoppal-hut-endpoint"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-05-staloluokta-duottar",
+        "padjelantaleden-stage-06-duottar-darreluoppal",
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 7
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging",
+        "transit"
+      ],
+      "candidateTypes": [
+        "lodging",
+        "transit"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "padjelantaleden-site-darreluoppal-tenting",
+      "clusterKey": "site-darreluoppal-tenting",
+      "representativeName": "Darreluoppal hut tenting/service area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-06-darreluoppal-hut-tenting"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-06-duottar-darreluoppal"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-dijddervagge-lakes",
+      "clusterKey": "site-dijddervagge-lakes",
+      "representativeName": "Dijddervágge lakes tent pitches",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-04-dijddervagge-tent-pitches"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-04-arasluokta-staloluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-duottar",
+      "clusterKey": "site-duottar",
+      "representativeName": "Duottar emergency phone",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-05-duottar-emergency-phone",
+        "padjelantaleden-stage-06-duottar-emergency-phone"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-05-staloluokta-duottar",
+        "padjelantaleden-stage-06-duottar-darreluoppal"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "emergency-phone"
+      ],
+      "candidateTypes": [
+        "emergency-phone"
+      ],
+      "parentCandidateType": "emergency-phone",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-duottar-dry",
+      "clusterKey": "site-duottar-dry",
+      "representativeName": "Duottar dry toilet",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-05-duottar-toilet",
+        "padjelantaleden-stage-06-duottar-toilet"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-05-staloluokta-duottar",
+        "padjelantaleden-stage-06-duottar-darreluoppal"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-duottar-provisions",
+      "clusterKey": "site-duottar-provisions",
+      "representativeName": "Duottar provisions / cabin-host sales",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-05-duottar-provisions",
+        "padjelantaleden-stage-06-duottar-provisions"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-05-staloluokta-duottar",
+        "padjelantaleden-stage-06-duottar-darreluoppal"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-duottar-tenting",
+      "clusterKey": "site-duottar-tenting",
+      "representativeName": "Duottar hut tenting/service area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-06-duottar-hut-tenting"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-06-duottar-darreluoppal"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-duottar-tuottar",
+      "clusterKey": "site-duottar-tuottar",
+      "representativeName": "Duottar / Tuottar hut endpoint",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-05-staloluokta-duottar-commuteaccess-end-0-duottar-tuottar-hut-endpoint",
+        "padjelantaleden-stage-06-duottar-darreluoppal-commuteaccess-start-0-duottar-tuottar-hut-endpoint"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-05-staloluokta-duottar",
+        "padjelantaleden-stage-06-duottar-darreluoppal"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-duottar-tuottarstugorna",
+      "clusterKey": "site-duottar-tuottarstugorna",
+      "representativeName": "BLT Duottar Fjällstuga / Tuottarstugorna",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-05-duottar-hut",
+        "padjelantaleden-stage-06-duottar-hut"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-05-staloluokta-duottar",
+        "padjelantaleden-stage-06-duottar-darreluoppal"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "padjelantaleden-site-fiskflyg-darreluoppal",
+      "clusterKey": "site-fiskflyg-darreluoppal",
+      "representativeName": "Fiskflyg Darreluoppal national-park-boundary pickup/drop-off",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa-commuteaccess-start-1-fiskflyg-darreluoppal-national-park-boundary-pickup-drop-off"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-fiskflyg-njunjes",
+      "clusterKey": "site-fiskflyg-njunjes",
+      "representativeName": "Fiskflyg Njunjes STF pickup/drop-off",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-09-tarrekaise-njunjes-commuteaccess-end-1-fiskflyg-njunjes-stf-pickup-drop-off",
+        "padjelantaleden-stage-10-njunjes-kvikkjokk-commuteaccess-start-1-fiskflyg-njunjes-stf-pickup-drop-off"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-09-tarrekaise-njunjes",
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-fiskflyg-sommarlappa",
+      "clusterKey": "site-fiskflyg-sommarlappa",
+      "representativeName": "Fiskflyg Sommarlappa / Såmmarlappa pickup/drop-off",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa-commuteaccess-end-1-fiskflyg-sommarlappa-sammarlappa-pickup-drop-off",
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise-commuteaccess-start-1-fiskflyg-sommarlappa-sammarlappa-pickup-drop-off"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa",
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-fiskflyg-tarrekaise",
+      "clusterKey": "site-fiskflyg-tarrekaise",
+      "representativeName": "Fiskflyg Tarrekaise pickup/drop-off",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise-commuteaccess-end-1-fiskflyg-tarrekaise-pickup-drop-off",
+        "padjelantaleden-stage-09-tarrekaise-njunjes-commuteaccess-start-1-fiskflyg-tarrekaise-stf-pickup-drop-off"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise",
+        "padjelantaleden-stage-09-tarrekaise-njunjes"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-gallivare-resecentrum",
+      "clusterKey": "site-gallivare-resecentrum",
+      "representativeName": "Gällivare Resecentrum",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-commuteaccess-start-0-gallivare-resecentrum"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-gisuris",
+      "clusterKey": "site-gisuris",
+      "representativeName": "Gisuris emergency phone",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-02-gisuris-emergency-phone",
+        "padjelantaleden-stage-02-gisuris-tent-service"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "camping",
+        "emergency-phone"
+      ],
+      "candidateTypes": [
+        "camping",
+        "emergency-phone"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [
+        "emergency-phone"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "padjelantaleden-site-gisuris-dry",
+      "clusterKey": "site-gisuris-dry",
+      "representativeName": "Gisuris dry toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-02-gisuris-dry-toilet"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-gisuris-kisuris",
+      "clusterKey": "site-gisuris-kisuris",
+      "representativeName": "Gisuris / Kisuris Fjällstuga",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-commuteaccess-end-0-gisuris-kisuris-fjallstuga",
+        "padjelantaleden-stage-02-gisuris-hut"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris",
+        "padjelantaleden-stage-02-gisuris-laddejahka"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 2
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging",
+        "transit"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "padjelantaleden-site-gisuris-kisurisstugan",
+      "clusterKey": "site-gisuris-kisurisstugan",
+      "representativeName": "BLT Gisuris/Kisurisstugan",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-13-blt-gisuris-kisurisstugan"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "emergency-phone",
+        "food",
+        "lodging",
+        "shelter",
+        "toilet",
+        "water"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "emergency-phone",
+        "food",
+        "shelter",
+        "toilet",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-gisuris-local",
+      "clusterKey": "site-gisuris-local",
+      "representativeName": "Gisuris hut local water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-watersources-2-gisuris-hut-local-water"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-gisuris-provisions",
+      "clusterKey": "site-gisuris-provisions",
+      "representativeName": "Gisuris provisions / BLT kiosk",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-02-gisuris-provisions"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-handling-policy",
+      "clusterKey": "site-handling-policy",
+      "representativeName": "STF hut waste handling policy",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-08-stf-waste-policy",
+        "padjelantaleden-stage-09-stf-waste-policy"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise",
+        "padjelantaleden-stage-09-tarrekaise-njunjes"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "waste"
+      ],
+      "candidateTypes": [
+        "waste"
+      ],
+      "parentCandidateType": "waste",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-informal-pitches",
+      "clusterKey": "site-informal-pitches",
+      "representativeName": "Informal tent pitches along Duottar-Darreluoppal",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-06-informal-tent-pitches"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-06-duottar-darreluoppal"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "padjelantaleden-site-informal-spots",
+      "clusterKey": "site-informal-spots",
+      "representativeName": "Informal tent spots near eastern Tarraure / forest glades / river",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-09-informal-tarraure-glades-camping"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-09-tarrekaise-njunjes"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-kutjaure",
+      "clusterKey": "site-kutjaure",
+      "representativeName": "STF Kutjaure Fjällstuga",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta-commuteaccess-start-1-stf-kutjaure-fjallstuga"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging",
+        "transit"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-kutjaure-guvtjavrre",
+      "clusterKey": "site-kutjaure-guvtjavrre",
+      "representativeName": "STF Kutjaure / Guvtjávrre",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka-commuteaccess-end-1-stf-kutjaure-guvtjavrre",
+        "padjelantaleden-stage-02-kutjaure-side-context"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging",
+        "transit"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "padjelantaleden-site-kvikkjokk",
+      "clusterKey": "site-kvikkjokk",
+      "representativeName": "STF Kvikkjokk Fjällstation",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-10-kvikkjokk-fjallstation"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-kvikkjokk-campsite",
+      "clusterKey": "site-kvikkjokk-campsite",
+      "representativeName": "Kvikkjokk campsite candidates",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-10-kvikkjokk-campsites"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "padjelantaleden-site-kvikkjokk-defibrillator",
+      "clusterKey": "site-kvikkjokk-defibrillator",
+      "representativeName": "Kvikkjokk defibrillator",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-10-kvikkjokk-defibrillator"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-kvikkjokk-gateway",
+      "clusterKey": "site-kvikkjokk-gateway",
+      "representativeName": "STF Kvikkjokk Fjällstation / service gateway",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk-commuteaccess-end-1-stf-kvikkjokk-fjallstation-service-gateway"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking",
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "parking"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-kvikkjokk-heliport",
+      "clusterKey": "site-kvikkjokk-heliport",
+      "representativeName": "Kvikkjokk Heliport",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk-commuteaccess-end-3-kvikkjokk-heliport"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service",
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "service"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-kvikkjokk-kyrkan",
+      "clusterKey": "site-kvikkjokk-kyrkan",
+      "representativeName": "Kvikkjokk Kyrkan",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk-commuteaccess-end-2-kvikkjokk-kyrkan"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-kvikkjokk-near",
+      "clusterKey": "site-kvikkjokk-near",
+      "representativeName": "Kvikkjokk parking near fjällstation",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-10-kvikkjokk-parking"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-kvikkjokk-public",
+      "clusterKey": "site-kvikkjokk-public",
+      "representativeName": "Kvikkjokk public toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-10-kvikkjokk-public-toilet"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-kvikkjokk-restaurant",
+      "clusterKey": "site-kvikkjokk-restaurant",
+      "representativeName": "Kvikkjokk restaurant, café, bar, shop and rental",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-10-kvikkjokk-food-shop"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-kvikkjokk-road",
+      "clusterKey": "site-kvikkjokk-road",
+      "representativeName": "Kvikkjokk STF / road gateway",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta-commuteaccess-end-2-kvikkjokk-stf-road-gateway"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-kvikkjokk-terminal",
+      "clusterKey": "site-kvikkjokk-terminal",
+      "representativeName": "Kvikkjokk boat terminal",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-10-kvikkjokk-boat-terminal"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-laddejahka",
+      "clusterKey": "site-laddejahka",
+      "representativeName": "BLT Låddejåhkå Fjällstuga",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-02-laddejahka-emergency-phone",
+        "padjelantaleden-stage-02-laddejahka-hut",
+        "padjelantaleden-stage-03-laddejahka-emergency-phone",
+        "padjelantaleden-stage-03-laddejahka-hut"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka",
+        "padjelantaleden-stage-03-laddejahka-arasluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "emergency-phone",
+        "lodging"
+      ],
+      "candidateTypes": [
+        "emergency-phone",
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "emergency-phone"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "padjelantaleden-site-laddejahka-drinking",
+      "clusterKey": "site-laddejahka-drinking",
+      "representativeName": "Låddejåhkå drinking water",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-02-laddejahka-drinking-water",
+        "padjelantaleden-stage-03-laddejahka-drinking-water"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka",
+        "padjelantaleden-stage-03-laddejahka-arasluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-laddejahka-dry",
+      "clusterKey": "site-laddejahka-dry",
+      "representativeName": "Låddejåhkå dry toilet",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-02-laddejahka-dry-toilet",
+        "padjelantaleden-stage-03-laddejahka-dry-toilet"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka",
+        "padjelantaleden-stage-03-laddejahka-arasluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-laddejahka-laddejakkastugan",
+      "clusterKey": "site-laddejahka-laddejakkastugan",
+      "representativeName": "BLT Låddejåhkå/Låddejåkkåstugan",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta-commuteaccess-start-0-blt-laddejahka-laddejakkastugan"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging",
+        "transit"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-laddejahka-provisions",
+      "clusterKey": "site-laddejahka-provisions",
+      "representativeName": "Låddejåhkå provisions / BLT kiosk",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-02-laddejahka-provisions",
+        "padjelantaleden-stage-03-laddejahka-provisions"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka",
+        "padjelantaleden-stage-03-laddejahka-arasluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-lakes-tarns",
+      "clusterKey": "site-lakes-tarns",
+      "representativeName": "Lakes, tarns, streams, and Gårråjávrátja water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-06-natural-water"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-06-duottar-darreluoppal"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-natural-streams",
+      "clusterKey": "site-natural-streams",
+      "representativeName": "Natural streams and jokks along Darreluoppal-Såmmarlappa",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-07-natural-water"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-njunjes",
+      "clusterKey": "site-njunjes",
+      "representativeName": "STF Njunjes Fjällstuga",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-09-njunjes-hut",
+        "padjelantaleden-stage-09-tarrekaise-njunjes-commuteaccess-end-0-stf-njunjes-fjallstuga",
+        "padjelantaleden-stage-10-njunjes-hut",
+        "padjelantaleden-stage-10-njunjes-kvikkjokk-commuteaccess-start-0-stf-njunjes-fjallstuga"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-09-tarrekaise-njunjes",
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 10
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging",
+        "transit"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "padjelantaleden-site-njunjes-and",
+      "clusterKey": "site-njunjes-and",
+      "representativeName": "Njunjes safety room and help phone",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-09-njunjes-help-phone-safety-room",
+        "padjelantaleden-stage-10-njunjes-help-phone-safety-room"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-09-tarrekaise-njunjes",
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "emergency-phone"
+      ],
+      "candidateTypes": [
+        "emergency-phone"
+      ],
+      "parentCandidateType": "emergency-phone",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-njunjes-bobacken",
+      "clusterKey": "site-njunjes-bobacken",
+      "representativeName": "Njunjes/Bobäcken/Kvikkjokk waste context",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-10-hut-and-bobacken-waste-context"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "waste"
+      ],
+      "candidateTypes": [
+        "waste"
+      ],
+      "parentCandidateType": "waste",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "padjelantaleden-site-njunjes-provisions",
+      "clusterKey": "site-njunjes-provisions",
+      "representativeName": "Njunjes shop/provisions",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-09-njunjes-shop-suppressed"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-09-tarrekaise-njunjes"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "padjelantaleden-site-njunjes-site",
+      "clusterKey": "site-njunjes-site",
+      "representativeName": "Njunjes hut-site tenting/service",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-09-njunjes-tent-service",
+        "padjelantaleden-stage-10-njunjes-tent-service"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-09-tarrekaise-njunjes",
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-pitches-island",
+      "clusterKey": "site-pitches-island",
+      "representativeName": "Tent pitches on island at Vuojatädno bridges",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-02-vuojatedno-island-tent-place"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-pitches-near",
+      "clusterKey": "site-pitches-near",
+      "representativeName": "Tent pitches near Miellädno bridge",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-03-mielladno-tent-place"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-ritsem",
+      "clusterKey": "site-ritsem",
+      "representativeName": "Ritsem Fjällstation",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-commuteaccess-start-1-ritsem-fjallstation",
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-0-stf-ritsem-fjallstation"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging",
+        "transit"
+      ],
+      "candidateTypes": [
+        "food",
+        "lodging",
+        "parking",
+        "service",
+        "transit"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "food",
+        "parking",
+        "service",
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "padjelantaleden-site-ritsem-hamn",
+      "clusterKey": "site-ritsem-hamn",
+      "representativeName": "Ritsem hamn / M/S Storlule",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-commuteaccess-start-2-ritsem-hamn-m-s-storlule",
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-1-ritsem-hamn-m-s-storlule-terminal"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-ritsem-helistrip",
+      "clusterKey": "site-ritsem-helistrip",
+      "representativeName": "Ritsem Helistrip",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-commuteaccess-start-4-ritsem-helistrip"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-ritsem-port",
+      "clusterKey": "site-ritsem-port",
+      "representativeName": "Ritsem Port bus shelter/platform",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-2-ritsem-port-bus-shelter-platform"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "shelter",
+        "transit"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-ritsem-ritsem",
+      "clusterKey": "site-ritsem-ritsem",
+      "representativeName": "Ritsem Fjällstation / Ritsem gateway",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka-commuteaccess-start-2-ritsem-fjallstation-ritsem-gateway"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-ritsem-showers",
+      "clusterKey": "site-ritsem-showers",
+      "representativeName": "Ritsem fjällstation toilet / showers / waste services",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-3-ritsem-fjallstation-toilet-showers-waste-services"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "service",
+        "toilet",
+        "waste"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "toilet",
+        "waste"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-road-public",
+      "clusterKey": "site-road-public",
+      "representativeName": "No road/parking/public stop at Darreluoppal",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-06-duottar-darreluoppal-commuteaccess-end-1-no-road-parking-public-stop-at-darreluoppal"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-06-duottar-darreluoppal"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service",
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "service"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-sammarlappa",
+      "clusterKey": "site-sammarlappa",
+      "representativeName": "Såmmarlappa toilet",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa-commuteaccess-end-0-stf-sammarlappa-fjallstuga",
+        "padjelantaleden-stage-07-sammarlappa-emergency-phone",
+        "padjelantaleden-stage-07-sammarlappa-hut",
+        "padjelantaleden-stage-07-sammarlappa-toilet",
+        "padjelantaleden-stage-08-sammarlappa-hut",
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise-commuteaccess-start-0-stf-sammarlappa-fjallstuga"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa",
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 8
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "emergency-phone",
+        "lodging",
+        "toilet",
+        "transit"
+      ],
+      "candidateTypes": [
+        "emergency-phone",
+        "lodging",
+        "toilet",
+        "transit"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "emergency-phone",
+        "toilet",
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "padjelantaleden-site-sammarlappa-and",
+      "clusterKey": "site-sammarlappa-and",
+      "representativeName": "Såmmarlappa and Tarrekaise hut toilets",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-08-hut-toilets",
+        "padjelantaleden-stage-08-sammarlappa-safety-room-help-phone"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "emergency-phone",
+        "toilet"
+      ],
+      "candidateTypes": [
+        "emergency-phone",
+        "toilet"
+      ],
+      "parentCandidateType": "emergency-phone",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "padjelantaleden-site-sammarlappa-handling",
+      "clusterKey": "site-sammarlappa-handling",
+      "representativeName": "Såmmarlappa STF waste handling policy",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-07-sammarlappa-waste-policy"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "waste"
+      ],
+      "candidateTypes": [
+        "waste"
+      ],
+      "parentCandidateType": "waste",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-sammarlappa-line",
+      "clusterKey": "site-sammarlappa-line",
+      "representativeName": "Såmmarlappa line boat over Tarraälven",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa-commuteaccess-end-2-sammarlappa-line-boat-over-tarraalven-tarraatno",
+        "padjelantaleden-stage-07-sammarlappa-line-boat",
+        "padjelantaleden-stage-08-sammarlappa-line-boat",
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise-commuteaccess-start-2-sammarlappa-line-boat-over-tarraalven-tarraatno"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa",
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-sammarlappa-provisions",
+      "clusterKey": "site-sammarlappa-provisions",
+      "representativeName": "STF Såmmarlappa shop/provisions",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-08-sammarlappa-shop"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-sammarlappa-shelter",
+      "clusterKey": "site-sammarlappa-shelter",
+      "representativeName": "Såmmarlappa safety room / emergency shelter",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-07-sammarlappa-safety-room"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-sammarlappa-small",
+      "clusterKey": "site-sammarlappa-small",
+      "representativeName": "Såmmarlappa small shop",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-07-sammarlappa-shop"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-scheduled-arasluokta",
+      "clusterKey": "site-scheduled-arasluokta",
+      "representativeName": "No scheduled Árasluokta transit stop found",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-04-arasluokta-staloluokta-commuteaccess-start-2-no-scheduled-arasluokta-transit-stop-found"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-04-arasluokta-staloluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service",
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "service"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-sjnjuvtjudisjavrasjjahka-rest",
+      "clusterKey": "site-sjnjuvtjudisjavrasjjahka-rest",
+      "representativeName": "Sjnjuvtjudisjávrásjjåhkå rest area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-facilities-10-sjnjuvtjudisjavrasjjahka-rest-area"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area",
+        "toilet",
+        "viewpoint"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [
+        "toilet",
+        "viewpoint"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-staloluokta",
+      "clusterKey": "site-staloluokta",
+      "representativeName": "Stáloluokta",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta-commuteaccess-end-1-staloluokta",
+        "padjelantaleden-stage-03-laddejahka-arasluokta-commuteaccess-start-2-staloluokta",
+        "padjelantaleden-stage-04-staloluokta-emergency-phone",
+        "padjelantaleden-stage-04-staloluokta-sauna",
+        "padjelantaleden-stage-05-staloluokta-emergency-phone",
+        "padjelantaleden-stage-05-staloluokta-sauna",
+        "padjelantaleden-stage-05-staloluokta-waste"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-03-laddejahka-arasluokta",
+        "padjelantaleden-stage-04-arasluokta-staloluokta",
+        "padjelantaleden-stage-05-staloluokta-duottar"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 5
+      },
+      "states": [
+        "normal",
+        "pending-review",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "emergency-phone",
+        "service",
+        "transit",
+        "waste"
+      ],
+      "candidateTypes": [
+        "emergency-phone",
+        "service",
+        "transit",
+        "waste"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "emergency-phone",
+        "service",
+        "waste"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "padjelantaleden-site-staloluokta-campsite",
+      "clusterKey": "site-staloluokta-campsite",
+      "representativeName": "Stáloluokta campsite toilets",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-04-staloluokta-campsite",
+        "padjelantaleden-stage-04-staloluokta-toilets",
+        "padjelantaleden-stage-05-staloluokta-campsite",
+        "padjelantaleden-stage-05-staloluokta-toilets"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-04-arasluokta-staloluokta",
+        "padjelantaleden-stage-05-staloluokta-duottar"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "camping",
+        "toilet"
+      ],
+      "candidateTypes": [
+        "camping",
+        "toilet"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "padjelantaleden-site-staloluokta-fiskflyg",
+      "clusterKey": "site-staloluokta-fiskflyg",
+      "representativeName": "Stáloluokta Fiskflyg helipad area - Ritsem route",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-04-arasluokta-staloluokta-commuteaccess-end-0-staloluokta-fiskflyg-helipad-area-ritsem-route",
+        "padjelantaleden-stage-04-arasluokta-staloluokta-commuteaccess-end-1-staloluokta-fiskflyg-helipad-area-kvikkjokk-route",
+        "padjelantaleden-stage-05-staloluokta-duottar-commuteaccess-start-0-staloluokta-fiskflyg-helipad-area-ritsem-route",
+        "padjelantaleden-stage-05-staloluokta-duottar-commuteaccess-start-1-staloluokta-fiskflyg-helipad-area-kvikkjokk-route"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-04-arasluokta-staloluokta",
+        "padjelantaleden-stage-05-staloluokta-duottar"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-staloluokta-kyrkkata",
+      "clusterKey": "site-staloluokta-kyrkkata",
+      "representativeName": "Stáloluokta kyrkkåta",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-04-staloluokta-kyrkkata",
+        "padjelantaleden-stage-05-staloluokta-kyrkkata"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-04-arasluokta-staloluokta",
+        "padjelantaleden-stage-05-staloluokta-duottar"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "padjelantaleden-site-staloluokta-limited",
+      "clusterKey": "site-staloluokta-limited",
+      "representativeName": "Stáloluokta limited provisions",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-04-staloluokta-provisions"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-04-arasluokta-staloluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "padjelantaleden-site-staloluokta-local",
+      "clusterKey": "site-staloluokta-local",
+      "representativeName": "Stáloluokta local Virihaure boat access",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-04-arasluokta-staloluokta-commuteaccess-end-2-staloluokta-local-virihaure-boat-access",
+        "padjelantaleden-stage-05-staloluokta-duottar-commuteaccess-start-2-staloluokta-local-virihaure-boat-access"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-04-arasluokta-staloluokta",
+        "padjelantaleden-stage-05-staloluokta-duottar"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-staloluokta-nodes",
+      "clusterKey": "site-staloluokta-nodes",
+      "representativeName": "Stáloluokta waste/recycling nodes",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-04-staloluokta-waste-recycling"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-04-arasluokta-staloluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "waste"
+      ],
+      "candidateTypes": [
+        "waste"
+      ],
+      "parentCandidateType": "waste",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "padjelantaleden-site-staloluokta-provisions",
+      "clusterKey": "site-staloluokta-provisions",
+      "representativeName": "Stáloluokta provisions / cabin-host sales",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-05-staloluokta-provisions"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-05-staloluokta-duottar"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "padjelantaleden-site-staloluokta-scheduled",
+      "clusterKey": "site-staloluokta-scheduled",
+      "representativeName": "Stáloluokta scheduled helicopter gateway",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-04-arasluokta-staloluokta-commuteaccess-start-1-staloluokta-scheduled-helicopter-gateway"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-04-arasluokta-staloluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-staloluokta-staloluokta",
+      "clusterKey": "site-staloluokta-staloluokta",
+      "representativeName": "Stáloluokta / Staloluokta",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka-commuteaccess-end-0-staloluokta-staloluokta"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-staloluokta-staloluoktastugan",
+      "clusterKey": "site-staloluokta-staloluoktastugan",
+      "representativeName": "BLT Stáloluokta Fjällstuga / Stáloluoktastugan",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-05-staloluokta-hut"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-05-staloluokta-duottar"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-staloluokta-staloluoktastugorna",
+      "clusterKey": "site-staloluokta-staloluoktastugorna",
+      "representativeName": "BLT Stáloluokta Fjällstuga / Stáloluoktastugorna",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-04-staloluokta-hut"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-04-arasluokta-staloluokta"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-streams-and",
+      "clusterKey": "site-streams-and",
+      "representativeName": "Streams and watercourses between Akka and Gisuris",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris-watersources-1-streams-and-watercourses-between-akka-and-gisuris"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-streamside-camp",
+      "clusterKey": "site-streamside-camp",
+      "representativeName": "Streamside camp pitches",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-07-streamside-camp-pitches"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        {
+          "lat": 67.14668,
+          "lon": 17.12973
+        },
+        {
+          "lat": 67.14669,
+          "lon": 17.13
+        }
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-tarraalvshyddan",
+      "clusterKey": "site-tarraalvshyddan",
+      "representativeName": "Tarraälvshyddan",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-08-tarraalvshyddan"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "padjelantaleden-site-tarraatno-bobacken",
+      "clusterKey": "site-tarraatno-bobacken",
+      "representativeName": "Tarraätno / Bobäcken natural water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-10-bobacken-natural-water"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-tarraatno-natural",
+      "clusterKey": "site-tarraatno-natural",
+      "representativeName": "Tarraätno natural water at Njunjes",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-09-njunjes-natural-water",
+        "padjelantaleden-stage-10-njunjes-natural-water"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-09-tarrekaise-njunjes",
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-tarraatno-tarra",
+      "clusterKey": "site-tarraatno-tarra",
+      "representativeName": "Tarraätno / Tarra River natural water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-08-tarraatno-water-route-note"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-tarraure-nearby",
+      "clusterKey": "site-tarraure-nearby",
+      "representativeName": "Tarraure / nearby natural water at Tarrekaise",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-09-tarrekaise-natural-water"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-09-tarrekaise-njunjes"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-tarrekaise",
+      "clusterKey": "site-tarrekaise",
+      "representativeName": "STF Tarrekaise Fjällstuga",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise-commuteaccess-end-0-stf-tarrekaise-fjallstuga",
+        "padjelantaleden-stage-08-tarrekaise-hut",
+        "padjelantaleden-stage-09-tarrekaise-hut",
+        "padjelantaleden-stage-09-tarrekaise-njunjes-commuteaccess-start-0-stf-tarrekaise-fjallstuga"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise",
+        "padjelantaleden-stage-09-tarrekaise-njunjes"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 9
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging",
+        "transit"
+      ],
+      "candidateTypes": [
+        "lodging",
+        "transit"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "padjelantaleden-site-tarrekaise-and",
+      "clusterKey": "site-tarrekaise-and",
+      "representativeName": "Tarrekaise and Njunjes hut toilets",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-08-tarrekaise-help-phone-safety-room",
+        "padjelantaleden-stage-09-hut-toilets",
+        "padjelantaleden-stage-09-tarrekaise-help-phone-safety-room"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise",
+        "padjelantaleden-stage-09-tarrekaise-njunjes"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 9
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "emergency-phone",
+        "toilet"
+      ],
+      "candidateTypes": [
+        "emergency-phone",
+        "toilet"
+      ],
+      "parentCandidateType": "emergency-phone",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "padjelantaleden-site-tarrekaise-provisions",
+      "clusterKey": "site-tarrekaise-provisions",
+      "representativeName": "Tarrekaise shop/provisions",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-09-tarrekaise-shop-suppressed"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-09-tarrekaise-njunjes"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "padjelantaleden-site-tarrekaise-site",
+      "clusterKey": "site-tarrekaise-site",
+      "representativeName": "Tarrekaise hut-site tenting/service",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "padjelantaleden-stage-08-tarrekaise-tent-service",
+        "padjelantaleden-stage-09-tarrekaise-tent-service"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise",
+        "padjelantaleden-stage-09-tarrekaise-njunjes"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "padjelantaleden-site-vaimok",
+      "clusterKey": "site-vaimok",
+      "representativeName": "STF Vaimok Fjällstuga",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-08-vaimok-branch-destination"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-vajsaluokta-vaisaluokta",
+      "clusterKey": "site-vajsaluokta-vaisaluokta",
+      "representativeName": "Vájsáluokta / Vaisaluokta",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka-commuteaccess-end-2-vajsaluokta-vaisaluokta"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-02-gisuris-laddejahka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-verified-fireplace",
+      "clusterKey": "site-verified-fireplace",
+      "representativeName": "No verified waste, fireplace, direct transit, or parking POIs",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-06-no-waste-fireplace-transit-pois"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-06-duottar-darreluoppal"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "padjelantaleden-site-verified-swimming",
+      "clusterKey": "site-verified-swimming",
+      "representativeName": "No verified swimming place or outdoor fireplace",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "padjelantaleden-stage-07-no-swimming-fireplace"
+      ],
+      "sectionIds": [
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    }
+  ]
+}

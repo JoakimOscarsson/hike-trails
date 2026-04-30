@@ -1,0 +1,290 @@
+{
+  "schemaVersion": "candidate-import-report/v1",
+  "trailId": "hogakustenleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-artifacts-generated-research-only",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "hogakustenleden/normalization-handoff.research.json",
+  "artifactFiles": [
+    "route-sections.research.json",
+    "route-geometry-index.research.json",
+    "facilities.research.json",
+    "rule-warnings.research.json",
+    "import-report.research.json"
+  ],
+  "supplementalArtifactFiles": [
+    "route-topology.research.json",
+    "facility-clusters.research.json"
+  ],
+  "manifestSectionFiles": 9,
+  "generatedCounts": {
+    "routeSections": 9,
+    "geometrySections": 9,
+    "geometrySectionsWithCandidateGeojson": 9,
+    "routeTopologyDecisions": 2,
+    "routeGroups": 1,
+    "routeTopologyConnections": 0,
+    "facilities": 251,
+    "facilityClusters": 197,
+    "dedupeCandidateClusters": 48,
+    "ruleWarnings": 225
+  },
+  "routeTopologySummary": {
+    "status": "candidate-display-and-topology-decisions-applied",
+    "decisionIds": [
+      "hogakustenleden-section-2-distance-display",
+      "hogakustenleden-section-7-difficulty-display"
+    ],
+    "routeGroupIds": [
+      "hogakustenleden-mainline"
+    ],
+    "connectionIds": []
+  },
+  "facilityClusterSummary": {
+    "totalFacilities": 251,
+    "clusterCount": 197,
+    "multiFacilityClusters": 39,
+    "dedupeCandidateClusters": 48,
+    "byRecommendedAction": {
+      "single-record": 149,
+      "dedupe-duplicate-facility": 15,
+      "keep-suppressed": 9,
+      "dedupe-related-site-cluster": 17,
+      "attach-child-amenities-to-parent": 7
+    }
+  },
+  "blockers": [
+    {
+      "id": "hogakustenleden-protected-area-clipping",
+      "status": "blocks-runtime-rule-import",
+      "details": "Protected-area rules: apply Skuleskogen, Skuleberget, Balesudden, Hörnsjön rules only to affected portions recorded in packets/caveat file."
+    },
+    {
+      "id": "hogakustenleden-transit-authoritative-ids",
+      "status": "blocks-automated-transit-import",
+      "details": "DinTur available through Trafiklab APIs but require API key; DinTur/Fskab planner stop-area IDs and WGS84 coords are research-grade, not final national IDs. Replace with Trafiklab/ResRobot before automated transit import if key available."
+    },
+    {
+      "id": "hogakustenleden-currentness-rechecks",
+      "status": "blocks-publication",
+      "details": "Slåttdalsskrevan, Hörnsjön notice, fire-ban status, transit, seasonal boats, and service opening/currentness require recheck before publication."
+    },
+    {
+      "id": "hogakustenleden-pending-facilities",
+      "status": "blocks-public-facility-exposure",
+      "details": "Pending/suppressed facility items must remain out of public normalized facilities until verified."
+    }
+  ],
+  "openDecisions": [
+    {
+      "id": "hogakustenleden-section-2-distance-display",
+      "details": "Use Höga Kusten 26.8 km while preserving Naturkartan/GPX contradictions metadata."
+    },
+    {
+      "id": "hogakustenleden-section-7-difficulty",
+      "details": "Prefer conservative Naturkartan red/krävande while preserving Höga Kusten Medel caveat."
+    },
+    {
+      "id": "hogakustenleden-2026-shuttle",
+      "details": "Suppress Nationalparksbussen/Världsarvsbussen 2026 unless new official timetable appears."
+    },
+    {
+      "id": "hogakustenleden-seasonal-boats",
+      "details": "Model seasonal boats as optional seasonal onward/side access only, not required trail crossings."
+    }
+  ],
+  "blockerTriage": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "hogakustenleden-protected-area-clipping",
+      "status": "blocks-runtime-rule-import",
+      "details": "Protected-area rules: apply Skuleskogen, Skuleberget, Balesudden, Hörnsjön rules only to affected portions recorded in packets/caveat file.",
+      "disposition": "resolved-now",
+      "owner": "candidate-gis",
+      "action": "Candidate protected-area-overlays.research.json now makes Skuleberget, Skuleskogen, Balesudden and Hörnsjön rule scope machine-readable by section and route-chainage, based on the targeted caveat-resolution boundary pass."
+    },
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "hogakustenleden-transit-authoritative-ids",
+      "status": "blocks-automated-transit-import",
+      "details": "DinTur available through Trafiklab APIs but require API key; DinTur/Fskab planner stop-area IDs and WGS84 coords are research-grade, not final national IDs. Replace with Trafiklab/ResRobot before automated transit import if key available.",
+      "disposition": "external-source-approval",
+      "owner": "source-review",
+      "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
+    },
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "hogakustenleden-currentness-rechecks",
+      "status": "blocks-publication",
+      "details": "Slåttdalsskrevan, Hörnsjön notice, fire-ban status, transit, seasonal boats, and service opening/currentness require recheck before publication.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "hogakustenleden-pending-facilities",
+      "status": "blocks-public-facility-exposure",
+      "details": "Pending/suppressed facility items must remain out of public normalized facilities until verified.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    },
+    {
+      "id": "open-decision-5",
+      "itemType": "open-decision",
+      "sourceId": "hogakustenleden-section-2-distance-display",
+      "status": "open-decision",
+      "details": "Use Höga Kusten 26.8 km while preserving Naturkartan/GPX contradictions metadata.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Display policy is now explicit in route-topology.research.json while source contradictions remain preserved."
+    },
+    {
+      "id": "open-decision-6",
+      "itemType": "open-decision",
+      "sourceId": "hogakustenleden-section-7-difficulty",
+      "status": "open-decision",
+      "details": "Prefer conservative Naturkartan red/krävande while preserving Höga Kusten Medel caveat.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Display policy is now explicit in route-topology.research.json while source contradictions remain preserved."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "hogakustenleden-2026-shuttle",
+      "status": "open-decision",
+      "details": "Suppress Nationalparksbussen/Världsarvsbussen 2026 unless new official timetable appears.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    },
+    {
+      "id": "open-decision-8",
+      "itemType": "open-decision",
+      "sourceId": "hogakustenleden-seasonal-boats",
+      "status": "open-decision",
+      "details": "Model seasonal boats as optional seasonal onward/side access only, not required trail crossings.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    }
+  ],
+  "triageSummary": {
+    "resolved-now": 5,
+    "external-source-approval": 1,
+    "defer-publication-time": 2
+  },
+  "fixesAppliedNow": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "hogakustenleden-protected-area-clipping",
+      "status": "blocks-runtime-rule-import",
+      "details": "Protected-area rules: apply Skuleskogen, Skuleberget, Balesudden, Hörnsjön rules only to affected portions recorded in packets/caveat file.",
+      "disposition": "resolved-now",
+      "owner": "candidate-gis",
+      "action": "Candidate protected-area-overlays.research.json now makes Skuleberget, Skuleskogen, Balesudden and Hörnsjön rule scope machine-readable by section and route-chainage, based on the targeted caveat-resolution boundary pass."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "hogakustenleden-pending-facilities",
+      "status": "blocks-public-facility-exposure",
+      "details": "Pending/suppressed facility items must remain out of public normalized facilities until verified.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    },
+    {
+      "id": "open-decision-5",
+      "itemType": "open-decision",
+      "sourceId": "hogakustenleden-section-2-distance-display",
+      "status": "open-decision",
+      "details": "Use Höga Kusten 26.8 km while preserving Naturkartan/GPX contradictions metadata.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Display policy is now explicit in route-topology.research.json while source contradictions remain preserved."
+    },
+    {
+      "id": "open-decision-6",
+      "itemType": "open-decision",
+      "sourceId": "hogakustenleden-section-7-difficulty",
+      "status": "open-decision",
+      "details": "Prefer conservative Naturkartan red/krävande while preserving Höga Kusten Medel caveat.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Display policy is now explicit in route-topology.research.json while source contradictions remain preserved."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "hogakustenleden-2026-shuttle",
+      "status": "open-decision",
+      "details": "Suppress Nationalparksbussen/Världsarvsbussen 2026 unless new official timetable appears.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    }
+  ],
+  "fixNowBeforeRuntimeImport": [],
+  "runtimeSchemaNeeded": [],
+  "deferredBeforeRuntimeImport": [
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "hogakustenleden-transit-authoritative-ids",
+      "status": "blocks-automated-transit-import",
+      "details": "DinTur available through Trafiklab APIs but require API key; DinTur/Fskab planner stop-area IDs and WGS84 coords are research-grade, not final national IDs. Replace with Trafiklab/ResRobot before automated transit import if key available.",
+      "disposition": "external-source-approval",
+      "owner": "source-review",
+      "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
+    },
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "hogakustenleden-currentness-rechecks",
+      "status": "blocks-publication",
+      "details": "Slåttdalsskrevan, Hörnsjön notice, fire-ban status, transit, seasonal boats, and service opening/currentness require recheck before publication.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "open-decision-8",
+      "itemType": "open-decision",
+      "sourceId": "hogakustenleden-seasonal-boats",
+      "status": "open-decision",
+      "details": "Model seasonal boats as optional seasonal onward/side access only, not required trail crossings.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    }
+  ],
+  "validationChecklist": [
+    "JSON parses successfully.",
+    "No runtime app data, generated public data, shared scripts, or package files changed.",
+    "All 9 current section files are represented in sectionCoverage.",
+    "Section 2 distance display caveat is carried into geometryPlan.",
+    "Section 7 difficulty and Slåttdalsskrevan warning are carried into geometryPlan/ruleWarningPlan.",
+    "Protected-area rule applications are limited to recorded affected portions.",
+    "Transit ID limitations and 2026 shuttle suppression remain explicit.",
+    "Pending/suppressed facilities remain out of public normalized facilities until verified."
+  ],
+  "unresolvedBeforeRuntimeImport": [
+    "external-source-approval: DinTur available through Trafiklab APIs but require API key; DinTur/Fskab planner stop-area IDs and WGS84 coords are research-grade, not final national IDs. Replace with Trafiklab/ResRobot before automated transit import if key available.",
+    "defer-publication-time: Slåttdalsskrevan, Hörnsjön notice, fire-ban status, transit, seasonal boats, and service opening/currentness require recheck before publication.",
+    "defer-publication-time: Model seasonal boats as optional seasonal onward/side access only, not required trail crossings."
+  ],
+  "nextActions": [
+    "Handle fixNowBeforeRuntimeImport first unless the linked item truly needs external data.",
+    "Keep pending-review and suppress facility states out of runtime output.",
+    "Run final GIS overlays and live publication checks before user-facing rule warnings.",
+    "Do not write app runtime source data from this report without an explicit runtime integration task."
+  ]
+}

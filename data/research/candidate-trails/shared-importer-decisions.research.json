@@ -1,0 +1,315 @@
+{
+  "schemaVersion": "candidate-shared-importer-decisions/v1",
+  "lastUpdated": "2026-04-30",
+  "status": "complete-for-candidate-normalization",
+  "purpose": "Shared importer decisions for converting candidate trail research into normalized candidate artifacts before any runtime app integration.",
+  "scope": {
+    "includedTrails": [
+      "bohusleden",
+      "hallandsleden",
+      "hogakustenleden",
+      "hoglandsleden",
+      "kungsleden",
+      "nordkalottleden",
+      "ostkustleden",
+      "padjelantaleden",
+      "sjuharadsleden",
+      "tjustleden",
+      "vastra-vatterleden",
+      "vikingaleden"
+    ],
+    "referenceOnlyTrails": [
+      "upplandsleden",
+      "stockholm-archipelago-trail"
+    ],
+    "runtimeImportApproved": false,
+    "decisionPrecedence": [
+      "This file resolves shared importer-model questions for candidate normalization.",
+      "Trail-specific hard blockers in normalization-handoff.research.json still block that trail or section until resolved.",
+      "If a trail-specific handoff is stricter than this shared file, use the stricter rule.",
+      "If a source/legal/currentness fact is unstable or not verified, keep it as a blocker or publication-time recheck."
+    ]
+  },
+  "existingRuntimeContract": {
+    "trailSections": "Runtime trail systems use section shards with distanceKm, route.status, route.sourceFormat, optional endpointCoordinates, accessPoints and facilities.",
+    "routeGroups": "Runtime route groups already support kind mainline, branch, access and connector.",
+    "connections": "Runtime connections already support modes same-island, walk, bus, ferry, rowboat and none. Ferry and rowboat route geometry must remain planning-reference or not-for-navigation.",
+    "facilityTypes": [
+      "campsite",
+      "shelter",
+      "fireplace",
+      "toilet",
+      "water",
+      "natural-water",
+      "food",
+      "swimming",
+      "parking",
+      "transit",
+      "rest-area",
+      "attraction",
+      "heritage",
+      "rule-warning",
+      "unofficial-shelter",
+      "trail-junction",
+      "emergency-phone",
+      "lodging",
+      "waste",
+      "hazard",
+      "viewpoint",
+      "camping",
+      "service"
+    ],
+    "importantConstraint": "Candidate normalized artifacts may carry richer planning metadata than runtime shards. Runtime import must either map those fields to supported app fields or wait for an explicit schema/app change."
+  },
+  "resolvedSharedDecisions": {
+    "candidateArtifactLayout": {
+      "decision": "Create candidate-only normalized artifacts before runtime import.",
+      "futurePathPattern": "data/research/candidate-trails/<trail-id>/normalized-candidate/",
+      "minimumArtifacts": [
+        "route-sections.research.json",
+        "route-geometry-index.research.json",
+        "facilities.research.json",
+        "rule-warnings.research.json",
+        "import-report.research.json"
+      ],
+      "runtimeWritePolicy": "Do not write data/source/hiking, public/data or public/routes from these candidate artifacts until a separate runtime integration task is explicitly requested."
+    },
+    "distancePolicy": {
+      "decision": "Store official/display distance and computed geometry distance separately.",
+      "canonicalFieldsForCandidateArtifacts": {
+        "officialDistanceKm": "Trail-manager or selected official user-facing distance.",
+        "computedGeometryDistanceKm": "Distance computed from selected normalized geometry.",
+        "displayDistanceKm": "Defaults to officialDistanceKm unless a trail-specific handoff selects a different value.",
+        "distanceCaveats": "Source contradictions, rounded totals, stale values and measured-distance notes."
+      },
+      "runtimeMapping": "Current runtime section distanceKm should receive displayDistanceKm. Computed geometry distance remains provenance/QA metadata unless the app schema is extended.",
+      "totalDistancePolicy": "Do not force section distances to sum to a marketing whole-trail distance. Preserve claimed whole-trail totals separately when they differ."
+    },
+    "geometryPolicy": {
+      "decision": "Use selected canonical route geometry as provenance, and create separate display-ready geometry only when needed for rendering.",
+      "coordinatePolicy": "All candidate GeoJSON must be WGS84 longitude-latitude coordinate order. Transform EPSG:3006 or other source CRS before candidate artifact output and record the transform.",
+      "sourcePriority": [
+        "Official trail-manager GPX/API/GeoJSON or official state trail linework when source policy allows it.",
+        "Current official presentation source such as Naturkartan when it is the trail manager's public map baseline.",
+        "OSM/Waymarked/third-party sources only as QA, fallback or explicit low-confidence source when the handoff says so."
+      ],
+      "segmentPolicy": "Preserve official track, segment and MultiLineString breaks unless an explicit sourced connector is modeled.",
+      "densificationPolicy": "Densification is allowed only for draw/display artifacts and must not be treated as field-verified trail geometry.",
+      "simplificationPolicy": "Do not simplify canonical candidate geometry until an importer-specific tolerance is chosen and visually QAed."
+    },
+    "endpointContinuityPolicy": {
+      "decision": "Preserve source endpoints and create explicit graph/connection records instead of silently moving route lines.",
+      "snapThresholds": [
+        {
+          "gapMeters": "0-25",
+          "action": "May create a shared logical routeGraphNode when section identities and source context agree. Preserve original endpoints in provenance."
+        },
+        {
+          "gapMeters": "25-100",
+          "action": "Do not snap silently. Create a reviewed walk connection or endpoint-zone note if the same trailhead/settlement context supports it."
+        },
+        {
+          "gapMeters": "100+",
+          "action": "Do not snap. Model as an access connector, transfer, known discontinuity, or blocker."
+        }
+      ],
+      "barrierRule": "Any gap involving water, road ferry, bus/road transfer, unverified self-navigation, missing official linework, private land or an official network break must be modeled explicitly even when short."
+    },
+    "routeTopologyPolicy": {
+      "decision": "Use route groups for walked official route topology and connections for transfers between route entries.",
+      "routeGroupKinds": {
+        "mainline": "Primary continuous official section chain for the selected trail model.",
+        "branch": "Official alternate or side branch that can be hiked as trail, but should not be silently merged into the mainline.",
+        "access": "Official or strongly supported approach route to/from public transport, village, trailhead or another trail.",
+        "connector": "Walked link between route groups or nearby route sections where it is part of the trail model."
+      },
+      "connectionsUse": "Use connections.json-style records for non-section transfers or continuity records between sections: ferry, bus, road transfer, rowboat, short walk transfer, same-island continuity, or mode none for a known gap with no usable transfer geometry.",
+      "officialRowboatRule": "If a rowboat crossing is an official route entry in its own right, model it as a section route with strong warnings. Otherwise model it as a rowboat connection or access/side metadata."
+    },
+    "partialAndSelfNavigationPolicy": {
+      "decision": "Partial or self-navigation sections are not imported as ordinary complete route geometry.",
+      "candidateHandling": [
+        "Keep partial geometry as research/candidate geometry with explicit missing span metadata.",
+        "Do not include partial sections in default through-route presets unless the UI can show the gap clearly.",
+        "Use route.status missing-gpx or marker-only only if runtime UX explicitly supports a missing-route section; otherwise defer the section from runtime import."
+      ],
+      "defaultUserExperience": "Show route chains before and after the blocker separately or with a visible gap/transfer warning, never as a seamless line."
+    },
+    "directionReversalPolicy": {
+      "decision": "Normalize candidate section geometry to official section order while preserving source direction metadata.",
+      "candidateFields": {
+        "sourceDirection": "as-provided, reversed-from-official, or unknown",
+        "normalizedDirection": "official-section-order",
+        "reversalApplied": "boolean",
+        "directionCaveat": "text when source labels, GPX order or endpoints conflict"
+      },
+      "runtimeMapping": "Runtime route files should be emitted in official section order unless the app later supports bidirectional source direction metadata."
+    },
+    "facilityStatePolicy": {
+      "decision": "Normalize facilities through explicit import actions, not by deleting caveats.",
+      "candidateImportActions": [
+        "import",
+        "import-as-access",
+        "import-as-rule-warning",
+        "attach-to-parent",
+        "side-trip-metadata",
+        "pending-review",
+        "suppress"
+      ],
+      "runtimeMapping": [
+        "Only import, import-as-access, import-as-rule-warning and attach-to-parent records may become runtime data.",
+        "Pending-review and suppress records remain in research/candidate artifacts and must not appear as normal user-facing facilities.",
+        "Side-trip metadata can become user-facing only if the route or POI is intentionally modeled as a side trip."
+      ],
+      "parentClusterPolicy": "Cluster first, then split typed subfacilities only where coordinates, confidence and app taxonomy justify separate markers.",
+      "parkingAndTransitPolicy": "Parking and transit should be treated consistently with existing app trails: import verified, useful access records as user-facing parking/transit facilities or accessPoints, dedupe them by cluster, and keep timetable/parking-rule details caveated and live-checkable.",
+      "informalTentingPolicy": "Informal tenting remains a separate candidate category. Promote to runtime camping only when rules and coordinates support it; otherwise keep as caveated rule/access text or pending-review.",
+      "privateCommercialPolicy": "Private, customer-only, seasonal or opening-hours-dependent services can be imported only with clear caveats and publication-time recheck requirements."
+    },
+    "ruleWarningPolicy": {
+      "decision": "Only hiker-facing warnings should reach runtime user surfaces.",
+      "runtimeEligibleWarnings": [
+        "legal or local rules that affect hiking behavior",
+        "route hazards and known current-condition warnings",
+        "camping, fire, dog, cycling, bathing, fishing, water-protection and access restrictions",
+        "source contradictions that change how a hiker should plan or navigate"
+      ],
+      "runtimeIneligibleWarnings": [
+        "import-maintenance instructions",
+        "normalization provenance text",
+        "raw GPX processing instructions",
+        "debug notes about snapping, reversing, geometry repair or section assignment unless rewritten as hiker-facing caveats"
+      ],
+      "granularity": "Prefer subsegment or facility/site-level warnings after GIS overlay. Use whole-section warnings only when exact subsegment scope is unknown but the warning is important.",
+      "currentness": "Fire bans, temporary closures, forestry/storm damage, ferry/boat service, transit, business openings, water reliability and cabin/hut season must be rechecked immediately before publication."
+    },
+    "overlapDedupePolicy": {
+      "decision": "Use canonical route/facility records for overlapping trails and attach aliases/sectionRefs instead of duplicating data.",
+      "geometryDedupe": "If two trails share the same physical geometry, choose one canonical geometry artifact and let the other trail reference it with alias/provenance metadata. Keep a trail-specific override only where research shows an actual route difference.",
+      "facilityDedupe": "Create one canonical candidate facility/place record per real-world object with multiple trailRefs or sectionRefs. Do not duplicate shared huts, shelters, water points, transit stops or services per trail.",
+      "ruleWarningDedupe": "Share identical area or facility rule warnings across overlapping trails but keep trail-specific planning text where route context differs."
+    },
+    "sourceAndCurrentnessPolicy": {
+      "decision": "Separate durable import decisions from volatile publication checks.",
+      "durableCandidateFields": [
+        "source provider and URL",
+        "accessed/fetched date",
+        "selected geometry source",
+        "source confidence",
+        "known contradiction",
+        "liveCheckRequired"
+      ],
+      "publicationTimeChecks": [
+        "fire bans and fire risk",
+        "temporary closures and reroutes",
+        "storm/forestry/hunting notices",
+        "transit and ferry/boat timetables",
+        "hut/cabin/boat/operator/business opening",
+        "water reliability or quality",
+        "parking rules and fees"
+      ]
+    }
+  },
+  "trailSpecificDecisions": {
+    "bohusleden": {
+      "stage21": "Do not import Stage 21 as complete route geometry. Importable chains are stages 1-20 and 22-27 unless a later runtime UX supports an explicit partial/self-navigation stage.",
+      "stage8To9Gap": "Treat the 49.4 m Bottenstugan continuity gap as an explicit reviewed walk connection or endpoint-zone note, not an endpoint snap.",
+      "wholeTrailDisplay": "Do not draw Bohusleden as one seamless continuous line through Stage 21."
+    },
+    "hallandsleden": {
+      "officialBreaks": "Preserve official MultiLineString/segment breaks for N5, K3 and K4.",
+      "k4ToK5Gap": "Represent Frillesås-to-Steninge as a visible official network gap with connection mode none unless an official connector is later published.",
+      "geometrySource": "Use canonical geometry for provenance and draw-ready geometry only for display QA."
+    },
+    "hogakustenleden": {
+      "section2Distance": "Use Höga Kusten 26.8 km as display distance and preserve Naturkartan/GPX contradictions as metadata.",
+      "section7Difficulty": "Use the conservative Naturkartan red/krävande posture and preserve Höga Kusten Medel as a caveat.",
+      "slattdalsskrevan": "Model as a hiker-facing hazard/avoid-through-passage warning unless newer official notices change the wording.",
+      "seasonalBoats": "Model Ullånger/Ulvön/Köpmanholmen/Kläppa boats as optional onward or side access, not required trail crossings."
+    },
+  "hoglandsleden": {
+    "topology": "Model the trail as the official main loop plus explicit branch/access/connectors rather than one undifferentiated chain.",
+    "accessTrails": "Mariannelund, Sävsjö C, Hok station, Byarum kyrka, Skillingaryd station and Lyngemadens access context should be access groups or access metadata, not silently merged into main sections.",
+    "weakTransit": "Very weak rural transit remains caveated access metadata unless useful current service is verified.",
+    "commercialServices": "Bookable, seasonal, customer-only or otherwise commercial services may be included only as service/access metadata with opening/access conditions in the description; do not import them as ordinary public trail facilities unless the section packet explicitly supports that."
+  },
+  "kungsleden": {
+    "sourcePolicy": "Use official/state trail geometry as the primary candidate geometry where source policy permits; keep Naturkartan/API/GPX, OSM/Waymarked, transit feeds and field-report metadata as candidate research/QA or publication-check inputs until source terms are explicitly approved for runtime import.",
+    "connectors": "Boat, rowboat, ferry, water and road/bus gaps must be typed connectors or access metadata, not straight hiking lines. Runtime import still needs connector-schema support before these can become app data.",
+    "hutClusters": "Hut yards are parent clusters; split toilets, emergency phones, saunas, shops, waste and water only when source coordinates and taxonomy support it.",
+    "facilityTaxonomy": "Map Kungsleden facilities to the existing normalized types first: huts/lodging as parent lodging or shelter clusters, toilets/toalett, emergency phones, food/shop, sauna/service, waste, managed water, bridges/hazards, viewpoints/attractions, Naturum/heritage-or-attraction, village services, parking and transit. Keep unverified child amenities pending instead of inventing standalone POIs.",
+    "sideRoutes": "Singi-Kebnekaise/Nikkaluokta, Sytertoppen/Hemavan alternates and similar lines are access/alternate metadata unless a side-route import is explicitly selected."
+  },
+  "nordkalottleden": {
+    "importScope": "Normalize only the researched 12-section Reisa/Käsivarsi/Kautokeino model first; defer whole-trail southern variants and alternate endpoint logic.",
+    "gaps": "Keep Saarijärvi, Saraelv/Ovi, Madam Bongos/Čunovuohppi and source-boundary gaps explicit as connectors, endpoint zones or blockers.",
+    "legacyEndpoints": "Madam Bongos/Čunovuohppi remains legacy/access metadata and not active lodging unless newer source evidence changes it.",
+    "countryRuleWarnings": "Use per-section or per-country warnings when rules differ between Finland, Norway and Sweden. Use route-level warnings only for facts that apply to the whole researched model, and keep dynamic legal/currentness checks for publication time."
+  },
+    "ostkustleden": {
+      "controllingPlan": "Use normalization-plan.research.json as the detailed per-section plan.",
+      "etapp8Endpoint": "Keep the 156.4 m Lilla Hycklinge cabin gap as metadata unless a separately sourced access leg is approved.",
+      "prototypeFirst": "Build candidate-only geometry artifacts and visually QA them before runtime source data is touched."
+    },
+    "padjelantaleden": {
+      "headlineDistance": "Do not publish a single asserted headline distance until geometry split review chooses the official display value and records competing source totals.",
+      "boatAndHelicopter": "M/S Storlule, Kvikkjokk-Bobäcken, helicopter midpoint access and Gamájåhkå alternatives are connectors/access metadata, not normal hiking geometry.",
+      "hutSubfacilities": "Attach hut toilets, water, waste, shops/provisions and sauna-like services to parent hut clusters by default; split only high-confidence public standalone records."
+    },
+    "sjuharadsleden": {
+      "qualityAssurance": "Keep the Naturkartan/Västkuststiftelsen not-fully-quality-assured caveat visible until newer official source removes it.",
+      "naturalWater": "Natural water/lake/spring features can be natural/bathing/rest context but not potable water.",
+      "unofficialShelter": "Keep Struntfiskeboa pending/unofficial until verified."
+    },
+    "tjustleden": {
+      "schemaNeed": "Candidate artifacts must support officialDistanceKm, computedGeometryDistanceKm, endpoint clusters, tails/connectors and source-direction reversal metadata before runtime import.",
+      "loopsAndConnectors": "Keep loops/connectors out of the main 9-stage route unless represented as separate connector/tail objects.",
+      "naturalWater": "Suppress natural water as potable unless reliable point-source evidence is verified."
+    },
+  "vastra-vatterleden": {
+    "geometryPrototype": "Build candidate-only route and connector geometry before runtime integration.",
+    "rankasleden": "Keep Rankåsleden and regional long-distance links as future connector metadata unless explicitly selected for this import pass.",
+    "optionalBusinesses": "Optional businesses and town services should be side-service/access metadata with opening/access conditions in descriptions, not ordinary on-trail facilities, unless a section packet gives source-backed coordinates and clear public trail relevance."
+  },
+  "vikingaleden": {
+    "trailLevelMetadata": "The existing vikingaleden/trail.research.json generated from completed section packets is the candidate trail overview for this prep pass; a later official overview pass can update it without blocking normalization.",
+    "overlapRuntimeModel": "For sections 7-12, use canonical Upplandsleden geometry and shared canonical facilities where the route physically matches; Vikingaleden gets route alias/provenance metadata and only trail-specific overrides where it diverges.",
+      "sharedFacilities": "Shared facilities on the overlap should be one canonical candidate record with both trailRefs/sectionRefs, not duplicates per trail.",
+      "parkingAndTransit": "Treat parking/transit consistently with other app trails: import verified useful access markers or accessPoints, deduped by cluster.",
+      "branchFeatures": "Stormon/Grillholmen and other branch/context amenities remain pending until branch/side-route handling is explicit.",
+      "ruleWarnings": "Only hiker-facing rule warnings should become visible; provenance/normalization notes remain suppressed."
+    }
+  },
+  "remainingExternalBlockers": [
+    {
+      "id": "source-licensing-and-permission",
+      "status": "external-approval-required",
+      "notes": "This pass chooses the data model. Runtime import still needs approval for any source terms, licensing, or redistribution constraints that are not already accepted for the app."
+    },
+    {
+      "id": "runtime-schema-change",
+      "status": "needed-for-full-fidelity",
+      "notes": "Current runtime sections do not natively store officialDistanceKm, computedGeometryDistanceKm, sourceDirection, reversalApplied, candidate import actions, or canonical cross-trail facility IDs."
+    },
+    {
+      "id": "gis-overlays",
+      "status": "needed-before-public-rule-warnings",
+      "notes": "Protected-area, water-protection, restriction-zone and subsegment rule warnings need final GIS overlay against selected normalized geometry."
+    },
+    {
+      "id": "live-publication-checks",
+      "status": "needed-before-user-facing-import",
+      "notes": "Dynamic safety, access, transport, commercial and water/service facts must be refreshed near publication."
+    }
+  ],
+  "nextPhaseInstructions": {
+    "phase": "candidate-normalized-artifacts",
+    "status": "ready-to-start",
+    "instructions": [
+      "Create candidate-only normalized artifacts under each trail folder using this shared decision file plus that trail's normalization handoff.",
+      "Start with trails that already have complete geometry artifacts: Hallandsleden, Bohusleden importable stages, Nordkalottleden 12-section model, and Ostkustleden prototype.",
+      "Do not write runtime app source or generated public output until candidate artifacts pass parse, topology, facility dedupe and warning-scope checks.",
+      "Where a trail-specific blocker remains, create a blocker entry in import-report.research.json instead of inventing data."
+    ]
+  }
+}

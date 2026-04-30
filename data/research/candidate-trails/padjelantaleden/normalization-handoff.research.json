@@ -1,0 +1,185 @@
+{
+  "schemaVersion": "candidate-normalization-handoff/v1",
+  "trailId": "padjelantaleden",
+  "lastUpdated": "2026-04-30",
+  "status": "ready-for-normalization-planning",
+  "sectionCoverage": {
+    "expectedStages": 10,
+    "researchedStages": 10,
+    "completedSections": 10,
+    "blockedSections": [],
+    "coverageStatus": "complete at research level with caveats resolved into normalization policy or recheck items",
+    "readmeCaveat": "README.md says overview and section 1 are complete for handoff and sections 2-10 remain pending; research-progress.json says completedCount is 10 and caveats-resolution.research.json covers all 10 sections.",
+    "sectionFiles": [
+      "padjelantaleden-stage-01-ritsem-akka-gisuris",
+      "padjelantaleden-stage-02-gisuris-laddejahka",
+      "padjelantaleden-stage-03-laddejahka-arasluokta",
+      "padjelantaleden-stage-04-arasluokta-staloluokta",
+      "padjelantaleden-stage-05-staloluokta-duottar",
+      "padjelantaleden-stage-06-duottar-darreluoppal",
+      "padjelantaleden-stage-07-darreluoppal-sammarlappa",
+      "padjelantaleden-stage-08-sammarlappa-tarrekaise",
+      "padjelantaleden-stage-09-tarrekaise-njunjes",
+      "padjelantaleden-stage-10-njunjes-kvikkjokk"
+    ]
+  },
+  "geometryPlan": {
+    "status": "planning-grade grouped geometry; normalization must split/reverse/crop and model access connectors",
+    "recommendedNextSafeStep": "Create a normalization-only plan under data/research/candidate-trails/padjelantaleden/ that maps each section to officialDisplayDistance, computedGeometryKm, geometrySource, split indices, endpoint snap policy, access connectors, and facility import actions. Do not touch runtime app data.",
+    "sourceCaveats": [
+      "Official versus computed distances.",
+      "Grouped GPX split strategy.",
+      "Hut centroid versus route-line endpoint gaps.",
+      "Remote hut endpoints without public transit.",
+      "Boat/ferry legs as access connectors.",
+      "Hut sub-facilities attached to parent hut."
+    ],
+    "geometrySources": [
+      {
+        "id": "naturkartan-bd58",
+        "coverage": "Vájsáluokta-Akka-Gisuris-Sáluhávrre",
+        "importCaveat": "Grouped route; includes alternate northern approach and only part of official stage 2."
+      },
+      {
+        "id": "naturkartan-bd57",
+        "coverage": "Kutjaure-Låddejåhkå, with the last 11 km on Padjelantaleden",
+        "importCaveat": "Needed for stage 2 extraction but includes Kutjaure/Nordkalottleden access linework."
+      },
+      {
+        "id": "naturkartan-bd59",
+        "coverage": "Låddejåhkå-Árasluokta",
+        "importCaveat": "Reverse for STF official direction."
+      },
+      {
+        "id": "naturkartan-bd60",
+        "coverage": "Árasluokta-Stáloluokta",
+        "importCaveat": "Reverse for STF official direction."
+      },
+      {
+        "id": "naturkartan-bd69",
+        "coverage": "Stáloluokta-Duottar-Darreluoppal",
+        "importCaveat": "Reverse and split for stages 5-6."
+      },
+      {
+        "id": "naturkartan-bd70",
+        "coverage": "Darreluoppal-Såmmarlappa-Tarrekaise",
+        "importCaveat": "Reverse and split for stages 7-8."
+      },
+      {
+        "id": "naturkartan-bd71",
+        "coverage": "Tarrekaise-Njunjes-Kvikkjokk/Bobäcken access",
+        "importCaveat": "Split for stages 9-10 and verify boat/access segment handling."
+      }
+    ],
+    "requiredAccessConnectorPolicies": [
+      "M/S Storlule Ritsem-Änonjálmme/Vájsáluokta",
+      "Kvikkjokk-Bobäcken boat",
+      "Gällivare-Ritsem bus / Road to Ritsem",
+      "Murjek-Jokkmokk-Kvikkjokk bus 94"
+    ]
+  },
+  "facilityPlan": {
+    "status": "research-ready; several POIs must be attached, suppressed or rechecked before runtime import",
+    "resolvedPolicyCaveats": [
+      "Hut sub-facilities attached to parent hut.",
+      "Remote hut endpoints without public transit."
+    ],
+    "coordinateVerificationStillNeeded": [
+      "Standalone hut toilets, emergency phones, water points, and waste points.",
+      "Exact helicopter landing coordinates.",
+      "Line-boat landing coordinates away from well-mapped ferry terminals.",
+      "OSM-only firepits and informal campsites.",
+      "Minor rest areas, viewpoints, picnic sites, and swimming spots without durable coordinates.",
+      "Bobäcken phone/toilet and Kvikkjokk public toilet/defibrillator unless verified by a stronger source."
+    ],
+    "currentnessRefreshRequired": [
+      "Road to Ritsem booking partner times and service changes.",
+      "M/S Storlule service status and weather cancellations.",
+      "Fiskflyg schedule and stop availability.",
+      "Båttrafik i Kvikkjokk 2026 timetable.",
+      "Länstrafiken line 94/47 schedules.",
+      "BLT/STF hut opening, payment, shop/provisions, and renovation notices."
+    ]
+  },
+  "ruleWarningPlan": {
+    "status": "overview and section rules researched; publication-time currentness checks required",
+    "rulesToNormalize": [
+      "The trail crosses Padjelanta/Badjelánnda National Park and parts of the wider Laponia World Heritage Site; allemansrätten is limited by protected-area regulations.",
+      "Dogs are prohibited in the Laponia national parks except leashed dogs from 1 January to 30 April. Summer hiking with dogs through Padjelanta/Badjelánnda is therefore not allowed.",
+      "Drone flights in Padjelanta/Badjelánnda, Sarek, and Stora Sjöfället/Stuor Muorkke national parks require permission.",
+      "Visitors must not intentionally disturb reindeer or reindeer herding. Avoid camping or resting close to private cabins, goahti/kåtor, paths, or reindeer enclosures.",
+      "Cycling is prohibited inside the Laponia national parks/nature reserves except listed roads outside the hiking route context.",
+      "No trash handling in the mountains: pack out all waste."
+    ],
+    "currentnessRefreshRequired": [
+      "Fire bans and weather/high-water warnings.",
+      "Laponia summer bridge deployment/removal and bridge damage.",
+      "Pärlälven/Försvarsmakten restrictions near the southern approach."
+    ]
+  },
+  "importOrder": [
+    {
+      "phase": "preflight",
+      "actions": [
+        "Review caveats-resolution.research.json together with the 10 section research files before any normalization work.",
+        "Map each section to officialDisplayDistance, computedGeometryKm, geometrySource, split indices, endpoint snap policy, access connectors, and facility import actions."
+      ]
+    },
+    {
+      "phase": "sections",
+      "sectionIds": [
+        "padjelantaleden-stage-01-ritsem-akka-gisuris",
+        "padjelantaleden-stage-02-gisuris-laddejahka",
+        "padjelantaleden-stage-03-laddejahka-arasluokta",
+        "padjelantaleden-stage-04-arasluokta-staloluokta",
+        "padjelantaleden-stage-05-staloluokta-duottar",
+        "padjelantaleden-stage-06-duottar-darreluoppal",
+        "padjelantaleden-stage-07-darreluoppal-sammarlappa",
+        "padjelantaleden-stage-08-sammarlappa-tarrekaise",
+        "padjelantaleden-stage-09-tarrekaise-njunjes",
+        "padjelantaleden-stage-10-njunjes-kvikkjokk"
+      ]
+    },
+    {
+      "phase": "connectors",
+      "connectorNames": [
+        "M/S Storlule Ritsem-Änonjálmme/Vájsáluokta",
+        "Kvikkjokk-Bobäcken boat",
+        "Stáloluokta helicopter midpoint access",
+        "Vájsáluokta/Kutjaure northern alternative",
+        "Gamájåhkå walking alternative near Kvikkjokk"
+      ]
+    }
+  ],
+  "blockers": [
+    "Runtime import requires a normalizer to choose and document distance fields, endpoint snaps, geometry splits, and access connector modeling.",
+    "Dynamic 2026 access/currentness sources need rechecking close to publication.",
+    "Several POIs must be attached/suppressed rather than imported as standalone guessed coordinates.",
+    "README.md status is older than research-progress.json and caveats-resolution.research.json; use the progress ledger and caveat-resolution packet for current coverage."
+  ],
+  "openDecisionsForUser": [
+    "Decide whether to publish an official headline distance before geometry split review, because official/tourism sources vary between about 140 km, 150 km, 150-160 km, and 160 km.",
+    "Decide the app connector model for M/S Storlule, Kvikkjokk-Bobäcken, helicopter midpoint access and the Gamájåhkå walking alternative.",
+    "Decide whether hut toilets, emergency phones, water points, waste points and seasonal shop/provisions should be standalone facilities or attached to parent hut records.",
+    "Decide whether OSM-only firepits, informal campsites, minor rest areas, viewpoints, picnic sites and swimming spots without durable coordinates should remain suppressed/pending."
+  ],
+  "validationChecklist": [
+    "Parse trail.research.json, research-progress.json, caveats-resolution.research.json and all sections/*.research.json as JSON.",
+    "Confirm section count remains 10 and every section listed in officialSectionOrder has a matching sections/*.research.json file.",
+    "Confirm no files outside data/research/candidate-trails/padjelantaleden/ are changed by the normalization-handoff task.",
+    "Before runtime work, document officialDisplayDistance, computedGeometryKm, geometrySource, split indices, endpoint snap policy, access connectors and facility import actions per section.",
+    "Before publication/runtime import, recheck all dynamic access/currentness sources listed in caveats-resolution.research.json."
+  ],
+  "statusDetails": {
+    "researchStatus": "research-ready-for-normalization-planning",
+    "normalizationReadiness": "ready-for-normalization-planning",
+    "runtimeIntegration": "not-ready",
+    "sourceOfTruthFiles": [
+      "trail.research.json",
+      "research-progress.json",
+      "caveats-resolution.research.json",
+      "sections/*.research.json"
+    ],
+    "sourceConsistencyNote": "README.md status is older than research-progress.json and caveats-resolution.research.json; use the progress ledger and caveat-resolution packet for current coverage."
+  }
+}

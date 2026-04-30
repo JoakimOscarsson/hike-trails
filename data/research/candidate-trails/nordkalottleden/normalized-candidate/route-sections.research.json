@@ -1,0 +1,826 @@
+{
+  "schemaVersion": "candidate-route-sections/v1",
+  "trailId": "nordkalottleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-normalized-research-only",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "nordkalottleden/normalization-handoff.research.json",
+  "sharedDecisionFile": "shared-importer-decisions.research.json",
+  "distancePolicy": {
+    "officialDistanceKm": "Trail-manager or selected official user-facing distance.",
+    "computedGeometryDistanceKm": "Distance computed from selected normalized geometry.",
+    "displayDistanceKm": "Defaults to officialDistanceKm unless a trail-specific handoff selects a different value.",
+    "distanceCaveats": "Source contradictions, rounded totals, stale values and measured-distance notes."
+  },
+  "sections": [
+    {
+      "sectionId": "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi",
+      "sourceFile": "data/research/candidate-trails/nordkalottleden/sections/nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi.research.json",
+      "order": 1,
+      "sectionNumber": 1,
+      "name": "Kalottireitti pohjoiseen: Kilpisjärvi - Saarijärvi",
+      "from": "Kilpisjärvi",
+      "to": "Saarijärvi",
+      "distance": {
+        "officialDistanceKm": 11,
+        "displayDistanceKm": 11,
+        "distanceCaveats": [
+          "high for 11 km official listing; medium for exact geometry-derived length"
+        ]
+      },
+      "estimatedTime": {
+        "fieldReports": [
+          {
+            "value": "3:25",
+            "source": "Nora ja vuoret field report",
+            "confidence": "medium",
+            "caveat": "Field-report timing, not official."
+          },
+          {
+            "value": "4:00 winter/snowshoe route",
+            "source": "Outdooractive winter stage",
+            "confidence": "low",
+            "caveat": "Winter/snowshoe route; not summer hiking evidence."
+          }
+        ],
+        "note": "No official summer walking-time estimate found for this section."
+      },
+      "difficulty": {
+        "officialOrNearOfficial": "demanding wilderness route",
+        "fieldSummary": "Usually easy to follow in clear summer conditions, but rocky, exposed, intermittently wet and affected by high-fell weather.",
+        "confidence": "medium-high"
+      },
+      "routeType": "linear marked summer wilderness hiking section",
+      "endpoints": {
+        "start": {
+          "label": "Kilpisjärven luontokeskuksen pysäköintialue / Kilpisjärvi Visitor Centre parking",
+          "coordinatesLatLon": [
+            69.011758,
+            20.890607
+          ],
+          "confidence": "high for official access/trailhead, medium-high for exact route-line endpoint"
+        },
+        "end": {
+          "label": "Saarijärvi current hut yard / official open wilderness hut",
+          "coordinatesLatLon": [
+            69.065026006,
+            21.088385665
+          ],
+          "confidence": "high for current app destination facility; medium until route-line endpoint/spur is reconciled"
+        }
+      },
+      "routeStatus": "research-ready",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "classification": "planning-grade with official OGC line evidence; not navigation-grade until clipped/exported and hut-yard endpoint/spur is resolved"
+      },
+      "caveats": [
+        "Reisa and the previous Luontoon itinerary evidence list Kilpisjärvi-Saarijärvi as 11 km. Current Luontoon API exposes the whole Kalottireitti 76.65 km route but not a Kilpisjärvi-Saarijärvi section row. Metsähallitus/Eräluvat/current hut context often says Saarijärvi huts are about 12 km from Kilpisjärvi Visitor Centre. OSM relation measures about 12.8 km raw and E1 GPX measures 18.4 km because it follows a broader access/E1 alignment.",
+        "Metsähallitus/Luontoon announced on 2025-06-24 that the former south-side Saana summer route was removed from summer use and Kalottireitti routed north of Saana. The current Luontoon API/OGC route source is official, but any older GPX/OSM line near Saana/Kilpisjärvi may be stale.",
+        "OSM/E1 route endpoint aligns with an older Saarijärvi hut/bridge cluster around 69.0624582, 21.0917517, while official 2023/current hut-yard coordinates sit about 300 m away. Field reports in 2024-2025 explicitly describe the old hut as closed and the new hut as the current overnight destination.",
+        "Luontoon confirms the public lean-to and dry toilet, while Kilpisjärven Ladut/OSM/Luontoon unpublished amenity evidence indicates a nearby yrityskota/vuokrakota is private/rental.",
+        "General Käsivarsi guidance is more permissive about fires and mentions waste containers in broad terms. Saarijärvi hut-specific guidance is stricter about outdoor fire/no official fire site and firewood for hut heating. Luontoon/Retkikartta exposes a new Saarijärvi waste-storage structure, but Eräluvat/hut guidance can still say visitors must pack out waste or that no waste management is provided.",
+        "Malla Strict Nature Reserve rules are stricter than Käsivarsi rules but apply only if modeling the Malla/Three-Country Cairn alternate or connector, not the main Kilpisjärvi-Saarijärvi stage by default.",
+        "During normalization, should the route geometry terminate at the current Saarijärvi open hut point, at a hut-yard centroid, or at the old route-line endpoint plus an explicit spur/gap to the current hut yard?",
+        "Clip and export the Luontoon/Metsähallitus OGC MultiLineString for the exact Kilpisjärvi-Saarijärvi section, then compare it against OSM relation 9518275 after the 2025 Saana reroute.",
+        "Decide whether confirmed bridge records should become app detail facilities or remain descriptive geometry/safety notes.",
+        "Decide whether Saarijärvi wood shed and waste/recycling should be separate import rows or folded into hut details with pack-out and hut-heating-only caveats.",
+        "Confirm 2026 summer Arctic Route/Eskelinen/Matkahuolto schedules before publishing public transit guidance."
+      ]
+    },
+    {
+      "sectionId": "nordkalottleden-kalottireitti-02-saarijarvi-kuonjarjohka",
+      "sourceFile": "data/research/candidate-trails/nordkalottleden/sections/nordkalottleden-kalottireitti-02-saarijarvi-kuonjarjohka.research.json",
+      "order": 2,
+      "sectionNumber": 2,
+      "name": "Kalottireitti pohjoiseen: Saarijärvi - Kuonjarjohka / Guonjarjohka",
+      "from": "Saarijärvi",
+      "to": "Kuonjarjohka / Guonjarjohka / Kuonjarjoki",
+      "distance": {
+        "officialDistanceKm": 10,
+        "displayDistanceKm": 10,
+        "distanceCaveats": [
+          "high for official 10 km section listing; medium for exact route-line length because Saarijärvi endpoint/spur semantics remain unresolved"
+        ]
+      },
+      "estimatedTime": {
+        "fieldReports": [
+          {
+            "value": "about 3-4 hours",
+            "source": "Gaia GPS and Outdooractive route-app estimates plus field-report pacing",
+            "confidence": "low-medium",
+            "caveat": "Not official and highly weather/pack dependent."
+          },
+          {
+            "value": "4:00 winter/snowshoe route",
+            "source": "Outdooractive snowshoe stage",
+            "confidence": "low",
+            "caveat": "Winter route-app evidence only; do not use as official summer hiking time."
+          }
+        ],
+        "note": "No official summer walking-time estimate found for this section."
+      },
+      "difficulty": {
+        "officialOrNearOfficial": "demanding wilderness route",
+        "fieldSummary": "Short but exposed high-fell stage with rocky/wet ground near Saarijärvi, sustained climb toward the Kuonjarvárri/Guonjarvárri saddle, fast weather changes, and seasonal water-crossing variability near Kuonjarjoki.",
+        "confidence": "medium-high"
+      },
+      "routeType": "linear marked summer wilderness hiking section",
+      "endpoints": {
+        "start": {
+          "label": "Saarijärvi current hut yard / official open wilderness hut",
+          "coordinatesLatLon": [
+            69.065026006,
+            21.088385665
+          ],
+          "confidence": "high for current app start facility; medium until route-line endpoint/spur is reconciled"
+        },
+        "end": {
+          "label": "Guonjarjohka / Kuonjarjoki shared rental hut and open wilderness hut",
+          "coordinatesLatLon": [
+            69.101881709,
+            21.219140053
+          ],
+          "confidence": "high for facility and route endpoint"
+        }
+      },
+      "routeStatus": "research-ready",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "classification": false
+      },
+      "caveats": [
+        "Reisa webpage lists Saarijärvi-Kuonjarjohka as 10 km, Reisa poster and field reports often say 9.3 km, and linework/GPX measurements cluster around 8.6-8.8 km.",
+        "OSM/E1/Luontoon route line runs to the old Saarijärvi bridge/route cluster, while current 2023 Saarijärvi hut yard is about 150-315 m away depending source and snap method.",
+        "Saarijärvi has an official waste/recycling point in Luontoon data, while hut guidance still emphasizes packing waste out. Kuonjarjohka hut page says no waste containers.",
+        "Luontoon route page carried a 2026 under-construction/currentness signal, while route/facility APIs still return published active data.",
+        "UT pages exist for Saarijärvi and Kuonjarjoki and credit Metsähallitus, but Saarijärvi data can be stale against the newer 2023 hut-yard change.",
+        "Clip/export the Luontoon OGC line for this section and decide whether to include a mapped spur from the old Saarijärvi route/bridge cluster to the current hut yard.",
+        "Resolve whether Saarijärvi bridge-side old-cluster toilet is still current or should be suppressed with old hut nodes.",
+        "Decide whether Saarijärvi and Kuonjarjoki woodsheds should be standalone import rows or hut-detail amenities.",
+        "Re-check Luontoon route under-construction/currentness signal before public normalization.",
+        "Verify 2026 summer bus schedules live before publishing Kilpisjärvi access details."
+      ]
+    },
+    {
+      "sectionId": "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi",
+      "sourceFile": "data/research/candidate-trails/nordkalottleden/sections/nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi.research.json",
+      "order": 3,
+      "sectionNumber": 3,
+      "name": "Kalottireitti pohjoiseen: Kuonjarjohka / Guonjarjohka - Meekonjärvi / Megonjávri",
+      "from": "Kuonjarjohka / Guonjarjohka / Kuonjarjoki",
+      "to": "Meekonjärvi / Megonjávri / Megonjavri",
+      "distance": {
+        "officialDistanceKm": 10,
+        "displayDistanceKm": 10,
+        "distanceCaveats": [
+          "high for official 10 km section listing; medium-high for exact route-line distance because the Meekonjärvi shared-hut endpoint, open-hut spur, and bridge/junction semantics must be normalized before navigation-grade import"
+        ]
+      },
+      "estimatedTime": {
+        "fieldReports": [
+          {
+            "value": "roughly half-day walking stage",
+            "source": "2024-2025 Kilpisjärvi-Halti field reports that combine this leg with adjacent hut stages",
+            "confidence": "low-medium",
+            "caveat": "No official summer walking-time estimate found; timing depends on pack weight, crossings, snow, and visibility."
+          }
+        ],
+        "note": "No official summer walking-time estimate found for Kuonjarjohka-Meekonjärvi."
+      },
+      "difficulty": {
+        "officialOrNearOfficial": "demanding wilderness route",
+        "fieldSummary": "Generally easier and smoother than the rockier Pihtsusjärvi-Meekonjärvi approach, but still an exposed high-fell wilderness section with climbs, possible snow, wet ground, river crossings, and poor-weather navigation risk.",
+        "confidence": "medium-high"
+      },
+      "routeType": "linear marked summer wilderness hiking section",
+      "endpoints": {
+        "coordinateReferenceSystem": {},
+        "start": {
+          "label": "Kuonjarjohka / Guonjarjohka / Kuonjarjoki hut area",
+          "source": "Luontoon/Retkikartta Guonjarjohka / Kuonjarjoki hut record",
+          "confidence": "medium-high as section endpoint; high as facility coordinate"
+        },
+        "end": {
+          "label": "Meekonjärvi / Megonjávri shared/rental hut area",
+          "source": "Luontoon API Megonjávri / Meekonjärvi Shared Rental Hut, source_unique_id uljas-BF5BB3B4-D27B-4EDC-8DA9-9590017A8813",
+          "confidence": "medium-high as section endpoint; high as facility coordinate"
+        },
+        "relatedEndpointAlternates": {}
+      },
+      "routeStatus": "research-ready",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://www.luontoon.fi/geo/features/collections/public.all_lines_details_view/items?limit=1&source_unique_id=uljas-9F510DA4-B3F2-4389-A7E5-B2F0B2E72D7A",
+        "classification": "planning-grade until section-specific export/clipping is stored"
+      },
+      "caveats": [
+        "Clip/export Luontoon OGC line 12 plus line 14 for a section-specific route artifact, or use OSM relation 9518222 as a fallback after confirming licensing/import policy.",
+        "Should the Meekonjärvi open wilderness hut spur be imported as route geometry, as access/connection metadata, or only as a nearby facility?",
+        "Does the marked section enter the Ánnjaloanji Protected Area movement-restriction zone, or is that restriction only nearby?",
+        "Can any OSM spring candidates be corroborated by official map services or reliable field reports, or should all remain suppressed?",
+        "Before publishing commute details, verify 2026 summer bus schedules and stop coordinates from live Matkahuolto/Eskelinen/Fintraffic sources."
+      ]
+    },
+    {
+      "sectionId": "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi",
+      "sourceFile": "data/research/candidate-trails/nordkalottleden/sections/nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi.research.json",
+      "order": 4,
+      "sectionNumber": 4,
+      "name": "Kalottireitti pohjoiseen: Meekonjärvi / Megonjávri - Pihtsusjärvi / Pitsusjärvi / Bihčosjávri",
+      "from": "Meekonjärvi / Megonjávri / Megonjavri",
+      "to": "Pihtsusjärvi / Pitsusjärvi / Bihčosjávri",
+      "distance": {
+        "officialDistanceKm": 12,
+        "displayDistanceKm": 12,
+        "distanceCaveats": [
+          "high for official 12 km inventory; medium for exact route length because all measured geometry sources cluster near 10.3 km and the Reisa poster gives 8.5 km"
+        ]
+      },
+      "estimatedTime": {
+        "fieldReports": [
+          {
+            "value": "about 2.5-4 hours in route apps and field pacing",
+            "source": "AllTrails 2.5-3 h, Gaia 3 h 40 min, and field-report stage pacing",
+            "confidence": "low-medium",
+            "caveat": "Not official; wet rock, snow, bridge/crossing conditions, and pack weight can make this much slower."
+          },
+          {
+            "value": "6 h winter/snowshoe route",
+            "source": "Outdooractive winter/snowshoe stage",
+            "confidence": "low",
+            "caveat": "Winter evidence only; do not use as official summer hiking time."
+          }
+        ],
+        "note": "No official summer walking-time estimate found for Meekonjärvi-Pihtsusjärvi."
+      },
+      "difficulty": {
+        "officialOrNearOfficial": "demanding wilderness route",
+        "fieldSummary": "Shorter than the official 12 km if measured hut-to-hut, but repeatedly reported as rocky, wet/slippery in rain, and exposed. Meekonjärvi shore, Meekonvaara/Vuomakasjärvi terrain, Vuomakasjoki bridge/crossings, Pitsusköngäs, and final Pitsusjärvi approaches are the main difficulty clues.",
+        "confidence": "medium-high"
+      },
+      "routeType": "linear marked summer wilderness hiking section",
+      "endpoints": {
+        "coordinateReferenceSystem": {},
+        "start": {
+          "label": "Meekonjärvi / Megonjávri shared/rental hut area",
+          "source": "Luontoon API Megonjávri / Meekonjärvi Shared Rental Hut, source_unique_id uljas-BF5BB3B4-D27B-4EDC-8DA9-9590017A8813",
+          "confidence": "medium-high as section endpoint; high as facility coordinate"
+        },
+        "end": {
+          "label": "Bihčosjávri / Pitsusjärvi open wilderness and shared rental hut",
+          "source": "Luontoon API Bihčosjávri / Pitsusjärvi hut, source_unique_id uljas-73C40890-BBF0-4B62-A24A-B069D3E1FEE6",
+          "confidence": "medium-high as section endpoint; high as facility coordinate"
+        },
+        "relatedEndpointAlternates": {}
+      },
+      "routeStatus": "research-ready",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://www.luontoon.fi/geo/features/collections/public.all_lines_details_view/items?limit=1&source_unique_id=uljas-9F510DA4-B3F2-4389-A7E5-B2F0B2E72D7A",
+        "classification": "planning-grade until section-specific export/clipping is stored and distance discrepancy is accepted or explained"
+      },
+      "caveats": [
+        "Why do official display sources list 12 km while Luontoon/OSM/E1 geometry measures about 10.3 km and the Reisa poster lists 8.5 km?",
+        "Clip/export Luontoon OGC line 14 for a section-specific artifact, reversed to Meekonjärvi-Pitsusjärvi, and decide whether geometry can be marked import-grade despite the distance split.",
+        "Does the main section line enter the Ánnjaloanji Protected Area, or are the strict 15 May-1 September restrictions only nearby?",
+        "What is the current official 2026 status of the Vuomakasjoki bridge/railing and any ford/crossing warnings?",
+        "Should Pitsusköngäs be imported as a viewpoint/natural feature with OSM coordinates, or kept pending until official coordinate evidence is found?",
+        "Should Pitsusjärvi waste/recycling be imported as a facility despite pack-out guidance, and should woodsheds remain hut amenities rather than separate POIs?",
+        "Before publishing commute details, verify 2026 summer bus schedules and stop coordinates from live Matkahuolto/Eskelinen/Svipper sources."
+      ]
+    },
+    {
+      "sectionId": "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki",
+      "sourceFile": "data/research/candidate-trails/nordkalottleden/sections/nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki.research.json",
+      "order": 5,
+      "sectionNumber": 5,
+      "name": "Kalottireitti pohjoiseen: Pihtsusjärvi / Pitsusjärvi / Bihčosjávri - Kopmajoki / Goapmajohka",
+      "from": "Pihtsusjärvi / Pitsusjärvi / Bihčosjávri",
+      "to": "Kopmajoki / Goapmajohka",
+      "distance": {
+        "officialDistanceKm": 10,
+        "displayDistanceKm": 10,
+        "distanceCaveats": [
+          "high for official 10 km inventory; medium-high for exact route length because geometry and field sources cluster around 10.8-11 km"
+        ]
+      },
+      "estimatedTime": {
+        "fieldReports": [
+          {
+            "value": "about 4 hours in bad weather to Kopmajoki",
+            "source": "MyWanderfulLife 2022-09-16 field report",
+            "confidence": "medium",
+            "caveat": "Rain, cold, wind and stony terrain affected pace."
+          },
+          {
+            "value": "about 3 hours in route-app estimates",
+            "source": "AllTrails / E1 route-app context",
+            "confidence": "low-medium",
+            "caveat": "Not official; conditions and crossings can slow travel significantly."
+          }
+        ],
+        "note": "No official summer walking-time estimate found for Pihtsusjärvi-Kopmajoki."
+      },
+      "difficulty": {
+        "officialOrNearOfficial": "demanding wilderness route",
+        "fieldSummary": "A short high-fell wilderness section that is often rocky and exposed, with broad/boulder terrain, weather-sensitive marker visibility, and several Goapmajohka/Kopmajoki crossings. Route apps may call it easy, but field reports support moderate-to-hard conditions in rain, fog, snowmelt or high water.",
+        "confidence": "medium-high"
+      },
+      "routeType": "linear marked summer wilderness hiking section",
+      "endpoints": {
+        "coordinateReferenceSystem": {},
+        "start": {
+          "label": "Bihčosjávri / Pitsusjärvi open wilderness and shared rental hut",
+          "source": "Luontoon API Bihčosjávri / Pitsusjärvi hut, source_unique_id uljas-73C40890-BBF0-4B62-A24A-B069D3E1FEE6",
+          "confidence": "medium-high as section endpoint; high as facility coordinate"
+        },
+        "end": {
+          "label": "Goapmajohka / Kopmajoki open wilderness hut",
+          "source": "Luontoon API Goapmajohka / Kopmajoki Open Wilderness Hut, source_unique_id uljas-9EDE00E6-6850-4DB5-A22B-E9E7B178845E",
+          "confidence": "medium-high as section endpoint; high as facility coordinate"
+        }
+      },
+      "routeStatus": "research-ready",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://www.luontoon.fi/geo/features/collections/public.all_lines_details_view/items?limit=1&source_unique_id=uljas-9F510DA4-B3F2-4389-A7E5-B2F0B2E72D7A",
+        "classification": "planning-grade until section-specific export/clipping is stored"
+      },
+      "caveats": [
+        "Clip/export Luontoon OGC line 14 for a section-specific artifact, reversed to Pihtsusjärvi-Kopmajoki.",
+        "Resolve whether import display should keep official 10 km only or expose measured geometry around 10.8 km.",
+        "Reconcile Goapmajohka/Kopmajoki crossings: which ford nodes are on the route, which require wading, and whether any official crossing warnings exist for 2026.",
+        "Resolve Kopmajoki waste management contradiction between hut page, point API and field reports.",
+        "Decide whether Kopmajoki and Pitsusjärvi woodsheds are standalone import rows or hut amenities.",
+        "Before publishing commute details, verify 2026 summer bus schedules, Guolasjávri road access, and any winter transport offerings from live sources."
+      ]
+    },
+    {
+      "sectionId": "nordkalottleden-kalottireitti-06-kopmajoki-somashytta",
+      "sourceFile": "data/research/candidate-trails/nordkalottleden/sections/nordkalottleden-kalottireitti-06-kopmajoki-somashytta.research.json",
+      "order": 6,
+      "sectionNumber": 6,
+      "name": "Kalottireitti / Nordkalottruta: Kopmajoki / Goapmajohka - Somashytta / Somájávri",
+      "from": "Kopmajoki / Goapmajohka",
+      "to": "Somashytta / Somájávri",
+      "distance": {
+        "officialDistanceKm": 3,
+        "displayDistanceKm": 3,
+        "distanceCaveats": [
+          "high for official 3 km inventory; medium-high for route geometry around 3.2-3.3 km"
+        ]
+      },
+      "estimatedTime": {
+        "fieldReports": [
+          {
+            "value": "about 0.5-1 hour",
+            "source": "AllTrails / route-app estimate for E1 Stage 21",
+            "confidence": "low-medium",
+            "caveat": "Only valid in low-water, good-visibility conditions."
+          }
+        ],
+        "note": "No official walking-time estimate found; field reports describe the trail as short/easy in dry conditions but crossing-dependent."
+      },
+      "difficulty": {
+        "officialOrNearOfficial": "demanding wilderness context, short and generally easy leg in good conditions",
+        "fieldSummary": "Very short border-crossing section, generally easy to follow in good weather, but with repeated water-channel/ford hazards, exposure to wind, reindeer fence/gate crossing, and different Finnish/Norwegian marking styles.",
+        "confidence": "medium-high"
+      },
+      "routeType": "linear marked summer wilderness hiking section crossing Finland-Norway border",
+      "endpoints": {
+        "coordinateReferenceSystem": {},
+        "start": {
+          "label": "Goapmajohka / Kopmajoki open wilderness hut",
+          "source": "Luontoon API Goapmajohka / Kopmajoki Open Wilderness Hut, source_unique_id uljas-9EDE00E6-6850-4DB5-A22B-E9E7B178845E",
+          "confidence": "medium-high as section endpoint; high as facility coordinate"
+        },
+        "end": {
+          "label": "Somashytta / Somájávrribarta hut",
+          "source": "OSM hut node 1356458976 and Kartverket stedsnavn API vicinity; route-geometry lane found the route endpoint about 11 m from this node",
+          "confidence": "medium as hut endpoint; medium-high as route-adjacent coordinate"
+        },
+        "relatedEndpointAlternates": {}
+      },
+      "routeStatus": "research-ready",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://www.openstreetmap.org/relation/9518105",
+        "classification": "planning-grade; full-section source is community/OSM-derived"
+      },
+      "caveats": [
+        "Confirm Somashytta coordinate from a current authoritative Reisa/Kartverket/Statskog source and decide whether to suppress the older E1/UT accommodation POI.",
+        "Decide whether OSM relation 9518105 can be used as full section geometry, with Luontoon OGC only as partial official corroboration.",
+        "Normalize the Finland-Norway border/marking transition point, reindeer fence/gate, and ford/crossing coordinates.",
+        "Resolve Somashytta operator/type taxonomy: Reisa/Statskog-managed open hut versus DNT-derived secondary records.",
+        "Verify current Somashytta toilet, tenting/fireplace and firewood status before import wording.",
+        "Before publishing access notes, verify Guolasjávri road status, Svipper/Matkahuolto schedules, and any winter snowmobile route statuses from live sources."
+      ]
+    },
+    {
+      "sectionId": "nordkalottleden-kalottireitti-07-somashytta-saraelv",
+      "sourceFile": "data/research/candidate-trails/nordkalottleden/sections/nordkalottleden-kalottireitti-07-somashytta-saraelv.research.json",
+      "order": 7,
+      "sectionNumber": 7,
+      "name": "Kalottireitti / Nordkalottruta: Somashytta / Somájávri - Saraelv / Ovi Raishiin",
+      "from": "Somashytta / Somájávri",
+      "to": "Saraelv / Ovi Raishiin",
+      "distance": {
+        "officialDistanceKm": 31,
+        "displayDistanceKm": 31,
+        "distanceCaveats": [
+          "high for official 31 km inventory; medium-high that measured linework is about 28.6 km to Saraelv and about 29.7 km if an Ovi Raishiin connector is added"
+        ]
+      },
+      "estimatedTime": {
+        "nearOfficialOrRouteApp": [
+          {
+            "value": "10 hours",
+            "source": "Nasjonal Turbase / UT mirrored by Enjoy",
+            "confidence": "medium"
+          },
+          {
+            "value": "about 8-9 hours",
+            "source": "AllTrails route-app page",
+            "confidence": "low-medium"
+          },
+          {
+            "value": "about 6h07",
+            "source": "RouteYou OSM-derived route page",
+            "confidence": "low"
+          }
+        ],
+        "fieldReports": [
+          {
+            "value": "09:00 to about 19:00",
+            "source": "MyWanderfulLife, 2022-09-17",
+            "confidence": "medium-high",
+            "caveat": "Poor weather, wet and windy conditions, late-season daylight pressure."
+          }
+        ],
+        "note": "No official Reisa walking-time estimate found. Treat as a long full-day wilderness section, with timing highly weather- and ford-dependent."
+      },
+      "difficulty": {
+        "officialOrNearOfficial": "Nasjonal Turbase / Enjoy variants rate the section from medium to expert depending on direction; AllTrails rates it hard/highly challenging.",
+        "fieldSummary": "Long exposed high-mountain traverse followed by steep descent into Reisadalen near Sarafossen. Field reports repeatedly mention wind, rain, poor visibility, slippery rock/slabs, several river or stream crossings, sparse shelter, and limited phone/internet coverage until the valley.",
+        "confidence": "medium-high"
+      },
+      "routeType": "linear marked summer wilderness hiking section from high mountain / landscape conservation area into Reisadalen road-access area",
+      "endpoints": {
+        "coordinateReferenceSystem": {},
+        "start": {
+          "label": "Somashytta / Somájávrribarta hut",
+          "source": "OSM hut node 1356458976 corroborated by Kartverket named-place coordinate and Reisa cabin page",
+          "confidence": "medium-high as hut coordinate; medium-high as section start"
+        },
+        "end": {
+          "label": "Saraelv road/trail route endpoint",
+          "source": "OSM relation 9517991 / E1 GPX endpoint at Saraelv road approach",
+          "confidence": "medium-high as route-line endpoint; medium as official combined Saraelv/Ovi Raishiin endpoint"
+        },
+        "relatedEndpointAlternates": {}
+      },
+      "routeStatus": "research-complete; not automated-import-ready",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "sourceUrl": "https://www.openstreetmap.org/relation/9517991",
+        "classification": "planning-grade; full-section source is community/OSM-derived"
+      },
+      "caveats": [
+        "Reisa webpage lists 31 km, Reisa map poster lists Saraelv-Somá 28 km, Reisa cabin page says Somashytta is approximately 30 km from Saraelv, OSM/E1 measure about 28.64 km to the Saraelv route endpoint, and UT/field/route apps cluster around 29.2-31.3 km.",
+        "Official section name combines Saraelv/Ovi Raishiin, but OSM/E1 geometry terminates at Saraelv road endpoint while Ovi Raishiin/Nordkalottstua is about 1.0 km away. Reisa access text also separates Saraelv road end and Ovi by a forest-road walk.",
+        "OSM/Kartverket route-adjacent hut coordinate around 69.2967089,21.5033438 conflicts with older UT/E1 place coordinate around 69.29400833,21.506913894 by roughly 300 m.",
+        "OSM/In the Woods Dear mention normal DNT-key-like access, while UT/Reisa and 2022/2024 field reports indicate special key, booking, phone contact or key-box code.",
+        "OSM carries DNT tags, but Reisa says the hut is owned by the Norwegian Agriculture Agency and managed in agreement with Statskog; Reisa page says no prebooking.",
+        "Low-water 2025 field reports describe easy stone/wade crossings, while 2017 and 2022 reports describe high water, wet terrain, above-knee crossings and serious poor-weather conditions.",
+        "Decide whether the normalized section endpoint is Saraelv route endpoint, Ovi Raishiin/Nordkalottstua, or a compound endpoint with a connector.",
+        "Resolve distance display policy for official 31 km versus measured 28.64 km to Saraelv and about 29.7 km with Ovi connector.",
+        "Confirm exact boundary overlap with Ráisduottarháldi and Reisa National Park before protected-area tagging.",
+        "Find or create a licensed section-specific route artifact if OSM-derived geometry is not acceptable for import.",
+        "Verify Nordkalottstua booking/key model and Saraelv Lodge coordinate/status before importing lodging records.",
+        "Verify Ovi/Saraelv parking geometry and current road/seasonal conditions before publishing access details."
+      ]
+    },
+    {
+      "sectionId": "nordkalottleden-kalottireitti-08-saraelv-sieimma",
+      "sourceFile": "data/research/candidate-trails/nordkalottleden/sections/nordkalottleden-kalottireitti-08-saraelv-sieimma.research.json",
+      "order": 8,
+      "sectionNumber": 8,
+      "name": "Kalottireitti / Nordkalottruta: Saraelv / Ovi Raishiin - Sieimmastua / Sieimma",
+      "from": "Saraelv / Ovi Raishiin",
+      "to": "Sieimmastua / Sieimma",
+      "distance": {
+        "officialDistanceKm": 9,
+        "displayDistanceKm": 9,
+        "distanceCaveats": [
+          "high for official 9 km; medium-high that measured upper Ovi/Käyräniva route is about 9.1-9.3 km and Saraelv road-end variant is about 10.2-10.3 km"
+        ]
+      },
+      "estimatedTime": {
+        "secondary": [
+          {
+            "time": "5 h",
+            "source": "UT.no / Nasjonal Turbase trip suggestion",
+            "sourceUrl": "https://ut.no/turforslag/119777/sieimma-reisadalen",
+            "confidence": "medium"
+          },
+          {
+            "time": "2-2.5 h from Ovi Raishiin in a 2025 field report",
+            "source": "In the Woods, Dear",
+            "sourceUrl": "https://inthewoodsdear.fi/adventures/arctic-trail-from-finland-to-reisadalen-norway/",
+            "confidence": "medium; fit hiker and report context"
+          }
+        ],
+        "notes": "No Reisa official time estimate found. App display should avoid a single firm time until route variant and intended audience are decided."
+      },
+      "difficulty": {
+        "secondary": "moderate / middels krevende on UT.no; route-app sources rate the longer Nedrefosshytta-Saraelv stage harder",
+        "fieldSummary": "Low valley/access terrain compared with mountain sections, but not a trivial road walk. Field reports mention roots, stones, wet or flooded riverbank sections, dense forest, few obvious tent spots, and seasonal mosquitoes.",
+        "confidence": "medium"
+      },
+      "routeType": "linear marked valley/access section with lower Reisaelva riverbank and upper Ovi Raishiin-Käyräniva forest-road/path variants",
+      "endpoints": {
+        "coordinateReferenceSystem": {},
+        "start": {
+          "label": "Ovi Raishiin / Nordkalottstua official visitor-point and hut cluster",
+          "source": "Kartverket named-place record, UT Nordkalottstua page and Reisa Ovi/Nordkalottstua sources",
+          "confidence": "high as official Ovi/Nordkalottstua endpoint/access facility; medium-high as selected start for the 9 km section"
+        },
+        "end": {
+          "label": "Sieimmastua / Sieimma west-bank rental cabin endpoint",
+          "source": "Reisa Sieimmastua information and rules PDF, UTM 34W 528071 7699390 and decimal N69.4023 E21.715",
+          "confidence": "high as official section endpoint and cabin coordinate"
+        },
+        "relatedEndpointAlternates": {}
+      },
+      "routeStatus": "research-complete; not automated-import-ready",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "confidence": "medium-high for continuous linework; medium for exact official subsection start"
+      },
+      "caveats": [
+        "Decide import endpoint policy: start section 8 at Ovi Raishiin, Saraelv road endpoint, or a compound Saraelv/Ovi endpoint with connector from section 7.",
+        "Decide which line is canonical: lower riverbank path from Saraelv, upper Ovi-Käyräniva forest-road/path, or both as main/alternate geometries.",
+        "Verify exact coordinates for Dronningstøa / Øvre Kirkestilla riverboat/start area, Saraelv boat place, Sieimma rowboat landings and Sieimmastua toilet.",
+        "Verify Käyräniva shelter/toilet/fireplace/tent-area coordinates and current condition before importing.",
+        "Verify 2026 route maintenance/currentness for flood, erosion, downed trees and boardwalk/klopper condition before publication.",
+        "Resolve Sieimmahytta capacity/equipment before importing detailed amenity fields.",
+        "Perform cultural-heritage sensitivity review before importing exact rock-art or tar-mile POIs.",
+        "Verify live Svipper/Entur schedules, private transfer and riverboat operators before public transit/access display.",
+        "Overlay protected-area boundary before tagging the whole section as inside or outside Reisa National Park."
+      ]
+    },
+    {
+      "sectionId": "nordkalottleden-kalottireitti-09-sieimma-nedrefoss",
+      "sourceFile": "data/research/candidate-trails/nordkalottleden/sections/nordkalottleden-kalottireitti-09-sieimma-nedrefoss.research.json",
+      "order": 9,
+      "sectionNumber": 9,
+      "name": "Sieimmastua / Sieimma to Nedrefosshytta",
+      "from": "Sieimmastua / Sieimma",
+      "to": "Nedrefosshytta",
+      "distance": {
+        "officialDistanceKm": 19,
+        "displayDistanceKm": 19,
+        "distanceCaveats": [
+          "high for official 19 km as source-reported distance; medium-low for automated import distance until the official section boundary and geometry discrepancy are resolved"
+        ]
+      },
+      "estimatedTime": {
+        "notes": "No section-specific official time found. UT gives Saraelv/Ovi Raishiin-Nedrefosshytta as about 8-9 hours and field reports treat Saraelv/Ovi to Nedrefosshytta as a long day. Do not infer a section-specific time for import without normalization.",
+        "confidence": "low"
+      },
+      "difficulty": {
+        "value": "ungraded; demanding in wet/high-water conditions",
+        "source": "UT/Reisa descriptions and field reports",
+        "notes": "Low-gradient river-valley walking, but recurring hazards include wet riparian forest, tall ferns, scree/blockfields, erosion, poor or flooded side-stream crossings, rowboat/river safety, and no mobile coverage.",
+        "confidence": "medium-high"
+      },
+      "routeType": "linear wilderness river-valley stage",
+      "endpoints": {
+        "coordinateReferenceSystem": {},
+        "start": {
+          "label": "Sieimmastua / Sieimma west-bank cabin and route-side endpoint",
+          "source": "Reisa Sieimmastua information and rules PDF, UTM 34W 528071 7699390 and decimal N69.4023 E21.715",
+          "confidence": "high as official west-bank cabin endpoint; medium-high as geometry clip endpoint"
+        },
+        "end": {
+          "label": "Nedrefosshytta DNT / Troms Turlag hut",
+          "source": "OSM node 339398252 corroborated by Kartverket Nedrefosshytta 69.32084,21.96913 and UT/DNT hut page",
+          "confidence": "high"
+        },
+        "relatedEndpointAlternates": {}
+      },
+      "routeStatus": "research-complete; not automated-import-ready",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "confidence": "medium-high for continuous linework; medium-low for official section distance match"
+      },
+      "caveats": [
+        "Reisa official page lists Sieimmastua-Nedrefosshytta as 19 km, Reisa poster says 18 km, but OSM/E1 geometry clipped between the selected Sieimmastua west-bank endpoint and Nedrefosshytta measures about 15.1 km.",
+        "Reisa narrative says Nedrefoss-Saraelv 28 km; E1 says 25.5 km and measures 25.387 km; UT says Saraelv/Ovi-Nedrefosshytta about 26 km and Øvre Kirkestilla-Nedrefosshytta 24 km; Hikeouts walked Saraelv-Nedrefosshytta as 24 km.",
+        "Official section names Sieimmastua, while many route/field sources discuss Sieimma/Sieimmahytta. Sieimmahytta is east-bank and off the main marked route via rowboat; Sieimmastua is west-bank/trail-side.",
+        "One route-geometry report suggested 69.428080820,21.630233294 as a Sieimma start for a 19.878 km clip, but this coordinate is near the Käyräniva/section-8 corridor, not Sieimmastua/Sieimma.",
+        "OSM/E1/Statskog map-derived coordinate cluster near 69.3473-69.3478,21.8756-21.8774 is on/near the route; Kartverket gives 69.34598,21.86269 about 540 m away and closer to a route/ford area.",
+        "Reisa says 4-6 people, Statskog says 4 beds, and a 2024 field report observed 3 beds/mattresses.",
+        "Generic Reisa pages still describe salmon fishing, but Reisaelva official 2026 notice says salmon and Arctic char fishing are closed and only a short sea-trout period applies downstream.",
+        "Resolve the major distance contradiction: official Reisa 19 km / poster 18 km versus measured OSM/E1 Sieimmastua-Nedrefosshytta about 15.1 km.",
+        "Determine whether an authoritative official geometry or map overlay exists that uses a different Sieimma-area boundary than the selected west-bank Sieimmastua coordinate.",
+        "Create a licensed, section-specific clipped geometry artifact only after endpoint/distance semantics are resolved; do not integrate into runtime data yet.",
+        "Verify exact coordinates and 2026 condition of named side-stream crossings/klopper: Cissaldat, Alttarinjoki, Rautosuvantojoki, Vuomadatjohka, Holgajohka and Rautosuanto.",
+        "Resolve the Vuomatakka coordinate conflict between OSM/E1/Statskog map and Kartverket before importing the hut point."
+      ]
+    },
+    {
+      "sectionId": "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta",
+      "sourceFile": "data/research/candidate-trails/nordkalottleden/sections/nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta.research.json",
+      "order": 10,
+      "sectionNumber": 10,
+      "name": "Nedrefosshytta to Reisavannhytta / Ráisjávrihytta",
+      "from": "Nedrefosshytta",
+      "to": "Reisavannhytta / Ráisjávrihytta",
+      "distance": {
+        "officialDistanceKm": 30,
+        "displayDistanceKm": 30,
+        "distanceCaveats": [
+          "high for official 30 km as source-reported distance; medium for measured 28-29 km planning geometry; low for any automated import distance until an official geometry or accepted clipping policy exists"
+        ]
+      },
+      "estimatedTime": {
+        "value": "10-12 hours",
+        "source": "UT/Nasjonal Turbase mirror and field reports",
+        "sourceUrl": "https://www.enjoy.ly/no-en/nedrefosshytta-til-reisavannhytta-raisjavrihytta-361690",
+        "notes": "No Reisa section-specific time was found. UT/Nasjonal Turbase gives the reverse route as 10-12 hours and very demanding/hard; recent field reports also treat this as a long 28-31 km day.",
+        "confidence": "medium"
+      },
+      "difficulty": {
+        "value": "demanding to very demanding wilderness stage",
+        "source": "UT/Nasjonal Turbase, Reisa National Park route descriptions and field reports",
+        "notes": "Long day between wilderness huts with repeated stream/ford crossings, weather exposure near Ráisjávri, steep/cabled or ladder sections near Imo/Nedrefoss, optional Imofossen/Imojuvet detour, no mobile coverage at both huts and limited evacuation/access options.",
+        "confidence": "medium-high"
+      },
+      "routeType": "linear wilderness mountain-to-river-valley stage",
+      "endpoints": {
+        "coordinateReferenceSystem": {},
+        "start": {
+          "label": "Nedrefosshytta DNT / Troms Turlag hut",
+          "source": "OSM node 339398252, corroborated by Kartverket Nedrefosshytta 69.32084,21.96913 and UT/DNT hut page",
+          "confidence": "high"
+        },
+        "end": {
+          "label": "Reisavannhytta / Ráisjávrihytta",
+          "source": "OSM node / Statskog hut point, corroborated by Kartverket 69.21325,22.46373 and UT/Inatur hut sources",
+          "confidence": "high"
+        },
+        "relatedEndpointAlternates": {},
+        "namingNotes": {}
+      },
+      "routeStatus": "research-complete; not automated-import-ready",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "classification": "planning-grade only; no official section GPX/KML/GeoJSON found"
+      },
+      "caveats": [
+        "Reisa official table gives 30 km, Reisa poster totals 29 km, OSM relation measures about 29.116 km, E1 reports 28.1 km and measured GPX is about 28.019 km, RouteYou reports 29.2 km, Pacer reports about 29.1 km, while UT/Nasjonal Turbase/Enjoy reports 26.1 km.",
+        "OSM relation 9517599 has a distance tag of 39.5, incompatible with all measured and official distances.",
+        "Reisa official section order in this research file is Nedrefosshytta to Reisavannhytta, while Reisa narrative, OSM relation and E1 GPX are commonly in reverse Reisavannhytta/Ráisjávrihytta to Nedrefosshytta direction.",
+        "Reisa access text, UT and Inatur all describe road/track approach but differ in exact practical framing: 4x4/construction road, 3-4 km from road/route, winter snowmobile permit processing and Biedjovággi/Čunovuohppi road context.",
+        "Imogammen and Luovdigammen/Arthurgammen are well-sourced, but both are offset from the main route line and may require short detours.",
+        "No section-specific closure was found as of 2026-04-29, but Reisa 2026 measures list bridge/trail/toilet/sign tasks in the corridor and spring snow/avalanche/flood conditions are active seasonal concerns.",
+        "Find or confirm absence of an official Reisa/Kartverket/Norgeskart GPX/KML/GeoJSON for Nedrefosshytta-Reisavannhytta.",
+        "Decide whether normalized import distance should show official 30 km only, official plus measured 29.1 km, or a reconciled value after route clipping.",
+        "Create/review an accepted section-specific geometry artifact, reversing OSM/E1-derived source direction if that source is chosen.",
+        "Verify exact coordinates for Avvejohka bridge, Leamšejohka/Reisavannhytta bridge, Imojohka crossings, Njargajohka/Cieknaljohka crossings and any other named fords before importing route safety points.",
+        "Verify exact coordinates for Nedrefoss riverboat landing and Ráisjávri/Biedjovággi parking/access point before publishing access guidance.",
+        "Resolve whether Imogammen and Luovdigammen/Arthurgammen should import as side-spur huts or remain descriptive emergency/rest notes."
+      ]
+    },
+    {
+      "sectionId": "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos",
+      "sourceFile": "data/research/candidate-trails/nordkalottleden/sections/nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos.research.json",
+      "order": 11,
+      "sectionNumber": 11,
+      "name": "Reisavannhytta / Ráisjávrihytta to Madam Bongos fjellstue / Čunovuohppi",
+      "from": "Reisavannhytta / Ráisjávrihytta",
+      "to": "Madam Bongos fjellstue / Čunovuohppi",
+      "distance": {
+        "officialDistanceKm": 29,
+        "displayDistanceKm": 29,
+        "distanceCaveats": [
+          "high for official 29 km as source-reported distance; medium-high for OSM/E1 measured 28.1 km as planning geometry; medium for UT route 27.779 km; unresolved for import display until distance policy is normalized"
+        ]
+      },
+      "estimatedTime": {
+        "value": "9 hours",
+        "source": "Nasjonal Turbase / UT mirror on Enjoy",
+        "sourceUrl": "https://www.enjoy.ly/no/reisavannhytta-raisjavrihytta-til-madam-bongos-fjellstue-cunovuohppi-722753",
+        "notes": "UT route data exposed through the route page does not show a time, but the Nasjonal Turbase/UT mirror reports 9 hours. Field reports split the route or include misnavigation/road variants.",
+        "confidence": "medium"
+      },
+      "difficulty": {
+        "value": "very demanding / expert",
+        "source": "UT route 136866 and Nasjonal Turbase / Enjoy",
+        "notes": "UT route 136866 grades both directions VERY_TOUGH. Enjoy mirrors the route as Expert. Main difficulty factors are length, remote high-plateau terrain, route-finding between vehicle tracks and powerline segments, wet bogs, repeated stream crossings and no confirmed active lodging at the legacy Madam Bongos endpoint.",
+        "confidence": "medium-high"
+      },
+      "routeType": "linear high-plateau wilderness stage with road/track endpoint access",
+      "endpoints": {
+        "coordinateReferenceSystem": {},
+        "start": {
+          "label": "Reisavannhytta / Ráisjávrihytta",
+          "source": "OSM node 1935061650, corroborated by Kartverket 69.21325,22.46373 and UT/Inatur/Statskog hut sources",
+          "confidence": "high"
+        },
+        "end": {
+          "label": "Madam Bongos fjellstue / Čunovuohppi",
+          "source": "Kartverket Turisthytte record for Madam Bongos fjellstue / Čunovuohppi / Čunuvuoppi",
+          "confidence": "high for location/name; low for active lodging/service"
+        },
+        "relatedEndpointAlternates": {},
+        "namingNotes": {}
+      },
+      "routeStatus": "research-complete; not automated-import-ready",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "classification": "planning-grade; no Reisa official downloadable GPX/KML/GeoJSON found"
+      },
+      "caveats": [
+        "Reisa official page lists Reisavannhytta-Madam Bongos as 29 km; Reisa map poster lists Ráisjávri-Čuonovuohppi as 27 km; UT route 136866 gives 27.779 km; OSM/E1 measure about 28.1 km; RouteYou reports 28.2 km; Enjoy mirror reports 43.1 km; UT/NPL child report says 34 km but explicitly includes misnavigation/road route.",
+        "Official Reisa section order is Reisavannhytta to Madam Bongos. OSM relation 9517566, E1 GPX 02.02 and RouteYou are in the opposite Čunovuohppi/Madam Bongos to Ráisjávrihytta direction.",
+        "Reisa still uses Madam Bongos fjellstue as an endpoint label. UT route data updated 2025-11-04 says Madam Bongos Fjellstue is closed. Brønnøysund reports the business entity deleted 2019-05-28. Guovdageaidnu strategy calls Čunovuohppi the settlement formerly Madam Bongos fjellstue. OSM still has stale active-hut/service-style tags from older DNT data.",
+        "Reisa cabin page says Ráisjávri Nilut is 200 m from where Nordkalott Trail passes, but the Kartverket coordinate measured about 4 km from OSM relation 9517566.",
+        "UT route description mentions vehicle tracks, powerline and multiple stone/ford crossings, while fetched OSM relation way tags are only highway=path/foot=designated and do not expose bridge/ford/track features.",
+        "UT route text says the route briefly enters Reisa NP near Rivkkos, but exact Reisa NP/Ráisduottarháldi overlap was not GIS-verified.",
+        "Find an authoritative downloadable geometry for UT route fin1 or another official source; current extract has route-description/distance but no GPX/KML/GeoJSON.",
+        "Decide import display distance: Reisa 29 km, Reisa poster 27 km, UT 27.779 km or OSM/E1 28.1 km.",
+        "Reverse and review OSM/E1 geometry if it is used, and decide whether to snap the endpoint to Kartverket Madam Bongos or preserve the route-line endpoint with a 76-77 m access gap.",
+        "Verify exact coordinates/currentness for named crossings and whether any have bridges or seasonal washout risks.",
+        "Verify whether any part of section 11 intersects Ráisduottarháldi LVO and precisely where it enters/leaves Reisa National Park.",
+        "Verify current operational status, services, water/toilet and access restrictions at Čunovuohppi / Madam Bongos before any endpoint facility import."
+      ]
+    },
+    {
+      "sectionId": "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino",
+      "sourceFile": "data/research/candidate-trails/nordkalottleden/sections/nordkalottleden-kalottireitti-12-madam-bongos-kautokeino.research.json",
+      "order": 12,
+      "sectionNumber": 12,
+      "name": "Madam Bongos fjellstue / Čunovuohppi to Kautokeino / Guovdageaidnu",
+      "from": "Madam Bongos fjellstue / Čunovuohppi",
+      "to": "Kautokeino / Guovdageaidnu",
+      "distance": {
+        "officialDistanceKm": 22,
+        "displayDistanceKm": 22,
+        "distanceCaveats": [
+          "high for official 22 km as source-reported distance; medium-high for E1/OSM 19.36 km planning geometry; unresolved for import display until distance policy and endpoint semantics are normalized"
+        ]
+      },
+      "estimatedTime": {
+        "value": "5.5-6 hours",
+        "source": "AllTrails and E1/RouteYou planning mirrors",
+        "sourceUrl": "https://www.alltrails.com/trail/norway/troms-og-finnmark/e1-norge-etappe-1-nordkalottruta-guovdageaidnu-madam-bongos-fjellstue",
+        "notes": "No official Reisa time found. Route-app mirrors cluster around 5.5-6 hours for Kautokeino to Čunovuohppi / Madam Bongos. Use only as planning evidence.",
+        "confidence": "medium-low"
+      },
+      "difficulty": {
+        "value": "hard / demanding",
+        "source": "AllTrails, RouteYou and field-report synthesis",
+        "notes": "No section-specific Reisa difficulty found. Difficulty is driven by wet/boggy terrain, brushy approach, route-finding, road/private-road access ambiguity and lack of verified services at the Čunovuohppi endpoint.",
+        "confidence": "medium"
+      },
+      "routeType": "linear high-plateau and Kautokeino approach stage with road/path variants",
+      "endpoints": {
+        "coordinateReferenceSystem": {},
+        "start": {
+          "label": "Madam Bongos fjellstue / Čunovuohppi",
+          "source": "Kartverket Turisthytte record for Madam Bongos fjellstue / Čunovuohppi / Čunuvuoppi",
+          "confidence": "high for location/name; low for active lodging/service"
+        },
+        "end": {
+          "label": "Kautokeino / Guovdageaidnu route endpoint",
+          "source": "E1 GPX first point and OSM E1 parent relation route endpoint node 815449935",
+          "confidence": "medium-high as route-line endpoint; medium for official trail terminus"
+        },
+        "relatedEndpointAlternates": {},
+        "namingNotes": {}
+      },
+      "routeStatus": "research-complete; not automated-import-ready",
+      "routeGroupHint": "mainline",
+      "sourceSummary": {
+        "classification": "planning-grade; no Reisa official downloadable GPX/KML/GeoJSON found"
+      },
+      "caveats": [
+        "Reisa overview says 22 km; Reisa poster says 20 km; E1 GPX and OSM E1 parent geometry measure about 19.36 km; OSM child relation 9517537 tags 19.4 km but current members measure only about 17.09 km; field road exits are about 9-12 km.",
+        "OSM relation 9517537 is named Buletjávri-Čunovuohppi and omits the Kautokeino-to-Buletjávri approach. The OSM E1 parent relation or E1 GPX includes the missing approach.",
+        "Reisa still lists Madam Bongos fjellstue as endpoint, but Brønnøysund says the entity was deleted 2019-05-28, UT says the fjellstue is closed, municipal strategy calls Čunovuohppi the former fjellstue, and municipal minutes downgraded the road due no operation.",
+        "Reisa names Kautokeino but does not publish a precise terminus. E1/OSM route endpoint is about 180 m from Kartverket town centre and about 0.27 km from Kautokeino rådhus stop.",
+        "Recent field reports describe road walking or road bypasses for the wet Kautokeino approach, while official/E1 geometry preserves a longer marked trail/path stage.",
+        "No active protected-area overlap was verified, but an older government planning decision describes proposed Stuorajávri wetland/nature-reserve sensitivity and reindeer migration/winter-pasture concerns near Čunovuohppi.",
+        "Extract or confirm absence of exact official Kartverket/Turrutebasen GPX/GML/WFS geometry for Čunovuohppi-Kautokeino.",
+        "Decide import display distance: Reisa 22 km, Reisa poster 20 km, E1/OSM 19.36 km, or a policy that stores all with official as canonical source-reported value.",
+        "Decide endpoint policy for Kautokeino: E1/OSM route endpoint, town centre, rådhus stop, Cirkle K gateway, or route endpoint plus town access connectors.",
+        "Decide endpoint policy for Čunovuohppi/Madam Bongos: legacy fjellstue point, route projection, settlement point, or private-road junction/access point.",
+        "Verify if the private road to Čunovuohppi permits public hiking drop-off/parking or only local/private access.",
+        "Confirm whether any current public service, water, toilet, shelter or camping is available at Čunovuohppi."
+      ]
+    }
+  ]
+}

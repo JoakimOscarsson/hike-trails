@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "candidate-route-topology/v1",
+  "trailId": "bohusleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-topology-decisions-applied",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "bohusleden/normalization-handoff.research.json",
+  "sharedDecisionFile": "shared-importer-decisions.research.json",
+  "topologyPolicy": {
+    "decision": "Use route groups for walked official route topology and connections for transfers between route entries.",
+    "routeGroupKinds": {
+      "mainline": "Primary continuous official section chain for the selected trail model.",
+      "branch": "Official alternate or side branch that can be hiked as trail, but should not be silently merged into the mainline.",
+      "access": "Official or strongly supported approach route to/from public transport, village, trailhead or another trail.",
+      "connector": "Walked link between route groups or nearby route sections where it is part of the trail model."
+    },
+    "connectionsUse": "Use connections.json-style records for non-section transfers or continuity records between sections: ferry, bus, road transfer, rowboat, short walk transfer, same-island continuity, or mode none for a known gap with no usable transfer geometry.",
+    "officialRowboatRule": "If a rowboat crossing is an official route entry in its own right, model it as a section route with strong warnings. Otherwise model it as a rowboat connection or access/side metadata."
+  },
+  "topologySourceSummary": {
+    "importOrder": [
+      {
+        "step": 1,
+        "slice": "geometry-only validation",
+        "sections": "Stages 1-20 and 22-27",
+        "notes": "Use mapdata/sections/*.geojson; exclude Stage 21 from complete-route import."
+      },
+      {
+        "step": 2,
+        "slice": "southern chain",
+        "sections": "Stages 1-8",
+        "notes": "Stop before the Stage 8-to-Stage 9 Bottenstugan gap and decide snap policy."
+      },
+      {
+        "step": 3,
+        "slice": "middle chain",
+        "sections": "Stages 9-20",
+        "notes": "Import as full official geometry with section caveats; stop at Stage 21 start."
+      },
+      {
+        "step": 4,
+        "slice": "northern chain after blocked gap",
+        "sections": "Stages 22-27",
+        "notes": "Import as a separate chain unless Stage 21 partial/self-navigation policy is approved."
+      },
+      {
+        "step": 5,
+        "slice": "Stage 21 special model",
+        "sections": "Stage 21 only",
+        "notes": "Do not import as complete route. Only proceed if authoritative full route geometry is obtained or the app deliberately supports partial/self-navigation metadata."
+      },
+      {
+        "step": 6,
+        "slice": "facilities and rules",
+        "sections": "All researched sections",
+        "notes": "Run cluster dedupe, pending/suppress filtering, GIS overlays and live checks before user-facing publication."
+      }
+    ],
+    "endpointContinuityIssues": [
+      "Stages 1-7 chain exactly or negligibly, then Stage 8 to Stage 9 has a 49.4 m small-known-gap at Bottenstugan.",
+      "Stages 9-20 chain exactly or negligibly to Stage 21 start.",
+      "Stage 21 to Stage 22 has a 4296.3 m blocking-or-intentional-gap; known Stage 21 partial-geometry/self-navigation gap; do not stitch automatically.",
+      "Stages 22-27 chain exactly or negligibly after the Stage 21 gap.",
+      "OSM endpoint offsets around Kynnefjalls natur and Vaktarekullen are QA context only; WST/Hoodin remains primary."
+    ],
+    "blockedGeometry": [
+      {
+        "sectionId": "bohusleden-stage-21-flotemarkson-porsas",
+        "status": "not-ready-full-stage-geometry-blocked",
+        "resolutionRequired": "Obtain authoritative full route corridor from Tanum municipality/WST or encode a deliberate partial/self-navigation model. Do not auto-stitch the gap."
+      }
+    ]
+  },
+  "decisionsApplied": [
+    {
+      "id": "bohusleden-stage-21-partial-route-model",
+      "fixNowItemRefs": [
+        "hardBlockers-1"
+      ],
+      "decision": "Keep Stage 21 out of the default complete-route chain until authoritative complete linework exists; preserve the researched partial/self-navigation span as explicit candidate metadata."
+    }
+  ],
+  "routeGroups": [
+    {
+      "groupId": "bohusleden-southern-chain",
+      "kind": "mainline",
+      "status": "candidate-importable-after-geometry-validation",
+      "sectionIds": [
+        "bohusleden-stage-1-alvsaker-stensjon",
+        "bohusleden-stage-2-stensjon-skatas",
+        "bohusleden-stage-3-skatas-kasjon",
+        "bohusleden-stage-4-kasjon-jonsered",
+        "bohusleden-stage-5-jonsered-angereds-kyrka",
+        "bohusleden-stage-6-angereds-kyrka-fontin",
+        "bohusleden-stage-7-fontin-grandalen",
+        "bohusleden-stage-8-grandalen-bottenstugan"
+      ],
+      "notes": "Stages 1-8 form the southern walked chain ending at Bottenstugan."
+    },
+    {
+      "groupId": "bohusleden-middle-chain",
+      "kind": "mainline",
+      "status": "candidate-importable-after-geometry-validation",
+      "sectionIds": [
+        "bohusleden-stage-9-bottenstugan-lysevatten",
+        "bohusleden-stage-10-lysevatten-hasterod",
+        "bohusleden-stage-11-hasterod-vassbovik",
+        "bohusleden-stage-12-vassbovik-glimmingen",
+        "bohusleden-stage-13-glimmingen-bjursjon",
+        "bohusleden-stage-14-bjursjon-metsjo",
+        "bohusleden-stage-15-metsjo-kaserna",
+        "bohusleden-stage-16-kaserna-borgmastarbruket",
+        "bohusleden-stage-17-borgmastarbruket-kyrkoryr",
+        "bohusleden-stage-18-kyrkoryr-kynnefjalls-natur",
+        "bohusleden-stage-19-kynnefjalls-natur-vaktarekullen",
+        "bohusleden-stage-20-vaktarekullen-flotemarkson"
+      ],
+      "notes": "Stages 9-20 resume from Bottenstugan and stop before the partial Stage 21 span."
+    },
+    {
+      "groupId": "bohusleden-northern-chain",
+      "kind": "mainline",
+      "status": "candidate-importable-after-geometry-validation",
+      "sectionIds": [
+        "bohusleden-stage-22-porsas-nornas",
+        "bohusleden-stage-23-nornas-vassbotten",
+        "bohusleden-stage-24-vassbotten-havedalen",
+        "bohusleden-stage-25-havedalen-krokstrand",
+        "bohusleden-stage-26-krokstrand-hogstad",
+        "bohusleden-stage-27-hogstad-stromstad"
+      ],
+      "notes": "Stages 22-27 remain a separate northern chain unless runtime UX can show the Stage 21 gap clearly."
+    },
+    {
+      "groupId": "bohusleden-stage-21-partial",
+      "kind": "branch",
+      "status": "research-only-partial-self-navigation",
+      "sectionIds": [
+        "bohusleden-stage-21-flotemarkson-porsas"
+      ],
+      "notes": "Not eligible for ordinary complete-route import under the shared partial/self-navigation policy."
+    }
+  ],
+  "connections": [
+    {
+      "connectionId": "bohusleden-stage-8-to-9-bottenstugan",
+      "fromSectionId": "bohusleden-stage-8-grandalen-bottenstugan",
+      "toSectionId": "bohusleden-stage-9-bottenstugan-lysevatten",
+      "mode": "walk",
+      "status": "reviewed-short-walk-connection-needed",
+      "distanceMetersApprox": 49.4,
+      "importPolicy": "Represent as an explicit reviewed walk connection if runtime route graph support is used; do not silently move endpoints."
+    },
+    {
+      "connectionId": "bohusleden-stage-21-to-22-known-gap",
+      "fromSectionId": "bohusleden-stage-21-flotemarkson-porsas",
+      "toSectionId": "bohusleden-stage-22-porsas-nornas",
+      "mode": "none",
+      "status": "known-gap",
+      "distanceMetersApprox": 4296.3,
+      "importPolicy": "Do not bridge or auto-route; show Stage 21/22 separation visibly if partial Stage 21 is ever exposed."
+    }
+  ],
+  "displayPolicies": [],
+  "remainingGeometryWork": [
+    "Validate candidate GeoJSON for Stages 1-20 and 22-27 before runtime import.",
+    "Stage 21 still requires authoritative complete geometry or explicit missing-route runtime UX before it can be shown as a route section."
+  ],
+  "unresolvedSectionRefs": []
+}

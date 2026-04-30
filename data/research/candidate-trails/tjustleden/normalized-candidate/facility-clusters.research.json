@@ -1,0 +1,5356 @@
+{
+  "schemaVersion": "candidate-facility-clusters/v1",
+  "trailId": "tjustleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-normalized-research-only",
+  "runtimeImportApproved": false,
+  "facilityStatePolicy": {
+    "decision": "Normalize facilities through explicit import actions, not by deleting caveats.",
+    "candidateImportActions": [
+      "import",
+      "import-as-access",
+      "import-as-rule-warning",
+      "attach-to-parent",
+      "side-trip-metadata",
+      "pending-review",
+      "suppress"
+    ],
+    "runtimeMapping": [
+      "Only import, import-as-access, import-as-rule-warning and attach-to-parent records may become runtime data.",
+      "Pending-review and suppress records remain in research/candidate artifacts and must not appear as normal user-facing facilities.",
+      "Side-trip metadata can become user-facing only if the route or POI is intentionally modeled as a side trip."
+    ],
+    "parentClusterPolicy": "Cluster first, then split typed subfacilities only where coordinates, confidence and app taxonomy justify separate markers.",
+    "parkingAndTransitPolicy": "Parking and transit should be treated consistently with existing app trails: import verified, useful access records as user-facing parking/transit facilities or accessPoints, dedupe them by cluster, and keep timetable/parking-rule details caveated and live-checkable.",
+    "informalTentingPolicy": "Informal tenting remains a separate candidate category. Promote to runtime camping only when rules and coordinates support it; otherwise keep as caveated rule/access text or pending-review.",
+    "privateCommercialPolicy": "Private, customer-only, seasonal or opening-hours-dependent services can be imported only with clear caveats and publication-time recheck requirements."
+  },
+  "summary": {
+    "totalFacilities": 213,
+    "clusterCount": 173,
+    "multiFacilityClusters": 30,
+    "dedupeCandidateClusters": 41,
+    "byRecommendedAction": {
+      "dedupe-duplicate-facility": 17,
+      "single-record": 132,
+      "keep-suppressed": 13,
+      "dedupe-related-site-cluster": 4,
+      "attach-child-amenities-to-parent": 7
+    }
+  },
+  "clusters": [
+    {
+      "clusterId": "tjustleden-name-odensvi-kyrksjon-bathing-area",
+      "clusterKey": "name-odensvi-kyrksjon-bathing-area",
+      "representativeName": "Odensvi - Kyrksjön bathing area",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-13-odensvi-kyrksjon-bathing-area",
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-7-odensvi-kyrksjon-bathing-area"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi",
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-6-samsvik-area-viewpoint",
+      "clusterKey": "single-tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-6-samsvik-area-viewpoint",
+      "representativeName": "Samsvik-area viewpoint",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-6-samsvik-area-viewpoint"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-7-stora-ramm-and-tallsjon-bathing-rocks",
+      "clusterKey": "single-tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-7-stora-ramm-and-tallsjon-bathing-rocks",
+      "representativeName": "Stora Ramm and Tällsjön bathing rocks",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-7-stora-ramm-and-tallsjon-bathing-rocks"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-8-mortfors-bathing-place",
+      "clusterKey": "single-tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-8-mortfors-bathing-place",
+      "representativeName": "Mörtfors bathing place",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-8-mortfors-bathing-place"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-9-mortfors-nature-reserve-heritage-viewpoint",
+      "clusterKey": "single-tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-9-mortfors-nature-reserve-heritage-viewpoint",
+      "representativeName": "Mörtfors nature reserve heritage/viewpoint",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-9-mortfors-nature-reserve-heritage-viewpoint"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-10-ramnesund-croft-ruin-and-burial-cairn",
+      "clusterKey": "single-tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-10-ramnesund-croft-ruin-and-burial-cairn",
+      "representativeName": "Ramnesund croft ruin and burial cairn",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-10-ramnesund-croft-ruin-and-burial-cairn"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-11-getterums-by-and-asen-market-site",
+      "clusterKey": "single-tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-11-getterums-by-and-asen-market-site",
+      "representativeName": "Getterums by and Åsen market site",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-11-getterums-by-and-asen-market-site"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-2-getgol-shelter-fireplace-grill",
+      "clusterKey": "single-tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-2-getgol-shelter-fireplace-grill",
+      "representativeName": "Getgöl shelter fireplace/grill",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-2-getgol-shelter-fireplace-grill"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-4-uddekvarn-dams-and-mill-remains",
+      "clusterKey": "single-tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-4-uddekvarn-dams-and-mill-remains",
+      "representativeName": "Uddekvarn dams and mill remains",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-4-uddekvarn-dams-and-mill-remains"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-6-hjorteds-badplats-hjortenbadet",
+      "clusterKey": "single-tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-6-hjorteds-badplats-hjortenbadet",
+      "representativeName": "Hjorteds badplats / Hjortenbadet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-6-hjorteds-badplats-hjortenbadet"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-8-hjorteds-mopedmuseum",
+      "clusterKey": "single-tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-8-hjorteds-mopedmuseum",
+      "representativeName": "Hjorteds Mopedmuseum",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-8-hjorteds-mopedmuseum"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-9-isgolen-isholmen-ankarsrumsslingan-junction-guidepost",
+      "clusterKey": "single-tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-9-isgolen-isholmen-ankarsrumsslingan-junction-guidepost",
+      "representativeName": "Isgölen / Isholmen / Ankarsrumsslingan junction guidepost",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-9-isgolen-isholmen-ankarsrumsslingan-junction-guidepost"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-10-lilla-flugen-stora-flugen-picnic-site",
+      "clusterKey": "single-tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-10-lilla-flugen-stora-flugen-picnic-site",
+      "representativeName": "Lilla Flugen / Stora Flugen picnic site",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-10-lilla-flugen-stora-flugen-picnic-site"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-11-svartestrom-hydropower-heritage-point",
+      "clusterKey": "single-tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-11-svartestrom-hydropower-heritage-point",
+      "representativeName": "Svarteström hydropower heritage point",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-11-svartestrom-hydropower-heritage-point"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-14-svartestrom-picnic-table-rest-area",
+      "clusterKey": "single-tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-14-svartestrom-picnic-table-rest-area",
+      "representativeName": "Svarteström picnic table / rest area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-14-svartestrom-picnic-table-rest-area"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-16-borgberget-hillfort-and-viewpoints",
+      "clusterKey": "single-tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-16-borgberget-hillfort-and-viewpoints",
+      "representativeName": "Borgberget hillfort and viewpoints",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-16-borgberget-hillfort-and-viewpoints"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-2-svartestrom-picnic-table",
+      "clusterKey": "single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-2-svartestrom-picnic-table",
+      "representativeName": "Svarteström picnic table",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-2-svartestrom-picnic-table"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-4-stora-flugen-ridge-rest-view",
+      "clusterKey": "single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-4-stora-flugen-ridge-rest-view",
+      "representativeName": "Stora Flugen ridge rest/view",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-4-stora-flugen-ridge-rest-view"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-5-fagertorp-croft-remains",
+      "clusterKey": "single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-5-fagertorp-croft-remains",
+      "representativeName": "Fagertorp croft remains",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-5-fagertorp-croft-remains"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-6-ekenas-tjursbosjon-bronze-age-remains",
+      "clusterKey": "single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-6-ekenas-tjursbosjon-bronze-age-remains",
+      "representativeName": "Ekenäs / Tjursbosjön bronze-age remains",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-6-ekenas-tjursbosjon-bronze-age-remains"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-7-gladhammars-gruvor-hollandaregruvan",
+      "clusterKey": "single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-7-gladhammars-gruvor-hollandaregruvan",
+      "representativeName": "Gladhammars gruvor / Holländaregruvan",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-7-gladhammars-gruvor-hollandaregruvan"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-8-gladhammars-gruvor-bench-rest",
+      "clusterKey": "single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-8-gladhammars-gruvor-bench-rest",
+      "representativeName": "Gladhammars gruvor bench/rest",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-8-gladhammars-gruvor-bench-rest"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-9-gladhammars-gruvor-firepit",
+      "clusterKey": "single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-9-gladhammars-gruvor-firepit",
+      "representativeName": "Gladhammars gruvor firepit",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-9-gladhammars-gruvor-firepit"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-11-lunds-by-museum-heritage-village",
+      "clusterKey": "single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-11-lunds-by-museum-heritage-village",
+      "representativeName": "Lunds by museum / heritage village",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-11-lunds-by-museum-heritage-village"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-14-gladhammars-kyrka-and-nearby-grave-field",
+      "clusterKey": "single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-14-gladhammars-kyrka-and-nearby-grave-field",
+      "representativeName": "Gladhammars kyrka and nearby grave field",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-14-gladhammars-kyrka-and-nearby-grave-field"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-15-hallristning-i-gladhammar-l1958-2503",
+      "clusterKey": "single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-15-hallristning-i-gladhammar-l1958-2503",
+      "representativeName": "Hällristning i Gladhammar L1958:2503",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-15-hallristning-i-gladhammar-l1958-2503"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-20-valstad-kvarn-hvalstad-kvarn-museum",
+      "clusterKey": "single-tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-20-valstad-kvarn-hvalstad-kvarn-museum",
+      "representativeName": "Valstad kvarn / Hvalstad kvarn museum",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-20-valstad-kvarn-hvalstad-kvarn-museum"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-3-mjosjon-rest-swim-area",
+      "clusterKey": "single-tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-3-mjosjon-rest-swim-area",
+      "representativeName": "Mjösjön rest/swim area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-3-mjosjon-rest-swim-area"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-5-ulriksberg-croft-foundation",
+      "clusterKey": "single-tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-5-ulriksberg-croft-foundation",
+      "representativeName": "Ulriksberg croft foundation",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-5-ulriksberg-croft-foundation"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-6-stora-svinnaren-rest-area",
+      "clusterKey": "single-tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-6-stora-svinnaren-rest-area",
+      "representativeName": "Stora Svinnaren rest area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-6-stora-svinnaren-rest-area"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-7-soluppgang-croft-ruin",
+      "clusterKey": "single-tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-7-soluppgang-croft-ruin",
+      "representativeName": "Soluppgång croft ruin",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-7-soluppgang-croft-ruin"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-8-falla-sag",
+      "clusterKey": "single-tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-8-falla-sag",
+      "representativeName": "Falla såg",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-8-falla-sag"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-9-hjorten-west-shore-rest-context",
+      "clusterKey": "single-tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-9-hjorten-west-shore-rest-context",
+      "representativeName": "Hjorten west-shore rest context",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-9-hjorten-west-shore-rest-context"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-10-tornsfalls-kyrka-kyrkogard",
+      "clusterKey": "single-tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-10-tornsfalls-kyrka-kyrkogard",
+      "representativeName": "Törnsfalls kyrka / kyrkogård",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-10-tornsfalls-kyrka-kyrkogard"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-2-borgareberget-utsikt-tjustleden-etapp-5",
+      "clusterKey": "single-tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-2-borgareberget-utsikt-tjustleden-etapp-5",
+      "representativeName": "Borgareberget / Utsikt Tjustleden etapp 5",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-2-borgareberget-utsikt-tjustleden-etapp-5"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-8-almviks-tegelbruksmuseum",
+      "clusterKey": "single-tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-8-almviks-tegelbruksmuseum",
+      "representativeName": "Almviks Tegelbruksmuseum",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-8-almviks-tegelbruksmuseum"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-9-almviks-badplats",
+      "clusterKey": "single-tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-9-almviks-badplats",
+      "representativeName": "Almviks badplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-9-almviks-badplats"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-14-kalaker-grave-field-information-board",
+      "clusterKey": "single-tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-14-kalaker-grave-field-information-board",
+      "representativeName": "Kålåker grave field / information board",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-14-kalaker-grave-field-information-board"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-15-blekhem-manor-blekhem-cultural-landscape",
+      "clusterKey": "single-tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-15-blekhem-manor-blekhem-cultural-landscape",
+      "representativeName": "Blekhem manor / Blekhem cultural landscape",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-15-blekhem-manor-blekhem-cultural-landscape"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-5-sixgol-bathing-rocks-badplats-tjustleden-etapp-6",
+      "clusterKey": "single-tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-5-sixgol-bathing-rocks-badplats-tjustleden-etapp-6",
+      "representativeName": "Sixgöl bathing rocks / Badplats Tjustleden etapp 6",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-5-sixgol-bathing-rocks-badplats-tjustleden-etapp-6"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-7-hangesten",
+      "clusterKey": "single-tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-7-hangesten",
+      "representativeName": "Hängesten",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-7-hangesten"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-9-martens-gryt",
+      "clusterKey": "single-tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-9-martens-gryt",
+      "representativeName": "Mårtens Gryt",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-9-martens-gryt"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-10-lundaborg-uvekarr-hillfort",
+      "clusterKey": "single-tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-10-lundaborg-uvekarr-hillfort",
+      "representativeName": "Lundaborg / Uvekarr hillfort",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-10-lundaborg-uvekarr-hillfort"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-17-mockelkullen-nature-reserve-viewpoint",
+      "clusterKey": "single-tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-17-mockelkullen-nature-reserve-viewpoint",
+      "representativeName": "Möckelkullen nature reserve / viewpoint",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-17-mockelkullen-nature-reserve-viewpoint"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-19-early-section-6-official-narrative-pois-generic-naturkartan-sight-markers",
+      "clusterKey": "single-tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-19-early-section-6-official-narrative-pois-generic-naturkartan-sight-markers",
+      "representativeName": "Early Section 6 official narrative POIs / generic Naturkartan sight markers",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-19-early-section-6-official-narrative-pois-generic-naturkartan-sight-markers"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-2-kyrksjon-fireplace",
+      "clusterKey": "single-tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-2-kyrksjon-fireplace",
+      "representativeName": "Kyrksjön fireplace",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-2-kyrksjon-fireplace"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-10-ranestad-livestock-detour-decision-point",
+      "clusterKey": "single-tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-10-ranestad-livestock-detour-decision-point",
+      "representativeName": "Rånestad livestock detour decision point",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-10-ranestad-livestock-detour-decision-point"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-11-tynn-outlet-bathing-point",
+      "clusterKey": "single-tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-11-tynn-outlet-bathing-point",
+      "representativeName": "Tynn outlet bathing point",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-11-tynn-outlet-bathing-point"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-12-tynn-viewpoint",
+      "clusterKey": "single-tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-12-tynn-viewpoint",
+      "representativeName": "Tynn viewpoint",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-12-tynn-viewpoint"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-14-holmsjon-bathing-point",
+      "clusterKey": "single-tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-14-holmsjon-bathing-point",
+      "representativeName": "Holmsjön bathing point",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-14-holmsjon-bathing-point"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-20-karlsberg-connector-toward-risebo",
+      "clusterKey": "single-tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-20-karlsberg-connector-toward-risebo",
+      "representativeName": "Karlsberg connector toward Risebo",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-20-karlsberg-connector-toward-risebo"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-22-larum-stora-vrangen-viewpoint",
+      "clusterKey": "single-tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-22-larum-stora-vrangen-viewpoint",
+      "representativeName": "Larum / Stora Vrången viewpoint",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-22-larum-stora-vrangen-viewpoint"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-1-bjorndalen-fireplace",
+      "clusterKey": "single-tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-1-bjorndalen-fireplace",
+      "representativeName": "Björndalen fireplace",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-1-bjorndalen-fireplace"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-4-stora-vrangen-etapp-8-viewpoint",
+      "clusterKey": "single-tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-4-stora-vrangen-etapp-8-viewpoint",
+      "representativeName": "Stora Vrången / Etapp 8 viewpoint",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-4-stora-vrangen-etapp-8-viewpoint"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-6-overum-connector-junction",
+      "clusterKey": "single-tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-6-overum-connector-junction",
+      "representativeName": "Överum connector junction",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-6-overum-connector-junction"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-14-lermon-grill-fireplace",
+      "clusterKey": "single-tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-14-lermon-grill-fireplace",
+      "representativeName": "Lermon grill / fireplace",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-14-lermon-grill-fireplace"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-15-lermon-informal-swimming-shore-access",
+      "clusterKey": "single-tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-15-lermon-informal-swimming-shore-access",
+      "representativeName": "Lermon informal swimming / shore access",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-15-lermon-informal-swimming-shore-access"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-2-lermon-fireplace-grill",
+      "clusterKey": "single-tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-2-lermon-fireplace-grill",
+      "representativeName": "Lermon fireplace / grill",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-2-lermon-fireplace-grill"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-4-ukna-connector-junction",
+      "clusterKey": "single-tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-4-ukna-connector-junction",
+      "representativeName": "Ukna connector junction",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-4-ukna-connector-junction"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-6-ukna-old-church-ruin-viewpoint-detour",
+      "clusterKey": "single-tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-6-ukna-old-church-ruin-viewpoint-detour",
+      "representativeName": "Ukna old church ruin / viewpoint detour",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-6-ukna-old-church-ruin-viewpoint-detour"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-7-kolsebron-storan-bridge",
+      "clusterKey": "single-tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-7-kolsebron-storan-bridge",
+      "representativeName": "Kolsebron / Storån bridge",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-7-kolsebron-storan-bridge"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-8-kolsebro-village",
+      "clusterKey": "single-tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-8-kolsebro-village",
+      "representativeName": "Kolsebro village",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-8-kolsebro-village"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-9-stjalkhammar-uknadalen-viewpoint",
+      "clusterKey": "single-tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-9-stjalkhammar-uknadalen-viewpoint",
+      "representativeName": "Stjälkhammar / Uknadalen viewpoint",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-9-stjalkhammar-uknadalen-viewpoint"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-10-domarringarna-stone-circles-near-stjalkhammar",
+      "clusterKey": "single-tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-10-domarringarna-stone-circles-near-stjalkhammar",
+      "representativeName": "Domarringarna / stone circles near Stjälkhammar",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-10-domarringarna-stone-circles-near-stjalkhammar"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-11-falerum-connector-raw-etapp-9-endpoint-to-falerum",
+      "clusterKey": "single-tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-11-falerum-connector-raw-etapp-9-endpoint-to-falerum",
+      "representativeName": "Falerum connector / raw Etapp 9 endpoint to Falerum",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-11-falerum-connector-raw-etapp-9-endpoint-to-falerum"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-single-tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-13-akervristen-swimming",
+      "clusterKey": "single-tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-13-akervristen-swimming",
+      "representativeName": "Åkervristen swimming",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-13-akervristen-swimming"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-akervristen-shelter",
+      "clusterKey": "site-akervristen-shelter",
+      "representativeName": "Åkervristen shelter",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-12-akervristen-shelter"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-almviks-mathantverk",
+      "clusterKey": "site-almviks-mathantverk",
+      "representativeName": "Almviks Mathantverk & Matluckan",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-7-almviks-mathantverk-matluckan"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-baldersberg",
+      "clusterKey": "site-baldersberg",
+      "representativeName": "Baldersberg",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-commuteaccess-end-0-baldersberg",
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-commuteaccess-start-0-baldersberg"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon",
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "tjustleden-site-bjorndalen",
+      "clusterKey": "site-bjorndalen",
+      "representativeName": "Björndalen toilet",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-24-bjorndalen-toilet",
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-2-bjorndalen-toilet"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen",
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "tjustleden-site-bjorndalen-endpoint",
+      "clusterKey": "site-bjorndalen-endpoint",
+      "representativeName": "Björndalen endpoint cluster",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-watersources-4-bjorndalen-endpoint-cluster",
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-watersources-1-bjorndalen-endpoint-natural-water"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen",
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "tjustleden-site-bjorndalens-skarpning",
+      "clusterKey": "site-bjorndalens-skarpning",
+      "representativeName": "Björndalens skärpning",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-5-bjorndalens-skarpning"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-bjorndalens-vindskydd",
+      "clusterKey": "site-bjorndalens-vindskydd",
+      "representativeName": "Björndalens Vindskydd / Björndalsstugan",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-0-bjorndalens-vindskydd-bjorndalsstugan"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-borgberget-arknat",
+      "clusterKey": "site-borgberget-arknat",
+      "representativeName": "Borgberget ArkNat shelter",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-15-borgberget-arknat-shelter"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-coop-overum",
+      "clusterKey": "site-coop-overum",
+      "representativeName": "Coop Överum",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-8-coop-overum"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-dalhem-church",
+      "clusterKey": "site-dalhem-church",
+      "representativeName": "Dalhem church",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-16-dalhem-church",
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-17-dalhem-church-drinking-water",
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-watersources-0-dalhem-church-drinking-water"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service",
+        "water"
+      ],
+      "candidateTypes": [
+        "service",
+        "water"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "tjustleden-site-etapp-main",
+      "clusterKey": "site-etapp-main",
+      "representativeName": "Etapp 8 main stage potable water",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-watersources-0-etapp-8-main-stage-potable-water"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "tjustleden-site-falerum",
+      "clusterKey": "site-falerum",
+      "representativeName": "Falerum recycling",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-18-falerum-recycling"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "waste"
+      ],
+      "candidateTypes": [
+        "waste"
+      ],
+      "parentCandidateType": "waste",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "tjustleden-site-falerum-drinking",
+      "clusterKey": "site-falerum-drinking",
+      "representativeName": "Falerum drinking water and toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-16-falerum-drinking-water-and-toilet"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-falerum-railway",
+      "clusterKey": "site-falerum-railway",
+      "representativeName": "Falerum railway station / Östgötaleden start",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-14-falerum-railway-station-ostgotaleden-start"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-falerum-resecentrum",
+      "clusterKey": "site-falerum-resecentrum",
+      "representativeName": "Falerum parking / resecentrum",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-15-falerum-parking-resecentrum"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-falerum-servicehuset",
+      "clusterKey": "site-falerum-servicehuset",
+      "representativeName": "Falerum Servicehuset / Falerum bus",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-commuteaccess-end-1-falerum-servicehuset-falerum-bus"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-falerums-station",
+      "clusterKey": "site-falerums-station",
+      "representativeName": "Falerums station",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-commuteaccess-end-0-falerums-station"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-gagern-scout",
+      "clusterKey": "site-gagern-scout",
+      "representativeName": "Gagern scout shelter",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-16-gagern-scout-shelter"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-getgol-lilla",
+      "clusterKey": "site-getgol-lilla",
+      "representativeName": "Getgöl / Lilla Getgöl dry toilet",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-0-getgol-lilla-getgol-stage-end-shelter",
+        "tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-1-getgol-lilla-getgol-dry-toilet",
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-0-getgol-lilla-getgol-wind-shelter",
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-1-getgol-lilla-getgol-dry-toilet"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen",
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter",
+        "toilet"
+      ],
+      "candidateTypes": [
+        "shelter",
+        "toilet"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "tjustleden-site-getgol-small",
+      "clusterKey": "site-getgol-small",
+      "representativeName": "Getgöl small parking/access area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-3-getgol-small-parking-access-area"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-gladhammars-gruvor",
+      "clusterKey": "site-gladhammars-gruvor",
+      "representativeName": "Gladhammars gruvor waste basket",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-10-gladhammars-gruvor-waste-basket"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "waste"
+      ],
+      "candidateTypes": [
+        "waste"
+      ],
+      "parentCandidateType": "waste",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "tjustleden-site-gunnebo-grocery",
+      "clusterKey": "site-gunnebo-grocery",
+      "representativeName": "Gunnebo grocery/service area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-21-gunnebo-grocery-service-area"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-haglunds-gard",
+      "clusterKey": "site-haglunds-gard",
+      "representativeName": "Haglunds gård - kanotuthyrning",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-13-haglunds-gard-kanotuthyrning"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "tjustleden-site-haglunds-gardsprodukter",
+      "clusterKey": "site-haglunds-gardsprodukter",
+      "representativeName": "Haglunds gårdsprodukter",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-12-haglunds-gardsprodukter"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-hagsjogol",
+      "clusterKey": "site-hagsjogol",
+      "representativeName": "Hagsjögöl parking",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-27-hagsjogol-parking"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "tjustleden-site-hallingeberg-church",
+      "clusterKey": "site-hallingeberg-church",
+      "representativeName": "Hallingeberg church drinking water",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-6-hallingeberg-church-drinking-water",
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-watersources-0-hallingeberg-church-toilet-building-drinking-water",
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-2-hallingeberg-church-drinking-water",
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-watersources-0-hallingeberg-church-drinking-water"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg",
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "tjustleden-site-hallingeberg-kalltorp",
+      "clusterKey": "site-hallingeberg-kalltorp",
+      "representativeName": "Hallingeberg / Källtorp endpoint dry toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-5-hallingeberg-kalltorp-endpoint-dry-toilet"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-hangesten-bench",
+      "clusterKey": "site-hangesten-bench",
+      "representativeName": "Hängesten parking / bench cluster",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-8-hangesten-parking-bench-cluster"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-hjortenbadet",
+      "clusterKey": "site-hjortenbadet",
+      "representativeName": "Hjortenbadet toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-7-hjortenbadet-toilet"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-holmsjon",
+      "clusterKey": "site-holmsjon",
+      "representativeName": "Holmsjön",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-watersources-1-holmsjon"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "tjustleden-site-holmsjon-ticka",
+      "clusterKey": "site-holmsjon-ticka",
+      "representativeName": "Holmsjön - Ticka, ArkNat",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-13-holmsjon-ticka-arknat"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-kalltorp-start",
+      "clusterKey": "site-kalltorp-start",
+      "representativeName": "Källtorp start dry toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-1-kalltorp-start-dry-toilet"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-kalltorpsstugan-kalltorp",
+      "clusterKey": "site-kalltorpsstugan-kalltorp",
+      "representativeName": "Källtorpsstugan / Källtorp overnight hut",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-4-kalltorpsstugan-kalltorp-overnight-hut"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-karlstorp-ruin",
+      "clusterKey": "site-karlstorp-ruin",
+      "representativeName": "Karlstorp ruin / fornminne",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-15-karlstorp-ruin-fornminne"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-kasinge",
+      "clusterKey": "site-kasinge",
+      "representativeName": "Kasinge",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-commuteaccess-end-2-kasinge",
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-commuteaccess-start-1-kasinge"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon",
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "tjustleden-site-kyrksjon",
+      "clusterKey": "site-kyrksjon",
+      "representativeName": "Kyrksjön toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-1-kyrksjon-toilet"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-kyrksjon-endpoint",
+      "clusterKey": "site-kyrksjon-endpoint",
+      "representativeName": "Kyrksjön endpoint toilet",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-12-kyrksjon-endpoint-toilet",
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-watersources-2-kyrksjon-endpoint-lake-toilet-area",
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-watersources-2-kyrksjon-endpoint-cluster"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi",
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 7
+      },
+      "states": [
+        "normal",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "natural-water",
+        "toilet",
+        "water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "toilet",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water",
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "tjustleden-site-langsjon-stugor",
+      "clusterKey": "site-langsjon-stugor",
+      "representativeName": "Långsjön Stugor & Camping",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-17-langsjon-stugor-camping"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-larbo",
+      "clusterKey": "site-larbo",
+      "representativeName": "Lärbo",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-commuteaccess-end-1-larbo",
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-commuteaccess-start-2-larbo"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg",
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "tjustleden-site-larum-hillfort",
+      "clusterKey": "site-larum-hillfort",
+      "representativeName": "Larum hillfort / Skänskullen",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-21-larum-hillfort-skanskullen"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-lermon",
+      "clusterKey": "site-lermon",
+      "representativeName": "Lermon toilet",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-13-lermon-toilet",
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-1-lermon-toilet"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon",
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 9
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "tjustleden-site-lermon-lake",
+      "clusterKey": "site-lermon-lake",
+      "representativeName": "Lermon lake water",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-watersources-2-lermon-lake-water",
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-3-lermon-lake-water"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon",
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 9
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "tjustleden-site-lermon-vindskydd",
+      "clusterKey": "site-lermon-vindskydd",
+      "representativeName": "Lermon vindskydd",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-12-lermon-vindskydd"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-lermon-wind",
+      "clusterKey": "site-lermon-wind",
+      "representativeName": "Lermon wind shelter / Lermon vindskydd",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-0-lermon-wind-shelter-lermon-vindskydd"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-lilla-dalhem",
+      "clusterKey": "site-lilla-dalhem",
+      "representativeName": "Lilla Dalhem",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-commuteaccess-end-0-lilla-dalhem",
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-commuteaccess-start-0-lilla-dalhem"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen",
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "tjustleden-site-lunds-gladhammar",
+      "clusterKey": "site-lunds-gladhammar",
+      "representativeName": "Lunds by / Gladhammar long-term parking",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-13-lunds-by-gladhammar-long-term-parking"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-lunds-information",
+      "clusterKey": "site-lunds-information",
+      "representativeName": "Lunds by information board",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-12-lunds-by-information-board"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-marinettes-mat",
+      "clusterKey": "site-marinettes-mat",
+      "representativeName": "MariNettes Mat & Café / Falerum service point",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-17-marinettes-mat-cafe-falerum-service-point"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-marsbacken-gaddeglovagen",
+      "clusterKey": "site-marsbacken-gaddeglovagen",
+      "representativeName": "Marsbäcken / Gäddeglovägen parking",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-18-marsbacken-gaddeglovagen-parking"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-mid-section",
+      "clusterKey": "site-mid-section",
+      "representativeName": "Mid-section natural water / lakes",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-watersources-2-mid-section-natural-water-lakes"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "tjustleden-site-mjosjon-shelter",
+      "clusterKey": "site-mjosjon-shelter",
+      "representativeName": "Mjösjön shelter-like OSM node",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-4-mjosjon-shelter-like-osm-node"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-mjosjon-tornsfall",
+      "clusterKey": "site-mjosjon-tornsfall",
+      "representativeName": "Mjösjön / Törnsfall shelter",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-0-mjosjon-tornsfall-shelter",
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-1-mjosjon-tornsfall-dry-toilet"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter",
+        "toilet"
+      ],
+      "candidateTypes": [
+        "shelter",
+        "toilet"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "tjustleden-site-mortfors-raststuga",
+      "clusterKey": "site-mortfors-raststuga",
+      "representativeName": "Mörtfors raststuga / Ostkustleden rest cabin",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-4-mortfors-raststuga-ostkustleden-rest-cabin"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-mortfors-start",
+      "clusterKey": "site-mortfors-start",
+      "representativeName": "Mörtfors start shelter / toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-3-mortfors-start-shelter-toilet"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-mosjon-access",
+      "clusterKey": "site-mosjon-access",
+      "representativeName": "Mösjön water access",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-15-mosjon-water-access"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-mosjon-mjosjon",
+      "clusterKey": "site-mosjon-mjosjon",
+      "representativeName": "Mösjön / Mjösjön start-area water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-watersources-1-mosjon-mjosjon-start-area-water"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-namndemansryggarna-fornminne",
+      "clusterKey": "site-namndemansryggarna-fornminne",
+      "representativeName": "Nämndemansryggarna / fornminne marker",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-19-namndemansryggarna-fornminne-marker"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-nara-dej",
+      "clusterKey": "site-nara-dej",
+      "representativeName": "Nära Dej / Hjorted lanthandel",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-5-nara-dej-hjorted-lanthandel"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-nartrafik-almvik",
+      "clusterKey": "site-nartrafik-almvik",
+      "representativeName": "Närtrafik Almvik",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-commuteaccess-start-1-nartrafik-almvik"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-nartrafik-hallingeberg",
+      "clusterKey": "site-nartrafik-hallingeberg",
+      "representativeName": "Närtrafik Hallingeberg",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-commuteaccess-end-2-nartrafik-hallingeberg",
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-commuteaccess-start-0-nartrafik-hallingeberg"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg",
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "tjustleden-site-norra-hallsjon",
+      "clusterKey": "site-norra-hallsjon",
+      "representativeName": "Norra Hällsjön - Skönja, ArkNat",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-3-norra-hallsjon-skonja-arknat"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-nyhults-goda",
+      "clusterKey": "site-nyhults-goda",
+      "representativeName": "Nyhults goda hantverk",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-11-nyhults-goda-hantverk"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-odensvi",
+      "clusterKey": "site-odensvi",
+      "representativeName": "Odensvi",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-commuteaccess-end-2-odensvi",
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-15-odensvi-camping"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging",
+        "transit"
+      ],
+      "candidateTypes": [
+        "lodging",
+        "transit"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "tjustleden-site-odensvi-bath",
+      "clusterKey": "site-odensvi-bath",
+      "representativeName": "Odensvi bath toilets, parking, BBQ/picnic, shelter/changing rooms",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-18-odensvi-bath-toilets-parking-bbq-picnic-shelter-changing-rooms"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-odensvi-campingplats",
+      "clusterKey": "site-odensvi-campingplats",
+      "representativeName": "Odensvi Campingplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-6-odensvi-campingplats"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-odensvi-lanthandel",
+      "clusterKey": "site-odensvi-lanthandel",
+      "representativeName": "Odensvi lanthandel",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-14-odensvi-lanthandel-cafe-odensvi-lanthandel",
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-3-odensvi-lanthandel"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi",
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "tjustleden-site-odensvi-lanthandels",
+      "clusterKey": "site-odensvi-lanthandels",
+      "representativeName": "Odensvi lanthandels fik",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-4-odensvi-lanthandels-fik"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-odensvi-lodging",
+      "clusterKey": "site-odensvi-lodging",
+      "representativeName": "Odensvi lodging / hostel",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-5-odensvi-lodging-hostel"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-odensvi-skola",
+      "clusterKey": "site-odensvi-skola",
+      "representativeName": "Odensvi skola",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-commuteaccess-end-1-odensvi-skola",
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-commuteaccess-start-1-odensvi-skola"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi",
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "tjustleden-site-odensvi-vandrarhem",
+      "clusterKey": "site-odensvi-vandrarhem",
+      "representativeName": "Odensvi Vandrarhem",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-16-odensvi-vandrarhem"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-odensvi-village",
+      "clusterKey": "site-odensvi-village",
+      "representativeName": "Odensvi village services",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-watersources-3-odensvi-village-services"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "tjustleden-site-odensviholm",
+      "clusterKey": "site-odensviholm",
+      "representativeName": "Odensviholm",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-commuteaccess-end-0-odensviholm",
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-commuteaccess-start-0-odensviholm"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi",
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "tjustleden-site-odensviholms-slott",
+      "clusterKey": "site-odensviholms-slott",
+      "representativeName": "Odensviholms slott side trip",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-8-odensviholms-slott-side-trip"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-overum-services",
+      "clusterKey": "site-overum-services",
+      "representativeName": "Överum services water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-watersources-3-overum-services-water"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-overums-bruk",
+      "clusterKey": "site-overums-bruk",
+      "representativeName": "Överums Bruk station / bus access",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-10-overums-bruk-station-bus-access"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-overums-vandrarhem",
+      "clusterKey": "site-overums-vandrarhem",
+      "representativeName": "Överums Vandrarhem",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-9-overums-vandrarhem"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-parkering-almviks",
+      "clusterKey": "site-parkering-almviks",
+      "representativeName": "Parkering Almviks badplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-facilities-10-parkering-almviks-badplats"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-patt-lake",
+      "clusterKey": "site-patt-lake",
+      "representativeName": "Patt lake",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-18-patt-lake"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-risebo",
+      "clusterKey": "site-risebo",
+      "representativeName": "Risebo camping",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-26-risebo-camping",
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-watersources-5-risebo-camping-water"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "camping",
+        "water"
+      ],
+      "candidateTypes": [
+        "camping",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "camping"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "tjustleden-site-rock-view",
+      "clusterKey": "site-rock-view",
+      "representativeName": "Rock View, ArkNat",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-17-rock-view-arknat"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-saby-vsk",
+      "clusterKey": "site-saby-vsk",
+      "representativeName": "Säby vsk",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-commuteaccess-end-0-saby-vsk",
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-commuteaccess-start-1-saby-vsk"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg",
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "tjustleden-site-sixgol-dry",
+      "clusterKey": "site-sixgol-dry",
+      "representativeName": "Sixgöl dry toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-4-sixgol-dry-toilet"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-sixgol-lake",
+      "clusterKey": "site-sixgol-lake",
+      "representativeName": "Sixgöl lake water",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-6-sixgol-lake-water",
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-watersources-1-sixgol-lake-water"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "tjustleden-site-small-ancient",
+      "clusterKey": "site-small-ancient",
+      "representativeName": "Small ancient fort near gamla Kisavägen",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-9-small-ancient-fort-near-gamla-kisavagen"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "tjustleden-site-snotomta-gamla",
+      "clusterKey": "site-snotomta-gamla",
+      "representativeName": "Snötomta Gamla Skolan",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-commuteaccess-end-1-snotomta-gamla-skolan"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-stenkrossen-holmsjoleden",
+      "clusterKey": "site-stenkrossen-holmsjoleden",
+      "representativeName": "Stenkrossen / Holmsjöleden parking",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-7-stenkrossen-holmsjoleden-parking"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-stora-vrangen",
+      "clusterKey": "site-stora-vrangen",
+      "representativeName": "Stora Vrången naturreservat",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-25-stora-vrangen-naturreservat",
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-3-stora-vrangen-reserve-parking-information"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen",
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking",
+        "service"
+      ],
+      "candidateTypes": [
+        "parking",
+        "service"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [
+        "service"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "tjustleden-site-svartestrom-dry",
+      "clusterKey": "site-svartestrom-dry",
+      "representativeName": "Svarteström dry toilet",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-13-svartestrom-dry-toilet",
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-1-svartestrom-dry-toilet"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom",
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "tjustleden-site-svartestrom-guidepost",
+      "clusterKey": "site-svartestrom-guidepost",
+      "representativeName": "Svarteström guidepost",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-3-svartestrom-guidepost"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-svartestrom-wind",
+      "clusterKey": "site-svartestrom-wind",
+      "representativeName": "Svarteström wind shelter",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom-facilities-12-svartestrom-wind-shelter",
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-0-svartestrom-wind-shelter"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-2-getgolen-hjorted-svartestrom",
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "tjustleden-site-tornsfall-church",
+      "clusterKey": "site-tornsfall-church",
+      "representativeName": "Törnsfall church parking",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-11-tornsfall-church-parking"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-tornsfall-guidepost",
+      "clusterKey": "site-tornsfall-guidepost",
+      "representativeName": "Törnsfall guidepost / Marsbäcken connector junction",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-12-tornsfall-guidepost-marsbacken-connector-junction"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-tornsfall-mosjon",
+      "clusterKey": "site-tornsfall-mosjon",
+      "representativeName": "Törnsfall / Mösjön toilet",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-13-tornsfall-mosjon-shelter-with-fireplace",
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-14-tornsfall-mosjon-toilet"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter",
+        "toilet"
+      ],
+      "candidateTypes": [
+        "shelter",
+        "toilet"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "tjustleden-site-tornsfalls-kyrkskola",
+      "clusterKey": "site-tornsfalls-kyrkskola",
+      "representativeName": "Törnsfalls Kyrkskola",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg-commuteaccess-start-0-tornsfalls-kyrkskola"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-5-tornsfall-almvik-hallingeberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-tynn",
+      "clusterKey": "site-tynn",
+      "representativeName": "Tynn",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-watersources-3-tynn"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "tjustleden-site-ukna-diversehandel",
+      "clusterKey": "site-ukna-diversehandel",
+      "representativeName": "Ukna Diversehandel",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-16-ukna-diversehandel-ukna-access-services",
+        "tjustleden-etapp-9-lermon-kolsebro-falerum-facilities-5-ukna-diversehandel"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon",
+        "tjustleden-etapp-9-lermon-kolsebro-falerum"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "tjustleden-site-unnamed-near",
+      "clusterKey": "site-unnamed-near",
+      "representativeName": "Unnamed parking near Getterum/Getgölen",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-5-unnamed-parking-near-getterum-getgolen"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-unnamed-off",
+      "clusterKey": "site-unnamed-off",
+      "representativeName": "Unnamed off-route shelter near Section 8 corridor",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-facilities-11-unnamed-off-route-shelter-near-section-8-corridor"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "tjustleden-site-valstad-halt",
+      "clusterKey": "site-valstad-halt",
+      "representativeName": "Valstad halt / Smalspåret access cluster",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-16-valstad-halt-smalsparet-access-cluster"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-valstad-kvarn",
+      "clusterKey": "site-valstad-kvarn",
+      "representativeName": "Valstad kvarn toilet",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-17-valstad-kvarn-toilet",
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-18-valstad-kvarn-information-board",
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-19-valstad-kvarn-shelter",
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-0-valstad-kvarn-shelter-fireplace",
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-1-valstad-kvarn-toilet",
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall-facilities-2-valstad-kvarn-information-board"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn",
+        "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "service",
+        "shelter",
+        "toilet"
+      ],
+      "candidateTypes": [
+        "service",
+        "shelter",
+        "toilet"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "service",
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "tjustleden-site-vandraren-tallsjon",
+      "clusterKey": "site-vandraren-tallsjon",
+      "representativeName": "Vandraren / Tällsjön ArkNat shelter",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen-facilities-2-vandraren-tallsjon-arknat-shelter"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-1-mortfors-getterum-getgolen"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-varum",
+      "clusterKey": "site-varum",
+      "representativeName": "Vårum",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-commuteaccess-end-1-varum",
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon-commuteaccess-start-1-varum"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen",
+        "tjustleden-etapp-8-bjorndalen-mockelhult-lermon"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "tjustleden-site-verkeback-off",
+      "clusterKey": "site-verkeback-off",
+      "representativeName": "Verkebäck off-route food/services",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn-facilities-22-verkeback-off-route-food-services"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-vindskydd-bjorndalen",
+      "clusterKey": "site-vindskydd-bjorndalen",
+      "representativeName": "Vindskydd, Björndalen",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-23-vindskydd-bjorndalen"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-vindskydd-hallingeberg",
+      "clusterKey": "site-vindskydd-hallingeberg",
+      "representativeName": "Vindskydd, Hallingeberg Källtorpsstugan / Källtorp hut",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-0-vindskydd-hallingeberg-kalltorpsstugan-kalltorp-hut"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "tjustleden-site-vindskydd-kyrksjon",
+      "clusterKey": "site-vindskydd-kyrksjon",
+      "representativeName": "Vindskydd, Kyrksjön",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-11-vindskydd-kyrksjon-endpoint",
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen-facilities-0-vindskydd-kyrksjon"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi",
+        "tjustleden-etapp-7-odensvi-dalhem-bjorndalen"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "tjustleden-site-vindskydd-tjustleden",
+      "clusterKey": "site-vindskydd-tjustleden",
+      "representativeName": "Vindskydd Tjustleden etapp 6, Sixgöl",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi-facilities-3-vindskydd-tjustleden-etapp-6-sixgol"
+      ],
+      "sectionIds": [
+        "tjustleden-etapp-6-hallingeberg-karrum-odensvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    }
+  ]
+}

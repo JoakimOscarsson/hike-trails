@@ -1,0 +1,5194 @@
+{
+  "schemaVersion": "candidate-facility-clusters/v1",
+  "trailId": "sjuharadsleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-normalized-research-only",
+  "runtimeImportApproved": false,
+  "facilityStatePolicy": {
+    "decision": "Normalize facilities through explicit import actions, not by deleting caveats.",
+    "candidateImportActions": [
+      "import",
+      "import-as-access",
+      "import-as-rule-warning",
+      "attach-to-parent",
+      "side-trip-metadata",
+      "pending-review",
+      "suppress"
+    ],
+    "runtimeMapping": [
+      "Only import, import-as-access, import-as-rule-warning and attach-to-parent records may become runtime data.",
+      "Pending-review and suppress records remain in research/candidate artifacts and must not appear as normal user-facing facilities.",
+      "Side-trip metadata can become user-facing only if the route or POI is intentionally modeled as a side trip."
+    ],
+    "parentClusterPolicy": "Cluster first, then split typed subfacilities only where coordinates, confidence and app taxonomy justify separate markers.",
+    "parkingAndTransitPolicy": "Parking and transit should be treated consistently with existing app trails: import verified, useful access records as user-facing parking/transit facilities or accessPoints, dedupe them by cluster, and keep timetable/parking-rule details caveated and live-checkable.",
+    "informalTentingPolicy": "Informal tenting remains a separate candidate category. Promote to runtime camping only when rules and coordinates support it; otherwise keep as caveated rule/access text or pending-review.",
+    "privateCommercialPolicy": "Private, customer-only, seasonal or opening-hours-dependent services can be imported only with clear caveats and publication-time recheck requirements."
+  },
+  "summary": {
+    "totalFacilities": 171,
+    "clusterCount": 140,
+    "multiFacilityClusters": 23,
+    "dedupeCandidateClusters": 38,
+    "byRecommendedAction": {
+      "keep-suppressed": 15,
+      "single-record": 102,
+      "dedupe-related-site-cluster": 12,
+      "attach-child-amenities-to-parent": 8,
+      "dedupe-duplicate-facility": 3
+    }
+  },
+  "clusters": [
+    {
+      "clusterId": "sjuharadsleden-coord-57-6706-12-6879-attraction",
+      "clusterKey": "coord-57.6706-12.6879-attraction",
+      "representativeName": "Vanna kvarn / Vannasjön / Omegastugan local loop",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan-facilities-13-vanna-kvarn-vannasjon-omegastugan-local-loop"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "swimming",
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "attraction",
+        "swimming"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.6706,
+        12.6878597
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-6730-12-6858-swimming",
+      "clusterKey": "coord-57.6730-12.6858-swimming",
+      "representativeName": "Vannasjön / Vanna kvarn",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega-facilities-10-vannasjon-vanna-kvarn"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "rest-area",
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [
+        "attraction",
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.673004,
+        12.685843
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-6762-12-5730-viewpoint",
+      "clusterKey": "coord-57.6762-12.5730-viewpoint",
+      "representativeName": "Unnamed Bollebygd viewpoint",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-18-unnamed-bollebygd-viewpoint"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.676206,
+        12.573039
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-6891-12-4813-fireplace",
+      "clusterKey": "coord-57.6891-12.4813-fireplace",
+      "representativeName": "Klippan accessible grill place",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-13-klippan-accessible-grill-place"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.689143,
+        12.481321
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-6892-12-4814-rest-area",
+      "clusterKey": "coord-57.6892-12.4814-rest-area",
+      "representativeName": "Klippan accessible bench table",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-14-klippan-accessible-bench-table"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.68924,
+        12.481444
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-6988-12-6937-attraction",
+      "clusterKey": "coord-57.6988-12.6937-attraction",
+      "representativeName": "IK Omega route endpoint",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega-facilities-5-ik-omega-route-endpoint"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.6988405,
+        12.6937379
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-7009-12-7568-fireplace",
+      "clusterKey": "coord-57.7009-12.7568-fireplace",
+      "representativeName": "Eldplats / grill vid Hultafors Vindskydd",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan-facilities-2-eldplats-grill-vid-hultafors-vindskydd"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.7009275,
+        12.7568182
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-7082-12-6210-fireplace",
+      "clusterKey": "coord-57.7082-12.6210-fireplace",
+      "representativeName": "Eldplats / grill vid Rastplats Slätthult",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega-facilities-2-eldplats-grill-vid-rastplats-slatthult"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.7081802,
+        12.6210283
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-7111-12-7559-attraction",
+      "clusterKey": "coord-57.7111-12.7559-attraction",
+      "representativeName": "Håmossen",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan-facilities-7-hamossen"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.7110939,
+        12.7558726
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-7238-12-7723-attraction",
+      "clusterKey": "coord-57.7238-12.7723-attraction",
+      "representativeName": "Mölnesjö / Mölnebäcken",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan-facilities-9-molnesjo-molnebacken"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "heritage"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [
+        "heritage"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7238468,
+        12.772331
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-7254-13-2351-fireplace",
+      "clusterKey": "coord-57.7254-13.2351-fireplace",
+      "representativeName": "Raska-Minas grillplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered-facilities-7-raska-minas-grillplats"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "rest-area"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7253705,
+        13.2350771
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-7282-12-8390-heritage",
+      "clusterKey": "coord-57.7282-12.8390-heritage",
+      "representativeName": "Kvarnrester i Kvarnbäcken",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar-facilities-4-kvarnrester-i-kvarnbacken"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.72818,
+        12.839045
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-7285-12-6819-swimming",
+      "clusterKey": "coord-57.7285-12.6819-swimming",
+      "representativeName": "Stockasjön / Gesebol badplats",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega-facilities-9-stockasjon-gesebol-badplats"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [
+        "attraction"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7285,
+        12.6819
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-7309-12-8242-fireplace",
+      "clusterKey": "coord-57.7309-12.8242-fireplace",
+      "representativeName": "Eldplats vid Källeberg",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar-facilities-2-eldplats-vid-kalleberg"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.730914,
+        12.824184
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-7320-12-8263-heritage",
+      "clusterKey": "coord-57.7320-12.8263-heritage",
+      "representativeName": "Enebacken / Källeberg fossil farmland",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar-facilities-3-enebacken-kalleberg-fossil-farmland"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.732002,
+        12.826294
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-7369-13-1115-rest-area",
+      "clusterKey": "coord-57.7369-13.1115-rest-area",
+      "representativeName": "Toarp picnic table",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered-facilities-3-toarp-picnic-table"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.736926,
+        13.1114626
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-7422-13-1045-fireplace",
+      "clusterKey": "coord-57.7422-13.1045-fireplace",
+      "representativeName": "Toarps firepit",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna-facilities-9-karlsaflogarna-firepit",
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered-facilities-2-toarps-firepit"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna",
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "rest-area"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7422236,
+        13.1045071
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-7451-12-9122-viewpoint",
+      "clusterKey": "coord-57.7451-12.9122-viewpoint",
+      "representativeName": "Rya åsar viewpoint near route",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar-facilities-10-rya-asar-viewpoint-near-route"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.745095,
+        12.912195
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-7469-12-9329-fireplace",
+      "clusterKey": "coord-57.7469-12.9329-fireplace",
+      "representativeName": "Björbo hage / Björbostugan grillplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna-facilities-2-bjorbo-hage-bjorbostugan-grillplats"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "rest-area"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7469236,
+        12.9329369
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-7490-12-8869-fireplace",
+      "clusterKey": "coord-57.7490-12.8869-fireplace",
+      "representativeName": "Hestrastugan grillplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar-facilities-5-hestrastugan-grillplats"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "rest-area"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.749024,
+        12.88685
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-7493-12-9447-rest-area",
+      "clusterKey": "coord-57.7493-12.9447-rest-area",
+      "representativeName": "Sjöboskolans skolskog rest area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna-facilities-3-sjoboskolans-skolskog-rest-area"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.7492885,
+        12.9446863
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-7836-13-3811-viewpoint",
+      "clusterKey": "coord-57.7836-13.3811-viewpoint",
+      "representativeName": "Brunnsnässtigen Åsakullen viewpoint/fireplace",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping-facilities-11-brunnsnasstigen-asakullen-viewpoint-fireplace"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "rest-area",
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [
+        "fireplace",
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7836211,
+        13.3810522
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-7994-13-3685-heritage",
+      "clusterKey": "coord-57.7994-13.3685-heritage",
+      "representativeName": "Brunns kyrkoruin",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping-facilities-1-brunns-kyrkoruin"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage",
+        "viewpoint"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [
+        "viewpoint"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.799445,
+        13.368512
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-8172-13-4425-heritage",
+      "clusterKey": "coord-57.8172-13.4425-heritage",
+      "representativeName": "Fornåkrar vid ridhuset",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-9-fornakrar-vid-ridhuset"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.8172369,
+        13.4425026
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-8193-13-4470-heritage",
+      "clusterKey": "coord-57.8193-13.4470-heritage",
+      "representativeName": "Varggrop",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-10-varggrop"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.8192605,
+        13.4470341
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-8598-13-5536-heritage",
+      "clusterKey": "coord-57.8598-13.5536-heritage",
+      "representativeName": "Knätte kyrka",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri-facilities-2-knatte-kyrka"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.859787,
+        13.553628
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-8632-13-4646-fireplace",
+      "clusterKey": "coord-57.8632-13.4646-fireplace",
+      "representativeName": "Jordkulan grill/firepit",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-13-jordkulan-grill-firepit"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.8631954,
+        13.4646402
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-8632-13-4648-rest-area",
+      "clusterKey": "coord-57.8632-13.4648-rest-area",
+      "representativeName": "Jordkulan picnic tables",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-14-jordkulan-picnic-tables"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.8632225,
+        13.4647881
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-8820-13-6043-attraction",
+      "clusterKey": "coord-57.8820-13.6043-attraction",
+      "representativeName": "Kärnås sumpskog naturreservat",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri-facilities-4-karnas-sumpskog-naturreservat"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.8820107,
+        13.6042532
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-8843-13-6417-fireplace",
+      "clusterKey": "coord-57.8843-13.6417-fireplace",
+      "representativeName": "Struntfiskeboa firepit",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri-facilities-9-struntfiskeboa-firepit"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.8843006,
+        13.6416705
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-9042-13-8297-rest-area",
+      "clusterKey": "coord-57.9042-13.8297-rest-area",
+      "representativeName": "Ryfors Smedja / Ryfors Bruk",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-5-ryfors-smedja-ryfors-bruk"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "heritage",
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [
+        "heritage"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.904203,
+        13.829718
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-9082-13-8467-swimming",
+      "clusterKey": "coord-57.9082-13.8467-swimming",
+      "representativeName": "Stråken naturbad",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-11-straken-naturbad"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.90819,
+        13.84667
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-9120-13-8533-rest-area",
+      "clusterKey": "coord-57.9120-13.8533-rest-area",
+      "representativeName": "Trollsjön rastplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-9-trollsjon-rastplats"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [
+        "fireplace"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.912022,
+        13.853315
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-9122-13-8485-heritage",
+      "clusterKey": "coord-57.9122-13.8485-heritage",
+      "representativeName": "Gyljeryd / Gyljerydsmon heritage POIs",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-10-gyljeryd-gyljerydsmon-heritage-pois"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.912156,
+        13.848528
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-coord-57-9164-13-8406-heritage",
+      "clusterKey": "coord-57.9164-13.8406-heritage",
+      "representativeName": "Stråkensbro",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-8-strakensbro"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage",
+        "viewpoint"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [
+        "viewpoint"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.916392,
+        13.840635
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-name-bone-kyrka",
+      "clusterKey": "name-bone-kyrka",
+      "representativeName": "Böne kyrka",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-20-bone-kyrka",
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri-facilities-0-bone-kyrka"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka",
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage",
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "heritage"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.8826902,
+        13.5162903
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "sjuharadsleden-single-sjuharadsleden-etapp-3-ik-omega-sok-stugan-facilities-8-butorpet-anneberg-molnedal-croft-remains",
+      "clusterKey": "single-sjuharadsleden-etapp-3-ik-omega-sok-stugan-facilities-8-butorpet-anneberg-molnedal-croft-remains",
+      "representativeName": "Butorpet / Anneberg / Mölnedal croft remains",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan-facilities-8-butorpet-anneberg-molnedal-croft-remains"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-abborrsjon-natural",
+      "clusterKey": "site-abborrsjon-natural",
+      "representativeName": "Abborrsjön natural/untreated water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega-watersources-0-abborrsjon-natural-untreated-water"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7081968,
+        12.6209842
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-aras-and",
+      "clusterKey": "site-aras-and",
+      "representativeName": "Årås parking and information",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri-facilities-10-aras-parking-and-information"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking",
+        "service"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.8853444,
+        13.6473004
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-aras-guest",
+      "clusterKey": "site-aras-guest",
+      "representativeName": "Årås guest/customer water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri-watersources-2-aras-guest-customer-water"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.8863675,
+        13.6485037
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-aras-kvarn",
+      "clusterKey": "site-aras-kvarn",
+      "representativeName": "Årås kvarn / Trädgårdscafé",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri-facilities-11-aras-kvarn-tradgardscafe",
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri-facilities-12-aras-kvarn-vandrarhem-mejeriet"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food",
+        "lodging"
+      ],
+      "candidateTypes": [
+        "food",
+        "lodging",
+        "service",
+        "toilet"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "food",
+        "service",
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.8854406,
+        13.6485413
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-aras-sateri",
+      "clusterKey": "site-aras-sateri",
+      "representativeName": "Årås säteri",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri-facilities-13-aras-sateri",
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-0-aras-sateri-aras-kvarn-trailhead",
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-1-stf-aras-sateri-tradgardar-aras-kvarn",
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-watersources-1-aras-sateri-tradgardar-guest-services"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri",
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 10
+      },
+      "states": [
+        "normal",
+        "pending-review",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "heritage",
+        "lodging",
+        "parking",
+        "water"
+      ],
+      "candidateTypes": [
+        "food",
+        "heritage",
+        "lodging",
+        "parking",
+        "service",
+        "trail-junction",
+        "water"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "food",
+        "heritage",
+        "parking",
+        "service",
+        "trail-junction",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.8866887,
+        13.6467003
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-asunden-prangen",
+      "clusterKey": "site-asunden-prangen",
+      "representativeName": "Åsunden Prången / Prångens badplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping-facilities-7-asunden-prangen-prangens-badplats"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "service",
+        "swimming",
+        "toilet"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "swimming",
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.8017001,
+        13.4056699
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-badplats-mullsjo",
+      "clusterKey": "site-badplats-mullsjo",
+      "representativeName": "Badplats, Mullsjö Hotell & Konferens",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-17-badplats-mullsjo-hotell-konferens"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming",
+        "toilet"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.905301,
+        13.87316
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-ballasjon-badplats",
+      "clusterKey": "site-ballasjon-badplats",
+      "representativeName": "Ballasjön badplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-16-ballasjon-badplats"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "parking",
+        "swimming",
+        "toilet",
+        "waste"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [
+        "fireplace",
+        "swimming",
+        "toilet",
+        "waste"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.67129,
+        12.526869
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-blackered-end",
+      "clusterKey": "site-blackered-end",
+      "representativeName": "Blackered end access cluster",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered-facilities-8-blackered-end-access-cluster"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking",
+        "service",
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "parking",
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.766163,
+        13.282369
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-blackered-trailhead",
+      "clusterKey": "site-blackered-trailhead",
+      "representativeName": "Blackered trailhead",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping-facilities-0-blackered-trailhead"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "parking",
+        "service",
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "parking",
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.766228,
+        13.282276
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-bollebygd-centre",
+      "clusterKey": "site-bollebygd-centre",
+      "representativeName": "Bollebygd centre resupply cluster",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-17-bollebygd-centre-resupply-cluster"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food",
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "food"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.66915,
+        12.571414
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-bone-kyrka",
+      "clusterKey": "site-bone-kyrka",
+      "representativeName": "Böne kyrka water",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-21-bone-kyrka-parking",
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-watersources-2-bone-kyrka-water",
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri-facilities-1-bone-kyrka-parking-and-information",
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri-watersources-0-bone-kyrka-water"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka",
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 9
+      },
+      "states": [
+        "normal",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "parking",
+        "water"
+      ],
+      "candidateTypes": [
+        "parking",
+        "service",
+        "water"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [
+        "service",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.8825488,
+        13.5157018
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-boras-saltemad",
+      "clusterKey": "site-boras-saltemad",
+      "representativeName": "Borås Camping Saltemad",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar-facilities-11-boras-camping-saltemad"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "camping",
+        "lodging",
+        "trail-junction"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "camping",
+        "trail-junction"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.74082,
+        12.932328
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-boras-vandrarhem",
+      "clusterKey": "site-boras-vandrarhem",
+      "representativeName": "Borås Camping & Vandrarhem",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna-facilities-1-boras-camping-vandrarhem"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping",
+        "lodging",
+        "service"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "camping",
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7408198,
+        12.9323283
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-brates-bro",
+      "clusterKey": "site-brates-bro",
+      "representativeName": "Bråtes bro / Olsfors bus access",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega-facilities-7-brates-bro-olsfors-bus-access"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "service",
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "attraction",
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.69014811,
+        12.69682468
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-brunns-kyrkoruin",
+      "clusterKey": "site-brunns-kyrkoruin",
+      "representativeName": "Brunns kyrkoruin parking/information bay",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping-facilities-2-brunns-kyrkoruin-parking-information-bay"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking",
+        "service"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [
+        "service"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-brunnsnas-roadside",
+      "clusterKey": "site-brunnsnas-roadside",
+      "representativeName": "Brunnsnäs roadside parking/information",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping-facilities-3-brunnsnas-roadside-parking-information"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking",
+        "service"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.8016415,
+        13.3805309
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-bykrogen-milano",
+      "clusterKey": "site-bykrogen-milano",
+      "representativeName": "Bykrogen Milano",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-8-bykrogen-milano"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.704181,
+        12.443262
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-circle-ulricehamn",
+      "clusterKey": "site-circle-ulricehamn",
+      "representativeName": "Circle K Ulricehamn",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-7-circle-k-ulricehamn"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food",
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "food"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.8130133,
+        13.4190345
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-confirmed-free",
+      "clusterKey": "site-confirmed-free",
+      "representativeName": "No confirmed free public potable water along main stage",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping-watersources-0-no-confirmed-free-potable-water-point-between-blackered-and-prangens-camping",
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-watersources-0-no-confirmed-free-public-potable-water-along-main-stage"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping",
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 10
+      },
+      "states": [
+        "normal",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "service",
+        "water"
+      ],
+      "candidateTypes": [
+        "service",
+        "water"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-confirmed-potable",
+      "clusterKey": "site-confirmed-potable",
+      "representativeName": "No confirmed potable-water point on Etapp 6",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered-watersources-0-no-confirmed-potable-water-point-on-etapp-6"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-dalsjofors-services",
+      "clusterKey": "site-dalsjofors-services",
+      "representativeName": "Dalsjöfors services detour",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered-facilities-9-dalsjofors-services-detour"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food",
+        "lodging",
+        "service"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "food",
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.723074,
+        13.1075387
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-farm-glassfabrik",
+      "clusterKey": "site-farm-glassfabrik",
+      "representativeName": "EJ Farm Glassfabrik",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-3-ej-farm-glassfabrik"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.914748,
+        13.690773
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-grillplats-nara",
+      "clusterKey": "site-grillplats-nara",
+      "representativeName": "Grillplats nära Mullsjö",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-12-grillplats-nara-mullsjo"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "camping",
+        "fireplace",
+        "rest-area",
+        "swimming",
+        "toilet",
+        "waste"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [
+        "camping",
+        "rest-area",
+        "swimming",
+        "toilet",
+        "waste"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.9038,
+        13.84217
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-gullkallan-mariakallan",
+      "clusterKey": "site-gullkallan-mariakallan",
+      "representativeName": "Gullkällan / Mariakällan",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna-watersources-1-gullkallan-mariakallan"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "attraction"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-hestrafors-bollevi",
+      "clusterKey": "site-hestrafors-bollevi",
+      "representativeName": "Hestrafors IF / Bollevi start access",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-11-hestrafors-if-bollevi-endpoint-access",
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega-facilities-4-hestrafors-if-bollevi-start-access"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if",
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "parking",
+        "service",
+        "toilet"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [
+        "attraction",
+        "service",
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7109696,
+        12.5822607
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-hindas",
+      "clusterKey": "site-hindas",
+      "representativeName": "Pump Hindås",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-4-hindas-camping",
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-9-pump-hindas"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "camping",
+        "service"
+      ],
+      "candidateTypes": [
+        "camping",
+        "lodging",
+        "service",
+        "toilet"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "camping",
+        "service",
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.707081,
+        12.462704
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-hindas-kanotklubb",
+      "clusterKey": "site-hindas-kanotklubb",
+      "representativeName": "Hindås Kanotklubb och Kanotcentral",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-15-hindas-kanotklubb-och-kanotcentral"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service",
+        "water"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.706005,
+        12.440009
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-hindas-pizzeria",
+      "clusterKey": "site-hindas-pizzeria",
+      "representativeName": "Hindås Pizzeria",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-7-hindas-pizzeria"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.703843,
+        12.443412
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-hindas-station",
+      "clusterKey": "site-hindas-station",
+      "representativeName": "Hindås station trailhead / parking",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-0-hindas-station-trailhead-parking",
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-1-hindas-station-information-board-vildmarksleden-board"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service",
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "parking",
+        "service",
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "parking",
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.704407,
+        12.451091
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-hjortviken-country",
+      "clusterKey": "site-hjortviken-country",
+      "representativeName": "Hjortviken Country Club / Hindåsgården area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-6-hjortviken-country-club-hindasgarden-area"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "food",
+        "lodging",
+        "service"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "food",
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.70644,
+        12.466908
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-hjortviken-hestrafors",
+      "clusterKey": "site-hjortviken-hestrafors",
+      "representativeName": "Hjortviken/Hestrafors IF possible indoor water",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-watersources-2-hjortviken-hestrafors-if-possible-indoor-water"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-hotell-mullsjo",
+      "clusterKey": "site-hotell-mullsjo",
+      "representativeName": "Hotell Mullsjö ledentré / Friluftshotellet bus",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-15-hotell-mullsjo-ledentre-friluftshotellet-bus"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking",
+        "service",
+        "trail-junction",
+        "transit"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "parking",
+        "service",
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.903029,
+        13.871862
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-hotell-nyboholm",
+      "clusterKey": "site-hotell-nyboholm",
+      "representativeName": "Hotell Nyboholm",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping-facilities-10-hotell-nyboholm",
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-5-hotell-nyboholm"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping",
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 8
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "food",
+        "lodging",
+        "service"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "food",
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.8055,
+        13.42114
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-hulta-bollebygd",
+      "clusterKey": "site-hulta-bollebygd",
+      "representativeName": "Hulta Bollebygd Golfklubb / Grefvens restaurang",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega-facilities-8-hulta-bollebygd-golfklubb-grefvens-restaurang"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "camping",
+        "food",
+        "service",
+        "toilet"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "camping",
+        "food",
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.6990854,
+        12.5817997
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-hulta-grefvens",
+      "clusterKey": "site-hulta-grefvens",
+      "representativeName": "Hulta GK / Grefvens restaurang area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-12-hulta-gk-grefvens-restaurang-area"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food",
+        "parking",
+        "service"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [
+        "food",
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.696952,
+        12.577138
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-hultafors-station",
+      "clusterKey": "site-hultafors-station",
+      "representativeName": "Hultafors station / Hultafors access",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan-facilities-10-hultafors-station-hultafors-access"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service",
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.6958379,
+        12.7360202
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-hultafors-viaredssjon",
+      "clusterKey": "site-hultafors-viaredssjon",
+      "representativeName": "Hultafors/Viaredssjön natural water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan-watersources-0-hultafors-viaredssjon-natural-water"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.70095,
+        12.75675
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-hultafors-vindskydd",
+      "clusterKey": "site-hultafors-vindskydd",
+      "representativeName": "Hultafors Vindskydd / Stora utsikten / Viaredssjön rest area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan-facilities-0-hultafors-vindskydd-stora-utsikten-viaredssjon-rest-area"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "rest-area",
+        "shelter",
+        "viewpoint"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "rest-area",
+        "viewpoint"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.70095,
+        12.75675
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-ica-maxi",
+      "clusterKey": "site-ica-maxi",
+      "representativeName": "Ica Maxi Ulricehamn",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-6-ica-maxi-ulricehamn"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.8126711,
+        13.421854
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-ica-nara",
+      "clusterKey": "site-ica-nara",
+      "representativeName": "ICA Nära Hindås",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-3-ica-nara-hindas"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.703676,
+        12.451253
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-jogen-ramp",
+      "clusterKey": "site-jogen-ramp",
+      "representativeName": "Jogen boat ramp",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri-facilities-7-jogen-boat-ramp"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit",
+        "water"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.880417,
+        13.629959
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-jogen-trollsjon",
+      "clusterKey": "site-jogen-trollsjon",
+      "representativeName": "Jogen, Trollsjön and Stråken lakes/streams",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-watersources-4-jogen-trollsjon-and-straken-lakes-streams"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-jordkulan",
+      "clusterKey": "site-jordkulan",
+      "representativeName": "Jordkulan toilet",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-15-jordkulan-toilet",
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-18-jordkulan-parking"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking",
+        "toilet"
+      ],
+      "candidateTypes": [
+        "parking",
+        "toilet"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.8635364,
+        13.4645314
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-jordkulan-basket",
+      "clusterKey": "site-jordkulan-basket",
+      "representativeName": "Jordkulan waste basket",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-17-jordkulan-waste-basket"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "waste"
+      ],
+      "candidateTypes": [
+        "waste"
+      ],
+      "parentCandidateType": "waste",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.8631589,
+        13.4645994
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-jordkulan-nore",
+      "clusterKey": "site-jordkulan-nore",
+      "representativeName": "Jordkulan i Nöre",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-11-jordkulan-i-nore"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage",
+        "lodging",
+        "rest-area"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "heritage",
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.8631192,
+        13.4647528
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-jordkulan-spring",
+      "clusterKey": "site-jordkulan-spring",
+      "representativeName": "Jordkulan spring",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-16-jordkulan-spring",
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-watersources-1-jordkulan-spring"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service",
+        "water"
+      ],
+      "candidateTypes": [
+        "service",
+        "water"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.8631789,
+        13.4647094
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-jordkulan-vindskydd",
+      "clusterKey": "site-jordkulan-vindskydd",
+      "representativeName": "Jordkulan vindskydd",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-12-jordkulan-vindskydd"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "rest-area",
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.8631101,
+        13.4644304
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-kallebergs-kalleberg",
+      "clusterKey": "site-kallebergs-kalleberg",
+      "representativeName": "Källebergs stugan / Källeberg raststuga",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar-facilities-1-kallebergs-stugan-kalleberg-raststuga"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "rest-area",
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.730955,
+        12.824187
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-karlsaflogarna-start",
+      "clusterKey": "site-karlsaflogarna-start",
+      "representativeName": "Karlsaflogarna start access cluster",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered-facilities-0-karlsaflogarna-start-access-cluster"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking",
+        "service",
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "parking",
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.743822,
+        13.106531
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-karlsaflogarna-toarps",
+      "clusterKey": "site-karlsaflogarna-toarps",
+      "representativeName": "Karlsaflogarna / Toarps vindskydd",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna-facilities-8-karlsaflogarna-toarps-vindskydd"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "rest-area",
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7421806,
+        13.1045687
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-knalleland",
+      "clusterKey": "site-knalleland",
+      "representativeName": "Knalleland service area",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna-facilities-10-knalleland-service-area"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food",
+        "toilet",
+        "trail-junction",
+        "transit"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "food",
+        "toilet",
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7333889,
+        12.9369705
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-knatte-naturreservat",
+      "clusterKey": "site-knatte-naturreservat",
+      "representativeName": "Knätte naturreservat",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri-facilities-3-knatte-naturreservat"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "parking",
+        "rest-area",
+        "service"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [
+        "attraction",
+        "rest-area",
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.86,
+        13.553
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-kvarnbacken-and",
+      "clusterKey": "site-kvarnbacken-and",
+      "representativeName": "Kvarnbäcken and other natural water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar-watersources-1-kvarnbacken-and-other-natural-water"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.72818,
+        12.839045
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-kypesjon-badplats",
+      "clusterKey": "site-kypesjon-badplats",
+      "representativeName": "Kypesjön badplats vindskydd/grill",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna-facilities-5-kypesjon-badplats-vindskydd-grill"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "fireplace"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7412895,
+        12.9592448
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-kypesjon-grillstuga",
+      "clusterKey": "site-kypesjon-grillstuga",
+      "representativeName": "Kypesjön grillstuga, south side",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna-facilities-6-kypesjon-grillstuga-south-side"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "fireplace"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7402631,
+        12.9585092
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-kypesjons-badplats",
+      "clusterKey": "site-kypesjons-badplats",
+      "representativeName": "Kypesjöns badplats / Kypegården",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna-facilities-4-kypesjons-badplats-kypegarden"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "food",
+        "parking",
+        "swimming",
+        "toilet"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [
+        "food",
+        "swimming",
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7417333,
+        12.9581445
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-late-route",
+      "clusterKey": "site-late-route",
+      "representativeName": "Late-route unnamed OSM parking",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping-facilities-4-late-route-unnamed-osm-parking"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.8006624,
+        13.3964077
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-magsjon-shelter",
+      "clusterKey": "site-magsjon-shelter",
+      "representativeName": "Magsjön shelter/fireplace",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered-facilities-4-magsjon-shelter-fireplace"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "rest-area",
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "fireplace",
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7198846,
+        13.1747698
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-mcdonald-ulricehamn",
+      "clusterKey": "site-mcdonald-ulricehamn",
+      "representativeName": "McDonald's Ulricehamn",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-8-mcdonald-s-ulricehamn"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.8124223,
+        13.4189539
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-mullsjo",
+      "clusterKey": "site-mullsjo",
+      "representativeName": "Mullsjö Camping",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-13-mullsjo-camping"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping",
+        "food",
+        "lodging",
+        "swimming",
+        "toilet",
+        "waste",
+        "water"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "camping",
+        "food",
+        "swimming",
+        "toilet",
+        "waste",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.900838,
+        13.850812
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-mullsjo-hotell",
+      "clusterKey": "site-mullsjo-hotell",
+      "representativeName": "Mullsjö Hotell & Konferens",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-16-mullsjo-hotell-konferens",
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-watersources-3-mullsjo-hotell-konferens-tap-behind-hotel"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging",
+        "water"
+      ],
+      "candidateTypes": [
+        "food",
+        "lodging",
+        "parking",
+        "water"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "food",
+        "parking",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.903962,
+        13.872589
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-mullsjo-infocenter",
+      "clusterKey": "site-mullsjo-infocenter",
+      "representativeName": "Mullsjö C / Infocenter / town services",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-18-mullsjo-c-infocenter-town-services"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "food",
+        "service",
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "food",
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.915131,
+        13.882738
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-natural-along",
+      "clusterKey": "site-natural-along",
+      "representativeName": "Natural water along route corridor",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-watersources-1-natural-water-along-route-corridor"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-omega-route",
+      "clusterKey": "site-omega-route",
+      "representativeName": "IK Omega route start",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan-facilities-4-ik-omega-route-start"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "attraction"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.6988914,
+        12.6936707
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-omegastugan-olsfors",
+      "clusterKey": "site-omegastugan-olsfors",
+      "representativeName": "Omegastugan / Olsfors access cluster",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega-facilities-6-omegastugan-olsfors-access-cluster",
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan-facilities-5-omegastugan-olsfors-access-cluster"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega",
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "parking",
+        "service"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [
+        "attraction",
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.6889068,
+        12.6987323
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-osm-transit",
+      "clusterKey": "site-osm-transit",
+      "representativeName": "OSM bus/transit shelters around Hindås/Hindåsgården",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-19-osm-bus-transit-shelters-around-hindas-hindasgarden"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.704602,
+        12.451808
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-petaredbackens-byalag",
+      "clusterKey": "site-petaredbackens-byalag",
+      "representativeName": "Petaredbackens byalag picnic shelter",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-10-petaredbackens-byalag-picnic-shelter"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "rest-area",
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.706409,
+        12.560984
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-prangens",
+      "clusterKey": "site-prangens",
+      "representativeName": "Prångens Camping",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping-facilities-5-prangens-camping"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping",
+        "food",
+        "lodging",
+        "service",
+        "toilet",
+        "waste",
+        "water"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "camping",
+        "food",
+        "service",
+        "toilet",
+        "waste",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.8021388,
+        13.4067791
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-prangens-badplats",
+      "clusterKey": "site-prangens-badplats",
+      "representativeName": "Prångens badplats / swim area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-3-prangens-badplats-swim-area"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "service",
+        "swimming"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "swimming"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.8017001,
+        13.4056699
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-prangens-endpoint",
+      "clusterKey": "site-prangens-endpoint",
+      "representativeName": "Prångens endpoint information/parking/toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping-facilities-6-prangens-endpoint-information-parking-toilet"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "parking",
+        "service",
+        "toilet",
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "parking",
+        "service",
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.801619,
+        13.412034
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-prangens-fresh",
+      "clusterKey": "site-prangens-fresh",
+      "representativeName": "Prångens Camping fresh water",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping-watersources-1-prangens-camping-fresh-water",
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-watersources-0-prangens-camping-fresh-water"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping",
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.8021388,
+        13.4067791
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-prangens-info",
+      "clusterKey": "site-prangens-info",
+      "representativeName": "Prångens info board/map",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-2-prangens-info-board-map"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.8030519,
+        13.4087054
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-prangens-start",
+      "clusterKey": "site-prangens-start",
+      "representativeName": "Prångens start parking",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-1-prangens-start-parking"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.8027825,
+        13.4087782
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-prangens-stugby",
+      "clusterKey": "site-prangens-stugby",
+      "representativeName": "Prångens Camping & Stugby",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-0-prangens-camping-stugby"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping",
+        "food",
+        "lodging",
+        "service",
+        "toilet",
+        "waste",
+        "water"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "camping",
+        "food",
+        "service",
+        "toilet",
+        "waste",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.8021388,
+        13.4067791
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-public-drinking",
+      "clusterKey": "site-public-drinking",
+      "representativeName": "Public drinking water tap, Hindås",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-2-public-drinking-water-tap-hindas",
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-watersources-0-public-drinking-water-tap-hindas"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.703659,
+        12.451626
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-ramshulan",
+      "clusterKey": "site-ramshulan",
+      "representativeName": "Ramshulan",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar-facilities-8-ramshulan",
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar-watersources-0-ramshulan-water",
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna-watersources-0-ramshulan-water"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar",
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet",
+        "water"
+      ],
+      "candidateTypes": [
+        "rest-area",
+        "toilet",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "rest-area",
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.742299,
+        12.919323
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-raska-minas",
+      "clusterKey": "site-raska-minas",
+      "representativeName": "Raska-Minas källa",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered-facilities-5-raska-minas-stuga",
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered-facilities-6-raska-minas-vindskydd",
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered-watersources-1-raska-minas-kalla"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage",
+        "natural-water",
+        "shelter"
+      ],
+      "candidateTypes": [
+        "heritage",
+        "natural-water",
+        "rest-area",
+        "shelter",
+        "water"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "heritage",
+        "natural-water",
+        "rest-area",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7253705,
+        13.2350771
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-rastplats-slatthult",
+      "clusterKey": "site-rastplats-slatthult",
+      "representativeName": "Rastplats Slätthult / Abborrsjöns vindskydd",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega-facilities-0-rastplats-slatthult-abborrsjons-vindskydd"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "rest-area",
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7081968,
+        12.6209842
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-redvagsleden-sjuharadsleden",
+      "clusterKey": "site-redvagsleden-sjuharadsleden",
+      "representativeName": "Redvägsleden / Sjuhäradsleden split",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-19-redvagsleden-sjuharadsleden-split"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "service",
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.8736045,
+        13.4863972
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-rya-asar",
+      "clusterKey": "site-rya-asar",
+      "representativeName": "Rya åsar / Björbobacken main entrance",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar-facilities-6-rya-asar-fjallsjon-rya-asars-rastkoja",
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar-facilities-7-rya-asar-hogplatan-bjorbobacken-picnic-cluster",
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar-facilities-9-rya-asar-bjorbobacken-main-entrance",
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna-facilities-0-rya-asar-bjorbobacken-start-access-cluster"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar",
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace",
+        "parking",
+        "shelter"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "parking",
+        "rest-area",
+        "service",
+        "shelter",
+        "toilet",
+        "waste"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "fireplace",
+        "parking",
+        "rest-area",
+        "service",
+        "toilet",
+        "waste"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.748202,
+        12.907907
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-rydets-badplats",
+      "clusterKey": "site-rydets-badplats",
+      "representativeName": "Rydets badplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan-facilities-11-rydets-badplats"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming",
+        "toilet"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.6957643,
+        12.7395638
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-ryfors-gammelskog",
+      "clusterKey": "site-ryfors-gammelskog",
+      "representativeName": "Ryfors gammelskog / old pine forest",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-7-ryfors-gammelskog-old-pine-forest"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "heritage",
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "attraction",
+        "heritage"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.904077,
+        13.834274
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-ryfors-golfklubb",
+      "clusterKey": "site-ryfors-golfklubb",
+      "representativeName": "Ryfors Golfklubb / ställplats",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-4-ryfors-golfklubb-stallplats",
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-watersources-2-ryfors-golfklubb-service-water"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "service",
+        "water"
+      ],
+      "candidateTypes": [
+        "camping",
+        "food",
+        "service",
+        "toilet",
+        "water"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "camping",
+        "food",
+        "toilet",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.905001,
+        13.824457
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-ryfors-reserve",
+      "clusterKey": "site-ryfors-reserve",
+      "representativeName": "Ryfors reserve entrance cluster",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-6-ryfors-reserve-entrance-cluster"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking",
+        "service",
+        "toilet",
+        "waste"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [
+        "service",
+        "toilet",
+        "waste"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.904338,
+        13.834007
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-sandared-village",
+      "clusterKey": "site-sandared-village",
+      "representativeName": "Sandared village services",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan-facilities-12-sandared-village-services"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food",
+        "service",
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "food",
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7101711,
+        12.79178193
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-section-public",
+      "clusterKey": "site-section-public",
+      "representativeName": "Section 9 public potable water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri-watersources-3-section-9-public-potable-water"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-sok-nordtorp",
+      "clusterKey": "site-sok-nordtorp",
+      "representativeName": "SOK-stugan / Nordtorp",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan-facilities-6-sok-stugan-nordtorp-endpoint-access",
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar-facilities-0-sok-stugan-nordtorp"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan",
+        "sjuharadsleden-etapp-4-sok-stugan-rya-asar"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 4
+      },
+      "states": [
+        "normal",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "parking",
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "parking",
+        "rest-area",
+        "service",
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "fireplace",
+        "parking",
+        "rest-area",
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7320801,
+        12.7955532
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-soptunna-vid",
+      "clusterKey": "site-soptunna-vid",
+      "representativeName": "Soptunna vid Hultafors Vindskydd",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega-facilities-3-soptunna-vid-rastplats-slatthult",
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan-facilities-3-soptunna-vid-hultafors-vindskydd"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega",
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "waste"
+      ],
+      "candidateTypes": [
+        "waste"
+      ],
+      "parentCandidateType": "waste",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.7081797,
+        12.6210861
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-struntfiskeboa-vindskydd",
+      "clusterKey": "site-struntfiskeboa-vindskydd",
+      "representativeName": "Struntfiskeboa vindskydd",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri-facilities-8-struntfiskeboa-vindskydd",
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-2-struntfiskeboa-vindskydd"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri",
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 10
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "rest-area",
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "fireplace",
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.8843241,
+        13.6417722
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-sturebadet-kallbadhuset",
+      "clusterKey": "site-sturebadet-kallbadhuset",
+      "representativeName": "Sturebadet / Kallbadhuset cluster",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping-facilities-8-sturebadet-kallbadhuset-cluster"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "food",
+        "service",
+        "swimming",
+        "toilet",
+        "water"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "fireplace",
+        "food",
+        "swimming",
+        "toilet",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.79783,
+        13.408595
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-toarps-vindskydd",
+      "clusterKey": "site-toarps-vindskydd",
+      "representativeName": "Toarps vindskydd",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered-facilities-1-toarps-vindskydd"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-6-karlsaflogarna-blackered"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "rest-area",
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7421806,
+        13.1045687
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-ulricehamn-centrum",
+      "clusterKey": "site-ulricehamn-centrum",
+      "representativeName": "Ulricehamn centrum services",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping-facilities-9-ulricehamn-centrum-services"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-7-blackered-prangens-camping"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food",
+        "lodging",
+        "service"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "food",
+        "service"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-ulricehamns-kallbadhus",
+      "clusterKey": "site-ulricehamns-kallbadhus",
+      "representativeName": "Ulricehamns Kallbadhus / restaurant",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka-facilities-4-ulricehamns-kallbadhus-restaurant"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "food",
+        "service",
+        "swimming"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "food",
+        "swimming"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7963508,
+        13.4081141
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-varpaledet",
+      "clusterKey": "site-varpaledet",
+      "representativeName": "Varpaledet parking",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri-facilities-6-varpaledet-parking"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.8784559,
+        13.6275423
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-varpaledet-badplats",
+      "clusterKey": "site-varpaledet-badplats",
+      "representativeName": "Varpaledet badplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri-facilities-5-varpaledet-badplats"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "rest-area",
+        "service",
+        "swimming",
+        "toilet"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "fireplace",
+        "rest-area",
+        "swimming",
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.878454,
+        13.628195
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-varpaledet-jogen",
+      "clusterKey": "site-varpaledet-jogen",
+      "representativeName": "Varpaledet / Jogen bathing water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri-watersources-1-varpaledet-jogen-bathing-water"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-9-bone-kyrka-aras-sateri"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.878454,
+        13.628195
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-vastra-nedsjon",
+      "clusterKey": "site-vastra-nedsjon",
+      "representativeName": "Västra Nedsjön badplats, Hindås",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if-facilities-5-vastra-nedsjon-badplats-hindas"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-1-hindas-station-hestrafors-if"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "parking",
+        "rest-area",
+        "swimming",
+        "toilet",
+        "waste"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [
+        "fireplace",
+        "rest-area",
+        "swimming",
+        "toilet",
+        "waste"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.707428,
+        12.456086
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-vid-hultafors",
+      "clusterKey": "site-vid-hultafors",
+      "representativeName": "Toalett vid Hultafors Vindskydd",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan-facilities-1-toalett-vid-hultafors-vindskydd"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-3-ik-omega-sok-stugan"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.7009966,
+        12.756559
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-vid-rastplats",
+      "clusterKey": "site-vid-rastplats",
+      "representativeName": "Toalett vid Rastplats Slätthult / Abborrsjön",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega-facilities-1-toalett-vid-rastplats-slatthult-abborrsjon"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-2-hestrafors-if-ik-omega"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.707962,
+        12.6216014
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-vip-restaurant",
+      "clusterKey": "site-vip-restaurant",
+      "representativeName": "VIP restaurant / Motell VIP",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo-facilities-14-vip-restaurant-motell-vip"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-10-aras-sateri-hotell-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food",
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "food"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.903312,
+        13.862131
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-viskan-kypesjon",
+      "clusterKey": "site-viskan-kypesjon",
+      "representativeName": "Viskan, Kypesjön and Karlsaflogarna ponds",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna-watersources-2-viskan-kypesjon-and-karlsaflogarna-ponds"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "sjuharadsleden-site-ymergarden",
+      "clusterKey": "site-ymergarden",
+      "representativeName": "Ymergården",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna-facilities-7-ymergarden"
+      ],
+      "sectionIds": [
+        "sjuharadsleden-etapp-5-rya-asar-karlsaflogarna"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "rest-area",
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "fireplace",
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.7408573,
+        13.0033507
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    }
+  ]
+}

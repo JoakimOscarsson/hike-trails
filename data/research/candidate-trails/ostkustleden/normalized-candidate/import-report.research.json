@@ -1,0 +1,269 @@
+{
+  "schemaVersion": "candidate-import-report/v1",
+  "trailId": "ostkustleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-artifacts-generated-research-only",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "ostkustleden/normalization-handoff.research.json",
+  "artifactFiles": [
+    "route-sections.research.json",
+    "route-geometry-index.research.json",
+    "facilities.research.json",
+    "rule-warnings.research.json",
+    "import-report.research.json"
+  ],
+  "supplementalArtifactFiles": [
+    "route-topology.research.json",
+    "facility-clusters.research.json"
+  ],
+  "manifestSectionFiles": 8,
+  "generatedCounts": {
+    "routeSections": 8,
+    "geometrySections": 8,
+    "geometrySectionsWithCandidateGeojson": 8,
+    "routeTopologyDecisions": 2,
+    "routeGroups": 1,
+    "routeTopologyConnections": 1,
+    "facilities": 159,
+    "facilityClusters": 121,
+    "dedupeCandidateClusters": 31,
+    "ruleWarnings": 188
+  },
+  "routeTopologySummary": {
+    "status": "candidate-topology-decisions-applied",
+    "decisionIds": [
+      "ostkustleden-etapp-8-cabin-gap-policy",
+      "ostkustleden-candidate-geometry-prototype-scope"
+    ],
+    "routeGroupIds": [
+      "ostkustleden-main-ring"
+    ],
+    "connectionIds": [
+      "ostkustleden-etapp-8-to-lilla-hycklinge-cabin"
+    ]
+  },
+  "facilityClusterSummary": {
+    "totalFacilities": 159,
+    "clusterCount": 121,
+    "multiFacilityClusters": 23,
+    "dedupeCandidateClusters": 31,
+    "byRecommendedAction": {
+      "single-record": 90,
+      "keep-suppressed": 8,
+      "dedupe-duplicate-facility": 13,
+      "dedupe-related-site-cluster": 3,
+      "attach-child-amenities-to-parent": 7
+    }
+  },
+  "blockers": [
+    {
+      "id": "runtime-import",
+      "status": "blocked-until-explicit-import-task",
+      "details": "Ready for normalization planning, not runtime import."
+    },
+    {
+      "id": "geometry",
+      "status": "resolved-by-candidate-geometry",
+      "details": "Research-only candidate GeoJSON exists for all eight Naturkartan GPX section sources; runtime import still needs an explicit import task and visual QA."
+    },
+    {
+      "id": "rules",
+      "status": "resolved-by-candidate-gis-overlay",
+      "details": "Boundary-sensitive protected-area, Natura 2000, water-protection and biotopskydd checks are recorded in normalized-candidate/protected-area-overlays.research.json."
+    },
+    {
+      "id": "currentness",
+      "status": "unknown/recheck",
+      "details": "Cabin availability/fees, water reliability/quality, KLT/Närtrafik, fire risk, hunting signs/notices, forestry and route passability are publication-time checks."
+    }
+  ],
+  "openDecisions": [
+    {
+      "id": "decision-1",
+      "details": "Decide whether runtime import should include a separately sourced access leg from Etapp 8 official GPX end to the Lilla Hycklinge cabin, or keep the 156.4 m gap as metadata only."
+    },
+    {
+      "id": "decision-2",
+      "details": "Decide whether optional narrative POIs and approximate swim/access points should be included in the first runtime import or left pending."
+    },
+    {
+      "id": "decision-3",
+      "details": "Approve candidate-only geometry normalization prototype before any shared runtime source data is touched."
+    }
+  ],
+  "blockerTriage": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "runtime-import",
+      "status": "blocked-until-explicit-import-task",
+      "details": "Ready for normalization planning, not runtime import.",
+      "disposition": "runtime-integration-task",
+      "owner": "runtime-import",
+      "action": "Handle when the candidate artifacts are selected for runtime import."
+    },
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "geometry",
+      "status": "resolved-by-candidate-geometry",
+      "details": "Research-only candidate GeoJSON exists for all eight Naturkartan GPX section sources; runtime import still needs an explicit import task and visual QA.",
+      "disposition": "resolved-now",
+      "owner": "candidate-geometry",
+      "action": "Research-only candidate GeoJSON now exists for all 8 Ostkustleden sections from official Naturkartan GPX sources, preserving the Etapp 8 cabin gap as topology metadata."
+    },
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "rules",
+      "status": "resolved-by-candidate-gis-overlay",
+      "details": "Boundary-sensitive protected-area, Natura 2000, water-protection and biotopskydd checks are recorded in normalized-candidate/protected-area-overlays.research.json.",
+      "disposition": "resolved-now",
+      "owner": "candidate-gis",
+      "action": "Candidate protected-area-overlays.research.json now records computed protected-area, Natura 2000, water-protection and biotopskydd checks against all generated Ostkustleden route geometry and facility points."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "currentness",
+      "status": "unknown/recheck",
+      "details": "Cabin availability/fees, water reliability/quality, KLT/Närtrafik, fire risk, hunting signs/notices, forestry and route passability are publication-time checks.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "open-decision-5",
+      "itemType": "open-decision",
+      "sourceId": "decision-1",
+      "status": "open-decision",
+      "details": "Decide whether runtime import should include a separately sourced access leg from Etapp 8 official GPX end to the Lilla Hycklinge cabin, or keep the 156.4 m gap as metadata only.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Route topology now keeps the Etapp 8 cabin gap as metadata and approves candidate-only prototype work."
+    },
+    {
+      "id": "open-decision-6",
+      "itemType": "open-decision",
+      "sourceId": "decision-2",
+      "status": "open-decision",
+      "details": "Decide whether optional narrative POIs and approximate swim/access points should be included in the first runtime import or left pending.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "decision-3",
+      "status": "open-decision",
+      "details": "Approve candidate-only geometry normalization prototype before any shared runtime source data is touched.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Route topology now keeps the Etapp 8 cabin gap as metadata and approves candidate-only prototype work."
+    }
+  ],
+  "triageSummary": {
+    "runtime-integration-task": 1,
+    "resolved-now": 5,
+    "defer-publication-time": 1
+  },
+  "fixesAppliedNow": [
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "geometry",
+      "status": "resolved-by-candidate-geometry",
+      "details": "Research-only candidate GeoJSON exists for all eight Naturkartan GPX section sources; runtime import still needs an explicit import task and visual QA.",
+      "disposition": "resolved-now",
+      "owner": "candidate-geometry",
+      "action": "Research-only candidate GeoJSON now exists for all 8 Ostkustleden sections from official Naturkartan GPX sources, preserving the Etapp 8 cabin gap as topology metadata."
+    },
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "rules",
+      "status": "resolved-by-candidate-gis-overlay",
+      "details": "Boundary-sensitive protected-area, Natura 2000, water-protection and biotopskydd checks are recorded in normalized-candidate/protected-area-overlays.research.json.",
+      "disposition": "resolved-now",
+      "owner": "candidate-gis",
+      "action": "Candidate protected-area-overlays.research.json now records computed protected-area, Natura 2000, water-protection and biotopskydd checks against all generated Ostkustleden route geometry and facility points."
+    },
+    {
+      "id": "open-decision-5",
+      "itemType": "open-decision",
+      "sourceId": "decision-1",
+      "status": "open-decision",
+      "details": "Decide whether runtime import should include a separately sourced access leg from Etapp 8 official GPX end to the Lilla Hycklinge cabin, or keep the 156.4 m gap as metadata only.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Route topology now keeps the Etapp 8 cabin gap as metadata and approves candidate-only prototype work."
+    },
+    {
+      "id": "open-decision-6",
+      "itemType": "open-decision",
+      "sourceId": "decision-2",
+      "status": "open-decision",
+      "details": "Decide whether optional narrative POIs and approximate swim/access points should be included in the first runtime import or left pending.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "decision-3",
+      "status": "open-decision",
+      "details": "Approve candidate-only geometry normalization prototype before any shared runtime source data is touched.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Route topology now keeps the Etapp 8 cabin gap as metadata and approves candidate-only prototype work."
+    }
+  ],
+  "fixNowBeforeRuntimeImport": [],
+  "runtimeSchemaNeeded": [],
+  "deferredBeforeRuntimeImport": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "runtime-import",
+      "status": "blocked-until-explicit-import-task",
+      "details": "Ready for normalization planning, not runtime import.",
+      "disposition": "runtime-integration-task",
+      "owner": "runtime-import",
+      "action": "Handle when the candidate artifacts are selected for runtime import."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "currentness",
+      "status": "unknown/recheck",
+      "details": "Cabin availability/fees, water reliability/quality, KLT/Närtrafik, fire risk, hunting signs/notices, forestry and route passability are publication-time checks.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    }
+  ],
+  "validationChecklist": [
+    "JSON parse this handoff and every changed research file.",
+    "Confirm normalization-plan.research.json remains the controlling detailed plan.",
+    "Verify all 8 section files exist and match sectionCoverage.sectionIds.",
+    "Implement candidate-only geometry transforms with raw source URL, transform instruction, computed length, display distance and endpoint gap metadata.",
+    "Run visual QA against official PDF/map viewer for repaired multi-track sections.",
+    "Confirm Etapp 8 closes the digital ring at the official GPX endpoint and does not silently snap to Lilla Hycklinge cabin.",
+    "Review duplicate endpoint cabin/toilet/well/parking records before import rows.",
+    "Review normalized-candidate/protected-area-overlays.research.json before static rule import and repeat overlays if route geometry or source boundaries change.",
+    "Recheck fire bans, KLT/Närtrafik, cabin availability/fees, water, hunting signs/notices and forestry/passability before runtime publication.",
+    "Keep all outputs research-only until the user explicitly requests runtime integration."
+  ],
+  "unresolvedBeforeRuntimeImport": [
+    "runtime-integration-task: Ready for normalization planning, not runtime import.",
+    "defer-publication-time: Cabin availability/fees, water reliability/quality, KLT/Närtrafik, fire risk, hunting signs/notices, forestry and route passability are publication-time checks."
+  ],
+  "nextActions": [
+    "Handle fixNowBeforeRuntimeImport first unless the linked item truly needs external data.",
+    "Keep pending-review and suppress facility states out of runtime output.",
+    "Run final GIS overlays and live publication checks before user-facing rule warnings.",
+    "Do not write app runtime source data from this report without an explicit runtime integration task."
+  ]
+}

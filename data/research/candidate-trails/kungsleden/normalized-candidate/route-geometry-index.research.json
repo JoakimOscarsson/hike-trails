@@ -1,0 +1,513 @@
+{
+  "schemaVersion": "candidate-route-geometry-index/v1",
+  "trailId": "kungsleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-normalized-research-only",
+  "runtimeImportApproved": false,
+  "geometryPolicy": {
+    "decision": "Use selected canonical route geometry as provenance, and create separate display-ready geometry only when needed for rendering.",
+    "coordinatePolicy": "All candidate GeoJSON must be WGS84 longitude-latitude coordinate order. Transform EPSG:3006 or other source CRS before candidate artifact output and record the transform.",
+    "sourcePriority": [
+      "Official trail-manager GPX/API/GeoJSON or official state trail linework when source policy allows it.",
+      "Current official presentation source such as Naturkartan when it is the trail manager's public map baseline.",
+      "OSM/Waymarked/third-party sources only as QA, fallback or explicit low-confidence source when the handoff says so."
+    ],
+    "segmentPolicy": "Preserve official track, segment and MultiLineString breaks unless an explicit sourced connector is modeled.",
+    "densificationPolicy": "Densification is allowed only for draw/display artifacts and must not be treated as field-verified trail geometry.",
+    "simplificationPolicy": "Do not simplify canonical candidate geometry until an importer-specific tolerance is chosen and visually QAed."
+  },
+  "sourceArtifactsToUse": [],
+  "sourceArtifactsToSuppress": [],
+  "discoveredGeojsonFiles": [
+    "data/research/candidate-trails/kungsleden/geometry/candidate/kungsleden-candidate-section-geometries.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-01-abisko-abiskojaure.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-02-abiskojaure-alesjaure.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-03-alesjaure-tjaktja.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-04-tjaktja-salka.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-05-salka-singi.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-06-singi-kaitumjaure.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-07-kaitumjaure-teusajaure.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-08-teusajaure-vakkotavare.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-09-saltoluokta-sitojaure.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-10-sitojaure-aktse.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-11-aktse-parte.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-12-parte-kvikkjokk.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-13-kvikkjokk-tsielekjakkstugan.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-14-tsielekjakkstugan-pitealven.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-15-pitealven-gasaklahko.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-16-gasaklahko-vuonatjviken.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-17-vuonatjviken-jackvik.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-18-jackvik-adolfstrom.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-19-adolfstrom-sjnulttjie.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-20-sjnulttjie-ravfallsstugan.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-21-ravfallsstugan-ammarnas.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-22-ammarnas-aigert.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-23-aigert-serve.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-24-serve-tarnasjo.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-25-tarnasjo-syter.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-26-syter-viterskalet.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-27-viterskalet-hemavan.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30361077-epsg3006.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30413122-epsg3006.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30424088-epsg3006.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30442476-epsg3006.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30448885-epsg3006.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30454750-epsg3006.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30454909-epsg3006.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30455122-epsg3006.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466790-epsg3006.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466819-epsg3006.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466867-epsg3006.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466872-epsg3006.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466874-epsg3006.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466917-epsg3006.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466925-epsg3006.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466940-epsg3006.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30466987-epsg3006.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30467009-epsg3006.geojson",
+    "data/research/candidate-trails/kungsleden/geometry/candidate/source-downloads/leder-led-30467012-epsg3006.geojson"
+  ],
+  "summary": {
+    "candidate-geojson-present": 27
+  },
+  "sections": [
+    {
+      "sectionId": "kungsleden-section-01-abisko-abiskojaure",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-01-abisko-abiskojaure.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-01-abisko-abiskojaure.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturkartan site 12850 shapes",
+        "sourceUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd21-fran-abisko-till-abiskojaure",
+        "classification": "planning-grade",
+        "confidence": "high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-02-abiskojaure-alesjaure",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-02-abiskojaure-alesjaure.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-02-abiskojaure-alesjaure.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturkartan site 14092 / BD26 GPX",
+        "classification": "planning-grade",
+        "confidence": "high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-03-alesjaure-tjaktja",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-03-alesjaure-tjaktja.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-03-alesjaure-tjaktja.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturkartan site 12865 combined Alesjaure-Salka linework",
+        "classification": "planning-grade",
+        "confidence": "medium-high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-04-tjaktja-salka",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-04-tjaktja-salka.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-04-tjaktja-salka.geojson"
+      ],
+      "sourceSummary": {
+        "source": "OSM relation 10861494 / Waymarked Trails",
+        "classification": "planning-grade",
+        "confidence": "medium-high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-05-salka-singi",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-05-salka-singi.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-05-salka-singi.geojson"
+      ],
+      "sourceSummary": {
+        "source": "OSM relation 17080095 / Waymarked Trails",
+        "classification": "planning-grade",
+        "confidence": "medium-high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-06-singi-kaitumjaure",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-06-singi-kaitumjaure.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-06-singi-kaitumjaure.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturkartan BD46 / site 12881",
+        "sourceUrl": "https://www.naturkartan.se/en/norrbottens-lan/vandringsled-bd46-mellan-singi-och-kaitumjaure",
+        "classification": "planning-grade",
+        "confidence": "high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-07-kaitumjaure-teusajaure",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-07-kaitumjaure-teusajaure.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-07-kaitumjaure-teusajaure.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturkartan BD49 / site 12883",
+        "sourceUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd49-mellan-kaitumjaure-och-teusajaure",
+        "classification": "planning-grade",
+        "confidence": "high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-08-teusajaure-vakkotavare",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-08-teusajaure-vakkotavare.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-08-teusajaure-vakkotavare.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturkartan BD50 / site 12884",
+        "sourceUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd50-mellan-teusajaure-och-vakkotavare",
+        "classification": "planning-grade",
+        "confidence": "high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-09-saltoluokta-sitojaure",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-09-saltoluokta-sitojaure.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-09-saltoluokta-sitojaure.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturkartan BD62 / site 12892",
+        "classification": "planning-grade",
+        "confidence": "high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-10-sitojaure-aktse",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-10-sitojaure-aktse.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-10-sitojaure-aktse.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturkartan BD63 / site 12893",
+        "classification": "planning-grade for Naturkartan walking line; navigation-grade candidate from OSM only if ferry/source policy permits",
+        "confidence": "high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-11-aktse-parte",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-11-aktse-parte.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-11-aktse-parte.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturkartan BD65/site 12895 GPX/API",
+        "classification": "planning-grade. Official land-trail geometry is strong, but the complete stage requires explicit boat/connector modelling and endpoint-convention decisions.",
+        "confidence": "high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-12-parte-kvikkjokk",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-12-parte-kvikkjokk.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-12-parte-kvikkjokk.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturkartan BD66/site 12896 API",
+        "classification": "planning-grade. Official API geometry is suitable for candidate research, but source policy, endpoint convention and possible short approach metadata need resolution before runtime import.",
+        "confidence": "high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-13-kvikkjokk-tsielekjakkstugan",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-13-kvikkjokk-tsielekjakkstugan.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-13-kvikkjokk-tsielekjakkstugan.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturvårdsverket/Länsstyrelsen WFS BD77 hiking line plus separate Sakkat boat line",
+        "classification": "planning-grade. The official base geometry is strong, but section import requires splitting a longer walking route, reversing/connecting a separate boat line, deciding endpoint offsets and applying source policy.",
+        "confidence": "high for boat and base line, medium for exact Tsiele split"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-14-tsielekjakkstugan-pitealven",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-14-tsielekjakkstugan-pitealven.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-14-tsielekjakkstugan-pitealven.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturvårdsverket/Länsstyrelsen WFS BD77 hiking line",
+        "classification": "planning-grade; official linework exists but is not stage-split and Piteälven endpoint convention remains unresolved with section 15",
+        "confidence": "high for official base line, medium for exact split"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-15-pitealven-gasaklahko",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-15-pitealven-gasaklahko.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-15-pitealven-gasaklahko.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturvårdsverket WFS BD78 split by official stage distance",
+        "classification": "planning-grade-with-resolved-boundary-caveats",
+        "confidence": "medium-high for line, medium for split point"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-16-gasaklahko-vuonatjviken",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-16-gasaklahko-vuonatjviken.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-16-gasaklahko-vuonatjviken.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturvårdsverket WFS BD78 split from official stage distances",
+        "classification": "planning-grade-with-endpoint-zone-caveat",
+        "confidence": "medium-high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-17-vuonatjviken-jackvik",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-17-vuonatjviken-jackvik.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-17-vuonatjviken-jackvik.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturvårdsverket WFS BD78 composed segments",
+        "classification": "planning-grade; exact boat landings and Jäckvik endpoint need final source-policy and endpoint-model decisions before runtime import",
+        "confidence": "medium-high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-18-jackvik-adolfstrom",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-18-jackvik-adolfstrom.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-18-jackvik-adolfstrom.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturvårdsverket WFS LED summer line",
+        "classification": "planning-grade to navigation-grade official WFS linework, pending project source/licensing policy and final connector handling at Jäckvik service zone",
+        "confidence": "high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-19-adolfstrom-sjnulttjie",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-19-adolfstrom-sjnulttjie.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-19-adolfstrom-sjnulttjie.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturvårdsverket STATLIG_LED/WFS BD88 plus Sjnulttjie shelter spur",
+        "classification": "planning-grade, with official linework suitable for later import only after route-source policy, line clipping, handoff connector and shelter-spur decisions",
+        "confidence": "medium-high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-20-sjnulttjie-ravfallsstugan",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-20-sjnulttjie-ravfallsstugan.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-20-sjnulttjie-ravfallsstugan.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Assembled official Naturkartan/Naturvårdsverket BD88 + AC20 summer hiking line with Sjnulttjie shelter spur",
+        "classification": "planning-grade assembled official geometry; suitable for normalization only after manual clipping/ordering and source-policy review",
+        "confidence": "medium-high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-21-ravfallsstugan-ammarnas",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-21-ravfallsstugan-ammarnas.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-21-ravfallsstugan-ammarnas.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturvårdsverket Friluftsliv Leder WFS",
+        "sourceUrl": "https://geodata.naturvardsverket.se/leder_friluftsliv/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=Leder_friluftsliv_WFS:LED&outputFormat=GEOJSON&srsName=EPSG:4326&bbox=65.95,16.04,66.11,16.20,EPSG:4326",
+        "classification": "planning-grade/high-confidence candidate; WFS line appears detailed enough for later normalization but still needs source-policy approval, final endpoint convention decision and protected-area overlay",
+        "confidence": "high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-22-ammarnas-aigert",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-22-ammarnas-aigert.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-22-ammarnas-aigert.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturvårdsverket Leder WFS",
+        "sourceUrl": "https://geodata.naturvardsverket.se/leder_friluftsliv/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=Leder_friluftsliv_WFS:LED&outputFormat=GEOJSON&srsName=EPSG:4326&resourceID=LED.2784419",
+        "classification": "planning-grade/high-confidence selected WFS candidate; source policy and endpoint/connector convention still required before runtime import",
+        "confidence": "high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-23-aigert-serve",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-23-aigert-serve.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-23-aigert-serve.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturvårdsverket Friluftsliv REST/open-data AC16 line",
+        "classification": "planning-grade/high-confidence selected line; not runtime navigation-grade until source-policy, endpoint snapping and shelter coordinate caveats are resolved",
+        "confidence": "high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-24-serve-tarnasjo",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-24-serve-tarnasjo.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-24-serve-tarnasjo.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturvårdsverket Friluftsliv REST/WKT/open-data AC16 line",
+        "classification": "planning-grade/high-confidence selected official line; not runtime navigation-grade until source-policy, endpoint snapping, GPX publish flag and final protected-area overlay are resolved",
+        "confidence": "high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-25-tarnasjo-syter.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-25-tarnasjo-syter.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturvårdsverket Friluftsliv REST/WKT/open-data AC2 line",
+        "classification": "planning-grade/high-confidence official state-trail line; not final navigation-grade until source policy, endpoint snapping, live currentness and bridge/boardwalk structure handling are resolved",
+        "confidence": "high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-26-syter-viterskalet.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-26-syter-viterskalet.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturvårdsverket Leder.geojson / Friluftsliv AC3 line",
+        "classification": "planning-grade/high-confidence official state line; final runtime import needs clipping policy, source policy, endpoint snap policy and alternate-route handling",
+        "confidence": "high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    },
+    {
+      "sectionId": "kungsleden-section-27-viterskalet-hemavan",
+      "sourceFile": "data/research/candidate-trails/kungsleden/sections/kungsleden-section-27-viterskalet-hemavan.research.json",
+      "status": "candidate-geojson-present",
+      "candidateGeojsonFiles": [
+        "data/research/candidate-trails/kungsleden/geometry/candidate/sections/kungsleden-section-27-viterskalet-hemavan.geojson"
+      ],
+      "sourceSummary": {
+        "source": "Naturvardsverket Leder.geojson / Friluftsliv AC3 line",
+        "classification": "planning-grade/high-confidence official state line; likely suitable as primary candidate geometry after project source-policy and simplification decisions, but not yet imported into runtime data",
+        "confidence": "high"
+      },
+      "transformPolicy": null,
+      "endpointContinuityIssues": [],
+      "blockedGeometry": []
+    }
+  ]
+}

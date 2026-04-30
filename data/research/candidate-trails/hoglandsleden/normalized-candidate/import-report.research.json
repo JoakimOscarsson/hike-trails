@@ -1,0 +1,300 @@
+{
+  "schemaVersion": "candidate-import-report/v1",
+  "trailId": "hoglandsleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-artifacts-generated-research-only",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "hoglandsleden/normalization-handoff.research.json",
+  "artifactFiles": [
+    "route-sections.research.json",
+    "route-geometry-index.research.json",
+    "facilities.research.json",
+    "rule-warnings.research.json",
+    "import-report.research.json"
+  ],
+  "supplementalArtifactFiles": [
+    "route-topology.research.json",
+    "facility-clusters.research.json"
+  ],
+  "manifestSectionFiles": 23,
+  "generatedCounts": {
+    "routeSections": 23,
+    "geometrySections": 23,
+    "geometrySectionsWithCandidateGeojson": 23,
+    "routeTopologyDecisions": 1,
+    "routeGroups": 3,
+    "routeTopologyConnections": 2,
+    "facilities": 555,
+    "facilityClusters": 389,
+    "dedupeCandidateClusters": 128,
+    "ruleWarnings": 556
+  },
+  "routeTopologySummary": {
+    "status": "candidate-topology-decisions-applied",
+    "decisionIds": [
+      "hoglandsleden-route-builder-topology"
+    ],
+    "routeGroupIds": [
+      "hoglandsleden-main-loop",
+      "hoglandsleden-mariannelund-branch",
+      "hoglandsleden-tomtabacken-karringabacka-branch"
+    ],
+    "connectionIds": [
+      "hoglandsleden-valbacken-branch-junction",
+      "hoglandsleden-vikskvarn-branch-junction"
+    ]
+  },
+  "facilityClusterSummary": {
+    "totalFacilities": 555,
+    "clusterCount": 389,
+    "multiFacilityClusters": 105,
+    "dedupeCandidateClusters": 128,
+    "byRecommendedAction": {
+      "dedupe-duplicate-facility": 52,
+      "single-record": 261,
+      "dedupe-related-site-cluster": 36,
+      "keep-suppressed": 23,
+      "attach-child-amenities-to-parent": 17
+    }
+  },
+  "blockers": [
+    {
+      "id": "runtime-import",
+      "status": "blocked-until-explicit-import-task",
+      "details": "No runtime data has been imported."
+    },
+    {
+      "id": "topology",
+      "status": "normalization-decision-needed",
+      "details": "Whether official route groups should be modeled as main loop plus three connectors, main loop plus east/north/west branches, or another route-builder topology."
+    },
+    {
+      "id": "rules",
+      "status": "resolved-by-candidate-gis-overlay",
+      "details": "Protected-area, Natura 2000, water-protection and biotopskydd overlays are recorded in normalized-candidate/protected-area-overlays.research.json."
+    },
+    {
+      "id": "currentness",
+      "status": "volatile-runtime-check",
+      "details": "Live fire-ban/currentness, post-Storm-Dave clearance, transit schedules and water reliability must be rechecked before user-facing runtime import."
+    },
+    {
+      "id": "facilities",
+      "status": "unknown/recheck",
+      "details": "Shared endpoint clusters, commercial/customer-only services, weak transit and unverified water/shelter records need normalization review."
+    }
+  ],
+  "openDecisions": [
+    {
+      "id": "decision-1",
+      "details": "Choose the route-builder topology for Höglandsleden."
+    },
+    {
+      "id": "decision-2",
+      "details": "Decide whether official access trails such as Mariannelund-HÖ3, Sävsjö C, Hok station, Byarum kyrka, Skillingaryd station and Lyngemadens naturreservat should be first-class route groups or access metadata."
+    },
+    {
+      "id": "decision-3",
+      "details": "Decide app scope for bookable/commercial services and very weak rural transit."
+    }
+  ],
+  "blockerTriage": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "runtime-import",
+      "status": "blocked-until-explicit-import-task",
+      "details": "No runtime data has been imported.",
+      "disposition": "runtime-integration-task",
+      "owner": "runtime-import",
+      "action": "Leave runtime source/generated data untouched until the separate runtime import task is explicitly started."
+    },
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "topology",
+      "status": "normalization-decision-needed",
+      "details": "Whether official route groups should be modeled as main loop plus three connectors, main loop plus east/north/west branches, or another route-builder topology.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    },
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "rules",
+      "status": "resolved-by-candidate-gis-overlay",
+      "details": "Protected-area, Natura 2000, water-protection and biotopskydd overlays are recorded in normalized-candidate/protected-area-overlays.research.json.",
+      "disposition": "resolved-now",
+      "owner": "candidate-gis",
+      "action": "Candidate protected-area-overlays.research.json now records route-bbox protected-area, Natura 2000, water-protection and biotopskydd checks against all 23 generated Höglandsleden section geometries."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "currentness",
+      "status": "volatile-runtime-check",
+      "details": "Live fire-ban/currentness, post-Storm-Dave clearance, transit schedules and water reliability must be rechecked before user-facing runtime import.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "blocker-5",
+      "itemType": "blocker",
+      "sourceId": "facilities",
+      "status": "unknown/recheck",
+      "details": "Shared endpoint clusters, commercial/customer-only services, weak transit and unverified water/shelter records need normalization review.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Parking/transit and access services are normalized as candidate facility/access records with pending/suppress states and live-check caveats."
+    },
+    {
+      "id": "open-decision-6",
+      "itemType": "open-decision",
+      "sourceId": "decision-1",
+      "status": "open-decision",
+      "details": "Choose the route-builder topology for Höglandsleden.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Route-builder topology is now fixed as main loop plus Mariannelund and Tomtabacken-Kärringabacka branches."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "decision-2",
+      "status": "open-decision",
+      "details": "Decide whether official access trails such as Mariannelund-HÖ3, Sävsjö C, Hok station, Byarum kyrka, Skillingaryd station and Lyngemadens naturreservat should be first-class route groups or access metadata.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    },
+    {
+      "id": "open-decision-8",
+      "itemType": "open-decision",
+      "sourceId": "decision-3",
+      "status": "open-decision",
+      "details": "Decide app scope for bookable/commercial services and very weak rural transit.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared trail-specific decisions now include the Höglandsleden service scope: commercial/bookable services are caveated metadata, and weak rural transit remains access metadata unless current useful service is verified."
+    }
+  ],
+  "triageSummary": {
+    "runtime-integration-task": 1,
+    "runtime-schema-needed": 2,
+    "resolved-now": 4,
+    "defer-publication-time": 1
+  },
+  "fixesAppliedNow": [
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "rules",
+      "status": "resolved-by-candidate-gis-overlay",
+      "details": "Protected-area, Natura 2000, water-protection and biotopskydd overlays are recorded in normalized-candidate/protected-area-overlays.research.json.",
+      "disposition": "resolved-now",
+      "owner": "candidate-gis",
+      "action": "Candidate protected-area-overlays.research.json now records route-bbox protected-area, Natura 2000, water-protection and biotopskydd checks against all 23 generated Höglandsleden section geometries."
+    },
+    {
+      "id": "blocker-5",
+      "itemType": "blocker",
+      "sourceId": "facilities",
+      "status": "unknown/recheck",
+      "details": "Shared endpoint clusters, commercial/customer-only services, weak transit and unverified water/shelter records need normalization review.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Parking/transit and access services are normalized as candidate facility/access records with pending/suppress states and live-check caveats."
+    },
+    {
+      "id": "open-decision-6",
+      "itemType": "open-decision",
+      "sourceId": "decision-1",
+      "status": "open-decision",
+      "details": "Choose the route-builder topology for Höglandsleden.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Route-builder topology is now fixed as main loop plus Mariannelund and Tomtabacken-Kärringabacka branches."
+    },
+    {
+      "id": "open-decision-8",
+      "itemType": "open-decision",
+      "sourceId": "decision-3",
+      "status": "open-decision",
+      "details": "Decide app scope for bookable/commercial services and very weak rural transit.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared trail-specific decisions now include the Höglandsleden service scope: commercial/bookable services are caveated metadata, and weak rural transit remains access metadata unless current useful service is verified."
+    }
+  ],
+  "fixNowBeforeRuntimeImport": [],
+  "runtimeSchemaNeeded": [
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "topology",
+      "status": "normalization-decision-needed",
+      "details": "Whether official route groups should be modeled as main loop plus three connectors, main loop plus east/north/west branches, or another route-builder topology.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "decision-2",
+      "status": "open-decision",
+      "details": "Decide whether official access trails such as Mariannelund-HÖ3, Sävsjö C, Hok station, Byarum kyrka, Skillingaryd station and Lyngemadens naturreservat should be first-class route groups or access metadata.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    }
+  ],
+  "deferredBeforeRuntimeImport": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "runtime-import",
+      "status": "blocked-until-explicit-import-task",
+      "details": "No runtime data has been imported.",
+      "disposition": "runtime-integration-task",
+      "owner": "runtime-import",
+      "action": "Leave runtime source/generated data untouched until the separate runtime import task is explicitly started."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "currentness",
+      "status": "volatile-runtime-check",
+      "details": "Live fire-ban/currentness, post-Storm-Dave clearance, transit schedules and water reliability must be rechecked before user-facing runtime import.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    }
+  ],
+  "validationChecklist": [
+    "JSON parse this handoff and every changed research file.",
+    "Verify all 23 expected section files exist and match officialSectionOrder.",
+    "Check every normalized section retains source URL, official distance, computed distance and transform notes.",
+    "Verify route group distances separately for main loop, HÖ1, HÖ3 and HÖ18-HÖ23 branch.",
+    "Run endpoint-gap checks at Skuruhatt, Valbacken, Vikskvarn, Byarum/Grönelund, Åsafors and Kärringabacka.",
+    "Run duplicate facility detection for every shared endpoint cluster listed in facilityPlan.deduplicationTargets.",
+    "Confirm no private/customer-only service is imported as a public facility.",
+    "Review protected-area-overlays.research.json before importing static reserve/cultural-reserve rule warnings and repeat overlays if route geometry or source boundaries change.",
+    "Recheck live fire bans, current trail clearance, transit schedules and water reliability before runtime publication.",
+    "Keep all outputs research-only until the user explicitly requests runtime integration."
+  ],
+  "unresolvedBeforeRuntimeImport": [
+    "runtime-integration-task: No runtime data has been imported.",
+    "runtime-schema-needed: Whether official route groups should be modeled as main loop plus three connectors, main loop plus east/north/west branches, or another route-builder topology.",
+    "defer-publication-time: Live fire-ban/currentness, post-Storm-Dave clearance, transit schedules and water reliability must be rechecked before user-facing runtime import.",
+    "runtime-schema-needed: Decide whether official access trails such as Mariannelund-HÖ3, Sävsjö C, Hok station, Byarum kyrka, Skillingaryd station and Lyngemadens naturreservat should be first-class route groups or access metadata."
+  ],
+  "nextActions": [
+    "Handle fixNowBeforeRuntimeImport first unless the linked item truly needs external data.",
+    "Keep pending-review and suppress facility states out of runtime output.",
+    "Run final GIS overlays and live publication checks before user-facing rule warnings.",
+    "Do not write app runtime source data from this report without an explicit runtime integration task."
+  ]
+}

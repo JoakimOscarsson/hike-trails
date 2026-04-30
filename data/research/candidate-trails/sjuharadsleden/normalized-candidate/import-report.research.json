@@ -1,0 +1,264 @@
+{
+  "schemaVersion": "candidate-import-report/v1",
+  "trailId": "sjuharadsleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-artifacts-generated-research-only",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "sjuharadsleden/normalization-handoff.research.json",
+  "artifactFiles": [
+    "route-sections.research.json",
+    "route-geometry-index.research.json",
+    "facilities.research.json",
+    "rule-warnings.research.json",
+    "import-report.research.json"
+  ],
+  "supplementalArtifactFiles": [
+    "route-topology.research.json",
+    "facility-clusters.research.json"
+  ],
+  "manifestSectionFiles": 10,
+  "generatedCounts": {
+    "routeSections": 10,
+    "geometrySections": 10,
+    "geometrySectionsWithCandidateGeojson": 10,
+    "routeTopologyDecisions": 1,
+    "routeGroups": 1,
+    "routeTopologyConnections": 0,
+    "facilities": 171,
+    "facilityClusters": 140,
+    "dedupeCandidateClusters": 38,
+    "ruleWarnings": 267
+  },
+  "routeTopologySummary": {
+    "status": "candidate-topology-and-geometry-normalization-recorded",
+    "decisionIds": [
+      "sjuharadsleden-mainline-selected"
+    ],
+    "routeGroupIds": [
+      "sjuharadsleden-mainline"
+    ],
+    "connectionIds": []
+  },
+  "facilityClusterSummary": {
+    "totalFacilities": 171,
+    "clusterCount": 140,
+    "multiFacilityClusters": 23,
+    "dedupeCandidateClusters": 38,
+    "byRecommendedAction": {
+      "keep-suppressed": 15,
+      "single-record": 102,
+      "dedupe-related-site-cluster": 12,
+      "attach-child-amenities-to-parent": 8,
+      "dedupe-duplicate-facility": 3
+    }
+  },
+  "blockers": [
+    {
+      "id": "sjuharadsleden-geometry-normalization",
+      "status": "blocks-runtime-route-import",
+      "details": "Run geometry normalization/densification for section 6 and 7 before runtime route import."
+    },
+    {
+      "id": "sjuharadsleden-protected-area-clipping",
+      "status": "blocks-runtime-facility-and-rule-import",
+      "details": "Production GIS clipping all facility points/route segments."
+    },
+    {
+      "id": "sjuharadsleden-live-currentness",
+      "status": "blocks-publication",
+      "details": "Refresh fire-ban status for Härryda, Bollebygd, Borås, Ulricehamn, Mullsjö before publication; refresh Västtrafik/JLT schedules/stops before publication."
+    },
+    {
+      "id": "sjuharadsleden-service-facility-verification",
+      "status": "blocks-public-facility-exposure",
+      "details": "Verify public access/opening status for service facilities before exposing water/toilet/cafe/lodging."
+    }
+  ],
+  "openDecisions": [
+    {
+      "id": "sjuharadsleden-quality-assurance-label",
+      "details": "Keep the Naturkartan/Västkuststiftelsen not-fully-quality-assured caveat visible in the app until newer official source."
+    },
+    {
+      "id": "sjuharadsleden-natural-water-display",
+      "details": "Allow natural water/lake/spring features as natural/bathing/rest context while suppressing potable-water status."
+    },
+    {
+      "id": "sjuharadsleden-unofficial-shelter-display",
+      "details": "Keep Struntfiskeboa shelter pending/unofficial rather than promoting as a normal shelter until verification."
+    }
+  ],
+  "blockerTriage": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "sjuharadsleden-geometry-normalization",
+      "status": "blocks-runtime-route-import",
+      "details": "Run geometry normalization/densification for section 6 and 7 before runtime route import.",
+      "disposition": "resolved-now",
+      "owner": "candidate-geometry",
+      "action": "Research-only candidate GeoJSON now exists for all 10 Sjuhäradsleden sections; section 6 uses selected Rölle mainline components and section 7 is densified before overlays."
+    },
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "sjuharadsleden-protected-area-clipping",
+      "status": "blocks-runtime-facility-and-rule-import",
+      "details": "Production GIS clipping all facility points/route segments.",
+      "disposition": "resolved-now",
+      "owner": "candidate-gis",
+      "action": "Candidate protected-area-overlays.research.json now records computed NVR polygon checks against every normalized candidate facility point and candidate route GeoJSON segment for Klippan, Årås, Ryfors and Stråkens strandskogar."
+    },
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "sjuharadsleden-live-currentness",
+      "status": "blocks-publication",
+      "details": "Refresh fire-ban status for Härryda, Bollebygd, Borås, Ulricehamn, Mullsjö before publication; refresh Västtrafik/JLT schedules/stops before publication.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "sjuharadsleden-service-facility-verification",
+      "status": "blocks-public-facility-exposure",
+      "details": "Verify public access/opening status for service facilities before exposing water/toilet/cafe/lodging.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "open-decision-5",
+      "itemType": "open-decision",
+      "sourceId": "sjuharadsleden-quality-assurance-label",
+      "status": "open-decision",
+      "details": "Keep the Naturkartan/Västkuststiftelsen not-fully-quality-assured caveat visible in the app until newer official source.",
+      "disposition": "external-source-approval",
+      "owner": "source-review",
+      "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
+    },
+    {
+      "id": "open-decision-6",
+      "itemType": "open-decision",
+      "sourceId": "sjuharadsleden-natural-water-display",
+      "status": "open-decision",
+      "details": "Allow natural water/lake/spring features as natural/bathing/rest context while suppressing potable-water status.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "sjuharadsleden-unofficial-shelter-display",
+      "status": "open-decision",
+      "details": "Keep Struntfiskeboa shelter pending/unofficial rather than promoting as a normal shelter until verification.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    }
+  ],
+  "triageSummary": {
+    "resolved-now": 4,
+    "defer-publication-time": 2,
+    "external-source-approval": 1
+  },
+  "fixesAppliedNow": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "sjuharadsleden-geometry-normalization",
+      "status": "blocks-runtime-route-import",
+      "details": "Run geometry normalization/densification for section 6 and 7 before runtime route import.",
+      "disposition": "resolved-now",
+      "owner": "candidate-geometry",
+      "action": "Research-only candidate GeoJSON now exists for all 10 Sjuhäradsleden sections; section 6 uses selected Rölle mainline components and section 7 is densified before overlays."
+    },
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "sjuharadsleden-protected-area-clipping",
+      "status": "blocks-runtime-facility-and-rule-import",
+      "details": "Production GIS clipping all facility points/route segments.",
+      "disposition": "resolved-now",
+      "owner": "candidate-gis",
+      "action": "Candidate protected-area-overlays.research.json now records computed NVR polygon checks against every normalized candidate facility point and candidate route GeoJSON segment for Klippan, Årås, Ryfors and Stråkens strandskogar."
+    },
+    {
+      "id": "open-decision-6",
+      "itemType": "open-decision",
+      "sourceId": "sjuharadsleden-natural-water-display",
+      "status": "open-decision",
+      "details": "Allow natural water/lake/spring features as natural/bathing/rest context while suppressing potable-water status.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "sjuharadsleden-unofficial-shelter-display",
+      "status": "open-decision",
+      "details": "Keep Struntfiskeboa shelter pending/unofficial rather than promoting as a normal shelter until verification.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    }
+  ],
+  "fixNowBeforeRuntimeImport": [],
+  "runtimeSchemaNeeded": [],
+  "deferredBeforeRuntimeImport": [
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "sjuharadsleden-live-currentness",
+      "status": "blocks-publication",
+      "details": "Refresh fire-ban status for Härryda, Bollebygd, Borås, Ulricehamn, Mullsjö before publication; refresh Västtrafik/JLT schedules/stops before publication.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "sjuharadsleden-service-facility-verification",
+      "status": "blocks-public-facility-exposure",
+      "details": "Verify public access/opening status for service facilities before exposing water/toilet/cafe/lodging.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "open-decision-5",
+      "itemType": "open-decision",
+      "sourceId": "sjuharadsleden-quality-assurance-label",
+      "status": "open-decision",
+      "details": "Keep the Naturkartan/Västkuststiftelsen not-fully-quality-assured caveat visible in the app until newer official source.",
+      "disposition": "external-source-approval",
+      "owner": "source-review",
+      "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
+    }
+  ],
+  "validationChecklist": [
+    "JSON parses successfully.",
+    "No runtime app data, generated public data, shared scripts, or package files changed.",
+    "All 10 section files are represented in sectionCoverage.",
+    "Naturkartan remains primary geometry source; OSM remains QA/cross-check only.",
+    "Section 6, 7, 8, and 10 geometry caveats are carried into geometryPlan.",
+    "Facility water policy suppresses unverified potable-water imports.",
+    "Protected-area and fire/transit currentness checks remain publication-day blockers."
+  ],
+  "unresolvedBeforeRuntimeImport": [
+    "defer-publication-time: Refresh fire-ban status for Härryda, Bollebygd, Borås, Ulricehamn, Mullsjö before publication; refresh Västtrafik/JLT schedules/stops before publication.",
+    "defer-publication-time: Verify public access/opening status for service facilities before exposing water/toilet/cafe/lodging.",
+    "external-source-approval: Keep the Naturkartan/Västkuststiftelsen not-fully-quality-assured caveat visible in the app until newer official source."
+  ],
+  "nextActions": [
+    "Handle fixNowBeforeRuntimeImport first unless the linked item truly needs external data.",
+    "Keep pending-review and suppress facility states out of runtime output.",
+    "Run final GIS overlays and live publication checks before user-facing rule warnings.",
+    "Do not write app runtime source data from this report without an explicit runtime integration task."
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "schemaVersion": "candidate-import-report/v1",
+  "trailId": "vastra-vatterleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-artifacts-generated-research-only",
+  "runtimeImportApproved": false,
+  "sourceHandoff": "vastra-vatterleden/normalization-handoff.research.json",
+  "artifactFiles": [
+    "route-sections.research.json",
+    "route-geometry-index.research.json",
+    "facilities.research.json",
+    "rule-warnings.research.json",
+    "import-report.research.json"
+  ],
+  "supplementalArtifactFiles": [
+    "route-topology.research.json",
+    "facility-clusters.research.json"
+  ],
+  "manifestSectionFiles": 8,
+  "generatedCounts": {
+    "routeSections": 8,
+    "geometrySections": 8,
+    "geometrySectionsWithCandidateGeojson": 8,
+    "routeTopologyDecisions": 1,
+    "routeGroups": 3,
+    "routeTopologyConnections": 2,
+    "facilities": 210,
+    "facilityClusters": 158,
+    "dedupeCandidateClusters": 59,
+    "ruleWarnings": 195
+  },
+  "routeTopologySummary": {
+    "status": "candidate-topology-decisions-applied",
+    "decisionIds": [
+      "vastra-vatterleden-candidate-prototype-scope"
+    ],
+    "routeGroupIds": [
+      "vastra-vatterleden-mainline",
+      "vastra-vatterleden-stage-1-alternate",
+      "vastra-vatterleden-stage-2-skackastugan-alternate"
+    ],
+    "connectionIds": [
+      "vastra-vatterleden-stage-7-fagerhult-access",
+      "vastra-vatterleden-stage-8-child-components"
+    ]
+  },
+  "facilityClusterSummary": {
+    "totalFacilities": 210,
+    "clusterCount": 158,
+    "multiFacilityClusters": 46,
+    "dedupeCandidateClusters": 59,
+    "byRecommendedAction": {
+      "single-record": 99,
+      "dedupe-duplicate-facility": 28,
+      "keep-suppressed": 18,
+      "dedupe-related-site-cluster": 5,
+      "attach-child-amenities-to-parent": 8
+    }
+  },
+  "blockers": [
+    {
+      "id": "runtime-import",
+      "status": "blocked-until-explicit-import-task",
+      "details": "Current packet is ready for candidate normalization planning, not runtime integration."
+    },
+    {
+      "id": "geometry",
+      "status": "normalization-required",
+      "details": "Stage 1 variants, stage 2 branches, stages 3-5 segment assembly/reversal, stage 7 mainline/access split and stage 8 two child GPX components plus connectors must be implemented before route import."
+    },
+    {
+      "id": "rules",
+      "status": "unknown/recheck",
+      "details": "Protected-area overlays must be run against final normalized geometry before rule attribution."
+    },
+    {
+      "id": "currentness",
+      "status": "volatile-runtime-check",
+      "details": "Transit schedules, fire bans, forestry notices, business hours, bathing-water status, water reliability and shelter maintenance are runtime checks."
+    }
+  ],
+  "openDecisions": [
+    {
+      "id": "decision-1",
+      "details": "Decide app scope for optional businesses and off-route town services."
+    },
+    {
+      "id": "decision-2",
+      "details": "Confirm whether Rankåsleden and regional long-distance connections should be exposed in this import pass or kept as future connector metadata."
+    },
+    {
+      "id": "decision-3",
+      "details": "Approve candidate-only geometry prototype scope before any shared runtime source data is touched."
+    }
+  ],
+  "blockerTriage": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "runtime-import",
+      "status": "blocked-until-explicit-import-task",
+      "details": "Current packet is ready for candidate normalization planning, not runtime integration.",
+      "disposition": "runtime-integration-task",
+      "owner": "runtime-import",
+      "action": "Handle when the candidate artifacts are selected for runtime import."
+    },
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "geometry",
+      "status": "normalization-required",
+      "details": "Stage 1 variants, stage 2 branches, stages 3-5 segment assembly/reversal, stage 7 mainline/access split and stage 8 two child GPX components plus connectors must be implemented before route import.",
+      "disposition": "resolved-now",
+      "owner": "candidate-geometry",
+      "action": "Research-only candidate GeoJSON now exists for all 8 Västra Vätterleden stages, including explicit stage-1 direct/Källebacken variants, stage-2 Skackastugan alternate, stages 3-5 assembled/reversed segments, stage-7 Fagerhult access connector and stage-8 child GPX components."
+    },
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "rules",
+      "status": "unknown/recheck",
+      "details": "Protected-area overlays must be run against final normalized geometry before rule attribution.",
+      "disposition": "resolved-now",
+      "owner": "candidate-gis",
+      "action": "Candidate protected-area-overlays.research.json now records computed NVR/Natura 2000 polygon checks against final normalized candidate route geometry and facility points for Västra Vätterleden rule scoping."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "currentness",
+      "status": "volatile-runtime-check",
+      "details": "Transit schedules, fire bans, forestry notices, business hours, bathing-water status, water reliability and shelter maintenance are runtime checks.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "open-decision-5",
+      "itemType": "open-decision",
+      "sourceId": "decision-1",
+      "status": "open-decision",
+      "details": "Decide app scope for optional businesses and off-route town services.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared trail-specific decisions now scope optional businesses as caveated side-service/access metadata and keep Rankåsleden/regional long-distance links as future connector metadata unless explicitly selected."
+    },
+    {
+      "id": "open-decision-6",
+      "itemType": "open-decision",
+      "sourceId": "decision-2",
+      "status": "open-decision",
+      "details": "Confirm whether Rankåsleden and regional long-distance connections should be exposed in this import pass or kept as future connector metadata.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared trail-specific decisions now scope optional businesses as caveated side-service/access metadata and keep Rankåsleden/regional long-distance links as future connector metadata unless explicitly selected."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "decision-3",
+      "status": "open-decision",
+      "details": "Approve candidate-only geometry prototype scope before any shared runtime source data is touched.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Candidate-only geometry prototype scope is now approved and explicitly barred from writing runtime source data."
+    }
+  ],
+  "triageSummary": {
+    "runtime-integration-task": 1,
+    "resolved-now": 5,
+    "defer-publication-time": 1
+  },
+  "fixesAppliedNow": [
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "geometry",
+      "status": "normalization-required",
+      "details": "Stage 1 variants, stage 2 branches, stages 3-5 segment assembly/reversal, stage 7 mainline/access split and stage 8 two child GPX components plus connectors must be implemented before route import.",
+      "disposition": "resolved-now",
+      "owner": "candidate-geometry",
+      "action": "Research-only candidate GeoJSON now exists for all 8 Västra Vätterleden stages, including explicit stage-1 direct/Källebacken variants, stage-2 Skackastugan alternate, stages 3-5 assembled/reversed segments, stage-7 Fagerhult access connector and stage-8 child GPX components."
+    },
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "rules",
+      "status": "unknown/recheck",
+      "details": "Protected-area overlays must be run against final normalized geometry before rule attribution.",
+      "disposition": "resolved-now",
+      "owner": "candidate-gis",
+      "action": "Candidate protected-area-overlays.research.json now records computed NVR/Natura 2000 polygon checks against final normalized candidate route geometry and facility points for Västra Vätterleden rule scoping."
+    },
+    {
+      "id": "open-decision-5",
+      "itemType": "open-decision",
+      "sourceId": "decision-1",
+      "status": "open-decision",
+      "details": "Decide app scope for optional businesses and off-route town services.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared trail-specific decisions now scope optional businesses as caveated side-service/access metadata and keep Rankåsleden/regional long-distance links as future connector metadata unless explicitly selected."
+    },
+    {
+      "id": "open-decision-6",
+      "itemType": "open-decision",
+      "sourceId": "decision-2",
+      "status": "open-decision",
+      "details": "Confirm whether Rankåsleden and regional long-distance connections should be exposed in this import pass or kept as future connector metadata.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared trail-specific decisions now scope optional businesses as caveated side-service/access metadata and keep Rankåsleden/regional long-distance links as future connector metadata unless explicitly selected."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "decision-3",
+      "status": "open-decision",
+      "details": "Approve candidate-only geometry prototype scope before any shared runtime source data is touched.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Candidate-only geometry prototype scope is now approved and explicitly barred from writing runtime source data."
+    }
+  ],
+  "fixNowBeforeRuntimeImport": [],
+  "runtimeSchemaNeeded": [],
+  "deferredBeforeRuntimeImport": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "runtime-import",
+      "status": "blocked-until-explicit-import-task",
+      "details": "Current packet is ready for candidate normalization planning, not runtime integration.",
+      "disposition": "runtime-integration-task",
+      "owner": "runtime-import",
+      "action": "Handle when the candidate artifacts are selected for runtime import."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "currentness",
+      "status": "volatile-runtime-check",
+      "details": "Transit schedules, fire bans, forestry notices, business hours, bathing-water status, water reliability and shelter maintenance are runtime checks.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    }
+  ],
+  "validationChecklist": [
+    "JSON parse this handoff and every changed research file.",
+    "Verify all 8 expected section files exist and are represented in importOrder/geometryPlan.",
+    "Confirm stage 1 and stage 2 primary/alternate geometry metadata survives normalization.",
+    "Confirm stages 3-5 segment assembly/reversal produces expected endpoints before facility snapping.",
+    "Confirm stage 7/8 continuous handoff uses Gagnån and keeps Fagerhult as access connector metadata.",
+    "Confirm Etapp 8 stays one official section with two child geometry components.",
+    "Run protected-area overlays after final geometry normalization.",
+    "Verify Hjoåns dalgång firepoint remains suppressed or pending unless a legal exception is proven.",
+    "Verify natural water is not imported as potable water without managed-source evidence.",
+    "Recheck transit, fire bans, forestry, business hours, bathing-water status, shelter maintenance and water currentness before runtime publication."
+  ],
+  "unresolvedBeforeRuntimeImport": [
+    "runtime-integration-task: Current packet is ready for candidate normalization planning, not runtime integration.",
+    "defer-publication-time: Transit schedules, fire bans, forestry notices, business hours, bathing-water status, water reliability and shelter maintenance are runtime checks."
+  ],
+  "nextActions": [
+    "Handle fixNowBeforeRuntimeImport first unless the linked item truly needs external data.",
+    "Keep pending-review and suppress facility states out of runtime output.",
+    "Run final GIS overlays and live publication checks before user-facing rule warnings.",
+    "Do not write app runtime source data from this report without an explicit runtime integration task."
+  ]
+}

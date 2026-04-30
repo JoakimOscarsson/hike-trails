@@ -134,6 +134,20 @@
         "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
       ],
       "resolution": "Where exact water/toilet/fireplace coordinates are not sourced separately, keep them as cabin metadata or clustered subfacilities instead of blocking route normalization."
+    },
+    {
+      "id": "boundary-sensitive-rule-overlays",
+      "status": "resolved-by-candidate-gis-overlay",
+      "affectedSections": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+        "ostkustleden-etapp-2-nynas-lonhult",
+        "ostkustleden-etapp-3-lonhult-krokstorp",
+        "ostkustleden-etapp-5-mortfors-stjarneberg",
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "resolution": "Generated protected-area-overlays.research.json now checks final candidate route GeoJSON and facility points against Humlenäs, Bråbygden, Krokshult, Misterhults skärgård, Tjustgöl, Figeholm, Stamsjövägen, Stensjö by, Viråns vattensystem, Hummeln/Kristdala, Eckern/Djupeträsk, Fårbo, Bockara, Älvehult and biotopskydd SK 568-2007."
     }
   ],
   "remainingPublicationTimeChecks": [
@@ -146,7 +160,6 @@
     "Seasonal café/service hours for Stensjö by, Tilias and off-route food/lodging/service clusters."
   ],
   "remainingGisOrCoordinateChecks": [
-    "GIS overlays for Bråbygden Natura 2000, Krokshult reserve context, Misterhults skärgård reserve/Natura 2000 C-areas, Stamsjövägen reserve, Fårbo water-protection area, Virån Natura 2000, biotopskydd SK 568-2007 and other water-protection boundaries.",
     "Exact optional POI coordinates before import: Humlenäs/Hummeln small swim access, Småland 'Chinese wall', Tvingen/Storyttern swim access, Karlsfors mill/waterfall, Skälshult mill, Krokstorpssjön swim point, Hålviken beach/old port, Kallsebo quarries, Trollklinten, Tjustgölen swim, Bussvik/Kärrsvik/Ekerum swim/cultural points, Djurvadsnäs cairns, Bredviksberget, Stålglo, Uthammar quarry waste piles, Gammal-Näs/Ny-Näs/Södra Uvö, Tilias, Nybo göl, Långsjön and Virån/Åmötsberget."
   ],
   "sectionResolutionSummary": {
@@ -164,7 +177,7 @@
         "Shared Nynäs endpoint ambiguity follows the endpoint policy."
       ],
       "stillRequires": [
-        "Lönhult seasonal water currentness and exact optional POI/GIS checks.",
+        "Lönhult seasonal water currentness and exact optional POI coordinates.",
         "KLT publication-time check."
       ]
     },
@@ -193,8 +206,7 @@
       ],
       "stillRequires": [
         "Publication-time Stjärneberg cabin/well check.",
-        "Exact side-POI and Arvidsmåla detour coordinates.",
-        "Misterhults GIS overlay."
+        "Exact side-POI and Arvidsmåla detour coordinates."
       ]
     },
     "ostkustleden-etapp-6-stjarneberg-lilla-laxemar": {
@@ -214,7 +226,7 @@
       ],
       "stillRequires": [
         "Hällveberg access modeling via Sippetorp/Fårbo E22 rather than unsupported direct car access.",
-        "Figeholm/Stamsjövägen/Fårbo GIS and optional POI coordinates."
+        "Optional Figeholm/Fårbo POI coordinates and access review."
       ]
     },
     "ostkustleden-etapp-8-hallveberg-lilla-hycklinge": {
@@ -224,14 +236,14 @@
       ],
       "stillRequires": [
         "Lilla Hycklinge access-leg decision for the 156.4 m cabin gap.",
-        "Stensjö service/water currentness, Virån/Natura/GIS checks and optional POI coordinates."
+        "Stensjö service/water currentness and optional POI coordinates."
       ]
     }
   },
   "importReadinessDecision": {
     "readyForNormalizationPlanning": true,
     "readyForRuntimeImport": false,
-    "reason": "All static research caveats that can be resolved without inventing coordinates have a policy or corrected source decision. Runtime import still needs a separate normalization-planning task, GIS overlays where route-touch rules matter, and publication-time checks for unstable availability/safety facts.",
-    "recommendedNextSafeStep": "Run a normalization-planning review within data/research/candidate-trails/ostkustleden/ only; do not integrate into runtime app data until explicitly requested."
+    "reason": "All static research caveats that can be resolved without inventing coordinates now have a policy, corrected source decision or generated candidate GIS overlay. Runtime import still needs a separate normalization-planning task and publication-time checks for unstable availability/safety facts.",
+    "recommendedNextSafeStep": "Use the normalized candidate artifacts, generated GPX geometry and protected-area overlay report for runtime-import planning; do not integrate into runtime app data until explicitly requested."
   }
 }
