@@ -1,0 +1,754 @@
+{
+  "schemaVersion": 1,
+  "trailId": "kungsleden",
+  "fileType": "research-only-geometry-quality-assurance",
+  "generatedAt": "2026-04-30T06:20:00Z",
+  "scope": "Cross-trail QA for map data, route geometry and geometry-related caveats across all 27 Kungsleden candidate section research files. This file does not import or generate runtime app data.",
+  "constraints": [
+    "Research-only: do not edit data/source/hiking, public/data, public/routes, package.json, shared scripts or generated runtime outputs from this pass.",
+    "No generated-data or import command was run.",
+    "The QA decisions below select research/normalization candidates only. Runtime import still requires explicit source/licensing and importer decisions."
+  ],
+  "sourceChecks": {
+    "naturvardsverketLeder": {
+      "url": "https://geodata.naturvardsverket.se/nedladdning/friluftsliv/Leder.geojson",
+      "accessed": "2026-04-30",
+      "httpStatus": 200,
+      "contentType": "application/geo+json",
+      "contentLengthBytes": 51323507,
+      "totalFeaturesInFeed": 12008,
+      "conclusion": "Live official state-trail feed is reachable. Relevant Kungsleden summer hiking features exist for all main map-geometry groups, with GEOMETRIKVALITET <=20 meter. Use this as the preferred master geometry source where a matching feature exists.",
+      "relevantSummerFeatures": [
+        {
+          "statligLedId": "BD 21",
+          "statligLed": "Abisko - Abiskojaure (BD 21)",
+          "ledId": "30361077",
+          "objectIds": [
+            11235786,
+            11235787,
+            11239428,
+            11236512
+          ],
+          "geometryQuality": "<=20 meter",
+          "lengthMeters": 13960,
+          "role": "section 1 master candidate; multi-part official line"
+        },
+        {
+          "statligLedId": "BD 26",
+          "statligLed": "Abiskojaure - Alesjaure (BD 26)",
+          "ledId": "30466790",
+          "objectIds": [
+            11236306,
+            11236349,
+            11230643,
+            11236350
+          ],
+          "geometryQuality": "<=20 meter",
+          "lengthMeters": 20627,
+          "role": "section 2 master candidate; multi-part official line"
+        },
+        {
+          "statligLedId": "BD 31",
+          "statligLed": "Alesjaure - Salka (BD 31)",
+          "ledId": "30466819",
+          "objectIds": [
+            11235729
+          ],
+          "geometryQuality": "<=20 meter",
+          "lengthMeters": 25154,
+          "role": "sections 3 and 4 master candidate, split at Tjaktja/Tjaktja hut/mainline boundary"
+        },
+        {
+          "statligLedId": "BD 38",
+          "statligLed": "Salka - Singi (BD 38)",
+          "ledId": "30442476",
+          "objectIds": [
+            11240563,
+            11236302
+          ],
+          "geometryQuality": "<=20 meter",
+          "lengthMeters": 11948,
+          "role": "section 5 master candidate; upgrades prior OSM-first caveat"
+        },
+        {
+          "statligLedId": "BD 46",
+          "statligLed": "Singi - Kaitumjaure (BD 46)",
+          "ledId": "30466867",
+          "objectIds": [
+            11238853
+          ],
+          "geometryQuality": "<=20 meter",
+          "lengthMeters": 12457,
+          "role": "section 6 master candidate"
+        },
+        {
+          "statligLedId": "BD 49",
+          "statligLed": "Kaitumjaure - Teusajaure (BD 49)",
+          "ledId": "30466872",
+          "objectIds": [
+            11235130
+          ],
+          "geometryQuality": "<=20 meter",
+          "lengthMeters": 8938,
+          "role": "section 7 master candidate"
+        },
+        {
+          "statligLedId": "BD 50",
+          "statligLed": "Teusajaure - Vakkotavare (BD 50)",
+          "ledId": "30466874",
+          "objectIds": [
+            11235653
+          ],
+          "geometryQuality": "<=20 meter",
+          "lengthMeters": 13890,
+          "role": "section 8 land master candidate"
+        },
+        {
+          "statligLedId": "BD 50",
+          "statligLed": "Teusajaure - Vakkotavare (BD 50)",
+          "ledId": "30466880",
+          "objectIds": [
+            11235654
+          ],
+          "geometryQuality": ">20-50 meter",
+          "lengthMeters": 820,
+          "ledType": "Battrafikled",
+          "role": "section 8 typed boat/water connector candidate; do not merge into hiking geometry"
+        },
+        {
+          "statligLedId": "BD 62",
+          "statligLed": "Saltoluokta - Sitojaure (BD 62)",
+          "ledId": "30466917",
+          "objectIds": [
+            11235664,
+            11235665
+          ],
+          "geometryQuality": "<=20 meter",
+          "lengthMeters": 19836,
+          "role": "section 9 master candidate; multi-part official line"
+        },
+        {
+          "statligLedId": "BD 63",
+          "statligLed": "Sitojaure - Aktse (BD 63)",
+          "ledId": "30466925",
+          "objectIds": [
+            11235666,
+            11235667
+          ],
+          "geometryQuality": "<=20 meter",
+          "lengthMeters": 9440,
+          "role": "section 10 land master candidate; Sitojaure boat remains separate access/transport metadata"
+        },
+        {
+          "statligLedId": "BD 65",
+          "statligLed": "Aktse - Partestugorna (BD 65)",
+          "ledId": "30466940",
+          "objectIds": [
+            11235859
+          ],
+          "geometryQuality": "<=20 meter",
+          "lengthMeters": 19749,
+          "role": "section 11 land master candidate; Laitaure boat/connector handled separately"
+        },
+        {
+          "statligLedId": "BD 66",
+          "statligLed": "Parte - Kvikkjokk (BD 66)",
+          "ledId": "30413122",
+          "objectIds": [
+            11235818
+          ],
+          "geometryQuality": "<=20 meter",
+          "lengthMeters": 16400,
+          "role": "section 12 master candidate"
+        },
+        {
+          "statligLedId": "BD 77",
+          "statligLed": "Kvikkjokk - Vasterfjall (BD 77)",
+          "ledId": "30424088",
+          "objectIds": [
+            11234170
+          ],
+          "geometryQuality": "<=20 meter",
+          "lengthMeters": 33008,
+          "role": "sections 13 and 14 master candidate; split at Tsielekjakkstugan/Pitealven boundaries"
+        },
+        {
+          "statligLedId": "BD 77",
+          "statligLed": "Kvikkjokk - Vasterfjall (BD 77)",
+          "ledId": "30466985",
+          "objectIds": [
+            11235268
+          ],
+          "geometryQuality": ">20-50 meter",
+          "lengthMeters": 3202,
+          "ledType": "Battrafikled",
+          "role": "section 13 Kvikkjokk boat/water connector candidate"
+        },
+        {
+          "statligLedId": "BD 78",
+          "statligLed": "Vasterfjall - Jackvik (BD 78)",
+          "ledId": "30466987",
+          "objectIds": [
+            11234172,
+            11234173,
+            11234171
+          ],
+          "geometryQuality": "<=20 meter",
+          "lengthMeters": 48552,
+          "role": "sections 15, 16 and 17 land master candidate; split at Pitealven/Gasaklahko/Vuonatjviken/Jackvik boundaries"
+        },
+        {
+          "statligLedId": "BD 78",
+          "statligLed": "Vasterfjall - Jackvik (BD 78)",
+          "ledId": "30466989",
+          "objectIds": [
+            11234174
+          ],
+          "geometryQuality": ">20-50 meter",
+          "lengthMeters": 5711,
+          "ledType": "Battrafikled",
+          "role": "section 17 Riebnes/Vuonatjviken boat/water connector candidate"
+        },
+        {
+          "statligLedId": "BD 78",
+          "statligLed": "Vasterfjall - Jackvik (BD 78)",
+          "ledId": "30466990",
+          "objectIds": [
+            11234175
+          ],
+          "geometryQuality": "<=20 meter",
+          "lengthMeters": 251,
+          "ledType": "Roddpassage langs vandringsled",
+          "role": "section 17 Kapellstrommarna rowboat connector candidate"
+        },
+        {
+          "statligLedId": "BD 87",
+          "statligLed": "Jackvik - Adolfstrom (BD 87)",
+          "ledId": "30467009",
+          "objectIds": [
+            11236127,
+            11236078
+          ],
+          "geometryQuality": "<=20 meter",
+          "lengthMeters": 21060,
+          "role": "section 18 master candidate; multi-part official line"
+        },
+        {
+          "statligLedId": "BD 88",
+          "statligLed": "Adolfstrom - Lansgransen (BD 88)",
+          "ledId": "30467012",
+          "objectIds": [
+            11235164,
+            11236131,
+            11235362
+          ],
+          "geometryQuality": "<=20 meter",
+          "lengthMeters": 36040,
+          "role": "sections 19 and 20 north-of-county-boundary master candidate; split and connect with AC20"
+        },
+        {
+          "statligLedId": "AC 20",
+          "statligLed": "Norrbottensgransen - Ammarnas (Kungsleden) (AC 20)",
+          "ledId": "30455122",
+          "objectIds": [
+            11235945,
+            11235944,
+            11235895,
+            11235179,
+            11230652,
+            11230651
+          ],
+          "geometryQuality": "<=20 meter",
+          "lengthMeters": 46356,
+          "role": "sections 20 and 21 Vasterbotten master candidate; multi-part official line"
+        },
+        {
+          "statligLedId": "AC 16",
+          "statligLed": "Tarnasjostugorna - Servestugan - Aigertstugan - Ammarnas (Kungsleden) (AC 16)",
+          "ledId": "30454750",
+          "objectIds": [
+            11230713
+          ],
+          "geometryQuality": "<=20 meter",
+          "lengthMeters": 39462,
+          "role": "sections 22, 23 and 24 master candidate; reverse/split for official stage order"
+        },
+        {
+          "statligLedId": "AC 2",
+          "statligLed": "Tarnasjostugorna - Syterstugorna (Kungsleden) (AC 2)",
+          "ledId": "30448885",
+          "objectIds": [
+            11240581
+          ],
+          "geometryQuality": "<=20 meter",
+          "lengthMeters": 14498,
+          "role": "section 25 master candidate; reverse for official order"
+        },
+        {
+          "statligLedId": "AC 3",
+          "statligLed": "Syterstugorna - Viterskalstugan - Hemavan (AC 3)",
+          "ledId": "30454909",
+          "objectIds": [
+            11237190
+          ],
+          "geometryQuality": "<=20 meter",
+          "lengthMeters": 23200,
+          "role": "sections 26 and 27 master candidate; split at Viterskalet vertex 208"
+        }
+      ]
+    },
+    "naturkartanGpxSpotCheck": {
+      "accessed": "2026-04-30",
+      "checkedUrls": 24,
+      "reachableGpxUrls": 23,
+      "failedGpxUrls": [
+        {
+          "url": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd21-fran-abisko-till-abiskojaure.gpx",
+          "sectionId": "kungsleden-section-01-abisko-abiskojaure",
+          "httpStatus": 500,
+          "disposition": "Not a blocker after this QA pass because official Naturvardsverket BD21 linework is available as preferred master geometry; keep Naturkartan page/API as corroboration only."
+        }
+      ],
+      "representativeReachableUrls": [
+        "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd31-mellan-alesjaure-och-salka.gpx",
+        "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd46-mellan-singi-och-kaitumjaure.gpx",
+        "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd78-mellan-vasterfjall-och-jackvik.gpx",
+        "https://www.naturkartan.se/sv/vasterbottens-lan/viterskalsstugan-hemavan-kungsleden.gpx"
+      ],
+      "conclusion": "Naturkartan GPX availability is good for most referenced routes but inconsistent and sometimes contradicted by publish_gpx metadata. Use as secondary corroboration or fallback, not as the uniform master source."
+    }
+  },
+  "geometryPolicyDecisions": [
+    {
+      "caveat": "Source hierarchy for route geometry",
+      "decision": "Use official Naturvardsverket/Lansstyrelsen state-trail linework (Leder.geojson/WFS/REST) as primary master geometry wherever a matching summer hiking feature exists. Use Naturkartan GPX/API as official-presented corroboration or fallback. Use OSM/Waymarked only for QA, gap detection, side-route clues, or fallback where official geometry is absent and source policy allows it.",
+      "status": "addressed-for-research-and-normalization-planning"
+    },
+    {
+      "caveat": "Navigation-grade versus planning-grade",
+      "decision": "Research files should now treat the selected master geometry as high-quality planning-grade. Do not call it final navigation-grade until the runtime importer applies source/licensing approval, coordinate transformation, clipping/splitting, simplification, endpoint snapping, connector modeling and QA overlays.",
+      "status": "addressed-by-grade-definition"
+    },
+    {
+      "caveat": "Endpoint snapping at huts, portals and villages",
+      "decision": "Use route-line coordinates for route geometry and model huts, Naturum, trail portals, bus stops, village services and parking as endpoint/access/facility metadata. Do not bend the main route line to a hut centroid, bus stop or village service unless the official route line does so. If a hut is 20-300 m from the through-line, model a hut-spur/access connector or endpoint zone in normalization.",
+      "status": "addressed-as-normalization-policy"
+    },
+    {
+      "caveat": "Combined official features spanning multiple sections",
+      "decision": "Split official features at researched section boundaries rather than importing long grouped lines: BD31 into sections 3-4, BD77 into sections 13-14, BD78 into sections 15-17, BD88/AC20 into sections 19-21, AC16 into sections 22-24 and AC3 into sections 26-27.",
+      "status": "addressed-as-clipping-policy"
+    },
+    {
+      "caveat": "Direction mismatches",
+      "decision": "Normalize every section to official section order. Reverse source geometries when stored opposite official order, especially Naturkartan/GPX lines and AC16/AC2/AC3 sublines where noted in section files.",
+      "status": "addressed-as-import-rule"
+    },
+    {
+      "caveat": "Boat, rowboat, ferry and road transfer geometry",
+      "decision": "Represent boat/rowboat/ferry/road gaps as typed connectors, not as hiking geometry and not as arbitrary straight hiking lines. Where official water-line features exist in Leder.geojson (BD50, BD77, BD78), keep their lower geometry quality and transport type. Where no official water line exists, keep operator/landing metadata and mark geometry as connector-pending.",
+      "status": "addressed-as-connector-policy"
+    },
+    {
+      "caveat": "Side routes and alternates",
+      "decision": "Suppress side-route linework from the main Kungsleden section geometry unless the app has an explicit alternate/connector model. This applies to Singi-Kebnekaise/Nikkaluokta, Norra Sytertoppen AC8, Hemavan AC9/AC10/Drottningleden/Lapplandsleden/Fjallfinakatan and local lift/gondola access routes.",
+      "status": "addressed-as-suppression-policy"
+    },
+    {
+      "caveat": "Live/currentness caveats",
+      "decision": "Currentness caveats are not geometry-quality blockers. They must remain as import/publication checks for bridge closures, fire bans, weather, hut seasons, boat/bus timetables, reindeer/hunting/fishing and protected-area notices.",
+      "status": "deferred-to-live-prepublication-refresh"
+    }
+  ],
+  "sectionGeometryDecisions": [
+    {
+      "sectionNumber": 1,
+      "sectionId": "kungsleden-section-01-abisko-abiskojaure",
+      "selectedMaster": "Naturvardsverket BD21 official summer hiking line, multi-part, <=20 m",
+      "secondary": "Naturkartan site 12850 page/API; OSM relation QA",
+      "caveatsAddressed": [
+        "Naturkartan GPX 500 is no longer a geometry blocker",
+        "route trailhead versus STF facility handled as endpoint/access metadata"
+      ],
+      "remainingBeforeRuntime": [
+        "transform/assemble BD21 parts",
+        "source-policy approval",
+        "Abiskojaure hut spur/endpoint-zone decision"
+      ],
+      "quality": "high-quality planning-grade"
+    },
+    {
+      "sectionNumber": 2,
+      "sectionId": "kungsleden-section-02-abiskojaure-alesjaure",
+      "selectedMaster": "Naturvardsverket BD26 official summer hiking line, multi-part, <=20 m",
+      "secondary": "Naturkartan BD26 GPX/API reachable but stored reverse; OSM relation QA",
+      "caveatsAddressed": [
+        "reverse direction rule set",
+        "optional Alesjaure boat kept out of hiking geometry"
+      ],
+      "remainingBeforeRuntime": [
+        "assemble BD26 parts",
+        "hut-spur/boat-access connector decision"
+      ],
+      "quality": "high-quality planning-grade"
+    },
+    {
+      "sectionNumber": 3,
+      "sectionId": "kungsleden-section-03-alesjaure-tjaktja",
+      "selectedMaster": "Naturvardsverket BD31 official Alesjaure-Salka line split at Tjaktja boundary",
+      "secondary": "Naturkartan BD31 GPX/API; OSM relation QA",
+      "caveatsAddressed": [
+        "no dedicated section page mitigated by official grouped BD31 source",
+        "Tjaktja hut offset becomes endpoint/spur policy not missing geometry"
+      ],
+      "remainingBeforeRuntime": [
+        "choose exact Tjaktja split and hut spur connector"
+      ],
+      "quality": "high-quality planning-grade after split"
+    },
+    {
+      "sectionNumber": 4,
+      "sectionId": "kungsleden-section-04-tjaktja-salka",
+      "selectedMaster": "Naturvardsverket BD31 official Alesjaure-Salka line split from Tjaktja to Salka",
+      "secondary": "OSM relation 10861494 and Naturkartan BD31 GPX/API as QA",
+      "caveatsAddressed": [
+        "OSM-only primary caveat superseded by official BD31 availability",
+        "Tjaktja hut offset handled consistently with section 3"
+      ],
+      "remainingBeforeRuntime": [
+        "choose exact Tjaktja split and endpoint snap"
+      ],
+      "quality": "high-quality planning-grade after split"
+    },
+    {
+      "sectionNumber": 5,
+      "sectionId": "kungsleden-section-05-salka-singi",
+      "selectedMaster": "Naturvardsverket BD38 official Salka-Singi summer hiking line, two parts, <=20 m",
+      "secondary": "Naturkartan/OSM/Waymarked and third-party GPX as QA only",
+      "caveatsAddressed": [
+        "OSM/third-party geometry no longer needed as primary",
+        "Kebnekaise/Nikkaluokta spur excluded as connector/alternate"
+      ],
+      "remainingBeforeRuntime": [
+        "assemble BD38 parts and confirm Salka/Singi endpoint convention"
+      ],
+      "quality": "high-quality planning-grade"
+    },
+    {
+      "sectionNumber": 6,
+      "sectionId": "kungsleden-section-06-singi-kaitumjaure",
+      "selectedMaster": "Naturvardsverket BD46 official summer hiking line, <=20 m",
+      "secondary": "Naturkartan GPX/API reachable; OSM QA",
+      "caveatsAddressed": [
+        "official master source confirmed"
+      ],
+      "remainingBeforeRuntime": [
+        "endpoint snapping and protected-area overlay"
+      ],
+      "quality": "high-quality planning-grade"
+    },
+    {
+      "sectionNumber": 7,
+      "sectionId": "kungsleden-section-07-kaitumjaure-teusajaure",
+      "selectedMaster": "Naturvardsverket BD49 official summer hiking line, <=20 m",
+      "secondary": "Naturkartan GPX reachable but reverse; OSM QA",
+      "caveatsAddressed": [
+        "reverse direction rule set",
+        "Teusajaure boat is next-section connector, not section-7 geometry"
+      ],
+      "remainingBeforeRuntime": [
+        "endpoint snapping and final overlay"
+      ],
+      "quality": "high-quality planning-grade"
+    },
+    {
+      "sectionNumber": 8,
+      "sectionId": "kungsleden-section-08-teusajaure-vakkotavare",
+      "selectedMaster": "Naturvardsverket BD50 official summer hiking line plus separate BD50 Battrafikled water connector",
+      "secondary": "Naturkartan land geometry/GPX; operator/boat metadata",
+      "caveatsAddressed": [
+        "continuous walking-line risk resolved by typed boat connector",
+        "no Vakkotavare-Saltoluokta road/boat transfer in hiking geometry"
+      ],
+      "remainingBeforeRuntime": [
+        "current 2026 boat/rowboat timetable and connector endpoint verification"
+      ],
+      "quality": "high-quality planning-grade with transport connector"
+    },
+    {
+      "sectionNumber": 9,
+      "sectionId": "kungsleden-section-09-saltoluokta-sitojaure",
+      "selectedMaster": "Naturvardsverket BD62 official summer hiking line, multi-part, <=20 m",
+      "secondary": "Naturkartan BD62 GPX/API reachable but reversed; OSM QA",
+      "caveatsAddressed": [
+        "official source confirmed for linework",
+        "Sitojaure boat stays section-10 connector/access metadata"
+      ],
+      "remainingBeforeRuntime": [
+        "assemble/snap BD62 parts and ferry/road access metadata"
+      ],
+      "quality": "high-quality planning-grade"
+    },
+    {
+      "sectionNumber": 10,
+      "sectionId": "kungsleden-section-10-sitojaure-aktse",
+      "selectedMaster": "Naturvardsverket BD63 official land hiking line, multi-part, <=20 m",
+      "secondary": "Naturkartan BD63 GPX/API reachable; OSM QA",
+      "caveatsAddressed": [
+        "boat excluded from hiking geometry",
+        "official land line confirmed"
+      ],
+      "remainingBeforeRuntime": [
+        "Sitojaure-Svijnne boat connector source/currentness and endpoints"
+      ],
+      "quality": "high-quality planning-grade for land line; connector pending for full travel model"
+    },
+    {
+      "sectionNumber": 11,
+      "sectionId": "kungsleden-section-11-aktse-parte",
+      "selectedMaster": "Naturvardsverket BD65 official land hiking line, <=20 m",
+      "secondary": "Naturkartan BD65 GPX reachable; OSM QA",
+      "caveatsAddressed": [
+        "official land line confirmed",
+        "Laitaure boat treated as connector rather than land geometry"
+      ],
+      "remainingBeforeRuntime": [
+        "boat/landing connector and endpoint-zone decision"
+      ],
+      "quality": "high-quality planning-grade for land line; connector pending for full travel model"
+    },
+    {
+      "sectionNumber": 12,
+      "sectionId": "kungsleden-section-12-parte-kvikkjokk",
+      "selectedMaster": "Naturvardsverket BD66 official summer hiking line, <=20 m",
+      "secondary": "Naturkartan/API and OSM QA",
+      "caveatsAddressed": [
+        "official master line confirmed"
+      ],
+      "remainingBeforeRuntime": [
+        "Pårte/Kvikkjokk endpoint convention and reserve overlay"
+      ],
+      "quality": "high-quality planning-grade"
+    },
+    {
+      "sectionNumber": 13,
+      "sectionId": "kungsleden-section-13-kvikkjokk-tsielekjakkstugan",
+      "selectedMaster": "Naturvardsverket BD77 official land line split from Kvikkjokk toward Tsielekjakkstugan plus BD77 boat connector where applicable",
+      "secondary": "Naturkartan BD77 GPX reachable; OSM QA",
+      "caveatsAddressed": [
+        "full-route split and boat-connector policy set"
+      ],
+      "remainingBeforeRuntime": [
+        "exact split/landing/hut endpoint and 2026 boat currentness"
+      ],
+      "quality": "high-quality planning-grade with transport connector"
+    },
+    {
+      "sectionNumber": 14,
+      "sectionId": "kungsleden-section-14-tsielekjakkstugan-pitealven",
+      "selectedMaster": "Naturvardsverket BD77 official land line split from Tsielekjakkstugan to Pitealven boundary",
+      "secondary": "Naturkartan BD77 GPX reachable; OSM/field campsite QA",
+      "caveatsAddressed": [
+        "Pitealven boundary treated as section split/endpoint zone",
+        "campsite not used as geometry endpoint unless policy chooses"
+      ],
+      "remainingBeforeRuntime": [
+        "exact split at Pitealven and facility/source QA"
+      ],
+      "quality": "high-quality planning-grade after split"
+    },
+    {
+      "sectionNumber": 15,
+      "sectionId": "kungsleden-section-15-pitealven-gasaklahko",
+      "selectedMaster": "Naturvardsverket BD78 official land line split from Pitealven to Gasaklahko boundary",
+      "secondary": "Naturkartan BD78 GPX reachable; OSM QA",
+      "caveatsAddressed": [
+        "Gasaklahko boundary caveat resolved as split/endpoint-zone policy"
+      ],
+      "remainingBeforeRuntime": [
+        "exact split verification and endpoint/facility convention"
+      ],
+      "quality": "high-quality planning-grade after split"
+    },
+    {
+      "sectionNumber": 16,
+      "sectionId": "kungsleden-section-16-gasaklahko-vuonatjviken",
+      "selectedMaster": "Naturvardsverket BD78 official land line split from Gasaklahko to Vuonatjviken endpoint zone",
+      "secondary": "Naturkartan BD78 GPX reachable; OSM QA",
+      "caveatsAddressed": [
+        "Vuonatjviken endpoint zone accepted as transport/access boundary"
+      ],
+      "remainingBeforeRuntime": [
+        "exact split and Riebnes boat landing model"
+      ],
+      "quality": "high-quality planning-grade after split"
+    },
+    {
+      "sectionNumber": 17,
+      "sectionId": "kungsleden-section-17-vuonatjviken-jackvik",
+      "selectedMaster": "Naturvardsverket BD78 official land line plus BD78 Battrafikled and Roddpassage connectors",
+      "secondary": "Naturkartan BD78 GPX reachable; OSM/Waymarked QA",
+      "caveatsAddressed": [
+        "motorboat and rowboat modeled as typed connectors",
+        "Jäckvik endpoint/service-zone caveat retained as access metadata"
+      ],
+      "remainingBeforeRuntime": [
+        "operator currentness and exact landing/connector endpoints"
+      ],
+      "quality": "high-quality planning-grade with transport connectors"
+    },
+    {
+      "sectionNumber": 18,
+      "sectionId": "kungsleden-section-18-jackvik-adolfstrom",
+      "selectedMaster": "Naturvardsverket BD87 official summer hiking line, multi-part, <=20 m",
+      "secondary": "Naturkartan BD87 GPX reachable; OSM QA",
+      "caveatsAddressed": [
+        "official WFS/summer line confirmed",
+        "Jäckvik service-zone connector separated"
+      ],
+      "remainingBeforeRuntime": [
+        "assemble BD87 parts and endpoint zone"
+      ],
+      "quality": "high-quality planning-grade"
+    },
+    {
+      "sectionNumber": 19,
+      "sectionId": "kungsleden-section-19-adolfstrom-sjnulttjie",
+      "selectedMaster": "Naturvardsverket BD88 official line split with Sjnulttjie shelter spur/endpoint convention",
+      "secondary": "Naturkartan BD88 GPX reachable; OSM QA",
+      "caveatsAddressed": [
+        "official BD88 source confirmed",
+        "shelter spur is endpoint/access issue not missing geometry"
+      ],
+      "remainingBeforeRuntime": [
+        "exact split/spur handling and Tjalmejaure overlay"
+      ],
+      "quality": "high-quality planning-grade after split"
+    },
+    {
+      "sectionNumber": 20,
+      "sectionId": "kungsleden-section-20-sjnulttjie-ravfallsstugan",
+      "selectedMaster": "Naturvardsverket BD88 plus AC20 official lines assembled across county boundary",
+      "secondary": "Naturkartan BD88 and Lansgransen-Ravfallsstugan GPX reachable; OSM QA",
+      "caveatsAddressed": [
+        "county-boundary handoff treated as connector/assembly policy",
+        "bridge historical reports not geometry blockers"
+      ],
+      "remainingBeforeRuntime": [
+        "exact boundary splice and Ravfalls endpoint snap"
+      ],
+      "quality": "high-quality planning-grade assembled official geometry"
+    },
+    {
+      "sectionNumber": 21,
+      "sectionId": "kungsleden-section-21-ravfallsstugan-ammarnas",
+      "selectedMaster": "Naturvardsverket AC20 official line, split toward Ammarnas endpoint/ledstart zone",
+      "secondary": "Naturkartan Ammarnas-Lansgransen GPX reachable; OSM QA",
+      "caveatsAddressed": [
+        "long WFS versus shorter app route resolved as endpoint/ledstart convention",
+        "Marsivagge bird protection not geometry closure"
+      ],
+      "remainingBeforeRuntime": [
+        "Ammarnas endpoint convention and protected-area overlay"
+      ],
+      "quality": "high-quality planning-grade after split"
+    },
+    {
+      "sectionNumber": 22,
+      "sectionId": "kungsleden-section-22-ammarnas-aigert",
+      "selectedMaster": "Naturvardsverket AC16 official line, clipped/reversed for Ammarnas-Aigert",
+      "secondary": "Naturkartan AC16 GPX reachable; OSM QA",
+      "caveatsAddressed": [
+        "official 8 km versus 6.1-6.4 km geometry framed as endpoint/access convention",
+        "Aigert no-help-phone does not affect geometry"
+      ],
+      "remainingBeforeRuntime": [
+        "Ammarnas ledstart/village endpoint snap"
+      ],
+      "quality": "high-quality planning-grade after clip"
+    },
+    {
+      "sectionNumber": 23,
+      "sectionId": "kungsleden-section-23-aigert-serve",
+      "selectedMaster": "Naturvardsverket AC16 official line, clipped/reversed Aigert-Serve",
+      "secondary": "Naturkartan Aigert-Serve GPX reachable; OSM QA",
+      "caveatsAddressed": [
+        "Serve endpoint offset and shelter-coordinate issues are POI/endpoint questions, not missing linework"
+      ],
+      "remainingBeforeRuntime": [
+        "Serve endpoint snap and Juovatvaretje coordinate QA"
+      ],
+      "quality": "high-quality planning-grade after clip"
+    },
+    {
+      "sectionNumber": 24,
+      "sectionId": "kungsleden-section-24-serve-tarnasjo",
+      "selectedMaster": "Naturvardsverket AC16 official line, clipped/reversed Serve-Tarnasjo",
+      "secondary": "Naturkartan Serve-Tarnasjo GPX reachable; OSM QA",
+      "caveatsAddressed": [
+        "official line confirmed and GPX reachable"
+      ],
+      "remainingBeforeRuntime": [
+        "endpoint snapping and protected-area overlay"
+      ],
+      "quality": "high-quality planning-grade after clip"
+    },
+    {
+      "sectionNumber": 25,
+      "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "selectedMaster": "Naturvardsverket AC2 official line, reversed for official Tarnasjo-Syter order",
+      "secondary": "Naturkartan AC2 GPX reachable; OSM QA",
+      "caveatsAddressed": [
+        "reverse direction rule set",
+        "bridge/boardwalk structure remains facility/currentness not geometry blocker"
+      ],
+      "remainingBeforeRuntime": [
+        "endpoint snap and bridge/boardwalk import taxonomy"
+      ],
+      "quality": "high-quality planning-grade"
+    },
+    {
+      "sectionNumber": 26,
+      "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "selectedMaster": "Naturvardsverket AC3 official line clipped from Syterstugorna to Viterskalet vertex",
+      "secondary": "Naturkartan AC3 GPX reachable; OSM QA; AC8 alternate suppressed",
+      "caveatsAddressed": [
+        "full AC3 through Hemavan split at Viterskalet",
+        "Syterskalet/Viterskalet facility coords resolved from Anordningar"
+      ],
+      "remainingBeforeRuntime": [
+        "endpoint snap and AC8 alternate modeling decision"
+      ],
+      "quality": "high-quality planning-grade after clip"
+    },
+    {
+      "sectionNumber": 27,
+      "sectionId": "kungsleden-section-27-viterskalet-hemavan",
+      "selectedMaster": "Naturvardsverket AC3 official line clipped from Viterskalet vertex 208 to Hemavan/Naturum endpoint",
+      "secondary": "Naturkartan GPX reachable but reverse/lower-density; OSM road spur excluded",
+      "caveatsAddressed": [
+        "Hemavan endpoint convention resolved to Naturum/Kungsleden southern entrance",
+        "side-route AC9/AC10/Fjallfinakatan suppressed"
+      ],
+      "remainingBeforeRuntime": [
+        "endpoint snap and source-policy approval"
+      ],
+      "quality": "high-quality planning-grade after clip"
+    }
+  ],
+  "unresolvedRuntimeChecks": [
+    "Source/licensing approval for using Naturvardsverket, Naturkartan, OSM/Waymarked, GTFS/transit and field-report-derived metadata in runtime outputs.",
+    "Implementation of coordinate transformation from EPSG:3006 to WGS84 for Naturvardsverket geometry and consistent route simplification policy.",
+    "Exact clipping/splitting points for grouped official features and route-line versus hut/POI endpoint snapping.",
+    "Typed connector implementation for boats, rowboats, ferry/water lines and road/bus transfers, with current operator/timetable refresh.",
+    "GIS overlay pass for national parks, reserves, Natura 2000, bird-protection zones and other protected-area rules against final selected geometry.",
+    "Facility taxonomy and deduplication pass for shared huts, toilets, bridges, help phones, shelters, shops, saunas, water, waste, parking, viewpoints, Naturum and village services.",
+    "Live pre-publication refresh for closures, bridge notices, fire bans, weather warnings, hut seasons, dog/reindeer/hunting/fishing notes and transport schedules."
+  ],
+  "overallConclusion": {
+    "mapDataQuality": "high-quality research/normalization candidate for all 27 sections",
+    "geometryCoverage": "complete at research level; every section has an official master line or official master line plus typed connector candidate",
+    "caveatDisposition": "geometry-affecting caveats have been addressed by source hierarchy, clipping/splitting, endpoint-zone, direction-normalization and connector policies. Remaining caveats are runtime/source-policy, live-currentness or taxonomy/import implementation checks rather than missing research geometry.",
+    "recommendedNextSafeStep": "Build a research-only normalization plan/import spec that consumes this QA packet, then implement/import only after explicit source-policy and runtime-data approval."
+  }
+}
