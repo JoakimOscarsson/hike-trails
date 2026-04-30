@@ -1,8 +1,8 @@
 # Tjustleden research candidate
 
-Trail ID: `tjustleden`  
-Research status: Phase 1 overview drafted; Phase 2 completed for Etapp 1 only, then intentionally stopped for handoff.  
-Last updated: 2026-04-29T19:23:12+02:00  
+Trail ID: `tjustleden`
+Research status: Phase 1 overview and Phase 2 section research completed for Etapp 1-9. Blocker triage/normalization decisions captured for later import planning.
+Last updated: 2026-04-30T00:00:00+00:00
 
 This directory is a research-only candidate workspace. It is not wired into runtime hiking data and should not be used by the app until a later normalization/import step.
 
@@ -47,21 +47,32 @@ Accessed date for this overview pass: 2026-04-29.
 - Southern trail connection: Ostkustleden at/near Mortfors.
 - Northern trail connection: Ostgotleden at/near Falerum.
 
-No official ferry, rowboat, or mandatory bus-transfer segment was found in the overview pass. Section agents still need to check transit access and any local seasonal service limitations.
+No official ferry, rowboat, or mandatory bus-transfer segment was found. Section files include transit/access research, but rural stops, school-calendar service, heritage rail, Närtrafik, and parking remain date- and legality-dependent checks before publication.
 
 ## High-level rules and access notes
 
-Official overview sources say the trail is marked with orange rings, poles, and arrows. Shelters and privies are described at stage endpoints; Falerum is an exception where the endpoint facility is the railway station rather than a shelter. Trash bins are described at most stage endpoints.
+Official overview sources say the trail is marked with orange rings, poles, and arrows. Shelters and privies are described at many stage endpoints. Falerum is a special case: official Etapp 9 GPX ends at the Östgötaleden/länsgränsen handoff east of Falerum, while official distance/name and access sources point onward to the Falerum station/startplats area through a documented tail/connector.
 
-Water is a major planning caveat: the Naturskyddsforeningen overview says there are no fresh-water sources along the trail, though hikers may be able to refill at farms, campgrounds, or other sites by arrangement. Each section file should therefore treat water as unverified unless a reliable point source is found.
+Water is a major planning caveat: the Naturskyddsforeningen overview says there are no fresh-water sources along the trail, though hikers may be able to refill at farms, campgrounds, or other sites by arrangement. Candidate files therefore suppress natural water as potable unless a reliable point source is separately verified.
 
-Official sources also ask hikers to respect private dwellings and grazing animals. Fireplaces are present at many places, but current fire bans and local restrictions must be checked against municipality/county fire-ban guidance before import text is finalized.
+Official sources also ask hikers to respect private dwellings and grazing animals. Fireplaces are present at many places, but current fire bans and local restrictions must be checked against municipality/county fire-ban guidance before import text is finalized. The 2026-04-30 acute-info recheck still showed visible current notices for Etapp 6 only, but acute/fire/currentness remains a publication-day check.
 
 ## Geometry summary
 
-Vastervik Outdoor/Naturkartan stage pages expose planning-grade GPX files for all nine main stages and the main official connectors/loops. Endpoint coordinates in the overview research are derived from GPX first/last points and need section-level confirmation against official text, shelters, trailhead signs, OSM, and map imagery.
+Vastervik Outdoor/Naturkartan stage pages expose GPX files for all nine main stages and the main official connectors/loops. Candidate section files now include endpoint, geometry, facility, transit/access, rules/safety, and source-contradiction research for all stages.
 
-OSM route relations were found for stages 1-8 and for several connectors/loops, but not for stage 9 in the overview pass. OSM relation metadata should be treated as supporting evidence, not as the primary official source.
+OSM route relations were found for stages 1-8 and for several connectors/loops, but not for a clean stage 9 Tjustleden relation. Some OSM relations, especially relation 5537920 around stages 8/9, are mixed or polluted and should be used only for QA/supporting evidence. Official Naturkartan/Vastervik Outdoor GPX remains the primary geometry source.
+
+## Normalization decisions
+
+See `normalization-decisions.json` for blocker-by-blocker decisions. Current policy is:
+
+- Use official section distance as the primary public/display distance; retain computed GPX length as geometry metadata.
+- Reverse Sections 4 and 6 during later normalization because their official source GPX is stored opposite the official written section order.
+- Do not silently snap endpoints. Preserve official GPX endpoints and model nearby shelters, stations, stops, parking, access tails, or endpoint clusters explicitly.
+- Keep Etapp 8's final Lermon shelter tail on Etapp 8; connect Etapp 8 and Etapp 9 at the shared vertex.
+- Keep raw Etapp 9 GPX as the canonical Tjustleden main-stage line to the Östgötaleden/länsgränsen handoff; model the Falerum continuation as a documented tail/connector if needed.
+- Treat weak transit, parking, commercial services, protected-area overlays, acute notices, fire bans, and live schedules as pre-import/publication checks.
 
 ## Known source risks
 
@@ -75,10 +86,6 @@ OSM route relations were found for stages 1-8 and for several connectors/loops, 
 
 ## Handoff status
 
-Per user instruction on 2026-04-29, research was stopped after the overview and Etapp 1 synthesis. The completed first-section file is:
+All nine official main-stage section files are research-ready candidate files. They are not runtime app data and are not import-ready without a later normalization/import design pass.
 
-- `sections/tjustleden-etapp-1-mortfors-getterum-getgolen.research.json`
-
-Etapp 1 is research-ready for handoff but not import-ready. Remaining blockers before import include Mörtfors start shelter/toilet coordinate verification, official KLT stop/GTFS verification, protected-area overlay near Mörtfors naturreservat, current fire-rule wording, and coordinate verification for pending heritage/swimming POIs.
-
-Sections 2-9 have overview metadata only and still require the required six-lane section research process.
+Remaining work is now pre-import verification rather than broad trail research: exact coordinates for pending facilities, legal parking, trip-date transit checks, import-grade protected-area/water-protection overlays, acute/fire/currentness checks, and service opening/currentness checks.

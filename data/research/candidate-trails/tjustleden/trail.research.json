@@ -6,8 +6,8 @@
     "Tjustleden i Tjust",
     "Tjustleden, Vastervik"
   ],
-  "lastUpdated": "2026-04-29T19:23:12+02:00",
-  "researchStatus": "overview-and-section-1-handoff",
+  "lastUpdated": "2026-04-30T00:00:00+00:00",
+  "researchStatus": "overview-section-research-and-blocker-triage-complete",
   "accessedDate": "2026-04-29",
   "officialSources": [
     {
@@ -538,19 +538,19 @@
       "type": "official GPX",
       "provider": "Naturkartan / Vastervik Outdoor",
       "coverage": "All nine main stages and known official connectors/loops",
-      "quality": "planning-grade until endpoint and distance contradictions are resolved"
+      "quality": "primary research geometry; normalization decisions now require official distances plus computed geometry metadata, explicit endpoint clusters/tails, and direction reversal for stages 4 and 6"
     },
     {
       "type": "official PDF maps/descriptions",
       "provider": "Naturskyddsforeningen i Tjust and Vastervik Outdoor/Naturkartan",
       "coverage": "Stage PDFs linked from official pages; detailed extraction still pending",
-      "quality": "authoritative narrative/map reference, but date/currentness needs validation"
+      "quality": "authoritative narrative/map reference; use for source contradictions and context, with date/currentness validation before publication"
     },
     {
       "type": "OSM route relations",
       "provider": "OpenStreetMap / Overpass",
       "coverage": "Stages 1-8 and several connectors found; stage 9 not found in overview query",
-      "quality": "supporting/planning-grade only"
+      "quality": "supporting/planning-grade only; polluted or mislabeled relations must not be imported wholesale"
     }
   ],
   "sourceContradictionsAndRisks": [
@@ -562,27 +562,27 @@
     {
       "topic": "stage 3 distance",
       "details": "Official page text says circa 20 km, fact block says 18 km, and GPX computed length is about 15.7 km.",
-      "importImpact": "Requires section-level geometry and endpoint validation before ready."
+      "importImpact": "Resolved for normalization policy: display the current official fact-block distance and retain computed GPX length plus teaser contradiction as geometry/source metadata."
     },
     {
       "topic": "stage 4 distance/direction",
       "details": "Official distance is 14 km, GPX computes about 11.8 km, and GPX direction is opposite official written order.",
-      "importImpact": "Reverse geometry for display if used; validate missing segment or distance discrepancy."
+      "importImpact": "Resolved for normalization policy: reverse geometry for display/import order, display the official distance, and retain computed length as geometry metadata."
     },
     {
       "topic": "stage 6 direction/reroute",
       "details": "GPX direction is opposite official written order. OSM relation contains a 2018 reroute note south of Sixgolen.",
-      "importImpact": "Reverse geometry for display and verify current reroute before import."
+      "importImpact": "Resolved for normalization policy: reverse geometry for display/import order; model 2026 Lundaborg/Amerika notices as condition metadata unless official mapped detour geometry is later published."
     },
     {
       "topic": "stage 7 distance",
       "details": "Official distance is 20 km, while GPX computes about 22.3 km.",
-      "importImpact": "Validate official distance and route endpoint positions."
+      "importImpact": "Resolved for normalization policy: display the official distance and retain computed GPX length as geometry metadata."
     },
     {
       "topic": "stage 9 geometry",
       "details": "Official distance is 13 km, GPX computes about 10.4 km, and no OSM Tjustleden relation was found in overview pass.",
-      "importImpact": "Needs extra geometry pass before normalization."
+      "importImpact": "Resolved for normalization policy: keep raw official GPX as canonical Tjustleden stage line to the Östgötaleden/länsgränsen handoff and model the Falerum continuation as a documented tail/connector."
     },
     {
       "topic": "connector naming",
@@ -591,20 +591,18 @@
     }
   ],
   "openQuestions": [
-    "Do official PDF maps contain alternate endpoint labels or older alignments that explain the GPX/distance mismatches?",
-    "Which endpoint coordinates correspond to actual shelters, parking, and signs rather than merely GPX line endpoints?",
+    "If the later runtime schema cannot store official distance and computed geometry distance separately, which value should be exposed in the public UI?",
+    "Which pending endpoint facilities, parking places, and signs have exact enough coordinates for facility import rather than endpoint-cluster notes?",
     "Which water points are reliable enough to import, if any?",
-    "Which section endpoints have practical public transit access through Kalmar lanstrafik or rail service?",
-    "Are there current closures/reroutes after the 2018 OSM reroute note for stage 6?",
-    "Does stage 9 have an OSM relation under another name or is official/Naturkartan GPX the only reusable geometry?"
+    "Which section endpoints have practical public transit access through Kalmar lanstrafik, Krösatågen, Östgötatrafiken, heritage rail, or Närtrafik on the intended publication/trip date?",
+    "Are the current Etapp 6 Lundaborg/Amerika notices still active on import day?",
+    "Can the app represent Section 9 as raw official Tjustleden GPX plus a Falerum tail/connector, or does it require a single composite polyline with provenance?"
   ],
   "importReadiness": {
-    "status": "not-ready",
-    "reason": "Whole-trail overview and official GPX inventory are drafted, and Etapp 1 has a synthesized six-lane research file. Sections 2-9 still require six-lane research synthesis, endpoint validation, transit/access points, facility coordinates, rules/safety checks, and contradiction resolution. Etapp 1 remains research-ready but not import-ready because start shelter/toilet coordinates, official KLT stop verification, protected-area overlay, fire-rule wording, and pending POI coordinates need follow-up.",
+    "status": "research-ready-not-import-ready",
+    "reason": "Whole-trail overview, all nine section research files, and blocker-by-blocker normalization decisions are complete. Remaining work is a later normalization/import design pass plus pre-import checks for exact pending facility coordinates, legal parking, trip-date transit, service currentness, import-grade protected-area/water-protection overlays, and live acute/fire/currentness sources.",
     "completedSectionResearch": [
-      "tjustleden-etapp-1-mortfors-getterum-getgolen"
-    ],
-    "remainingSectionResearch": [
+      "tjustleden-etapp-1-mortfors-getterum-getgolen",
       "tjustleden-etapp-2-getgolen-hjorted-svartestrom",
       "tjustleden-etapp-3-svartestrom-lunds-by-valstad-kvarn",
       "tjustleden-etapp-4-valstad-kvarn-hjorten-tornsfall",
@@ -613,6 +611,8 @@
       "tjustleden-etapp-7-odensvi-dalhem-bjorndalen",
       "tjustleden-etapp-8-bjorndalen-mockelhult-lermon",
       "tjustleden-etapp-9-lermon-kolsebro-falerum"
-    ]
+    ],
+    "remainingSectionResearch": [],
+    "normalizationDecisionFile": "normalization-decisions.json"
   }
 }
