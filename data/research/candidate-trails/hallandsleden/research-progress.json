@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-30T11:38:00Z",
-  "currentPhase": "Phase 2 K6 validation passed; ready to commit hallandsleden-haverdal-tylosand",
+  "lastUpdated": "2026-04-30T12:50:00Z",
+  "currentPhase": "Phase 2 K7 validation passed; ready to commit hallandsleden-tylosand-halmstad-c",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -33,7 +33,8 @@
     "hallandsleden-tjoloholm-asa",
     "hallandsleden-asa-frillesas",
     "hallandsleden-steninge-haverdal",
-    "hallandsleden-haverdal-tylosand"
+    "hallandsleden-haverdal-tylosand",
+    "hallandsleden-tylosand-halmstad-c"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -1049,19 +1050,21 @@
       "sectionNumber": "K7",
       "name": "Tylösand - Halmstad C",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-gpx-discovered-map-api-line-empty-or-sparse-needs-parsing",
-      "startEndCoordinateStatus": "not-yet-validated-gpx-endpoints-needed",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-from-official-source-lane-and-main-thread-official-page-api-gpx-places-baseline",
+      "routeGeometryStatus": "complete-official-gpx-api-geo-json-continuous-linestring-trkseg-626-points-computed-14-673-km-navigation-grade",
+      "startEndCoordinateStatus": "complete-start-56-646321-12-728667-end-56-669360-12-863408-k6-handoff-0-92-m-k8-handoff-5-34-m",
+      "commuteAccessStatus": "complete-from-transit-access-lane-official-places-osm-and-main-thread-baseline",
+      "facilityResearchStatus": "complete-from-facilities-lane-official-places-osm-and-main-thread-baseline",
+      "rulesSafetyStatus": "complete-from-rules-safety-currentness-lane-and-main-thread-protected-area-beach-fire-currentness-baseline",
+      "synthesisStatus": "complete-section-json-written",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
-        "Run six independent section research lanes and synthesize findings.",
-        "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
-        "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Use official GPX/API geo_json as canonical K7 geometry; suppress full Prins Bertils stig linework and other overlong/non-canonical route sources for K7 import.",
+        "Later normalization should decide whether to snap the 0.92 m K6/K7 Tylösand handoff and 5.34 m K7/K8 Halmstad C handoff.",
+        "No official public drinking-water, free campsite, free shelter or official trail fireplace record was found on K7; keep OSM-only water/fire candidates pending unless confirmed.",
+        "Filter dense Tylösand/Grötvik/Söndrum/Halmstad food, lodging, camping, grocery, tourist-info and urban-service records so only trail-relevant public facilities are imported.",
+        "Import Alets naturreservat direct route span with reserve rules; keep Tylön, Eketånga, Möllegård, Söndrum water-protection and military contexts as nearby/context only unless later GIS overlay changes that.",
+        "Recheck Halmstad beach dog/horse restrictions, fire-ban/brandrisk status, Hallandstrafiken schedules, beach toilet season, Grötvik/Halmstad C works and official closures immediately before import."
       ]
     },
     "hallandsleden-halmstad-c-paarp": {
@@ -1129,6 +1132,47 @@
     }
   },
   "agentBatches": [
+    {
+      "batchId": "hallandsleden-tylosand-halmstad-c-initial-6-lane-2026-04-30",
+      "sectionId": "hallandsleden-tylosand-halmstad-c",
+      "startedAt": "2026-04-30T11:40:00Z",
+      "completedAt": "2026-04-30T12:25:00Z",
+      "status": "completed-and-synthesized",
+      "synthesisFile": "sections/hallandsleden-tylosand-halmstad-c.research.json",
+      "synthesisDecision": "All six K7 lanes returned enough evidence for synthesis. No targeted follow-up batch needed before writing the section file; remaining issues are import-time checks and caveats around service filtering, no official public water/camping/shelter, OSM-only water/fire candidates, Prins Bertils stig overlong source risks, Alet reserve span, nearby Tylön/Eketånga/Möllegård context, beach dog/horse/fire rules, Grötvik/Halmstad C works and live transit/currentness.",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "nickname": "Carson"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "nickname": "Darwin"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "nickname": "Beauvoir the 2nd"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "nickname": "Poincare the 2nd"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "nickname": "Rawls the 2nd"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "nickname": "Kuhn the 2nd"
+        }
+      ]
+    },
     {
       "batchId": "hallandsleden-haverdal-tylosand-initial-6-lane-2026-04-30",
       "sectionId": "hallandsleden-haverdal-tylosand",
@@ -5810,10 +5854,27 @@
       "fieldReports": "complete from field-report lane; no active closure found, only partial route-app/local-loop reports and terrain/seasonal caveats recorded",
       "rulesSafety": "complete from rules-safety-currentness lane; Haverdal reserve direct route span, beach dog/horse/fire rules, nearby protected/military/offshore context and Tylösand currentness caveats recorded",
       "synthesis": "complete; section JSON written and validation passed before commit"
+    },
+    "hallandsleden-tylosand-halmstad-c": {
+      "overview": "complete from trail.research.json overview pass",
+      "officialSources": "complete from official-source lane and main-thread official page/API/GPX/places baseline",
+      "routeGeometry": "complete from route-geometry lane and main-thread baseline; official GPX/API geo_json canonical candidate is a 626-point LineString, official 15 km, GPX desc 14.7 km and computed 14.673 km",
+      "endpointCoordinates": "complete from official GPX/API endpoints; K6-to-K7 handoff 0.92 m and K7-to-K8 handoff 5.34 m",
+      "facilities": "complete from facilities lane and main-thread baseline; 43 official places, core toilet/beach/transit/food/lodging records and side/suppress decisions ready for synthesis",
+      "commuteAccess": "complete from transit-access lane and main-thread baseline; Tylösand start and Bredgatan/Halmstad C/Resecentrum end access plus intermediate access candidates recorded",
+      "fieldReports": "complete from field-report lane; no active closure found, Prins Bertils stig partial/overlong reports and resolved municipal works/currentness caveats recorded",
+      "rulesSafety": "complete from rules-safety-currentness lane; Alet reserve direct route span, nearby Tylön/Eketånga/Möllegård context, beach dog/horse/fire/currentness and works caveats recorded",
+      "synthesis": "complete; section JSON written and validation passed before commit"
     }
   },
   "knownGaps": [
-    "Only the overview and first thirty-one sections have been researched/synthesized; K7-K10 still need the six-lane workflow.",
+    "Only the overview and first thirty-two sections have been researched/synthesized; K8-K10 still need the six-lane workflow.",
+    "K7 research-ready caveat: official GPX/API geo_json is canonical candidate as a continuous 626-point LineString/trkseg from 56.646321,12.728667 to 56.669360,12.863408, official 15 km, GPX desc 14.7 km and computed 14.673 km; full Prins Bertils stig linework is overlong/non-canonical for K7.",
+    "K7 research-ready caveat: K6-to-K7 Tylösand handoff is about 0.92 m and K7-to-K8 Halmstad C handoff is about 5.34 m; later normalization should decide whether to snap endpoints.",
+    "K7 research-ready caveat: official places API returned 43 records but no official drinking-water, free-campsite, free-shelter or trail fireplace category; keep OSM-only water/fire candidates pending unless confirmed.",
+    "K7 research-ready caveat: high-density urban/coastal service corridor from Tylösand through Tjuvahålan/Grötvik/Söndrum to Halmstad C needs strict import filtering so private restaurants/lodging/urban amenities do not swamp trail-relevant facilities.",
+    "K7 research-ready caveat: Alets naturreservat intersects the route around km 10.746-11.972 and should be imported with reserve rules; Tylön, Eketånga, Möllegård, Söndrum water-protection and military areas are nearby/context only from current overlay evidence.",
+    "K7 research-ready caveat: recheck Halmstad official-beach dog/horse restrictions, fire-ban/brandrisk status, Hallandstrafiken live schedules, Grötvik/Tylösand/Halmstad C works and any official closures before import.",
     "K6 research-ready caveat: official GPX/API geo_json is canonical navigation-grade geometry as a 665-point continuous LineString/trkseg, but OSM/local-loop/Naturkartan-derived linework should stay validation or stale context unless later import tooling proves exact match.",
     "K6 research-ready caveat: K5-to-K6 Haverdal handoff is about 13.27 m and K6-to-K7 Tylösand handoff is about 0.92 m; later normalization should decide endpoint snapping.",
     "K6 research-ready caveat: official places API returns 38 records but no official public drinking-water, free-shelter, official campsite or fireplace records; filter dense Haverdal/Ringenäs/Frösakull/Tylösand food, lodging, camping and resort/beach services.",
@@ -6048,9 +6109,9 @@
     "S6 research-ready caveat: old Assman-Mästocka 16-17 km route-app/tourism sources are stale and must be suppressed."
   ],
   "nextActions": [
-    "Validate and commit K6 research files.",
-    "After the K6 commit, start K7 Tylösand - Halmstad C six-lane research.",
-    "For K7, pay attention to official page https://www.hallandsleden.se/etapp/tylosand-halmstad-c, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Tylosand_HalmstadC.gpx, official 15 km medium route, Prins Bertils stig overlap, Tylösand and Halmstad C endpoint access, urban/service filtering, route geometry continuity, Halmstad coastal/public-place rules and dynamic currentness caveats."
+    "Commit K7 research files.",
+    "After the K7 commit, start K8 Halmstad C - Påarp six-lane research.",
+    "For K8, pay attention to official page https://www.hallandsleden.se/etapp/halmstad-c-paarp, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_HalmstadC_Paarp.gpx, official 14.6 km easy route, K7/K8 Halmstad C handoff, K8/K9 Påarp handoff, Halmstad C and Påarp endpoint access, coastal/urban service filtering, route geometry continuity, Halmstad/Laholm coastal/public-place rules and dynamic currentness caveats."
   ],
   "handoffNotes": [
     "Work resumed on 2026-04-29 in /workspaces/hike-trails-codex-hallandsleden-research on branch codex/hallandsleden-research.",
@@ -7024,6 +7085,31 @@
       "id": "phase-2-k6-validation-passed-2026-04-30",
       "completedAt": "2026-04-30T11:38:00Z",
       "summary": "Validated all Hallandsleden candidate JSON files with jq and checked whitespace with git diff --check before committing K6."
+    },
+    {
+      "id": "phase-2-k7-initial-six-lane-batch-started-2026-04-30",
+      "completedAt": "2026-04-30T11:42:00Z",
+      "summary": "Committed K6 as b1b3b26, then started K7 Tylösand - Halmstad C six-lane research batch with agents Carson, Darwin, Beauvoir the 2nd, Poincare the 2nd, Rawls the 2nd and Kuhn the 2nd. Main thread retains all file-write ownership."
+    },
+    {
+      "id": "phase-2-k7-main-thread-baseline-2026-04-30",
+      "completedAt": "2026-04-30T12:10:00Z",
+      "summary": "Main thread baseline for K7 checked official page/API/GPX/places, K6 and K8 endpoint topology, OSM/Overpass access and facility context, Prins Bertils stig overlap, Halmstad beach/dog/horse/fire/currentness pages, Destination Halmstad/Prins Bertils context and OSM/Naturvårdsverket-derived protected-area overlays. Official GPX/API geo_json is a continuous 626-point LineString/trkseg from 56.646321,12.728667 to 56.669360,12.863408, with official 15 km, GPX desc 14.7 km and computed 14.673 km. Handoffs are 0.92 m to K6 and 5.34 m to K8. Official places API returns 43 records and no official dricksvatten/lagerplats/vindskydd/free-campsite category. Alets naturreservat intersects approx km 10.746-11.972; Tylön/Eketånga/Möllegård/Söndrum/military contexts are nearby only from current overlay evidence."
+    },
+    {
+      "id": "phase-2-k7-six-lane-reports-complete-synthesis-started-2026-04-30",
+      "completedAt": "2026-04-30T12:30:00Z",
+      "summary": "Received usable K7 reports from all six lanes. Reports confirm official GPX/API geo_json as canonical 626-point continuous LineString/trkseg, 0.92 m K6 handoff and 5.34 m K8 handoff, 43 official places, strong Tylösand and Halmstad C/Resecentrum access, no active official closure, Alet reserve direct span, no official public water/campsite/shelter, OSM-only water/fire pending candidates, Halmstad beach dog/horse/fire rules, Prins Bertils stig overlong source risks, nearby Tylön/Eketånga/Möllegård context and Grötvik/Halmstad C works-currentness watch. Main thread decided no targeted follow-up batch is needed before synthesis."
+    },
+    {
+      "id": "phase-2-k7-six-lane-synthesis-complete-2026-04-30",
+      "completedAt": "2026-04-30T12:45:00Z",
+      "summary": "Wrote sections/hallandsleden-tylosand-halmstad-c.research.json from the six K7 lane reports and main-thread baseline. The section is research-ready with caveats around official distance rounding, endpoint snapping, dense service filtering, OSM-only water/fire candidates, Alet reserve rules, nearby protected-area contexts, Prins Bertils overlong sources and dynamic beach/fire/transit/currentness checks."
+    },
+    {
+      "id": "phase-2-k7-validation-passed-2026-04-30",
+      "completedAt": "2026-04-30T12:50:00Z",
+      "summary": "Validated the K7 section JSON, all Hallandsleden candidate JSON files and whitespace before committing K7."
     }
   ]
 }
