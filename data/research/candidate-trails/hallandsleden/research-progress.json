@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-30T10:25:00Z",
-  "currentPhase": "Phase 2 K5 validation passed; commit pending before K6",
+  "lastUpdated": "2026-04-30T11:38:00Z",
+  "currentPhase": "Phase 2 K6 validation passed; ready to commit hallandsleden-haverdal-tylosand",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -32,7 +32,8 @@
     "hallandsleden-kungsbacka-c-tjoloholm",
     "hallandsleden-tjoloholm-asa",
     "hallandsleden-asa-frillesas",
-    "hallandsleden-steninge-haverdal"
+    "hallandsleden-steninge-haverdal",
+    "hallandsleden-haverdal-tylosand"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -1025,19 +1026,21 @@
       "sectionNumber": "K6",
       "name": "Haverdal - Tylösand",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-gpx-discovered-map-api-line-empty-or-sparse-needs-parsing",
-      "startEndCoordinateStatus": "not-yet-validated-gpx-endpoints-needed",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-from-official-source-lane-and-main-thread-official-page-api-gpx-places-baseline",
+      "routeGeometryStatus": "complete-official-gpx-api-geo-json-continuous-linestring-trkseg-665-points-computed-12-736-km-navigation-grade",
+      "startEndCoordinateStatus": "complete-start-56-723532-12-658740-end-56-646314-12-728675-k5-handoff-13-27-m-k7-handoff-0-92-m",
+      "commuteAccessStatus": "complete-from-transit-access-lane-official-places-osm-and-main-thread-baseline",
+      "facilityResearchStatus": "complete-from-facilities-lane-official-places-osm-and-main-thread-baseline",
+      "rulesSafetyStatus": "complete-from-rules-safety-currentness-lane-and-main-thread-protected-area-beach-fire-baseline",
+      "synthesisStatus": "complete-section-json-written",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
-        "Run six independent section research lanes and synthesize findings.",
-        "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
-        "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Use official GPX/API geo_json as canonical K6 geometry; suppress OSM/local-loop/Naturkartan-derived linework as validation or stale context unless later import tooling proves exact match.",
+        "Later normalization should decide whether to snap the 13.27 m K5/K6 Haverdal handoff; K6/K7 Tylösand handoff is effectively continuous at about 0.92 m.",
+        "No official public drinking-water, free shelter, official campsite or fireplace record was found on K6; do not infer potable water or free camping/fire from beaches, campings, hotels or private services.",
+        "Filter dense Haverdal/Ringenäs/Frösakull/Tylösand food, lodging, camping and beach-service records; import only mapped public facilities and treat private services as side/access metadata where useful.",
+        "Import Haverdals naturreservat direct route span with no-tenting, dogs-leashed and designated-fire-only rules; keep Vilshärad, Ringenäs skjutfält, Tylön, Möllegård and Söndrum water-protection areas as nearby/context unless a later GIS overlay changes that.",
+        "Recheck Halmstad beach dog/horse restrictions, fire-ban/brandrisk status, Hallandstrafiken schedules, beach toilet season and Tylösand development/closure notices immediately before import."
       ]
     },
     "hallandsleden-tylosand-halmstad-c": {
@@ -1126,6 +1129,47 @@
     }
   },
   "agentBatches": [
+    {
+      "batchId": "hallandsleden-haverdal-tylosand-initial-6-lane-2026-04-30",
+      "sectionId": "hallandsleden-haverdal-tylosand",
+      "startedAt": "2026-04-30T10:30:00Z",
+      "completedAt": "2026-04-30T11:25:00Z",
+      "status": "completed-and-synthesized",
+      "synthesisFile": "sections/hallandsleden-haverdal-tylosand.research.json",
+      "synthesisDecision": "No targeted follow-up batch needed. All six K6 lanes returned enough evidence for research-ready synthesis; remaining issues are import/currentness caveats around dense resort-service filtering, no public water/shelter/fireplace evidence, Haverdal reserve direct span, beach dog/horse/fire rules, nearby protected/military/offshore context, Tylösand works and live transit/currentness checks.",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "nickname": "Carson"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "nickname": "Darwin"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "nickname": "Beauvoir the 2nd"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "nickname": "Poincare the 2nd"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "nickname": "Rawls the 2nd"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "nickname": "Kuhn the 2nd"
+        }
+      ]
+    },
     {
       "batchId": "hallandsleden-steninge-haverdal-initial-6-lane-2026-04-30",
       "sectionId": "hallandsleden-steninge-haverdal",
@@ -5755,10 +5799,26 @@
       "fieldReports": "complete from field-report lane; no active closure found, local Steninge/Haverdal condition caveats and stale route-app risks recorded",
       "rulesSafety": "complete from rules-safety-currentness lane; Haverdal reserve/Natura route span, Enet boundary ambiguity, nearby Särdal/Steningekusten and dynamic currentness caveats recorded",
       "synthesis": "complete; section JSON written and validation passed before commit"
+    },
+    "hallandsleden-haverdal-tylosand": {
+      "overview": "complete from trail.research.json overview pass",
+      "officialSources": "complete from official-source lane and main-thread official page/API/GPX/places baseline",
+      "routeGeometry": "complete from route-geometry lane and main-thread baseline; official GPX/API geo_json is canonical navigation-grade 665-point LineString/trkseg, official 12.7 km, GPX desc 12.8 km and computed 12.736 km",
+      "endpointCoordinates": "complete from official GPX/API endpoints; start 56.723532,12.658740, end 56.646314,12.728675, K5-to-K6 handoff 13.27 m and K6-to-K7 handoff 0.92 m",
+      "facilities": "complete from facilities lane and main-thread baseline; 38 official places, core public toilets/beach/parking/transit records and side/suppress decisions recorded, no official public drinking-water/free-shelter/fireplace records",
+      "commuteAccess": "complete from transit-access lane and main-thread baseline; Haverdalsvägen, Båtabacken parking, Tylösand bus/parking and intermediate Vilshärad/Ringenäs access recorded with caveats",
+      "fieldReports": "complete from field-report lane; no active closure found, only partial route-app/local-loop reports and terrain/seasonal caveats recorded",
+      "rulesSafety": "complete from rules-safety-currentness lane; Haverdal reserve direct route span, beach dog/horse/fire rules, nearby protected/military/offshore context and Tylösand currentness caveats recorded",
+      "synthesis": "complete; section JSON written and validation passed before commit"
     }
   },
   "knownGaps": [
-    "Only the overview and first thirty sections have been researched/synthesized; K6-K10 still need the six-lane workflow.",
+    "Only the overview and first thirty-one sections have been researched/synthesized; K7-K10 still need the six-lane workflow.",
+    "K6 research-ready caveat: official GPX/API geo_json is canonical navigation-grade geometry as a 665-point continuous LineString/trkseg, but OSM/local-loop/Naturkartan-derived linework should stay validation or stale context unless later import tooling proves exact match.",
+    "K6 research-ready caveat: K5-to-K6 Haverdal handoff is about 13.27 m and K6-to-K7 Tylösand handoff is about 0.92 m; later normalization should decide endpoint snapping.",
+    "K6 research-ready caveat: official places API returns 38 records but no official public drinking-water, free-shelter, official campsite or fireplace records; filter dense Haverdal/Ringenäs/Frösakull/Tylösand food, lodging, camping and resort/beach services.",
+    "K6 research-ready caveat: import Haverdals naturreservat direct route span around km 0.000-5.027 with no-tenting, dogs-leashed and designated-fire-only rules; keep Vilshärad, Ringenäs skjutfält, Tylön, Möllegård and Söndrum water-protection as nearby/context unless later GIS overlay changes that.",
+    "K6 research-ready caveat: recheck Halmstad official-beach dog ban 1 May-15 September, horse restrictions, beach toilet season, fire-ban/brandrisk status, Hallandstrafiken live schedules, Tylösand works and any official closures before import.",
     "K5 research-ready caveat: official GPX/API geo_json is canonical as a 271-point continuous LineString, but API line.geometry, OSM local loops and Naturkartan reserve/local routes must be suppressed.",
     "K5 research-ready caveat: large official coastal gap before Steninge must be preserved; K4 Frillesås to K5 start is about 67.2 km and no Frillesås-to-Steninge connector should be inferred.",
     "K5 research-ready caveat: K5-to-K6 Haverdal handoff is about 13.27 m; later normalization should decide whether endpoint snapping is needed.",
@@ -5988,9 +6048,9 @@
     "S6 research-ready caveat: old Assman-Mästocka 16-17 km route-app/tourism sources are stale and must be suppressed."
   ],
   "nextActions": [
-    "Validate all Hallandsleden candidate JSON files and git diff whitespace, then commit K5 before starting K6.",
-    "Start K6 hallandsleden-haverdal-tylosand after the K5 commit with six parallel research/report agents.",
-    "For K6, pay attention to the near-continuous K5/K6 Haverdal handoff, official page https://www.hallandsleden.se/etapp/haverdal-tylosand, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Haverdal_Tylosand.gpx, official 12.7 km easy route, Haverdal/Tylösand endpoint access and services, Haverdal/Ringenäs/Tylösand coastal rules, route geometry continuity, water/facility filtering and dynamic currentness caveats."
+    "Validate and commit K6 research files.",
+    "After the K6 commit, start K7 Tylösand - Halmstad C six-lane research.",
+    "For K7, pay attention to official page https://www.hallandsleden.se/etapp/tylosand-halmstad-c, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Tylosand_HalmstadC.gpx, official 15 km medium route, Prins Bertils stig overlap, Tylösand and Halmstad C endpoint access, urban/service filtering, route geometry continuity, Halmstad coastal/public-place rules and dynamic currentness caveats."
   ],
   "handoffNotes": [
     "Work resumed on 2026-04-29 in /workspaces/hike-trails-codex-hallandsleden-research on branch codex/hallandsleden-research.",
@@ -6939,6 +6999,31 @@
       "id": "phase-2-k5-validation-passed-2026-04-30",
       "completedAt": "2026-04-30T10:25:00Z",
       "summary": "Validated all Hallandsleden candidate JSON files with jq and checked whitespace with git diff --check before committing K5."
+    },
+    {
+      "id": "phase-2-k6-initial-six-lane-batch-started-2026-04-30",
+      "completedAt": "2026-04-30T10:30:00Z",
+      "summary": "Committed K5 as 60ef27f, then started K6 Haverdal - Tylösand six-lane research batch with agents Carson, Darwin, Beauvoir the 2nd, Poincare the 2nd, Rawls the 2nd and Kuhn the 2nd. Main thread retains all file-write ownership."
+    },
+    {
+      "id": "phase-2-k6-main-thread-baseline-2026-04-30",
+      "completedAt": "2026-04-30T10:50:00Z",
+      "summary": "Main thread baseline for K6 checked official page/API/GPX/places, K5 and K7 endpoint topology, OSM/Overpass access and facility context, Halmstad beach/dog/horse/fire/currentness pages, Destination Halmstad beach context and OSM/Naturvårdsverket-derived protected-area overlays. Official GPX/API geo_json is a continuous 665-point LineString/trkseg from 56.723532,12.658740 to 56.646314,12.728675, with official 12.7 km, GPX desc 12.8 km and computed 12.736 km. Handoffs are 13.27 m to K5 and 0.92 m to K7. Official places API returns 38 records and no official dricksvatten/lagerplats/vindskydd; Haverdals naturreservat intersects approx km 0.000-5.027. Access, water/facility filtering, beach dog/fire/toilet season and dense resort service caveats are captured while agent lanes continue."
+    },
+    {
+      "id": "phase-2-k6-six-lane-reports-complete-synthesis-started-2026-04-30",
+      "completedAt": "2026-04-30T11:15:00Z",
+      "summary": "Received usable K6 reports from all six lanes. Reports confirm official GPX/API geo_json as canonical navigation-grade 665-point continuous LineString/trkseg, 13.27 m K5 handoff and 0.92 m K7 handoff, 38 official places, no official public drinking-water/free-shelter/fireplace records, Haverdalsvägen and Tylösand endpoint access, no active official closure, Haverdal reserve direct span, Halmstad beach dog/horse/fire rules, nearby protected/military/offshore context, partial local route-app reports and dense Haverdal/Ringenäs/Frösakull/Tylösand service-filtering risks. Main thread decided no targeted follow-up batch is needed before synthesis."
+    },
+    {
+      "id": "phase-2-k6-six-lane-synthesis-complete-2026-04-30",
+      "completedAt": "2026-04-30T11:25:00Z",
+      "summary": "Synthesized K6 Haverdal - Tylösand into sections/hallandsleden-haverdal-tylosand.research.json after all six lane reports plus main-thread official/API/GPX/places/access/rules checks. Marked K6 research-ready with caveats around canonical official LineString geometry, endpoint snapping, no official public water/shelter/fireplace, dense resort-service filtering, Haverdal reserve import span, nearby protected/military/offshore context, beach dog/horse/fire rules, Hallandstrafiken schedules and Tylösand currentness checks."
+    },
+    {
+      "id": "phase-2-k6-validation-passed-2026-04-30",
+      "completedAt": "2026-04-30T11:38:00Z",
+      "summary": "Validated all Hallandsleden candidate JSON files with jq and checked whitespace with git diff --check before committing K6."
     }
   ]
 }
