@@ -14,16 +14,16 @@
     "scope-limitation": "Accepted scope boundary for this candidate import model."
   },
   "summary": {
-    "resolved-now": 52,
+    "resolved-now": 53,
     "runtime-integration-task": 7,
     "defer-publication-time": 19,
-    "fix-now": 9,
+    "fix-now": 8,
     "external-source-approval": 5,
     "runtime-schema-needed": 14,
     "scope-limitation": 3
   },
-  "fixNowCount": 9,
-  "resolvedNowCount": 52,
+  "fixNowCount": 8,
+  "resolvedNowCount": 53,
   "trails": [
     {
       "trailId": "bohusleden",
@@ -1731,8 +1731,7 @@
     {
       "trailId": "sjuharadsleden",
       "triageSummary": {
-        "resolved-now": 3,
-        "fix-now": 1,
+        "resolved-now": 4,
         "defer-publication-time": 2,
         "external-source-approval": 1
       },
@@ -1746,6 +1745,16 @@
           "disposition": "resolved-now",
           "owner": "candidate-geometry",
           "action": "Research-only candidate GeoJSON now exists for all 10 Sjuhäradsleden sections; section 6 uses selected Rölle mainline components and section 7 is densified before overlays."
+        },
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "sjuharadsleden-protected-area-clipping",
+          "status": "blocks-runtime-facility-and-rule-import",
+          "details": "Production GIS clipping all facility points/route segments.",
+          "disposition": "resolved-now",
+          "owner": "candidate-gis",
+          "action": "Candidate protected-area-overlays.research.json now records computed NVR polygon checks against every normalized candidate facility point and candidate route GeoJSON segment for Klippan, Årås, Ryfors and Stråkens strandskogar."
         },
         {
           "id": "open-decision-6",
@@ -1768,18 +1777,7 @@
           "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
         }
       ],
-      "nextFixNow": [
-        {
-          "id": "blocker-2",
-          "itemType": "blocker",
-          "sourceId": "sjuharadsleden-protected-area-clipping",
-          "status": "blocks-runtime-facility-and-rule-import",
-          "details": "Production GIS clipping all facility points/route segments.",
-          "disposition": "fix-now",
-          "owner": "candidate-gis",
-          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
-        }
-      ],
+      "nextFixNow": [],
       "deferred": [
         {
           "id": "blocker-3",
@@ -1830,9 +1828,9 @@
           "sourceId": "sjuharadsleden-protected-area-clipping",
           "status": "blocks-runtime-facility-and-rule-import",
           "details": "Production GIS clipping all facility points/route segments.",
-          "disposition": "fix-now",
+          "disposition": "resolved-now",
           "owner": "candidate-gis",
-          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+          "action": "Candidate protected-area-overlays.research.json now records computed NVR polygon checks against every normalized candidate facility point and candidate route GeoJSON segment for Klippan, Årås, Ryfors and Stråkens strandskogar."
         },
         {
           "id": "blocker-3",

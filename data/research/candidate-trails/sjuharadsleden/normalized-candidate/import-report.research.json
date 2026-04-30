@@ -105,9 +105,9 @@
       "sourceId": "sjuharadsleden-protected-area-clipping",
       "status": "blocks-runtime-facility-and-rule-import",
       "details": "Production GIS clipping all facility points/route segments.",
-      "disposition": "fix-now",
+      "disposition": "resolved-now",
       "owner": "candidate-gis",
-      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+      "action": "Candidate protected-area-overlays.research.json now records computed NVR polygon checks against every normalized candidate facility point and candidate route GeoJSON segment for Klippan, Årås, Ryfors and Stråkens strandskogar."
     },
     {
       "id": "blocker-3",
@@ -161,8 +161,7 @@
     }
   ],
   "triageSummary": {
-    "resolved-now": 3,
-    "fix-now": 1,
+    "resolved-now": 4,
     "defer-publication-time": 2,
     "external-source-approval": 1
   },
@@ -176,6 +175,16 @@
       "disposition": "resolved-now",
       "owner": "candidate-geometry",
       "action": "Research-only candidate GeoJSON now exists for all 10 Sjuhäradsleden sections; section 6 uses selected Rölle mainline components and section 7 is densified before overlays."
+    },
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "sjuharadsleden-protected-area-clipping",
+      "status": "blocks-runtime-facility-and-rule-import",
+      "details": "Production GIS clipping all facility points/route segments.",
+      "disposition": "resolved-now",
+      "owner": "candidate-gis",
+      "action": "Candidate protected-area-overlays.research.json now records computed NVR polygon checks against every normalized candidate facility point and candidate route GeoJSON segment for Klippan, Årås, Ryfors and Stråkens strandskogar."
     },
     {
       "id": "open-decision-6",
@@ -198,18 +207,7 @@
       "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
     }
   ],
-  "fixNowBeforeRuntimeImport": [
-    {
-      "id": "blocker-2",
-      "itemType": "blocker",
-      "sourceId": "sjuharadsleden-protected-area-clipping",
-      "status": "blocks-runtime-facility-and-rule-import",
-      "details": "Production GIS clipping all facility points/route segments.",
-      "disposition": "fix-now",
-      "owner": "candidate-gis",
-      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
-    }
-  ],
+  "fixNowBeforeRuntimeImport": [],
   "runtimeSchemaNeeded": [],
   "deferredBeforeRuntimeImport": [
     {
@@ -253,7 +251,6 @@
     "Protected-area and fire/transit currentness checks remain publication-day blockers."
   ],
   "unresolvedBeforeRuntimeImport": [
-    "fix-now: Production GIS clipping all facility points/route segments.",
     "defer-publication-time: Refresh fire-ban status for Härryda, Bollebygd, Borås, Ulricehamn, Mullsjö before publication; refresh Västtrafik/JLT schedules/stops before publication.",
     "defer-publication-time: Verify public access/opening status for service facilities before exposing water/toilet/cafe/lodging.",
     "external-source-approval: Keep the Naturkartan/Västkuststiftelsen not-fully-quality-assured caveat visible in the app until newer official source."

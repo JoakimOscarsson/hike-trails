@@ -514,6 +514,11 @@ const protectedAreaOverlayResolutionConfig = {
     triageResolvedSourceIds: ["hogakustenleden-protected-area-clipping"],
     action:
       "Candidate protected-area-overlays.research.json now makes Skuleberget, Skuleskogen, Balesudden and Hörnsjön rule scope machine-readable by section and route-chainage, based on the targeted caveat-resolution boundary pass."
+  },
+  sjuharadsleden: {
+    triageResolvedSourceIds: ["sjuharadsleden-protected-area-clipping"],
+    action:
+      "Candidate protected-area-overlays.research.json now records computed NVR polygon checks against every normalized candidate facility point and candidate route GeoJSON segment for Klippan, Årås, Ryfors and Stråkens strandskogar."
   }
 };
 
@@ -526,7 +531,12 @@ for (const trailId of includedTrails) {
   const caveatResolution = await readOptionalJson(path.join(trailRoot, "caveat-resolution.research.json"));
   const sections = await readSections(trailRoot);
   const geojsonFiles = (await walkFiles(trailRoot))
-    .filter((filePath) => filePath.endsWith(".geojson") && !filePath.includes(`${path.sep}normalized-candidate${path.sep}`))
+    .filter(
+      (filePath) =>
+        filePath.endsWith(".geojson") &&
+        !filePath.includes(`${path.sep}normalized-candidate${path.sep}`) &&
+        !filePath.includes(`${path.sep}geometry${path.sep}protected-area-overlays${path.sep}`)
+    )
     .map((filePath) => toProjectRelative(filePath));
 
   const routeSections = buildRouteSections(trailId, sections, handoff);
