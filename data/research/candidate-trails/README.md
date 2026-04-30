@@ -49,7 +49,7 @@ Candidate artifact commands:
 | `sjuharadsleden` | Sjuhäradsleden | 10 sections | Imported to runtime data | Runtime source/public shards and 10 section route files exist; estimated-time details are normalized into section notes. |
 | `tjustleden` | Tjustleden | 9 sections | Imported to runtime data | Runtime source/public shards and 9 mainline section route files exist; official loop/connector extras remain caveated outside the selected runtime route. |
 | `vastra-vatterleden` | Västra Vätterleden | 8 sections | Imported to runtime data | Runtime source/public shards and 8 primary section route files exist; alternate/access variants remain caveated outside the selected runtime geometry. |
-| `vikingaleden` | Vikingaleden | 12 sections | Candidate artifacts generated | Needs Upplandsleden overlap dedupe for sections 7-12. |
+| `vikingaleden` | Vikingaleden | 12 sections | Imported to runtime data | Runtime source/public shards and 12 route files exist; live overview and Etapp 12 checked; sections 7-12 import as a selectable Upplandsleden-overlap chain. |
 | `stockholm-archipelago-trail` | Stockholm Archipelago Trail | 1 summary | Research-only / existing app work | Whole-trail research file; separate from the current 12-trail prep batch. |
 | `upplandsleden` | Upplandsleden | 44 section/loop files | Existing app/reference data | Has a dedupe registry and is used as reference context for Vikingaleden overlap. |
 

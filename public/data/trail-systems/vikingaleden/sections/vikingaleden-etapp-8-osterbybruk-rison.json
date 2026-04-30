@@ -1,0 +1,388 @@
+{
+  "trailSystemId": "vikingaleden",
+  "id": "vikingaleden-etapp-8-osterbybruk-rison",
+  "stageNumber": 8,
+  "name": "Vikingaleden, etapp 8, Österbybruk-Risön",
+  "from": "Österbybruk",
+  "to": "Risön",
+  "distanceKm": 18.8,
+  "estimatedTime": "4:45",
+  "description": "Österbybruk to Risön. Candidate import from normalized research; verify current notices before publication.",
+  "utilities": [
+    "Toalett, Films kyrka (toilet)",
+    "RWC, Österbybruk busstation (toilet)",
+    "Toalett, Österbybruk torget (toilet)",
+    "Tältplats, Risön (camping)",
+    "Öppen raststuga, Risön (shelter)",
+    "Toalett, Risön (toilet)",
+    "Toalett, Vika (toilet)"
+  ],
+  "waterSources": [
+    "Vatten, Films kyrka: Drinking-water refill at the Films kyrka toilet/service point.",
+    "Vatten, Österbybruk: Shared start endpoint service. Municipal tap outside laundry, on year-round. Deduplicate with Etapp 11 endpoint records. Dedupe with Etapp 11 and Österbybruksslingan.",
+    "Vatten, Risön: Seasonal tap on building at Risön, available May-October / May 1-October 31 only. Shared endpoint service with Etapp 13 and Floranslingan. Länsstyrelsen distinguishes these public visitor services from bookable indoor Risön amenities; dedupe with Etapp 13 and Floranslingan. Länsstyrelsen is used as contextual support for public-vs-bookable Risön services; the seasonal public tap itself is directly sourced from Naturkartan/Upplandsstiftelsen."
+  ],
+  "notes": [
+    "Naturkartan site id 9548: GPX endpoint checked available; API shape is a one-line MultiLineString with 347 coordinate points.",
+    "Current GPX tracks the eastern route choice after Vika; Stormon and Grillholmen are kept pending until branch handling is settled.",
+    "Facility/safety warnings found in iteration 1: Vika pump has non-potable water; Risön water is seasonal May-October. Access metadata separately records that Risön has no bus access.",
+    "Iteration 2 confirmed Floranslingan GPX supplies alternate geometry near Stormon and Grillholmen, while Etapp 12 primary GPX follows Staffansholmen/Kungaspången."
+  ],
+  "facilities": [
+    {
+      "id": "vikingaleden-etapp-8-films-kyrka",
+      "name": "Films kyrka",
+      "type": "heritage",
+      "sectionId": "vikingaleden-etapp-8-osterbybruk-rison",
+      "coordinates": [
+        60.229167,
+        17.896031
+      ],
+      "description": "Medieval church context on Etapp 12; Naturkartan and Svenska kyrkan describe 1400s origin/paintings and later extension.",
+      "source": {
+        "provider": "candidate-research",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 64
+      }
+    },
+    {
+      "id": "vikingaleden-etapp-8-films-kyrka-toilet",
+      "name": "Toalett, Films kyrka",
+      "type": "toilet",
+      "sectionId": "vikingaleden-etapp-8-osterbybruk-rison",
+      "coordinates": [
+        60.2284565561474,
+        17.8945248348433
+      ],
+      "description": "Toilet in white outbuilding outside the church wall, open year-round.",
+      "source": {
+        "provider": "candidate-research",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 10
+      }
+    },
+    {
+      "id": "vikingaleden-etapp-8-films-kyrka-water",
+      "name": "Vatten, Films kyrka",
+      "type": "water",
+      "sectionId": "vikingaleden-etapp-8-osterbybruk-rison",
+      "coordinates": [
+        60.2284565561474,
+        17.8945248348433
+      ],
+      "description": "Drinking-water refill at the Films kyrka toilet/service point.",
+      "source": {
+        "provider": "candidate-research",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 10
+      }
+    },
+    {
+      "id": "vikingaleden-etapp-8-filmspangen",
+      "name": "Filmspången",
+      "type": "attraction",
+      "sectionId": "vikingaleden-etapp-8-osterbybruk-rison",
+      "coordinates": [
+        60.2252109,
+        17.9066322
+      ],
+      "description": "Named on-route foot bridge after road 290. Coordinate is the midpoint of the OSM bridge way on Upplandsleden and falls on the official Etapp 12 GPX. Nearby bird tower is mapped at 60.2254768, 17.9056429, about 9 m from the official GPX, and is treated as supporting context rather than a separate import.",
+      "source": {
+        "provider": "candidate-research",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 0
+      }
+    },
+    {
+      "id": "vikingaleden-etapp-8-iron-age-grave-field-film",
+      "name": "Gravfält vid Film",
+      "type": "heritage",
+      "sectionId": "vikingaleden-etapp-8-osterbybruk-rison",
+      "coordinates": [
+        60.222275,
+        17.908163
+      ],
+      "description": "Cluster interpretation: official route text says the route passes a larger grave field with about 50 Iron Age graves after road 290. Fornsök confirms route-adjacent RAÄ Film 9:1/L1943:3137 and Film 34:1/L1943:3351 as grave fields, with nearby off-route Film 10:1/L1943:3269 making the count plausible. Coordinate is an approximate cluster marker, not a single RAÄ object centroid; keep medium confidence.",
+      "source": {
+        "provider": "candidate-research",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 50
+      }
+    },
+    {
+      "id": "vikingaleden-etapp-8-kungaspangen",
+      "name": "Kungaspången",
+      "type": "attraction",
+      "sectionId": "vikingaleden-etapp-8-osterbybruk-rison",
+      "coordinates": [
+        60.300976,
+        17.86812
+      ],
+      "description": "Named 500 m boardwalk over mire between Stenstamon and Risön; coordinate is on the official Etapp 12 GPX/current eastern branch. Route-feature POI, not a facility.",
+      "source": {
+        "provider": "candidate-research",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 0
+      }
+    },
+    {
+      "id": "vikingaleden-etapp-8-osterbybruk-busstation-rwc",
+      "name": "RWC, Österbybruk busstation",
+      "type": "toilet",
+      "sectionId": "vikingaleden-etapp-8-osterbybruk-rison",
+      "coordinates": [
+        60.19700233664054,
+        17.89823519117465
+      ],
+      "description": "Shared start endpoint service. Östhammar municipality lists Österbybruk Bussväntsalen as 1 RWC open 24h. No separate RWC map point was found; coordinate is rechecked against the Naturkartan Österbybruk busstation anchor, so confidence remains medium. Dedupe with Etapp 11 and Österbybruksslingan using fuzzy/source-name matching because Etapp 11 used a coordinate about 18 m away.",
+      "source": {
+        "provider": "candidate-research",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 77
+      }
+    },
+    {
+      "id": "vikingaleden-etapp-8-osterbybruk-toilet",
+      "name": "Toalett, Österbybruk torget",
+      "type": "toilet",
+      "sectionId": "vikingaleden-etapp-8-osterbybruk-rison",
+      "coordinates": [
+        60.19549120965664,
+        17.89592025780652
+      ],
+      "description": "Shared start endpoint service. Public toilet at torget, open year-round 07-21. Deduplicate with Etapp 11 endpoint records. Dedupe with Etapp 11 and Österbybruksslingan.",
+      "source": {
+        "provider": "candidate-research",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 274
+      }
+    },
+    {
+      "id": "vikingaleden-etapp-8-osterbybruk-water",
+      "name": "Vatten, Österbybruk",
+      "type": "water",
+      "sectionId": "vikingaleden-etapp-8-osterbybruk-rison",
+      "coordinates": [
+        60.19692326517256,
+        17.90106480985554
+      ],
+      "description": "Shared start endpoint service. Municipal tap outside laundry, on year-round. Deduplicate with Etapp 11 endpoint records. Dedupe with Etapp 11 and Österbybruksslingan.",
+      "source": {
+        "provider": "candidate-research",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 180
+      }
+    },
+    {
+      "id": "vikingaleden-etapp-8-rison-campsite",
+      "name": "Tältplats, Risön",
+      "type": "camping",
+      "sectionId": "vikingaleden-etapp-8-osterbybruk-rison",
+      "coordinates": [
+        60.30800476983704,
+        17.8656792640686
+      ],
+      "description": "Public tent spots at Risön. Supported by Naturkartan Risön, Etapp 13 endpoint context and Länsstyrelsen Florarna public visitor-service guidance. Dedupe with Etapp 13 and Floranslingan.",
+      "source": {
+        "provider": "candidate-research",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 55
+      }
+    },
+    {
+      "id": "vikingaleden-etapp-8-rison-fireplace",
+      "name": "Eldplats, Risön",
+      "type": "fireplace",
+      "sectionId": "vikingaleden-etapp-8-osterbybruk-rison",
+      "coordinates": [
+        60.30800476983704,
+        17.8656792640686
+      ],
+      "description": "Outdoor grill/fireplace at Risön, with wood according to Naturkartan/Roslagen context. Shared endpoint service. Länsstyrelsen distinguishes these public visitor services from bookable indoor Risön amenities; dedupe with Etapp 13 and Floranslingan.",
+      "source": {
+        "provider": "candidate-research",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 55
+      }
+    },
+    {
+      "id": "vikingaleden-etapp-8-rison-open-cabin",
+      "name": "Öppen raststuga, Risön",
+      "type": "shelter",
+      "sectionId": "vikingaleden-etapp-8-osterbybruk-rison",
+      "coordinates": [
+        60.30825426850566,
+        17.86389910609977
+      ],
+      "description": "Open rest/overnight cabin with two beds and electric heat; no cooking. Shared endpoint service with Etapp 13 and Floranslingan. Länsstyrelsen distinguishes these public visitor services from bookable indoor Risön amenities; dedupe with Etapp 13 and Floranslingan.",
+      "source": {
+        "provider": "candidate-research",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 39
+      }
+    },
+    {
+      "id": "vikingaleden-etapp-8-rison-rest-area",
+      "name": "Rastplats, Risön",
+      "type": "rest-area",
+      "sectionId": "vikingaleden-etapp-8-osterbybruk-rison",
+      "coordinates": [
+        60.30800476983704,
+        17.8656792640686
+      ],
+      "description": "Risön trail endpoint/lägergård context with public outdoor rest and grill area. Indoor lodging, showers and kitchen are bookable amenities, not public trail facilities. Länsstyrelsen distinguishes these public visitor services from bookable indoor Risön amenities; dedupe with Etapp 13 and Floranslingan.",
+      "source": {
+        "provider": "candidate-research",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 55
+      }
+    },
+    {
+      "id": "vikingaleden-etapp-8-rison-toilet",
+      "name": "Toalett, Risön",
+      "type": "toilet",
+      "sectionId": "vikingaleden-etapp-8-osterbybruk-rison",
+      "coordinates": [
+        60.30800476983704,
+        17.8656792640686
+      ],
+      "description": "Dry toilet/public endpoint toilet at Risön. Exact service should be deduplicated with Risön object and Etapp 13/Floranslingan imports. Länsstyrelsen distinguishes these public visitor services from bookable indoor Risön amenities; dedupe with Etapp 13 and Floranslingan.",
+      "source": {
+        "provider": "candidate-research",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 55
+      }
+    },
+    {
+      "id": "vikingaleden-etapp-8-rison-water",
+      "name": "Vatten, Risön",
+      "type": "water",
+      "sectionId": "vikingaleden-etapp-8-osterbybruk-rison",
+      "coordinates": [
+        60.30828398583383,
+        17.864692233230585
+      ],
+      "description": "Seasonal tap on building at Risön, available May-October / May 1-October 31 only. Shared endpoint service with Etapp 13 and Floranslingan. Länsstyrelsen distinguishes these public visitor services from bookable indoor Risön amenities; dedupe with Etapp 13 and Floranslingan. Länsstyrelsen is used as contextual support for public-vs-bookable Risön services; the seasonal public tap itself is directly sourced from Naturkartan/Upplandsstiftelsen.",
+      "source": {
+        "provider": "candidate-research",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 45
+      }
+    },
+    {
+      "id": "vikingaleden-etapp-8-staffansholmen-fireplace",
+      "name": "Eldplats, Staffansholmen",
+      "type": "fireplace",
+      "sectionId": "vikingaleden-etapp-8-osterbybruk-rison",
+      "coordinates": [
+        60.28554241396354,
+        17.85479754209518
+      ],
+      "description": "Official fireplace/rest area near Vikasjön on the current GPX/eastern branch. Do not import as shelter unless a later pass confirms official shelter status. Dedupe/coordinate-check against Floranslingan overlap.",
+      "source": {
+        "provider": "candidate-research",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 27
+      }
+    },
+    {
+      "id": "vikingaleden-etapp-8-staffansholmen-rest-area",
+      "name": "Rastplats, Staffansholmen",
+      "type": "rest-area",
+      "sectionId": "vikingaleden-etapp-8-osterbybruk-rison",
+      "coordinates": [
+        60.28554241396354,
+        17.85479754209518
+      ],
+      "description": "Rest area with benches associated with the Staffansholmen fireplace. Import only if same-coordinate clustering is respected. Dedupe/coordinate-check against Floranslingan overlap.",
+      "source": {
+        "provider": "candidate-research",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 27
+      }
+    },
+    {
+      "id": "vikingaleden-etapp-8-vika-rest-area",
+      "name": "Rastplats, Vika",
+      "type": "rest-area",
+      "sectionId": "vikingaleden-etapp-8-osterbybruk-rison",
+      "coordinates": [
+        60.28320637871305,
+        17.87576973438263
+      ],
+      "description": "Several picnic tables in pasture near Vika; current warning says the Vika water pump has unfit water and must not be used for drinking or cooking. Dedupe/coordinate-check against Floranslingan overlap.",
+      "source": {
+        "provider": "candidate-research",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 12
+      }
+    },
+    {
+      "id": "vikingaleden-etapp-8-vika-toilet",
+      "name": "Toalett, Vika",
+      "type": "toilet",
+      "sectionId": "vikingaleden-etapp-8-osterbybruk-rison",
+      "coordinates": [
+        60.28319019881961,
+        17.87674069444279
+      ],
+      "description": "Dry toilet near Vika rest area. Dedupe/coordinate-check against Floranslingan overlap.",
+      "source": {
+        "provider": "candidate-research",
+        "lastFetchedAt": "2026-04-30"
+      },
+      "routeProximity": {
+        "distanceMetersApprox": 4
+      }
+    }
+  ],
+  "source": {
+    "provider": "outdooractive_paxwalk_vikingaleden_section_gpx",
+    "url": "https://www.outdooractive.com/en/download.tour.gpx?i=25668656&project=outdooractive",
+    "lastFetchedAt": "2026-04-30"
+  },
+  "route": {
+    "status": "ready",
+    "sourceFormat": "geojson",
+    "geojsonPath": "/routes/hiking/vikingaleden/sections/vikingaleden-etapp-8-osterbybruk-rison.geojson"
+  },
+  "endpointCoordinates": {
+    "source": "candidate-normalized-route"
+  }
+}

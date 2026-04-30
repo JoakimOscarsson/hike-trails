@@ -246,6 +246,44 @@ const importConfigs = {
       url: "https://tjust.naturskyddsforeningen.se/tjustleden/",
       lastFetchedAt: "2026-04-30"
     }
+  },
+  vikingaleden: {
+    name: "Vikingaleden",
+    region: "Stockholms län / Uppsala län",
+    country: "Sweden",
+    difficulty: "Easy to moderate",
+    estimatedTime: "12 stages",
+    season: "April-October",
+    routeType: "Point to point with overlap chain",
+    description:
+      "A pilgrim and long-distance trail from Grisslehamn to Älvkarleby through Roslagen and northern Uppland, first running independently to Gimo and then continuing north on an Upplandsleden overlap.",
+    gettingThere:
+      "Use the selected section endpoints for access planning. Grisslehamn, Gimo, Österbybruk, Lövstabruk, Marma and Älvkarleby have the strongest access anchors; rural endpoints and services need current timetable checks.",
+    utilities: [
+      "Services are strongest in villages, bruk environments and the Upplandsleden overlap facilities; the independent Roslagen stages have lighter service density.",
+      "Parking and transit are kept as access context rather than normal trail facilities until the app has a dedicated access layer."
+    ],
+    waterSources: [
+      "Use only listed verified water points as refill context.",
+      "Unsafe pump/no-water rows remain suppressed; carry water and treat natural water."
+    ],
+    notes: [
+      "Imported from normalized candidate research on 2026-04-30.",
+      "Visit Roslagen confirms the first 63 km runs from Grisslehamn to Gimo and the route then continues north on Upplandsleden.",
+      "Sections 7-12 overlap Upplandsleden sections 11-16 and are imported as a separate selectable overlap chain with trail-scoped route files.",
+      "The previously missing Visit Roslagen Etapp 12 page is live as vikingaleden-etapp-16 and states it corresponds to Upplandsleden etapp 16.",
+      "Branch/context amenities, rule warnings, fire rules, seasonal service status and transit remain publication-time checks."
+    ],
+    selectableRouteGroupKinds: ["mainline", "branch"],
+    routeGroupNames: {
+      "vikingaleden-mainline": "Grisslehamn-Gimo",
+      "vikingaleden-upplandsleden-overlap": "Gimo-Älvkarleby overlap"
+    },
+    source: {
+      provider: "visit-roslagen/naturkartan-outdooractive-candidate-research",
+      url: "https://www.visitroslagen.se/vikingaleden",
+      lastFetchedAt: "2026-04-30"
+    }
   }
 };
 

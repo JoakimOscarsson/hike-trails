@@ -440,20 +440,25 @@ const topologyDecisionConfig = {
     triageResolvedAction: "Candidate-only geometry prototype scope is now approved and explicitly barred from writing runtime source data."
   },
   vikingaleden: {
-    status: "candidate-topology-recorded-needs-overlap-dedupe",
+    status: "candidate-topology-recorded-overlap-dedupe-applied",
     decisionsApplied: [
       {
         id: "vikingaleden-overlap-alias-policy",
         decision:
-          "Keep the 12-section Vikingaleden candidate topology while preserving sections 7-12 as Upplandsleden overlap aliases for the later dedupe/import pass."
+          "Keep the 12-section Vikingaleden candidate topology, write trail-scoped Vikingaleden route files for all sections, and preserve sections 7-12 as a selectable Upplandsleden-overlap chain with deduped facility/place records."
       }
     ],
     routeGroups: [
       { groupId: "vikingaleden-mainline", kind: "mainline", sectionOrders: [1, 2, 3, 4, 5, 6], status: "candidate-topology-recorded" },
-      { groupId: "vikingaleden-upplandsleden-overlap", kind: "branch", sectionOrders: [7, 8, 9, 10, 11, 12], status: "overlap-alias-metadata" }
+      { groupId: "vikingaleden-upplandsleden-overlap", kind: "branch", sectionOrders: [7, 8, 9, 10, 11, 12], status: "overlap-dedupe-applied" }
     ],
     connections: [],
-    remainingGeometryWork: ["Run Upplandsleden overlap dedupe for sections 7-12 before runtime import."]
+    remainingGeometryWork: [
+      "Run publication-time checks for volatile route notices, fire rules, seasonal services and transit before exposing the route as final."
+    ],
+    triageResolvedSourceIds: ["blocker-2", "vikingaleden-overlap-runtime-model"],
+    triageResolvedAction:
+      "Vikingaleden uses separate trail-scoped runtime route files for all 12 sections, with sections 7-12 grouped as a selectable Upplandsleden-overlap chain rather than silently merging into the first six independent stages."
   }
 };
 
@@ -479,9 +484,16 @@ const policyDecisionConfig = {
       "Shared trail-specific decisions now scope optional businesses as caveated side-service/access metadata and keep Rankåsleden/regional long-distance links as future connector metadata unless explicitly selected."
   },
   vikingaleden: {
-    triageResolvedSourceIds: ["blocker-1"],
+    triageResolvedSourceIds: [
+      "blocker-1",
+      "blocker-3",
+      "vikingaleden-shared-facility-ownership",
+      "vikingaleden-transport-layer",
+      "vikingaleden-pending-branch-features",
+      "vikingaleden-rule-warning-layer"
+    ],
     action:
-      "The existing Vikingaleden trail.research.json is now explicitly accepted as the candidate trail overview for this prep pass; later official overview refreshes can update metadata without blocking normalization."
+      "The live Visit Roslagen overview confirms the 12-stage model and the Etapp 12 page is available again. Shared overlap facilities are kept trail-scoped after dedupe until a cross-trail canonical facility model exists; parking/transit stay access metadata, branch/context amenities remain pending, and rule warnings are retained as notes/context rather than visible facilities."
   }
 };
 
@@ -515,6 +527,11 @@ const generatedGeometryResolutionConfig = {
     triageResolvedSourceIds: [],
     action:
       "Research-only candidate GeoJSON now exists for all 23 Höglandsleden sections from official Naturkartan GPX sources."
+  },
+  vikingaleden: {
+    triageResolvedSourceIds: ["geometry"],
+    action:
+      "Research-only candidate GeoJSON now exists for all 12 Vikingaleden sections from Naturkartan and Outdooractive/Paxwalk GPX sources, with computed geometry distances matching the normalized section display distances."
   }
 };
 

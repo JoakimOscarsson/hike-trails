@@ -402,8 +402,8 @@
     ]
   },
   "overlapDedupePlan": {
-    "status": "required-before-runtime-import",
-    "overlapPolicy": "Sections 7-12 overlap Upplandsleden sections 11-16 and must be deduped before runtime import.",
+    "status": "applied-for-candidate-runtime-import",
+    "overlapPolicy": "Sections 7-12 overlap Upplandsleden sections 11-16. Runtime import should keep Vikingaleden as a separate trail with trail-scoped route files, while preserving the overlap as a selectable chain and keeping shared facilities deduped within the Vikingaleden candidate records.",
     "overlapSections": [
       {
         "vikingaledenSectionId": "vikingaleden-etapp-7-gimo-osterbybruk",
@@ -644,9 +644,13 @@
       "Commercial/seasonal services should remain pending unless current opening/access data is verified close to import time.",
       "Standalone slinga/loop contribution files now exist; import should dedupe shared endpoint facilities against the numbered-etapp registry by source URL/coordinate."
     ],
+    "resolvedRuntimeDecisions": [
+      "Use separate Vikingaleden runtime route files for all 12 sections so the trail can be selected independently from Upplandsleden.",
+      "Group sections 7-12 as a selectable Upplandsleden-overlap chain rather than merging it into the independent Grisslehamn-Gimo chain.",
+      "Keep shared overlap facilities trail-scoped after dedupe until the app has a cross-trail canonical facility model."
+    ],
     "unknowns": [
-      "unknown/recheck: whether Vikingaleden should share canonical facilities directly with Upplandsleden in runtime data or keep trail-scoped sectionRefs on shared canonical places.",
-      "unknown/recheck: whether overlapping route geometry should reuse Upplandsleden route files or keep Vikingaleden route files as route aliases."
+      "unknown/recheck: publication-time currentness of any shared Upplandsleden facility/service before exposing the route as final."
     ]
   },
   "ruleWarningPlan": {
@@ -661,8 +665,9 @@
       "GPX direction or route-condition metadata"
     ],
     "normalizationInstruction": "Keep rule-warning rows as route/section notes or planning warnings only if the normalizer has an explicit rule-warning layer; otherwise keep them suppressed.",
+    "runtimeDecision": "No dedicated rule-warning runtime layer exists yet, so keep these rows suppressed from visible facilities and preserve hiker-facing currentness/rule context in trail or section notes.",
     "unknowns": [
-      "unknown/recheck: currentness of any fire-ban, route-condition, or reserve-management warning at runtime import."
+      "unknown/recheck: currentness of any fire-ban, route-condition, or reserve-management warning at publication time."
     ]
   },
   "importOrder": [
@@ -696,36 +701,41 @@
     }
   ],
   "blockers": [
-    "Trail-level metadata was generated from the completed section packets rather than a separate official overview pass.",
-    "Import work must dedupe facilities, geometry, and route aliases against Upplandsleden for overlapping sections 7-12.",
-    "Visit Roslagen Etapp 12 detail returned 404 during section research; the section packet uses Naturkartan/Upplandsleden and Outdooractive/Paxwalk evidence.",
-    "unknown/recheck: verify current official overview and any changed section pages immediately before runtime import."
+    "Resolved 2026-04-30: Visit Roslagen live overview confirms the 12-stage Vikingaleden model from Grisslehamn to Älvkarleby, with the first 63 km to Gimo and continuation on Upplandsleden.",
+    "Resolved 2026-04-30: sections 7-12 are deduped against Upplandsleden overlap context and will import as trail-scoped Vikingaleden route files in a selectable overlap chain.",
+    "Resolved 2026-04-30: Visit Roslagen Etapp 12 is live at https://www.visitroslagen.se/vikingaleden-etapp-16 and states it corresponds to Upplandsleden etapp 16.",
+    "unknown/recheck: verify volatile route notices, fire rules, seasonal services and transit close to user-facing publication."
   ],
   "openDecisionsForUser": [
     {
       "id": "vikingaleden-overlap-runtime-model",
-      "decision": "unknown/recheck",
-      "question": "For overlapping sections 7-12, should runtime data expose Vikingaleden as a separate trail with its own route geometry files, or as route aliases over canonical Upplandsleden section geometry?"
+      "decision": "resolved",
+      "question": "For overlapping sections 7-12, should runtime data expose Vikingaleden as a separate trail with its own route geometry files, or as route aliases over canonical Upplandsleden section geometry?",
+      "answer": "Expose Vikingaleden as a separate trail with its own route geometry files, and make the overlap a separate selectable route group."
     },
     {
       "id": "vikingaleden-shared-facility-ownership",
-      "decision": "unknown/recheck",
-      "question": "Should shared facilities on the Upplandsleden overlap be owned by a cross-trail canonical facility/place record with both trail sectionRefs, or duplicated per trail after dedupe?"
+      "decision": "resolved",
+      "question": "Should shared facilities on the Upplandsleden overlap be owned by a cross-trail canonical facility/place record with both trail sectionRefs, or duplicated per trail after dedupe?",
+      "answer": "Keep trail-scoped Vikingaleden facility records after candidate dedupe until the app has a cross-trail canonical facility/place model."
     },
     {
       "id": "vikingaleden-transport-layer",
-      "decision": "unknown/recheck",
-      "question": "Should parking and transit stay out of normal facilities unless an access layer exists, matching the Upplandsleden dedupe policy?"
+      "decision": "resolved",
+      "question": "Should parking and transit stay out of normal facilities unless an access layer exists, matching the Upplandsleden dedupe policy?",
+      "answer": "Yes. Keep parking and transit rows out of normal facilities unless a future access layer imports them."
     },
     {
       "id": "vikingaleden-pending-branch-features",
-      "decision": "unknown/recheck",
-      "question": "Should Stormon/Grillholmen and other branch/context amenities remain pending until branch handling is settled?"
+      "decision": "resolved",
+      "question": "Should Stormon/Grillholmen and other branch/context amenities remain pending until branch handling is settled?",
+      "answer": "Yes. Keep Stormon/Grillholmen and other branch/context amenities pending until alternate branch geometry is modeled."
     },
     {
       "id": "vikingaleden-rule-warning-layer",
-      "decision": "unknown/recheck",
-      "question": "Should rule-warning rows be preserved as visible planning warnings if the app has a rule-warning layer, or remain suppressed/context-only?"
+      "decision": "resolved",
+      "question": "Should rule-warning rows be preserved as visible planning warnings if the app has a rule-warning layer, or remain suppressed/context-only?",
+      "answer": "No dedicated rule-warning layer exists yet, so keep rule-warning rows suppressed from visible facilities and carry publication-time caveats in notes."
     }
   ],
   "validationChecklist": [

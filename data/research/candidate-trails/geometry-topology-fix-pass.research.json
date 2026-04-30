@@ -759,11 +759,11 @@
     },
     {
       "trailId": "vikingaleden",
-      "status": "candidate-topology-recorded-needs-overlap-dedupe",
+      "status": "candidate-topology-recorded-overlap-dedupe-applied",
       "decisionsApplied": [
         {
           "id": "vikingaleden-overlap-alias-policy",
-          "decision": "Keep the 12-section Vikingaleden candidate topology while preserving sections 7-12 as Upplandsleden overlap aliases for the later dedupe/import pass."
+          "decision": "Keep the 12-section Vikingaleden candidate topology, write trail-scoped Vikingaleden route files for all sections, and preserve sections 7-12 as a selectable Upplandsleden-overlap chain with deduped facility/place records."
         }
       ],
       "routeGroups": [
@@ -783,7 +783,7 @@
         {
           "groupId": "vikingaleden-upplandsleden-overlap",
           "kind": "branch",
-          "status": "overlap-alias-metadata",
+          "status": "overlap-dedupe-applied",
           "sectionIds": [
             "vikingaleden-etapp-7-gimo-osterbybruk",
             "vikingaleden-etapp-8-osterbybruk-rison",
@@ -797,7 +797,7 @@
       "connections": [],
       "displayPolicies": [],
       "remainingGeometryWork": [
-        "Run Upplandsleden overlap dedupe for sections 7-12 before runtime import."
+        "Run publication-time checks for volatile route notices, fire rules, seasonal services and transit before exposing the route as final."
       ]
     }
   ],
