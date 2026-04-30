@@ -12,11 +12,34 @@ Trail ID: `hoglandsleden`
 
 ## Handoff Status
 
-This branch intentionally stops after the whole-trail overview and HÖ1 section research.
+This branch currently contains the whole-trail overview plus completed HÖ1, HÖ2, HÖ3, HÖ4, HÖ5, HÖ6, HÖ7, HÖ8, HÖ9, HÖ10, HÖ11, HÖ12, HÖ13, HÖ14, HÖ15, HÖ16, HÖ17, HÖ18, HÖ19, HÖ20, HÖ21, HÖ22, and HÖ23 section research.
 
 - Whole-trail overview: complete for candidate handoff.
 - HÖ1 Västra Lägern - Skuruhatt: complete for research handoff and ready for normalization with caveats.
-- HÖ2-HÖ23: not yet section-researched.
+- HÖ2 Skuruhatt - Valbacken: complete for research handoff and ready for normalization with caveats.
+- HÖ3 Valbacken - Mariannelund: complete for research handoff and ready for normalization with caveats.
+- HÖ4 Valbacken - Lilla Bjälkerum: complete for research handoff and ready for normalization with caveats.
+- HÖ5 Lilla Bjälkerum - Ädelfors: complete for research handoff and ready for normalization with caveats.
+- HÖ6 Ädelfors - Högarps kulturreservat: complete for research handoff and ready for normalization with caveats.
+- HÖ7 Högarps kulturreservat - Lemnhult: complete for research handoff and ready for normalization with caveats.
+- HÖ8 Lemnhult - Lindshammar: complete for research handoff and ready for normalization with caveats.
+- HÖ9 Lindshammar - Ramkvilla: complete for research handoff and ready for normalization with caveats.
+- HÖ10 Ramkvilla - Asa: complete for research handoff and ready for normalization with caveats.
+- HÖ11 Asa - Hultsjö: complete for research handoff and ready for normalization with caveats.
+- HÖ12 Hultsjö - Sävsjö: complete for research handoff and ready for normalization with caveats.
+- HÖ13 Sävsjö - Forsa: complete for research handoff and ready for normalization with caveats.
+- HÖ14 Forsa - Vikskvarn: complete for research handoff and ready for normalization with caveats.
+- HÖ15 Vikskvarn - Lövhult: complete for research handoff and ready for normalization with caveats.
+- HÖ16 Lövhult - Ränneborg: complete for research handoff and ready for normalization with caveats.
+- HÖ17 Ränneborg - Skuruhatt: complete for research handoff and ready for normalization with caveats.
+- HÖ18 Vikskvarn - Tomtabacken: complete for research handoff and ready for normalization with caveats.
+- HÖ19 Tomtabacken - Hok: complete for research handoff and ready for normalization with caveats.
+- HÖ20 Hok - Byarum: complete for research handoff and ready for normalization with caveats.
+- HÖ21 Byarum - Skillingaryd: complete for research handoff and ready for normalization with caveats.
+- HÖ22 Skillingaryd - Åsafors: complete for research handoff and ready for normalization with caveats.
+- HÖ23 Åsafors - Kärringabacka: complete for research handoff and ready for normalization; targeted caveat pass completed. Remaining issues are explicit import rules or live pre-publication checks, not unresolved structural blockers.
+
+HÖ23 also has a research-only GeoJSON derived from the official GPX at `geometry/hoglandsleden-ho23-asafors-karringabacka.official-gpx-derived.geojson`. This is for later import planning only and is not runtime app data.
 
 ## Current Official Structure
 
