@@ -1,0 +1,5144 @@
+{
+  "schemaVersion": "candidate-facility-clusters/v1",
+  "trailId": "vikingaleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-normalized-research-only",
+  "runtimeImportApproved": false,
+  "facilityStatePolicy": {
+    "decision": "Normalize facilities through explicit import actions, not by deleting caveats.",
+    "candidateImportActions": [
+      "import",
+      "import-as-access",
+      "import-as-rule-warning",
+      "attach-to-parent",
+      "side-trip-metadata",
+      "pending-review",
+      "suppress"
+    ],
+    "runtimeMapping": [
+      "Only import, import-as-access, import-as-rule-warning and attach-to-parent records may become runtime data.",
+      "Pending-review and suppress records remain in research/candidate artifacts and must not appear as normal user-facing facilities.",
+      "Side-trip metadata can become user-facing only if the route or POI is intentionally modeled as a side trip."
+    ],
+    "parentClusterPolicy": "Cluster first, then split typed subfacilities only where coordinates, confidence and app taxonomy justify separate markers.",
+    "parkingAndTransitPolicy": "Parking and transit should be treated consistently with existing app trails: import verified, useful access records as user-facing parking/transit facilities or accessPoints, dedupe them by cluster, and keep timetable/parking-rule details caveated and live-checkable.",
+    "informalTentingPolicy": "Informal tenting remains a separate candidate category. Promote to runtime camping only when rules and coordinates support it; otherwise keep as caveated rule/access text or pending-review.",
+    "privateCommercialPolicy": "Private, customer-only, seasonal or opening-hours-dependent services can be imported only with clear caveats and publication-time recheck requirements."
+  },
+  "summary": {
+    "totalFacilities": 247,
+    "clusterCount": 146,
+    "multiFacilityClusters": 56,
+    "dedupeCandidateClusters": 118,
+    "byRecommendedAction": {
+      "keep-suppressed": 78,
+      "single-record": 28,
+      "dedupe-duplicate-facility": 5,
+      "dedupe-related-site-cluster": 24,
+      "attach-child-amenities-to-parent": 11
+    }
+  },
+  "clusters": [
+    {
+      "clusterId": "vikingaleden-coord-60-1906-17-8950-heritage",
+      "clusterKey": "coord-60.1906-17.8950-heritage",
+      "representativeName": "Hembygdsgården, Österbybruk",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-12-hembygdsgarden-osterbybruk-context"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.190643,
+        17.895004
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-1938-17-9000-heritage",
+      "clusterKey": "coord-60.1938-17.9000-heritage",
+      "representativeName": "Österbybruk heritage cluster",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-12-osterbybruk-cultural-duplicates"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.193847,
+        17.900041
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-1952-18-1170-heritage",
+      "clusterKey": "coord-60.1952-18.1170-heritage",
+      "representativeName": "Folkmora ruins",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vikingaleden-etapp-7-folkmora-ruins"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.1952164,
+        18.1169719
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-2031-17-9520-attraction",
+      "clusterKey": "coord-60.2031-17.9520-attraction",
+      "representativeName": "Stordammen",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-11-stordammen-area"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.20306,
+        17.95205
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-2106-18-0700-heritage",
+      "clusterKey": "coord-60.2106-18.0700-heritage",
+      "representativeName": "Kakeläng ruins",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "upplandsleden-etapp-11-kakelang-ruins"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.210628,
+        18.070043
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-2135-18-0374-attraction",
+      "clusterKey": "coord-60.2135-18.0374-attraction",
+      "representativeName": "Glamsmossen peat extraction area and log-floating channel",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "upplandsleden-etapp-11-glamsmossen-peat-floating-channel"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.2134972,
+        18.0373585
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-2144-17-9560-attraction",
+      "clusterKey": "coord-60.2144-17.9560-attraction",
+      "representativeName": "Aspbo naturreservat",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-11-aspbo-naturreservat"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.214421,
+        17.95596
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-2223-17-9082-heritage",
+      "clusterKey": "coord-60.2223-17.9082-heritage",
+      "representativeName": "Gravfält vid Film",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vikingaleden-etapp-8-iron-age-grave-field-film"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.222275,
+        17.908163
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-2252-17-9066-attraction",
+      "clusterKey": "coord-60.2252-17.9066-attraction",
+      "representativeName": "Filmspången",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vikingaleden-etapp-8-filmspangen"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.2252109,
+        17.9066322
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-2292-17-8960-heritage",
+      "clusterKey": "coord-60.2292-17.8960-heritage",
+      "representativeName": "Films kyrka",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vikingaleden-etapp-8-films-kyrka"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.229167,
+        17.896031
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-2935-17-8338-attraction",
+      "clusterKey": "coord-60.2935-17.8338-attraction",
+      "representativeName": "Florarna naturreservat",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-12-florarna-area-context"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.2935,
+        17.8338
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-2939-17-8334-fireplace",
+      "clusterKey": "coord-60.2939-17.8334-fireplace",
+      "representativeName": "Eldplats, Grillholmen",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "upplandsleden-etapp-12-western-branch-grillholmen-fireplace"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.29391593497397,
+        17.8333854675293
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-2939-17-8334-rest-area",
+      "clusterKey": "coord-60.2939-17.8334-rest-area",
+      "representativeName": "Rastplats, Grillholmen",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "upplandsleden-etapp-12-western-branch-grillholmen-rest-area"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.29391593497397,
+        17.8333854675293
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-3010-17-8681-attraction",
+      "clusterKey": "coord-60.3010-17.8681-attraction",
+      "representativeName": "Kungaspången",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vikingaleden-etapp-8-kungaspangen"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.300976,
+        17.86812
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-3062-17-8393-attraction",
+      "clusterKey": "coord-60.3062-17.8393-attraction",
+      "representativeName": "Torpet Västergärde rental context",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-13-vastergarde-rental-context"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-9-rison-lovstabruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.30624,
+        17.83927
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-3079-17-8642-attraction",
+      "clusterKey": "coord-60.3079-17.8642-attraction",
+      "representativeName": "Etapp 12 leakage",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-13-etapp12-leakage"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-9-rison-lovstabruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.307942557,
+        17.864225866
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-3094-17-8567-attraction",
+      "clusterKey": "coord-60.3094-17.8567-attraction",
+      "representativeName": "Torpet Västergärde",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-12-vastergarde-rental-context"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.309438,
+        17.856651
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-3256-17-8923-attraction",
+      "clusterKey": "coord-60.3256-17.8923-attraction",
+      "representativeName": "Florarna nature reserve area context",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-13-florarna-area-context"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-9-rison-lovstabruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.325554,
+        17.892251
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-3470-17-8845-swimming",
+      "clusterKey": "coord-60.3470-17.8845-swimming",
+      "representativeName": "Informella badplatser längs Finnsjön",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "upplandsleden-etapp-13-finnsjon-informal-swimming"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-9-rison-lovstabruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.34704762980169,
+        17.88453756234154
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-3602-17-8763-heritage",
+      "clusterKey": "coord-60.3602-17.8763-heritage",
+      "representativeName": "Nybron och gamla banvallen mot Lövstabruk",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vikingaleden-etapp-9-nybron-railway-embankment"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-9-rison-lovstabruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.360248836,
+        17.876300042
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-4073-17-8541-heritage",
+      "clusterKey": "coord-60.4073-17.8541-heritage",
+      "representativeName": "Knuters bytomt",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "upplandsleden-etapp-14-knuters-village-remains"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-10-lovstabruk-vastland"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.4073,
+        17.8541
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-4081-17-8792-attraction",
+      "clusterKey": "coord-60.4081-17.8792-attraction",
+      "representativeName": "Etapp 13 leakage",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-14-etapp13-leakage"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-10-lovstabruk-vastland"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.408125051,
+        17.879244638
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-4081-17-8792-hazard",
+      "clusterKey": "coord-60.4081-17.8792-hazard",
+      "representativeName": "Etapp 13 GPX stored in reverse direction",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-13-gpx-direction-metadata"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-9-rison-lovstabruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.408125051,
+        17.879244638
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-4334-17-7339-hazard",
+      "clusterKey": "coord-60.4334-17.7339-hazard",
+      "representativeName": "No supplied firewood at Svenbo",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-14-svenbo-no-firewood-warning"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-10-lovstabruk-vastland"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.43336898328312,
+        17.73387806444816
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-4362-17-7797-heritage",
+      "clusterKey": "coord-60.4362-17.7797-heritage",
+      "representativeName": "Österlövsta kyrka",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-14-stromaran-timber-floating-context",
+        "vikingaleden-etapp-10-osterlovsta-kyrka"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-10-lovstabruk-vastland"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.4362482760302,
+        17.77966422910933
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-4446-17-6317-attraction",
+      "clusterKey": "coord-60.4446-17.6317-attraction",
+      "representativeName": "Barsjön och gammeltallarna",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vikingaleden-etapp-10-barsjon-old-pines"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-10-lovstabruk-vastland"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.4446,
+        17.6317
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-4477-17-6172-attraction",
+      "clusterKey": "coord-60.4477-17.6172-attraction",
+      "representativeName": "Tämnarån canoe/river context",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-14-tamnaran-canoe-context"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-10-lovstabruk-vastland"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.447723493433,
+        17.6171633438302
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-4498-17-5188-attraction",
+      "clusterKey": "coord-60.4498-17.5188-attraction",
+      "representativeName": "Trusksjön context",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-15-trusksjon-context"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-11-vastland-marma"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 11
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.449764,
+        17.51878
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-4520-17-5600-heritage",
+      "clusterKey": "coord-60.4520-17.5600-heritage",
+      "representativeName": "Tingshällarna",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "upplandsleden-etapp-15-tingshallarna"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-11-vastland-marma"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 11
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.452,
+        17.56
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-4533-17-5130-hazard",
+      "clusterKey": "coord-60.4533-17.5130-hazard",
+      "representativeName": "Honolulukojan has no reliable water",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-15-honolulukojan-water-warning"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-11-vastland-marma"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 11
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.45327878903234,
+        17.51298333351068
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-4600-17-4700-attraction",
+      "clusterKey": "coord-60.4600-17.4700-attraction",
+      "representativeName": "Sätra nature reserve context",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-15-satra-reserve-context"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-11-vastland-marma"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 11
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.46,
+        17.47
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-4899-17-4228-attraction",
+      "clusterKey": "coord-60.4899-17.4228-attraction",
+      "representativeName": "Etapp 16 leakage",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-15-etapp16-leakage"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-11-vastland-marma"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 11
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.489864814,
+        17.422793066
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-4972-17-4166-attraction",
+      "clusterKey": "coord-60.4972-17.4166-attraction",
+      "representativeName": "Fågeltorn, Storfjärden",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vikingaleden-etapp-12-storfjarden-bird-tower"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.4972390714134,
+        17.4166155853738
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-5224-17-4005-rest-area",
+      "clusterKey": "coord-60.5224-17.4005-rest-area",
+      "representativeName": "Rastplats, Ambricka båtstad",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vikingaleden-etapp-12-ambricka-rest-area"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.522422110991755,
+        17.400526726982037
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-5306-17-4202-attraction",
+      "clusterKey": "coord-60.5306-17.4202-attraction",
+      "representativeName": "Lanforsen",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "upplandsleden-etapp-16-lanforsen"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.5306,
+        17.4202
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-5359-17-4366-hazard",
+      "clusterKey": "coord-60.5359-17.4366-hazard",
+      "representativeName": "Gropholmarna reserve rules",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-16-gropholmarna-reserve-rules"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.5359109010342,
+        17.43661309351592
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-5400-17-4300-attraction",
+      "clusterKey": "coord-60.5400-17.4300-attraction",
+      "representativeName": "Båtfors nearby reserve context",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-16-batfors-context"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.54,
+        17.43
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-5615-17-4363-attraction",
+      "clusterKey": "coord-60.5615-17.4363-attraction",
+      "representativeName": "Älvkarlebyfallen",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "upplandsleden-etapp-16-alvkarlebyfallen"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.5615,
+        17.4363
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-5615-17-4363-heritage",
+      "clusterKey": "coord-60.5615-17.4363-heritage",
+      "representativeName": "Laxön",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vikingaleden-etapp-12-laxon-heritage"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.56147976956672,
+        17.43631961565151
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-coord-60-5654-17-4380-attraction",
+      "clusterKey": "coord-60.5654-17.4380-attraction",
+      "representativeName": "Etapp 17 leakage",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-16-etapp17-leakage"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.565412763,
+        17.437953728
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-edebo-cluster",
+      "clusterKey": "explicit-edebo-cluster",
+      "representativeName": "Edebo kyrka",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vikingaleden-etapp-4-edebo-church"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-4-haverodal-sanda"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.007858,
+        18.577206
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-gassvikssjon-cluster",
+      "clusterKey": "explicit-gassvikssjon-cluster",
+      "representativeName": "Gässvikssjöns rastplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vikingaleden-etapp-2-gassvikssjon-rest"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-2-trastabron-havero-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.0351,
+        18.7404
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-gimo-bruk-cluster",
+      "clusterKey": "explicit-gimo-bruk-cluster",
+      "representativeName": "Gimo bruk / herrgård",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vikingaleden-etapp-6-gimo-bruk"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-6-harg-gimo"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.1791344,
+        18.1733439
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-gimo-service-cluster",
+      "clusterKey": "explicit-gimo-service-cluster",
+      "representativeName": "Gimo vandrarhem",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vikingaleden-etapp-6-gimo-vandrarhem"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-6-harg-gimo"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.174597,
+        18.177567
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-grisslehamn-culture-cluster",
+      "clusterKey": "explicit-grisslehamn-culture-cluster",
+      "representativeName": "Optiska telegrafen i Grisslehamn",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-1-albert-engstrom",
+        "vikingaleden-etapp-1-optiska-telegrafen"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-1-grisslehamn-trastabron"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.094573,
+        18.818574
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-grisslehamn-service-cluster",
+      "clusterKey": "explicit-grisslehamn-service-cluster",
+      "representativeName": "Grisslehamns kapell",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-1-grisslehamns-kapell",
+        "vikingaleden-etapp-1-ica-grisslehamn",
+        "vikingaleden-etapp-1-qstar-water-pending"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-1-grisslehamn-trastabron"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction",
+        "food",
+        "water"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "food",
+        "water"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [
+        "attraction",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.096081,
+        18.805752
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-grisslehamn-start-cluster",
+      "clusterKey": "explicit-grisslehamn-start-cluster",
+      "representativeName": "Eckerölinjen terminal, Grisslehamn",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-1-eckero-terminal-toilet",
+        "vikingaleden-etapp-1-grisslehamn-trailhead"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-1-grisslehamn-trastabron"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet",
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "toilet",
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.09955,
+        18.813516
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-harg-bruk-cluster",
+      "clusterKey": "explicit-harg-bruk-cluster",
+      "representativeName": "Hargs bruk",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-5-hargs-bruk",
+        "vikingaleden-etapp-5-jarnboden"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-5-sanda-harg-hargshamn"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.18327,
+        18.405447
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-harg-kyrka-cluster",
+      "clusterKey": "explicit-harg-kyrka-cluster",
+      "representativeName": "Hargs kyrka",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-5-birgittagarden",
+        "vikingaleden-etapp-5-hargs-kyrka",
+        "vikingaleden-etapp-6-birgittagarden",
+        "vikingaleden-etapp-6-hargs-kyrka",
+        "vikingaleden-etapp-6-hargs-tallpark"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-5-sanda-harg-hargshamn",
+        "vikingaleden-etapp-6-harg-gimo"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction",
+        "lodging"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "attraction"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.188348,
+        18.392401
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-hargshamn-cluster",
+      "clusterKey": "explicit-hargshamn-cluster",
+      "representativeName": "Hargshamns bad & camping",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-5-hargshamns-camping",
+        "vikingaleden-etapp-5-hargshamns-folkets-hus-camping"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-5-sanda-harg-hargshamn"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.1715634,
+        18.4668374
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-hargstenen-cluster",
+      "clusterKey": "explicit-hargstenen-cluster",
+      "representativeName": "Runstenen i Harg / Hargstenen",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vikingaleden-etapp-5-hargstenen"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-5-sanda-harg-hargshamn"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.1535386,
+        18.4201527
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-havero-kyrka-cluster",
+      "clusterKey": "explicit-havero-kyrka-cluster",
+      "representativeName": "Häverö kyrka",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-2-havero-kyrka",
+        "vikingaleden-etapp-2-havero-kyrka-toilet",
+        "vikingaleden-etapp-2-havero-kyrka-water",
+        "vikingaleden-etapp-2-old-kimmine",
+        "vikingaleden-etapp-3-havero-kyrka",
+        "vikingaleden-etapp-3-old-kimmine"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-2-trastabron-havero-kyrka",
+        "vikingaleden-etapp-3-havero-kyrka-haverodal"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction",
+        "toilet",
+        "water"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "toilet",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "attraction",
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.0412093,
+        18.6800385
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-haverodal-cluster",
+      "clusterKey": "explicit-haverodal-cluster",
+      "representativeName": "Häverö-Edebo hembygdsgård",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-3-havero-edebo-hembygdsgard",
+        "vikingaleden-etapp-3-haverodal-services-pending",
+        "vikingaleden-etapp-3-haverodal-station-parking",
+        "vikingaleden-etapp-4-havero-edebo-hembygdsgard",
+        "vikingaleden-etapp-4-haverodal-station-parking"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-3-havero-kyrka-haverodal",
+        "vikingaleden-etapp-4-haverodal-sanda"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction",
+        "food",
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "food",
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "attraction",
+        "food"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.0277215,
+        18.6093844
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-haverodal-service-cluster",
+      "clusterKey": "explicit-haverodal-service-cluster",
+      "representativeName": "Häverödal shop / provisions",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-4-haverodal-food",
+        "vikingaleden-etapp-4-haverodal-petrol-water"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-4-haverodal-sanda"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food",
+        "water"
+      ],
+      "candidateTypes": [
+        "food",
+        "water"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.026231,
+        18.605292
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-sanda-cluster",
+      "clusterKey": "explicit-sanda-cluster",
+      "representativeName": "Sanda gård / stugor",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-4-sanda-bygdegard",
+        "vikingaleden-etapp-4-sanda-gard",
+        "vikingaleden-etapp-5-sanda-bygdegard"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-4-haverodal-sanda",
+        "vikingaleden-etapp-5-sanda-harg-hargshamn"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.105101,
+        18.459783
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-skafthammar-gimo-cluster",
+      "clusterKey": "explicit-skafthammar-gimo-cluster",
+      "representativeName": "Skäfthammars kyrka",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-6-gimo-gas-water-pending",
+        "vikingaleden-etapp-6-skafthammar-kyrka"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-6-harg-gimo"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction",
+        "water"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "attraction"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.169228,
+        18.198579
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-trastabron-cluster",
+      "clusterKey": "explicit-trastabron-cluster",
+      "representativeName": "Södermarkens slåtteräng",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-1-sodermarkens-slatterang",
+        "vikingaleden-etapp-1-vaddo-kanal",
+        "vikingaleden-etapp-2-trastabron-access"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-1-grisslehamn-trastabron",
+        "vikingaleden-etapp-2-trastabron-havero-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction",
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "attraction"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.054154,
+        18.759606
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-11-aspbo-east-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-11-aspbo-east-cluster",
+      "representativeName": "Tältplats, Aspbo",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "upplandsleden-etapp-11-aspbo-east-parking",
+        "vikingaleden-etapp-7-aspbo-east-fireplace",
+        "vikingaleden-etapp-7-aspbo-east-swimming",
+        "vikingaleden-etapp-7-aspbo-east-toilet",
+        "vikingaleden-etapp-7-aspbo-tent-site"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "camping",
+        "fireplace",
+        "parking",
+        "swimming",
+        "toilet"
+      ],
+      "candidateTypes": [
+        "camping",
+        "fireplace",
+        "parking",
+        "swimming",
+        "toilet"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [
+        "camping",
+        "fireplace",
+        "swimming",
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.21186977273129,
+        17.94670879840851
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-11-aspbo-west-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-11-aspbo-west-cluster",
+      "representativeName": "Aspbo västra badplats",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "upplandsleden-etapp-11-aspbo-west-parking",
+        "vikingaleden-etapp-7-aspbo-west-fireplace",
+        "vikingaleden-etapp-7-aspbo-west-swimming",
+        "vikingaleden-etapp-7-aspbo-west-toilet"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "fireplace",
+        "parking",
+        "swimming",
+        "toilet"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "parking",
+        "swimming",
+        "toilet"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [
+        "fireplace",
+        "swimming",
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.2104839373972,
+        17.93913692235947
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-11-glamsmossen-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-11-glamsmossen-cluster",
+      "representativeName": "Eldplats, Glamsmossen",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-7-glamsmossen-fireplace",
+        "vikingaleden-etapp-7-glamsmossen-rest-area",
+        "vikingaleden-etapp-7-glamsmossen-shelter"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace",
+        "rest-area",
+        "shelter"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "rest-area",
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "fireplace",
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.2121011996396,
+        18.04923972514121
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-11-osterbybruk-endpoint-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-11-osterbybruk-endpoint-cluster",
+      "representativeName": "Vatten, Österbybruk",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "upplandsleden-etapp-11-osterbybruk-busstation",
+        "upplandsleden-etapp-11-osterbybruk-end-parking",
+        "vikingaleden-etapp-7-osterbybruk-bus-waiting-hall-rwc",
+        "vikingaleden-etapp-7-osterbybruk-toilet",
+        "vikingaleden-etapp-7-osterbybruk-vallonsmedjan",
+        "vikingaleden-etapp-7-osterbybruk-water"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "heritage",
+        "parking",
+        "toilet",
+        "transit",
+        "water"
+      ],
+      "candidateTypes": [
+        "heritage",
+        "parking",
+        "toilet",
+        "transit",
+        "water"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "heritage",
+        "parking",
+        "toilet",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.19700233664054,
+        17.89823519117465
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-11-sagarbo-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-11-sagarbo-cluster",
+      "representativeName": "Rastplats, Sågarbo",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "upplandsleden-etapp-11-sagarbo-ruins",
+        "vikingaleden-etapp-7-sagarbo-rest-area"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "heritage",
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "heritage",
+        "rest-area"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.19332968613448,
+        18.12417266850798
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-12-films-kyrka-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-12-films-kyrka-cluster",
+      "representativeName": "Vatten, Films kyrka",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-8-films-kyrka-toilet",
+        "vikingaleden-etapp-8-films-kyrka-water"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet",
+        "water"
+      ],
+      "candidateTypes": [
+        "toilet",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.2284565561474,
+        17.8945248348433
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-12-osterbybruk-start-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-12-osterbybruk-start-cluster",
+      "representativeName": "Vatten, Österbybruk",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-8-osterbybruk-busstation-rwc",
+        "vikingaleden-etapp-8-osterbybruk-toilet",
+        "vikingaleden-etapp-8-osterbybruk-water"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet",
+        "water"
+      ],
+      "candidateTypes": [
+        "toilet",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.19700233664054,
+        17.89823519117465
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-12-rison-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-12-rison-cluster",
+      "representativeName": "Vatten, Risön",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-8-rison-campsite",
+        "vikingaleden-etapp-8-rison-fireplace",
+        "vikingaleden-etapp-8-rison-open-cabin",
+        "vikingaleden-etapp-8-rison-rest-area",
+        "vikingaleden-etapp-8-rison-toilet",
+        "vikingaleden-etapp-8-rison-water"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "camping",
+        "fireplace",
+        "rest-area",
+        "shelter",
+        "toilet",
+        "water"
+      ],
+      "candidateTypes": [
+        "camping",
+        "fireplace",
+        "rest-area",
+        "shelter",
+        "toilet",
+        "water"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "camping",
+        "fireplace",
+        "rest-area",
+        "toilet",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.30800476983704,
+        17.8656792640686
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-12-staffansholmen-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-12-staffansholmen-cluster",
+      "representativeName": "Eldplats, Staffansholmen",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-8-staffansholmen-fireplace",
+        "vikingaleden-etapp-8-staffansholmen-rest-area"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace",
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "rest-area"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.28554241396354,
+        17.85479754209518
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-12-vika-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-12-vika-cluster",
+      "representativeName": "Toalett, Vika",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-8-vika-rest-area",
+        "vikingaleden-etapp-8-vika-toilet"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "rest-area",
+        "toilet"
+      ],
+      "candidateTypes": [
+        "rest-area",
+        "toilet"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.28320637871305,
+        17.87576973438263
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-13-finnsjon-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-13-finnsjon-cluster",
+      "representativeName": "Rastplats, Finnsjön",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-9-finnsjon-fireplace",
+        "vikingaleden-etapp-9-finnsjon-rest-area"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-9-rison-lovstabruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace",
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "rest-area"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.34704762980169,
+        17.88453756234154
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-13-lovstabruk-endpoint-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-13-lovstabruk-endpoint-cluster",
+      "representativeName": "Vatten, Lövstabruk",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-9-lovstabruk-sodra-bruksdammen-swimming",
+        "vikingaleden-etapp-9-lovstabruk-toilet",
+        "vikingaleden-etapp-9-lovstabruk-water"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-9-rison-lovstabruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming",
+        "toilet",
+        "water"
+      ],
+      "candidateTypes": [
+        "swimming",
+        "toilet",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "swimming",
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.403564,
+        17.883001
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-13-rison-endpoint-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-13-rison-endpoint-cluster",
+      "representativeName": "Vatten, Risön",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-9-rison-campsite",
+        "vikingaleden-etapp-9-rison-fireplace",
+        "vikingaleden-etapp-9-rison-open-cabin",
+        "vikingaleden-etapp-9-rison-rest-area",
+        "vikingaleden-etapp-9-rison-toilet",
+        "vikingaleden-etapp-9-rison-water"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-9-rison-lovstabruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "camping",
+        "fireplace",
+        "rest-area",
+        "shelter",
+        "toilet",
+        "water"
+      ],
+      "candidateTypes": [
+        "camping",
+        "fireplace",
+        "rest-area",
+        "shelter",
+        "toilet",
+        "water"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "camping",
+        "fireplace",
+        "rest-area",
+        "toilet",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.30800476983704,
+        17.8656792640686
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-14-lovstabruk-start-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-14-lovstabruk-start-cluster",
+      "representativeName": "Vatten, Lövstabruk",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-10-lovstabruk-toilet",
+        "vikingaleden-etapp-10-lovstabruk-water"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-10-lovstabruk-vastland"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet",
+        "water"
+      ],
+      "candidateTypes": [
+        "toilet",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.4089584495311,
+        17.8773231928594
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-14-osterlovsta-kyrka-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-14-osterlovsta-kyrka-cluster",
+      "representativeName": "Vatten, Österlövsta kyrka",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-10-osterlovsta-kyrka-toilet",
+        "vikingaleden-etapp-10-osterlovsta-kyrka-water"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-10-lovstabruk-vastland"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet",
+        "water"
+      ],
+      "candidateTypes": [
+        "toilet",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.4362482760302,
+        17.77966422910933
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-14-svenbo-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-14-svenbo-cluster",
+      "representativeName": "Eldplats, Svenbo",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-10-svenbo-fireplace",
+        "vikingaleden-etapp-10-svenbo-rest-area",
+        "vikingaleden-etapp-10-svenbo-shelter"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-10-lovstabruk-vastland"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace",
+        "rest-area",
+        "shelter"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "rest-area",
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "fireplace",
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.43336898328312,
+        17.73387806444816
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-14-vastland-endpoint-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-14-vastland-endpoint-cluster",
+      "representativeName": "Vatten, Västlands kyrka",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-10-vastlands-kyrka-toilet",
+        "vikingaleden-etapp-10-vastlands-kyrka-water"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-10-lovstabruk-vastland"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet",
+        "water"
+      ],
+      "candidateTypes": [
+        "toilet",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.4464494571684,
+        17.6141631824036
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-14-vastland-shelter-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-14-vastland-shelter-cluster",
+      "representativeName": "Eldplats, Västland",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-10-vastland-fireplace",
+        "vikingaleden-etapp-10-vastland-rest-area",
+        "vikingaleden-etapp-10-vastland-shelter"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-10-lovstabruk-vastland"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace",
+        "rest-area",
+        "shelter"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "rest-area",
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "fireplace",
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.447723493433,
+        17.6171633438302
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-15-honolulukojan-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-15-honolulukojan-cluster",
+      "representativeName": "Utedass, Honolulukojan",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-11-honolulukojan-cabin",
+        "vikingaleden-etapp-11-honolulukojan-fireplace",
+        "vikingaleden-etapp-11-honolulukojan-rest-area",
+        "vikingaleden-etapp-11-honolulukojan-toilet"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-11-vastland-marma"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 11
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace",
+        "rest-area",
+        "shelter",
+        "toilet"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "rest-area",
+        "shelter",
+        "toilet"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "fireplace",
+        "rest-area",
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.45327878903234,
+        17.51298333351068
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-15-marma-endpoint-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-15-marma-endpoint-cluster",
+      "representativeName": "Marmabadet",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-11-marma-toilet",
+        "vikingaleden-etapp-11-marma-water",
+        "vikingaleden-etapp-11-marmabadet-rest-area",
+        "vikingaleden-etapp-11-marmabadet-swimming"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-11-vastland-marma"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 11
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "rest-area",
+        "swimming",
+        "toilet",
+        "water"
+      ],
+      "candidateTypes": [
+        "rest-area",
+        "swimming",
+        "toilet",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "rest-area",
+        "swimming",
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.4897861527719,
+        17.422605178978
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-15-marma-shelter-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-15-marma-shelter-cluster",
+      "representativeName": "Eldplats, Marma / Dalälven",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-11-marma-fireplace",
+        "vikingaleden-etapp-11-marma-rest-area",
+        "vikingaleden-etapp-11-marma-shelter"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-11-vastland-marma"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 11
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace",
+        "rest-area",
+        "shelter"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "rest-area",
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "fireplace",
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.48040442343241,
+        17.40517192728794
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-15-vastland-endpoint-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-15-vastland-endpoint-cluster",
+      "representativeName": "Vatten, Västlands kyrka",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-11-vastlands-kyrka-toilet",
+        "vikingaleden-etapp-11-vastlands-kyrka-water"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-11-vastland-marma"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 11
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet",
+        "water"
+      ],
+      "candidateTypes": [
+        "toilet",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.4464494571684,
+        17.6141631824036
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-15-vastland-shelter-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-15-vastland-shelter-cluster",
+      "representativeName": "Eldplats, Västland",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-11-vastland-fireplace",
+        "vikingaleden-etapp-11-vastland-rest-area",
+        "vikingaleden-etapp-11-vastland-shelter"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-11-vastland-marma"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 11
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace",
+        "rest-area",
+        "shelter"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "rest-area",
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "fireplace",
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.447723493433,
+        17.6171633438302
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-16-gropholmarna-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-16-gropholmarna-cluster",
+      "representativeName": "Eldplats, Gropholmarna",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-12-gropholmarna-fireplace",
+        "vikingaleden-etapp-12-gropholmarna-rest-area",
+        "vikingaleden-etapp-12-gropholmarna-shelter"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace",
+        "rest-area",
+        "shelter"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "rest-area",
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "fireplace",
+        "rest-area"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.5368418401049,
+        17.4339294433594
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-16-laxon-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-16-laxon-cluster",
+      "representativeName": "Vatten, Laxön / Café Furiren",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-12-laxon-toilet",
+        "vikingaleden-etapp-12-laxon-water"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet",
+        "water"
+      ],
+      "candidateTypes": [
+        "toilet",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.5623792125551,
+        17.4361275531163
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-explicit-upplandsleden-etapp-16-marma-start-cluster",
+      "clusterKey": "explicit-upplandsleden-etapp-16-marma-start-cluster",
+      "representativeName": "Marmabadet",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "explicit-source-cluster",
+      "facilityIds": [
+        "vikingaleden-etapp-12-marma-toilet",
+        "vikingaleden-etapp-12-marma-water",
+        "vikingaleden-etapp-12-marmabadet-rest-area",
+        "vikingaleden-etapp-12-marmabadet-swimming"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "rest-area",
+        "swimming",
+        "toilet",
+        "water"
+      ],
+      "candidateTypes": [
+        "rest-area",
+        "swimming",
+        "toilet",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "rest-area",
+        "swimming",
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        60.4897861527719,
+        17.422605178978
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vikingaleden-name-etapp-14-leakage",
+      "clusterKey": "name-etapp-14-leakage",
+      "representativeName": "Etapp 14 leakage",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-13-etapp14-leakage",
+        "upplandsleden-etapp-15-etapp14-leakage"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-9-rison-lovstabruk",
+        "vikingaleden-etapp-11-vastland-marma"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 11
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.408125051,
+        17.879244638
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-name-etapp-15-leakage",
+      "clusterKey": "name-etapp-15-leakage",
+      "representativeName": "Etapp 15 leakage",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-14-etapp15-leakage",
+        "upplandsleden-etapp-16-etapp15-leakage"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-10-lovstabruk-vastland",
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 12
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.447817892,
+        17.613429647
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-name-fire-risk-and-fire-ban-context",
+      "clusterKey": "name-fire-risk-and-fire-ban-context",
+      "representativeName": "Fire-risk and fire-ban context",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-14-fire-risk-context",
+        "upplandsleden-etapp-15-fire-risk-context",
+        "upplandsleden-etapp-16-fire-risk-context"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-10-lovstabruk-vastland",
+        "vikingaleden-etapp-11-vastland-marma",
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 12
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.43336898328312,
+        17.73387806444816
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-name-florarna-reserve-rules",
+      "clusterKey": "name-florarna-reserve-rules",
+      "representativeName": "Florarna reserve rules",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "upplandsleden-etapp-12-florarna-reserve-rules",
+        "upplandsleden-etapp-13-florarna-reserve-rules"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison",
+        "vikingaleden-etapp-9-rison-lovstabruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 9
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.325554,
+        17.892251
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-name-lovstabruk-bruksmiljo",
+      "clusterKey": "name-lovstabruk-bruksmiljo",
+      "representativeName": "Lövstabruk bruksmiljö",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vikingaleden-etapp-9-lovstabruk-bruksmiljo",
+        "vikingaleden-etapp-10-lovstabruk-bruksmiljo"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-9-rison-lovstabruk",
+        "vikingaleden-etapp-10-lovstabruk-vastland"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 10
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.408125051,
+        17.879244638
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vikingaleden-name-marma-skjutfalt-context",
+      "clusterKey": "name-marma-skjutfalt-context",
+      "representativeName": "Marma skjutfält context",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-15-marma-shooting-range-context",
+        "upplandsleden-etapp-16-marma-shooting-range-context"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-11-vastland-marma",
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 12
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.48040442343241,
+        17.40517192728794
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-name-rison-booked-indoor-amenities",
+      "clusterKey": "name-rison-booked-indoor-amenities",
+      "representativeName": "Risön booked indoor amenities",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-12-rison-booked-amenities-context",
+        "upplandsleden-etapp-13-rison-booked-amenities"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison",
+        "vikingaleden-etapp-9-rison-lovstabruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 9
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.308005,
+        17.865679
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-single-upplandsleden-etapp-11-dammledenslingan-overlap",
+      "clusterKey": "single-upplandsleden-etapp-11-dammledenslingan-overlap",
+      "representativeName": "Dammledenslingan / slinga 11:1 overlap",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "upplandsleden-etapp-11-dammledenslingan-overlap"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-single-upplandsleden-etapp-11-gimo-heritage-duplicate",
+      "clusterKey": "single-upplandsleden-etapp-11-gimo-heritage-duplicate",
+      "representativeName": "Gimo Herrgård / Hammaren / Gimo bruk",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "upplandsleden-etapp-11-gimo-heritage-duplicate"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-single-upplandsleden-etapp-11-gimobadet-services-offroute",
+      "clusterKey": "single-upplandsleden-etapp-11-gimobadet-services-offroute",
+      "representativeName": "Gimobadet services",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "upplandsleden-etapp-11-gimobadet-services-offroute"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-single-upplandsleden-etapp-11-gpx-track-gap-warning",
+      "clusterKey": "single-upplandsleden-etapp-11-gpx-track-gap-warning",
+      "representativeName": "Official GPX track break and reviewed Glamsmossen generalization",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "upplandsleden-etapp-11-gpx-track-gap-warning"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-single-upplandsleden-etapp-11-neighbor-etapp10-leakage",
+      "clusterKey": "single-upplandsleden-etapp-11-neighbor-etapp10-leakage",
+      "representativeName": "Etapp 10 east-of-Gimo facilities",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "upplandsleden-etapp-11-neighbor-etapp10-leakage"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-single-upplandsleden-etapp-11-neighbor-etapp12-leakage",
+      "clusterKey": "single-upplandsleden-etapp-11-neighbor-etapp12-leakage",
+      "representativeName": "Etapp 12 / Florarna / Risön / Vika services",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "upplandsleden-etapp-11-neighbor-etapp12-leakage"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-single-upplandsleden-etapp-11-route-condition-warning-recheck",
+      "clusterKey": "single-upplandsleden-etapp-11-route-condition-warning-recheck",
+      "representativeName": "Etapp 11 route condition warning recheck",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "upplandsleden-etapp-11-route-condition-warning-recheck"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-single-upplandsleden-etapp-11-stordammen-runt-context",
+      "clusterKey": "single-upplandsleden-etapp-11-stordammen-runt-context",
+      "representativeName": "Stordammen runt",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "upplandsleden-etapp-11-stordammen-runt-context"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-single-upplandsleden-etapp-11-vikingaleden-context",
+      "clusterKey": "single-upplandsleden-etapp-11-vikingaleden-context",
+      "representativeName": "Vikingaleden Etapp 7",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "upplandsleden-etapp-11-vikingaleden-context"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-single-upplandsleden-etapp-12-etapp13-leakage",
+      "clusterKey": "single-upplandsleden-etapp-12-etapp13-leakage",
+      "representativeName": "Etapp 13 / Lövstabruk leakage",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "upplandsleden-etapp-12-etapp13-leakage"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-single-upplandsleden-etapp-12-floranslingan-leakage",
+      "clusterKey": "single-upplandsleden-etapp-12-floranslingan-leakage",
+      "representativeName": "Floranslingan / Upplandsleden slinga 12:2",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "upplandsleden-etapp-12-floranslingan-leakage"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-single-upplandsleden-etapp-12-old-ore-transport-context",
+      "clusterKey": "single-upplandsleden-etapp-12-old-ore-transport-context",
+      "representativeName": "Old iron-ore transport path Dannemora-Lövstabruk",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "upplandsleden-etapp-12-old-ore-transport-context"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-single-upplandsleden-etapp-12-osterbybruk-local-loops-context",
+      "clusterKey": "single-upplandsleden-etapp-12-osterbybruk-local-loops-context",
+      "representativeName": "Kulturstigen / Österbybrukslingan 12:1",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "upplandsleden-etapp-12-osterbybruk-local-loops-context"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-single-upplandsleden-etapp-12-western-branch-stormon-grillholmen",
+      "clusterKey": "single-upplandsleden-etapp-12-western-branch-stormon-grillholmen",
+      "representativeName": "Western branch Stormon/Grillholmen branch policy",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "upplandsleden-etapp-12-western-branch-stormon-grillholmen"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-single-vikingaleden-etapp-1-commercial-currentness",
+      "clusterKey": "single-vikingaleden-etapp-1-commercial-currentness",
+      "representativeName": "vikingaleden-etapp-1-commercial-currentness",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "vikingaleden-etapp-1-commercial-currentness"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-1-grisslehamn-trastabron"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-single-vikingaleden-etapp-2-commercial-currentness",
+      "clusterKey": "single-vikingaleden-etapp-2-commercial-currentness",
+      "representativeName": "vikingaleden-etapp-2-commercial-currentness",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "vikingaleden-etapp-2-commercial-currentness"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-2-trastabron-havero-kyrka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-single-vikingaleden-etapp-3-commercial-currentness",
+      "clusterKey": "single-vikingaleden-etapp-3-commercial-currentness",
+      "representativeName": "vikingaleden-etapp-3-commercial-currentness",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "vikingaleden-etapp-3-commercial-currentness"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-3-havero-kyrka-haverodal"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-single-vikingaleden-etapp-4-commercial-currentness",
+      "clusterKey": "single-vikingaleden-etapp-4-commercial-currentness",
+      "representativeName": "vikingaleden-etapp-4-commercial-currentness",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "vikingaleden-etapp-4-commercial-currentness"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-4-haverodal-sanda"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-single-vikingaleden-etapp-5-commercial-currentness",
+      "clusterKey": "single-vikingaleden-etapp-5-commercial-currentness",
+      "representativeName": "vikingaleden-etapp-5-commercial-currentness",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "vikingaleden-etapp-5-commercial-currentness"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-5-sanda-harg-hargshamn"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-single-vikingaleden-etapp-6-commercial-currentness",
+      "clusterKey": "single-vikingaleden-etapp-6-commercial-currentness",
+      "representativeName": "vikingaleden-etapp-6-commercial-currentness",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "vikingaleden-etapp-6-commercial-currentness"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-6-harg-gimo"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-access-rison",
+      "clusterKey": "site-access-rison",
+      "representativeName": "No bus access to Risön",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "upplandsleden-etapp-12-rison-no-bus"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-aspbo-areas",
+      "clusterKey": "site-aspbo-areas",
+      "representativeName": "Aspbo parking areas",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "upplandsleden-etapp-11-aspbo-parking-areas"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-busshallplats-alvkarleby",
+      "clusterKey": "site-busshallplats-alvkarleby",
+      "representativeName": "Busshållplats, Älvkarleby Turisten",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-16-alvkarleby-turisten-bus"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.5650862814212,
+        17.4388065596734
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-busshallplats-lovstabruk",
+      "clusterKey": "site-busshallplats-lovstabruk",
+      "representativeName": "Busshållplats, Lövstabruk Herrgården",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-13-lovstabruk-herrgarden-bus",
+        "upplandsleden-etapp-14-lovstabruk-herrgarden-bus"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-9-rison-lovstabruk",
+        "vikingaleden-etapp-10-lovstabruk-vastland"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 10
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.40828687739532,
+        17.879123333354528
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-busshallplats-marma",
+      "clusterKey": "site-busshallplats-marma",
+      "representativeName": "Busshållplats, Marma centrum",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-15-marma-bus",
+        "upplandsleden-etapp-16-marma-bus"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-11-vastland-marma",
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 12
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.490293912981855,
+        17.426230302481144
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-busshallplats-tensmyra",
+      "clusterKey": "site-busshallplats-tensmyra",
+      "representativeName": "Busshållplats, Tensmyra Norra",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-16-gropholmarna-bus"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.52792226814498,
+        17.4362576007843
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-busshallplats-vastlands",
+      "clusterKey": "site-busshallplats-vastlands",
+      "representativeName": "Busshållplats, Västlands kyrka",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-14-vastlands-kyrka-bus",
+        "upplandsleden-etapp-15-vastlands-kyrka-bus"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-10-lovstabruk-vastland",
+        "vikingaleden-etapp-11-vastland-marma"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 11
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.44952430123721,
+        17.614146757601702
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-gimo-bruksgatan",
+      "clusterKey": "site-gimo-bruksgatan",
+      "representativeName": "Gimo Bruksgatan",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-11-gimo-bruksgatan-transit"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.178601407653844,
+        18.186813166036927
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-gimo-endpoint",
+      "clusterKey": "site-gimo-endpoint",
+      "representativeName": "Gimo endpoint services",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "upplandsleden-etapp-11-gimo-endpoint-services-metadata"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-gimo-start",
+      "clusterKey": "site-gimo-start",
+      "representativeName": "Gimo start transit stop",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "upplandsleden-etapp-11-start-transit-choice"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-laxon-seasonal",
+      "clusterKey": "site-laxon-seasonal",
+      "representativeName": "Laxön seasonal visitor services",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-16-laxon-commercial-services"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.56147976956672,
+        17.43631961565151
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-lovstabruk-seasonal",
+      "clusterKey": "site-lovstabruk-seasonal",
+      "representativeName": "Lövstabruk seasonal visitor services",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-13-lovstabruk-commercial-services",
+        "upplandsleden-etapp-14-lovstabruk-commercial-services"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-9-rison-lovstabruk",
+        "vikingaleden-etapp-10-lovstabruk-vastland"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 10
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.408125051,
+        17.879244638
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-marma-kiosk",
+      "clusterKey": "site-marma-kiosk",
+      "representativeName": "Marma kiosk and store context",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-15-marma-commercial-services"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-11-vastland-marma"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 11
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.4901703423929,
+        17.4230804942248
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-mojlig-taltplats",
+      "clusterKey": "site-mojlig-taltplats",
+      "representativeName": "Möjlig tältplats nära Svenbo",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "upplandsleden-etapp-14-svenbo-tent-possibility"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-10-lovstabruk-vastland"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.43336898328312,
+        17.73387806444816
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-site-norrbergskojan",
+      "clusterKey": "site-norrbergskojan",
+      "representativeName": "Norrbergskojan",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-12-norrbergskojan"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.294511,
+        17.869349
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-osterbybruk-busstation",
+      "clusterKey": "site-osterbybruk-busstation",
+      "representativeName": "Österbybruk busstation",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-12-osterbybruk-busstation"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.19700233664054,
+        17.89823519117465
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-osterbybruk-endpoint",
+      "clusterKey": "site-osterbybruk-endpoint",
+      "representativeName": "Österbybruk endpoint services",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "upplandsleden-etapp-11-osterbybruk-endpoint-services-metadata",
+        "upplandsleden-etapp-12-osterbybruk-endpoint-services-metadata"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk",
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-parkering-alvkarleby",
+      "clusterKey": "site-parkering-alvkarleby",
+      "representativeName": "Parkering, Älvkarleby",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-16-alvkarleby-parking"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.5652616461459,
+        17.4379892356243
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-parkering-gimo",
+      "clusterKey": "site-parkering-gimo",
+      "representativeName": "Parkering, Gimo herrgård",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-11-gimo-herrgard-parking"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.1784567756858,
+        18.1720870928427
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-parkering-gropholmarna",
+      "clusterKey": "site-parkering-gropholmarna",
+      "representativeName": "Parkering, Gropholmarna",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-16-gropholmarna-parking"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.53640183032781,
+        17.43649899959564
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-parkering-marma",
+      "clusterKey": "site-parkering-marma",
+      "representativeName": "Parkering, Marma",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-15-marma-parking",
+        "upplandsleden-etapp-16-marma-parking"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-11-vastland-marma",
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 12
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.4901703423929,
+        17.4230804942248
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-parkering-norra",
+      "clusterKey": "site-parkering-norra",
+      "representativeName": "Parkering, norra Lövstabruk",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-13-lovstabruk-parking",
+        "upplandsleden-etapp-14-lovstabruk-parking"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-9-rison-lovstabruk",
+        "vikingaleden-etapp-10-lovstabruk-vastland"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 10
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.4113536060103,
+        17.8795516711731
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-parkering-osterbybruk",
+      "clusterKey": "site-parkering-osterbybruk",
+      "representativeName": "Parkering, Österbybruk",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-12-osterbybruk-parking"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.1974879938262,
+        17.8977834601367
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-parkering-rison",
+      "clusterKey": "site-parkering-rison",
+      "representativeName": "Parkering, Risön",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-12-rison-parking",
+        "upplandsleden-etapp-13-rison-parking"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison",
+        "vikingaleden-etapp-9-rison-lovstabruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 9
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.30797022626583,
+        17.86429524421692
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-parkering-stormon",
+      "clusterKey": "site-parkering-stormon",
+      "representativeName": "Parkering, Stormon",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-12-stormon-parking"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.284072,
+        17.839364
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-parkering-vastland",
+      "clusterKey": "site-parkering-vastland",
+      "representativeName": "Parkering, Västland",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-14-vastland-parking",
+        "upplandsleden-etapp-15-vastland-parking"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-10-lovstabruk-vastland",
+        "vikingaleden-etapp-11-vastland-marma"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 11
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.44801256743705,
+        17.613944509954166
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-parkering-vika",
+      "clusterKey": "site-parkering-vika",
+      "representativeName": "Parkering, Vika",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-12-vika-parking"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.27973725126799,
+        17.87774652242661
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-staffansholmen-shelter",
+      "clusterKey": "site-staffansholmen-shelter",
+      "representativeName": "Staffansholmen shelter claim",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-12-staffansholmen-shelter-suppressed"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.28554241396354,
+        17.85479754209518
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-stormon",
+      "clusterKey": "site-stormon",
+      "representativeName": "Toalett, Stormon",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "upplandsleden-etapp-12-western-branch-stormon-toilet"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.28380735534641,
+        17.83952236175537
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-site-tagstation-alvkarleby",
+      "clusterKey": "site-tagstation-alvkarleby",
+      "representativeName": "Tågstation, Älvkarleby",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-16-alvkarleby-train"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.5550378181316,
+        17.4283666021114
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-tagstation-marma",
+      "clusterKey": "site-tagstation-marma",
+      "representativeName": "Tågstation, Marma",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-15-marma-train",
+        "upplandsleden-etapp-16-marma-train"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-11-vastland-marma",
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 12
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.49128448246704,
+        17.430660322270228
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-taltmojlighet-gropholmarna",
+      "clusterKey": "site-taltmojlighet-gropholmarna",
+      "representativeName": "Tältmöjlighet, Gropholmarna",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "upplandsleden-etapp-16-gropholmarna-tenting"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-12-marma-alvkarleby"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.5368418401049,
+        17.4339294433594
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vikingaleden-site-taltning-vid",
+      "clusterKey": "site-taltning-vid",
+      "representativeName": "Tältning vid Glamsmossen",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-11-glamsmossen-tenting-suppressed"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.2121011996396,
+        18.04923972514121
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-vattenpump-aspbo",
+      "clusterKey": "site-vattenpump-aspbo",
+      "representativeName": "Vattenpump, Aspbo",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "upplandsleden-etapp-11-aspbo-water-pumps-unsafe"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-7-gimo-osterbybruk"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.2105783,
+        17.9503374
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-vattenpump-vika",
+      "clusterKey": "site-vattenpump-vika",
+      "representativeName": "Vattenpump, Vika",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "upplandsleden-etapp-12-vika-water-unsafe"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vikingaleden-site-vindskydd-stormon",
+      "clusterKey": "site-vindskydd-stormon",
+      "representativeName": "Vindskydd, Stormon",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "upplandsleden-etapp-12-western-branch-stormon-shelter"
+      ],
+      "sectionIds": [
+        "vikingaleden-etapp-8-osterbybruk-rison"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        60.28436577506262,
+        17.83947944641113
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    }
+  ]
+}

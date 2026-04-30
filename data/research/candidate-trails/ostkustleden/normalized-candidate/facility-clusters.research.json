@@ -1,0 +1,4066 @@
+{
+  "schemaVersion": "candidate-facility-clusters/v1",
+  "trailId": "ostkustleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-normalized-research-only",
+  "runtimeImportApproved": false,
+  "facilityStatePolicy": {
+    "decision": "Normalize facilities through explicit import actions, not by deleting caveats.",
+    "candidateImportActions": [
+      "import",
+      "import-as-access",
+      "import-as-rule-warning",
+      "attach-to-parent",
+      "side-trip-metadata",
+      "pending-review",
+      "suppress"
+    ],
+    "runtimeMapping": [
+      "Only import, import-as-access, import-as-rule-warning and attach-to-parent records may become runtime data.",
+      "Pending-review and suppress records remain in research/candidate artifacts and must not appear as normal user-facing facilities.",
+      "Side-trip metadata can become user-facing only if the route or POI is intentionally modeled as a side trip."
+    ],
+    "parentClusterPolicy": "Cluster first, then split typed subfacilities only where coordinates, confidence and app taxonomy justify separate markers.",
+    "parkingAndTransitPolicy": "Parking and transit should be treated consistently with existing app trails: import verified, useful access records as user-facing parking/transit facilities or accessPoints, dedupe them by cluster, and keep timetable/parking-rule details caveated and live-checkable.",
+    "informalTentingPolicy": "Informal tenting remains a separate candidate category. Promote to runtime camping only when rules and coordinates support it; otherwise keep as caveated rule/access text or pending-review.",
+    "privateCommercialPolicy": "Private, customer-only, seasonal or opening-hours-dependent services can be imported only with clear caveats and publication-time recheck requirements."
+  },
+  "summary": {
+    "totalFacilities": 159,
+    "clusterCount": 121,
+    "multiFacilityClusters": 23,
+    "dedupeCandidateClusters": 31,
+    "byRecommendedAction": {
+      "single-record": 90,
+      "keep-suppressed": 8,
+      "dedupe-duplicate-facility": 13,
+      "dedupe-related-site-cluster": 3,
+      "attach-child-amenities-to-parent": 7
+    }
+  },
+  "clusters": [
+    {
+      "clusterId": "ostkustleden-coord-57-2760-16-3825-trail-junction",
+      "clusterKey": "coord-57.2760-16.3825-trail-junction",
+      "representativeName": "Lilla Hycklinge trailhead / Etapp 1 start",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-0-lilla-hycklinge-trailhead-etapp-1-start"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.276033,
+        16.382461
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-2882-16-3545-attraction",
+      "clusterKey": "coord-57.2882-16.3545-attraction",
+      "representativeName": "Sandvik",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-12-sandvik"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.288221,
+        16.354456
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-2956-16-3419-attraction",
+      "clusterKey": "coord-57.2956-16.3419-attraction",
+      "representativeName": "Eckern",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-11-eckern"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.295577,
+        16.341906
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-3037-16-3217-attraction",
+      "clusterKey": "coord-57.3037-16.3217-attraction",
+      "representativeName": "Högetorp / Högatorp",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-13-hogetorp-hogatorp"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.303735,
+        16.321696
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-3259-16-3278-attraction",
+      "clusterKey": "coord-57.3259-16.3278-attraction",
+      "representativeName": "Skarpesten",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-15-skarpesten"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.325902,
+        16.327819
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-3306-16-3280-attraction",
+      "clusterKey": "coord-57.3306-16.3280-attraction",
+      "representativeName": "Sjoketorp",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-14-sjoketorp"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.330632,
+        16.327985
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-3402-16-2900-attraction",
+      "clusterKey": "coord-57.3402-16.2900-attraction",
+      "representativeName": "Lämmedal",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-16-lammedal"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.340179,
+        16.289964
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-3450-16-4663-rest-area",
+      "clusterKey": "coord-57.3450-16.4663-rest-area",
+      "representativeName": "Stensjö by picnic site",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-6-stensjo-by-picnic-site"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.3449578,
+        16.466313
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-3456-16-4664-attraction",
+      "clusterKey": "coord-57.3456-16.4664-attraction",
+      "representativeName": "Stensjö by kulturreservat / village",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-3-stensjo-by-kulturreservat-village"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.3455546,
+        16.4664022
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-3534-16-1751-rest-area",
+      "clusterKey": "coord-57.3534-16.1751-rest-area",
+      "representativeName": "Bråhultsjöns badplats rest area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-2-nynas-lonhult-facilities-3-brahultsjons-badplats-rest-area"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-2-nynas-lonhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.35339748571479,
+        16.17513466938698
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-3534-16-1751-swimming",
+      "clusterKey": "coord-57.3534-16.1751-swimming",
+      "representativeName": "Bråhultsjöns badplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-2-nynas-lonhult-facilities-2-brahultsjons-badplats"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-2-nynas-lonhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.35339748571479,
+        16.17513466938698
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-3534-16-1752-fireplace",
+      "clusterKey": "coord-57.3534-16.1752-fireplace",
+      "representativeName": "Bråhultsjöns badplats grillplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-2-nynas-lonhult-facilities-4-brahultsjons-badplats-grillplats"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-2-nynas-lonhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.3533851,
+        16.1752322
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-3577-16-2663-rest-area",
+      "clusterKey": "coord-57.3577-16.2663-rest-area",
+      "representativeName": "Bord, Humlenäs",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-9-bord-humlenas"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.357742,
+        16.266326
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-3590-16-2564-rest-area",
+      "clusterKey": "coord-57.3590-16.2564-rest-area",
+      "representativeName": "Rastbord vid Nynässtugan",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-7-rastbord-vid-nynasstugan"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.358979,
+        16.256369
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-3615-16-2635-attraction",
+      "clusterKey": "coord-57.3615-16.2635-attraction",
+      "representativeName": "Humlenäs naturreservat",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-10-humlenas-naturreservat"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.361464,
+        16.263466
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-3693-16-4750-swimming",
+      "clusterKey": "coord-57.3693-16.4750-swimming",
+      "representativeName": "Fårbosjöns badplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-facilities-11-farbosjons-badplats"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.36926851411164,
+        16.4750237591953
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-3696-16-4754-fireplace",
+      "clusterKey": "coord-57.3696-16.4754-fireplace",
+      "representativeName": "Grillplats Fårbo Badplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-facilities-12-grillplats-farbo-badplats"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.3695552393168,
+        16.4754024198952
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-3729-16-2380-swimming",
+      "clusterKey": "coord-57.3729-16.2380-swimming",
+      "representativeName": "Råsviks badplats",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-2-nynas-lonhult-facilities-17-rasviks-badplats"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-2-nynas-lonhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.37291562571036,
+        16.23802640963547
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-3731-16-2544-attraction",
+      "clusterKey": "coord-57.3731-16.2544-attraction",
+      "representativeName": "Hummeln",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-17-hummeln"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.373105,
+        16.254432
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-3753-16-5561-trail-junction",
+      "clusterKey": "coord-57.3753-16.5561-trail-junction",
+      "representativeName": "Figeholms marin",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-facilities-9-figeholms-marin"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.375321472023366,
+        16.55612858819208
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-3763-16-5820-attraction",
+      "clusterKey": "coord-57.3763-16.5820-attraction",
+      "representativeName": "Fornborg east of Figeholm stugby",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-facilities-5-fornborg-east-of-figeholm-stugby"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.3762686,
+        16.5819715
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-3769-16-5603-fireplace",
+      "clusterKey": "coord-57.3769-16.5603-fireplace",
+      "representativeName": "Grillplats Bodviken i Figeholm",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-facilities-10-grillplats-bodviken-i-figeholm"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.3768973031446,
+        16.5602927388636
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-3782-16-5757-swimming",
+      "clusterKey": "coord-57.3782-16.5757-swimming",
+      "representativeName": "Bredviken campings badplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-facilities-3-bredviken-campings-badplats"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.3782411373347,
+        16.57574598476424
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-3862-16-1291-attraction",
+      "clusterKey": "coord-57.3862-16.1291-attraction",
+      "representativeName": "Småländska kinesiska muren near Smisserum",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-2-nynas-lonhult-facilities-14-smalandska-kinesiska-muren-near-smisserum"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-2-nynas-lonhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.3862494,
+        16.1291116
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-4143-16-1265-trail-junction",
+      "clusterKey": "coord-57.4143-16.1265-trail-junction",
+      "representativeName": "Eckerhult / Lönnebergaleden connector",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-2-nynas-lonhult-facilities-11-eckerhult-lonnebergaleden-connector"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-2-nynas-lonhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.4143029750853,
+        16.1264961029322
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-4206-16-6448-swimming",
+      "clusterKey": "coord-57.4206-16.6448-swimming",
+      "representativeName": "Ekerum swimming/access",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar-facilities-8-ekerum-swimming-access"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.4206124,
+        16.6447571
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-4232-16-1230-attraction",
+      "clusterKey": "coord-57.4232-16.1230-attraction",
+      "representativeName": "Lönhults kvarn",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-2-nynas-lonhult-facilities-6-lonhults-kvarn"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-2-nynas-lonhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.42322,
+        16.12304
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-4352-16-3054-attraction",
+      "clusterKey": "coord-57.4352-16.3054-attraction",
+      "representativeName": "Karlsfors old mill / waterfall",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp-facilities-9-karlsfors-old-mill-waterfall"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.4351949,
+        16.3054254
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-4417-16-6308-swimming",
+      "clusterKey": "coord-57.4417-16.6308-swimming",
+      "representativeName": "Kärrsvik",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar-facilities-6-karrsvik"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.4417456,
+        16.630812
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-4430-16-3831-swimming",
+      "clusterKey": "coord-57.4430-16.3831-swimming",
+      "representativeName": "Krokstorps badplats",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp-facilities-3-krokstorps-badplats",
+        "ostkustleden-etapp-4-krokstorp-mortfors-facilities-3-krokstorpssjon-swimming"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp",
+        "ostkustleden-etapp-4-krokstorp-mortfors"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.4429749,
+        16.3831472
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-4459-16-6354-viewpoint",
+      "clusterKey": "coord-57.4459-16.6354-viewpoint",
+      "representativeName": "Granholmsfjärden at Bjurhid/Bjurhide",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar-facilities-5-granholmsfjarden-at-bjurhid-bjurhide"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.4458821,
+        16.635362
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-4581-16-6420-swimming",
+      "clusterKey": "coord-57.4581-16.6420-swimming",
+      "representativeName": "Bussvik / Bussviken",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar-facilities-4-bussvik-bussviken"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.4581495,
+        16.6420442
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-4919-16-4739-viewpoint",
+      "clusterKey": "coord-57.4919-16.4739-viewpoint",
+      "representativeName": "Norra Göten / Götehultsströmmen naturreservat point",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors-facilities-7-norra-goten-gotehultsstrommen-naturreservat-point"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.49191215,
+        16.4738707
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-5082-16-5875-swimming",
+      "clusterKey": "coord-57.5082-16.5875-swimming",
+      "representativeName": "Tjustgölen",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar-facilities-2-tjustgolen"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.5082447,
+        16.5875209
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-5197-16-5567-attraction",
+      "clusterKey": "coord-57.5197-16.5567-attraction",
+      "representativeName": "Snäckedal bronsåldersgravar",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg-facilities-7-snackedal-bronsaldersgravar"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.519706,
+        16.556686
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-5206-16-4649-fireplace",
+      "clusterKey": "coord-57.5206-16.4649-fireplace",
+      "representativeName": "Grillplats Mörtfors badplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors-facilities-11-grillplats-mortfors-badplats"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.5206107604,
+        16.4649038141
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-5207-16-4652-swimming",
+      "clusterKey": "coord-57.5207-16.4652-swimming",
+      "representativeName": "Mörtfors badplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors-facilities-10-mortfors-badplats"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.52072199373859,
+        16.46523904087454
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-5249-16-4708-attraction",
+      "clusterKey": "coord-57.5249-16.4708-attraction",
+      "representativeName": "Fiske Marströmmen",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors-facilities-15-fiske-marstrommen"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.5249274263,
+        16.470781242
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "ostkustleden-coord-57-5605-16-5375-swimming",
+      "clusterKey": "coord-57.5605-16.5375-swimming",
+      "representativeName": "Hålviken / Hålvik bathing place",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg-facilities-4-halviken-halvik-bathing-place"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.5605,
+        16.5375
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-single-ostkustleden-etapp-2-nynas-lonhult-facilities-13-humlenas-small-bathing-place",
+      "clusterKey": "single-ostkustleden-etapp-2-nynas-lonhult-facilities-13-humlenas-small-bathing-place",
+      "representativeName": "Humlenäs small bathing place",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-2-nynas-lonhult-facilities-13-humlenas-small-bathing-place"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-2-nynas-lonhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-single-ostkustleden-etapp-3-lonhult-krokstorp-facilities-8-tvingen-swimming-opportunity",
+      "clusterKey": "single-ostkustleden-etapp-3-lonhult-krokstorp-facilities-8-tvingen-swimming-opportunity",
+      "representativeName": "Tvingen swimming opportunity",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp-facilities-8-tvingen-swimming-opportunity"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-single-ostkustleden-etapp-3-lonhult-krokstorp-facilities-10-storyttern-swimming-opportunity",
+      "clusterKey": "single-ostkustleden-etapp-3-lonhult-krokstorp-facilities-10-storyttern-swimming-opportunity",
+      "representativeName": "Storyttern swimming opportunity",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp-facilities-10-storyttern-swimming-opportunity"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-single-ostkustleden-etapp-3-lonhult-krokstorp-facilities-11-sjoandemala-skinshult-mollekulla-paskallesten-and-ytteryd-house-foundations",
+      "clusterKey": "single-ostkustleden-etapp-3-lonhult-krokstorp-facilities-11-sjoandemala-skinshult-mollekulla-paskallesten-and-ytteryd-house-foundations",
+      "representativeName": "Sjöändemåla, Skinshult, Möllekulla, Påskallesten and Ytteryd house foundations",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp-facilities-11-sjoandemala-skinshult-mollekulla-paskallesten-and-ytteryd-house-foundations"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "ostkustleden-single-ostkustleden-etapp-3-lonhult-krokstorp-facilities-12-krokstorp-fireplace-grill",
+      "clusterKey": "single-ostkustleden-etapp-3-lonhult-krokstorp-facilities-12-krokstorp-fireplace-grill",
+      "representativeName": "Krokstorp fireplace/grill",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp-facilities-12-krokstorp-fireplace-grill"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "ostkustleden-single-ostkustleden-etapp-4-krokstorp-mortfors-facilities-4-skalshults-gamla-kvarn-kvarndamm",
+      "clusterKey": "single-ostkustleden-etapp-4-krokstorp-mortfors-facilities-4-skalshults-gamla-kvarn-kvarndamm",
+      "representativeName": "Skälshults gamla kvarn / kvarndamm",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors-facilities-4-skalshults-gamla-kvarn-kvarndamm"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-single-ostkustleden-etapp-4-krokstorp-mortfors-facilities-5-olvedal-bridges",
+      "clusterKey": "single-ostkustleden-etapp-4-krokstorp-mortfors-facilities-5-olvedal-bridges",
+      "representativeName": "Ölvedal bridges",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors-facilities-5-olvedal-bridges"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        [
+          57.4609224154,
+          16.4759103943
+        ],
+        [
+          57.47119786,
+          16.47636238
+        ]
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-single-ostkustleden-etapp-4-krokstorp-mortfors-facilities-16-tjustleden-stora-ramm-badplats-viewpoint-side-candidates",
+      "clusterKey": "single-ostkustleden-etapp-4-krokstorp-mortfors-facilities-16-tjustleden-stora-ramm-badplats-viewpoint-side-candidates",
+      "representativeName": "Tjustleden Stora Ramm badplats / viewpoint side candidates",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors-facilities-16-tjustleden-stora-ramm-badplats-viewpoint-side-candidates"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        [
+          57.5198083166,
+          16.4389105339
+        ],
+        [
+          57.5217963647,
+          16.4433530092
+        ]
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "ostkustleden-single-ostkustleden-etapp-5-mortfors-stjarneberg-facilities-5-halviken-old-stone-shipping-port-remains",
+      "clusterKey": "single-ostkustleden-etapp-5-mortfors-stjarneberg-facilities-5-halviken-old-stone-shipping-port-remains",
+      "representativeName": "Hålviken old stone-shipping port remains",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg-facilities-5-halviken-old-stone-shipping-port-remains"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-single-ostkustleden-etapp-5-mortfors-stjarneberg-facilities-6-kallsebo-stone-quarries",
+      "clusterKey": "single-ostkustleden-etapp-5-mortfors-stjarneberg-facilities-6-kallsebo-stone-quarries",
+      "representativeName": "Kallsebo stone quarries",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg-facilities-6-kallsebo-stone-quarries"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-single-ostkustleden-etapp-5-mortfors-stjarneberg-facilities-8-trollklinten-near-arvidsmala",
+      "clusterKey": "single-ostkustleden-etapp-5-mortfors-stjarneberg-facilities-8-trollklinten-near-arvidsmala",
+      "representativeName": "Trollklinten near Arvidsmåla",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg-facilities-8-trollklinten-near-arvidsmala"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-single-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-facilities-3-djurvadsnas-grave-cairns",
+      "clusterKey": "single-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-facilities-3-djurvadsnas-grave-cairns",
+      "representativeName": "Djurvadsnäs grave cairns",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar-facilities-3-djurvadsnas-grave-cairns"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-single-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-facilities-7-coastal-slabs-after-karrsvik",
+      "clusterKey": "single-ostkustleden-etapp-6-stjarneberg-lilla-laxemar-facilities-7-coastal-slabs-after-karrsvik",
+      "representativeName": "Coastal slabs after Kärrsvik",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar-facilities-7-coastal-slabs-after-karrsvik"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-single-ostkustleden-etapp-7-lilla-laxemar-hallveberg-facilities-4-bredviksberget-viewpoint",
+      "clusterKey": "single-ostkustleden-etapp-7-lilla-laxemar-hallveberg-facilities-4-bredviksberget-viewpoint",
+      "representativeName": "Bredviksberget viewpoint",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-facilities-4-bredviksberget-viewpoint"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-single-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-7-stensjo-by-picnic-tables",
+      "clusterKey": "single-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-7-stensjo-by-picnic-tables",
+      "representativeName": "Stensjö by picnic tables",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-7-stensjo-by-picnic-tables"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        [
+          57.3470998,
+          16.4707955
+        ],
+        [
+          57.3482378,
+          16.4686695
+        ]
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "ostkustleden-single-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-9-langsjon-viewpoint-area",
+      "clusterKey": "single-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-9-langsjon-viewpoint-area",
+      "representativeName": "Långsjön viewpoint/area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-9-langsjon-viewpoint-area"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-single-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-10-viran-amotsberget",
+      "clusterKey": "single-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-10-viran-amotsberget",
+      "representativeName": "Virån / Åmötsberget",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-10-viran-amotsberget"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-single-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-11-nybo-gol-swimming-opportunity",
+      "clusterKey": "single-ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-11-nybo-gol-swimming-opportunity",
+      "representativeName": "Nybo göl swimming opportunity",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-11-nybo-gol-swimming-opportunity"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-arvidsmala-tap",
+      "clusterKey": "site-arvidsmala-tap",
+      "representativeName": "Arvidsmåla tap-water detour",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg-watersources-3-arvidsmala-tap-water-detour"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-brabo-och",
+      "clusterKey": "site-brabo-och",
+      "representativeName": "Bråbo B&B och Café",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-2-nynas-lonhult-facilities-16-brabo-b-b-och-cafe"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-2-nynas-lonhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.3401903,
+        16.1644476
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-brahultsjon-brahultesjon",
+      "clusterKey": "site-brahultsjon-brahultesjon",
+      "representativeName": "Bråhultsjön / Bråhultesjön bathing-water context",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-2-nynas-lonhult-watersources-3-brahultsjon-brahultesjon-bathing-water-context"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-2-nynas-lonhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.35339748571479,
+        16.17513466938698
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-brahultsjons-badplats",
+      "clusterKey": "site-brahultsjons-badplats",
+      "representativeName": "Bråhultsjöns badplats dry toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-2-nynas-lonhult-facilities-5-brahultsjons-badplats-dry-toilet"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-2-nynas-lonhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.35339748571479,
+        16.17513466938698
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-bredviken",
+      "clusterKey": "site-bredviken",
+      "representativeName": "Bredviken Camping",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-facilities-2-bredviken-camping"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.3797899,
+        16.5783895
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-bredviken-stalglo",
+      "clusterKey": "site-bredviken-stalglo",
+      "representativeName": "Bredviken / Stålglo natural water and swimming context",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-watersources-4-bredviken-stalglo-natural-water-and-swimming-context"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-busshallplats-lilla",
+      "clusterKey": "site-busshallplats-lilla",
+      "representativeName": "Busshållplats Lilla Hycklinge",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-2-busshallplats-lilla-hycklinge"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.276143,
+        16.379913
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-coop-farbo",
+      "clusterKey": "site-coop-farbo",
+      "representativeName": "Coop Fårbo",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-facilities-14-coop-farbo"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.37471621233618,
+        16.489511500833117
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-coop-figeholm",
+      "clusterKey": "site-coop-figeholm",
+      "representativeName": "Coop Figeholm",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-facilities-7-coop-figeholm"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.3732394,
+        16.5491167
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-dass-mortfors",
+      "clusterKey": "site-dass-mortfors",
+      "representativeName": "Dass Mörtfors south",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors-facilities-9-dass-mortfors-south",
+        "ostkustleden-etapp-4-krokstorp-mortfors-facilities-12-dass-mortfors-north-endpoint-area-toilet"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.51461194,
+        16.47304375
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "ostkustleden-site-dolce-vita",
+      "clusterKey": "site-dolce-vita",
+      "representativeName": "Dolce Vita Figeholm",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-facilities-8-dolce-vita-figeholm"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.371492,
+        16.5504626
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-farbo-stugby",
+      "clusterKey": "site-farbo-stugby",
+      "representativeName": "Fårbo Stugby",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-facilities-15-farbo-stugby"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.37625380159855,
+        16.4882844523554
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-farbosjon",
+      "clusterKey": "site-farbosjon",
+      "representativeName": "Fårbosjön",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-watersources-3-farbosjon"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.36926851411164,
+        16.4750237591953
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-farbosjon-badplats",
+      "clusterKey": "site-farbosjon-badplats",
+      "representativeName": "Fårbosjön badplats toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-facilities-13-farbosjon-badplats-toilet"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.3693812,
+        16.4753862
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-figeholm-naturreservat",
+      "clusterKey": "site-figeholm-naturreservat",
+      "representativeName": "Figeholm naturreservat",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-facilities-6-figeholm-naturreservat"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.3782318706327,
+        16.5266546682695
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-gasshult-sateri",
+      "clusterKey": "site-gasshult-sateri",
+      "representativeName": "Gässhult Säteri",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar-facilities-10-gasshult-sateri"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.450942,
+        16.61
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-grytbacken",
+      "clusterKey": "site-grytbacken",
+      "representativeName": "Grytbäcken bus stop",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-2-nynas-lonhult-facilities-10-grytbacken-bus-stop"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-2-nynas-lonhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.35734696748477,
+        16.2393378666234
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-hallveberg-dry",
+      "clusterKey": "site-hallveberg-dry",
+      "representativeName": "Hällveberg dry toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-2-hallveberg-dry-toilet"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.36216670455789,
+        16.45443155116101
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-hallveberg-well",
+      "clusterKey": "site-hallveberg-well",
+      "representativeName": "Hällveberg well",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-facilities-17-hallveberg-well",
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-watersources-2-hallveberg-well",
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-1-hallveberg-well",
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-watersources-0-hallveberg-well"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 8
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.36216670455789,
+        16.45443155116101
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "ostkustleden-site-halviken-halvik",
+      "clusterKey": "site-halviken-halvik",
+      "representativeName": "Hålviken/Hålvik bathing water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg-watersources-1-halviken-halvik-bathing-water"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.5605,
+        16.5375
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-humlenas-farm",
+      "clusterKey": "site-humlenas-farm",
+      "representativeName": "Humlenäs farm dry toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-8-humlenas-farm-dry-toilet"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.361095,
+        16.266156
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-hycklinge-naturcenter",
+      "clusterKey": "site-hycklinge-naturcenter",
+      "representativeName": "Hycklinge Naturcenter parking",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-15-hycklinge-naturcenter-parking"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.276101,
+        16.382091
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-klintemala-gasthamn",
+      "clusterKey": "site-klintemala-gasthamn",
+      "representativeName": "Klintemåla Gästhamn / Valborgs",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg-facilities-14-klintemala-gasthamn-valborgs"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.517949,
+        16.650463
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "ostkustleden-site-klintemala-guest",
+      "clusterKey": "site-klintemala-guest",
+      "representativeName": "Klintemåla guest harbour / Valborgs area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar-facilities-12-klintemala-guest-harbour-valborgs-area"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.5179491,
+        16.6504631
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-krokstorp-dry",
+      "clusterKey": "site-krokstorp-dry",
+      "representativeName": "Krokstorp dry toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp-facilities-7-krokstorp-dry-toilet"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.44341165344201,
+        16.38703191466831
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-krokstorp-tenting",
+      "clusterKey": "site-krokstorp-tenting",
+      "representativeName": "Krokstorp tenting at cabin",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors-facilities-2-krokstorp-tenting-at-cabin"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.44341165344201,
+        16.38703191466831
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-krokstorp-well",
+      "clusterKey": "site-krokstorp-well",
+      "representativeName": "Krokstorp well",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp-facilities-6-krokstorp-well-water",
+        "ostkustleden-etapp-3-lonhult-krokstorp-watersources-1-krokstorp-well",
+        "ostkustleden-etapp-4-krokstorp-mortfors-facilities-1-krokstorp-well-water",
+        "ostkustleden-etapp-4-krokstorp-mortfors-watersources-0-krokstorp-well"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp",
+        "ostkustleden-etapp-4-krokstorp-mortfors"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.44341165344201,
+        16.38703191466831
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "ostkustleden-site-krokstorpsjon-raw",
+      "clusterKey": "site-krokstorpsjon-raw",
+      "representativeName": "Krokstorpsjön raw fallback water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp-watersources-2-krokstorpsjon-raw-fallback-water"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.4429749,
+        16.3831472
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-lake-hummeln",
+      "clusterKey": "site-lake-hummeln",
+      "representativeName": "Lake Hummeln emergency/raw water",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas-watersources-2-lake-hummeln-emergency-raw-water",
+        "ostkustleden-etapp-2-nynas-lonhult-watersources-1-lake-hummeln-raw-emergency-water"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+        "ostkustleden-etapp-2-nynas-lonhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.373105,
+        16.254432
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "ostkustleden-site-lilla-hycklinge",
+      "clusterKey": "site-lilla-hycklinge",
+      "representativeName": "Lilla Hycklinge water",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-13-lilla-hycklinge-water",
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-14-lilla-hycklinge-toilet",
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-watersources-2-lilla-hycklinge-water-in-house"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet",
+        "water"
+      ],
+      "candidateTypes": [
+        "toilet",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.27635368748921,
+        16.37992730152843
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "ostkustleden-site-lilla-laxemar",
+      "clusterKey": "site-lilla-laxemar",
+      "representativeName": "Lilla Laxemar water",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar-watersources-1-lilla-laxemar-summer-water-line",
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar-watersources-2-lilla-laxemar-winter-water-yellow-slaughter-shed",
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-facilities-1-lilla-laxemar-water",
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-watersources-0-lilla-laxemar-summer-water-line",
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-watersources-1-lilla-laxemar-winter-water-yellow-slaughterhouse"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 7
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.4169115714009,
+        16.64052137526562
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "ostkustleden-site-lonhult-dry",
+      "clusterKey": "site-lonhult-dry",
+      "representativeName": "Lönhult dry toilet",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-2-nynas-lonhult-facilities-8-lonhult-dry-toilet",
+        "ostkustleden-etapp-3-lonhult-krokstorp-facilities-1-lonhult-dry-toilet"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-2-nynas-lonhult",
+        "ostkustleden-etapp-3-lonhult-krokstorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.4350325,
+        16.1381753
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "ostkustleden-site-lonhult-summer",
+      "clusterKey": "site-lonhult-summer",
+      "representativeName": "Lönhult summer water",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-2-nynas-lonhult-facilities-9-lonhult-summer-water",
+        "ostkustleden-etapp-2-nynas-lonhult-watersources-2-lonhult-summer-water",
+        "ostkustleden-etapp-3-lonhult-krokstorp-facilities-2-lonhult-summer-water",
+        "ostkustleden-etapp-3-lonhult-krokstorp-watersources-0-lonhult-summer-water"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-2-nynas-lonhult",
+        "ostkustleden-etapp-3-lonhult-krokstorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.43595215428502,
+        16.13833139320499
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "ostkustleden-site-mortfors",
+      "clusterKey": "site-mortfors",
+      "representativeName": "Toalett, Mörtfors",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors-watersources-1-mortfors-cabin-water",
+        "ostkustleden-etapp-5-mortfors-stjarneberg-facilities-1-toalett-mortfors"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors",
+        "ostkustleden-etapp-5-mortfors-stjarneberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet",
+        "water"
+      ],
+      "candidateTypes": [
+        "toilet",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.52464623995621,
+        16.4716102460923
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "ostkustleden-site-mortfors-badplats",
+      "clusterKey": "site-mortfors-badplats",
+      "representativeName": "Mörtfors badplats water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors-watersources-2-mortfors-badplats-water"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.52072199373859,
+        16.46523904087454
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-mortfors-side",
+      "clusterKey": "site-mortfors-side",
+      "representativeName": "Mörtfors cabin-side toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors-facilities-13-mortfors-cabin-side-toilet"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.52453454506093,
+        16.47161291054204
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-mortfors-well",
+      "clusterKey": "site-mortfors-well",
+      "representativeName": "Mörtfors well/water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg-watersources-0-mortfors-well-water"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.52464623995621,
+        16.4716102460923
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-natural-swimming",
+      "clusterKey": "site-natural-swimming",
+      "representativeName": "Natural swimming waters: Tjustgölen, Bussvik, Kärrsvik, Ekerum/coastal slabs",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar-watersources-3-natural-swimming-waters-tjustgolen-bussvik-karrsvik-ekerum-coastal-slabs"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-nybo-gol",
+      "clusterKey": "site-nybo-gol",
+      "representativeName": "Nybo göl",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-watersources-3-nybo-gol"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-nynas-dry",
+      "clusterKey": "site-nynas-dry",
+      "representativeName": "Nynäs dry toilet",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-6-nynas-dry-toilet",
+        "ostkustleden-etapp-2-nynas-lonhult-facilities-1-nynas-dry-toilet"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+        "ostkustleden-etapp-2-nynas-lonhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.359085,
+        16.256439
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "ostkustleden-site-nynas-overnattningsstuga",
+      "clusterKey": "site-nynas-overnattningsstuga",
+      "representativeName": "Nynäs / Övernattningsstuga Nynäs",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-4-nynas-overnattningsstuga-nynas",
+        "ostkustleden-etapp-2-nynas-lonhult-facilities-0-nynas-overnattningsstuga-nynas"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+        "ostkustleden-etapp-2-nynas-lonhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.358957,
+        16.256614
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "ostkustleden-site-nynas-well",
+      "clusterKey": "site-nynas-well",
+      "representativeName": "Nynäs well",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-5-nynas-well-drinking-water",
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas-watersources-1-nynas-well",
+        "ostkustleden-etapp-2-nynas-lonhult-watersources-0-nynas-well"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+        "ostkustleden-etapp-2-nynas-lonhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 2
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.358875,
+        16.256425
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "ostkustleden-site-olvedal-resident",
+      "clusterKey": "site-olvedal-resident",
+      "representativeName": "Ölvedal resident water report",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors-watersources-3-olvedal-resident-water-report"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-osm-only",
+      "clusterKey": "site-osm-only",
+      "representativeName": "OSM-only shelter/campsite near Smisserum",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-2-nynas-lonhult-facilities-15-osm-only-shelter-campsite-near-smisserum"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-2-nynas-lonhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.3856047,
+        16.1204546
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "ostkustleden-site-overnattningsstuga-hallveberg",
+      "clusterKey": "site-overnattningsstuga-hallveberg",
+      "representativeName": "Övernattningsstuga Hällveberg",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-facilities-16-overnattningsstuga-hallveberg",
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-0-overnattningsstuga-hallveberg"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.36216670455789,
+        16.45443155116101
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "ostkustleden-site-overnattningsstuga-krokstorp",
+      "clusterKey": "site-overnattningsstuga-krokstorp",
+      "representativeName": "Övernattningsstuga Krokstorp",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp-facilities-4-overnattningsstuga-krokstorp-juf-stugan",
+        "ostkustleden-etapp-4-krokstorp-mortfors-facilities-0-overnattningsstuga-krokstorp"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp",
+        "ostkustleden-etapp-4-krokstorp-mortfors"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.44341165344201,
+        16.38703191466831
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "ostkustleden-site-overnattningsstuga-lilla",
+      "clusterKey": "site-overnattningsstuga-lilla",
+      "representativeName": "Övernattningsstuga Lilla Laxemar",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-3-overnattningsstuga-lilla-hycklinge",
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas-watersources-0-overnattningsstuga-lilla-hycklinge-water",
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar-facilities-9-overnattningsstuga-lilla-laxemar",
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg-facilities-0-overnattningsstuga-lilla-laxemar",
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-12-overnattningsstuga-lilla-hycklinge"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+        "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 8
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "shelter",
+        "water"
+      ],
+      "candidateTypes": [
+        "shelter",
+        "water"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.276354,
+        16.379927
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "ostkustleden-site-overnattningsstuga-lonhult",
+      "clusterKey": "site-overnattningsstuga-lonhult",
+      "representativeName": "Övernattningsstuga Lönhult",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-2-nynas-lonhult-facilities-7-overnattningsstuga-lonhult",
+        "ostkustleden-etapp-3-lonhult-krokstorp-facilities-0-overnattningsstuga-lonhult"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-2-nynas-lonhult",
+        "ostkustleden-etapp-3-lonhult-krokstorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.43595215428502,
+        16.13833139320499
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "ostkustleden-site-overnattningsstuga-mortfors",
+      "clusterKey": "site-overnattningsstuga-mortfors",
+      "representativeName": "Övernattningsstuga Mörtfors",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors-facilities-14-overnattningsstuga-i-mortfors",
+        "ostkustleden-etapp-5-mortfors-stjarneberg-facilities-0-overnattningsstuga-mortfors"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors",
+        "ostkustleden-etapp-5-mortfors-stjarneberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.52464623995621,
+        16.4716102460923
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "ostkustleden-site-overnattningsstuga-stjarneberg",
+      "clusterKey": "site-overnattningsstuga-stjarneberg",
+      "representativeName": "Övernattningsstuga Stjärneberg",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg-facilities-9-overnattningsstuga-stjarneberg",
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar-facilities-0-overnattningsstuga-stjarneberg"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg",
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.51435204367604,
+        16.60190243957652
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "ostkustleden-site-parkering-hycklinge",
+      "clusterKey": "site-parkering-hycklinge",
+      "representativeName": "Parkering Hycklinge Naturcenter",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas-facilities-1-parkering-hycklinge-naturcenter"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-1-lilla-hycklinge-nynas"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.276101,
+        16.382091
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-parkering-lonhult",
+      "clusterKey": "site-parkering-lonhult",
+      "representativeName": "Parkering Lönhult",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-2-nynas-lonhult-facilities-12-parkering-lonhult"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-2-nynas-lonhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.43601943142633,
+        16.13837164893678
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-parkering-mortfors",
+      "clusterKey": "site-parkering-mortfors",
+      "representativeName": "Parkering Mörtfors östra",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg-facilities-2-parkering-mortfors-ostra",
+        "ostkustleden-etapp-5-mortfors-stjarneberg-facilities-3-parkering-mortfors-vastra"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.524616,
+        16.47146
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "ostkustleden-site-parkering-olvedal",
+      "clusterKey": "site-parkering-olvedal",
+      "representativeName": "Parkering Ölvedal",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors-facilities-6-parkering-olvedal"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.47169663,
+        16.48080305
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-parkering-stjarneberg",
+      "clusterKey": "site-parkering-stjarneberg",
+      "representativeName": "Parkering Stjärneberg",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg-facilities-13-parkering-stjarneberg",
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar-facilities-1-parkering-stjarneberg"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg",
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.514383,
+        16.601965
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "ostkustleden-site-site-krokstorp",
+      "clusterKey": "site-site-krokstorp",
+      "representativeName": "Tent site by Krokstorp cabin",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp-facilities-5-tent-site-by-krokstorp-cabin"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-3-lonhult-krokstorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.44341165344201,
+        16.38703191466831
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-stenbrottet-flugfiske",
+      "clusterKey": "site-stenbrottet-flugfiske",
+      "representativeName": "Stenbrottet flugfiske",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar-facilities-11-stenbrottet-flugfiske"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.4632124,
+        16.6387266
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-stensjo",
+      "clusterKey": "site-stensjo",
+      "representativeName": "Stensjö by parking",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-4-stensjo-by-parking",
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-5-stensjo-by-toilets"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking",
+        "toilet"
+      ],
+      "candidateTypes": [
+        "parking",
+        "toilet"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.3446619,
+        16.4667458
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "ostkustleden-site-stensjo-refill",
+      "clusterKey": "site-stensjo-refill",
+      "representativeName": "Stensjö by water refill",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-watersources-1-stensjo-by-water-refill"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-stjarneberg-dry",
+      "clusterKey": "site-stjarneberg-dry",
+      "representativeName": "Stjärneberg dry toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg-facilities-11-stjarneberg-dry-toilet"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.51435204367604,
+        16.60190243957652
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-stjarneberg-well",
+      "clusterKey": "site-stjarneberg-well",
+      "representativeName": "Stjärneberg well",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg-facilities-12-stjarneberg-well",
+        "ostkustleden-etapp-5-mortfors-stjarneberg-watersources-2-stjarneberg-well",
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar-watersources-0-stjarneberg-well"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg",
+        "ostkustleden-etapp-6-stjarneberg-lilla-laxemar"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "ostkustleden-site-tenting-stjarneberg",
+      "clusterKey": "site-tenting-stjarneberg",
+      "representativeName": "Tenting at Stjärneberg hut",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg-facilities-10-tenting-at-stjarneberg-hut"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-5-mortfors-stjarneberg"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.51435204367604,
+        16.60190243957652
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-tilias-kafe",
+      "clusterKey": "site-tilias-kafe",
+      "representativeName": "Tilias kafé, Stensjö by",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge-facilities-8-tilias-kafe-stensjo-by"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "ostkustleden-site-vindskydd-mortfors",
+      "clusterKey": "site-vindskydd-mortfors",
+      "representativeName": "Vindskydd Mörtfors",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors-facilities-8-vindskydd-mortfors"
+      ],
+      "sectionIds": [
+        "ostkustleden-etapp-4-krokstorp-mortfors"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.51414069,
+        16.47338769
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    }
+  ]
+}

@@ -1,0 +1,5422 @@
+{
+  "schemaVersion": "candidate-facility-clusters/v1",
+  "trailId": "vastra-vatterleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-normalized-research-only",
+  "runtimeImportApproved": false,
+  "facilityStatePolicy": {
+    "decision": "Normalize facilities through explicit import actions, not by deleting caveats.",
+    "candidateImportActions": [
+      "import",
+      "import-as-access",
+      "import-as-rule-warning",
+      "attach-to-parent",
+      "side-trip-metadata",
+      "pending-review",
+      "suppress"
+    ],
+    "runtimeMapping": [
+      "Only import, import-as-access, import-as-rule-warning and attach-to-parent records may become runtime data.",
+      "Pending-review and suppress records remain in research/candidate artifacts and must not appear as normal user-facing facilities.",
+      "Side-trip metadata can become user-facing only if the route or POI is intentionally modeled as a side trip."
+    ],
+    "parentClusterPolicy": "Cluster first, then split typed subfacilities only where coordinates, confidence and app taxonomy justify separate markers.",
+    "parkingAndTransitPolicy": "Parking and transit should be treated consistently with existing app trails: import verified, useful access records as user-facing parking/transit facilities or accessPoints, dedupe them by cluster, and keep timetable/parking-rule details caveated and live-checkable.",
+    "informalTentingPolicy": "Informal tenting remains a separate candidate category. Promote to runtime camping only when rules and coordinates support it; otherwise keep as caveated rule/access text or pending-review.",
+    "privateCommercialPolicy": "Private, customer-only, seasonal or opening-hours-dependent services can be imported only with clear caveats and publication-time recheck requirements."
+  },
+  "summary": {
+    "totalFacilities": 210,
+    "clusterCount": 158,
+    "multiFacilityClusters": 46,
+    "dedupeCandidateClusters": 59,
+    "byRecommendedAction": {
+      "single-record": 99,
+      "dedupe-duplicate-facility": 28,
+      "keep-suppressed": 18,
+      "dedupe-related-site-cluster": 5,
+      "attach-child-amenities-to-parent": 8
+    }
+  },
+  "clusters": [
+    {
+      "clusterId": "vastra-vatterleden-coord-57-9989-14-1161-trail-junction",
+      "clusterKey": "coord-57.9989-14.1161-trail-junction",
+      "representativeName": "Fagerhult stage endpoint / access trailhead",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-facilities-10-fagerhult-stage-endpoint-access-trailhead"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.998895,
+        14.116089
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-0502-14-0718-rest-area",
+      "clusterKey": "coord-58.0502-14.0718-rest-area",
+      "representativeName": "Sydvattnet rest areas",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-facilities-8-sydvattnet-rest-areas"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.05021,
+        14.07185
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-0537-14-0748-rest-area",
+      "clusterKey": "coord-58.0537-14.0748-rest-area",
+      "representativeName": "Nordvattnet rest/grill/fishing area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-facilities-7-nordvattnet-rest-grill-fishing-area"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.05367,
+        14.07482
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-0629-14-0763-rest-area",
+      "clusterKey": "coord-58.0629-14.0763-rest-area",
+      "representativeName": "Store Öjasjön grill/rest areas",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-facilities-6-store-ojasjon-grill-rest-areas"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.06289,
+        14.07632
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-0977-14-1098-rest-area",
+      "clusterKey": "coord-58.0977-14.1098-rest-area",
+      "representativeName": "Store Grubben rest area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-facilities-5-store-grubben-rest-area"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.097667,
+        14.109787
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-1058-14-0857-swimming",
+      "clusterKey": "coord-58.1058-14.0857-swimming",
+      "representativeName": "Lille/Lilla Havsjön bathing place",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-facilities-6-lille-lilla-havsjon-bathing-place",
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-facilities-4-lilla-havssjon-lille-havsjon-bathing-place"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.105834,
+        14.085727
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-1911-14-0998-fireplace",
+      "clusterKey": "coord-58.1911-14.0998-fireplace",
+      "representativeName": "Vitsjön fireplace / rest area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-facilities-4-vitsjon-fireplace-rest-area"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.1911018,
+        14.0997753
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-2077-14-1217-heritage",
+      "clusterKey": "coord-58.2077-14.1217-heritage",
+      "representativeName": "Stora Bremsahemmet pest/kolera grave spur",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-facilities-2-stora-bremsahemmet-pest-kolera-grave-spur"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.20775,
+        14.121697
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-2197-14-1294-viewpoint",
+      "clusterKey": "coord-58.2197-14.1294-viewpoint",
+      "representativeName": "Baståsen / Södra Hulan viewpoint spur",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-facilities-1-bastasen-sodra-hulan-viewpoint-spur"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.219744,
+        14.129431
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-2404-14-1384-rest-area",
+      "clusterKey": "coord-58.2404-14.1384-rest-area",
+      "representativeName": "Pershov rest area / toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen-facilities-17-pershov-rest-area-toilet"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.240439,
+        14.138447
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-2491-14-1534-rest-area",
+      "clusterKey": "coord-58.2491-14.1534-rest-area",
+      "representativeName": "Kärrabo rest area / cold spring",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen-facilities-15-karrabo-rest-area-cold-spring"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.249082,
+        14.153446
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-3025-14-2910-attraction",
+      "clusterKey": "coord-58.3025-14.2910-attraction",
+      "representativeName": "Hjo harbor playground / Strömparterren",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-15-hjo-harbor-playground-stromparterren"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.302459,
+        14.290974
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-3025-14-2914-trail-junction",
+      "clusterKey": "coord-58.3025-14.2914-trail-junction",
+      "representativeName": "Hjo harbor Västra Vätterleden endpoint board",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen-facilities-0-hjo-harbor-vastra-vatterleden-endpoint-board"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.3024846,
+        14.2914462
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-3038-14-2852-rest-area",
+      "clusterKey": "coord-58.3038-14.2852-rest-area",
+      "representativeName": "Hjoåns dalgång rest point",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-13-hjoans-dalgang-rest-point"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.303792,
+        14.285233
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-3080-14-2082-swimming",
+      "clusterKey": "coord-58.3080-14.2082-swimming",
+      "representativeName": "Varpet badplats / Mullsjön",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-10-varpets-badplats-mullsjon",
+        "vastra-vatterleden-etapp-5-hjo-bastasen-facilities-9-varpet-badplats-mullsjon"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.30802,
+        14.208249
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-3082-14-2745-fireplace",
+      "clusterKey": "coord-58.3082-14.2745-fireplace",
+      "representativeName": "Hjoåns dalgång eldstad",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-12-hjoans-dalgang-eldstad",
+        "vastra-vatterleden-etapp-5-hjo-bastasen-facilities-6-hjoans-dalgang-fireplace-rest-point"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.308201,
+        14.274469
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-3539-14-2522-fireplace",
+      "clusterKey": "coord-58.3539-14.2522-fireplace",
+      "representativeName": "Skarpås eldplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-6-skarpas-eldplats"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.3539192,
+        14.252176
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-3859-14-3162-trail-junction",
+      "clusterKey": "coord-58.3859-14.3162-trail-junction",
+      "representativeName": "Lunnakulle / Bisshult junction",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-4-lunnakulle-bisshult-junction"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.385945,
+        14.316208
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-4124-14-3647-fireplace",
+      "clusterKey": "coord-58.4124-14.3647-fireplace",
+      "representativeName": "Röåsjön eldplats",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-facilities-1-roasjon-eldplats-grill",
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-1-roasjon-eldplats"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa",
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.4123939,
+        14.3647325
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-4126-14-3626-rest-area",
+      "clusterKey": "coord-58.4126-14.3626-rest-area",
+      "representativeName": "Rastplats Röåsjön",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-3-rastplats-roasjon"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.412617,
+        14.362563
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-4396-14-4133-heritage",
+      "clusterKey": "coord-58.4396-14.4133-heritage",
+      "representativeName": "Breviks kyrka",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-facilities-15-breviks-kyrka"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.439602,
+        14.4132896
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-4616-14-3544-trail-junction",
+      "clusterKey": "coord-58.4616-14.3544-trail-junction",
+      "representativeName": "Gunnarflon junction",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-facilities-5-gunnarflon-junction"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.461624,
+        14.354368
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-4801-14-3802-viewpoint",
+      "clusterKey": "coord-58.4801-14.3802-viewpoint",
+      "representativeName": "Klevaberget viewpoint detour",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-facilities-4-klevaberget-viewpoint-detour"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.480087,
+        14.380235
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-4930-14-4044-attraction",
+      "clusterKey": "coord-58.4930-14.4044-attraction",
+      "representativeName": "Mölltorps hembygdsgård / museum",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-25-molltorps-hembygdsgard-museum"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.4930059,
+        14.4043872
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-4930-14-4044-heritage",
+      "clusterKey": "coord-58.4930-14.4044-heritage",
+      "representativeName": "Mölltorps hembygdsgård / Mölltorps museum",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-facilities-7-molltorps-hembygdsgard-molltorps-museum"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.4930059,
+        14.4043872
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-4943-14-4065-heritage",
+      "clusterKey": "coord-58.4943-14.4065-heritage",
+      "representativeName": "Mölltorps kyrka",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-facilities-8-molltorps-kyrka"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "heritage"
+      ],
+      "candidateTypes": [
+        "heritage"
+      ],
+      "parentCandidateType": "heritage",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.4942912,
+        14.4064954
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-5337-14-4423-attraction",
+      "clusterKey": "coord-58.5337-14.4423-attraction",
+      "representativeName": "Södra Vabergsfortet",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-20-sodra-vabergsfortet"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.5337135,
+        14.4422951
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-5371-14-4576-viewpoint",
+      "clusterKey": "coord-58.5371-14.4576-viewpoint",
+      "representativeName": "Klintens utsiktsplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-16-klintens-utsiktsplats"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.5371184,
+        14.4575672
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-5372-14-4574-fireplace",
+      "clusterKey": "coord-58.5372-14.4574-fireplace",
+      "representativeName": "Klinten grillplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-17-klinten-grillplats"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.5372315,
+        14.457443
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-5382-14-4631-swimming",
+      "clusterKey": "coord-58.5382-14.4631-swimming",
+      "representativeName": "Skackastugan/Bergsudden bathing place",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-15-skackastugan-bergsudden-bathing-place"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.53816,
+        14.46305
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-5383-14-4647-fireplace",
+      "clusterKey": "coord-58.5383-14.4647-fireplace",
+      "representativeName": "Bergsudden shelter fireplace",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-13-bergsudden-shelter-fireplace"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.53829,
+        14.46474
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-5424-14-4422-attraction",
+      "clusterKey": "coord-58.5424-14.4422-attraction",
+      "representativeName": "Norra Vabergsfortet",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-19-norra-vabergsfortet"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.5424073,
+        14.4421822
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-5782-14-4345-attraction",
+      "clusterKey": "coord-58.5782-14.4345-attraction",
+      "representativeName": "Forsviks Bruk / Forsviks Industriminnen",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-7-forsviks-bruk-forsviks-industriminnen"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.578174,
+        14.434492
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-6172-14-4927-rest-area",
+      "clusterKey": "coord-58.6172-14.4927-rest-area",
+      "representativeName": "Bölskullen bordsgrupp",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-12-bolskullen-bordsgrupp"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.617204,
+        14.492713
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-6295-14-5641-swimming",
+      "clusterKey": "coord-58.6295-14.5641-swimming",
+      "representativeName": "Djäknesundet badplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-5-djaknesundet-badplats"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.629486,
+        14.564069
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-6307-14-5474-swimming",
+      "clusterKey": "coord-58.6307-14.5474-swimming",
+      "representativeName": "Granviks badplats",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-8-granviks-badplats"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.630667,
+        14.547427
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-6420-14-4149-fireplace",
+      "clusterKey": "coord-58.6420-14.4149-fireplace",
+      "representativeName": "Iglasjön grillplats under tak",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-14-iglasjon-grillplats-under-tak"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.641956,
+        14.414903
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-coord-58-6435-14-4004-viewpoint",
+      "clusterKey": "coord-58.6435-14.4004-viewpoint",
+      "representativeName": "Grotteberget utsikt",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-15-grotteberget-utsikt"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.643529,
+        14.400375
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-name-bastasen-endpoint",
+      "clusterKey": "name-bastasen-endpoint",
+      "representativeName": "Baståsen endpoint",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen-facilities-18-bastasen-endpoint",
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-facilities-0-bastasen-endpoint"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen",
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.225498,
+        14.12376
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-name-molltorps-badplats-kyrksjon",
+      "clusterKey": "name-molltorps-badplats-kyrksjon",
+      "representativeName": "Mölltorps badplats / Kyrksjön",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-21-molltorps-badplats-kyrksjon",
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-facilities-9-molltorps-badplats-kyrksjon"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp",
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "swimming"
+      ],
+      "candidateTypes": [
+        "swimming"
+      ],
+      "parentCandidateType": "swimming",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.497217,
+        14.4116448
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-name-stammorna-mullsjon-rest-cluster",
+      "clusterKey": "name-stammorna-mullsjon-rest-cluster",
+      "representativeName": "Stämmorna / Mullsjön rest cluster",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-9-stammorna-mullsjon-rest-cluster",
+        "vastra-vatterleden-etapp-5-hjo-bastasen-facilities-8-stammorna-mullsjon-rest-cluster"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.315348,
+        14.232765
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-single-vastra-vatterleden-etapp-1-stenkallegarden-forsvik-commuteaccess-parkingandtrailheadaccess-0-facility",
+      "clusterKey": "single-vastra-vatterleden-etapp-1-stenkallegarden-forsvik-commuteaccess-parkingandtrailheadaccess-0-facility",
+      "representativeName": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-commuteaccess-parkingandtrailheadaccess-0-facility",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-commuteaccess-parkingandtrailheadaccess-0-facility"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-single-vastra-vatterleden-etapp-1-stenkallegarden-forsvik-commuteaccess-parkingandtrailheadaccess-1-facility",
+      "clusterKey": "single-vastra-vatterleden-etapp-1-stenkallegarden-forsvik-commuteaccess-parkingandtrailheadaccess-1-facility",
+      "representativeName": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-commuteaccess-parkingandtrailheadaccess-1-facility",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-commuteaccess-parkingandtrailheadaccess-1-facility"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-single-vastra-vatterleden-etapp-1-stenkallegarden-forsvik-commuteaccess-parkingandtrailheadaccess-2-facility",
+      "clusterKey": "single-vastra-vatterleden-etapp-1-stenkallegarden-forsvik-commuteaccess-parkingandtrailheadaccess-2-facility",
+      "representativeName": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-commuteaccess-parkingandtrailheadaccess-2-facility",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-commuteaccess-parkingandtrailheadaccess-2-facility"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-single-vastra-vatterleden-etapp-2-forsvik-molltorp-commuteaccess-parkingandtrailheadaccess-0-facility",
+      "clusterKey": "single-vastra-vatterleden-etapp-2-forsvik-molltorp-commuteaccess-parkingandtrailheadaccess-0-facility",
+      "representativeName": "vastra-vatterleden-etapp-2-forsvik-molltorp-commuteaccess-parkingandtrailheadaccess-0-facility",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-commuteaccess-parkingandtrailheadaccess-0-facility"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-single-vastra-vatterleden-etapp-2-forsvik-molltorp-commuteaccess-parkingandtrailheadaccess-1-facility",
+      "clusterKey": "single-vastra-vatterleden-etapp-2-forsvik-molltorp-commuteaccess-parkingandtrailheadaccess-1-facility",
+      "representativeName": "vastra-vatterleden-etapp-2-forsvik-molltorp-commuteaccess-parkingandtrailheadaccess-1-facility",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-commuteaccess-parkingandtrailheadaccess-1-facility"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-single-vastra-vatterleden-etapp-2-forsvik-molltorp-commuteaccess-parkingandtrailheadaccess-2-facility",
+      "clusterKey": "single-vastra-vatterleden-etapp-2-forsvik-molltorp-commuteaccess-parkingandtrailheadaccess-2-facility",
+      "representativeName": "vastra-vatterleden-etapp-2-forsvik-molltorp-commuteaccess-parkingandtrailheadaccess-2-facility",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-commuteaccess-parkingandtrailheadaccess-2-facility"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-single-vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-18-vaberget-utsiktstorn",
+      "clusterKey": "single-vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-18-vaberget-utsiktstorn",
+      "representativeName": "Vaberget utsiktstorn",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-18-vaberget-utsiktstorn"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-24sju-forsvik",
+      "clusterKey": "site-24sju-forsvik",
+      "representativeName": "24SJU Forsvik",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-3-24sju-forsvik"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.5759143,
+        14.4382526
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-bins-along",
+      "clusterKey": "site-bins-along",
+      "representativeName": "Waste bins along stage",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-23-waste-bins-along-stage",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-26-waste-bins-along-stage"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 2
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "waste"
+      ],
+      "candidateTypes": [
+        "waste"
+      ],
+      "parentCandidateType": "waste",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-bjorkhaga-hotell",
+      "clusterKey": "site-bjorkhaga-hotell",
+      "representativeName": "Björkhaga Hotell",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "bjorkhaga-hotell"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "food",
+        "lodging",
+        "parking"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "food",
+        "parking"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.921606,
+        13.880376
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-bolets-angar",
+      "clusterKey": "site-bolets-angar",
+      "representativeName": "Bölets ängar TC / parking",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-11-bolets-angar-tc-parking"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.616013,
+        14.517959
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-brevikens-golf",
+      "clusterKey": "site-brevikens-golf",
+      "representativeName": "Brevikens Golf & Hotell",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-facilities-14-brevikens-golf-hotell"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.4440683,
+        14.3977067
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-brevikens-tradgardscafe",
+      "clusterKey": "site-brevikens-tradgardscafe",
+      "representativeName": "Brevikens Trädgårdscafé",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-facilities-16-brevikens-tradgardscafe"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.4402291,
+        14.4422447
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-breviks",
+      "clusterKey": "site-breviks",
+      "representativeName": "Breviks Camping",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-facilities-13-breviks-camping"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.4343,
+        14.4107
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-bruksvagen",
+      "clusterKey": "site-bruksvagen",
+      "representativeName": "Bruksvägen A/B",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-commuteaccess-end-1-bruksvagen-a-b",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-commuteaccess-start-1-bruksvagen-a-b"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.58029284,
+        14.43327092
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-cafe-ada",
+      "clusterKey": "site-cafe-ada",
+      "representativeName": "Café Ada",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-21-cafe-ada",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-2-cafe-ada"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.578251,
+        14.43502
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-camp-fjallet",
+      "clusterKey": "site-camp-fjallet",
+      "representativeName": "Camp Fjället",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-facilities-11-camp-fjallet"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.2087149,
+        14.0434399
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-caravan-club",
+      "clusterKey": "site-caravan-club",
+      "representativeName": "Caravan Club Hökensås",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-facilities-10-caravan-club-hokensas",
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-facilities-5-caravan-club-hokensas"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 7
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.0901,
+        14.07218
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-carry-for",
+      "clusterKey": "site-carry-for",
+      "representativeName": "Carry water for the full section",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-watersources-0-carry-water-for-the-full-section",
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-watersources-0-carry-water-for-the-full-section",
+        "vastra-vatterleden-etapp-5-hjo-bastasen-watersources-0-carry-water-for-the-full-section",
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-watersources-0-carry-water-for-the-full-section"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa",
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+        "vastra-vatterleden-etapp-5-hjo-bastasen",
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service",
+        "water"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-etappmal-stenkallegarden",
+      "clusterKey": "site-etappmal-stenkallegarden",
+      "representativeName": "Etappmål Stenkällegården",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-0-etappmal-stenkallegarden"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.681164,
+        14.597852
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-fagerhult-access",
+      "clusterKey": "site-fagerhult-access",
+      "representativeName": "Fagerhult bus/access point",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-facilities-12-fagerhult-bus-access-point"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.999122,
+        14.119819
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-fagerhult-friluftsomrade",
+      "clusterKey": "site-fagerhult-friluftsomrade",
+      "representativeName": "Fagerhult friluftsområde / elljusspår parking",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo-commuteaccess-start-1-fagerhult-friluftsomrade-elljusspar-parking"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking",
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "parking"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.99955,
+        14.11604
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-fagerhult-furusjo",
+      "clusterKey": "site-fagerhult-furusjo",
+      "representativeName": "Fagerhult / Furusjö / Mullsjö services",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo-watersources-1-fagerhult-furusjo-mullsjo-services"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-fagerhult-habo",
+      "clusterKey": "site-fagerhult-habo",
+      "representativeName": "Fagerhult (Habo k:n)",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo-commuteaccess-start-0-fagerhult-habo-k-n"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.999123,
+        14.119818
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-fagerhult-store",
+      "clusterKey": "site-fagerhult-store",
+      "representativeName": "Fagerhult store purchased water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-watersources-1-fagerhult-store-purchased-water"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food",
+        "water"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.999292,
+        14.120907
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-fagerhult-vv7",
+      "clusterKey": "site-fagerhult-vv7",
+      "representativeName": "Fagerhult VV7/VV8 ledstart",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "fagerhult-ledstart-vv7-vv8"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "parking",
+        "service",
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "parking",
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.999567,
+        14.115661
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-fagerlivs-time",
+      "clusterKey": "site-fagerlivs-time",
+      "representativeName": "Fagerlivs / Time Livsmedelsbutik, Fagerhult",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-facilities-11-fagerlivs-time-livsmedelsbutik-fagerhult"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.999292,
+        14.120907
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-first-camp",
+      "clusterKey": "site-first-camp",
+      "representativeName": "First Camp Hökensås-Tidaholm",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-facilities-7-first-camp-hokensas-tidaholm",
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-watersources-4-first-camp-hokensas-service-house-water",
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-facilities-0-first-camp-hokensas-tidaholm",
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-watersources-0-first-camp-hokensas-service-house-water"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "camping",
+        "water"
+      ],
+      "candidateTypes": [
+        "camping",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "camping"
+      ],
+      "representativeCoordinatesLatLon": [
+        58.0980712,
+        14.0747654
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-forsvik",
+      "clusterKey": "site-forsvik",
+      "representativeName": "Forsvik A",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-commuteaccess-end-0-forsvik-a",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-commuteaccess-start-0-forsvik-a"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction",
+        "transit"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "attraction"
+      ],
+      "representativeCoordinatesLatLon": [
+        58.57654538,
+        14.43481029
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-forsvik-guest",
+      "clusterKey": "site-forsvik-guest",
+      "representativeName": "Forsvik guest harbour / sluss service",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-19-forsvik-guest-harbour-sluss-service"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.575967,
+        14.438589
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-forsvik-hostel",
+      "clusterKey": "site-forsvik-hostel",
+      "representativeName": "STF Forsvik Hostel",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-22-stf-forsvik-hostel",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-5-stf-forsvik-hostel"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.580136,
+        14.435752
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-forsvik-sluss",
+      "clusterKey": "site-forsvik-sluss",
+      "representativeName": "Forsvik sluss / guest harbour drinking water",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-watersources-0-forsvik-sluss-guest-harbour-drinking-water",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-0-forsvik-sluss-guest-harbour-water-and-toilet",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-watersources-0-forsvik-sluss-guest-harbour-drinking-water"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 2
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.575967,
+        14.438589
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-forsviks-cafe",
+      "clusterKey": "site-forsviks-cafe",
+      "representativeName": "Forsviks Café & Mat / Villa Göta",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-20-forsviks-cafe-mat-villa-gota",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-1-forsviks-cafe-mat-villa-gota-restaurant"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 2
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.57541,
+        14.434203
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-furusjo-vv8",
+      "clusterKey": "site-furusjo-vv8",
+      "representativeName": "Furusjö VV8 entrance",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "furusjo-entrance-vv8"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "parking",
+        "swimming",
+        "trail-junction",
+        "transit"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "parking",
+        "swimming",
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.93325,
+        13.95934
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-furusjobadet-grill",
+      "clusterKey": "site-furusjobadet-grill",
+      "representativeName": "Furusjöbadet grill/rest area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "furusjobadet-grillplats"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "food",
+        "rest-area",
+        "swimming",
+        "toilet"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [
+        "fireplace",
+        "rest-area",
+        "swimming",
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.932798,
+        13.958414
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-granvik-event",
+      "clusterKey": "site-granvik-event",
+      "representativeName": "Granvik Event / Granviks Herrgård",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-6-granvik-event-granviks-herrgard"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.631973,
+        14.546407
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-granviks-besokscentrum",
+      "clusterKey": "site-granviks-besokscentrum",
+      "representativeName": "Granviks besökscentrum / hamn service cluster",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-7-granviks-besokscentrum-hamn-service-cluster"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.632955,
+        14.547079
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-granviks-vattenpump",
+      "clusterKey": "site-granviks-vattenpump",
+      "representativeName": "Granviks vattenpump",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-watersources-1-granviks-vattenpump"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-hallsdammsbacken-shelter",
+      "clusterKey": "site-hallsdammsbacken-shelter",
+      "representativeName": "Hållsdammsbäcken shelter cluster",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-facilities-9-hallsdammsbacken-shelter-cluster"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.032095,
+        14.063029
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-hedsmossen-dry",
+      "clusterKey": "site-hedsmossen-dry",
+      "representativeName": "Hedsmossen dry toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen-facilities-13-hedsmossen-dry-toilet"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.2946636,
+        14.1833099
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-hedsmossen-hand",
+      "clusterKey": "site-hedsmossen-hand",
+      "representativeName": "Hedsmossen hand pump / well",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen-facilities-14-hedsmossen-hand-pump-well",
+        "vastra-vatterleden-etapp-5-hjo-bastasen-watersources-3-hedsmossen-hand-pump-well"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.2954127,
+        14.1815632
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-hedsmossen-shelter",
+      "clusterKey": "site-hedsmossen-shelter",
+      "representativeName": "Hedsmossen shelter",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen-facilities-12-hedsmossen-shelter"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.295495,
+        14.1820081
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-hedsmossen-stream",
+      "clusterKey": "site-hedsmossen-stream",
+      "representativeName": "Hedsmossen stream north of shelter",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen-watersources-4-hedsmossen-stream-north-of-shelter"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-hjallo-bjorkenas",
+      "clusterKey": "site-hjallo-bjorkenas",
+      "representativeName": "Hjällö / Björkenäs / Ruder-Ruderna / Grebban generic points",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-24-hjallo-bjorkenas-ruder-ruderna-grebban-generic-points"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-hjo",
+      "clusterKey": "site-hjo",
+      "representativeName": "Hjo Camping",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-23-hjo-camping",
+        "vastra-vatterleden-etapp-5-hjo-bastasen-facilities-5-hjo-camping"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.309786,
+        14.303054
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-hjo-endpoint",
+      "clusterKey": "site-hjo-endpoint",
+      "representativeName": "Hjo endpoint taps/services",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-14-hjo-endpoint-trail-board-information",
+        "vastra-vatterleden-etapp-5-hjo-bastasen-watersources-1-hjo-endpoint-taps-services"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service",
+        "water"
+      ],
+      "candidateTypes": [
+        "service",
+        "water"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        58.3024846,
+        14.2914462
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-hjo-fresh",
+      "clusterKey": "site-hjo-fresh",
+      "representativeName": "Hjo Camping fresh water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-watersources-5-hjo-camping-fresh-water"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.309786,
+        14.303054
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-hjo-gasthamn",
+      "clusterKey": "site-hjo-gasthamn",
+      "representativeName": "Hjo Gästhamn service",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-18-hjo-gasthamn-service"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.302667,
+        14.2944988
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-hjo-harbor",
+      "clusterKey": "site-hjo-harbor",
+      "representativeName": "Hjo harbor public WC",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-17-hjo-harbor-public-wc",
+        "vastra-vatterleden-etapp-5-hjo-bastasen-facilities-1-hjo-harbor-public-wc"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.302979,
+        14.2924351
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-hogaliden",
+      "clusterKey": "site-hogaliden",
+      "representativeName": "Högaliden water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen-watersources-2-hogaliden-water"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.301697,
+        14.193006
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-hogaliden-shelter",
+      "clusterKey": "site-hogaliden-shelter",
+      "representativeName": "Högaliden shelter",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen-facilities-11-hogaliden-shelter"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.3011615,
+        14.1939819
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-hogalidens-friluftsomrade",
+      "clusterKey": "site-hogalidens-friluftsomrade",
+      "representativeName": "Högalidens friluftsområde WC / parking",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen-facilities-10-hogalidens-friluftsomrade-wc-parking"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.301693,
+        14.193928
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-hokensas-restaurant",
+      "clusterKey": "site-hokensas-restaurant",
+      "representativeName": "Hökensås restaurant and service shop",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-facilities-8-hokensas-restaurant-and-service-shop",
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-facilities-1-hokensas-camping-restaurant-service-shop"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.0981885,
+        14.0749136
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-hokensas-sportfiske",
+      "clusterKey": "site-hokensas-sportfiske",
+      "representativeName": "Hökensås Sportfiske",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-facilities-9-hokensas-sportfiske",
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-facilities-2-hokensas-sportfiske"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.0982532,
+        14.0739889
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-hornsjon-windbreak",
+      "clusterKey": "site-hornsjon-windbreak",
+      "representativeName": "Hornsjön windbreak",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "hornsjon-windbreak"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "rest-area",
+        "shelter",
+        "waste"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "fireplace",
+        "rest-area",
+        "waste"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.982767,
+        14.024359
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-hotel-bellevue",
+      "clusterKey": "site-hotel-bellevue",
+      "representativeName": "Hotel Bellevue",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-21-hotel-bellevue"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.304167,
+        14.2925
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-hotel-mullsjo",
+      "clusterKey": "site-hotel-mullsjo",
+      "representativeName": "Hotel Mullsjö ledstart",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "hotel-mullsjo-ledstart",
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo-watersources-0-hotel-mullsjo-tap-service-water"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "trail-junction",
+        "water"
+      ],
+      "candidateTypes": [
+        "food",
+        "lodging",
+        "parking",
+        "service",
+        "trail-junction",
+        "transit",
+        "water"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "food",
+        "parking",
+        "service",
+        "trail-junction",
+        "transit",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.90297,
+        13.87182
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-ibbesjon-shelter",
+      "clusterKey": "site-ibbesjon-shelter",
+      "representativeName": "Ibbesjön shelter",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-facilities-12-ibbesjon-shelter",
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-facilities-3-ibbesjon-shelter-cluster"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 7
+      },
+      "states": [
+        "normal",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.0881152,
+        14.0841605
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-ica-lanthandeln",
+      "clusterKey": "site-ica-lanthandeln",
+      "representativeName": "ICA Lanthandeln i Undenäs",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-17-ica-lanthandeln-i-undenas"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.653877,
+        14.398507
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-ica-nara",
+      "clusterKey": "site-ica-nara",
+      "representativeName": "ICA Nära Fredéns",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-23-ica-nara-fredens",
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-facilities-10-ica-nara-fredens"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp",
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.4941213,
+        14.4161793
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-ica-supermarket",
+      "clusterKey": "site-ica-supermarket",
+      "representativeName": "ICA Supermarket Hjo",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-20-ica-supermarket-hjo",
+        "vastra-vatterleden-etapp-5-hjo-bastasen-facilities-3-ica-supermarket-hjo"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.304444,
+        14.291107
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-informal-skacka",
+      "clusterKey": "site-informal-skacka",
+      "representativeName": "Informal tent area by Skacka shelter",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-14-informal-tent-area-by-skacka-shelter"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.53829,
+        14.46474
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-kallebacken-undenas",
+      "clusterKey": "site-kallebacken-undenas",
+      "representativeName": "Källebacken / Undenäs hembygdsgård drinking-water faucet",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-16-kallebacken-undenas-hembygdsgard-drinking-water-faucet",
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-watersources-3-kallebacken-undenas-hembygdsgard-drinking-water-faucet"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-kanalbutiken-knop",
+      "clusterKey": "site-kanalbutiken-knop",
+      "representativeName": "Kanalbutiken 5 Knop",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-4-kanalbutiken-5-knop"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.5752813,
+        14.4349926
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-karrabo",
+      "clusterKey": "site-karrabo",
+      "representativeName": "Kärrabo toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen-facilities-16-karrabo-toilet"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.249199,
+        14.152361
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-karrabo-cold",
+      "clusterKey": "site-karrabo-cold",
+      "representativeName": "Kärrabo cold spring",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen-watersources-5-karrabo-cold-spring"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service",
+        "water"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        58.2495442,
+        14.1527914
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-klangahamn-klangahamns",
+      "clusterKey": "site-klangahamn-klangahamns",
+      "representativeName": "Klangahamn / Klangahamns Fisk",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-9-klangahamn-klangahamns-fisk"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.613095,
+        14.538881
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-klangatorp-kallkalla",
+      "clusterKey": "site-klangatorp-kallkalla",
+      "representativeName": "Klangatorp kallkälla",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-10-klangatorp-kallkalla",
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-watersources-2-klangatorp-kallkalla"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-kyrksjon-molltorp",
+      "clusterKey": "site-kyrksjon-molltorp",
+      "representativeName": "Kyrksjön Mölltorp bathing water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-watersources-3-kyrksjon-molltorp-bathing-water"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.497217,
+        14.4116448
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-kyrkvagen",
+      "clusterKey": "site-kyrkvagen",
+      "representativeName": "Kyrkvägen A/B",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-commuteaccess-end-1-kyrkvagen-a-b"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.48822294,
+        14.40535534
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-lakes-and",
+      "clusterKey": "site-lakes-and",
+      "representativeName": "Lakes and watercourses along stage",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-watersources-4-lakes-and-watercourses-along-stage",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-watersources-3-lakes-and-watercourses-along-stage"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-lilla-havsjon",
+      "clusterKey": "site-lilla-havsjon",
+      "representativeName": "Lilla Havsjön bathing water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-watersources-3-lilla-havsjon-bathing-water"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.105834,
+        14.085727
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-lilla-havssjon",
+      "clusterKey": "site-lilla-havssjon",
+      "representativeName": "Lilla Havssjön bathing water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-watersources-3-lilla-havssjon-bathing-water"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.105834,
+        14.085727
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-molltorp-centrum",
+      "clusterKey": "site-molltorp-centrum",
+      "representativeName": "Mölltorp centrum A/B",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-commuteaccess-end-0-molltorp-centrum-a-b"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.49349521,
+        14.41514745
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-molltorp-vag",
+      "clusterKey": "site-molltorp-vag",
+      "representativeName": "Mölltorp väg 49 A/B",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-commuteaccess-end-2-molltorp-vag-49-a-b"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.49027319,
+        14.41962656
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-molltorps-badplats",
+      "clusterKey": "site-molltorps-badplats",
+      "representativeName": "Mölltorps badplats summer tap",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-22-molltorps-badplats-wc-water-tap",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-watersources-2-molltorps-badplats-summer-tap",
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-watersources-2-molltorps-badplats-summer-tap"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp",
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet",
+        "water"
+      ],
+      "candidateTypes": [
+        "toilet",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        58.497217,
+        14.4116448
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-molltorps-pizzeria",
+      "clusterKey": "site-molltorps-pizzeria",
+      "representativeName": "Mölltorps pizzeria",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-24-molltorps-pizzeria-former-molltorps-grillen-context",
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-facilities-11-molltorps-pizzeria"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp",
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.4934723,
+        14.4155015
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-molltorpskolan",
+      "clusterKey": "site-molltorpskolan",
+      "representativeName": "Mölltorpskolan parking",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-facilities-12-molltorpskolan-parking"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.4944012,
+        14.4034835
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-motell-vip",
+      "clusterKey": "site-motell-vip",
+      "representativeName": "Motell VIP Mullsjö",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "motell-vip-mullsjo"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "food",
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "food"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.9155,
+        13.8828
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-mullsjo",
+      "clusterKey": "site-mullsjo",
+      "representativeName": "Mullsjö Camping",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "mullsjo-camping"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping",
+        "food",
+        "lodging",
+        "swimming"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "camping",
+        "food",
+        "swimming"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-mullsjo-friluftshotellet",
+      "clusterKey": "site-mullsjo-friluftshotellet",
+      "representativeName": "Mullsjö Friluftshotellet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo-commuteaccess-end-0-mullsjo-friluftshotellet"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.904068,
+        13.870843
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-mullsjo-resecentrum",
+      "clusterKey": "site-mullsjo-resecentrum",
+      "representativeName": "Mullsjö Resecentrum / Mullsjö station",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo-commuteaccess-end-1-mullsjo-resecentrum-mullsjo-station"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.915131,
+        13.882738
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-mullsjon-varpet",
+      "clusterKey": "site-mullsjon-varpet",
+      "representativeName": "Mullsjön / Varpet bathing water",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-watersources-3-mullsjon-varpet-bathing-water",
+        "vastra-vatterleden-etapp-5-hjo-bastasen-watersources-6-mullsjon-varpet-bathing-water"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.30802,
+        14.208249
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-natural-lake",
+      "clusterKey": "site-natural-lake",
+      "representativeName": "Natural lake/stream water along stage",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-24-natural-lake-stream-water-along-stage",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-27-natural-lake-stream-water-along-stage"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 2
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-natural-lakes",
+      "clusterKey": "site-natural-lakes",
+      "representativeName": "Natural lakes and streams on stage 7",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-watersources-2-natural-lakes-and-streams-on-stage-7",
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo-watersources-2-natural-lakes-and-streams-along-stage-8"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult",
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 8
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-nya-hamnkrogen",
+      "clusterKey": "site-nya-hamnkrogen",
+      "representativeName": "Nya Hamnkrogen / Hjo harbor restaurant",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-16-nya-hamnkrogen-hjo-harbor-restaurant",
+        "vastra-vatterleden-etapp-5-hjo-bastasen-facilities-2-nya-hamnkrogen-hjo-harbor-food-cluster"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.3026651,
+        14.2914435
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-roasjon-lake",
+      "clusterKey": "site-roasjon-lake",
+      "representativeName": "Röåsjön lake/stream water",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-watersources-1-roasjon-lake-stream-water"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": [
+        58.412626,
+        14.36451
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-roasjon-natural",
+      "clusterKey": "site-roasjon-natural",
+      "representativeName": "Röåsjön natural water",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-facilities-3-roasjon-natural-water",
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-watersources-1-roasjon-natural-water"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa",
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 4
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "natural-water",
+        "water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": [
+        58.412626,
+        14.36451
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-roasjon-torrtoa",
+      "clusterKey": "site-roasjon-torrtoa",
+      "representativeName": "Röåsjön torrtoa / WC",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-facilities-2-roasjon-torrtoa-wc",
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-2-roasjon-torrtoa-wc"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa",
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.4123939,
+        14.3647325
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-roasjon-vindskydd",
+      "clusterKey": "site-roasjon-vindskydd",
+      "representativeName": "Röåsjön vindskydd",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-facilities-0-roasjon-vindskydd",
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-0-roasjon-vindskydd"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa",
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.4123939,
+        14.3647325
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-sjohaga-pensionat",
+      "clusterKey": "site-sjohaga-pensionat",
+      "representativeName": "Sjöhaga Pensionat",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "sjohaga-pensionat"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        57.928853,
+        13.958055
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-skacka-vindskydd",
+      "clusterKey": "site-skacka-vindskydd",
+      "representativeName": "Skacka Vindskydd",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-11-skacka-vindskydd",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-12-skacka-vindskydd-2"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.53829,
+        14.46474
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-skackastugan",
+      "clusterKey": "site-skackastugan",
+      "representativeName": "Skackastugan",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-8-skackastugan"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.5389586,
+        14.462057
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-skackastugan-restricted",
+      "clusterKey": "site-skackastugan-restricted",
+      "representativeName": "Skackastugan restricted toilet access",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-10-skackastugan-restricted-toilet-access"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.5389586,
+        14.462057
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-skackastugan-tap",
+      "clusterKey": "site-skackastugan-tap",
+      "representativeName": "Skackastugan water tap",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-9-skackastugan-water-tap",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-watersources-1-skackastugan-water-tap"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.5389586,
+        14.462057
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-skarpas-natural",
+      "clusterKey": "site-skarpas-natural",
+      "representativeName": "Skarpås natural water",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-watersources-2-skarpas-natural-water"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": [
+        58.3539192,
+        14.252176
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-skarpas-small",
+      "clusterKey": "site-skarpas-small",
+      "representativeName": "Skarpås small parking / waste",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-8-skarpas-small-parking-waste"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking"
+      ],
+      "parentCandidateType": "parking",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.3539192,
+        14.252176
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-skarpas-vindskydd",
+      "clusterKey": "site-skarpas-vindskydd",
+      "representativeName": "Skarpås vindskydd",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-5-skarpas-vindskydd"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.3539192,
+        14.252176
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-sodra-kroksjon",
+      "clusterKey": "site-sodra-kroksjon",
+      "representativeName": "Södra Kroksjön shelter cluster",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "sodra-kroksjon-shelter",
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult-facilities-13-sodra-kroksjon-shelter-cluster"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult",
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 8
+      },
+      "states": [
+        "normal",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "fireplace",
+        "parking",
+        "rest-area",
+        "shelter",
+        "swimming",
+        "toilet"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "fireplace",
+        "parking",
+        "rest-area",
+        "swimming",
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        57.992077,
+        14.045566
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-sorhamn-stenkallegarden",
+      "clusterKey": "site-sorhamn-stenkallegarden",
+      "representativeName": "Sörhamn / Stenkällegården, väg 49",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-commuteaccess-start-0-sorhamn-stenkallegarden-vag-49"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service",
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        58.667741,
+        14.621123
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-stampens-kvarn",
+      "clusterKey": "site-stampens-kvarn",
+      "representativeName": "Stampens Kvarn",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-11-stampens-kvarn",
+        "vastra-vatterleden-etapp-5-hjo-bastasen-facilities-7-stampens-kvarn"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food",
+        "lodging"
+      ],
+      "candidateTypes": [
+        "food",
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "food"
+      ],
+      "representativeCoordinatesLatLon": [
+        58.3080892,
+        14.2536698
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-stigmansgarden-logi",
+      "clusterKey": "site-stigmansgarden-logi",
+      "representativeName": "Stigmansgården Logi & Café",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-1-stigmansgarden-logi-cafe"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.688019,
+        14.618035
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-stora-djaknasjon",
+      "clusterKey": "site-stora-djaknasjon",
+      "representativeName": "Stora Djäknasjön TC",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-2-stora-djaknasjon-vindskydd-eldplats",
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-3-stora-djaknasjon-tc"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter",
+        "toilet"
+      ],
+      "candidateTypes": [
+        "shelter",
+        "toilet"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "toilet"
+      ],
+      "representativeCoordinatesLatLon": [
+        58.658622,
+        14.575376
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-stora-kalven",
+      "clusterKey": "site-stora-kalven",
+      "representativeName": "Stora Kalven vindskydd / eldplats / brygga",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-13-stora-kalven-vindskydd-eldplats-brygga"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.627433,
+        14.464232
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-stora-roa",
+      "clusterKey": "site-stora-roa",
+      "representativeName": "Stora Röå naturreservat information board",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-facilities-6-stora-roa-naturreservat-information-board"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-store-grubben",
+      "clusterKey": "site-store-grubben",
+      "representativeName": "Store Grubben lake/rest area water",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-watersources-2-store-grubben-lake-rest-area-water"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": [
+        58.097667,
+        14.109787
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-the-green",
+      "clusterKey": "site-the-green",
+      "representativeName": "The Green Glamping",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "the-green-glamping"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-torrklosset-skarpas",
+      "clusterKey": "site-torrklosset-skarpas",
+      "representativeName": "Torrklosset Skarpås",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-7-torrklosset-skarpas"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.353488,
+        14.251566
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-undenas-vandrarhem",
+      "clusterKey": "site-undenas-vandrarhem",
+      "representativeName": "Undenäs vandrarhem",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-18-undenas-vandrarhem"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.658616,
+        14.400765
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-vattern-guldkroken",
+      "clusterKey": "site-vattern-guldkroken",
+      "representativeName": "Vättern / Guldkroken Hjo bathing water",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-watersources-4-vattern-guldkroken-hjo-bathing-water",
+        "vastra-vatterleden-etapp-5-hjo-bastasen-watersources-7-vattern-guldkroken-hjo-bathing-water"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.3026,
+        14.2914
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-vattern-vattersvallen",
+      "clusterKey": "site-vattern-vattersvallen",
+      "representativeName": "Vättern 7 / Vättersvallen bathing water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa-watersources-4-vattern-7-vattersvallen-bathing-water"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.4343,
+        14.4107
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-villa-eira",
+      "clusterKey": "site-villa-eira",
+      "representativeName": "STF/Villa Eira",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-22-stf-villa-eira"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.30585,
+        14.295152
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-villa-gota",
+      "clusterKey": "site-villa-gota",
+      "representativeName": "Villa Göta / Sköna Rum Forsvik",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp-facilities-6-villa-gota-skona-rum-forsvik"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.5764578,
+        14.435655
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-vindskydd-djaknasundet",
+      "clusterKey": "site-vindskydd-djaknasundet",
+      "representativeName": "Vindskydd Djäknasundet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik-facilities-4-vindskydd-djaknasundet"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.630085,
+        14.563773
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-visit-hjo",
+      "clusterKey": "site-visit-hjo",
+      "representativeName": "Visit Hjo / Kulturkvarteret",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo-facilities-19-visit-hjo-kulturkvarteret",
+        "vastra-vatterleden-etapp-5-hjo-bastasen-facilities-4-visit-hjo-kulturkvarteret-pedagogien"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.303494,
+        14.290416
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-vitsjon-lake",
+      "clusterKey": "site-vitsjon-lake",
+      "representativeName": "Vitsjön lake water",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-watersources-1-vitsjon-lake-water"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": [
+        58.1911018,
+        14.0997753
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "vastra-vatterleden-site-vitsjon-shelter",
+      "clusterKey": "site-vitsjon-shelter",
+      "representativeName": "Vitsjön shelter cluster",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas-facilities-3-vitsjon-shelter-cluster"
+      ],
+      "sectionIds": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        58.1911018,
+        14.0997753
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    }
+  ]
+}

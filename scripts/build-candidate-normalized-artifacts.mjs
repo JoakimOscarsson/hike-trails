@@ -13,7 +13,7 @@ const manifest = await readJson(path.join(candidateRoot, "manifest.json"));
 
 const includedTrails = prep.scope.includedTrails;
 const trailManifestById = new Map(manifest.trails.map((trail) => [trail.id, trail]));
-const supplementalArtifactFiles = ["route-topology.research.json"];
+const supplementalArtifactFiles = ["route-topology.research.json", "facility-clusters.research.json"];
 const batchSummary = [];
 const topologyFixRows = [];
 const blockerTriageRows = [];
@@ -492,6 +492,14 @@ const generatedGeometryResolutionConfig = {
   }
 };
 
+const facilityClusterResolutionConfig = {
+  kungsleden: {
+    triageResolvedSourceIds: ["blocker-4"],
+    action:
+      "Candidate facility-clusters.research.json now applies taxonomy and dedupe grouping for Kungsleden facilities, including hut/site parent clusters and child amenities for toilets, phones, shops, saunas, water, waste, viewpoints, Naturum, parking, lodging and village services."
+  }
+};
+
 for (const trailId of includedTrails) {
   const trailRoot = path.join(candidateRoot, trailId);
   const normalizedRoot = path.join(trailRoot, "normalized-candidate");
@@ -507,13 +515,15 @@ for (const trailId of includedTrails) {
   const geometryIndex = buildGeometryIndex(trailId, sections, handoff, geojsonFiles);
   const routeTopology = buildRouteTopology(trailId, routeSections, handoff);
   const facilities = buildFacilities(trailId, sections);
+  const facilityClusters = buildFacilityClusters(trailId, routeSections, facilities);
   const ruleWarnings = buildRuleWarnings(trailId, sections, handoff);
-  const importReport = buildImportReport(trailId, handoff, routeSections, geometryIndex, routeTopology, facilities, ruleWarnings);
+  const importReport = buildImportReport(trailId, handoff, routeSections, geometryIndex, routeTopology, facilities, facilityClusters, ruleWarnings);
 
   await writeJson(path.join(normalizedRoot, "route-sections.research.json"), routeSections);
   await writeJson(path.join(normalizedRoot, "route-geometry-index.research.json"), geometryIndex);
   await writeJson(path.join(normalizedRoot, "route-topology.research.json"), routeTopology);
   await writeJson(path.join(normalizedRoot, "facilities.research.json"), facilities);
+  await writeJson(path.join(normalizedRoot, "facility-clusters.research.json"), facilityClusters);
   await writeJson(path.join(normalizedRoot, "rule-warnings.research.json"), ruleWarnings);
   await writeJson(path.join(normalizedRoot, "import-report.research.json"), importReport);
 
@@ -525,6 +535,8 @@ for (const trailId of includedTrails) {
     importedFacilityCandidates: facilities.summary.byState.normal ?? 0,
     pendingFacilityCandidates: facilities.summary.byState["pending-review"] ?? 0,
     suppressedFacilityCandidates: facilities.summary.byState.suppress ?? 0,
+    facilityClusters: facilityClusters.clusters.length,
+    dedupeCandidateClusters: facilityClusters.summary.dedupeCandidateClusters,
     ruleWarningRecords: ruleWarnings.records.length,
     topologyDecisions: routeTopology.decisionsApplied.length,
     routeGroups: routeTopology.routeGroups.length,
@@ -925,6 +937,212 @@ function buildFacilities(trailId, sections) {
   };
 }
 
+function buildFacilityClusters(trailId, routeSections, facilities) {
+  const sectionOrderById = new Map(routeSections.sections.map((section) => [section.sectionId, section.order]));
+  const normalizedNameCounts = countValues(
+    facilities.records
+      .map((record) => normalizeClusterName(record.name))
+      .filter(Boolean)
+  );
+  const groups = new Map();
+
+  for (const record of facilities.records) {
+    const clusterKey = facilityClusterKey(record, normalizedNameCounts);
+    if (!groups.has(clusterKey)) groups.set(clusterKey, []);
+    groups.get(clusterKey).push(record);
+  }
+
+  const clusters = [...groups.entries()]
+    .map(([clusterKey, records]) => buildFacilityCluster(trailId, clusterKey, records, sectionOrderById))
+    .sort((left, right) => left.clusterId.localeCompare(right.clusterId, "en", { numeric: true }));
+
+  return {
+    schemaVersion: "candidate-facility-clusters/v1",
+    trailId,
+    lastUpdated,
+    status: "candidate-normalized-research-only",
+    runtimeImportApproved: false,
+    facilityStatePolicy: shared.resolvedSharedDecisions.facilityStatePolicy,
+    summary: {
+      totalFacilities: facilities.records.length,
+      clusterCount: clusters.length,
+      multiFacilityClusters: clusters.filter((cluster) => cluster.facilityIds.length > 1).length,
+      dedupeCandidateClusters: clusters.filter((cluster) => cluster.recommendedAction !== "single-record").length,
+      byRecommendedAction: countBy(clusters, "recommendedAction")
+    },
+    clusters
+  };
+}
+
+function buildFacilityCluster(trailId, clusterKey, records, sectionOrderById) {
+  const facilityIds = records.map((record) => record.facilityId).sort((left, right) => left.localeCompare(right, "en", { numeric: true }));
+  const sectionIds = unique(records.map((record) => record.sectionId)).sort((left, right) => {
+    return (sectionOrderById.get(left) ?? 9999) - (sectionOrderById.get(right) ?? 9999);
+  });
+  const states = unique(records.map((record) => record.state)).sort();
+  const primaryTypes = unique(records.map((record) => record.primaryType)).sort();
+  const candidateTypes = unique(records.flatMap((record) => record.candidateTypes ?? [])).sort();
+  const representativeName = chooseRepresentativeName(records);
+  const recommendedAction = inferClusterAction(records, primaryTypes, candidateTypes);
+  const parentCandidateType = inferParentCandidateType(primaryTypes, candidateTypes);
+  return {
+    clusterId: slugify(`${trailId}-${clusterKey}`),
+    clusterKey,
+    representativeName,
+    recommendedAction,
+    confidence: inferClusterConfidence(records, recommendedAction),
+    facilityIds,
+    sectionIds,
+    sectionOrderSpan: {
+      first: Math.min(...sectionIds.map((sectionId) => sectionOrderById.get(sectionId) ?? 9999)),
+      last: Math.max(...sectionIds.map((sectionId) => sectionOrderById.get(sectionId) ?? 9999))
+    },
+    states,
+    primaryTypes,
+    candidateTypes,
+    parentCandidateType,
+    childCandidateTypes: candidateTypes.filter((type) => type !== parentCandidateType),
+    representativeCoordinatesLatLon: firstCoordinates(records),
+    notes: clusterNotes(recommendedAction, parentCandidateType)
+  };
+}
+
+function facilityClusterKey(record, normalizedNameCounts) {
+  if (record.clusterId) return `explicit-${slugify(record.clusterId)}`;
+  const siteKey = inferSiteKey(record);
+  if (siteKey) return `site-${siteKey}`;
+  const normalizedName = normalizeClusterName(record.name);
+  if (normalizedName && (normalizedNameCounts.get(normalizedName) ?? 0) > 1) return `name-${normalizedName}`;
+  const coordinateKey = coordinateClusterKey(record.coordinatesLatLon);
+  if (coordinateKey) return `coord-${coordinateKey}-${record.primaryType}`;
+  return `single-${record.facilityId}`;
+}
+
+function inferSiteKey(record) {
+  const text = normalizeClusterName(record.name);
+  if (!text) return null;
+  const clusterableTypes = new Set([
+    "lodging",
+    "shelter",
+    "toilet",
+    "emergency-phone",
+    "food",
+    "service",
+    "waste",
+    "water",
+    "natural-water",
+    "camping",
+    "parking",
+    "transit"
+  ]);
+  if (!record.candidateTypes?.some((type) => clusterableTypes.has(type))) return null;
+  const stopWords = new Set([
+    "stf",
+    "blt",
+    "mountain",
+    "cabin",
+    "fjallstuga",
+    "fjallstation",
+    "stugorna",
+    "stugan",
+    "hut",
+    "toilet",
+    "toilets",
+    "toalett",
+    "toaletter",
+    "emergency",
+    "help",
+    "phone",
+    "safety",
+    "room",
+    "sauna",
+    "shop",
+    "water",
+    "point",
+    "pump",
+    "tent",
+    "camping",
+    "parking",
+    "bus",
+    "stop",
+    "ferry",
+    "boat",
+    "landing",
+    "pier",
+    "rowboat",
+    "rowboats",
+    "waste",
+    "recycling",
+    "service",
+    "area",
+    "context",
+    "naturum"
+  ]);
+  const words = text.split(/-+/).filter((word) => word.length > 2 && !stopWords.has(word));
+  if (words.length === 0) return null;
+  return words.slice(0, Math.min(words.length, 2)).join("-");
+}
+
+function inferClusterAction(records, primaryTypes, candidateTypes) {
+  if (records.every((record) => record.state === "suppress")) return "keep-suppressed";
+  if (records.length === 1) return "single-record";
+  if (candidateTypes.includes("lodging") || candidateTypes.includes("shelter")) return "attach-child-amenities-to-parent";
+  if (primaryTypes.length > 1 || candidateTypes.length > 1) return "dedupe-related-site-cluster";
+  return "dedupe-duplicate-facility";
+}
+
+function inferParentCandidateType(primaryTypes, candidateTypes) {
+  for (const type of ["lodging", "shelter", "trail-junction", "transit", "parking", "service", "food", "water", "natural-water"]) {
+    if (candidateTypes.includes(type) || primaryTypes.includes(type)) return type;
+  }
+  return primaryTypes[0] ?? candidateTypes[0] ?? "service";
+}
+
+function inferClusterConfidence(records, recommendedAction) {
+  if (recommendedAction === "single-record") return "single-record";
+  if (records.some((record) => record.clusterId)) return "explicit-source-cluster";
+  if (records.every((record) => record.coordinatesLatLon)) return "coordinate-backed";
+  return "name-and-section-context";
+}
+
+function clusterNotes(recommendedAction, parentCandidateType) {
+  if (recommendedAction === "attach-child-amenities-to-parent") {
+    return `Use ${parentCandidateType} as the parent record and attach child amenities where runtime taxonomy supports subfacilities.`;
+  }
+  if (recommendedAction === "dedupe-related-site-cluster") return "Review as one site/access cluster before emitting runtime facilities.";
+  if (recommendedAction === "dedupe-duplicate-facility") return "Deduplicate duplicate section-boundary records before runtime import.";
+  if (recommendedAction === "keep-suppressed") return "Keep the full cluster suppressed unless newer source evidence changes its state.";
+  return "No dedupe action needed unless later source review links this record to a nearby facility.";
+}
+
+function chooseRepresentativeName(records) {
+  return records
+    .map((record) => record.name)
+    .filter(Boolean)
+    .sort((left, right) => left.length - right.length || left.localeCompare(right, "en"))[0] ?? records[0].facilityId;
+}
+
+function firstCoordinates(records) {
+  return records.find((record) => record.coordinatesLatLon)?.coordinatesLatLon ?? null;
+}
+
+function normalizeClusterName(value) {
+  if (!value) return null;
+  return slugify(value);
+}
+
+function coordinateClusterKey(coordinates) {
+  if (!Array.isArray(coordinates)) return null;
+  const first = coordinates[0];
+  if (typeof first === "object" && first && typeof first.lat === "number" && typeof first.lon === "number") {
+    return `${first.lat.toFixed(4)}-${first.lon.toFixed(4)}`;
+  }
+  if (typeof coordinates[0] === "number" && typeof coordinates[1] === "number") {
+    return `${coordinates[0].toFixed(4)}-${coordinates[1].toFixed(4)}`;
+  }
+  return null;
+}
+
 function buildRuleWarnings(trailId, sections, handoff) {
   const records = [];
   for (const { data, sourceFile } of sections) {
@@ -955,7 +1173,7 @@ function buildRuleWarnings(trailId, sections, handoff) {
   };
 }
 
-function buildImportReport(trailId, handoff, routeSections, geometryIndex, routeTopology, facilities, ruleWarnings) {
+function buildImportReport(trailId, handoff, routeSections, geometryIndex, routeTopology, facilities, facilityClusters, ruleWarnings) {
   const minimumArtifacts = shared.resolvedSharedDecisions.candidateArtifactLayout.minimumArtifacts;
   const manifestEntry = trailManifestById.get(trailId);
   const blockers = normalizeBlockers(handoff.blockers);
@@ -979,6 +1197,8 @@ function buildImportReport(trailId, handoff, routeSections, geometryIndex, route
       routeGroups: routeTopology.routeGroups.length,
       routeTopologyConnections: routeTopology.connections.length,
       facilities: facilities.records.length,
+      facilityClusters: facilityClusters.clusters.length,
+      dedupeCandidateClusters: facilityClusters.summary.dedupeCandidateClusters,
       ruleWarnings: ruleWarnings.records.length
     },
     routeTopologySummary: {
@@ -987,6 +1207,7 @@ function buildImportReport(trailId, handoff, routeSections, geometryIndex, route
       routeGroupIds: routeTopology.routeGroups.map((group) => group.groupId),
       connectionIds: routeTopology.connections.map((connection) => connection.connectionId)
     },
+    facilityClusterSummary: facilityClusters.summary,
     blockers,
     openDecisions,
     blockerTriage,
@@ -1075,6 +1296,15 @@ function classifyTriageItem(trailId, item) {
       disposition: "resolved-now",
       owner: "candidate-geometry",
       action: geometryResolution.action
+    };
+  }
+  const facilityClusterResolution = facilityClusterResolutionConfig[trailId];
+
+  if (facilityClusterResolution?.triageResolvedSourceIds?.includes(item.sourceId)) {
+    return {
+      disposition: "resolved-now",
+      owner: "candidate-facilities",
+      action: facilityClusterResolution.action
     };
   }
 
@@ -1708,6 +1938,10 @@ function countBy(rows, key) {
     counts[value] = (counts[value] ?? 0) + 1;
     return counts;
   }, {});
+}
+
+function countValues(values) {
+  return values.reduce((counts, value) => counts.set(value, (counts.get(value) ?? 0) + 1), new Map());
 }
 
 function getSectionId(data) {

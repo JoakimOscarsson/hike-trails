@@ -25,6 +25,7 @@ Shared coordination files:
 Generated supplemental per-trail artifact:
 
 - `normalized-candidate/route-topology.research.json`: candidate-only route groups, known gaps/connections, and display policies. It is research/prep data and is not app runtime source.
+- `normalized-candidate/facility-clusters.research.json`: candidate-only facility dedupe/taxonomy clusters for parent sites, duplicate section-boundary records, and child amenities.
 
 Candidate artifact commands:
 

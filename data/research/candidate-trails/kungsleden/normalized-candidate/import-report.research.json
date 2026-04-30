@@ -13,7 +13,8 @@
     "import-report.research.json"
   ],
   "supplementalArtifactFiles": [
-    "route-topology.research.json"
+    "route-topology.research.json",
+    "facility-clusters.research.json"
   ],
   "manifestSectionFiles": 27,
   "generatedCounts": {
@@ -24,6 +25,8 @@
     "routeGroups": 1,
     "routeTopologyConnections": 0,
     "facilities": 550,
+    "facilityClusters": 401,
+    "dedupeCandidateClusters": 105,
     "ruleWarnings": 649
   },
   "routeTopologySummary": {
@@ -35,6 +38,19 @@
       "kungsleden-mainline"
     ],
     "connectionIds": []
+  },
+  "facilityClusterSummary": {
+    "totalFacilities": 550,
+    "clusterCount": 401,
+    "multiFacilityClusters": 73,
+    "dedupeCandidateClusters": 105,
+    "byRecommendedAction": {
+      "single-record": 296,
+      "keep-suppressed": 33,
+      "dedupe-duplicate-facility": 23,
+      "dedupe-related-site-cluster": 16,
+      "attach-child-amenities-to-parent": 33
+    }
   },
   "blockers": [
     {
@@ -127,9 +143,9 @@
       "sourceId": "blocker-4",
       "status": "unresolved",
       "details": "Facility taxonomy and deduplication must be applied to shared huts, shelters, bridges, toilets, help phones, shops, saunas, water, waste, viewpoints, Naturum, parking, lodging and village services.",
-      "disposition": "fix-now",
+      "disposition": "resolved-now",
       "owner": "candidate-facilities",
-      "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+      "action": "Candidate facility-clusters.research.json now applies taxonomy and dedupe grouping for Kungsleden facilities, including hut/site parent clusters and child amenities for toilets, phones, shops, saunas, water, waste, viewpoints, Naturum, parking, lodging and village services."
     },
     {
       "id": "blocker-5",
@@ -204,13 +220,23 @@
   ],
   "triageSummary": {
     "external-source-approval": 2,
-    "fix-now": 2,
+    "fix-now": 1,
     "runtime-schema-needed": 4,
+    "resolved-now": 2,
     "defer-publication-time": 1,
-    "runtime-integration-task": 1,
-    "resolved-now": 1
+    "runtime-integration-task": 1
   },
   "fixesAppliedNow": [
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "blocker-4",
+      "status": "unresolved",
+      "details": "Facility taxonomy and deduplication must be applied to shared huts, shelters, bridges, toilets, help phones, shops, saunas, water, waste, viewpoints, Naturum, parking, lodging and village services.",
+      "disposition": "resolved-now",
+      "owner": "candidate-facilities",
+      "action": "Candidate facility-clusters.research.json now applies taxonomy and dedupe grouping for Kungsleden facilities, including hut/site parent clusters and child amenities for toilets, phones, shops, saunas, water, waste, viewpoints, Naturum, parking, lodging and village services."
+    },
     {
       "id": "open-decision-10",
       "itemType": "open-decision",
@@ -232,16 +258,6 @@
       "disposition": "fix-now",
       "owner": "candidate-gis",
       "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
-    },
-    {
-      "id": "blocker-4",
-      "itemType": "blocker",
-      "sourceId": "blocker-4",
-      "status": "unresolved",
-      "details": "Facility taxonomy and deduplication must be applied to shared huts, shelters, bridges, toilets, help phones, shops, saunas, water, waste, viewpoints, Naturum, parking, lodging and village services.",
-      "disposition": "fix-now",
-      "owner": "candidate-facilities",
-      "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
     }
   ],
   "runtimeSchemaNeeded": [
@@ -339,7 +355,6 @@
     "external-source-approval: Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds and field-report metadata.",
     "fix-now: Importer must transform EPSG:3006 official geometry to WGS84, assemble multi-part official lines, split/clip grouped features, reverse directions where needed, simplify geometry and apply endpoint-zone snapping policy.",
     "runtime-schema-needed: Typed connector model must be implemented for boats, rowboats, ferry/water lines and road/bus transfers before runtime geometry is generated.",
-    "fix-now: Facility taxonomy and deduplication must be applied to shared huts, shelters, bridges, toilets, help phones, shops, saunas, water, waste, viewpoints, Naturum, parking, lodging and village services.",
     "defer-publication-time: Live currentness refresh is still required for trail/bridge notices, closures, fire bans, weather, hut seasons, boat operators, bus timetables, protected-area rules, reindeer/hunting/fishing and parking rules.",
     "runtime-integration-task: Generated app outputs and source hiking runtime data have intentionally not been edited.",
     "external-source-approval: Approve or reject runtime/source-policy use of Naturvardsverket/Lansstyrelsen state-trail geometry, Naturkartan API/GPX, OSM/Waymarked QA/fallback linework, transit feeds and field-report-derived metadata.",

@@ -1,0 +1,5615 @@
+{
+  "schemaVersion": "candidate-facility-clusters/v1",
+  "trailId": "nordkalottleden",
+  "lastUpdated": "2026-04-30",
+  "status": "candidate-normalized-research-only",
+  "runtimeImportApproved": false,
+  "facilityStatePolicy": {
+    "decision": "Normalize facilities through explicit import actions, not by deleting caveats.",
+    "candidateImportActions": [
+      "import",
+      "import-as-access",
+      "import-as-rule-warning",
+      "attach-to-parent",
+      "side-trip-metadata",
+      "pending-review",
+      "suppress"
+    ],
+    "runtimeMapping": [
+      "Only import, import-as-access, import-as-rule-warning and attach-to-parent records may become runtime data.",
+      "Pending-review and suppress records remain in research/candidate artifacts and must not appear as normal user-facing facilities.",
+      "Side-trip metadata can become user-facing only if the route or POI is intentionally modeled as a side trip."
+    ],
+    "parentClusterPolicy": "Cluster first, then split typed subfacilities only where coordinates, confidence and app taxonomy justify separate markers.",
+    "parkingAndTransitPolicy": "Parking and transit should be treated consistently with existing app trails: import verified, useful access records as user-facing parking/transit facilities or accessPoints, dedupe them by cluster, and keep timetable/parking-rule details caveated and live-checkable.",
+    "informalTentingPolicy": "Informal tenting remains a separate candidate category. Promote to runtime camping only when rules and coordinates support it; otherwise keep as caveated rule/access text or pending-review.",
+    "privateCommercialPolicy": "Private, customer-only, seasonal or opening-hours-dependent services can be imported only with clear caveats and publication-time recheck requirements."
+  },
+  "summary": {
+    "totalFacilities": 263,
+    "clusterCount": 164,
+    "multiFacilityClusters": 53,
+    "dedupeCandidateClusters": 61,
+    "byRecommendedAction": {
+      "single-record": 103,
+      "dedupe-duplicate-facility": 22,
+      "attach-child-amenities-to-parent": 18,
+      "dedupe-related-site-cluster": 9,
+      "keep-suppressed": 12
+    }
+  },
+  "clusters": [
+    {
+      "clusterId": "nordkalottleden-coord-68-9989-22-9991-attraction",
+      "clusterKey": "coord-68.9989-22.9991-attraction",
+      "representativeName": "International Sámi Film Institute / Buletjávri",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-facilities-3-international-sami-film-institute-buletjavri"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        68.998859,
+        22.9990635
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-coord-69-0066-23-0418-hazard",
+      "clusterKey": "coord-69.0066-23.0418-hazard",
+      "representativeName": "Kautokeino bru and parallel foot/cycle bridge",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-facilities-11-kautokeino-bru-and-parallel-foot-cycle-bridge"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.0065522,
+        23.041782
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-coord-69-0279-22-8330-rest-area",
+      "clusterKey": "coord-69.0279-22.8330-rest-area",
+      "representativeName": "Picnic table on Buletjávri-Čunovuohppi path",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-facilities-2-picnic-table-on-buletjavri-cunovuohppi-path"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.0278621,
+        22.8329528
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-coord-69-0726-22-8470-attraction",
+      "clusterKey": "coord-69.0726-22.8470-attraction",
+      "representativeName": "Madam Bongos fjellstue / Čunovuohppi endpoint",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos-facilities-4-madam-bongos-fjellstue-cunovuohppi-endpoint"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 11
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.07257,
+        22.84703
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-coord-69-0729-22-8431-attraction",
+      "clusterKey": "coord-69.0729-22.8431-attraction",
+      "representativeName": "Čunovuohppi settlement/place",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos-facilities-5-cunovuohppi-settlement-place"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 11
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.0729476,
+        22.8430652
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-coord-69-1836-21-2928-hazard",
+      "clusterKey": "coord-69.1836-21.2928-hazard",
+      "representativeName": "Vuomakasjoki new suspension bridge",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi-facilities-4-vuomakasjoki-new-suspension-bridge"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.18355992,
+        21.29279379
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-coord-69-2004-21-2787-viewpoint",
+      "clusterKey": "coord-69.2004-21.2787-viewpoint",
+      "representativeName": "Pihtsusköngäs / Pitsusköngäs / Bihčosgorži waterfall viewpoint",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi-facilities-5-pihtsuskongas-pitsuskongas-bihcosgorzi-waterfall-viewpoint"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.2003683,
+        21.2786966
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-coord-69-2818-22-0289-hazard",
+      "clusterKey": "coord-69.2818-22.0289-hazard",
+      "representativeName": "Luvddiidjohka crossing",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-14-luvddiidjohka-crossing"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.28178,
+        22.02889
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-coord-69-3210-21-9721-hazard",
+      "clusterKey": "coord-69.3210-21.9721-hazard",
+      "representativeName": "Nedrefoss footbridge / suspension bridge",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-19-nedrefoss-suspension-bridge-footbridge",
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-5-nedrefoss-footbridge-suspension-bridge"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss",
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 10
+      },
+      "states": [
+        "pending-review",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.3209591,
+        21.9720788
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-coord-69-3576-21-8271-fireplace",
+      "clusterKey": "coord-69.3576-21.8271-fireplace",
+      "representativeName": "Mollis fireplace / picnic area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-9-mollis-fireplace-picnic-area"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.3576248,
+        21.8271076
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-coord-69-3660-21-7967-fireplace",
+      "clusterKey": "coord-69.3660-21.7967-fireplace",
+      "representativeName": "Lille-Mollis west-side rest/fireplace area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-6-lille-mollis-west-side-rest-fireplace-area"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.3660462,
+        21.7966738
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-coord-69-4023-21-7150-rest-area",
+      "clusterKey": "coord-69.4023-21.7150-rest-area",
+      "representativeName": "Sieimma west-side rest/fireplace area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-facilities-11-sieimma-west-side-rest-fireplace-area"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "rest-area"
+      ],
+      "candidateTypes": [
+        "rest-area"
+      ],
+      "parentCandidateType": "rest-area",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.4023,
+        21.715
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-coord-69-4485-21-5428-viewpoint",
+      "clusterKey": "coord-69.4485-21.5428-viewpoint",
+      "representativeName": "Ovi Raishiin viewpoint / information boards / campfire area",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv-facilities-9-ovi-raishiin-viewpoint-information-boards-campfire-area",
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-facilities-4-ovi-raishiin-viewpoint-roofed-seating-campfire-structures"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv",
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 8
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "viewpoint"
+      ],
+      "candidateTypes": [
+        "viewpoint"
+      ],
+      "parentCandidateType": "viewpoint",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.4485236,
+        21.5427929
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-coord-69-4496-21-5462-trail-junction",
+      "clusterKey": "coord-69.4496-21.5462-trail-junction",
+      "representativeName": "Øvre Kirkestilla start area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-facilities-7-vre-kirkestilla-start-area"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.44961,
+        21.54623
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-coord-69-4580-21-5222-hazard",
+      "clusterKey": "coord-69.4580-21.5222-hazard",
+      "representativeName": "Saraelv road bridge",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv-facilities-3-saraelv-road-bridge"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.4579787,
+        21.5222082
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-name-kautokeino-guovdageaidnu-town-centre",
+      "clusterKey": "name-kautokeino-guovdageaidnu-town-centre",
+      "representativeName": "Kautokeino / Guovdageaidnu town centre",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-facilities-10-kautokeino-guovdageaidnu-town-centre"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.01243,
+        23.04101
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-name-madam-bongos-fjellstue-cunovuohppi",
+      "clusterKey": "name-madam-bongos-fjellstue-cunovuohppi",
+      "representativeName": "Madam Bongos fjellstue / Čunovuohppi",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-facilities-0-madam-bongos-fjellstue-cunovuohppi"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.07257,
+        22.84703
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-name-nedrefoss-riverboat-stop-landing",
+      "clusterKey": "name-nedrefoss-riverboat-stop-landing",
+      "representativeName": "Nedrefoss riverboat stop / landing",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-4-nedrefoss-riverboat-stop-landing"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-name-nedrefossen-nedrefosskulpen",
+      "clusterKey": "name-nedrefossen-nedrefosskulpen",
+      "representativeName": "Nedrefossen / Nedrefosskulpen",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-6-nedrefossen-nedrefosskulpen"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction"
+      ],
+      "parentCandidateType": "attraction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.32006,
+        21.97404
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-name-pierfejoki-bierfejohka-bridge",
+      "clusterKey": "name-pierfejoki-bierfejohka-bridge",
+      "representativeName": "Pierfejoki / Bierfejohka bridge",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi-facilities-3-pierfejoki-bierfejohka-bridge",
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi-facilities-3-pierfejoki-bierfejohka-bridge"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi",
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 4
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.157446077,
+        21.339827346
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-single-nordkalottleden-kalottireitti-06-kopmajoki-somashytta-facilities-6-somashytta-fireplaces-tenting-area",
+      "clusterKey": "single-nordkalottleden-kalottireitti-06-kopmajoki-somashytta-facilities-6-somashytta-fireplaces-tenting-area",
+      "representativeName": "Somashytta fireplaces / tenting area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta-facilities-6-somashytta-fireplaces-tenting-area"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-single-nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-1-sieimma-west-side-toilet-rest-fireplace-area",
+      "clusterKey": "single-nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-1-sieimma-west-side-toilet-rest-fireplace-area",
+      "representativeName": "Sieimma west-side toilet/rest/fireplace area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-1-sieimma-west-side-toilet-rest-fireplace-area"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-single-nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-17-nedrefoss-benches-fireplace",
+      "clusterKey": "single-nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-17-nedrefoss-benches-fireplace",
+      "representativeName": "Nedrefoss benches/fireplace",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-17-nedrefoss-benches-fireplace"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-single-nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-3-nedrefosshytta-benches-fireplace",
+      "clusterKey": "single-nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-3-nedrefosshytta-benches-fireplace",
+      "representativeName": "Nedrefosshytta benches/fireplace",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-3-nedrefosshytta-benches-fireplace"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-single-nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-9-imojuvet-canyon-route",
+      "clusterKey": "single-nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-9-imojuvet-canyon-route",
+      "representativeName": "Imojuvet canyon route",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-9-imojuvet-canyon-route"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-single-nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-12-avvejohka-bridge",
+      "clusterKey": "single-nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-12-avvejohka-bridge",
+      "representativeName": "Avvejohka bridge",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-12-avvejohka-bridge"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-single-nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-13-imojohka-crossings",
+      "clusterKey": "single-nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-13-imojohka-crossings",
+      "representativeName": "Imojohka crossings",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-13-imojohka-crossings"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-single-nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-16-njargajohka-cieknaljohka-crossings",
+      "clusterKey": "single-nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-16-njargajohka-cieknaljohka-crossings",
+      "representativeName": "Njargajohka / Cieknaljohka crossings",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-16-njargajohka-cieknaljohka-crossings"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-single-nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-20-reisavannhytta-leamsejohka-bridge",
+      "clusterKey": "single-nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-20-reisavannhytta-leamsejohka-bridge",
+      "representativeName": "Reisavannhytta / Leamšejohka bridge",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-20-reisavannhytta-leamsejohka-bridge"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-single-nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos-facilities-3-named-stream-and-ford-crossings-between-raisjavrihytta-and-cunovuohppi",
+      "clusterKey": "single-nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos-facilities-3-named-stream-and-ford-crossings-between-raisjavrihytta-and-cunovuohppi",
+      "representativeName": "Named stream and ford crossings between Ráisjávrihytta and Čunovuohppi",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos-facilities-3-named-stream-and-ford-crossings-between-raisjavrihytta-and-cunovuohppi"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 11
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-single-section-01-bridge-east-of-kilpisjarvi",
+      "clusterKey": "single-section-01-bridge-east-of-kilpisjarvi",
+      "representativeName": "Marjajoki footbridge / Marjajoki polkusilta",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "section-01-bridge-east-of-kilpisjarvi"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-single-section-01-saarijarvi-wood-shed",
+      "clusterKey": "single-section-01-saarijarvi-wood-shed",
+      "representativeName": "Saarijärvi wood shed",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "section-01-saarijarvi-wood-shed"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "fireplace"
+      ],
+      "candidateTypes": [
+        "fireplace"
+      ],
+      "parentCandidateType": "fireplace",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-single-section-01-tsahkaljoki-bridge",
+      "clusterKey": "single-section-01-tsahkaljoki-bridge",
+      "representativeName": "Tsahkaljoki footbridge / Tsahkaljoen silta",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "section-01-tsahkaljoki-bridge"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "hazard"
+      ],
+      "candidateTypes": [
+        "hazard"
+      ],
+      "parentCandidateType": "hazard",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-single-section-02-saarijarvi-bridge",
+      "clusterKey": "single-section-02-saarijarvi-bridge",
+      "representativeName": "Saarijärven silta",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "section-02-saarijarvi-bridge"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-02-saarijarvi-kuonjarjohka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-alta-airport",
+      "clusterKey": "site-alta-airport",
+      "representativeName": "Alta Airport",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-commuteaccess-end-3-alta-airport"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service",
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.977739,
+        23.346945
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-amazing-troms",
+      "clusterKey": "site-amazing-troms",
+      "representativeName": "Amazing Troms Reisaelva riverboat transport",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-commuteaccess-start-1-amazing-troms-reisaelva-riverboat-transport"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-arctic-motell",
+      "clusterKey": "site-arctic-motell",
+      "representativeName": "Arctic Motell & Kautokeino Camping",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-facilities-4-arctic-motell-kautokeino-camping"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        68.9976407,
+        23.0379831
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-arthurgammen-luovdigammen",
+      "clusterKey": "site-arthurgammen-luovdigammen",
+      "representativeName": "Arthurgammen / Luovdigammen / Luvddiidgammen",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-11-arthurgammen-luovdigammen-luvddiidgammen"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.2843689,
+        22.0474195
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-biedjovaggi-raisjavri",
+      "clusterKey": "site-biedjovaggi-raisjavri",
+      "representativeName": "Biedjovággi / Ráisjávri road or track approach",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-commuteaccess-end-0-biedjovaggi-raisjavri-road-or-track-approach"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction",
+        "transit"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.229615,
+        22.534052
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-biedjovaggi-road",
+      "clusterKey": "site-biedjovaggi-road",
+      "representativeName": "Biedjovággi road / Ráisjávri turnoff area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos-commuteaccess-start-2-biedjovaggi-road-raisjavri-turnoff-area"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 11
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service",
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.229615,
+        22.534052
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-bihcosjavri-pitsusjarvi",
+      "clusterKey": "site-bihcosjavri-pitsusjarvi",
+      "representativeName": "Bihčosjávri / Pitsusjärvi Open Wilderness Hut and Shared Rental Hut",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi-facilities-6-bihcosjavri-pitsusjarvi-open-wilderness-hut-and-shared-rental-hut",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki-facilities-0-bihcosjavri-pitsusjarvi-open-wilderness-hut-and-shared-rental-hut"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.231153625,
+        21.289356745
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-birtavarre",
+      "clusterKey": "site-birtavarre",
+      "representativeName": "Birtavarre bus stop",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi-commuteaccess-end-3-birtavarre-bus-stop",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki-commuteaccess-end-2-birtavarre-bus-stop"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.494552,
+        20.829756
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-site-birtavarre-kafjorddalen",
+      "clusterKey": "site-birtavarre-kafjorddalen",
+      "representativeName": "Birtavarre / Kåfjorddalen bus plus private transfer",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta-commuteaccess-end-1-birtavarre-kafjorddalen-bus-plus-private-transfer",
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv-commuteaccess-start-1-birtavarre-kafjorddalen-bus-plus-private-transfer"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta",
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.494552,
+        20.829756
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-site-boarronjarga-public",
+      "clusterKey": "site-boarronjarga-public",
+      "representativeName": "Boarronjárga public toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-facilities-12-boarronjarga-public-toilet"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.0090016,
+        23.0574274
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-buletjavri-camp",
+      "clusterKey": "site-buletjavri-camp",
+      "representativeName": "Buletjávri camp site",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-facilities-1-buletjavri-camp-site"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        68.9986762,
+        23.000743
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-buletjavri-unna",
+      "clusterKey": "site-buletjavri-unna",
+      "representativeName": "Buletjávri / Unna Buletjávrráš area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-watersources-1-buletjavri-unna-buletjavrras-area"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        68.9986762,
+        23.000743
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-ciknajohka-unnamed",
+      "clusterKey": "site-ciknajohka-unnamed",
+      "representativeName": "Ciknajohka / unnamed high-route streams",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv-watersources-2-ciknajohka-unnamed-high-route-streams"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-circle-kautokeino",
+      "clusterKey": "site-circle-kautokeino",
+      "representativeName": "Circle K Kautokeino",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-facilities-9-circle-k-kautokeino"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.021301,
+        23.04736
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-crossing-sieimmahytta",
+      "clusterKey": "site-crossing-sieimmahytta",
+      "representativeName": "Rowboat crossing to Sieimmahytta and rock art",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-commuteaccess-end-2-rowboat-crossing-to-sieimmahytta-and-rock-art"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-cunojohka-cunovuohppi",
+      "clusterKey": "site-cunojohka-cunovuohppi",
+      "representativeName": "Čunojohka / Čunovuohppi area natural water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-watersources-0-cunojohka-cunovuohppi-area-natural-water"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-cunovuohpeluodda",
+      "clusterKey": "site-cunovuohpeluodda",
+      "representativeName": "Čunovuohpeluodda",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos-commuteaccess-end-1-cunovuohpeluodda"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 11
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction",
+        "transit"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.071245,
+        22.856589
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-cunovuohppi-winter",
+      "clusterKey": "site-cunovuohppi-winter",
+      "representativeName": "Čunovuohppi winter road corridor",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-commuteaccess-end-2-cunovuohppi-winter-road-corridor",
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos-commuteaccess-start-3-cunovuohppi-winter-road-corridor"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta",
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 11
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction",
+        "transit"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.072948,
+        22.843065
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-dronningst-vre",
+      "clusterKey": "site-dronningst-vre",
+      "representativeName": "Dronningstøa / Øvre Kirkestilla riverboat start area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-commuteaccess-start-4-dronningst-a-vre-kirkestilla-riverboat-start-area"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.449918,
+        21.544287
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-duottar-viddas",
+      "clusterKey": "site-duottar-viddas",
+      "representativeName": "Duottar / Viddas Camping",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-facilities-5-duottar-viddas-camping"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        68.9991146,
+        23.0369084
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-extra-kautokeino",
+      "clusterKey": "site-extra-kautokeino",
+      "representativeName": "Extra Kautokeino",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-facilities-8-extra-kautokeino"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.020222,
+        23.046705
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-goapmajohka-kopmajoki",
+      "clusterKey": "site-goapmajohka-kopmajoki",
+      "representativeName": "Goapmajohka / Kopmajoki Open Wilderness Hut",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki-facilities-4-goapmajohka-kopmajoki-open-wilderness-hut",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki-watersources-1-goapmajohka-kopmajoki-natural-water-and-crossings",
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta-facilities-0-goapmajohka-kopmajoki-open-wilderness-hut"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki",
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 6
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging",
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "lodging",
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.269899699,
+        21.496694241
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-guolasjavri-halti",
+      "clusterKey": "site-guolasjavri-halti",
+      "representativeName": "Guolasjávri / Halti parking",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi-commuteaccess-end-2-guolasjavri-halti-parking",
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi-commuteaccess-start-2-guolasjavri-halti-parking",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki-commuteaccess-end-1-guolasjavri-halti-parking",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki-commuteaccess-start-1-guolasjavri-halti-parking",
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta-commuteaccess-end-0-guolasjavri-halti-parking",
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta-commuteaccess-start-1-guolasjavri-halti-parking",
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv-commuteaccess-start-0-guolasjavri-halti-parking"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki",
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta",
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "parking"
+      ],
+      "candidateTypes": [
+        "parking",
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "parking"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.349561,
+        21.213224
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-guonjarjohka-kuonjarjoki",
+      "clusterKey": "site-guonjarjohka-kuonjarjoki",
+      "representativeName": "Guonjarjohka / Kuonjarjoki open wilderness hut and shared rental hut",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi-facilities-0-guonjarjohka-kuonjarjoki-open-wilderness-hut-and-shared-rental-hut",
+        "section-02-kuonjarjohka-open-and-shared-rental-hut"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-02-saarijarvi-kuonjarjohka",
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging",
+        "shelter"
+      ],
+      "candidateTypes": [
+        "lodging",
+        "shelter"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "shelter"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.101881709,
+        21.219140053
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-imofossen-imogorzi",
+      "clusterKey": "site-imofossen-imogorzi",
+      "representativeName": "Imofossen / Imogorži",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-8-imofossen-imogorzi"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.30066,
+        22.00001
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-imogammen-immogammen",
+      "clusterKey": "site-imogammen-immogammen",
+      "representativeName": "Imogammen / Immogammen",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-10-imogammen-immogammen"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.2953085,
+        22.0107021
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-kahperusjoki-mid",
+      "clusterKey": "site-kahperusjoki-mid",
+      "representativeName": "Kahperusjoki / mid-stage water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi-watersources-1-kahperusjoki-mid-stage-water"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-kautokeino-cirkle",
+      "clusterKey": "site-kautokeino-cirkle",
+      "representativeName": "Kautokeino Cirkle K",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-commuteaccess-end-1-kautokeino-cirkle-k",
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos-commuteaccess-end-2-kautokeino-cirkle-k",
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-commuteaccess-end-2-kautokeino-cirkle-k",
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-commuteaccess-start-2-kautokeino-cirkle-k"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta",
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos",
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.021166,
+        23.0468
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-site-kautokeino-guovdageaidnu",
+      "clusterKey": "site-kautokeino-guovdageaidnu",
+      "representativeName": "Kautokeino / Guovdageaidnu town centre",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-commuteaccess-end-0-kautokeino-guovdageaidnu-town-centre"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "attraction"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.01243,
+        23.04101
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-kautokeino-radhus",
+      "clusterKey": "site-kautokeino-radhus",
+      "representativeName": "Kautokeino rådhus",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-commuteaccess-end-1-kautokeino-radhus"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.012234,
+        23.043688
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-kautokeino-taxi",
+      "clusterKey": "site-kautokeino-taxi",
+      "representativeName": "Kautokeino Taxi / private transfer",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos-commuteaccess-end-3-kautokeino-taxi-private-transfer",
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-commuteaccess-start-3-kautokeino-taxi-private-transfer"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos",
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service",
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.021166,
+        23.0468
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-kautokeino-thon",
+      "clusterKey": "site-kautokeino-thon",
+      "representativeName": "Kautokeino Thon Hotel",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-commuteaccess-end-3-kautokeino-thon-hotel"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.017488,
+        23.042214
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-kautokeino-town",
+      "clusterKey": "site-kautokeino-town",
+      "representativeName": "Kautokeino town services",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos-facilities-7-kautokeino-town-services",
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-facilities-13-kautokeino-town-waste-and-recycling-points",
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-watersources-2-kautokeino-town-services"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos",
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service",
+        "waste",
+        "water"
+      ],
+      "candidateTypes": [
+        "service",
+        "waste",
+        "water"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "waste",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.021166,
+        23.0468
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-kayraniva-shelter",
+      "clusterKey": "site-kayraniva-shelter",
+      "representativeName": "Käyräniva shelter / rest area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-facilities-8-kayraniva-shelter-rest-area"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.4280131,
+        21.6301183
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-kilpisjarven-luontotalo",
+      "clusterKey": "site-kilpisjarven-luontotalo",
+      "representativeName": "Kilpisjärven luontotalo P / E",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi-commuteaccess-start-0-kilpisjarven-luontotalo-p-e"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-kilpisjarvi-nature",
+      "clusterKey": "site-kilpisjarvi-nature",
+      "representativeName": "Kilpisjärvi Nature Centre / Luontotalo bus stops",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi-commuteaccess-end-1-kilpisjarvi-nature-centre-luontotalo-bus-stops"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-kilpisjarvi-retkeilykeskus",
+      "clusterKey": "site-kilpisjarvi-retkeilykeskus",
+      "representativeName": "Kilpisjärvi Retkeilykeskus stop",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi-commuteaccess-end-1-kilpisjarvi-retkeilykeskus-stop"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.047748,
+        20.798197
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-kilpisjarvi-village",
+      "clusterKey": "site-kilpisjarvi-village",
+      "representativeName": "Kilpisjärvi village services",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi-watersources-2-kilpisjarvi-village-services"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "nordkalottleden-site-kilpisjarvi-visitor",
+      "clusterKey": "site-kilpisjarvi-visitor",
+      "representativeName": "Kilpisjärvi Visitor Centre parking",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi-commuteaccess-start-1-kilpisjarvi-visitor-centre-parking",
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi-commuteaccess-end-0-kilpisjarvi-visitor-centre-luontokeskus-stops",
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi-commuteaccess-start-0-kilpisjarvi-visitor-centre-luontokeskus-stops",
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi-commuteaccess-start-1-kilpisjarvi-visitor-centre-parking",
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi-commuteaccess-end-0-kilpisjarvi-visitor-centre-luontokeskus-stops",
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi-commuteaccess-end-1-kilpisjarvi-visitor-centre-parking",
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi-commuteaccess-start-0-kilpisjarvi-visitor-centre-luontokeskus-stops",
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi-commuteaccess-start-1-kilpisjarvi-visitor-centre-parking",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki-commuteaccess-end-0-kilpisjarvi-visitor-centre-luontokeskus-stops",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki-commuteaccess-start-0-kilpisjarvi-visitor-centre-luontokeskus-stops",
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta-commuteaccess-start-0-kilpisjarvi-visitor-centre-kilpishalli-retkeilykeskus-bus-and-parking-cluster",
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv-commuteaccess-start-2-kilpisjarvi-visitor-centre-village-access",
+        "section-01-kilpisjarvi-visitor-centre",
+        "section-01-kilpisjarvi-visitor-centre-parking"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi",
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi",
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki",
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta",
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 7
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "parking",
+        "service",
+        "transit"
+      ],
+      "candidateTypes": [
+        "parking",
+        "service",
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "parking",
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.01275,
+        20.886478
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-kopmajoki",
+      "clusterKey": "site-kopmajoki",
+      "representativeName": "Kopmajoki recycling / waste point",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki-facilities-6-kopmajoki-recycling-waste-point",
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta-facilities-2-kopmajoki-recycling-waste-point"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki",
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "waste"
+      ],
+      "candidateTypes": [
+        "waste"
+      ],
+      "parentCandidateType": "waste",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.26996139,
+        21.49752797
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-site-kopmajoki-dry",
+      "clusterKey": "site-kopmajoki-dry",
+      "representativeName": "Kopmajoki dry toilet",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki-facilities-5-kopmajoki-dry-toilet",
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta-facilities-1-kopmajoki-dry-toilet"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki",
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 6
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.269914376,
+        21.497540389
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-site-kopmajoki-natural",
+      "clusterKey": "site-kopmajoki-natural",
+      "representativeName": "Kopmajoki hut-area natural water",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta-watersources-0-kopmajoki-hut-area-natural-water"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.2699,
+        21.4967
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "nordkalottleden-site-kopmajoki-woodshed",
+      "clusterKey": "site-kopmajoki-woodshed",
+      "representativeName": "Kopmajoki woodshed",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki-facilities-7-kopmajoki-woodshed",
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta-facilities-3-kopmajoki-woodshed"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki",
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 5,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.26970747,
+        21.496857622
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-site-kuonjarjoki-dry",
+      "clusterKey": "site-kuonjarjoki-dry",
+      "representativeName": "Kuonjarjoki dry toilet",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi-facilities-1-kuonjarjoki-dry-toilet",
+        "section-02-kuonjarjoki-dry-toilet"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-02-saarijarvi-kuonjarjohka",
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.10213472,
+        21.218340414
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-site-kuonjarjoki-natural",
+      "clusterKey": "site-kuonjarjoki-natural",
+      "representativeName": "Kuonjarjoki / hut-area natural water",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi-watersources-0-kuonjarjoki-hut-area-natural-water"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.1019,
+        21.2191
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "nordkalottleden-site-kuonjarjoki-woodshed",
+      "clusterKey": "site-kuonjarjoki-woodshed",
+      "representativeName": "Kuonjarjoki woodshed",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi-facilities-2-kuonjarjoki-woodshed",
+        "section-02-kuonjarjoki-woodshed"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-02-saarijarvi-kuonjarjohka",
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging",
+        "service"
+      ],
+      "candidateTypes": [
+        "lodging",
+        "service"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "service"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.1021912,
+        21.2185398
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-leamsejavrrit",
+      "clusterKey": "site-leamsejavrrit",
+      "representativeName": "Leamšejávrrit",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-22-leamsejavrrit"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.29765,
+        22.425215
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-madam-bongos",
+      "clusterKey": "site-madam-bongos",
+      "representativeName": "Madam Bongos fjellstue / Čunovuohppi",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos-commuteaccess-end-0-madam-bongos-fjellstue-cunovuohppi",
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos-watersources-2-madam-bongos-cunovuohppi-endpoint-services",
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-commuteaccess-start-0-madam-bongos-fjellstue-cunovuohppi"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos",
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "attraction",
+        "water"
+      ],
+      "candidateTypes": [
+        "attraction",
+        "transit",
+        "water"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "attraction",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.07257,
+        22.84703
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-market-kilpishalli",
+      "clusterKey": "site-market-kilpishalli",
+      "representativeName": "K-Market Kilpishalli / Neste Kilpisjärvi service cluster",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "section-01-kilpisjarvi-service-cluster"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-meahccejohka-crossing",
+      "clusterKey": "site-meahccejohka-crossing",
+      "representativeName": "Meahccejohka crossing",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv-watersources-1-meahccejohka-crossing"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-meekonjarvi-natural",
+      "clusterKey": "site-meekonjarvi-natural",
+      "representativeName": "Meekonjärvi hut-area natural water",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi-watersources-2-meekonjarvi-hut-area-natural-water",
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi-watersources-0-meekonjarvi-hut-area-natural-water"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi",
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 4
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.162,
+        21.3425
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "nordkalottleden-site-meekonjarvi-open",
+      "clusterKey": "site-meekonjarvi-open",
+      "representativeName": "Meekonjärvi open wilderness hut dry toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi-facilities-7-meekonjarvi-open-wilderness-hut-dry-toilet"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.159995103,
+        21.351629813
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-meekonjarvi-private",
+      "clusterKey": "site-meekonjarvi-private",
+      "representativeName": "Meekonjärvi private/locked huts",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi-facilities-9-meekonjarvi-private-locked-huts"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "nordkalottleden-site-meekonjarvi-shared",
+      "clusterKey": "site-meekonjarvi-shared",
+      "representativeName": "Meekonjärvi shared/rental hut dry toilet",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi-facilities-5-meekonjarvi-shared-rental-hut-dry-toilet",
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi-facilities-1-meekonjarvi-shared-rental-hut-dry-toilet"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi",
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 4
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.161950007,
+        21.341459671
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-site-meekonjarvi-woodshed",
+      "clusterKey": "site-meekonjarvi-woodshed",
+      "representativeName": "Meekonjärvi woodshed or storage",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi-facilities-8-meekonjarvi-woodshed-or-storage"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 3
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.1620168,
+        21.341797
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-megonjavri-meekonjarvi",
+      "clusterKey": "site-megonjavri-meekonjarvi",
+      "representativeName": "Megonjávri / Meekonjärvi Shared Rental Hut",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi-facilities-4-megonjavri-meekonjarvi-shared-rental-hut",
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi-facilities-6-megonjavri-meekonjarvi-open-wilderness-hut",
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi-facilities-0-megonjavri-meekonjarvi-shared-rental-hut",
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi-facilities-2-megonjavri-meekonjarvi-open-wilderness-hut"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi",
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 4
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.162017314,
+        21.34248001
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-mollis",
+      "clusterKey": "site-mollis",
+      "representativeName": "Mollis toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-8-mollis-toilet"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.3576194,
+        21.8270553
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-mollis-rest",
+      "clusterKey": "site-mollis-rest",
+      "representativeName": "Mollis rest shelter / gapahuk",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-7-mollis-rest-shelter-gapahuk"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.3576383,
+        21.8271632
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-mollisfossen-mollesgorzi",
+      "clusterKey": "site-mollisfossen-mollesgorzi",
+      "representativeName": "Mollisfossen / Mollešgorži / Molliskurkkii",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-10-mollisfossen-mollesgorzi-molliskurkkii"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.36102,
+        21.83177
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-naustihytta",
+      "clusterKey": "site-naustihytta",
+      "representativeName": "Naustihytta",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-13-naustihytta",
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-7-naustihytta"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss",
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 10
+      },
+      "states": [
+        "pending-review",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.3337155,
+        21.9542572
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-nedrefoss-nedrefosshytta",
+      "clusterKey": "site-nedrefoss-nedrefosshytta",
+      "representativeName": "Nedrefoss / Nedrefosshytta riverboat access",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-commuteaccess-end-0-nedrefoss-nedrefosshytta-riverboat-access",
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-commuteaccess-start-0-nedrefoss-nedrefosshytta-riverboat-access-area"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss",
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.3208625,
+        21.9691124
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-site-nedrefoss-nedrefosskulpen",
+      "clusterKey": "site-nedrefoss-nedrefosskulpen",
+      "representativeName": "Nedrefoss toilet / Nedrefosskulpen toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-16-nedrefoss-toilet-nedrefosskulpen-toilet"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-nedrefoss-riverboat",
+      "clusterKey": "site-nedrefoss-riverboat",
+      "representativeName": "Nedrefoss riverboat stop / landing",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-20-nedrefoss-riverboat-stop-landing"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-nedrefossen-nedrefosskulpen",
+      "clusterKey": "site-nedrefossen-nedrefosskulpen",
+      "representativeName": "Nedrefossen / Nedrefosskulpen",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-18-nedrefossen-nedrefosskulpen"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.32006,
+        21.97404
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-nedrefosshytta",
+      "clusterKey": "site-nedrefosshytta",
+      "representativeName": "Nedrefosshytta",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-14-nedrefosshytta",
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-watersources-0-nedrefosshytta-water",
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-0-nedrefosshytta"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss",
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 10
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging",
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "lodging",
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.3208625,
+        21.9691124
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-nedrefosshytta-outhouse",
+      "clusterKey": "site-nedrefosshytta-outhouse",
+      "representativeName": "Nedrefosshytta outhouse / sauna annex",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-2-nedrefosshytta-outhouse-sauna-annex"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-nedrefosshytta-source",
+      "clusterKey": "site-nedrefosshytta-source",
+      "representativeName": "Nedrefosshytta water source",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-15-nedrefosshytta-water-source",
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-1-nedrefosshytta-water-source"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss",
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 10
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-site-nedrefosshytta-stream",
+      "clusterKey": "site-nedrefosshytta-stream",
+      "representativeName": "Nedrefosshytta stream/river water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-watersources-0-nedrefosshytta-stream-river-water"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-neste-kilpishalli",
+      "clusterKey": "site-neste-kilpishalli",
+      "representativeName": "Neste/Kilpishalli / K-Market Kilpishalli",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi-commuteaccess-start-2-neste-kilpishalli-k-market-kilpishalli"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-njuolgavarri-vuolavarit",
+      "clusterKey": "site-njuolgavarri-vuolavarit",
+      "representativeName": "Njuolgavárri-Vuolavárit camp site",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-15-njuolgavarri-vuolavarit-camp-site"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "camping"
+      ],
+      "candidateTypes": [
+        "camping"
+      ],
+      "parentCandidateType": "camping",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.2433848,
+        22.1966444
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-nordkalottstua-ovi",
+      "clusterKey": "site-nordkalottstua-ovi",
+      "representativeName": "Nordkalottstua - Ovi Raishiin",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv-facilities-8-nordkalottstua-ovi-raishiin",
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-facilities-3-nordkalottstua-ovi-raishiin"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv",
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 8
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.44835,
+        21.54206
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-old-tar",
+      "clusterKey": "site-old-tar",
+      "representativeName": "Old tar mile / tar-burning cultural landmark at Sieimma",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-facilities-15-old-tar-mile-tar-burning-cultural-landmark-at-sieimma"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-osm-spring",
+      "clusterKey": "site-osm-spring",
+      "representativeName": "OSM spring candidate near route",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi-watersources-3-osm-spring-candidates-along-kuonjarjohka-meekonjarvi",
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi-watersources-3-osm-spring-candidates-near-pitsusjarvi-route",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki-watersources-2-osm-spring-candidates-near-section",
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta-watersources-3-osm-spring-candidate-near-route"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-03-kuonjarjohka-meekonjarvi",
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki",
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 3,
+        "last": 6
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service",
+        "water"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.2734704,
+        21.5010298
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "nordkalottleden-site-ovi-raishiin",
+      "clusterKey": "site-ovi-raishiin",
+      "representativeName": "Ovi Raishiin parking",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv-commuteaccess-end-0-ovi-raishiin-nordkalottstua-parking-and-visitor-point",
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv-facilities-5-ovi-raishiin-visitor-point",
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv-facilities-6-ovi-raishiin-public-toilet",
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv-facilities-7-ovi-raishiin-parking",
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv-watersources-3-ovi-raishiin-nordkalottstua-water",
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-commuteaccess-start-0-ovi-raishiin-parking-visitor-point-trailhead",
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-facilities-0-ovi-raishiin-visitor-point",
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-facilities-1-ovi-raishiin-public-toilet",
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-facilities-2-ovi-raishiin-parking",
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-commuteaccess-end-2-ovi-raishiin-saraelv-access-cluster",
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-commuteaccess-start-2-ovi-raishiin-parking-and-trailhead",
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-commuteaccess-start-3-ovi-raishiin-parking"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv",
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma",
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss",
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 10
+      },
+      "states": [
+        "normal",
+        "pending-review",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "parking",
+        "service",
+        "toilet",
+        "water"
+      ],
+      "candidateTypes": [
+        "parking",
+        "service",
+        "toilet",
+        "transit",
+        "water"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "parking",
+        "service",
+        "toilet",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.4487831,
+        21.5408657
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-pitsusjarvi-and",
+      "clusterKey": "site-pitsusjarvi-and",
+      "representativeName": "Pitsusjärvi recycling point and waste storage",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi-facilities-8-pitsusjarvi-recycling-point-and-waste-storage",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki-facilities-2-pitsusjarvi-recycling-point-and-waste-storage"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "waste"
+      ],
+      "candidateTypes": [
+        "waste"
+      ],
+      "parentCandidateType": "waste",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.231617468,
+        21.289142927
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-site-pitsusjarvi-dry",
+      "clusterKey": "site-pitsusjarvi-dry",
+      "representativeName": "Pitsusjärvi dry toilet",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi-facilities-7-pitsusjarvi-dry-toilet",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki-facilities-1-pitsusjarvi-dry-toilet"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.230774217,
+        21.290485284
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-site-pitsusjarvi-natural",
+      "clusterKey": "site-pitsusjarvi-natural",
+      "representativeName": "Pitsusjärvi hut-area natural water",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi-watersources-2-pitsusjarvi-hut-area-natural-water",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki-watersources-0-pitsusjarvi-hut-area-natural-water"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.2312,
+        21.2894
+      ],
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "nordkalottleden-site-pitsusjarvi-woodshed",
+      "clusterKey": "site-pitsusjarvi-woodshed",
+      "representativeName": "Pitsusjärvi woodshed",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi-facilities-9-pitsusjarvi-woodshed",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki-facilities-3-pitsusjarvi-woodshed"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi",
+        "nordkalottleden-kalottireitti-05-pihtsusjarvi-kopmajoki"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 5
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.231510797,
+        21.288872957
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-site-rahpesjohka-ford",
+      "clusterKey": "site-rahpesjohka-ford",
+      "representativeName": "Ráhpesjohka ford / Somashytta area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv-watersources-0-rahpesjohka-ford-somashytta-area"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-rahpesjohka-near",
+      "clusterKey": "site-rahpesjohka-near",
+      "representativeName": "Rahpesjohka water near Somashytta",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta-watersources-2-rahpesjohka-water-near-somashytta"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "nordkalottleden-site-raisjavri-lakeside",
+      "clusterKey": "site-raisjavri-lakeside",
+      "representativeName": "Ráisjávri lakeside rough track near cabin",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos-commuteaccess-start-1-raisjavri-lakeside-rough-track-near-cabin"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 11
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction",
+        "transit"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.213134,
+        22.460038
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-raisjavri-nilut",
+      "clusterKey": "site-raisjavri-nilut",
+      "representativeName": "Ráisjávri Nilut",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-17-raisjavri-nilut",
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos-facilities-2-raisjavri-nilut-raisjavrri-nilutbarta"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta",
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 11
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging",
+        "transit"
+      ],
+      "candidateTypes": [
+        "lodging",
+        "transit"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.19667,
+        22.36943
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-reisaelva-and",
+      "clusterKey": "site-reisaelva-and",
+      "representativeName": "Reisaelva and side streams",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-watersources-2-reisaelva-and-side-streams"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-reisavann-raisjavri",
+      "clusterKey": "site-reisavann-raisjavri",
+      "representativeName": "Reisavann / Ráisjávri at Reisavannhytta",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-watersources-1-reisavann-raisjavri-at-reisavannhytta",
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos-watersources-0-reisavann-raisjavri-at-reisavannhytta"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta",
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 11
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-site-reisavannhytta",
+      "clusterKey": "site-reisavannhytta",
+      "representativeName": "Reisavannhytta rowboat",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-19-reisavannhytta-rowboat"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-reisavannhytta-and",
+      "clusterKey": "site-reisavannhytta-and",
+      "representativeName": "Reisavannhytta rowboat and lake water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos-facilities-1-reisavannhytta-rowboat-and-lake-water"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos"
+      ],
+      "sectionOrderSpan": {
+        "first": 11,
+        "last": 11
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.2132498,
+        22.4637393
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-reisavannhytta-raisjavrihytta",
+      "clusterKey": "site-reisavannhytta-raisjavrihytta",
+      "representativeName": "Reisavannhytta / Ráisjávrihytta",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-18-reisavannhytta-raisjavrihytta",
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos-commuteaccess-start-0-reisavannhytta-raisjavrihytta",
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos-facilities-0-reisavannhytta-raisjavrihytta"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta",
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 11
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging",
+        "shelter"
+      ],
+      "candidateTypes": [
+        "lodging",
+        "shelter",
+        "transit"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "shelter",
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.2132498,
+        22.4637393
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-rema-1000",
+      "clusterKey": "site-rema-1000",
+      "representativeName": "REMA 1000 Kautokeino",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-facilities-7-rema-1000-kautokeino"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "food"
+      ],
+      "candidateTypes": [
+        "food"
+      ],
+      "parentCandidateType": "food",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.004163,
+        23.042235
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-saanajarvi-campfire",
+      "clusterKey": "site-saanajarvi-campfire",
+      "representativeName": "Saanajärvi campfire huts/toilet cluster",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "section-01-saanajarvi-off-route-cluster"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "nordkalottleden-site-saarijarvi",
+      "clusterKey": "site-saarijarvi",
+      "representativeName": "Saarijärvi hut area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi-commuteaccess-end-0-saarijarvi-hut-area"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "trail-junction"
+      ],
+      "candidateTypes": [
+        "trail-junction",
+        "transit"
+      ],
+      "parentCandidateType": "trail-junction",
+      "childCandidateTypes": [
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-saarijarvi-bridge",
+      "clusterKey": "site-saarijarvi-bridge",
+      "representativeName": "Saarijärvi bridge-side dry toilet / old cluster",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "section-02-saarijarvi-bridge-side-dry-toilet"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-02-saarijarvi-kuonjarjohka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-saarijarvi-dry",
+      "clusterKey": "site-saarijarvi-dry",
+      "representativeName": "Saarijärvi dry toilet(s)",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "section-01-saarijarvi-dry-toilet"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-saarijarvi-kiiruna",
+      "clusterKey": "site-saarijarvi-kiiruna",
+      "representativeName": "Saarijärvi Kiiruna + Naali reservable hut",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "section-01-saarijarvi-kiiruna-naali-reservable-hut"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-saarijarvi-natural",
+      "clusterKey": "site-saarijarvi-natural",
+      "representativeName": "Saarijärvi hut natural water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi-watersources-0-saarijarvi-hut-natural-water"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-saarijarvi-new",
+      "clusterKey": "site-saarijarvi-new",
+      "representativeName": "Saarijärvi new dry toilet",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "section-01-saarijarvi-new-open-wilderness-hut",
+        "section-01-saarijarvi-wood-and-waste",
+        "section-02-saarijarvi-new-dry-toilet",
+        "section-02-saarijarvi-new-open-wilderness-hut"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi",
+        "nordkalottleden-kalottireitti-02-saarijarvi-kuonjarjohka"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 2
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "shelter",
+        "toilet",
+        "waste"
+      ],
+      "candidateTypes": [
+        "shelter",
+        "toilet",
+        "waste"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "toilet",
+        "waste"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-saarijarvi-shared",
+      "clusterKey": "site-saarijarvi-shared",
+      "representativeName": "Saarijärvi shared rental hut / Kiiruna and Naali",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "section-02-saarijarvi-shared-rental-hut-kiiruna-naali"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-02-saarijarvi-kuonjarjohka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-saarijarvi-storage",
+      "clusterKey": "site-saarijarvi-storage",
+      "representativeName": "Saarijärvi recycling / waste storage",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "section-02-saarijarvi-recycling-waste-storage"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-02-saarijarvi-kuonjarjohka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "waste"
+      ],
+      "candidateTypes": [
+        "waste"
+      ],
+      "parentCandidateType": "waste",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-saarijarvi-woodshed",
+      "clusterKey": "site-saarijarvi-woodshed",
+      "representativeName": "Saarijärvi woodshed",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "section-02-saarijarvi-woodshed"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-02-saarijarvi-kuonjarjohka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-saraelv-lodge",
+      "clusterKey": "site-saraelv-lodge",
+      "representativeName": "Saraelv Lodge / Saraelv accommodation",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv-facilities-4-saraelv-lodge-saraelv-accommodation",
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-commuteaccess-start-3-saraelv-lodge-private-transfer-context",
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-facilities-5-saraelv-lodge-saraelv-accommodation"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv",
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging",
+        "transit"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.455557,
+        21.532752
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-saraelv-ovi",
+      "clusterKey": "site-saraelv-ovi",
+      "representativeName": "Saraelv / Ovi Raishiin",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta-commuteaccess-end-2-saraelv-ovi-raishiin"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service",
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "service"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-saraelv-road",
+      "clusterKey": "site-saraelv-road",
+      "representativeName": "Saraelv road end / turning area",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv-commuteaccess-end-1-saraelv-road-end-turning-area",
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-facilities-6-saraelv-road-end-snuplass-boat-start-area"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv",
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.4554173,
+        21.5303568
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-site-sarafossen-caragorzi",
+      "clusterKey": "site-sarafossen-caragorzi",
+      "representativeName": "Sarafossen / Čáragorži / Saarakurkkii",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv-facilities-2-sarafossen-caragorzi-saarakurkkii"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.45615,
+        21.50161
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-side-streams",
+      "clusterKey": "site-side-streams",
+      "representativeName": "Side streams and rivers along the route",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-watersources-2-side-streams-and-rivers-along-the-route"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "water"
+      ],
+      "candidateTypes": [
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-sieiddejohka-rahpesjohka",
+      "clusterKey": "site-sieiddejohka-rahpesjohka",
+      "representativeName": "Sieiddejohka / Ráhpesjohka / route-channel crossings",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta-watersources-1-sieiddejohka-rahpesjohka-route-channel-crossings"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 6
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-sieimma-crossing",
+      "clusterKey": "site-sieimma-crossing",
+      "representativeName": "Sieimma rowboat crossing",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-facilities-12-sieimma-rowboat-crossing",
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-commuteaccess-start-1-sieimma-rowboat-crossing",
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-2-sieimma-rowboat-crossing"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma",
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 9
+      },
+      "states": [
+        "normal",
+        "pending-review",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-site-sieimma-riverboat",
+      "clusterKey": "site-sieimma-riverboat",
+      "representativeName": "Sieimma riverboat / canoe access area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-commuteaccess-end-1-sieimma-riverboat-canoe-access-area"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.4023,
+        21.715
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-sieimma-rock",
+      "clusterKey": "site-sieimma-rock",
+      "representativeName": "Sieimma rock paintings",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-facilities-14-sieimma-rock-paintings",
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-4-sieimma-rock-paintings"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma",
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 9
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "nordkalottleden-site-sieimma-tar",
+      "clusterKey": "site-sieimma-tar",
+      "representativeName": "Sieimma tar kiln / old tarred mile",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-5-sieimma-tar-kiln-old-tarred-mile"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "service"
+      ],
+      "candidateTypes": [
+        "service"
+      ],
+      "parentCandidateType": "service",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-sieimmahytta-sieimahytta",
+      "clusterKey": "site-sieimmahytta-sieimahytta",
+      "representativeName": "Sieimmahytta / Sieimahytta",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-facilities-13-sieimmahytta-sieimahytta",
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-3-sieimmahytta-sieimahytta"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma",
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.403056,
+        21.715994
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-sieimmastua",
+      "clusterKey": "site-sieimmastua",
+      "representativeName": "Sieimmastua",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-facilities-9-sieimmastua",
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-0-sieimmastua",
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-watersources-1-sieimmastua-water"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma",
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 9
+      },
+      "states": [
+        "normal",
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging",
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "lodging",
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.4023,
+        21.715
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-sieimmastua-outdoor",
+      "clusterKey": "site-sieimmastua-outdoor",
+      "representativeName": "Sieimmastua outdoor toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-facilities-10-sieimmastua-outdoor-toilet"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 8
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-sieimmastua-sieimma",
+      "clusterKey": "site-sieimmastua-sieimma",
+      "representativeName": "Sieimmastua / Sieimma riverbank",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-commuteaccess-end-0-sieimmastua-sieimma-trail-endpoint",
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-commuteaccess-start-0-sieimmastua-sieimma-riverbank"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma",
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss"
+      ],
+      "sectionOrderSpan": {
+        "first": 8,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "shelter",
+        "transit"
+      ],
+      "candidateTypes": [
+        "shelter",
+        "transit"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "transit"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.4023,
+        21.715
+      ],
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-soahtefielbma",
+      "clusterKey": "site-soahtefielbma",
+      "representativeName": "Soahtefielbma",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-commuteaccess-start-1-soahtefielbma"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.03997,
+        22.940075
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-somashytta-dry",
+      "clusterKey": "site-somashytta-dry",
+      "representativeName": "Somashytta dry toilet / outhouse",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta-facilities-5-somashytta-dry-toilet-outhouse",
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv-facilities-1-somashytta-dry-toilet-outhouse"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta",
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.2964085,
+        21.5034101
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-site-somashytta-somajavrribarta",
+      "clusterKey": "site-somashytta-somajavrribarta",
+      "representativeName": "Somashytta / Somájávrribarta",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta-facilities-4-somashytta-somajavrribarta",
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv-facilities-0-somashytta-somajavrribarta"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-06-kopmajoki-somashytta",
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv"
+      ],
+      "sectionOrderSpan": {
+        "first": 6,
+        "last": 7
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.2967089,
+        21.5033438
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-stale-duplicate",
+      "clusterKey": "site-stale-duplicate",
+      "representativeName": "Stale/duplicate Saarijärvi OSM hut node",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "section-01-saarijarvi-stale-osm-hut-node"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "nordkalottleden-site-storslett-terminal",
+      "clusterKey": "site-storslett-terminal",
+      "representativeName": "Storslett terminal",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv-commuteaccess-end-3-storslett-terminal",
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-commuteaccess-start-2-storslett-terminal-halti-visitor-center-area",
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-commuteaccess-end-3-storslett-terminal"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv",
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma",
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.766924,
+        21.025025
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-site-streams-and",
+      "clusterKey": "site-streams-and",
+      "representativeName": "Streams and fords along the route",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi-watersources-1-streams-and-lakes-along-kilpisjarvi-saarijarvi",
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos-watersources-1-streams-and-fords-along-the-route"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi",
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 11
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "natural-water",
+        "water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-svartfoss",
+      "clusterKey": "site-svartfoss",
+      "representativeName": "Svartfoss bus stop",
+      "recommendedAction": "dedupe-duplicate-facility",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv-commuteaccess-end-2-svartfoss-bus-stop",
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-commuteaccess-end-3-svartfoss-bus-stop",
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma-commuteaccess-start-1-svartfoss-bus-stop",
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-commuteaccess-start-3-svartfoss-bus-stop"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-07-somashytta-saraelv",
+        "nordkalottleden-kalottireitti-08-saraelv-sieimma",
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss"
+      ],
+      "sectionOrderSpan": {
+        "first": 7,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.52101,
+        21.414196
+      ],
+      "notes": "Deduplicate duplicate section-boundary records before runtime import."
+    },
+    {
+      "clusterId": "nordkalottleden-site-svartfoss-reisa",
+      "clusterKey": "site-svartfoss-reisa",
+      "representativeName": "Svartfoss bus stop / Reisa valley bus corridor",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-commuteaccess-start-4-svartfoss-bus-stop-reisa-valley-bus-corridor"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "transit"
+      ],
+      "candidateTypes": [
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.52101,
+        21.414196
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-thon-hotel",
+      "clusterKey": "site-thon-hotel",
+      "representativeName": "Thon Hotel Kautokeino / Restaurant Duottar",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino-facilities-6-thon-hotel-kautokeino-restaurant-duottar"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino"
+      ],
+      "sectionOrderSpan": {
+        "first": 12,
+        "last": 12
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.0168185,
+        23.042446
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-tsahkaljarven-laavu",
+      "clusterKey": "site-tsahkaljarven-laavu",
+      "representativeName": "Tsahkaljärven laavu / Tsahkaljärvi lean-to",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "section-01-tsahkaljarvi-lean-to-cluster"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-tsahkaljarven-yrityskota",
+      "clusterKey": "site-tsahkaljarven-yrityskota",
+      "representativeName": "Tsahkaljärven yrityskota / rental campfire hut",
+      "recommendedAction": "keep-suppressed",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "section-01-tsahkaljarvi-private-rental-kota"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "suppress"
+      ],
+      "primaryTypes": [
+        "shelter"
+      ],
+      "candidateTypes": [
+        "shelter"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Keep the full cluster suppressed unless newer source evidence changes its state."
+    },
+    {
+      "clusterId": "nordkalottleden-site-tsahkaljarvi-dry",
+      "clusterKey": "site-tsahkaljarvi-dry",
+      "representativeName": "Tsahkaljärvi dry toilet",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "section-01-tsahkaljarvi-dry-toilet"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 1,
+        "last": 1
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-unnamed-near",
+      "clusterKey": "site-unnamed-near",
+      "representativeName": "Unnamed cabin near Ráisjávri route",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-facilities-21-unnamed-cabin-near-raisjavri-route",
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos-facilities-6-unnamed-cabin-near-raisjavri-route"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta",
+        "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos"
+      ],
+      "sectionOrderSpan": {
+        "first": 10,
+        "last": 11
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.2204863,
+        22.442615
+      ],
+      "notes": "Use lodging as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-unnamed-osm",
+      "clusterKey": "site-unnamed-osm",
+      "representativeName": "Unnamed OSM spring near route corridor",
+      "recommendedAction": "attach-child-amenities-to-parent",
+      "confidence": "name-and-section-context",
+      "facilityIds": [
+        "section-02-mid-route-osm-spring",
+        "section-02-osm-unnamed-hut-south-of-saarijarvi"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-02-saarijarvi-kuonjarjohka"
+      ],
+      "sectionOrderSpan": {
+        "first": 2,
+        "last": 2
+      },
+      "states": [
+        "pending-review",
+        "suppress"
+      ],
+      "primaryTypes": [
+        "shelter",
+        "water"
+      ],
+      "candidateTypes": [
+        "shelter",
+        "water"
+      ],
+      "parentCandidateType": "shelter",
+      "childCandidateTypes": [
+        "water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "Use shelter as the parent record and attach child amenities where runtime taxonomy supports subfacilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-vre-kirkestilla",
+      "clusterKey": "site-vre-kirkestilla",
+      "representativeName": "Øvre Kirkestilla / Ovi Raishiin roadhead corridor",
+      "recommendedAction": "dedupe-related-site-cluster",
+      "confidence": "coordinate-backed",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-commuteaccess-end-1-vre-kirkestilla-saraelv-road-end-riverboat-start",
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta-commuteaccess-start-2-vre-kirkestilla-ovi-raishiin-roadhead-corridor"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss",
+        "nordkalottleden-kalottireitti-10-nedrefoss-reisavannhytta"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 10
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "parking",
+        "transit"
+      ],
+      "candidateTypes": [
+        "parking",
+        "transit"
+      ],
+      "parentCandidateType": "transit",
+      "childCandidateTypes": [
+        "parking"
+      ],
+      "representativeCoordinatesLatLon": [
+        69.449918,
+        21.5442865
+      ],
+      "notes": "Review as one site/access cluster before emitting runtime facilities."
+    },
+    {
+      "clusterId": "nordkalottleden-site-vuomakasjoki-vuomakasjarvi",
+      "clusterKey": "site-vuomakasjoki-vuomakasjarvi",
+      "representativeName": "Vuomakasjoki / Vuomakasjärvi route water",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi-watersources-1-vuomakasjoki-vuomakasjarvi-route-water"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-04-meekonjarvi-pihtsusjarvi"
+      ],
+      "sectionOrderSpan": {
+        "first": 4,
+        "last": 4
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "natural-water"
+      ],
+      "candidateTypes": [
+        "natural-water",
+        "water"
+      ],
+      "parentCandidateType": "water",
+      "childCandidateTypes": [
+        "natural-water"
+      ],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-vuomatakka-rest",
+      "clusterKey": "site-vuomatakka-rest",
+      "representativeName": "Vuomatakka toilet/rest area",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-12-vuomatakka-toilet-rest-area"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "pending-review"
+      ],
+      "primaryTypes": [
+        "toilet"
+      ],
+      "candidateTypes": [
+        "toilet"
+      ],
+      "parentCandidateType": "toilet",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": null,
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    },
+    {
+      "clusterId": "nordkalottleden-site-vuomatakka-vuomadakka",
+      "clusterKey": "site-vuomatakka-vuomadakka",
+      "representativeName": "Vuomatakka / Vuomadakka / Vuomatakkagammen",
+      "recommendedAction": "single-record",
+      "confidence": "single-record",
+      "facilityIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss-facilities-11-vuomatakka-vuomadakka-vuomatakkagammen"
+      ],
+      "sectionIds": [
+        "nordkalottleden-kalottireitti-09-sieimma-nedrefoss"
+      ],
+      "sectionOrderSpan": {
+        "first": 9,
+        "last": 9
+      },
+      "states": [
+        "normal"
+      ],
+      "primaryTypes": [
+        "lodging"
+      ],
+      "candidateTypes": [
+        "lodging"
+      ],
+      "parentCandidateType": "lodging",
+      "childCandidateTypes": [],
+      "representativeCoordinatesLatLon": [
+        69.3475972,
+        21.8756298
+      ],
+      "notes": "No dedupe action needed unless later source review links this record to a nearby facility."
+    }
+  ]
+}

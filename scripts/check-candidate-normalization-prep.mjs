@@ -37,7 +37,7 @@ const expectedCandidateArtifactFiles = [
   "import-report.research.json"
 ];
 
-const expectedSupplementalCandidateArtifactFiles = ["route-topology.research.json"];
+const expectedSupplementalCandidateArtifactFiles = ["route-topology.research.json", "facility-clusters.research.json"];
 
 const allowedCandidateFacilityTypes = new Set([
   "campsite",
@@ -319,7 +319,7 @@ function validatePhase3Report(phase3Report, prep, manifest) {
     addError("phase3-candidate-artifacts", "artifactFiles must match the shared candidate artifact contract");
   }
   if (!arraysEqual(phase3Report?.supplementalArtifactFiles ?? [], expectedSupplementalCandidateArtifactFiles)) {
-    addError("phase3-candidate-artifacts", "supplementalArtifactFiles must list route-topology.research.json");
+    addError("phase3-candidate-artifacts", "supplementalArtifactFiles must list expected supplemental candidate artifacts");
   }
 
   const reportTrailIds = (phase3Report?.includedTrails ?? []).map((trail) => trail.trailId);
@@ -361,15 +361,17 @@ async function validateNormalizedCandidateArtifacts(prep, manifest) {
     const geometryIndex = await readJson(path.join(artifactRoot, "route-geometry-index.research.json"));
     const routeTopology = await readJson(path.join(artifactRoot, "route-topology.research.json"));
     const facilities = await readJson(path.join(artifactRoot, "facilities.research.json"));
+    const facilityClusters = await readJson(path.join(artifactRoot, "facility-clusters.research.json"));
     const ruleWarnings = await readJson(path.join(artifactRoot, "rule-warnings.research.json"));
     const importReport = await readJson(path.join(artifactRoot, "import-report.research.json"));
-    if (!routeSections || !geometryIndex || !routeTopology || !facilities || !ruleWarnings || !importReport) continue;
+    if (!routeSections || !geometryIndex || !routeTopology || !facilities || !facilityClusters || !ruleWarnings || !importReport) continue;
 
     const scope = `${trailId}/normalized-candidate`;
     validateArtifactHeader(scope, routeSections, trailId, "candidate-route-sections/v1");
     validateArtifactHeader(scope, geometryIndex, trailId, "candidate-route-geometry-index/v1");
     validateArtifactHeader(scope, routeTopology, trailId, "candidate-route-topology/v1");
     validateArtifactHeader(scope, facilities, trailId, "candidate-facilities/v1");
+    validateArtifactHeader(scope, facilityClusters, trailId, "candidate-facility-clusters/v1");
     validateArtifactHeader(scope, ruleWarnings, trailId, "candidate-rule-warnings/v1");
     validateArtifactHeader(scope, importReport, trailId, "candidate-import-report/v1");
 
@@ -417,6 +419,12 @@ async function validateNormalizedCandidateArtifacts(prep, manifest) {
     if (importReport.generatedCounts?.facilities !== (facilities.records ?? []).length) {
       addError(scope, "import report facilities count must match facilities artifact");
     }
+    if (importReport.generatedCounts?.facilityClusters !== (facilityClusters.clusters ?? []).length) {
+      addError(scope, "import report facilityClusters count must match facility clusters artifact");
+    }
+    if (importReport.generatedCounts?.dedupeCandidateClusters !== facilityClusters.summary?.dedupeCandidateClusters) {
+      addError(scope, "import report dedupeCandidateClusters count must match facility clusters artifact");
+    }
     if (importReport.generatedCounts?.ruleWarnings !== (ruleWarnings.records ?? []).length) {
       addError(scope, "import report ruleWarnings count must match rule warnings artifact");
     }
@@ -437,6 +445,7 @@ async function validateNormalizedCandidateArtifacts(prep, manifest) {
 
     validateUnique(scope, "route section IDs", (routeSections.sections ?? []).map((section) => section.sectionId));
     const routeSectionIds = new Set((routeSections.sections ?? []).map((section) => section.sectionId));
+    const facilityIds = new Set((facilities.records ?? []).map((facility) => facility.facilityId));
     validateUnique(scope, "route group IDs", (routeTopology.routeGroups ?? []).map((group) => group.groupId));
     validateUnique(scope, "route topology connection IDs", (routeTopology.connections ?? []).map((connection) => connection.connectionId));
     if ((routeTopology.unresolvedSectionRefs ?? []).length > 0) {
@@ -460,6 +469,21 @@ async function validateNormalizedCandidateArtifacts(prep, manifest) {
         }
       }
     }
+    validateUnique(scope, "facility cluster IDs", (facilityClusters.clusters ?? []).map((cluster) => cluster.clusterId));
+    if (facilityClusters.summary?.totalFacilities !== (facilities.records ?? []).length) {
+      addError(scope, "facility cluster totalFacilities must match facilities artifact");
+    }
+    if (facilityClusters.summary?.clusterCount !== (facilityClusters.clusters ?? []).length) {
+      addError(scope, "facility cluster summary clusterCount must match clusters length");
+    }
+    for (const cluster of facilityClusters.clusters ?? []) {
+      for (const facilityId of cluster.facilityIds ?? []) {
+        if (!facilityIds.has(facilityId)) addError(scope, `facility cluster ${cluster.clusterId} references unknown facility ${facilityId}`);
+      }
+      for (const sectionId of cluster.sectionIds ?? []) {
+        if (!routeSectionIds.has(sectionId)) addError(scope, `facility cluster ${cluster.clusterId} references unknown section ${sectionId}`);
+      }
+    }
     validateUnique(scope, "facility IDs", (facilities.records ?? []).map((facility) => facility.facilityId));
     for (const facility of facilities.records ?? []) {
       if (!allowedFacilityStates.has(facility.state)) addError(scope, `facility ${facility.facilityId} has unsupported state ${facility.state}`);
@@ -481,6 +505,7 @@ async function validateNormalizedCandidateArtifacts(prep, manifest) {
       trailId,
       sections: routeSections.sections.length,
       routeGroups: routeTopology.routeGroups.length,
+      facilityClusters: facilityClusters.clusters.length,
       facilities: facilities.records.length,
       ruleWarnings: ruleWarnings.records.length
     });
@@ -657,7 +682,7 @@ if (prep && manifest && shared && qualityGate && phase3Report && blockerTriage &
     }
     for (const row of artifactRows) {
       console.log(
-        `  artifacts ${row.trailId}: ${row.sections} sections, ${row.routeGroups} route groups, ${row.facilities} facilities, ${row.ruleWarnings} rule warnings`
+        `  artifacts ${row.trailId}: ${row.sections} sections, ${row.routeGroups} route groups, ${row.facilityClusters} facility clusters, ${row.facilities} facilities, ${row.ruleWarnings} rule warnings`
       );
     }
   }
