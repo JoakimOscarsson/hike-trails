@@ -456,6 +456,34 @@ const topologyDecisionConfig = {
   }
 };
 
+const policyDecisionConfig = {
+  hoglandsleden: {
+    triageResolvedSourceIds: ["decision-3"],
+    action:
+      "Shared trail-specific decisions now include the Höglandsleden service scope: commercial/bookable services are caveated metadata, and weak rural transit remains access metadata unless current useful service is verified."
+  },
+  kungsleden: {
+    triageResolvedSourceIds: ["decision-4"],
+    action:
+      "Shared trail-specific decisions now define the Kungsleden facility taxonomy for hut clusters, child amenities, transport, services, water, bridges, viewpoints, Naturum, parking and pending unverified subfacilities."
+  },
+  nordkalottleden: {
+    triageResolvedSourceIds: ["decision-5"],
+    action:
+      "Shared trail-specific decisions now use per-section or per-country warnings for Finland/Norway/Sweden rule differences and reserve route-level warnings for whole-model facts."
+  },
+  "vastra-vatterleden": {
+    triageResolvedSourceIds: ["decision-1", "decision-2"],
+    action:
+      "Shared trail-specific decisions now scope optional businesses as caveated side-service/access metadata and keep Rankåsleden/regional long-distance links as future connector metadata unless explicitly selected."
+  },
+  vikingaleden: {
+    triageResolvedSourceIds: ["blocker-1"],
+    action:
+      "The existing Vikingaleden trail.research.json is now explicitly accepted as the candidate trail overview for this prep pass; later official overview refreshes can update metadata without blocking normalization."
+  }
+};
+
 for (const trailId of includedTrails) {
   const trailRoot = path.join(candidateRoot, trailId);
   const normalizedRoot = path.join(trailRoot, "normalized-candidate");
@@ -1023,6 +1051,15 @@ function classifyTriageItem(trailId, item) {
       action: topologyResolution.triageResolvedAction ?? "Resolved by explicit route topology decisions in normalized-candidate/route-topology.research.json."
     };
   }
+  const policyResolution = policyDecisionConfig[trailId];
+
+  if (policyResolution?.triageResolvedSourceIds?.includes(item.sourceId)) {
+    return {
+      disposition: "resolved-now",
+      owner: "candidate-data",
+      action: policyResolution.action
+    };
+  }
 
   if (text.includes("readme.md status is older")) {
     return {
@@ -1070,7 +1107,7 @@ function classifyTriageItem(trailId, item) {
     };
   }
   if (
-    /officialdistancekm|computedgeometrydistancekm|source-direction|schema|runtime schema|app schema|connector model|typed connector|route-group|route groups|aliases|alternate route groups|tail|source direction metadata/.test(
+    /officialdistancekm|computedgeometrydistancekm|source-direction|schema|runtime schema|app schema|connector model|typed connector|typed boat|rowboat|ferry\/water|road\/bus transfer|route-group|route groups|aliases|alternate route groups|tail|source direction metadata/.test(
       text
     )
   ) {
@@ -1080,11 +1117,18 @@ function classifyTriageItem(trailId, item) {
       action: "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
     };
   }
-  if (/source policy|licens|permission|api key|trafiklab|resrobot|approve or reject|source terms|official source|authoritative.*ids/.test(text)) {
+  if (/source[- ]policy|licens|permission|api key|trafiklab|resrobot|approve or reject|source terms|official source|authoritative.*ids/.test(text)) {
     return {
       disposition: "external-source-approval",
       owner: "source-review",
       action: "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
+    };
+  }
+  if (/live currentness refresh|currentness refresh|pre-publication refresh/.test(text)) {
+    return {
+      disposition: "defer-publication-time",
+      owner: "publication-check",
+      action: "Keep as a publication-time checklist item because the underlying fact can change."
     };
   }
   if (/gis|overlay|protected-area|water-protection|boundary|rule-warning granularity|rule granularity|clip|clipping|subsegment/.test(text)) {

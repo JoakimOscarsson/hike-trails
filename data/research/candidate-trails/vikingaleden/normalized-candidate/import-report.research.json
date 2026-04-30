@@ -88,9 +88,9 @@
       "sourceId": "blocker-1",
       "status": "unresolved",
       "details": "Trail-level metadata was generated from the completed section packets rather than a separate official overview pass.",
-      "disposition": "fix-now",
-      "owner": "candidate-review",
-      "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "The existing Vikingaleden trail.research.json is now explicitly accepted as the candidate trail overview for this prep pass; later official overview refreshes can update metadata without blocking normalization."
     },
     {
       "id": "blocker-2",
@@ -174,12 +174,21 @@
     }
   ],
   "triageSummary": {
-    "fix-now": 1,
+    "resolved-now": 2,
     "runtime-schema-needed": 2,
-    "defer-publication-time": 5,
-    "resolved-now": 1
+    "defer-publication-time": 5
   },
   "fixesAppliedNow": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "blocker-1",
+      "status": "unresolved",
+      "details": "Trail-level metadata was generated from the completed section packets rather than a separate official overview pass.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "The existing Vikingaleden trail.research.json is now explicitly accepted as the candidate trail overview for this prep pass; later official overview refreshes can update metadata without blocking normalization."
+    },
     {
       "id": "open-decision-8",
       "itemType": "open-decision",
@@ -191,18 +200,7 @@
       "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
     }
   ],
-  "fixNowBeforeRuntimeImport": [
-    {
-      "id": "blocker-1",
-      "itemType": "blocker",
-      "sourceId": "blocker-1",
-      "status": "unresolved",
-      "details": "Trail-level metadata was generated from the completed section packets rather than a separate official overview pass.",
-      "disposition": "fix-now",
-      "owner": "candidate-review",
-      "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
-    }
-  ],
+  "fixNowBeforeRuntimeImport": [],
   "runtimeSchemaNeeded": [
     {
       "id": "blocker-2",
@@ -312,7 +310,6 @@
     }
   ],
   "unresolvedBeforeRuntimeImport": [
-    "fix-now: Trail-level metadata was generated from the completed section packets rather than a separate official overview pass.",
     "runtime-schema-needed: Import work must dedupe facilities, geometry, and route aliases against Upplandsleden for overlapping sections 7-12.",
     "runtime-schema-needed: Visit Roslagen Etapp 12 detail returned 404 during section research; the section packet uses Naturkartan/Upplandsleden and Outdooractive/Paxwalk evidence.",
     "defer-publication-time: unknown/recheck: verify current official overview and any changed section pages immediately before runtime import.",

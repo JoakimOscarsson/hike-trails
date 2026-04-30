@@ -124,9 +124,9 @@
       "sourceId": "decision-1",
       "status": "open-decision",
       "details": "Decide app scope for optional businesses and off-route town services.",
-      "disposition": "fix-now",
-      "owner": "candidate-review",
-      "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared trail-specific decisions now scope optional businesses as caveated side-service/access metadata and keep Rankåsleden/regional long-distance links as future connector metadata unless explicitly selected."
     },
     {
       "id": "open-decision-6",
@@ -134,9 +134,9 @@
       "sourceId": "decision-2",
       "status": "open-decision",
       "details": "Confirm whether Rankåsleden and regional long-distance connections should be exposed in this import pass or kept as future connector metadata.",
-      "disposition": "fix-now",
-      "owner": "candidate-review",
-      "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared trail-specific decisions now scope optional businesses as caveated side-service/access metadata and keep Rankåsleden/regional long-distance links as future connector metadata unless explicitly selected."
     },
     {
       "id": "open-decision-7",
@@ -151,11 +151,31 @@
   ],
   "triageSummary": {
     "runtime-integration-task": 1,
-    "fix-now": 4,
+    "fix-now": 2,
     "defer-publication-time": 1,
-    "resolved-now": 1
+    "resolved-now": 3
   },
   "fixesAppliedNow": [
+    {
+      "id": "open-decision-5",
+      "itemType": "open-decision",
+      "sourceId": "decision-1",
+      "status": "open-decision",
+      "details": "Decide app scope for optional businesses and off-route town services.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared trail-specific decisions now scope optional businesses as caveated side-service/access metadata and keep Rankåsleden/regional long-distance links as future connector metadata unless explicitly selected."
+    },
+    {
+      "id": "open-decision-6",
+      "itemType": "open-decision",
+      "sourceId": "decision-2",
+      "status": "open-decision",
+      "details": "Confirm whether Rankåsleden and regional long-distance connections should be exposed in this import pass or kept as future connector metadata.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared trail-specific decisions now scope optional businesses as caveated side-service/access metadata and keep Rankåsleden/regional long-distance links as future connector metadata unless explicitly selected."
+    },
     {
       "id": "open-decision-7",
       "itemType": "open-decision",
@@ -187,26 +207,6 @@
       "disposition": "fix-now",
       "owner": "candidate-gis",
       "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
-    },
-    {
-      "id": "open-decision-5",
-      "itemType": "open-decision",
-      "sourceId": "decision-1",
-      "status": "open-decision",
-      "details": "Decide app scope for optional businesses and off-route town services.",
-      "disposition": "fix-now",
-      "owner": "candidate-review",
-      "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
-    },
-    {
-      "id": "open-decision-6",
-      "itemType": "open-decision",
-      "sourceId": "decision-2",
-      "status": "open-decision",
-      "details": "Confirm whether Rankåsleden and regional long-distance connections should be exposed in this import pass or kept as future connector metadata.",
-      "disposition": "fix-now",
-      "owner": "candidate-review",
-      "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
     }
   ],
   "runtimeSchemaNeeded": [],
@@ -248,9 +248,7 @@
     "runtime-integration-task: Current packet is ready for candidate normalization planning, not runtime integration.",
     "fix-now: Stage 1 variants, stage 2 branches, stages 3-5 segment assembly/reversal, stage 7 mainline/access split and stage 8 two child GPX components plus connectors must be implemented before route import.",
     "fix-now: Protected-area overlays must be run against final normalized geometry before rule attribution.",
-    "defer-publication-time: Transit schedules, fire bans, forestry notices, business hours, bathing-water status, water reliability and shelter maintenance are runtime checks.",
-    "fix-now: Decide app scope for optional businesses and off-route town services.",
-    "fix-now: Confirm whether Rankåsleden and regional long-distance connections should be exposed in this import pass or kept as future connector metadata."
+    "defer-publication-time: Transit schedules, fire bans, forestry notices, business hours, bathing-water status, water reliability and shelter maintenance are runtime checks."
   ],
   "nextActions": [
     "Handle fixNowBeforeRuntimeImport first unless the linked item truly needs external data.",

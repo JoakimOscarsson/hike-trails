@@ -14,16 +14,16 @@
     "scope-limitation": "Accepted scope boundary for this candidate import model."
   },
   "summary": {
-    "resolved-now": 41,
+    "resolved-now": 47,
     "runtime-integration-task": 7,
-    "defer-publication-time": 18,
-    "fix-now": 23,
-    "external-source-approval": 4,
-    "runtime-schema-needed": 13,
+    "defer-publication-time": 19,
+    "fix-now": 14,
+    "external-source-approval": 5,
+    "runtime-schema-needed": 14,
     "scope-limitation": 3
   },
-  "fixNowCount": 23,
-  "resolvedNowCount": 41,
+  "fixNowCount": 14,
+  "resolvedNowCount": 47,
   "trails": [
     {
       "trailId": "bohusleden",
@@ -764,8 +764,8 @@
       "triageSummary": {
         "runtime-integration-task": 1,
         "runtime-schema-needed": 2,
-        "fix-now": 2,
-        "resolved-now": 2
+        "fix-now": 1,
+        "resolved-now": 3
       },
       "fixesAppliedNow": [
         {
@@ -787,6 +787,16 @@
           "disposition": "resolved-now",
           "owner": "candidate-data",
           "action": "Route-builder topology is now fixed as main loop plus Mariannelund and Tomtabacken-Kärringabacka branches."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "decision-3",
+          "status": "open-decision",
+          "details": "Decide app scope for bookable/commercial services and very weak rural transit.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared trail-specific decisions now include the Höglandsleden service scope: commercial/bookable services are caveated metadata, and weak rural transit remains access metadata unless current useful service is verified."
         }
       ],
       "nextFixNow": [
@@ -799,16 +809,6 @@
           "disposition": "fix-now",
           "owner": "candidate-gis",
           "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
-        },
-        {
-          "id": "open-decision-7",
-          "itemType": "open-decision",
-          "sourceId": "decision-3",
-          "status": "open-decision",
-          "details": "Decide app scope for bookable/commercial services and very weak rural transit.",
-          "disposition": "fix-now",
-          "owner": "candidate-review",
-          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
         }
       ],
       "deferred": [
@@ -912,32 +912,35 @@
           "sourceId": "decision-3",
           "status": "open-decision",
           "details": "Decide app scope for bookable/commercial services and very weak rural transit.",
-          "disposition": "fix-now",
-          "owner": "candidate-review",
-          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared trail-specific decisions now include the Höglandsleden service scope: commercial/bookable services are caveated metadata, and weak rural transit remains access metadata unless current useful service is verified."
         }
       ]
     },
     {
       "trailId": "kungsleden",
       "triageSummary": {
-        "fix-now": 6,
-        "runtime-schema-needed": 3,
+        "external-source-approval": 2,
+        "fix-now": 2,
+        "runtime-schema-needed": 4,
+        "defer-publication-time": 1,
         "runtime-integration-task": 1,
-        "external-source-approval": 1
+        "resolved-now": 1
       },
-      "fixesAppliedNow": [],
-      "nextFixNow": [
+      "fixesAppliedNow": [
         {
-          "id": "blocker-1",
-          "itemType": "blocker",
-          "sourceId": "blocker-1",
-          "status": "unresolved",
-          "details": "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds and field-report metadata.",
-          "disposition": "fix-now",
-          "owner": "candidate-review",
-          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
-        },
+          "id": "open-decision-10",
+          "itemType": "open-decision",
+          "sourceId": "decision-4",
+          "status": "open-decision",
+          "details": "Decide the app taxonomy for hut clusters, child toilets, emergency phones, shops, saunas, waste points, water sources, bridges, viewpoints, Naturum, village services and parking.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared trail-specific decisions now define the Kungsleden facility taxonomy for hut clusters, child amenities, transport, services, water, bridges, viewpoints, Naturum, parking and pending unverified subfacilities."
+        }
+      ],
+      "nextFixNow": [
         {
           "id": "blocker-2",
           "itemType": "blocker",
@@ -957,6 +960,18 @@
           "disposition": "fix-now",
           "owner": "candidate-facilities",
           "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+        }
+      ],
+      "deferred": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "blocker-1",
+          "status": "unresolved",
+          "details": "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds and field-report metadata.",
+          "disposition": "external-source-approval",
+          "owner": "source-review",
+          "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
         },
         {
           "id": "blocker-5",
@@ -964,32 +979,10 @@
           "sourceId": "blocker-5",
           "status": "unresolved",
           "details": "Live currentness refresh is still required for trail/bridge notices, closures, fire bans, weather, hut seasons, boat operators, bus timetables, protected-area rules, reindeer/hunting/fishing and parking rules.",
-          "disposition": "fix-now",
-          "owner": "candidate-gis",
-          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
         },
-        {
-          "id": "open-decision-8",
-          "itemType": "open-decision",
-          "sourceId": "decision-2",
-          "status": "open-decision",
-          "details": "Decide whether the app import should support typed boat, rowboat, ferry/water and road/bus transfer connectors before Kungsleden is imported.",
-          "disposition": "fix-now",
-          "owner": "candidate-facilities",
-          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
-        },
-        {
-          "id": "open-decision-10",
-          "itemType": "open-decision",
-          "sourceId": "decision-4",
-          "status": "open-decision",
-          "details": "Decide the app taxonomy for hut clusters, child toilets, emergency phones, shops, saunas, waste points, water sources, bridges, viewpoints, Naturum, village services and parking.",
-          "disposition": "fix-now",
-          "owner": "candidate-facilities",
-          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
-        }
-      ],
-      "deferred": [
         {
           "id": "blocker-6",
           "itemType": "blocker",
@@ -1023,6 +1016,16 @@
           "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
         },
         {
+          "id": "open-decision-8",
+          "itemType": "open-decision",
+          "sourceId": "decision-2",
+          "status": "open-decision",
+          "details": "Decide whether the app import should support typed boat, rowboat, ferry/water and road/bus transfer connectors before Kungsleden is imported.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        },
+        {
           "id": "open-decision-9",
           "itemType": "open-decision",
           "sourceId": "decision-3",
@@ -1050,9 +1053,9 @@
           "sourceId": "blocker-1",
           "status": "unresolved",
           "details": "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds and field-report metadata.",
-          "disposition": "fix-now",
-          "owner": "candidate-review",
-          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+          "disposition": "external-source-approval",
+          "owner": "source-review",
+          "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
         },
         {
           "id": "blocker-2",
@@ -1090,9 +1093,9 @@
           "sourceId": "blocker-5",
           "status": "unresolved",
           "details": "Live currentness refresh is still required for trail/bridge notices, closures, fire bans, weather, hut seasons, boat operators, bus timetables, protected-area rules, reindeer/hunting/fishing and parking rules.",
-          "disposition": "fix-now",
-          "owner": "candidate-gis",
-          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
         },
         {
           "id": "blocker-6",
@@ -1120,9 +1123,9 @@
           "sourceId": "decision-2",
           "status": "open-decision",
           "details": "Decide whether the app import should support typed boat, rowboat, ferry/water and road/bus transfer connectors before Kungsleden is imported.",
-          "disposition": "fix-now",
-          "owner": "candidate-facilities",
-          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
         },
         {
           "id": "open-decision-9",
@@ -1140,9 +1143,9 @@
           "sourceId": "decision-4",
           "status": "open-decision",
           "details": "Decide the app taxonomy for hut clusters, child toilets, emergency phones, shops, saunas, waste points, water sources, bridges, viewpoints, Naturum, village services and parking.",
-          "disposition": "fix-now",
-          "owner": "candidate-facilities",
-          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared trail-specific decisions now define the Kungsleden facility taxonomy for hut clusters, child amenities, transport, services, water, bridges, viewpoints, Naturum, parking and pending unverified subfacilities."
         },
         {
           "id": "open-decision-11",
@@ -1160,9 +1163,8 @@
       "trailId": "nordkalottleden",
       "triageSummary": {
         "external-source-approval": 1,
-        "resolved-now": 6,
-        "scope-limitation": 3,
-        "fix-now": 1
+        "resolved-now": 7,
+        "scope-limitation": 3
       },
       "fixesAppliedNow": [
         {
@@ -1224,20 +1226,19 @@
           "disposition": "resolved-now",
           "owner": "candidate-data",
           "action": "Endpoint/connector policy is now explicit: hut-yard and legacy lodging offsets stay metadata, Saraelv/Ovi remains a compound endpoint gap, and no seamless connector is invented."
-        }
-      ],
-      "nextFixNow": [
+        },
         {
           "id": "open-decision-11",
           "itemType": "open-decision",
           "sourceId": "decision-5",
           "status": "open-decision",
           "details": "Decide how much country-specific rule logic belongs in route-level warnings versus per-section warnings.",
-          "disposition": "fix-now",
-          "owner": "candidate-review",
-          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared trail-specific decisions now use per-section or per-country warnings for Finland/Norway/Sweden rule differences and reserve route-level warnings for whole-model facts."
         }
       ],
+      "nextFixNow": [],
       "deferred": [
         {
           "id": "blocker-1",
@@ -1388,9 +1389,9 @@
           "sourceId": "decision-5",
           "status": "open-decision",
           "details": "Decide how much country-specific rule logic belongs in route-level warnings versus per-section warnings.",
-          "disposition": "fix-now",
-          "owner": "candidate-review",
-          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared trail-specific decisions now use per-section or per-country warnings for Finland/Norway/Sweden rule differences and reserve route-level warnings for whole-model facts."
         }
       ]
     },
@@ -2070,11 +2071,31 @@
       "trailId": "vastra-vatterleden",
       "triageSummary": {
         "runtime-integration-task": 1,
-        "fix-now": 4,
+        "fix-now": 2,
         "defer-publication-time": 1,
-        "resolved-now": 1
+        "resolved-now": 3
       },
       "fixesAppliedNow": [
+        {
+          "id": "open-decision-5",
+          "itemType": "open-decision",
+          "sourceId": "decision-1",
+          "status": "open-decision",
+          "details": "Decide app scope for optional businesses and off-route town services.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared trail-specific decisions now scope optional businesses as caveated side-service/access metadata and keep Rankåsleden/regional long-distance links as future connector metadata unless explicitly selected."
+        },
+        {
+          "id": "open-decision-6",
+          "itemType": "open-decision",
+          "sourceId": "decision-2",
+          "status": "open-decision",
+          "details": "Confirm whether Rankåsleden and regional long-distance connections should be exposed in this import pass or kept as future connector metadata.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared trail-specific decisions now scope optional businesses as caveated side-service/access metadata and keep Rankåsleden/regional long-distance links as future connector metadata unless explicitly selected."
+        },
         {
           "id": "open-decision-7",
           "itemType": "open-decision",
@@ -2106,26 +2127,6 @@
           "disposition": "fix-now",
           "owner": "candidate-gis",
           "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
-        },
-        {
-          "id": "open-decision-5",
-          "itemType": "open-decision",
-          "sourceId": "decision-1",
-          "status": "open-decision",
-          "details": "Decide app scope for optional businesses and off-route town services.",
-          "disposition": "fix-now",
-          "owner": "candidate-review",
-          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
-        },
-        {
-          "id": "open-decision-6",
-          "itemType": "open-decision",
-          "sourceId": "decision-2",
-          "status": "open-decision",
-          "details": "Confirm whether Rankåsleden and regional long-distance connections should be exposed in this import pass or kept as future connector metadata.",
-          "disposition": "fix-now",
-          "owner": "candidate-review",
-          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
         }
       ],
       "deferred": [
@@ -2198,9 +2199,9 @@
           "sourceId": "decision-1",
           "status": "open-decision",
           "details": "Decide app scope for optional businesses and off-route town services.",
-          "disposition": "fix-now",
-          "owner": "candidate-review",
-          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared trail-specific decisions now scope optional businesses as caveated side-service/access metadata and keep Rankåsleden/regional long-distance links as future connector metadata unless explicitly selected."
         },
         {
           "id": "open-decision-6",
@@ -2208,9 +2209,9 @@
           "sourceId": "decision-2",
           "status": "open-decision",
           "details": "Confirm whether Rankåsleden and regional long-distance connections should be exposed in this import pass or kept as future connector metadata.",
-          "disposition": "fix-now",
-          "owner": "candidate-review",
-          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared trail-specific decisions now scope optional businesses as caveated side-service/access metadata and keep Rankåsleden/regional long-distance links as future connector metadata unless explicitly selected."
         },
         {
           "id": "open-decision-7",
@@ -2227,12 +2228,21 @@
     {
       "trailId": "vikingaleden",
       "triageSummary": {
-        "fix-now": 1,
+        "resolved-now": 2,
         "runtime-schema-needed": 2,
-        "defer-publication-time": 5,
-        "resolved-now": 1
+        "defer-publication-time": 5
       },
       "fixesAppliedNow": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "blocker-1",
+          "status": "unresolved",
+          "details": "Trail-level metadata was generated from the completed section packets rather than a separate official overview pass.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "The existing Vikingaleden trail.research.json is now explicitly accepted as the candidate trail overview for this prep pass; later official overview refreshes can update metadata without blocking normalization."
+        },
         {
           "id": "open-decision-8",
           "itemType": "open-decision",
@@ -2244,18 +2254,7 @@
           "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
         }
       ],
-      "nextFixNow": [
-        {
-          "id": "blocker-1",
-          "itemType": "blocker",
-          "sourceId": "blocker-1",
-          "status": "unresolved",
-          "details": "Trail-level metadata was generated from the completed section packets rather than a separate official overview pass.",
-          "disposition": "fix-now",
-          "owner": "candidate-review",
-          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
-        }
-      ],
+      "nextFixNow": [],
       "deferred": [
         {
           "id": "blocker-4",
@@ -2337,9 +2336,9 @@
           "sourceId": "blocker-1",
           "status": "unresolved",
           "details": "Trail-level metadata was generated from the completed section packets rather than a separate official overview pass.",
-          "disposition": "fix-now",
-          "owner": "candidate-review",
-          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "The existing Vikingaleden trail.research.json is now explicitly accepted as the candidate trail overview for this prep pass; later official overview refreshes can update metadata without blocking normalization."
         },
         {
           "id": "blocker-2",

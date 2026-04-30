@@ -144,16 +144,16 @@
       "sourceId": "decision-3",
       "status": "open-decision",
       "details": "Decide app scope for bookable/commercial services and very weak rural transit.",
-      "disposition": "fix-now",
-      "owner": "candidate-review",
-      "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared trail-specific decisions now include the Höglandsleden service scope: commercial/bookable services are caveated metadata, and weak rural transit remains access metadata unless current useful service is verified."
     }
   ],
   "triageSummary": {
     "runtime-integration-task": 1,
     "runtime-schema-needed": 2,
-    "fix-now": 2,
-    "resolved-now": 2
+    "fix-now": 1,
+    "resolved-now": 3
   },
   "fixesAppliedNow": [
     {
@@ -175,6 +175,16 @@
       "disposition": "resolved-now",
       "owner": "candidate-data",
       "action": "Route-builder topology is now fixed as main loop plus Mariannelund and Tomtabacken-Kärringabacka branches."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "decision-3",
+      "status": "open-decision",
+      "details": "Decide app scope for bookable/commercial services and very weak rural transit.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared trail-specific decisions now include the Höglandsleden service scope: commercial/bookable services are caveated metadata, and weak rural transit remains access metadata unless current useful service is verified."
     }
   ],
   "fixNowBeforeRuntimeImport": [
@@ -187,16 +197,6 @@
       "disposition": "fix-now",
       "owner": "candidate-gis",
       "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
-    },
-    {
-      "id": "open-decision-7",
-      "itemType": "open-decision",
-      "sourceId": "decision-3",
-      "status": "open-decision",
-      "details": "Decide app scope for bookable/commercial services and very weak rural transit.",
-      "disposition": "fix-now",
-      "owner": "candidate-review",
-      "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
     }
   ],
   "runtimeSchemaNeeded": [
@@ -249,8 +249,7 @@
     "runtime-integration-task: No runtime data has been imported.",
     "runtime-schema-needed: Whether official route groups should be modeled as main loop plus three connectors, main loop plus east/north/west branches, or another route-builder topology.",
     "fix-now: Protected-area boundary overlays and live fire-ban/currentness checks are still required before user-facing runtime import.",
-    "runtime-schema-needed: Decide whether official access trails such as Mariannelund-HÖ3, Sävsjö C, Hok station, Byarum kyrka, Skillingaryd station and Lyngemadens naturreservat should be first-class route groups or access metadata.",
-    "fix-now: Decide app scope for bookable/commercial services and very weak rural transit."
+    "runtime-schema-needed: Decide whether official access trails such as Mariannelund-HÖ3, Sävsjö C, Hok station, Byarum kyrka, Skillingaryd station and Lyngemadens naturreservat should be first-class route groups or access metadata."
   ],
   "nextActions": [
     "Handle fixNowBeforeRuntimeImport first unless the linked item truly needs external data.",
