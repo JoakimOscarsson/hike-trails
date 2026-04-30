@@ -1,0 +1,2425 @@
+{
+  "schemaVersion": "candidate-blocker-triage/v1",
+  "lastUpdated": "2026-04-30",
+  "status": "triaged-fix-now-biased",
+  "purpose": "Review of normalized-candidate import report blockers with a bias toward fixing candidate-prep issues now and deferring only runtime, external, or publication-time work.",
+  "runtimeImportApproved": false,
+  "dispositionDefinitions": {
+    "resolved-now": "Fixed or resolved during this candidate-prep pass, usually by shared decisions, candidate artifact state, or documentation cleanup.",
+    "fix-now": "Actionable repository work that should be done before runtime import and does not inherently require publication-day data.",
+    "runtime-schema-needed": "Requires runtime importer or app schema support before it can be fully resolved.",
+    "external-source-approval": "Requires source licensing, API credentials, or official/source confirmation outside this repo.",
+    "defer-publication-time": "Must be checked close to user-facing publication because the fact is volatile.",
+    "runtime-integration-task": "Intentionally waits for an explicit runtime import task.",
+    "scope-limitation": "Accepted scope boundary for this candidate import model."
+  },
+  "summary": {
+    "fix-now": 38,
+    "runtime-integration-task": 7,
+    "resolved-now": 26,
+    "defer-publication-time": 18,
+    "external-source-approval": 4,
+    "runtime-schema-needed": 13,
+    "scope-limitation": 3
+  },
+  "fixNowCount": 38,
+  "resolvedNowCount": 26,
+  "trails": [
+    {
+      "trailId": "bohusleden",
+      "triageSummary": {
+        "fix-now": 3,
+        "runtime-integration-task": 1,
+        "resolved-now": 8,
+        "defer-publication-time": 2
+      },
+      "fixesAppliedNow": [
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "hardBlockers-3",
+          "status": "hardBlockers",
+          "details": "A deliberate decision is required before any Stage 21 partial/self-navigation route model is represented.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+        },
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "hardBlockers-4",
+          "status": "hardBlockers",
+          "details": "Do not bridge, snap or auto-route the 4.296 km Stage 21-to-Stage 22 gap.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+        },
+        {
+          "id": "blocker-8",
+          "itemType": "blocker",
+          "sourceId": "publicationTimeRechecks-4",
+          "status": "publicationTimeRechecks",
+          "details": "Facility coordinate verification where section files mark records pending, approximate or conflicting.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        },
+        {
+          "id": "open-decision-9",
+          "itemType": "open-decision",
+          "sourceId": "decision-1",
+          "status": "open-decision",
+          "details": "Exclude Stage 21 entirely from route import, request authoritative full geometry from Tanum municipality/WST, or implement an explicit partial/self-navigation model.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+        },
+        {
+          "id": "open-decision-10",
+          "itemType": "open-decision",
+          "sourceId": "decision-2",
+          "status": "open-decision",
+          "details": "Choose snap policy for the 49.4 m Stage 8-to-Stage 9 Bottenstugan gap.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+        },
+        {
+          "id": "open-decision-11",
+          "itemType": "open-decision",
+          "sourceId": "decision-3",
+          "status": "open-decision",
+          "details": "Choose whether Bohusleden is represented as one chain with an explicit Stage 21 gap or as separate importable chains around Stage 21.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+        },
+        {
+          "id": "open-decision-12",
+          "itemType": "open-decision",
+          "sourceId": "decision-4",
+          "status": "open-decision",
+          "details": "Choose side-service/access metadata radius and visibility for remote northern endpoints and town service clusters.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Parking/transit and access services are normalized as candidate facility/access records with pending/suppress states and live-check caveats."
+        },
+        {
+          "id": "open-decision-13",
+          "itemType": "open-decision",
+          "sourceId": "decision-5",
+          "status": "open-decision",
+          "details": "Choose how pending OSM-only fire/water/shelter/picnic candidates are stored before verification.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        }
+      ],
+      "nextFixNow": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "hardBlockers-1",
+          "status": "hardBlockers",
+          "details": "Stage 21 remains partial official geometry only and must not be imported as a complete route.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        },
+        {
+          "id": "blocker-7",
+          "itemType": "blocker",
+          "sourceId": "publicationTimeRechecks-3",
+          "status": "publicationTimeRechecks",
+          "details": "Final GIS line-buffer overlays for protected areas, water-protection zones and restriction subsegments.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        },
+        {
+          "id": "open-decision-14",
+          "itemType": "open-decision",
+          "sourceId": "decision-6",
+          "status": "open-decision",
+          "details": "Choose warning granularity for reserve, water-protection, dog, fire and camping rules after GIS overlay.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        }
+      ],
+      "deferred": [
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "hardBlockers-2",
+          "status": "hardBlockers",
+          "details": "Runtime integration still needs a separate explicit import task.",
+          "disposition": "runtime-integration-task",
+          "owner": "runtime-import",
+          "action": "Handle when the candidate artifacts are selected for runtime import."
+        },
+        {
+          "id": "blocker-5",
+          "itemType": "blocker",
+          "sourceId": "publicationTimeRechecks-1",
+          "status": "publicationTimeRechecks",
+          "details": "WST status/deviation widgets, fire bans, transit timetables, commercial opening hours and seasonal services.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "blocker-6",
+          "itemType": "blocker",
+          "sourceId": "publicationTimeRechecks-2",
+          "status": "publicationTimeRechecks",
+          "details": "Known bridge/raft/forestry/windfall/planned-burn notices.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        }
+      ],
+      "runtimeSchemaNeeded": [],
+      "items": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "hardBlockers-1",
+          "status": "hardBlockers",
+          "details": "Stage 21 remains partial official geometry only and must not be imported as a complete route.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        },
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "hardBlockers-2",
+          "status": "hardBlockers",
+          "details": "Runtime integration still needs a separate explicit import task.",
+          "disposition": "runtime-integration-task",
+          "owner": "runtime-import",
+          "action": "Handle when the candidate artifacts are selected for runtime import."
+        },
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "hardBlockers-3",
+          "status": "hardBlockers",
+          "details": "A deliberate decision is required before any Stage 21 partial/self-navigation route model is represented.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+        },
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "hardBlockers-4",
+          "status": "hardBlockers",
+          "details": "Do not bridge, snap or auto-route the 4.296 km Stage 21-to-Stage 22 gap.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+        },
+        {
+          "id": "blocker-5",
+          "itemType": "blocker",
+          "sourceId": "publicationTimeRechecks-1",
+          "status": "publicationTimeRechecks",
+          "details": "WST status/deviation widgets, fire bans, transit timetables, commercial opening hours and seasonal services.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "blocker-6",
+          "itemType": "blocker",
+          "sourceId": "publicationTimeRechecks-2",
+          "status": "publicationTimeRechecks",
+          "details": "Known bridge/raft/forestry/windfall/planned-burn notices.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "blocker-7",
+          "itemType": "blocker",
+          "sourceId": "publicationTimeRechecks-3",
+          "status": "publicationTimeRechecks",
+          "details": "Final GIS line-buffer overlays for protected areas, water-protection zones and restriction subsegments.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        },
+        {
+          "id": "blocker-8",
+          "itemType": "blocker",
+          "sourceId": "publicationTimeRechecks-4",
+          "status": "publicationTimeRechecks",
+          "details": "Facility coordinate verification where section files mark records pending, approximate or conflicting.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        },
+        {
+          "id": "open-decision-9",
+          "itemType": "open-decision",
+          "sourceId": "decision-1",
+          "status": "open-decision",
+          "details": "Exclude Stage 21 entirely from route import, request authoritative full geometry from Tanum municipality/WST, or implement an explicit partial/self-navigation model.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+        },
+        {
+          "id": "open-decision-10",
+          "itemType": "open-decision",
+          "sourceId": "decision-2",
+          "status": "open-decision",
+          "details": "Choose snap policy for the 49.4 m Stage 8-to-Stage 9 Bottenstugan gap.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+        },
+        {
+          "id": "open-decision-11",
+          "itemType": "open-decision",
+          "sourceId": "decision-3",
+          "status": "open-decision",
+          "details": "Choose whether Bohusleden is represented as one chain with an explicit Stage 21 gap or as separate importable chains around Stage 21.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+        },
+        {
+          "id": "open-decision-12",
+          "itemType": "open-decision",
+          "sourceId": "decision-4",
+          "status": "open-decision",
+          "details": "Choose side-service/access metadata radius and visibility for remote northern endpoints and town service clusters.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Parking/transit and access services are normalized as candidate facility/access records with pending/suppress states and live-check caveats."
+        },
+        {
+          "id": "open-decision-13",
+          "itemType": "open-decision",
+          "sourceId": "decision-5",
+          "status": "open-decision",
+          "details": "Choose how pending OSM-only fire/water/shelter/picnic candidates are stored before verification.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        },
+        {
+          "id": "open-decision-14",
+          "itemType": "open-decision",
+          "sourceId": "decision-6",
+          "status": "open-decision",
+          "details": "Choose warning granularity for reserve, water-protection, dog, fire and camping rules after GIS overlay.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        }
+      ]
+    },
+    {
+      "trailId": "hallandsleden",
+      "triageSummary": {
+        "runtime-integration-task": 1,
+        "resolved-now": 6,
+        "fix-now": 3,
+        "defer-publication-time": 2
+      },
+      "fixesAppliedNow": [
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "hardBlockers-2",
+          "status": "hardBlockers",
+          "details": "Need normalization decisions for endpoint snapping, official segment-break handling, side-service filtering, facility dedupe and taxonomy mapping.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "decision-1",
+          "status": "open-decision",
+          "details": "Choose endpoint snapping threshold and whether snapped graph nodes preserve original official endpoints in provenance metadata.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+        },
+        {
+          "id": "open-decision-8",
+          "itemType": "open-decision",
+          "sourceId": "decision-2",
+          "status": "open-decision",
+          "details": "Choose representation for official MultiLineString breaks: preserve as route gaps, model as warning spans, or require external connector evidence.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+        },
+        {
+          "id": "open-decision-9",
+          "itemType": "open-decision",
+          "sourceId": "decision-3",
+          "status": "open-decision",
+          "details": "Choose how to show the K4-to-K5 official coastal network gap in runtime UX.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+        },
+        {
+          "id": "open-decision-10",
+          "itemType": "open-decision",
+          "sourceId": "decision-4",
+          "status": "open-decision",
+          "details": "Choose side-service radius and categories for dense urban/beach/resort areas.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Parking/transit and access services are normalized as candidate facility/access records with pending/suppress states and live-check caveats."
+        },
+        {
+          "id": "open-decision-11",
+          "itemType": "open-decision",
+          "sourceId": "decision-5",
+          "status": "open-decision",
+          "details": "Choose whether facilities marked conditional/private/seasonal/pending are imported as hidden review records, user-facing caveated markers, or deferred.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        }
+      ],
+      "nextFixNow": [
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "hardBlockers-3",
+          "status": "hardBlockers",
+          "details": "K4 Frillesas does not currently connect to K5 Steninge in the official coastal inventory; keep visible as a network gap unless an official connector is later published.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        },
+        {
+          "id": "blocker-6",
+          "itemType": "blocker",
+          "sourceId": "publicationTimeRechecks-3",
+          "status": "publicationTimeRechecks",
+          "details": "Final protected-area and water-protection GIS overlays before public rule warnings.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        },
+        {
+          "id": "open-decision-12",
+          "itemType": "open-decision",
+          "sourceId": "decision-6",
+          "status": "open-decision",
+          "details": "Choose rule-warning granularity: whole-section warning, subsegment warning after GIS overlay, or facility/site-level rule notes.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        }
+      ],
+      "deferred": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "hardBlockers-1",
+          "status": "hardBlockers",
+          "details": "Runtime integration still needs a separate explicit import task.",
+          "disposition": "runtime-integration-task",
+          "owner": "runtime-import",
+          "action": "Handle when the candidate artifacts are selected for runtime import."
+        },
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "publicationTimeRechecks-1",
+          "status": "publicationTimeRechecks",
+          "details": "Transit, closures/reroutes, fire status, beach/reserve rules and seasonal services immediately before publication/import.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "blocker-5",
+          "itemType": "blocker",
+          "sourceId": "publicationTimeRechecks-2",
+          "status": "publicationTimeRechecks",
+          "details": "Water, toilet, cafe/shop, shelter/campsite and private/commercial service availability.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        }
+      ],
+      "runtimeSchemaNeeded": [],
+      "items": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "hardBlockers-1",
+          "status": "hardBlockers",
+          "details": "Runtime integration still needs a separate explicit import task.",
+          "disposition": "runtime-integration-task",
+          "owner": "runtime-import",
+          "action": "Handle when the candidate artifacts are selected for runtime import."
+        },
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "hardBlockers-2",
+          "status": "hardBlockers",
+          "details": "Need normalization decisions for endpoint snapping, official segment-break handling, side-service filtering, facility dedupe and taxonomy mapping.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+        },
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "hardBlockers-3",
+          "status": "hardBlockers",
+          "details": "K4 Frillesas does not currently connect to K5 Steninge in the official coastal inventory; keep visible as a network gap unless an official connector is later published.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        },
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "publicationTimeRechecks-1",
+          "status": "publicationTimeRechecks",
+          "details": "Transit, closures/reroutes, fire status, beach/reserve rules and seasonal services immediately before publication/import.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "blocker-5",
+          "itemType": "blocker",
+          "sourceId": "publicationTimeRechecks-2",
+          "status": "publicationTimeRechecks",
+          "details": "Water, toilet, cafe/shop, shelter/campsite and private/commercial service availability.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "blocker-6",
+          "itemType": "blocker",
+          "sourceId": "publicationTimeRechecks-3",
+          "status": "publicationTimeRechecks",
+          "details": "Final protected-area and water-protection GIS overlays before public rule warnings.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "decision-1",
+          "status": "open-decision",
+          "details": "Choose endpoint snapping threshold and whether snapped graph nodes preserve original official endpoints in provenance metadata.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+        },
+        {
+          "id": "open-decision-8",
+          "itemType": "open-decision",
+          "sourceId": "decision-2",
+          "status": "open-decision",
+          "details": "Choose representation for official MultiLineString breaks: preserve as route gaps, model as warning spans, or require external connector evidence.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+        },
+        {
+          "id": "open-decision-9",
+          "itemType": "open-decision",
+          "sourceId": "decision-3",
+          "status": "open-decision",
+          "details": "Choose how to show the K4-to-K5 official coastal network gap in runtime UX.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+        },
+        {
+          "id": "open-decision-10",
+          "itemType": "open-decision",
+          "sourceId": "decision-4",
+          "status": "open-decision",
+          "details": "Choose side-service radius and categories for dense urban/beach/resort areas.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Parking/transit and access services are normalized as candidate facility/access records with pending/suppress states and live-check caveats."
+        },
+        {
+          "id": "open-decision-11",
+          "itemType": "open-decision",
+          "sourceId": "decision-5",
+          "status": "open-decision",
+          "details": "Choose whether facilities marked conditional/private/seasonal/pending are imported as hidden review records, user-facing caveated markers, or deferred.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        },
+        {
+          "id": "open-decision-12",
+          "itemType": "open-decision",
+          "sourceId": "decision-6",
+          "status": "open-decision",
+          "details": "Choose rule-warning granularity: whole-section warning, subsegment warning after GIS overlay, or facility/site-level rule notes.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        }
+      ]
+    },
+    {
+      "trailId": "hogakustenleden",
+      "triageSummary": {
+        "fix-now": 3,
+        "external-source-approval": 1,
+        "defer-publication-time": 2,
+        "resolved-now": 2
+      },
+      "fixesAppliedNow": [
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "hogakustenleden-pending-facilities",
+          "status": "blocks-public-facility-exposure",
+          "details": "Pending/suppressed facility items must remain out of public normalized facilities until verified.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "hogakustenleden-2026-shuttle",
+          "status": "open-decision",
+          "details": "Suppress Nationalparksbussen/Världsarvsbussen 2026 unless new official timetable appears.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        }
+      ],
+      "nextFixNow": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "hogakustenleden-protected-area-clipping",
+          "status": "blocks-runtime-rule-import",
+          "details": "Protected-area rules: apply Skuleskogen, Skuleberget, Balesudden, Hörnsjön rules only to affected portions recorded in packets/caveat file.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        },
+        {
+          "id": "open-decision-5",
+          "itemType": "open-decision",
+          "sourceId": "hogakustenleden-section-2-distance-display",
+          "status": "open-decision",
+          "details": "Use Höga Kusten 26.8 km while preserving Naturkartan/GPX contradictions metadata.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        },
+        {
+          "id": "open-decision-6",
+          "itemType": "open-decision",
+          "sourceId": "hogakustenleden-section-7-difficulty",
+          "status": "open-decision",
+          "details": "Prefer conservative Naturkartan red/krävande while preserving Höga Kusten Medel caveat.",
+          "disposition": "fix-now",
+          "owner": "candidate-review",
+          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+        }
+      ],
+      "deferred": [
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "hogakustenleden-transit-authoritative-ids",
+          "status": "blocks-automated-transit-import",
+          "details": "DinTur available through Trafiklab APIs but require API key; DinTur/Fskab planner stop-area IDs and WGS84 coords are research-grade, not final national IDs. Replace with Trafiklab/ResRobot before automated transit import if key available.",
+          "disposition": "external-source-approval",
+          "owner": "source-review",
+          "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
+        },
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "hogakustenleden-currentness-rechecks",
+          "status": "blocks-publication",
+          "details": "Slåttdalsskrevan, Hörnsjön notice, fire-ban status, transit, seasonal boats, and service opening/currentness require recheck before publication.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "open-decision-8",
+          "itemType": "open-decision",
+          "sourceId": "hogakustenleden-seasonal-boats",
+          "status": "open-decision",
+          "details": "Model seasonal boats as optional seasonal onward/side access only, not required trail crossings.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        }
+      ],
+      "runtimeSchemaNeeded": [],
+      "items": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "hogakustenleden-protected-area-clipping",
+          "status": "blocks-runtime-rule-import",
+          "details": "Protected-area rules: apply Skuleskogen, Skuleberget, Balesudden, Hörnsjön rules only to affected portions recorded in packets/caveat file.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        },
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "hogakustenleden-transit-authoritative-ids",
+          "status": "blocks-automated-transit-import",
+          "details": "DinTur available through Trafiklab APIs but require API key; DinTur/Fskab planner stop-area IDs and WGS84 coords are research-grade, not final national IDs. Replace with Trafiklab/ResRobot before automated transit import if key available.",
+          "disposition": "external-source-approval",
+          "owner": "source-review",
+          "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
+        },
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "hogakustenleden-currentness-rechecks",
+          "status": "blocks-publication",
+          "details": "Slåttdalsskrevan, Hörnsjön notice, fire-ban status, transit, seasonal boats, and service opening/currentness require recheck before publication.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "hogakustenleden-pending-facilities",
+          "status": "blocks-public-facility-exposure",
+          "details": "Pending/suppressed facility items must remain out of public normalized facilities until verified.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        },
+        {
+          "id": "open-decision-5",
+          "itemType": "open-decision",
+          "sourceId": "hogakustenleden-section-2-distance-display",
+          "status": "open-decision",
+          "details": "Use Höga Kusten 26.8 km while preserving Naturkartan/GPX contradictions metadata.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        },
+        {
+          "id": "open-decision-6",
+          "itemType": "open-decision",
+          "sourceId": "hogakustenleden-section-7-difficulty",
+          "status": "open-decision",
+          "details": "Prefer conservative Naturkartan red/krävande while preserving Höga Kusten Medel caveat.",
+          "disposition": "fix-now",
+          "owner": "candidate-review",
+          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "hogakustenleden-2026-shuttle",
+          "status": "open-decision",
+          "details": "Suppress Nationalparksbussen/Världsarvsbussen 2026 unless new official timetable appears.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        },
+        {
+          "id": "open-decision-8",
+          "itemType": "open-decision",
+          "sourceId": "hogakustenleden-seasonal-boats",
+          "status": "open-decision",
+          "details": "Model seasonal boats as optional seasonal onward/side access only, not required trail crossings.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        }
+      ]
+    },
+    {
+      "trailId": "hoglandsleden",
+      "triageSummary": {
+        "runtime-integration-task": 1,
+        "runtime-schema-needed": 2,
+        "fix-now": 3,
+        "resolved-now": 1
+      },
+      "fixesAppliedNow": [
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "facilities",
+          "status": "unknown/recheck",
+          "details": "Shared endpoint clusters, commercial/customer-only services, weak transit and unverified water/shelter records need normalization review.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Parking/transit and access services are normalized as candidate facility/access records with pending/suppress states and live-check caveats."
+        }
+      ],
+      "nextFixNow": [
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "rules",
+          "status": "unknown/recheck",
+          "details": "Protected-area boundary overlays and live fire-ban/currentness checks are still required before user-facing runtime import.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        },
+        {
+          "id": "open-decision-5",
+          "itemType": "open-decision",
+          "sourceId": "decision-1",
+          "status": "open-decision",
+          "details": "Choose the route-builder topology for Höglandsleden.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "decision-3",
+          "status": "open-decision",
+          "details": "Decide app scope for bookable/commercial services and very weak rural transit.",
+          "disposition": "fix-now",
+          "owner": "candidate-review",
+          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+        }
+      ],
+      "deferred": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "runtime-import",
+          "status": "blocked-until-explicit-import-task",
+          "details": "No runtime data has been imported.",
+          "disposition": "runtime-integration-task",
+          "owner": "runtime-import",
+          "action": "Leave runtime source/generated data untouched until the separate runtime import task is explicitly started."
+        }
+      ],
+      "runtimeSchemaNeeded": [
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "topology",
+          "status": "normalization-decision-needed",
+          "details": "Whether official route groups should be modeled as main loop plus three connectors, main loop plus east/north/west branches, or another route-builder topology.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        },
+        {
+          "id": "open-decision-6",
+          "itemType": "open-decision",
+          "sourceId": "decision-2",
+          "status": "open-decision",
+          "details": "Decide whether official access trails such as Mariannelund-HÖ3, Sävsjö C, Hok station, Byarum kyrka, Skillingaryd station and Lyngemadens naturreservat should be first-class route groups or access metadata.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        }
+      ],
+      "items": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "runtime-import",
+          "status": "blocked-until-explicit-import-task",
+          "details": "No runtime data has been imported.",
+          "disposition": "runtime-integration-task",
+          "owner": "runtime-import",
+          "action": "Leave runtime source/generated data untouched until the separate runtime import task is explicitly started."
+        },
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "topology",
+          "status": "normalization-decision-needed",
+          "details": "Whether official route groups should be modeled as main loop plus three connectors, main loop plus east/north/west branches, or another route-builder topology.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        },
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "rules",
+          "status": "unknown/recheck",
+          "details": "Protected-area boundary overlays and live fire-ban/currentness checks are still required before user-facing runtime import.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        },
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "facilities",
+          "status": "unknown/recheck",
+          "details": "Shared endpoint clusters, commercial/customer-only services, weak transit and unverified water/shelter records need normalization review.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Parking/transit and access services are normalized as candidate facility/access records with pending/suppress states and live-check caveats."
+        },
+        {
+          "id": "open-decision-5",
+          "itemType": "open-decision",
+          "sourceId": "decision-1",
+          "status": "open-decision",
+          "details": "Choose the route-builder topology for Höglandsleden.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        },
+        {
+          "id": "open-decision-6",
+          "itemType": "open-decision",
+          "sourceId": "decision-2",
+          "status": "open-decision",
+          "details": "Decide whether official access trails such as Mariannelund-HÖ3, Sävsjö C, Hok station, Byarum kyrka, Skillingaryd station and Lyngemadens naturreservat should be first-class route groups or access metadata.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "decision-3",
+          "status": "open-decision",
+          "details": "Decide app scope for bookable/commercial services and very weak rural transit.",
+          "disposition": "fix-now",
+          "owner": "candidate-review",
+          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+        }
+      ]
+    },
+    {
+      "trailId": "kungsleden",
+      "triageSummary": {
+        "fix-now": 6,
+        "runtime-schema-needed": 3,
+        "runtime-integration-task": 1,
+        "external-source-approval": 1
+      },
+      "fixesAppliedNow": [],
+      "nextFixNow": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "blocker-1",
+          "status": "unresolved",
+          "details": "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds and field-report metadata.",
+          "disposition": "fix-now",
+          "owner": "candidate-review",
+          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+        },
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "blocker-2",
+          "status": "unresolved",
+          "details": "Importer must transform EPSG:3006 official geometry to WGS84, assemble multi-part official lines, split/clip grouped features, reverse directions where needed, simplify geometry and apply endpoint-zone snapping policy.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        },
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "blocker-4",
+          "status": "unresolved",
+          "details": "Facility taxonomy and deduplication must be applied to shared huts, shelters, bridges, toilets, help phones, shops, saunas, water, waste, viewpoints, Naturum, parking, lodging and village services.",
+          "disposition": "fix-now",
+          "owner": "candidate-facilities",
+          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+        },
+        {
+          "id": "blocker-5",
+          "itemType": "blocker",
+          "sourceId": "blocker-5",
+          "status": "unresolved",
+          "details": "Live currentness refresh is still required for trail/bridge notices, closures, fire bans, weather, hut seasons, boat operators, bus timetables, protected-area rules, reindeer/hunting/fishing and parking rules.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        },
+        {
+          "id": "open-decision-8",
+          "itemType": "open-decision",
+          "sourceId": "decision-2",
+          "status": "open-decision",
+          "details": "Decide whether the app import should support typed boat, rowboat, ferry/water and road/bus transfer connectors before Kungsleden is imported.",
+          "disposition": "fix-now",
+          "owner": "candidate-facilities",
+          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+        },
+        {
+          "id": "open-decision-10",
+          "itemType": "open-decision",
+          "sourceId": "decision-4",
+          "status": "open-decision",
+          "details": "Decide the app taxonomy for hut clusters, child toilets, emergency phones, shops, saunas, waste points, water sources, bridges, viewpoints, Naturum, village services and parking.",
+          "disposition": "fix-now",
+          "owner": "candidate-facilities",
+          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+        }
+      ],
+      "deferred": [
+        {
+          "id": "blocker-6",
+          "itemType": "blocker",
+          "sourceId": "blocker-6",
+          "status": "unresolved",
+          "details": "Generated app outputs and source hiking runtime data have intentionally not been edited.",
+          "disposition": "runtime-integration-task",
+          "owner": "runtime-import",
+          "action": "Leave runtime source/generated data untouched until the separate runtime import task is explicitly started."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "decision-1",
+          "status": "open-decision",
+          "details": "Approve or reject runtime/source-policy use of Naturvardsverket/Lansstyrelsen state-trail geometry, Naturkartan API/GPX, OSM/Waymarked QA/fallback linework, transit feeds and field-report-derived metadata.",
+          "disposition": "external-source-approval",
+          "owner": "source-review",
+          "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
+        }
+      ],
+      "runtimeSchemaNeeded": [
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "blocker-3",
+          "status": "unresolved",
+          "details": "Typed connector model must be implemented for boats, rowboats, ferry/water lines and road/bus transfers before runtime geometry is generated.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        },
+        {
+          "id": "open-decision-9",
+          "itemType": "open-decision",
+          "sourceId": "decision-3",
+          "status": "open-decision",
+          "details": "Decide whether access spurs such as Singi-Kebnekaise-Nikkaluokta should remain access metadata only or become optional alternate route groups.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        },
+        {
+          "id": "open-decision-11",
+          "itemType": "open-decision",
+          "sourceId": "decision-5",
+          "status": "open-decision",
+          "details": "Decide how much dynamic timetable/opening/currentness detail belongs in normalized data versus descriptions that require publication-date recheck.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        }
+      ],
+      "items": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "blocker-1",
+          "status": "unresolved",
+          "details": "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds and field-report metadata.",
+          "disposition": "fix-now",
+          "owner": "candidate-review",
+          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+        },
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "blocker-2",
+          "status": "unresolved",
+          "details": "Importer must transform EPSG:3006 official geometry to WGS84, assemble multi-part official lines, split/clip grouped features, reverse directions where needed, simplify geometry and apply endpoint-zone snapping policy.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        },
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "blocker-3",
+          "status": "unresolved",
+          "details": "Typed connector model must be implemented for boats, rowboats, ferry/water lines and road/bus transfers before runtime geometry is generated.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        },
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "blocker-4",
+          "status": "unresolved",
+          "details": "Facility taxonomy and deduplication must be applied to shared huts, shelters, bridges, toilets, help phones, shops, saunas, water, waste, viewpoints, Naturum, parking, lodging and village services.",
+          "disposition": "fix-now",
+          "owner": "candidate-facilities",
+          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+        },
+        {
+          "id": "blocker-5",
+          "itemType": "blocker",
+          "sourceId": "blocker-5",
+          "status": "unresolved",
+          "details": "Live currentness refresh is still required for trail/bridge notices, closures, fire bans, weather, hut seasons, boat operators, bus timetables, protected-area rules, reindeer/hunting/fishing and parking rules.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        },
+        {
+          "id": "blocker-6",
+          "itemType": "blocker",
+          "sourceId": "blocker-6",
+          "status": "unresolved",
+          "details": "Generated app outputs and source hiking runtime data have intentionally not been edited.",
+          "disposition": "runtime-integration-task",
+          "owner": "runtime-import",
+          "action": "Leave runtime source/generated data untouched until the separate runtime import task is explicitly started."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "decision-1",
+          "status": "open-decision",
+          "details": "Approve or reject runtime/source-policy use of Naturvardsverket/Lansstyrelsen state-trail geometry, Naturkartan API/GPX, OSM/Waymarked QA/fallback linework, transit feeds and field-report-derived metadata.",
+          "disposition": "external-source-approval",
+          "owner": "source-review",
+          "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
+        },
+        {
+          "id": "open-decision-8",
+          "itemType": "open-decision",
+          "sourceId": "decision-2",
+          "status": "open-decision",
+          "details": "Decide whether the app import should support typed boat, rowboat, ferry/water and road/bus transfer connectors before Kungsleden is imported.",
+          "disposition": "fix-now",
+          "owner": "candidate-facilities",
+          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+        },
+        {
+          "id": "open-decision-9",
+          "itemType": "open-decision",
+          "sourceId": "decision-3",
+          "status": "open-decision",
+          "details": "Decide whether access spurs such as Singi-Kebnekaise-Nikkaluokta should remain access metadata only or become optional alternate route groups.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        },
+        {
+          "id": "open-decision-10",
+          "itemType": "open-decision",
+          "sourceId": "decision-4",
+          "status": "open-decision",
+          "details": "Decide the app taxonomy for hut clusters, child toilets, emergency phones, shops, saunas, waste points, water sources, bridges, viewpoints, Naturum, village services and parking.",
+          "disposition": "fix-now",
+          "owner": "candidate-facilities",
+          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+        },
+        {
+          "id": "open-decision-11",
+          "itemType": "open-decision",
+          "sourceId": "decision-5",
+          "status": "open-decision",
+          "details": "Decide how much dynamic timetable/opening/currentness detail belongs in normalized data versus descriptions that require publication-date recheck.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        }
+      ]
+    },
+    {
+      "trailId": "nordkalottleden",
+      "triageSummary": {
+        "external-source-approval": 1,
+        "fix-now": 7,
+        "scope-limitation": 3
+      },
+      "fixesAppliedNow": [],
+      "nextFixNow": [
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "blocker-2",
+          "status": "unresolved",
+          "details": "Geometry QA artifacts now exist for all 12 sections, but sections 1, 2, 8, 11 and 12 still need explicit endpoint connector or endpoint-policy decisions before navigation-grade import.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        },
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "blocker-3",
+          "status": "unresolved",
+          "details": "Sections 1 and 2 still need Saarijarvi endpoint/spur policy because the selected current hut yard is about 152.3 m from the official route line.",
+          "disposition": "fix-now",
+          "owner": "candidate-facilities",
+          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+        },
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "blocker-4",
+          "status": "unresolved",
+          "details": "Sections 11 and 12 still need Madam Bongos/Cunovuohppi endpoint policy because the legacy place coordinate is about 65.4 m from the Turrutebasen E1 route projection and should not be imported as active lodging.",
+          "disposition": "fix-now",
+          "owner": "candidate-facilities",
+          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+        },
+        {
+          "id": "blocker-5",
+          "itemType": "blocker",
+          "sourceId": "blocker-5",
+          "status": "unresolved",
+          "details": "Sections 7 and 8 need Saraelv/Ovi connector or compound-endpoint policy because the generated section 7 artifact ends at Saraelv while section 8 starts at Ovi Raishiin, leaving about a 1003.9 m inter-section continuity gap.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        },
+        {
+          "id": "open-decision-8",
+          "itemType": "open-decision",
+          "sourceId": "decision-2",
+          "status": "open-decision",
+          "details": "Decide endpoint/connector policy for Saarijärvi hut yard, Saraelv/Ovi Raishiin, Madam Bongos/Čunovuohppi and the section 6 source-boundary junction.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        },
+        {
+          "id": "open-decision-10",
+          "itemType": "open-decision",
+          "sourceId": "decision-4",
+          "status": "open-decision",
+          "details": "Decide whether Madam Bongos/Čunovuohppi appears only as legacy endpoint/access metadata and never as active lodging.",
+          "disposition": "fix-now",
+          "owner": "candidate-facilities",
+          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+        },
+        {
+          "id": "open-decision-11",
+          "itemType": "open-decision",
+          "sourceId": "decision-5",
+          "status": "open-decision",
+          "details": "Decide how much country-specific rule logic belongs in route-level warnings versus per-section warnings.",
+          "disposition": "fix-now",
+          "owner": "candidate-review",
+          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+        }
+      ],
+      "deferred": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "blocker-1",
+          "status": "unresolved",
+          "details": "No single official source found with a complete end-to-end one-row-per-day-stage Nordkalottleden inventory from Kautokeino to all southern variants.",
+          "disposition": "external-source-approval",
+          "owner": "source-review",
+          "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
+        },
+        {
+          "id": "blocker-6",
+          "itemType": "blocker",
+          "sourceId": "blocker-6",
+          "status": "unresolved",
+          "details": "Official route variants around Abisko-Gautelis and Gappohytta-Rostahytta are not resolved.",
+          "disposition": "scope-limitation",
+          "owner": "candidate-geometry",
+          "action": "Keep the first import scope to the researched 12-section model and defer alternate whole-trail variants."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "decision-1",
+          "status": "open-decision",
+          "details": "Decide whether to normalize only the researched Reisa/Käsivarsi/Kautokeino 12-section candidate model before the whole-trail section model is resolved.",
+          "disposition": "scope-limitation",
+          "owner": "candidate-geometry",
+          "action": "Keep the first import scope to the researched 12-section model and defer alternate whole-trail variants."
+        },
+        {
+          "id": "open-decision-9",
+          "itemType": "open-decision",
+          "sourceId": "decision-3",
+          "status": "open-decision",
+          "details": "Decide how the app should represent a trail with multiple candidate section models and unresolved southern endpoint/variant logic.",
+          "disposition": "scope-limitation",
+          "owner": "candidate-geometry",
+          "action": "Keep the first import scope to the researched 12-section model and defer alternate whole-trail variants."
+        }
+      ],
+      "runtimeSchemaNeeded": [],
+      "items": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "blocker-1",
+          "status": "unresolved",
+          "details": "No single official source found with a complete end-to-end one-row-per-day-stage Nordkalottleden inventory from Kautokeino to all southern variants.",
+          "disposition": "external-source-approval",
+          "owner": "source-review",
+          "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
+        },
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "blocker-2",
+          "status": "unresolved",
+          "details": "Geometry QA artifacts now exist for all 12 sections, but sections 1, 2, 8, 11 and 12 still need explicit endpoint connector or endpoint-policy decisions before navigation-grade import.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        },
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "blocker-3",
+          "status": "unresolved",
+          "details": "Sections 1 and 2 still need Saarijarvi endpoint/spur policy because the selected current hut yard is about 152.3 m from the official route line.",
+          "disposition": "fix-now",
+          "owner": "candidate-facilities",
+          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+        },
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "blocker-4",
+          "status": "unresolved",
+          "details": "Sections 11 and 12 still need Madam Bongos/Cunovuohppi endpoint policy because the legacy place coordinate is about 65.4 m from the Turrutebasen E1 route projection and should not be imported as active lodging.",
+          "disposition": "fix-now",
+          "owner": "candidate-facilities",
+          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+        },
+        {
+          "id": "blocker-5",
+          "itemType": "blocker",
+          "sourceId": "blocker-5",
+          "status": "unresolved",
+          "details": "Sections 7 and 8 need Saraelv/Ovi connector or compound-endpoint policy because the generated section 7 artifact ends at Saraelv while section 8 starts at Ovi Raishiin, leaving about a 1003.9 m inter-section continuity gap.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        },
+        {
+          "id": "blocker-6",
+          "itemType": "blocker",
+          "sourceId": "blocker-6",
+          "status": "unresolved",
+          "details": "Official route variants around Abisko-Gautelis and Gappohytta-Rostahytta are not resolved.",
+          "disposition": "scope-limitation",
+          "owner": "candidate-geometry",
+          "action": "Keep the first import scope to the researched 12-section model and defer alternate whole-trail variants."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "decision-1",
+          "status": "open-decision",
+          "details": "Decide whether to normalize only the researched Reisa/Käsivarsi/Kautokeino 12-section candidate model before the whole-trail section model is resolved.",
+          "disposition": "scope-limitation",
+          "owner": "candidate-geometry",
+          "action": "Keep the first import scope to the researched 12-section model and defer alternate whole-trail variants."
+        },
+        {
+          "id": "open-decision-8",
+          "itemType": "open-decision",
+          "sourceId": "decision-2",
+          "status": "open-decision",
+          "details": "Decide endpoint/connector policy for Saarijärvi hut yard, Saraelv/Ovi Raishiin, Madam Bongos/Čunovuohppi and the section 6 source-boundary junction.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        },
+        {
+          "id": "open-decision-9",
+          "itemType": "open-decision",
+          "sourceId": "decision-3",
+          "status": "open-decision",
+          "details": "Decide how the app should represent a trail with multiple candidate section models and unresolved southern endpoint/variant logic.",
+          "disposition": "scope-limitation",
+          "owner": "candidate-geometry",
+          "action": "Keep the first import scope to the researched 12-section model and defer alternate whole-trail variants."
+        },
+        {
+          "id": "open-decision-10",
+          "itemType": "open-decision",
+          "sourceId": "decision-4",
+          "status": "open-decision",
+          "details": "Decide whether Madam Bongos/Čunovuohppi appears only as legacy endpoint/access metadata and never as active lodging.",
+          "disposition": "fix-now",
+          "owner": "candidate-facilities",
+          "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+        },
+        {
+          "id": "open-decision-11",
+          "itemType": "open-decision",
+          "sourceId": "decision-5",
+          "status": "open-decision",
+          "details": "Decide how much country-specific rule logic belongs in route-level warnings versus per-section warnings.",
+          "disposition": "fix-now",
+          "owner": "candidate-review",
+          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+        }
+      ]
+    },
+    {
+      "trailId": "ostkustleden",
+      "triageSummary": {
+        "runtime-integration-task": 2,
+        "fix-now": 3,
+        "defer-publication-time": 1,
+        "resolved-now": 1
+      },
+      "fixesAppliedNow": [
+        {
+          "id": "open-decision-6",
+          "itemType": "open-decision",
+          "sourceId": "decision-2",
+          "status": "open-decision",
+          "details": "Decide whether optional narrative POIs and approximate swim/access points should be included in the first runtime import or left pending.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        }
+      ],
+      "nextFixNow": [
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "rules",
+          "status": "unknown/recheck",
+          "details": "Boundary-sensitive rules require GIS overlays against final normalized geometry.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        },
+        {
+          "id": "open-decision-5",
+          "itemType": "open-decision",
+          "sourceId": "decision-1",
+          "status": "open-decision",
+          "details": "Decide whether runtime import should include a separately sourced access leg from Etapp 8 official GPX end to the Lilla Hycklinge cabin, or keep the 156.4 m gap as metadata only.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "decision-3",
+          "status": "open-decision",
+          "details": "Approve candidate-only geometry normalization prototype before any shared runtime source data is touched.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        }
+      ],
+      "deferred": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "runtime-import",
+          "status": "blocked-until-explicit-import-task",
+          "details": "Ready for normalization planning, not runtime import.",
+          "disposition": "runtime-integration-task",
+          "owner": "runtime-import",
+          "action": "Handle when the candidate artifacts are selected for runtime import."
+        },
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "geometry",
+          "status": "candidate-implementation-required",
+          "details": "Runtime import still needs an explicit import task, geometry implementation and visual QA.",
+          "disposition": "runtime-integration-task",
+          "owner": "runtime-import",
+          "action": "Handle when the candidate artifacts are selected for runtime import."
+        },
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "currentness",
+          "status": "unknown/recheck",
+          "details": "Cabin availability/fees, water reliability/quality, KLT/Närtrafik, fire risk, hunting signs/notices, forestry and route passability are publication-time checks.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        }
+      ],
+      "runtimeSchemaNeeded": [],
+      "items": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "runtime-import",
+          "status": "blocked-until-explicit-import-task",
+          "details": "Ready for normalization planning, not runtime import.",
+          "disposition": "runtime-integration-task",
+          "owner": "runtime-import",
+          "action": "Handle when the candidate artifacts are selected for runtime import."
+        },
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "geometry",
+          "status": "candidate-implementation-required",
+          "details": "Runtime import still needs an explicit import task, geometry implementation and visual QA.",
+          "disposition": "runtime-integration-task",
+          "owner": "runtime-import",
+          "action": "Handle when the candidate artifacts are selected for runtime import."
+        },
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "rules",
+          "status": "unknown/recheck",
+          "details": "Boundary-sensitive rules require GIS overlays against final normalized geometry.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        },
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "currentness",
+          "status": "unknown/recheck",
+          "details": "Cabin availability/fees, water reliability/quality, KLT/Närtrafik, fire risk, hunting signs/notices, forestry and route passability are publication-time checks.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "open-decision-5",
+          "itemType": "open-decision",
+          "sourceId": "decision-1",
+          "status": "open-decision",
+          "details": "Decide whether runtime import should include a separately sourced access leg from Etapp 8 official GPX end to the Lilla Hycklinge cabin, or keep the 156.4 m gap as metadata only.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        },
+        {
+          "id": "open-decision-6",
+          "itemType": "open-decision",
+          "sourceId": "decision-2",
+          "status": "open-decision",
+          "details": "Decide whether optional narrative POIs and approximate swim/access points should be included in the first runtime import or left pending.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "decision-3",
+          "status": "open-decision",
+          "details": "Approve candidate-only geometry normalization prototype before any shared runtime source data is touched.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        }
+      ]
+    },
+    {
+      "trailId": "padjelantaleden",
+      "triageSummary": {
+        "runtime-schema-needed": 2,
+        "defer-publication-time": 2,
+        "resolved-now": 3,
+        "fix-now": 1
+      },
+      "fixesAppliedNow": [
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "blocker-3",
+          "status": "unresolved",
+          "details": "Several POIs must be attached/suppressed rather than imported as standalone guessed coordinates.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        },
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "blocker-4",
+          "status": "unresolved",
+          "details": "README.md status is older than research-progress.json and caveats-resolution.research.json; use the progress ledger and caveat-resolution packet for current coverage.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Updated Padjelantaleden README status to reflect completed 10-section research and generated candidate artifacts."
+        },
+        {
+          "id": "open-decision-8",
+          "itemType": "open-decision",
+          "sourceId": "decision-4",
+          "status": "open-decision",
+          "details": "Decide whether OSM-only firepits, informal campsites, minor rest areas, viewpoints, picnic sites and swimming spots without durable coordinates should remain suppressed/pending.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        }
+      ],
+      "nextFixNow": [
+        {
+          "id": "open-decision-5",
+          "itemType": "open-decision",
+          "sourceId": "decision-1",
+          "status": "open-decision",
+          "details": "Decide whether to publish an official headline distance before geometry split review, because official/tourism sources vary between about 140 km, 150 km, 150-160 km, and 160 km.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        }
+      ],
+      "deferred": [
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "blocker-2",
+          "status": "unresolved",
+          "details": "Dynamic 2026 access/currentness sources need rechecking close to publication.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "decision-3",
+          "status": "open-decision",
+          "details": "Decide whether hut toilets, emergency phones, water points, waste points and seasonal shop/provisions should be standalone facilities or attached to parent hut records.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        }
+      ],
+      "runtimeSchemaNeeded": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "blocker-1",
+          "status": "unresolved",
+          "details": "Runtime import requires a normalizer to choose and document distance fields, endpoint snaps, geometry splits, and access connector modeling.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        },
+        {
+          "id": "open-decision-6",
+          "itemType": "open-decision",
+          "sourceId": "decision-2",
+          "status": "open-decision",
+          "details": "Decide the app connector model for M/S Storlule, Kvikkjokk-Bobäcken, helicopter midpoint access and the Gamájåhkå walking alternative.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        }
+      ],
+      "items": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "blocker-1",
+          "status": "unresolved",
+          "details": "Runtime import requires a normalizer to choose and document distance fields, endpoint snaps, geometry splits, and access connector modeling.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        },
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "blocker-2",
+          "status": "unresolved",
+          "details": "Dynamic 2026 access/currentness sources need rechecking close to publication.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "blocker-3",
+          "status": "unresolved",
+          "details": "Several POIs must be attached/suppressed rather than imported as standalone guessed coordinates.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        },
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "blocker-4",
+          "status": "unresolved",
+          "details": "README.md status is older than research-progress.json and caveats-resolution.research.json; use the progress ledger and caveat-resolution packet for current coverage.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Updated Padjelantaleden README status to reflect completed 10-section research and generated candidate artifacts."
+        },
+        {
+          "id": "open-decision-5",
+          "itemType": "open-decision",
+          "sourceId": "decision-1",
+          "status": "open-decision",
+          "details": "Decide whether to publish an official headline distance before geometry split review, because official/tourism sources vary between about 140 km, 150 km, 150-160 km, and 160 km.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        },
+        {
+          "id": "open-decision-6",
+          "itemType": "open-decision",
+          "sourceId": "decision-2",
+          "status": "open-decision",
+          "details": "Decide the app connector model for M/S Storlule, Kvikkjokk-Bobäcken, helicopter midpoint access and the Gamájåhkå walking alternative.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "decision-3",
+          "status": "open-decision",
+          "details": "Decide whether hut toilets, emergency phones, water points, waste points and seasonal shop/provisions should be standalone facilities or attached to parent hut records.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "open-decision-8",
+          "itemType": "open-decision",
+          "sourceId": "decision-4",
+          "status": "open-decision",
+          "details": "Decide whether OSM-only firepits, informal campsites, minor rest areas, viewpoints, picnic sites and swimming spots without durable coordinates should remain suppressed/pending.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        }
+      ]
+    },
+    {
+      "trailId": "sjuharadsleden",
+      "triageSummary": {
+        "fix-now": 2,
+        "defer-publication-time": 2,
+        "external-source-approval": 1,
+        "resolved-now": 2
+      },
+      "fixesAppliedNow": [
+        {
+          "id": "open-decision-6",
+          "itemType": "open-decision",
+          "sourceId": "sjuharadsleden-natural-water-display",
+          "status": "open-decision",
+          "details": "Allow natural water/lake/spring features as natural/bathing/rest context while suppressing potable-water status.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "sjuharadsleden-unofficial-shelter-display",
+          "status": "open-decision",
+          "details": "Keep Struntfiskeboa shelter pending/unofficial rather than promoting as a normal shelter until verification.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        }
+      ],
+      "nextFixNow": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "sjuharadsleden-geometry-normalization",
+          "status": "blocks-runtime-route-import",
+          "details": "Run geometry normalization/densification for section 6 and 7 before runtime route import.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        },
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "sjuharadsleden-protected-area-clipping",
+          "status": "blocks-runtime-facility-and-rule-import",
+          "details": "Production GIS clipping all facility points/route segments.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        }
+      ],
+      "deferred": [
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "sjuharadsleden-live-currentness",
+          "status": "blocks-publication",
+          "details": "Refresh fire-ban status for Härryda, Bollebygd, Borås, Ulricehamn, Mullsjö before publication; refresh Västtrafik/JLT schedules/stops before publication.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "sjuharadsleden-service-facility-verification",
+          "status": "blocks-public-facility-exposure",
+          "details": "Verify public access/opening status for service facilities before exposing water/toilet/cafe/lodging.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "open-decision-5",
+          "itemType": "open-decision",
+          "sourceId": "sjuharadsleden-quality-assurance-label",
+          "status": "open-decision",
+          "details": "Keep the Naturkartan/Västkuststiftelsen not-fully-quality-assured caveat visible in the app until newer official source.",
+          "disposition": "external-source-approval",
+          "owner": "source-review",
+          "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
+        }
+      ],
+      "runtimeSchemaNeeded": [],
+      "items": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "sjuharadsleden-geometry-normalization",
+          "status": "blocks-runtime-route-import",
+          "details": "Run geometry normalization/densification for section 6 and 7 before runtime route import.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        },
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "sjuharadsleden-protected-area-clipping",
+          "status": "blocks-runtime-facility-and-rule-import",
+          "details": "Production GIS clipping all facility points/route segments.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        },
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "sjuharadsleden-live-currentness",
+          "status": "blocks-publication",
+          "details": "Refresh fire-ban status for Härryda, Bollebygd, Borås, Ulricehamn, Mullsjö before publication; refresh Västtrafik/JLT schedules/stops before publication.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "sjuharadsleden-service-facility-verification",
+          "status": "blocks-public-facility-exposure",
+          "details": "Verify public access/opening status for service facilities before exposing water/toilet/cafe/lodging.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "open-decision-5",
+          "itemType": "open-decision",
+          "sourceId": "sjuharadsleden-quality-assurance-label",
+          "status": "open-decision",
+          "details": "Keep the Naturkartan/Västkuststiftelsen not-fully-quality-assured caveat visible in the app until newer official source.",
+          "disposition": "external-source-approval",
+          "owner": "source-review",
+          "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
+        },
+        {
+          "id": "open-decision-6",
+          "itemType": "open-decision",
+          "sourceId": "sjuharadsleden-natural-water-display",
+          "status": "open-decision",
+          "details": "Allow natural water/lake/spring features as natural/bathing/rest context while suppressing potable-water status.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "sjuharadsleden-unofficial-shelter-display",
+          "status": "open-decision",
+          "details": "Keep Struntfiskeboa shelter pending/unofficial rather than promoting as a normal shelter until verification.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        }
+      ]
+    },
+    {
+      "trailId": "tjustleden",
+      "triageSummary": {
+        "runtime-schema-needed": 4,
+        "fix-now": 1,
+        "resolved-now": 2,
+        "defer-publication-time": 1
+      },
+      "fixesAppliedNow": [
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "tjustleden-pending-facility-pois",
+          "status": "blocks-public-facility-exposure",
+          "details": "Pending facility POIs.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        },
+        {
+          "id": "open-decision-8",
+          "itemType": "open-decision",
+          "sourceId": "tjustleden-natural-water-display",
+          "status": "open-decision",
+          "details": "Suppress natural water as potable unless reliable point-source evidence is verified.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        }
+      ],
+      "nextFixNow": [
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "tjustleden-normalized-geometry-before-overlays",
+          "status": "blocks-rule-overlays",
+          "details": "Final normalized geometry before overlays.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        }
+      ],
+      "deferred": [
+        {
+          "id": "blocker-5",
+          "itemType": "blocker",
+          "sourceId": "tjustleden-live-checks",
+          "status": "blocks-publication",
+          "details": "Transit/parking/acute/fire/forestry/service live checks.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        }
+      ],
+      "runtimeSchemaNeeded": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "tjustleden-schema-import-support",
+          "status": "blocks-runtime-import",
+          "details": "Route normalization is still not runtime-import-ready until the importer/schema can represent officialDistanceKm, computedGeometryDistanceKm, endpoint clusters, tails/connectors, and source-direction reversal metadata.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        },
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "tjustleden-distance-fields",
+          "status": "blocks-clean-distance-import",
+          "details": "Importers should support officialDistanceKm and computedGeometryDistanceKm; caveat material differences.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        },
+        {
+          "id": "open-decision-6",
+          "itemType": "open-decision",
+          "sourceId": "tjustleden-runtime-schema-expansion",
+          "status": "open-decision",
+          "details": "Allow candidate importer/schema work before runtime import so officialDistanceKm, computedGeometryDistanceKm, endpoint clusters, tails/connectors, and source-direction reversal metadata can be represented.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "tjustleden-connectors-publication-scope",
+          "status": "open-decision",
+          "details": "Keep loops/connectors out of the main 9-stage route unless the import supports separate connector/tail objects.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        }
+      ],
+      "items": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "tjustleden-schema-import-support",
+          "status": "blocks-runtime-import",
+          "details": "Route normalization is still not runtime-import-ready until the importer/schema can represent officialDistanceKm, computedGeometryDistanceKm, endpoint clusters, tails/connectors, and source-direction reversal metadata.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        },
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "tjustleden-distance-fields",
+          "status": "blocks-clean-distance-import",
+          "details": "Importers should support officialDistanceKm and computedGeometryDistanceKm; caveat material differences.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        },
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "tjustleden-normalized-geometry-before-overlays",
+          "status": "blocks-rule-overlays",
+          "details": "Final normalized geometry before overlays.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        },
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "tjustleden-pending-facility-pois",
+          "status": "blocks-public-facility-exposure",
+          "details": "Pending facility POIs.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        },
+        {
+          "id": "blocker-5",
+          "itemType": "blocker",
+          "sourceId": "tjustleden-live-checks",
+          "status": "blocks-publication",
+          "details": "Transit/parking/acute/fire/forestry/service live checks.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "open-decision-6",
+          "itemType": "open-decision",
+          "sourceId": "tjustleden-runtime-schema-expansion",
+          "status": "open-decision",
+          "details": "Allow candidate importer/schema work before runtime import so officialDistanceKm, computedGeometryDistanceKm, endpoint clusters, tails/connectors, and source-direction reversal metadata can be represented.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "tjustleden-connectors-publication-scope",
+          "status": "open-decision",
+          "details": "Keep loops/connectors out of the main 9-stage route unless the import supports separate connector/tail objects.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        },
+        {
+          "id": "open-decision-8",
+          "itemType": "open-decision",
+          "sourceId": "tjustleden-natural-water-display",
+          "status": "open-decision",
+          "details": "Suppress natural water as potable unless reliable point-source evidence is verified.",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        }
+      ]
+    },
+    {
+      "trailId": "vastra-vatterleden",
+      "triageSummary": {
+        "runtime-integration-task": 1,
+        "fix-now": 5,
+        "defer-publication-time": 1
+      },
+      "fixesAppliedNow": [],
+      "nextFixNow": [
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "geometry",
+          "status": "normalization-required",
+          "details": "Stage 1 variants, stage 2 branches, stages 3-5 segment assembly/reversal, stage 7 mainline/access split and stage 8 two child GPX components plus connectors must be implemented before route import.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        },
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "rules",
+          "status": "unknown/recheck",
+          "details": "Protected-area overlays must be run against final normalized geometry before rule attribution.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        },
+        {
+          "id": "open-decision-5",
+          "itemType": "open-decision",
+          "sourceId": "decision-1",
+          "status": "open-decision",
+          "details": "Decide app scope for optional businesses and off-route town services.",
+          "disposition": "fix-now",
+          "owner": "candidate-review",
+          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+        },
+        {
+          "id": "open-decision-6",
+          "itemType": "open-decision",
+          "sourceId": "decision-2",
+          "status": "open-decision",
+          "details": "Confirm whether Rankåsleden and regional long-distance connections should be exposed in this import pass or kept as future connector metadata.",
+          "disposition": "fix-now",
+          "owner": "candidate-review",
+          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "decision-3",
+          "status": "open-decision",
+          "details": "Approve candidate-only geometry prototype scope before any shared runtime source data is touched.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        }
+      ],
+      "deferred": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "runtime-import",
+          "status": "blocked-until-explicit-import-task",
+          "details": "Current packet is ready for candidate normalization planning, not runtime integration.",
+          "disposition": "runtime-integration-task",
+          "owner": "runtime-import",
+          "action": "Handle when the candidate artifacts are selected for runtime import."
+        },
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "currentness",
+          "status": "volatile-runtime-check",
+          "details": "Transit schedules, fire bans, forestry notices, business hours, bathing-water status, water reliability and shelter maintenance are runtime checks.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        }
+      ],
+      "runtimeSchemaNeeded": [],
+      "items": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "runtime-import",
+          "status": "blocked-until-explicit-import-task",
+          "details": "Current packet is ready for candidate normalization planning, not runtime integration.",
+          "disposition": "runtime-integration-task",
+          "owner": "runtime-import",
+          "action": "Handle when the candidate artifacts are selected for runtime import."
+        },
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "geometry",
+          "status": "normalization-required",
+          "details": "Stage 1 variants, stage 2 branches, stages 3-5 segment assembly/reversal, stage 7 mainline/access split and stage 8 two child GPX components plus connectors must be implemented before route import.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        },
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "rules",
+          "status": "unknown/recheck",
+          "details": "Protected-area overlays must be run against final normalized geometry before rule attribution.",
+          "disposition": "fix-now",
+          "owner": "candidate-gis",
+          "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+        },
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "currentness",
+          "status": "volatile-runtime-check",
+          "details": "Transit schedules, fire bans, forestry notices, business hours, bathing-water status, water reliability and shelter maintenance are runtime checks.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "open-decision-5",
+          "itemType": "open-decision",
+          "sourceId": "decision-1",
+          "status": "open-decision",
+          "details": "Decide app scope for optional businesses and off-route town services.",
+          "disposition": "fix-now",
+          "owner": "candidate-review",
+          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+        },
+        {
+          "id": "open-decision-6",
+          "itemType": "open-decision",
+          "sourceId": "decision-2",
+          "status": "open-decision",
+          "details": "Confirm whether Rankåsleden and regional long-distance connections should be exposed in this import pass or kept as future connector metadata.",
+          "disposition": "fix-now",
+          "owner": "candidate-review",
+          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "decision-3",
+          "status": "open-decision",
+          "details": "Approve candidate-only geometry prototype scope before any shared runtime source data is touched.",
+          "disposition": "fix-now",
+          "owner": "candidate-geometry",
+          "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+        }
+      ]
+    },
+    {
+      "trailId": "vikingaleden",
+      "triageSummary": {
+        "fix-now": 1,
+        "runtime-schema-needed": 2,
+        "defer-publication-time": 5,
+        "resolved-now": 1
+      },
+      "fixesAppliedNow": [
+        {
+          "id": "open-decision-8",
+          "itemType": "open-decision",
+          "sourceId": "vikingaleden-pending-branch-features",
+          "status": "open-decision",
+          "details": "unknown/recheck",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        }
+      ],
+      "nextFixNow": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "blocker-1",
+          "status": "unresolved",
+          "details": "Trail-level metadata was generated from the completed section packets rather than a separate official overview pass.",
+          "disposition": "fix-now",
+          "owner": "candidate-review",
+          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+        }
+      ],
+      "deferred": [
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "blocker-4",
+          "status": "unresolved",
+          "details": "unknown/recheck: verify current official overview and any changed section pages immediately before runtime import.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "open-decision-5",
+          "itemType": "open-decision",
+          "sourceId": "vikingaleden-overlap-runtime-model",
+          "status": "open-decision",
+          "details": "unknown/recheck",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "open-decision-6",
+          "itemType": "open-decision",
+          "sourceId": "vikingaleden-shared-facility-ownership",
+          "status": "open-decision",
+          "details": "unknown/recheck",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "vikingaleden-transport-layer",
+          "status": "open-decision",
+          "details": "unknown/recheck",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "open-decision-9",
+          "itemType": "open-decision",
+          "sourceId": "vikingaleden-rule-warning-layer",
+          "status": "open-decision",
+          "details": "unknown/recheck",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        }
+      ],
+      "runtimeSchemaNeeded": [
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "blocker-2",
+          "status": "unresolved",
+          "details": "Import work must dedupe facilities, geometry, and route aliases against Upplandsleden for overlapping sections 7-12.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        },
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "blocker-3",
+          "status": "unresolved",
+          "details": "Visit Roslagen Etapp 12 detail returned 404 during section research; the section packet uses Naturkartan/Upplandsleden and Outdooractive/Paxwalk evidence.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        }
+      ],
+      "items": [
+        {
+          "id": "blocker-1",
+          "itemType": "blocker",
+          "sourceId": "blocker-1",
+          "status": "unresolved",
+          "details": "Trail-level metadata was generated from the completed section packets rather than a separate official overview pass.",
+          "disposition": "fix-now",
+          "owner": "candidate-review",
+          "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+        },
+        {
+          "id": "blocker-2",
+          "itemType": "blocker",
+          "sourceId": "blocker-2",
+          "status": "unresolved",
+          "details": "Import work must dedupe facilities, geometry, and route aliases against Upplandsleden for overlapping sections 7-12.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        },
+        {
+          "id": "blocker-3",
+          "itemType": "blocker",
+          "sourceId": "blocker-3",
+          "status": "unresolved",
+          "details": "Visit Roslagen Etapp 12 detail returned 404 during section research; the section packet uses Naturkartan/Upplandsleden and Outdooractive/Paxwalk evidence.",
+          "disposition": "runtime-schema-needed",
+          "owner": "runtime-importer",
+          "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+        },
+        {
+          "id": "blocker-4",
+          "itemType": "blocker",
+          "sourceId": "blocker-4",
+          "status": "unresolved",
+          "details": "unknown/recheck: verify current official overview and any changed section pages immediately before runtime import.",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "open-decision-5",
+          "itemType": "open-decision",
+          "sourceId": "vikingaleden-overlap-runtime-model",
+          "status": "open-decision",
+          "details": "unknown/recheck",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "open-decision-6",
+          "itemType": "open-decision",
+          "sourceId": "vikingaleden-shared-facility-ownership",
+          "status": "open-decision",
+          "details": "unknown/recheck",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "open-decision-7",
+          "itemType": "open-decision",
+          "sourceId": "vikingaleden-transport-layer",
+          "status": "open-decision",
+          "details": "unknown/recheck",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        },
+        {
+          "id": "open-decision-8",
+          "itemType": "open-decision",
+          "sourceId": "vikingaleden-pending-branch-features",
+          "status": "open-decision",
+          "details": "unknown/recheck",
+          "disposition": "resolved-now",
+          "owner": "candidate-data",
+          "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+        },
+        {
+          "id": "open-decision-9",
+          "itemType": "open-decision",
+          "sourceId": "vikingaleden-rule-warning-layer",
+          "status": "open-decision",
+          "details": "unknown/recheck",
+          "disposition": "defer-publication-time",
+          "owner": "publication-check",
+          "action": "Keep as a publication-time checklist item because the underlying fact can change."
+        }
+      ]
+    }
+  ]
+}

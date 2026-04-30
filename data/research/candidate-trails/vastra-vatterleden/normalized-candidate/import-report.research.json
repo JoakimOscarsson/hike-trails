@@ -44,17 +44,169 @@
   ],
   "openDecisions": [
     {
-      "decision": "Decide app scope for optional businesses and off-route town services.",
-      "sourceStatus": "normalization-or-runtime-scope-decision",
-      "whyItMatters": "Several services are useful but not core trail facilities; coordinate verification effort depends on the chosen scope."
+      "id": "decision-1",
+      "details": "Decide app scope for optional businesses and off-route town services."
     },
     {
-      "decision": "Confirm whether Rankåsleden and regional long-distance connections should be exposed in this import pass or kept as future connector metadata.",
-      "whyItMatters": "The research says Rankåsleden is not an official numbered Västra Vätterleden stage."
+      "id": "decision-2",
+      "details": "Confirm whether Rankåsleden and regional long-distance connections should be exposed in this import pass or kept as future connector metadata."
     },
     {
-      "decision": "Approve candidate-only geometry prototype scope before any shared runtime source data is touched.",
-      "whyItMatters": "The research packet explicitly says runtime import has not been performed."
+      "id": "decision-3",
+      "details": "Approve candidate-only geometry prototype scope before any shared runtime source data is touched."
+    }
+  ],
+  "blockerTriage": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "runtime-import",
+      "status": "blocked-until-explicit-import-task",
+      "details": "Current packet is ready for candidate normalization planning, not runtime integration.",
+      "disposition": "runtime-integration-task",
+      "owner": "runtime-import",
+      "action": "Handle when the candidate artifacts are selected for runtime import."
+    },
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "geometry",
+      "status": "normalization-required",
+      "details": "Stage 1 variants, stage 2 branches, stages 3-5 segment assembly/reversal, stage 7 mainline/access split and stage 8 two child GPX components plus connectors must be implemented before route import.",
+      "disposition": "fix-now",
+      "owner": "candidate-geometry",
+      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+    },
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "rules",
+      "status": "unknown/recheck",
+      "details": "Protected-area overlays must be run against final normalized geometry before rule attribution.",
+      "disposition": "fix-now",
+      "owner": "candidate-gis",
+      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "currentness",
+      "status": "volatile-runtime-check",
+      "details": "Transit schedules, fire bans, forestry notices, business hours, bathing-water status, water reliability and shelter maintenance are runtime checks.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "open-decision-5",
+      "itemType": "open-decision",
+      "sourceId": "decision-1",
+      "status": "open-decision",
+      "details": "Decide app scope for optional businesses and off-route town services.",
+      "disposition": "fix-now",
+      "owner": "candidate-review",
+      "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+    },
+    {
+      "id": "open-decision-6",
+      "itemType": "open-decision",
+      "sourceId": "decision-2",
+      "status": "open-decision",
+      "details": "Confirm whether Rankåsleden and regional long-distance connections should be exposed in this import pass or kept as future connector metadata.",
+      "disposition": "fix-now",
+      "owner": "candidate-review",
+      "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "decision-3",
+      "status": "open-decision",
+      "details": "Approve candidate-only geometry prototype scope before any shared runtime source data is touched.",
+      "disposition": "fix-now",
+      "owner": "candidate-geometry",
+      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+    }
+  ],
+  "triageSummary": {
+    "runtime-integration-task": 1,
+    "fix-now": 5,
+    "defer-publication-time": 1
+  },
+  "fixesAppliedNow": [],
+  "fixNowBeforeRuntimeImport": [
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "geometry",
+      "status": "normalization-required",
+      "details": "Stage 1 variants, stage 2 branches, stages 3-5 segment assembly/reversal, stage 7 mainline/access split and stage 8 two child GPX components plus connectors must be implemented before route import.",
+      "disposition": "fix-now",
+      "owner": "candidate-geometry",
+      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+    },
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "rules",
+      "status": "unknown/recheck",
+      "details": "Protected-area overlays must be run against final normalized geometry before rule attribution.",
+      "disposition": "fix-now",
+      "owner": "candidate-gis",
+      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+    },
+    {
+      "id": "open-decision-5",
+      "itemType": "open-decision",
+      "sourceId": "decision-1",
+      "status": "open-decision",
+      "details": "Decide app scope for optional businesses and off-route town services.",
+      "disposition": "fix-now",
+      "owner": "candidate-review",
+      "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+    },
+    {
+      "id": "open-decision-6",
+      "itemType": "open-decision",
+      "sourceId": "decision-2",
+      "status": "open-decision",
+      "details": "Confirm whether Rankåsleden and regional long-distance connections should be exposed in this import pass or kept as future connector metadata.",
+      "disposition": "fix-now",
+      "owner": "candidate-review",
+      "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "decision-3",
+      "status": "open-decision",
+      "details": "Approve candidate-only geometry prototype scope before any shared runtime source data is touched.",
+      "disposition": "fix-now",
+      "owner": "candidate-geometry",
+      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+    }
+  ],
+  "runtimeSchemaNeeded": [],
+  "deferredBeforeRuntimeImport": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "runtime-import",
+      "status": "blocked-until-explicit-import-task",
+      "details": "Current packet is ready for candidate normalization planning, not runtime integration.",
+      "disposition": "runtime-integration-task",
+      "owner": "runtime-import",
+      "action": "Handle when the candidate artifacts are selected for runtime import."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "currentness",
+      "status": "volatile-runtime-check",
+      "details": "Transit schedules, fire bans, forestry notices, business hours, bathing-water status, water reliability and shelter maintenance are runtime checks.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
     }
   ],
   "validationChecklist": [
@@ -70,26 +222,16 @@
     "Recheck transit, fire bans, forestry, business hours, bathing-water status, shelter maintenance and water currentness before runtime publication."
   ],
   "unresolvedBeforeRuntimeImport": [
-    "Current packet is ready for candidate normalization planning, not runtime integration.",
-    "Stage 1 variants, stage 2 branches, stages 3-5 segment assembly/reversal, stage 7 mainline/access split and stage 8 two child GPX components plus connectors must be implemented before route import.",
-    "Protected-area overlays must be run against final normalized geometry before rule attribution.",
-    "Transit schedules, fire bans, forestry notices, business hours, bathing-water status, water reliability and shelter maintenance are runtime checks.",
-    {
-      "decision": "Decide app scope for optional businesses and off-route town services.",
-      "sourceStatus": "normalization-or-runtime-scope-decision",
-      "whyItMatters": "Several services are useful but not core trail facilities; coordinate verification effort depends on the chosen scope."
-    },
-    {
-      "decision": "Confirm whether Rankåsleden and regional long-distance connections should be exposed in this import pass or kept as future connector metadata.",
-      "whyItMatters": "The research says Rankåsleden is not an official numbered Västra Vätterleden stage."
-    },
-    {
-      "decision": "Approve candidate-only geometry prototype scope before any shared runtime source data is touched.",
-      "whyItMatters": "The research packet explicitly says runtime import has not been performed."
-    }
+    "runtime-integration-task: Current packet is ready for candidate normalization planning, not runtime integration.",
+    "fix-now: Stage 1 variants, stage 2 branches, stages 3-5 segment assembly/reversal, stage 7 mainline/access split and stage 8 two child GPX components plus connectors must be implemented before route import.",
+    "fix-now: Protected-area overlays must be run against final normalized geometry before rule attribution.",
+    "defer-publication-time: Transit schedules, fire bans, forestry notices, business hours, bathing-water status, water reliability and shelter maintenance are runtime checks.",
+    "fix-now: Decide app scope for optional businesses and off-route town services.",
+    "fix-now: Confirm whether Rankåsleden and regional long-distance connections should be exposed in this import pass or kept as future connector metadata.",
+    "fix-now: Approve candidate-only geometry prototype scope before any shared runtime source data is touched."
   ],
   "nextActions": [
-    "Review generated candidate records for trail-specific dedupe and topology before runtime import.",
+    "Handle fixNowBeforeRuntimeImport first unless the linked item truly needs external data.",
     "Keep pending-review and suppress facility states out of runtime output.",
     "Run final GIS overlays and live publication checks before user-facing rule warnings.",
     "Do not write app runtime source data from this report without an explicit runtime integration task."

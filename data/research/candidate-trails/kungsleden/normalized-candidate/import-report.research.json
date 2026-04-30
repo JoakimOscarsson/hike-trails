@@ -53,11 +53,261 @@
     }
   ],
   "openDecisions": [
-    "Approve or reject runtime/source-policy use of Naturvardsverket/Lansstyrelsen state-trail geometry, Naturkartan API/GPX, OSM/Waymarked QA/fallback linework, transit feeds and field-report-derived metadata.",
-    "Decide whether the app import should support typed boat, rowboat, ferry/water and road/bus transfer connectors before Kungsleden is imported.",
-    "Decide whether access spurs such as Singi-Kebnekaise-Nikkaluokta should remain access metadata only or become optional alternate route groups.",
-    "Decide the app taxonomy for hut clusters, child toilets, emergency phones, shops, saunas, waste points, water sources, bridges, viewpoints, Naturum, village services and parking.",
-    "Decide how much dynamic timetable/opening/currentness detail belongs in normalized data versus descriptions that require publication-date recheck."
+    {
+      "id": "decision-1",
+      "details": "Approve or reject runtime/source-policy use of Naturvardsverket/Lansstyrelsen state-trail geometry, Naturkartan API/GPX, OSM/Waymarked QA/fallback linework, transit feeds and field-report-derived metadata."
+    },
+    {
+      "id": "decision-2",
+      "details": "Decide whether the app import should support typed boat, rowboat, ferry/water and road/bus transfer connectors before Kungsleden is imported."
+    },
+    {
+      "id": "decision-3",
+      "details": "Decide whether access spurs such as Singi-Kebnekaise-Nikkaluokta should remain access metadata only or become optional alternate route groups."
+    },
+    {
+      "id": "decision-4",
+      "details": "Decide the app taxonomy for hut clusters, child toilets, emergency phones, shops, saunas, waste points, water sources, bridges, viewpoints, Naturum, village services and parking."
+    },
+    {
+      "id": "decision-5",
+      "details": "Decide how much dynamic timetable/opening/currentness detail belongs in normalized data versus descriptions that require publication-date recheck."
+    }
+  ],
+  "blockerTriage": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "blocker-1",
+      "status": "unresolved",
+      "details": "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds and field-report metadata.",
+      "disposition": "fix-now",
+      "owner": "candidate-review",
+      "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+    },
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "blocker-2",
+      "status": "unresolved",
+      "details": "Importer must transform EPSG:3006 official geometry to WGS84, assemble multi-part official lines, split/clip grouped features, reverse directions where needed, simplify geometry and apply endpoint-zone snapping policy.",
+      "disposition": "fix-now",
+      "owner": "candidate-gis",
+      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+    },
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "blocker-3",
+      "status": "unresolved",
+      "details": "Typed connector model must be implemented for boats, rowboats, ferry/water lines and road/bus transfers before runtime geometry is generated.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "blocker-4",
+      "status": "unresolved",
+      "details": "Facility taxonomy and deduplication must be applied to shared huts, shelters, bridges, toilets, help phones, shops, saunas, water, waste, viewpoints, Naturum, parking, lodging and village services.",
+      "disposition": "fix-now",
+      "owner": "candidate-facilities",
+      "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+    },
+    {
+      "id": "blocker-5",
+      "itemType": "blocker",
+      "sourceId": "blocker-5",
+      "status": "unresolved",
+      "details": "Live currentness refresh is still required for trail/bridge notices, closures, fire bans, weather, hut seasons, boat operators, bus timetables, protected-area rules, reindeer/hunting/fishing and parking rules.",
+      "disposition": "fix-now",
+      "owner": "candidate-gis",
+      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+    },
+    {
+      "id": "blocker-6",
+      "itemType": "blocker",
+      "sourceId": "blocker-6",
+      "status": "unresolved",
+      "details": "Generated app outputs and source hiking runtime data have intentionally not been edited.",
+      "disposition": "runtime-integration-task",
+      "owner": "runtime-import",
+      "action": "Leave runtime source/generated data untouched until the separate runtime import task is explicitly started."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "decision-1",
+      "status": "open-decision",
+      "details": "Approve or reject runtime/source-policy use of Naturvardsverket/Lansstyrelsen state-trail geometry, Naturkartan API/GPX, OSM/Waymarked QA/fallback linework, transit feeds and field-report-derived metadata.",
+      "disposition": "external-source-approval",
+      "owner": "source-review",
+      "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
+    },
+    {
+      "id": "open-decision-8",
+      "itemType": "open-decision",
+      "sourceId": "decision-2",
+      "status": "open-decision",
+      "details": "Decide whether the app import should support typed boat, rowboat, ferry/water and road/bus transfer connectors before Kungsleden is imported.",
+      "disposition": "fix-now",
+      "owner": "candidate-facilities",
+      "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+    },
+    {
+      "id": "open-decision-9",
+      "itemType": "open-decision",
+      "sourceId": "decision-3",
+      "status": "open-decision",
+      "details": "Decide whether access spurs such as Singi-Kebnekaise-Nikkaluokta should remain access metadata only or become optional alternate route groups.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    },
+    {
+      "id": "open-decision-10",
+      "itemType": "open-decision",
+      "sourceId": "decision-4",
+      "status": "open-decision",
+      "details": "Decide the app taxonomy for hut clusters, child toilets, emergency phones, shops, saunas, waste points, water sources, bridges, viewpoints, Naturum, village services and parking.",
+      "disposition": "fix-now",
+      "owner": "candidate-facilities",
+      "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+    },
+    {
+      "id": "open-decision-11",
+      "itemType": "open-decision",
+      "sourceId": "decision-5",
+      "status": "open-decision",
+      "details": "Decide how much dynamic timetable/opening/currentness detail belongs in normalized data versus descriptions that require publication-date recheck.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    }
+  ],
+  "triageSummary": {
+    "fix-now": 6,
+    "runtime-schema-needed": 3,
+    "runtime-integration-task": 1,
+    "external-source-approval": 1
+  },
+  "fixesAppliedNow": [],
+  "fixNowBeforeRuntimeImport": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "blocker-1",
+      "status": "unresolved",
+      "details": "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds and field-report metadata.",
+      "disposition": "fix-now",
+      "owner": "candidate-review",
+      "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+    },
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "blocker-2",
+      "status": "unresolved",
+      "details": "Importer must transform EPSG:3006 official geometry to WGS84, assemble multi-part official lines, split/clip grouped features, reverse directions where needed, simplify geometry and apply endpoint-zone snapping policy.",
+      "disposition": "fix-now",
+      "owner": "candidate-gis",
+      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "blocker-4",
+      "status": "unresolved",
+      "details": "Facility taxonomy and deduplication must be applied to shared huts, shelters, bridges, toilets, help phones, shops, saunas, water, waste, viewpoints, Naturum, parking, lodging and village services.",
+      "disposition": "fix-now",
+      "owner": "candidate-facilities",
+      "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+    },
+    {
+      "id": "blocker-5",
+      "itemType": "blocker",
+      "sourceId": "blocker-5",
+      "status": "unresolved",
+      "details": "Live currentness refresh is still required for trail/bridge notices, closures, fire bans, weather, hut seasons, boat operators, bus timetables, protected-area rules, reindeer/hunting/fishing and parking rules.",
+      "disposition": "fix-now",
+      "owner": "candidate-gis",
+      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+    },
+    {
+      "id": "open-decision-8",
+      "itemType": "open-decision",
+      "sourceId": "decision-2",
+      "status": "open-decision",
+      "details": "Decide whether the app import should support typed boat, rowboat, ferry/water and road/bus transfer connectors before Kungsleden is imported.",
+      "disposition": "fix-now",
+      "owner": "candidate-facilities",
+      "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+    },
+    {
+      "id": "open-decision-10",
+      "itemType": "open-decision",
+      "sourceId": "decision-4",
+      "status": "open-decision",
+      "details": "Decide the app taxonomy for hut clusters, child toilets, emergency phones, shops, saunas, waste points, water sources, bridges, viewpoints, Naturum, village services and parking.",
+      "disposition": "fix-now",
+      "owner": "candidate-facilities",
+      "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+    }
+  ],
+  "runtimeSchemaNeeded": [
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "blocker-3",
+      "status": "unresolved",
+      "details": "Typed connector model must be implemented for boats, rowboats, ferry/water lines and road/bus transfers before runtime geometry is generated.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    },
+    {
+      "id": "open-decision-9",
+      "itemType": "open-decision",
+      "sourceId": "decision-3",
+      "status": "open-decision",
+      "details": "Decide whether access spurs such as Singi-Kebnekaise-Nikkaluokta should remain access metadata only or become optional alternate route groups.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    },
+    {
+      "id": "open-decision-11",
+      "itemType": "open-decision",
+      "sourceId": "decision-5",
+      "status": "open-decision",
+      "details": "Decide how much dynamic timetable/opening/currentness detail belongs in normalized data versus descriptions that require publication-date recheck.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    }
+  ],
+  "deferredBeforeRuntimeImport": [
+    {
+      "id": "blocker-6",
+      "itemType": "blocker",
+      "sourceId": "blocker-6",
+      "status": "unresolved",
+      "details": "Generated app outputs and source hiking runtime data have intentionally not been edited.",
+      "disposition": "runtime-integration-task",
+      "owner": "runtime-import",
+      "action": "Leave runtime source/generated data untouched until the separate runtime import task is explicitly started."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "decision-1",
+      "status": "open-decision",
+      "details": "Approve or reject runtime/source-policy use of Naturvardsverket/Lansstyrelsen state-trail geometry, Naturkartan API/GPX, OSM/Waymarked QA/fallback linework, transit feeds and field-report-derived metadata.",
+      "disposition": "external-source-approval",
+      "owner": "source-review",
+      "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
+    }
   ],
   "validationChecklist": [
     "Parse trail.research.json, research-progress.json, geometry-qa-2026-04-30.research.json, caveat-resolution-2026-04-29.research.json and all sections/*.research.json as JSON.",
@@ -67,20 +317,20 @@
     "Before publication/runtime import, recheck trail/bridge notices, closures, fire bans, weather, hut seasons, boat operators, bus timetables, protected-area rules, reindeer/hunting/fishing and parking rules."
   ],
   "unresolvedBeforeRuntimeImport": [
-    "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds and field-report metadata.",
-    "Importer must transform EPSG:3006 official geometry to WGS84, assemble multi-part official lines, split/clip grouped features, reverse directions where needed, simplify geometry and apply endpoint-zone snapping policy.",
-    "Typed connector model must be implemented for boats, rowboats, ferry/water lines and road/bus transfers before runtime geometry is generated.",
-    "Facility taxonomy and deduplication must be applied to shared huts, shelters, bridges, toilets, help phones, shops, saunas, water, waste, viewpoints, Naturum, parking, lodging and village services.",
-    "Live currentness refresh is still required for trail/bridge notices, closures, fire bans, weather, hut seasons, boat operators, bus timetables, protected-area rules, reindeer/hunting/fishing and parking rules.",
-    "Generated app outputs and source hiking runtime data have intentionally not been edited.",
-    "Approve or reject runtime/source-policy use of Naturvardsverket/Lansstyrelsen state-trail geometry, Naturkartan API/GPX, OSM/Waymarked QA/fallback linework, transit feeds and field-report-derived metadata.",
-    "Decide whether the app import should support typed boat, rowboat, ferry/water and road/bus transfer connectors before Kungsleden is imported.",
-    "Decide whether access spurs such as Singi-Kebnekaise-Nikkaluokta should remain access metadata only or become optional alternate route groups.",
-    "Decide the app taxonomy for hut clusters, child toilets, emergency phones, shops, saunas, waste points, water sources, bridges, viewpoints, Naturum, village services and parking.",
-    "Decide how much dynamic timetable/opening/currentness detail belongs in normalized data versus descriptions that require publication-date recheck."
+    "fix-now: Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds and field-report metadata.",
+    "fix-now: Importer must transform EPSG:3006 official geometry to WGS84, assemble multi-part official lines, split/clip grouped features, reverse directions where needed, simplify geometry and apply endpoint-zone snapping policy.",
+    "runtime-schema-needed: Typed connector model must be implemented for boats, rowboats, ferry/water lines and road/bus transfers before runtime geometry is generated.",
+    "fix-now: Facility taxonomy and deduplication must be applied to shared huts, shelters, bridges, toilets, help phones, shops, saunas, water, waste, viewpoints, Naturum, parking, lodging and village services.",
+    "fix-now: Live currentness refresh is still required for trail/bridge notices, closures, fire bans, weather, hut seasons, boat operators, bus timetables, protected-area rules, reindeer/hunting/fishing and parking rules.",
+    "runtime-integration-task: Generated app outputs and source hiking runtime data have intentionally not been edited.",
+    "external-source-approval: Approve or reject runtime/source-policy use of Naturvardsverket/Lansstyrelsen state-trail geometry, Naturkartan API/GPX, OSM/Waymarked QA/fallback linework, transit feeds and field-report-derived metadata.",
+    "fix-now: Decide whether the app import should support typed boat, rowboat, ferry/water and road/bus transfer connectors before Kungsleden is imported.",
+    "runtime-schema-needed: Decide whether access spurs such as Singi-Kebnekaise-Nikkaluokta should remain access metadata only or become optional alternate route groups.",
+    "fix-now: Decide the app taxonomy for hut clusters, child toilets, emergency phones, shops, saunas, waste points, water sources, bridges, viewpoints, Naturum, village services and parking.",
+    "runtime-schema-needed: Decide how much dynamic timetable/opening/currentness detail belongs in normalized data versus descriptions that require publication-date recheck."
   ],
   "nextActions": [
-    "Review generated candidate records for trail-specific dedupe and topology before runtime import.",
+    "Handle fixNowBeforeRuntimeImport first unless the linked item truly needs external data.",
     "Keep pending-review and suppress facility states out of runtime output.",
     "Run final GIS overlays and live publication checks before user-facing rule warnings.",
     "Do not write app runtime source data from this report without an explicit runtime integration task."

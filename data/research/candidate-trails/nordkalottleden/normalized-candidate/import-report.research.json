@@ -53,11 +53,259 @@
     }
   ],
   "openDecisions": [
-    "Decide whether to normalize only the researched Reisa/Käsivarsi/Kautokeino 12-section candidate model before the whole-trail section model is resolved.",
-    "Decide endpoint/connector policy for Saarijärvi hut yard, Saraelv/Ovi Raishiin, Madam Bongos/Čunovuohppi and the section 6 source-boundary junction.",
-    "Decide how the app should represent a trail with multiple candidate section models and unresolved southern endpoint/variant logic.",
-    "Decide whether Madam Bongos/Čunovuohppi appears only as legacy endpoint/access metadata and never as active lodging.",
-    "Decide how much country-specific rule logic belongs in route-level warnings versus per-section warnings."
+    {
+      "id": "decision-1",
+      "details": "Decide whether to normalize only the researched Reisa/Käsivarsi/Kautokeino 12-section candidate model before the whole-trail section model is resolved."
+    },
+    {
+      "id": "decision-2",
+      "details": "Decide endpoint/connector policy for Saarijärvi hut yard, Saraelv/Ovi Raishiin, Madam Bongos/Čunovuohppi and the section 6 source-boundary junction."
+    },
+    {
+      "id": "decision-3",
+      "details": "Decide how the app should represent a trail with multiple candidate section models and unresolved southern endpoint/variant logic."
+    },
+    {
+      "id": "decision-4",
+      "details": "Decide whether Madam Bongos/Čunovuohppi appears only as legacy endpoint/access metadata and never as active lodging."
+    },
+    {
+      "id": "decision-5",
+      "details": "Decide how much country-specific rule logic belongs in route-level warnings versus per-section warnings."
+    }
+  ],
+  "blockerTriage": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "blocker-1",
+      "status": "unresolved",
+      "details": "No single official source found with a complete end-to-end one-row-per-day-stage Nordkalottleden inventory from Kautokeino to all southern variants.",
+      "disposition": "external-source-approval",
+      "owner": "source-review",
+      "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
+    },
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "blocker-2",
+      "status": "unresolved",
+      "details": "Geometry QA artifacts now exist for all 12 sections, but sections 1, 2, 8, 11 and 12 still need explicit endpoint connector or endpoint-policy decisions before navigation-grade import.",
+      "disposition": "fix-now",
+      "owner": "candidate-geometry",
+      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+    },
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "blocker-3",
+      "status": "unresolved",
+      "details": "Sections 1 and 2 still need Saarijarvi endpoint/spur policy because the selected current hut yard is about 152.3 m from the official route line.",
+      "disposition": "fix-now",
+      "owner": "candidate-facilities",
+      "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "blocker-4",
+      "status": "unresolved",
+      "details": "Sections 11 and 12 still need Madam Bongos/Cunovuohppi endpoint policy because the legacy place coordinate is about 65.4 m from the Turrutebasen E1 route projection and should not be imported as active lodging.",
+      "disposition": "fix-now",
+      "owner": "candidate-facilities",
+      "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+    },
+    {
+      "id": "blocker-5",
+      "itemType": "blocker",
+      "sourceId": "blocker-5",
+      "status": "unresolved",
+      "details": "Sections 7 and 8 need Saraelv/Ovi connector or compound-endpoint policy because the generated section 7 artifact ends at Saraelv while section 8 starts at Ovi Raishiin, leaving about a 1003.9 m inter-section continuity gap.",
+      "disposition": "fix-now",
+      "owner": "candidate-geometry",
+      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+    },
+    {
+      "id": "blocker-6",
+      "itemType": "blocker",
+      "sourceId": "blocker-6",
+      "status": "unresolved",
+      "details": "Official route variants around Abisko-Gautelis and Gappohytta-Rostahytta are not resolved.",
+      "disposition": "scope-limitation",
+      "owner": "candidate-geometry",
+      "action": "Keep the first import scope to the researched 12-section model and defer alternate whole-trail variants."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "decision-1",
+      "status": "open-decision",
+      "details": "Decide whether to normalize only the researched Reisa/Käsivarsi/Kautokeino 12-section candidate model before the whole-trail section model is resolved.",
+      "disposition": "scope-limitation",
+      "owner": "candidate-geometry",
+      "action": "Keep the first import scope to the researched 12-section model and defer alternate whole-trail variants."
+    },
+    {
+      "id": "open-decision-8",
+      "itemType": "open-decision",
+      "sourceId": "decision-2",
+      "status": "open-decision",
+      "details": "Decide endpoint/connector policy for Saarijärvi hut yard, Saraelv/Ovi Raishiin, Madam Bongos/Čunovuohppi and the section 6 source-boundary junction.",
+      "disposition": "fix-now",
+      "owner": "candidate-gis",
+      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+    },
+    {
+      "id": "open-decision-9",
+      "itemType": "open-decision",
+      "sourceId": "decision-3",
+      "status": "open-decision",
+      "details": "Decide how the app should represent a trail with multiple candidate section models and unresolved southern endpoint/variant logic.",
+      "disposition": "scope-limitation",
+      "owner": "candidate-geometry",
+      "action": "Keep the first import scope to the researched 12-section model and defer alternate whole-trail variants."
+    },
+    {
+      "id": "open-decision-10",
+      "itemType": "open-decision",
+      "sourceId": "decision-4",
+      "status": "open-decision",
+      "details": "Decide whether Madam Bongos/Čunovuohppi appears only as legacy endpoint/access metadata and never as active lodging.",
+      "disposition": "fix-now",
+      "owner": "candidate-facilities",
+      "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+    },
+    {
+      "id": "open-decision-11",
+      "itemType": "open-decision",
+      "sourceId": "decision-5",
+      "status": "open-decision",
+      "details": "Decide how much country-specific rule logic belongs in route-level warnings versus per-section warnings.",
+      "disposition": "fix-now",
+      "owner": "candidate-review",
+      "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+    }
+  ],
+  "triageSummary": {
+    "external-source-approval": 1,
+    "fix-now": 7,
+    "scope-limitation": 3
+  },
+  "fixesAppliedNow": [],
+  "fixNowBeforeRuntimeImport": [
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "blocker-2",
+      "status": "unresolved",
+      "details": "Geometry QA artifacts now exist for all 12 sections, but sections 1, 2, 8, 11 and 12 still need explicit endpoint connector or endpoint-policy decisions before navigation-grade import.",
+      "disposition": "fix-now",
+      "owner": "candidate-geometry",
+      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+    },
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "blocker-3",
+      "status": "unresolved",
+      "details": "Sections 1 and 2 still need Saarijarvi endpoint/spur policy because the selected current hut yard is about 152.3 m from the official route line.",
+      "disposition": "fix-now",
+      "owner": "candidate-facilities",
+      "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "blocker-4",
+      "status": "unresolved",
+      "details": "Sections 11 and 12 still need Madam Bongos/Cunovuohppi endpoint policy because the legacy place coordinate is about 65.4 m from the Turrutebasen E1 route projection and should not be imported as active lodging.",
+      "disposition": "fix-now",
+      "owner": "candidate-facilities",
+      "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+    },
+    {
+      "id": "blocker-5",
+      "itemType": "blocker",
+      "sourceId": "blocker-5",
+      "status": "unresolved",
+      "details": "Sections 7 and 8 need Saraelv/Ovi connector or compound-endpoint policy because the generated section 7 artifact ends at Saraelv while section 8 starts at Ovi Raishiin, leaving about a 1003.9 m inter-section continuity gap.",
+      "disposition": "fix-now",
+      "owner": "candidate-geometry",
+      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+    },
+    {
+      "id": "open-decision-8",
+      "itemType": "open-decision",
+      "sourceId": "decision-2",
+      "status": "open-decision",
+      "details": "Decide endpoint/connector policy for Saarijärvi hut yard, Saraelv/Ovi Raishiin, Madam Bongos/Čunovuohppi and the section 6 source-boundary junction.",
+      "disposition": "fix-now",
+      "owner": "candidate-gis",
+      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+    },
+    {
+      "id": "open-decision-10",
+      "itemType": "open-decision",
+      "sourceId": "decision-4",
+      "status": "open-decision",
+      "details": "Decide whether Madam Bongos/Čunovuohppi appears only as legacy endpoint/access metadata and never as active lodging.",
+      "disposition": "fix-now",
+      "owner": "candidate-facilities",
+      "action": "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+    },
+    {
+      "id": "open-decision-11",
+      "itemType": "open-decision",
+      "sourceId": "decision-5",
+      "status": "open-decision",
+      "details": "Decide how much country-specific rule logic belongs in route-level warnings versus per-section warnings.",
+      "disposition": "fix-now",
+      "owner": "candidate-review",
+      "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+    }
+  ],
+  "runtimeSchemaNeeded": [],
+  "deferredBeforeRuntimeImport": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "blocker-1",
+      "status": "unresolved",
+      "details": "No single official source found with a complete end-to-end one-row-per-day-stage Nordkalottleden inventory from Kautokeino to all southern variants.",
+      "disposition": "external-source-approval",
+      "owner": "source-review",
+      "action": "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
+    },
+    {
+      "id": "blocker-6",
+      "itemType": "blocker",
+      "sourceId": "blocker-6",
+      "status": "unresolved",
+      "details": "Official route variants around Abisko-Gautelis and Gappohytta-Rostahytta are not resolved.",
+      "disposition": "scope-limitation",
+      "owner": "candidate-geometry",
+      "action": "Keep the first import scope to the researched 12-section model and defer alternate whole-trail variants."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "decision-1",
+      "status": "open-decision",
+      "details": "Decide whether to normalize only the researched Reisa/Käsivarsi/Kautokeino 12-section candidate model before the whole-trail section model is resolved.",
+      "disposition": "scope-limitation",
+      "owner": "candidate-geometry",
+      "action": "Keep the first import scope to the researched 12-section model and defer alternate whole-trail variants."
+    },
+    {
+      "id": "open-decision-9",
+      "itemType": "open-decision",
+      "sourceId": "decision-3",
+      "status": "open-decision",
+      "details": "Decide how the app should represent a trail with multiple candidate section models and unresolved southern endpoint/variant logic.",
+      "disposition": "scope-limitation",
+      "owner": "candidate-geometry",
+      "action": "Keep the first import scope to the researched 12-section model and defer alternate whole-trail variants."
+    }
   ],
   "validationChecklist": [
     "Parse trail.research.json, research-progress.json, geometry/geometry-quality-report.json and all sections/*.research.json as JSON.",
@@ -68,20 +316,20 @@
     "Before whole-trail import, resolve the full-trail section model and unresolved Swedish/southern route variants."
   ],
   "unresolvedBeforeRuntimeImport": [
-    "No single official source found with a complete end-to-end one-row-per-day-stage Nordkalottleden inventory from Kautokeino to all southern variants.",
-    "Geometry QA artifacts now exist for all 12 sections, but sections 1, 2, 8, 11 and 12 still need explicit endpoint connector or endpoint-policy decisions before navigation-grade import.",
-    "Sections 1 and 2 still need Saarijarvi endpoint/spur policy because the selected current hut yard is about 152.3 m from the official route line.",
-    "Sections 11 and 12 still need Madam Bongos/Cunovuohppi endpoint policy because the legacy place coordinate is about 65.4 m from the Turrutebasen E1 route projection and should not be imported as active lodging.",
-    "Sections 7 and 8 need Saraelv/Ovi connector or compound-endpoint policy because the generated section 7 artifact ends at Saraelv while section 8 starts at Ovi Raishiin, leaving about a 1003.9 m inter-section continuity gap.",
-    "Official route variants around Abisko-Gautelis and Gappohytta-Rostahytta are not resolved.",
-    "Decide whether to normalize only the researched Reisa/Käsivarsi/Kautokeino 12-section candidate model before the whole-trail section model is resolved.",
-    "Decide endpoint/connector policy for Saarijärvi hut yard, Saraelv/Ovi Raishiin, Madam Bongos/Čunovuohppi and the section 6 source-boundary junction.",
-    "Decide how the app should represent a trail with multiple candidate section models and unresolved southern endpoint/variant logic.",
-    "Decide whether Madam Bongos/Čunovuohppi appears only as legacy endpoint/access metadata and never as active lodging.",
-    "Decide how much country-specific rule logic belongs in route-level warnings versus per-section warnings."
+    "external-source-approval: No single official source found with a complete end-to-end one-row-per-day-stage Nordkalottleden inventory from Kautokeino to all southern variants.",
+    "fix-now: Geometry QA artifacts now exist for all 12 sections, but sections 1, 2, 8, 11 and 12 still need explicit endpoint connector or endpoint-policy decisions before navigation-grade import.",
+    "fix-now: Sections 1 and 2 still need Saarijarvi endpoint/spur policy because the selected current hut yard is about 152.3 m from the official route line.",
+    "fix-now: Sections 11 and 12 still need Madam Bongos/Cunovuohppi endpoint policy because the legacy place coordinate is about 65.4 m from the Turrutebasen E1 route projection and should not be imported as active lodging.",
+    "fix-now: Sections 7 and 8 need Saraelv/Ovi connector or compound-endpoint policy because the generated section 7 artifact ends at Saraelv while section 8 starts at Ovi Raishiin, leaving about a 1003.9 m inter-section continuity gap.",
+    "scope-limitation: Official route variants around Abisko-Gautelis and Gappohytta-Rostahytta are not resolved.",
+    "scope-limitation: Decide whether to normalize only the researched Reisa/Käsivarsi/Kautokeino 12-section candidate model before the whole-trail section model is resolved.",
+    "fix-now: Decide endpoint/connector policy for Saarijärvi hut yard, Saraelv/Ovi Raishiin, Madam Bongos/Čunovuohppi and the section 6 source-boundary junction.",
+    "scope-limitation: Decide how the app should represent a trail with multiple candidate section models and unresolved southern endpoint/variant logic.",
+    "fix-now: Decide whether Madam Bongos/Čunovuohppi appears only as legacy endpoint/access metadata and never as active lodging.",
+    "fix-now: Decide how much country-specific rule logic belongs in route-level warnings versus per-section warnings."
   ],
   "nextActions": [
-    "Review generated candidate records for trail-specific dedupe and topology before runtime import.",
+    "Handle fixNowBeforeRuntimeImport first unless the linked item truly needs external data.",
     "Keep pending-review and suppress facility states out of runtime output.",
     "Run final GIS overlays and live publication checks before user-facing rule warnings.",
     "Do not write app runtime source data from this report without an explicit runtime integration task."

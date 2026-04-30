@@ -63,12 +63,325 @@
     }
   ],
   "openDecisions": [
-    "Exclude Stage 21 entirely from route import, request authoritative full geometry from Tanum municipality/WST, or implement an explicit partial/self-navigation model.",
-    "Choose snap policy for the 49.4 m Stage 8-to-Stage 9 Bottenstugan gap.",
-    "Choose whether Bohusleden is represented as one chain with an explicit Stage 21 gap or as separate importable chains around Stage 21.",
-    "Choose side-service/access metadata radius and visibility for remote northern endpoints and town service clusters.",
-    "Choose how pending OSM-only fire/water/shelter/picnic candidates are stored before verification.",
-    "Choose warning granularity for reserve, water-protection, dog, fire and camping rules after GIS overlay."
+    {
+      "id": "decision-1",
+      "details": "Exclude Stage 21 entirely from route import, request authoritative full geometry from Tanum municipality/WST, or implement an explicit partial/self-navigation model."
+    },
+    {
+      "id": "decision-2",
+      "details": "Choose snap policy for the 49.4 m Stage 8-to-Stage 9 Bottenstugan gap."
+    },
+    {
+      "id": "decision-3",
+      "details": "Choose whether Bohusleden is represented as one chain with an explicit Stage 21 gap or as separate importable chains around Stage 21."
+    },
+    {
+      "id": "decision-4",
+      "details": "Choose side-service/access metadata radius and visibility for remote northern endpoints and town service clusters."
+    },
+    {
+      "id": "decision-5",
+      "details": "Choose how pending OSM-only fire/water/shelter/picnic candidates are stored before verification."
+    },
+    {
+      "id": "decision-6",
+      "details": "Choose warning granularity for reserve, water-protection, dog, fire and camping rules after GIS overlay."
+    }
+  ],
+  "blockerTriage": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "hardBlockers-1",
+      "status": "hardBlockers",
+      "details": "Stage 21 remains partial official geometry only and must not be imported as a complete route.",
+      "disposition": "fix-now",
+      "owner": "candidate-geometry",
+      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+    },
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "hardBlockers-2",
+      "status": "hardBlockers",
+      "details": "Runtime integration still needs a separate explicit import task.",
+      "disposition": "runtime-integration-task",
+      "owner": "runtime-import",
+      "action": "Handle when the candidate artifacts are selected for runtime import."
+    },
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "hardBlockers-3",
+      "status": "hardBlockers",
+      "details": "A deliberate decision is required before any Stage 21 partial/self-navigation route model is represented.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "hardBlockers-4",
+      "status": "hardBlockers",
+      "details": "Do not bridge, snap or auto-route the 4.296 km Stage 21-to-Stage 22 gap.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+    },
+    {
+      "id": "blocker-5",
+      "itemType": "blocker",
+      "sourceId": "publicationTimeRechecks-1",
+      "status": "publicationTimeRechecks",
+      "details": "WST status/deviation widgets, fire bans, transit timetables, commercial opening hours and seasonal services.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "blocker-6",
+      "itemType": "blocker",
+      "sourceId": "publicationTimeRechecks-2",
+      "status": "publicationTimeRechecks",
+      "details": "Known bridge/raft/forestry/windfall/planned-burn notices.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "blocker-7",
+      "itemType": "blocker",
+      "sourceId": "publicationTimeRechecks-3",
+      "status": "publicationTimeRechecks",
+      "details": "Final GIS line-buffer overlays for protected areas, water-protection zones and restriction subsegments.",
+      "disposition": "fix-now",
+      "owner": "candidate-gis",
+      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+    },
+    {
+      "id": "blocker-8",
+      "itemType": "blocker",
+      "sourceId": "publicationTimeRechecks-4",
+      "status": "publicationTimeRechecks",
+      "details": "Facility coordinate verification where section files mark records pending, approximate or conflicting.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    },
+    {
+      "id": "open-decision-9",
+      "itemType": "open-decision",
+      "sourceId": "decision-1",
+      "status": "open-decision",
+      "details": "Exclude Stage 21 entirely from route import, request authoritative full geometry from Tanum municipality/WST, or implement an explicit partial/self-navigation model.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+    },
+    {
+      "id": "open-decision-10",
+      "itemType": "open-decision",
+      "sourceId": "decision-2",
+      "status": "open-decision",
+      "details": "Choose snap policy for the 49.4 m Stage 8-to-Stage 9 Bottenstugan gap.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+    },
+    {
+      "id": "open-decision-11",
+      "itemType": "open-decision",
+      "sourceId": "decision-3",
+      "status": "open-decision",
+      "details": "Choose whether Bohusleden is represented as one chain with an explicit Stage 21 gap or as separate importable chains around Stage 21.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+    },
+    {
+      "id": "open-decision-12",
+      "itemType": "open-decision",
+      "sourceId": "decision-4",
+      "status": "open-decision",
+      "details": "Choose side-service/access metadata radius and visibility for remote northern endpoints and town service clusters.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Parking/transit and access services are normalized as candidate facility/access records with pending/suppress states and live-check caveats."
+    },
+    {
+      "id": "open-decision-13",
+      "itemType": "open-decision",
+      "sourceId": "decision-5",
+      "status": "open-decision",
+      "details": "Choose how pending OSM-only fire/water/shelter/picnic candidates are stored before verification.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    },
+    {
+      "id": "open-decision-14",
+      "itemType": "open-decision",
+      "sourceId": "decision-6",
+      "status": "open-decision",
+      "details": "Choose warning granularity for reserve, water-protection, dog, fire and camping rules after GIS overlay.",
+      "disposition": "fix-now",
+      "owner": "candidate-gis",
+      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+    }
+  ],
+  "triageSummary": {
+    "fix-now": 3,
+    "runtime-integration-task": 1,
+    "resolved-now": 8,
+    "defer-publication-time": 2
+  },
+  "fixesAppliedNow": [
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "hardBlockers-3",
+      "status": "hardBlockers",
+      "details": "A deliberate decision is required before any Stage 21 partial/self-navigation route model is represented.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "hardBlockers-4",
+      "status": "hardBlockers",
+      "details": "Do not bridge, snap or auto-route the 4.296 km Stage 21-to-Stage 22 gap.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+    },
+    {
+      "id": "blocker-8",
+      "itemType": "blocker",
+      "sourceId": "publicationTimeRechecks-4",
+      "status": "publicationTimeRechecks",
+      "details": "Facility coordinate verification where section files mark records pending, approximate or conflicting.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    },
+    {
+      "id": "open-decision-9",
+      "itemType": "open-decision",
+      "sourceId": "decision-1",
+      "status": "open-decision",
+      "details": "Exclude Stage 21 entirely from route import, request authoritative full geometry from Tanum municipality/WST, or implement an explicit partial/self-navigation model.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+    },
+    {
+      "id": "open-decision-10",
+      "itemType": "open-decision",
+      "sourceId": "decision-2",
+      "status": "open-decision",
+      "details": "Choose snap policy for the 49.4 m Stage 8-to-Stage 9 Bottenstugan gap.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+    },
+    {
+      "id": "open-decision-11",
+      "itemType": "open-decision",
+      "sourceId": "decision-3",
+      "status": "open-decision",
+      "details": "Choose whether Bohusleden is represented as one chain with an explicit Stage 21 gap or as separate importable chains around Stage 21.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+    },
+    {
+      "id": "open-decision-12",
+      "itemType": "open-decision",
+      "sourceId": "decision-4",
+      "status": "open-decision",
+      "details": "Choose side-service/access metadata radius and visibility for remote northern endpoints and town service clusters.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Parking/transit and access services are normalized as candidate facility/access records with pending/suppress states and live-check caveats."
+    },
+    {
+      "id": "open-decision-13",
+      "itemType": "open-decision",
+      "sourceId": "decision-5",
+      "status": "open-decision",
+      "details": "Choose how pending OSM-only fire/water/shelter/picnic candidates are stored before verification.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    }
+  ],
+  "fixNowBeforeRuntimeImport": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "hardBlockers-1",
+      "status": "hardBlockers",
+      "details": "Stage 21 remains partial official geometry only and must not be imported as a complete route.",
+      "disposition": "fix-now",
+      "owner": "candidate-geometry",
+      "action": "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+    },
+    {
+      "id": "blocker-7",
+      "itemType": "blocker",
+      "sourceId": "publicationTimeRechecks-3",
+      "status": "publicationTimeRechecks",
+      "details": "Final GIS line-buffer overlays for protected areas, water-protection zones and restriction subsegments.",
+      "disposition": "fix-now",
+      "owner": "candidate-gis",
+      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+    },
+    {
+      "id": "open-decision-14",
+      "itemType": "open-decision",
+      "sourceId": "decision-6",
+      "status": "open-decision",
+      "details": "Choose warning granularity for reserve, water-protection, dog, fire and camping rules after GIS overlay.",
+      "disposition": "fix-now",
+      "owner": "candidate-gis",
+      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+    }
+  ],
+  "runtimeSchemaNeeded": [],
+  "deferredBeforeRuntimeImport": [
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "hardBlockers-2",
+      "status": "hardBlockers",
+      "details": "Runtime integration still needs a separate explicit import task.",
+      "disposition": "runtime-integration-task",
+      "owner": "runtime-import",
+      "action": "Handle when the candidate artifacts are selected for runtime import."
+    },
+    {
+      "id": "blocker-5",
+      "itemType": "blocker",
+      "sourceId": "publicationTimeRechecks-1",
+      "status": "publicationTimeRechecks",
+      "details": "WST status/deviation widgets, fire bans, transit timetables, commercial opening hours and seasonal services.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "blocker-6",
+      "itemType": "blocker",
+      "sourceId": "publicationTimeRechecks-2",
+      "status": "publicationTimeRechecks",
+      "details": "Known bridge/raft/forestry/windfall/planned-burn notices.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    }
   ],
   "validationChecklist": [
     "Parse trail.research.json, research-progress.json, all sections/*.research.json, mapdata/index.json, mapdata/validation-report.json and both new normalization handoff JSON files.",
@@ -87,23 +400,15 @@
     "Confirm no runtime app data, generated public data, shared scripts or package files are modified by the normalization-prep pass."
   ],
   "unresolvedBeforeRuntimeImport": [
-    "Stage 21 remains partial official geometry only and must not be imported as a complete route.",
-    "Runtime integration still needs a separate explicit import task.",
-    "A deliberate decision is required before any Stage 21 partial/self-navigation route model is represented.",
-    "Do not bridge, snap or auto-route the 4.296 km Stage 21-to-Stage 22 gap.",
-    "WST status/deviation widgets, fire bans, transit timetables, commercial opening hours and seasonal services.",
-    "Known bridge/raft/forestry/windfall/planned-burn notices.",
-    "Final GIS line-buffer overlays for protected areas, water-protection zones and restriction subsegments.",
-    "Facility coordinate verification where section files mark records pending, approximate or conflicting.",
-    "Exclude Stage 21 entirely from route import, request authoritative full geometry from Tanum municipality/WST, or implement an explicit partial/self-navigation model.",
-    "Choose snap policy for the 49.4 m Stage 8-to-Stage 9 Bottenstugan gap.",
-    "Choose whether Bohusleden is represented as one chain with an explicit Stage 21 gap or as separate importable chains around Stage 21.",
-    "Choose side-service/access metadata radius and visibility for remote northern endpoints and town service clusters.",
-    "Choose how pending OSM-only fire/water/shelter/picnic candidates are stored before verification.",
-    "Choose warning granularity for reserve, water-protection, dog, fire and camping rules after GIS overlay."
+    "fix-now: Stage 21 remains partial official geometry only and must not be imported as a complete route.",
+    "runtime-integration-task: Runtime integration still needs a separate explicit import task.",
+    "defer-publication-time: WST status/deviation widgets, fire bans, transit timetables, commercial opening hours and seasonal services.",
+    "defer-publication-time: Known bridge/raft/forestry/windfall/planned-burn notices.",
+    "fix-now: Final GIS line-buffer overlays for protected areas, water-protection zones and restriction subsegments.",
+    "fix-now: Choose warning granularity for reserve, water-protection, dog, fire and camping rules after GIS overlay."
   ],
   "nextActions": [
-    "Review generated candidate records for trail-specific dedupe and topology before runtime import.",
+    "Handle fixNowBeforeRuntimeImport first unless the linked item truly needs external data.",
     "Keep pending-review and suppress facility states out of runtime output.",
     "Run final GIS overlays and live publication checks before user-facing rule warnings.",
     "Do not write app runtime source data from this report without an explicit runtime integration task."

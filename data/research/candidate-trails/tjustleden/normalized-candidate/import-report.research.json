@@ -50,18 +50,191 @@
   "openDecisions": [
     {
       "id": "tjustleden-runtime-schema-expansion",
-      "decision": "Allow candidate importer/schema work before runtime import so officialDistanceKm, computedGeometryDistanceKm, endpoint clusters, tails/connectors, and source-direction reversal metadata can be represented.",
-      "currentRecommendation": "yes"
+      "details": "Allow candidate importer/schema work before runtime import so officialDistanceKm, computedGeometryDistanceKm, endpoint clusters, tails/connectors, and source-direction reversal metadata can be represented."
     },
     {
       "id": "tjustleden-connectors-publication-scope",
-      "decision": "Keep loops/connectors out of the main 9-stage route unless the import supports separate connector/tail objects.",
-      "currentRecommendation": "yes"
+      "details": "Keep loops/connectors out of the main 9-stage route unless the import supports separate connector/tail objects."
     },
     {
       "id": "tjustleden-natural-water-display",
-      "decision": "Suppress natural water as potable unless reliable point-source evidence is verified.",
-      "currentRecommendation": "yes"
+      "details": "Suppress natural water as potable unless reliable point-source evidence is verified."
+    }
+  ],
+  "blockerTriage": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "tjustleden-schema-import-support",
+      "status": "blocks-runtime-import",
+      "details": "Route normalization is still not runtime-import-ready until the importer/schema can represent officialDistanceKm, computedGeometryDistanceKm, endpoint clusters, tails/connectors, and source-direction reversal metadata.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    },
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "tjustleden-distance-fields",
+      "status": "blocks-clean-distance-import",
+      "details": "Importers should support officialDistanceKm and computedGeometryDistanceKm; caveat material differences.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    },
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "tjustleden-normalized-geometry-before-overlays",
+      "status": "blocks-rule-overlays",
+      "details": "Final normalized geometry before overlays.",
+      "disposition": "fix-now",
+      "owner": "candidate-gis",
+      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "tjustleden-pending-facility-pois",
+      "status": "blocks-public-facility-exposure",
+      "details": "Pending facility POIs.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    },
+    {
+      "id": "blocker-5",
+      "itemType": "blocker",
+      "sourceId": "tjustleden-live-checks",
+      "status": "blocks-publication",
+      "details": "Transit/parking/acute/fire/forestry/service live checks.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "open-decision-6",
+      "itemType": "open-decision",
+      "sourceId": "tjustleden-runtime-schema-expansion",
+      "status": "open-decision",
+      "details": "Allow candidate importer/schema work before runtime import so officialDistanceKm, computedGeometryDistanceKm, endpoint clusters, tails/connectors, and source-direction reversal metadata can be represented.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "tjustleden-connectors-publication-scope",
+      "status": "open-decision",
+      "details": "Keep loops/connectors out of the main 9-stage route unless the import supports separate connector/tail objects.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    },
+    {
+      "id": "open-decision-8",
+      "itemType": "open-decision",
+      "sourceId": "tjustleden-natural-water-display",
+      "status": "open-decision",
+      "details": "Suppress natural water as potable unless reliable point-source evidence is verified.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    }
+  ],
+  "triageSummary": {
+    "runtime-schema-needed": 4,
+    "fix-now": 1,
+    "resolved-now": 2,
+    "defer-publication-time": 1
+  },
+  "fixesAppliedNow": [
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "tjustleden-pending-facility-pois",
+      "status": "blocks-public-facility-exposure",
+      "details": "Pending facility POIs.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    },
+    {
+      "id": "open-decision-8",
+      "itemType": "open-decision",
+      "sourceId": "tjustleden-natural-water-display",
+      "status": "open-decision",
+      "details": "Suppress natural water as potable unless reliable point-source evidence is verified.",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    }
+  ],
+  "fixNowBeforeRuntimeImport": [
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "tjustleden-normalized-geometry-before-overlays",
+      "status": "blocks-rule-overlays",
+      "details": "Final normalized geometry before overlays.",
+      "disposition": "fix-now",
+      "owner": "candidate-gis",
+      "action": "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+    }
+  ],
+  "runtimeSchemaNeeded": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "tjustleden-schema-import-support",
+      "status": "blocks-runtime-import",
+      "details": "Route normalization is still not runtime-import-ready until the importer/schema can represent officialDistanceKm, computedGeometryDistanceKm, endpoint clusters, tails/connectors, and source-direction reversal metadata.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    },
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "tjustleden-distance-fields",
+      "status": "blocks-clean-distance-import",
+      "details": "Importers should support officialDistanceKm and computedGeometryDistanceKm; caveat material differences.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    },
+    {
+      "id": "open-decision-6",
+      "itemType": "open-decision",
+      "sourceId": "tjustleden-runtime-schema-expansion",
+      "status": "open-decision",
+      "details": "Allow candidate importer/schema work before runtime import so officialDistanceKm, computedGeometryDistanceKm, endpoint clusters, tails/connectors, and source-direction reversal metadata can be represented.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "tjustleden-connectors-publication-scope",
+      "status": "open-decision",
+      "details": "Keep loops/connectors out of the main 9-stage route unless the import supports separate connector/tail objects.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    }
+  ],
+  "deferredBeforeRuntimeImport": [
+    {
+      "id": "blocker-5",
+      "itemType": "blocker",
+      "sourceId": "tjustleden-live-checks",
+      "status": "blocks-publication",
+      "details": "Transit/parking/acute/fire/forestry/service live checks.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
     }
   ],
   "validationChecklist": [
@@ -75,29 +248,15 @@
     "Dynamic acute, fire, forestry, service, and transit checks remain publication blockers."
   ],
   "unresolvedBeforeRuntimeImport": [
-    "Route normalization is still not runtime-import-ready until the importer/schema can represent officialDistanceKm, computedGeometryDistanceKm, endpoint clusters, tails/connectors, and source-direction reversal metadata.",
-    "Importers should support officialDistanceKm and computedGeometryDistanceKm; caveat material differences.",
-    "Final normalized geometry before overlays.",
-    "Pending facility POIs.",
-    "Transit/parking/acute/fire/forestry/service live checks.",
-    {
-      "id": "tjustleden-runtime-schema-expansion",
-      "decision": "Allow candidate importer/schema work before runtime import so officialDistanceKm, computedGeometryDistanceKm, endpoint clusters, tails/connectors, and source-direction reversal metadata can be represented.",
-      "currentRecommendation": "yes"
-    },
-    {
-      "id": "tjustleden-connectors-publication-scope",
-      "decision": "Keep loops/connectors out of the main 9-stage route unless the import supports separate connector/tail objects.",
-      "currentRecommendation": "yes"
-    },
-    {
-      "id": "tjustleden-natural-water-display",
-      "decision": "Suppress natural water as potable unless reliable point-source evidence is verified.",
-      "currentRecommendation": "yes"
-    }
+    "runtime-schema-needed: Route normalization is still not runtime-import-ready until the importer/schema can represent officialDistanceKm, computedGeometryDistanceKm, endpoint clusters, tails/connectors, and source-direction reversal metadata.",
+    "runtime-schema-needed: Importers should support officialDistanceKm and computedGeometryDistanceKm; caveat material differences.",
+    "fix-now: Final normalized geometry before overlays.",
+    "defer-publication-time: Transit/parking/acute/fire/forestry/service live checks.",
+    "runtime-schema-needed: Allow candidate importer/schema work before runtime import so officialDistanceKm, computedGeometryDistanceKm, endpoint clusters, tails/connectors, and source-direction reversal metadata can be represented.",
+    "runtime-schema-needed: Keep loops/connectors out of the main 9-stage route unless the import supports separate connector/tail objects."
   ],
   "nextActions": [
-    "Review generated candidate records for trail-specific dedupe and topology before runtime import.",
+    "Handle fixNowBeforeRuntimeImport first unless the linked item truly needs external data.",
     "Keep pending-review and suppress facility states out of runtime output.",
     "Run final GIS overlays and live publication checks before user-facing rule warnings.",
     "Do not write app runtime source data from this report without an explicit runtime integration task."

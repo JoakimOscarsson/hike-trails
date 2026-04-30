@@ -65,6 +65,15 @@ const allowedCandidateFacilityTypes = new Set([
 ]);
 
 const allowedFacilityStates = new Set(["normal", "pending-review", "suppress"]);
+const allowedTriageDispositions = new Set([
+  "resolved-now",
+  "fix-now",
+  "runtime-schema-needed",
+  "external-source-approval",
+  "defer-publication-time",
+  "runtime-integration-task",
+  "scope-limitation"
+]);
 
 const errors = [];
 const warnings = [];
@@ -382,6 +391,17 @@ async function validateNormalizedCandidateArtifacts(prep, manifest) {
     if (importReport.runtimeImportApproved !== false) {
       addError(scope, "import report runtimeImportApproved must remain false");
     }
+    if (!Array.isArray(importReport.blockerTriage) || importReport.blockerTriage.length === 0) {
+      addError(scope, "import report must include blockerTriage");
+    }
+    for (const item of importReport.blockerTriage ?? []) {
+      if (!allowedTriageDispositions.has(item.disposition)) {
+        addError(scope, `triage item ${item.id} has unsupported disposition ${item.disposition}`);
+      }
+      if (typeof item.action !== "string" || !item.action.trim()) {
+        addError(scope, `triage item ${item.id} must include action`);
+      }
+    }
 
     validateUnique(scope, "route section IDs", (routeSections.sections ?? []).map((section) => section.sectionId));
     validateUnique(scope, "facility IDs", (facilities.records ?? []).map((facility) => facility.facilityId));
@@ -410,6 +430,29 @@ async function validateNormalizedCandidateArtifacts(prep, manifest) {
   }
 
   return rows;
+}
+
+function validateBlockerTriage(triageReport, prep) {
+  if (triageReport?.schemaVersion !== "candidate-blocker-triage/v1") {
+    addError("blocker-triage", "schemaVersion must be candidate-blocker-triage/v1");
+  }
+  if (triageReport?.status !== "triaged-fix-now-biased") {
+    addError("blocker-triage", "status must be triaged-fix-now-biased");
+  }
+  if (triageReport?.runtimeImportApproved !== false) {
+    addError("blocker-triage", "runtimeImportApproved must remain false");
+  }
+  const trailIds = (triageReport?.trails ?? []).map((trail) => trail.trailId);
+  if (!arraysEqual(trailIds, prep?.scope?.includedTrails ?? [])) {
+    addError("blocker-triage", "trail order must match normalization-prep");
+  }
+  const items = (triageReport?.trails ?? []).flatMap((trail) => trail.items ?? []);
+  if (items.length === 0) addError("blocker-triage", "must include triage items");
+  for (const item of items) {
+    if (!allowedTriageDispositions.has(item.disposition)) {
+      addError("blocker-triage", `item ${item.id} has unsupported disposition ${item.disposition}`);
+    }
+  }
 }
 
 function validateArtifactHeader(scope, artifact, trailId, schemaVersion) {
@@ -467,6 +510,9 @@ async function validateDocs(prep, manifest) {
   if (prep?.phase3ReportFile !== "phase3-candidate-artifacts.research.json") {
     addError("normalization-prep", "phase3ReportFile must reference phase3-candidate-artifacts.research.json");
   }
+  if (prep?.blockerTriageFile !== "blocker-triage.research.json") {
+    addError("normalization-prep", "blockerTriageFile must reference blocker-triage.research.json");
+  }
   if (manifest?.sharedPrepFile !== "normalization-prep.research.json") {
     addError("manifest", "sharedPrepFile must reference normalization-prep.research.json");
   }
@@ -479,6 +525,9 @@ async function validateDocs(prep, manifest) {
   if (manifest?.phase3ReportFile !== "phase3-candidate-artifacts.research.json") {
     addError("manifest", "phase3ReportFile must reference phase3-candidate-artifacts.research.json");
   }
+  if (manifest?.blockerTriageFile !== "blocker-triage.research.json") {
+    addError("manifest", "blockerTriageFile must reference blocker-triage.research.json");
+  }
 
   const readme = await readFile(path.join(candidateRoot, "README.md"), "utf8");
   for (const fileName of [
@@ -486,6 +535,7 @@ async function validateDocs(prep, manifest) {
     "shared-importer-decisions.research.json",
     "normalization-quality-gate.research.json",
     "phase3-candidate-artifacts.research.json",
+    "blocker-triage.research.json",
     "manifest.json"
   ]) {
     if (!readme.includes(fileName)) addError("README", `Missing shared coordination file mention for ${fileName}`);
@@ -498,13 +548,15 @@ const manifest = await readJson(path.join(candidateRoot, "manifest.json"));
 const shared = await readJson(path.join(candidateRoot, "shared-importer-decisions.research.json"));
 const qualityGate = await readJson(path.join(candidateRoot, "normalization-quality-gate.research.json"));
 const phase3Report = await readJson(path.join(candidateRoot, "phase3-candidate-artifacts.research.json"));
+const blockerTriage = await readJson(path.join(candidateRoot, "blocker-triage.research.json"));
 
-if (prep && manifest && shared && qualityGate && phase3Report) {
+if (prep && manifest && shared && qualityGate && phase3Report && blockerTriage) {
   validateScopeLists(prep, manifest, shared);
   validateSharedDecisions(shared);
   validatePhaseStatus(prep);
   validateQualityGate(qualityGate, prep, manifest);
   validatePhase3Report(phase3Report, prep, manifest);
+  validateBlockerTriage(blockerTriage, prep);
   await validateDocs(prep, manifest);
   const rows = await validateHandoffs(prep, manifest);
   const artifactRows = await validateNormalizedCandidateArtifacts(prep, manifest);

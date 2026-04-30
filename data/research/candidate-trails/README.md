@@ -18,6 +18,7 @@ Shared coordination files:
 - `shared-importer-decisions.research.json`: shared importer-model decisions for distances, geometry, connectors, partial sections, direction reversal, facilities, rule warnings, and overlap dedupe.
 - `normalization-quality-gate.research.json`: consistency audit result for starting candidate normalized artifacts.
 - `phase3-candidate-artifacts.research.json`: batch summary for generated candidate-only normalized artifacts.
+- `blocker-triage.research.json`: per-trail blocker disposition with a bias toward fixing candidate-prep issues before runtime import.
 - `manifest.json`: machine-readable candidate inventory.
 
 Candidate artifact commands:

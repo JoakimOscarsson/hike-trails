@@ -45,28 +45,219 @@
   "openDecisions": [
     {
       "id": "vikingaleden-overlap-runtime-model",
-      "decision": "unknown/recheck",
-      "question": "For overlapping sections 7-12, should runtime data expose Vikingaleden as a separate trail with its own route geometry files, or as route aliases over canonical Upplandsleden section geometry?"
+      "details": "unknown/recheck"
     },
     {
       "id": "vikingaleden-shared-facility-ownership",
-      "decision": "unknown/recheck",
-      "question": "Should shared facilities on the Upplandsleden overlap be owned by a cross-trail canonical facility/place record with both trail sectionRefs, or duplicated per trail after dedupe?"
+      "details": "unknown/recheck"
     },
     {
       "id": "vikingaleden-transport-layer",
-      "decision": "unknown/recheck",
-      "question": "Should parking and transit stay out of normal facilities unless an access layer exists, matching the Upplandsleden dedupe policy?"
+      "details": "unknown/recheck"
     },
     {
       "id": "vikingaleden-pending-branch-features",
-      "decision": "unknown/recheck",
-      "question": "Should Stormon/Grillholmen and other branch/context amenities remain pending until branch handling is settled?"
+      "details": "unknown/recheck"
     },
     {
       "id": "vikingaleden-rule-warning-layer",
-      "decision": "unknown/recheck",
-      "question": "Should rule-warning rows be preserved as visible planning warnings if the app has a rule-warning layer, or remain suppressed/context-only?"
+      "details": "unknown/recheck"
+    }
+  ],
+  "blockerTriage": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "blocker-1",
+      "status": "unresolved",
+      "details": "Trail-level metadata was generated from the completed section packets rather than a separate official overview pass.",
+      "disposition": "fix-now",
+      "owner": "candidate-review",
+      "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+    },
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "blocker-2",
+      "status": "unresolved",
+      "details": "Import work must dedupe facilities, geometry, and route aliases against Upplandsleden for overlapping sections 7-12.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    },
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "blocker-3",
+      "status": "unresolved",
+      "details": "Visit Roslagen Etapp 12 detail returned 404 during section research; the section packet uses Naturkartan/Upplandsleden and Outdooractive/Paxwalk evidence.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    },
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "blocker-4",
+      "status": "unresolved",
+      "details": "unknown/recheck: verify current official overview and any changed section pages immediately before runtime import.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "open-decision-5",
+      "itemType": "open-decision",
+      "sourceId": "vikingaleden-overlap-runtime-model",
+      "status": "open-decision",
+      "details": "unknown/recheck",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "open-decision-6",
+      "itemType": "open-decision",
+      "sourceId": "vikingaleden-shared-facility-ownership",
+      "status": "open-decision",
+      "details": "unknown/recheck",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "vikingaleden-transport-layer",
+      "status": "open-decision",
+      "details": "unknown/recheck",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "open-decision-8",
+      "itemType": "open-decision",
+      "sourceId": "vikingaleden-pending-branch-features",
+      "status": "open-decision",
+      "details": "unknown/recheck",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    },
+    {
+      "id": "open-decision-9",
+      "itemType": "open-decision",
+      "sourceId": "vikingaleden-rule-warning-layer",
+      "status": "open-decision",
+      "details": "unknown/recheck",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    }
+  ],
+  "triageSummary": {
+    "fix-now": 1,
+    "runtime-schema-needed": 2,
+    "defer-publication-time": 5,
+    "resolved-now": 1
+  },
+  "fixesAppliedNow": [
+    {
+      "id": "open-decision-8",
+      "itemType": "open-decision",
+      "sourceId": "vikingaleden-pending-branch-features",
+      "status": "open-decision",
+      "details": "unknown/recheck",
+      "disposition": "resolved-now",
+      "owner": "candidate-data",
+      "action": "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    }
+  ],
+  "fixNowBeforeRuntimeImport": [
+    {
+      "id": "blocker-1",
+      "itemType": "blocker",
+      "sourceId": "blocker-1",
+      "status": "unresolved",
+      "details": "Trail-level metadata was generated from the completed section packets rather than a separate official overview pass.",
+      "disposition": "fix-now",
+      "owner": "candidate-review",
+      "action": "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
+    }
+  ],
+  "runtimeSchemaNeeded": [
+    {
+      "id": "blocker-2",
+      "itemType": "blocker",
+      "sourceId": "blocker-2",
+      "status": "unresolved",
+      "details": "Import work must dedupe facilities, geometry, and route aliases against Upplandsleden for overlapping sections 7-12.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    },
+    {
+      "id": "blocker-3",
+      "itemType": "blocker",
+      "sourceId": "blocker-3",
+      "status": "unresolved",
+      "details": "Visit Roslagen Etapp 12 detail returned 404 during section research; the section packet uses Naturkartan/Upplandsleden and Outdooractive/Paxwalk evidence.",
+      "disposition": "runtime-schema-needed",
+      "owner": "runtime-importer",
+      "action": "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    }
+  ],
+  "deferredBeforeRuntimeImport": [
+    {
+      "id": "blocker-4",
+      "itemType": "blocker",
+      "sourceId": "blocker-4",
+      "status": "unresolved",
+      "details": "unknown/recheck: verify current official overview and any changed section pages immediately before runtime import.",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "open-decision-5",
+      "itemType": "open-decision",
+      "sourceId": "vikingaleden-overlap-runtime-model",
+      "status": "open-decision",
+      "details": "unknown/recheck",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "open-decision-6",
+      "itemType": "open-decision",
+      "sourceId": "vikingaleden-shared-facility-ownership",
+      "status": "open-decision",
+      "details": "unknown/recheck",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "open-decision-7",
+      "itemType": "open-decision",
+      "sourceId": "vikingaleden-transport-layer",
+      "status": "open-decision",
+      "details": "unknown/recheck",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
+    },
+    {
+      "id": "open-decision-9",
+      "itemType": "open-decision",
+      "sourceId": "vikingaleden-rule-warning-layer",
+      "status": "open-decision",
+      "details": "unknown/recheck",
+      "disposition": "defer-publication-time",
+      "owner": "publication-check",
+      "action": "Keep as a publication-time checklist item because the underlying fact can change."
     }
   ],
   "validationChecklist": [
@@ -104,38 +295,17 @@
     }
   ],
   "unresolvedBeforeRuntimeImport": [
-    "Trail-level metadata was generated from the completed section packets rather than a separate official overview pass.",
-    "Import work must dedupe facilities, geometry, and route aliases against Upplandsleden for overlapping sections 7-12.",
-    "Visit Roslagen Etapp 12 detail returned 404 during section research; the section packet uses Naturkartan/Upplandsleden and Outdooractive/Paxwalk evidence.",
-    "unknown/recheck: verify current official overview and any changed section pages immediately before runtime import.",
-    {
-      "id": "vikingaleden-overlap-runtime-model",
-      "decision": "unknown/recheck",
-      "question": "For overlapping sections 7-12, should runtime data expose Vikingaleden as a separate trail with its own route geometry files, or as route aliases over canonical Upplandsleden section geometry?"
-    },
-    {
-      "id": "vikingaleden-shared-facility-ownership",
-      "decision": "unknown/recheck",
-      "question": "Should shared facilities on the Upplandsleden overlap be owned by a cross-trail canonical facility/place record with both trail sectionRefs, or duplicated per trail after dedupe?"
-    },
-    {
-      "id": "vikingaleden-transport-layer",
-      "decision": "unknown/recheck",
-      "question": "Should parking and transit stay out of normal facilities unless an access layer exists, matching the Upplandsleden dedupe policy?"
-    },
-    {
-      "id": "vikingaleden-pending-branch-features",
-      "decision": "unknown/recheck",
-      "question": "Should Stormon/Grillholmen and other branch/context amenities remain pending until branch handling is settled?"
-    },
-    {
-      "id": "vikingaleden-rule-warning-layer",
-      "decision": "unknown/recheck",
-      "question": "Should rule-warning rows be preserved as visible planning warnings if the app has a rule-warning layer, or remain suppressed/context-only?"
-    }
+    "fix-now: Trail-level metadata was generated from the completed section packets rather than a separate official overview pass.",
+    "runtime-schema-needed: Import work must dedupe facilities, geometry, and route aliases against Upplandsleden for overlapping sections 7-12.",
+    "runtime-schema-needed: Visit Roslagen Etapp 12 detail returned 404 during section research; the section packet uses Naturkartan/Upplandsleden and Outdooractive/Paxwalk evidence.",
+    "defer-publication-time: unknown/recheck: verify current official overview and any changed section pages immediately before runtime import.",
+    "defer-publication-time: unknown/recheck",
+    "defer-publication-time: unknown/recheck",
+    "defer-publication-time: unknown/recheck",
+    "defer-publication-time: unknown/recheck"
   ],
   "nextActions": [
-    "Review generated candidate records for trail-specific dedupe and topology before runtime import.",
+    "Handle fixNowBeforeRuntimeImport first unless the linked item truly needs external data.",
     "Keep pending-review and suppress facility states out of runtime output.",
     "Run final GIS overlays and live publication checks before user-facing rule warnings.",
     "Do not write app runtime source data from this report without an explicit runtime integration task."

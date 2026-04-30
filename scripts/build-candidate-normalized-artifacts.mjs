@@ -14,6 +14,7 @@ const manifest = await readJson(path.join(candidateRoot, "manifest.json"));
 const includedTrails = prep.scope.includedTrails;
 const trailManifestById = new Map(manifest.trails.map((trail) => [trail.id, trail]));
 const batchSummary = [];
+const blockerTriageRows = [];
 
 for (const trailId of includedTrails) {
   const trailRoot = path.join(candidateRoot, trailId);
@@ -48,7 +49,17 @@ for (const trailId of includedTrails) {
     suppressedFacilityCandidates: facilities.summary.byState.suppress ?? 0,
     ruleWarningRecords: ruleWarnings.records.length,
     blockerCount: importReport.blockers.length,
-    openDecisionCount: importReport.openDecisions.length
+    openDecisionCount: importReport.openDecisions.length,
+    triageSummary: importReport.triageSummary
+  });
+  blockerTriageRows.push({
+    trailId,
+    triageSummary: importReport.triageSummary,
+    fixesAppliedNow: importReport.fixesAppliedNow,
+    nextFixNow: importReport.fixNowBeforeRuntimeImport,
+    deferred: importReport.deferredBeforeRuntimeImport,
+    runtimeSchemaNeeded: importReport.runtimeSchemaNeeded,
+    items: importReport.blockerTriage
   });
 }
 
@@ -62,11 +73,33 @@ await writeJson(path.join(candidateRoot, "phase3-candidate-artifacts.research.js
   artifactFiles: shared.resolvedSharedDecisions.candidateArtifactLayout.minimumArtifacts,
   includedTrails: batchSummary,
   nextActions: [
-    "Review each trail import-report.research.json before runtime import work.",
-    "Resolve or explicitly defer trail-specific blockers before emitting runtime source data.",
+    "Work the fix-now queue in blocker-triage.research.json before runtime import work.",
+    "Prioritize candidate geometry builds, topology/connectors, facility dedupe and GIS overlays.",
     "Run GIS overlays and live publication checks before user-facing rule warnings.",
     "Keep pending-review and suppress facility records out of runtime output."
   ]
+});
+
+const triageItems = blockerTriageRows.flatMap((row) => row.items);
+await writeJson(path.join(candidateRoot, "blocker-triage.research.json"), {
+  schemaVersion: "candidate-blocker-triage/v1",
+  lastUpdated,
+  status: "triaged-fix-now-biased",
+  purpose: "Review of normalized-candidate import report blockers with a bias toward fixing candidate-prep issues now and deferring only runtime, external, or publication-time work.",
+  runtimeImportApproved: false,
+  dispositionDefinitions: {
+    "resolved-now": "Fixed or resolved during this candidate-prep pass, usually by shared decisions, candidate artifact state, or documentation cleanup.",
+    "fix-now": "Actionable repository work that should be done before runtime import and does not inherently require publication-day data.",
+    "runtime-schema-needed": "Requires runtime importer or app schema support before it can be fully resolved.",
+    "external-source-approval": "Requires source licensing, API credentials, or official/source confirmation outside this repo.",
+    "defer-publication-time": "Must be checked close to user-facing publication because the fact is volatile.",
+    "runtime-integration-task": "Intentionally waits for an explicit runtime import task.",
+    "scope-limitation": "Accepted scope boundary for this candidate import model."
+  },
+  summary: countBy(triageItems, "disposition"),
+  fixNowCount: triageItems.filter((item) => item.disposition === "fix-now").length,
+  resolvedNowCount: triageItems.filter((item) => item.disposition === "resolved-now").length,
+  trails: blockerTriageRows
 });
 
 console.log(`Built normalized candidate artifacts for ${batchSummary.length} trails.`);
@@ -315,6 +348,8 @@ function buildImportReport(trailId, handoff, routeSections, geometryIndex, facil
   const minimumArtifacts = shared.resolvedSharedDecisions.candidateArtifactLayout.minimumArtifacts;
   const manifestEntry = trailManifestById.get(trailId);
   const blockers = normalizeBlockers(handoff.blockers);
+  const openDecisions = normalizeOpenDecisions(handoff.openDecisionsForUser);
+  const blockerTriage = triageBlockers(trailId, blockers, openDecisions);
   return {
     schemaVersion: "candidate-import-report/v1",
     trailId,
@@ -332,18 +367,186 @@ function buildImportReport(trailId, handoff, routeSections, geometryIndex, facil
       ruleWarnings: ruleWarnings.records.length
     },
     blockers,
-    openDecisions: handoff.openDecisionsForUser ?? [],
+    openDecisions,
+    blockerTriage,
+    triageSummary: countBy(blockerTriage, "disposition"),
+    fixesAppliedNow: blockerTriage.filter((item) => item.disposition === "resolved-now"),
+    fixNowBeforeRuntimeImport: blockerTriage.filter((item) => item.disposition === "fix-now"),
+    runtimeSchemaNeeded: blockerTriage.filter((item) => item.disposition === "runtime-schema-needed"),
+    deferredBeforeRuntimeImport: blockerTriage.filter((item) =>
+      ["external-source-approval", "defer-publication-time", "runtime-integration-task", "scope-limitation"].includes(item.disposition)
+    ),
     validationChecklist: handoff.validationChecklist ?? [],
-    unresolvedBeforeRuntimeImport: [
-      ...blockers.map((blocker) => blocker.details),
-      ...(handoff.openDecisionsForUser ?? [])
-    ],
+    unresolvedBeforeRuntimeImport: blockerTriage
+      .filter((item) => item.disposition !== "resolved-now")
+      .map((item) => `${item.disposition}: ${item.details}`),
     nextActions: [
-      "Review generated candidate records for trail-specific dedupe and topology before runtime import.",
+      "Handle fixNowBeforeRuntimeImport first unless the linked item truly needs external data.",
       "Keep pending-review and suppress facility states out of runtime output.",
       "Run final GIS overlays and live publication checks before user-facing rule warnings.",
       "Do not write app runtime source data from this report without an explicit runtime integration task."
     ]
+  };
+}
+
+function normalizeOpenDecisions(decisions) {
+  if (!Array.isArray(decisions)) return [];
+  return decisions.map((decision, index) => {
+    if (typeof decision === "string") {
+      return {
+        id: `decision-${index + 1}`,
+        details: decision
+      };
+    }
+    return prune({
+      id: decision.id ?? decision.scope ?? `decision-${index + 1}`,
+      status: decision.status ?? null,
+      details: decision.description ?? decision.details ?? decision.decision ?? decision.question ?? compactJson(decision)
+    });
+  });
+}
+
+function triageBlockers(trailId, blockers, openDecisions) {
+  const blockerItems = blockers.map((blocker) => ({
+    itemType: "blocker",
+    sourceId: blocker.id,
+    status: blocker.status,
+    details: blocker.details
+  }));
+  const decisionItems = openDecisions.map((decision) => ({
+    itemType: "open-decision",
+    sourceId: decision.id,
+    status: decision.status ?? "open-decision",
+    details: decision.details
+  }));
+
+  return [...blockerItems, ...decisionItems].map((item, index) => ({
+    id: `${item.itemType}-${index + 1}`,
+    ...item,
+    ...classifyTriageItem(trailId, item)
+  }));
+}
+
+function classifyTriageItem(trailId, item) {
+  const text = `${item.sourceId} ${item.status} ${item.details}`.toLowerCase();
+
+  if (text.includes("readme.md status is older")) {
+    return {
+      disposition: "resolved-now",
+      owner: "candidate-data",
+      action: "Updated Padjelantaleden README status to reflect completed 10-section research and generated candidate artifacts."
+    };
+  }
+  if (
+    /pending|suppress|hidden review|stored before verification|facility state|not appear as normal|out of public normalized facilities/.test(text)
+  ) {
+    return {
+      disposition: "resolved-now",
+      owner: "candidate-data",
+      action: "Facilities now carry explicit normal, pending-review, and suppress states in normalized-candidate/facilities.research.json; the checker enforces normalized candidate types and preserved rawTypes."
+    };
+  }
+  if (
+    /endpoint snapping|snap policy|segment-break|multilinestring|k4-to-k5|official coastal network gap|stage 8-to-stage 9|stage 21 gap|one chain|separate importable chains|partial\/self-navigation|route model is represented|do not bridge|do not.*snap|do not.*auto-route/.test(
+      text
+    )
+  ) {
+    return {
+      disposition: "resolved-now",
+      owner: "candidate-data",
+      action: "Shared importer decisions now require preserving source endpoints and explicit gaps/connections instead of silent snapping or invented linework."
+    };
+  }
+  if (
+    /parking\/transit|parking and transit|transit choice|side-service radius|side-service\/access|access metadata radius|commercial\/customer-only services|weak transit/.test(
+      text
+    )
+  ) {
+    return {
+      disposition: "resolved-now",
+      owner: "candidate-data",
+      action: "Parking/transit and access services are normalized as candidate facility/access records with pending/suppress states and live-check caveats."
+    };
+  }
+  if (/generated app outputs|source hiking runtime data|intentionally not been edited|no runtime data has been imported/.test(text)) {
+    return {
+      disposition: "runtime-integration-task",
+      owner: "runtime-import",
+      action: "Leave runtime source/generated data untouched until the separate runtime import task is explicitly started."
+    };
+  }
+  if (
+    /officialdistancekm|computedgeometrydistancekm|source-direction|schema|runtime schema|app schema|connector model|typed connector|route-group|route groups|aliases|alternate route groups|tail|source direction metadata/.test(
+      text
+    )
+  ) {
+    return {
+      disposition: "runtime-schema-needed",
+      owner: "runtime-importer",
+      action: "Candidate artifacts preserve the needed metadata; runtime importer/schema support is needed before public app import."
+    };
+  }
+  if (/source policy|licens|permission|api key|trafiklab|resrobot|approve or reject|source terms|official source|authoritative.*ids/.test(text)) {
+    return {
+      disposition: "external-source-approval",
+      owner: "source-review",
+      action: "Resolve source terms, API access, or official-source approval before relying on this item for runtime import."
+    };
+  }
+  if (/gis|overlay|protected-area|water-protection|boundary|rule-warning granularity|rule granularity|clip|clipping|subsegment/.test(text)) {
+    return {
+      disposition: "fix-now",
+      owner: "candidate-gis",
+      action: "Run GIS overlays against selected candidate geometry and replace broad warnings with scoped section/subsegment/facility warnings where possible."
+    };
+  }
+  if (
+    /publication|live|currentness|recheck|fire|timetable|opening|seasonal|closure|reroute|forestry|hunting|bridge notices|water reliability|quality|boat operators|business hours|acute|service live|transit schedules|availability|fees|passability/.test(
+      text
+    )
+  ) {
+    return {
+      disposition: "defer-publication-time",
+      owner: "publication-check",
+      action: "Keep as a publication-time checklist item because the underlying fact can change."
+    };
+  }
+  if (/explicit import task|runtime integration still needs|blocked-until-explicit-import-task/.test(text)) {
+    return {
+      disposition: "runtime-integration-task",
+      owner: "runtime-import",
+      action: "Handle when the candidate artifacts are selected for runtime import."
+    };
+  }
+  if (/geometry|geojson|gpx|linework|densification|split|reverse|endpoint connector|endpoint-policy|topology|variant|gap|candidate implementation|visual qa|whole-trail section model|southern endpoint/.test(text)) {
+    return {
+      disposition: trailId === "nordkalottleden" && /whole-trail|southern endpoint|variants around/.test(text) ? "scope-limitation" : "fix-now",
+      owner: "candidate-geometry",
+      action:
+        trailId === "nordkalottleden" && /whole-trail|southern endpoint|variants around/.test(text)
+          ? "Keep the first import scope to the researched 12-section model and defer alternate whole-trail variants."
+          : "Build or refine candidate GeoJSON, connector records, endpoint policy, and route topology before runtime import."
+    };
+  }
+  if (/dedupe|taxonomy|cluster|poi|pois|facility|hut|shelter|water|toilet|shop|sauna|waste|viewpoint|minor rest|informal campsites|osm-only/.test(text)) {
+    return {
+      disposition: "fix-now",
+      owner: "candidate-facilities",
+      action: "Run the candidate facility dedupe/cluster pass, attach child amenities to parents where appropriate, and leave weak records pending/suppressed."
+    };
+  }
+  if (/no single official source|multiple candidate section models|not whole-trail|researched .* model/.test(text)) {
+    return {
+      disposition: "scope-limitation",
+      owner: "candidate-scope",
+      action: "Keep the candidate import scoped to the researched model until a broader official section model is established."
+    };
+  }
+
+  return {
+    disposition: "fix-now",
+    owner: "candidate-review",
+    action: "Review and resolve in candidate artifacts before runtime import unless a later pass proves it needs external data."
   };
 }
 
