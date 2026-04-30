@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-30T03:08:00Z",
-  "currentPhase": "Phase 2 S7 complete; ready to start hallandsleden-knared-ekegarden",
+  "lastUpdated": "2026-04-30T04:05:00Z",
+  "currentPhase": "Phase 2 S8 complete and validated; ready to start hallandsleden-ekegarden-koarp",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -25,7 +25,8 @@
     "hallandsleden-gyltige-simlangsdalen",
     "hallandsleden-simlangsdalen-halmstad",
     "hallandsleden-simlangsdalen-mastocka",
-    "hallandsleden-mastocka-knared"
+    "hallandsleden-mastocka-knared",
+    "hallandsleden-knared-ekegarden"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -713,19 +714,39 @@
       "sectionNumber": "S8",
       "name": "Knäred - Ekegården",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-map-line-discovered-needs-gpx-cross-check",
-      "startEndCoordinateStatus": "official-map-line-endpoints-captured-needs-validation",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-official-source-lane-and-main-thread-baseline",
+      "routeGeometryStatus": "complete-official-gpx-api-geojson-canonical-stale-line-naturkartan-osm-suppressed",
+      "startEndCoordinateStatus": "complete-official-gpx-api-endpoints-high-confidence-s7-and-s9-continuity",
+      "commuteAccessStatus": "complete-strong-knared-transit-weak-ekegarden-transit-pickup-road-access-caveats",
+      "facilityResearchStatus": "complete-core-facilities-ready-shared-start-filtering-needed",
+      "rulesSafetyStatus": "complete-knareds-vv-smedjean-skonhult-vastralt-oxhult-currentness-caveats",
+      "synthesisStatus": "complete-section-json-written-and-validation-passed",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
         "Run six independent section research lanes and synthesize findings.",
         "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
         "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision.",
+        "S8 batch started using six research lanes.",
+        "Pay special attention to Knäred S7/S8 handoff, official 25 km medium route to Ekegården, official GPX Sodra_Knared_Ekegarden.gpx, whether old Västralt/Gula villan records belong to S8 or legacy S7 context, endpoint access/transit at Knäred and Ekegården, water/camping/fire/toilet evidence, protected-area/rules/currentness and final Södra handoff to Koarp.",
+        "Main-thread baseline found the official GPX Sodra_Knared_Ekegarden.gpx is HTTP 200, Last-Modified 2025-06-23, name Sodra_Knared_Ekegarden, desc Total: 25.1 km, 342 points, computed 25.057 km, start 56.520714,13.316460 and end 56.425017,13.199396.",
+        "Main-thread baseline found the Hallandsleden API geo_json agrees with the GPX: 342 points, computed 25.057 km, start 56.520714,13.316460, end 56.425017,13.199396, official rounded length 25 km and medium difficulty.",
+        "Main-thread baseline found Hallandsleden API line.geometry is suspect/partial for S8: 887 points, computed 19.697 km, start 56.51197914965451,13.300674268975854 and end 56.42678380943835,13.202940607443452, omitting the official Knäred start and ending about 292 m from the GPX end.",
+        "Main-thread baseline verified adjacent handoffs: S7 end 56.520666,13.316460 to S8 GPX start is about 5.34 m; S8 GPX end to S9 overview start is about 291.75 m and needs S9 GPX/API validation later.",
+        "Official page baseline: section crosses Lagan toward Västralt, continues through beech forest and roads, passes Vippentorpet, Midsommarstugan cave, Hjörneredssjöarna, Smedjeån, Horsabäck mill bridge, Laxtrappa/Safsan, then reaches Ekegården; page warns to take great care crossing highway 15.",
+        "Official page difficulty/accessibility baseline: Knäred-Timmershult runs on forest trails with steady climb/descent, then mostly easy roads with short path sections; page says no obstacles and bridges are present at water crossings, while boardwalks may have deeper surrounding water.",
+        "Official places API baseline returned 21 records when using output-template=trails.placeItem and trackSegments=knared-ekegarden. Important S8 candidates include Dricksvatten i Gula villan, Lägerplats Västralt, Vacker utsikt mot Knäred, Vippentorpet, Midsommarstugan, Hållplats Flammabygget, Laxtrappa vid Smedjeån, Safsan vid Smedjeån, Kvarnen vid Horsabäck and Lägerplats Ekegården, plus Knäred/Krokån/S7 carryover records to filter.",
+        "Facility baseline route-proximity check: Gula villan water is about 24 m from route km 1.20, Västralt shelter about 20 m from km 2.16, viewpoint toward Knäred about 17 m from km 2.43, Vippentorpet about 94 m from km 7.16, Midsommarstugan cave about 273 m from km 7.16, Flammabygget stop about 65 m from km 21.55, Laxtrappa/Safsan/Kvarnen Horsabäck about 52-94 m from km 24.77, and Lägerplats Ekegården about 18 m from km 24.95.",
+        "Naturkartan baseline found current title Knäred - Ekegården at slug vastralt-ekegarden-hallandsleden, visible length 18.0 km, and a GPX with 858 points/computed 24.774 km in reverse from Ekegården 56.4250166,13.1993960 to near Knäred 56.5176256,13.3165135; treat visible length/slug as stale but shape as possible corroboration pending geometry lane.",
+        "Access baseline: Knäred start transit is strong via official Hållplats Knäred/line 223 and OSM Smedjebacken stop area inherited from S7; official Hållplats Flammabygget is on/near the route around km 21.55, served by bus 228, but is about 2.48 km from Ekegården endpoint and needs transit lane validation as end fallback.",
+        "Official-source lane confirmed canonical identity/order/distance/difficulty, official route description, GPX/API metadata, 2024 Timmershult/Eketsbygget reroute currentness, official places/facilities and stale Naturkartan/map-line risks.",
+        "Route-geometry lane confirmed official GPX/API geo_json point count 342 and computed length 25.057 km, exact official direction Knäred to Ekegården, S7/S8 handoff 5.3 m, S8/S9 official handoff 0.0 m, and suppression of line.geometry, Naturkartan metadata and OSM legacy relations 7396989/7396990 as direct import geometry.",
+        "Facilities lane classified core import candidates at Knäred start services, Gula villan water, Västralt shelter/camp, viewpoint toward Knäred, Vippentorpet, Midsommarstugan side POI, Flammabygget access, Horsabäck/Smedjeån POIs and Ekegården camp; it marked Krokån/Dödsröset/Knäred north records as S7/start-area leakage to suppress or side-filter.",
+        "Transit-access lane confirmed Smedjebacken/Hållplats Knäred is strong start transit, Ekegården has no close bus stop, Sandvad/Smedjeåvägen are 6-7 km distant fallbacks, Ekegården shelter/service road/parking access needs vehicle-access verification, and no ferry/boat/rowboat transfer applies.",
+        "Field-report lane found no active S8 closure, confirmed 2024 official reroute at Timmershult/Eketsbygget with 2022 paper maps stale, supported highway 15 caution, mixed road/forest trail terrain, local muddy/icy/stony Hjörnered context and stale 18 km Västralt-Ekegården source risks.",
+        "Rules-safety lane found no active S8 closure, mapped Knäreds VV water-protection area on route km 0.71-2.56, Smedjeån Skönhult nature reserve on route km 18.66-20.06, Västralt/Oxhult nearby reserve cautions, direct/near forestry advisories including a 2026-04-21 notice near km 18.65, transient grass-fire/weather warning banners and Markarydsbanan future access watch.",
+        "S8 synthesis complete: section JSON written at sections/hallandsleden-knared-ekegarden.research.json. It is research-ready with caveats around canonical GPX/API geometry versus stale 18 km Västralt-Ekegården sources, weak Ekegården access, seasonal/no-water gaps, side-facility filtering, protected-area spans, 2024 reroute currentness and dynamic fire/forestry/transit checks.",
+        "Full Hallandsleden candidate JSON validation and git diff --check passed for S8 before commit."
       ]
     },
     "hallandsleden-ekegarden-koarp": {
@@ -4797,6 +4818,96 @@
       "synthesizedAt": "2026-04-30T03:05:00Z",
       "synthesisOutput": "sections/hallandsleden-mastocka-knared.research.json",
       "synthesisSummary": "Synthesized S7 Mästocka - Knäred into a research-ready section JSON after all six lane reports plus main-thread official/API/GPX/Naturkartan/OSM/places/reserve checks. Canonical geometry is official GPX/API geo_json, 300 points and 17.183 km computed, with exact Mästocka S6 and Knäred S8 handoffs. Hallandsleden line.geometry, Naturkartan and OSM relation 7396989 preserve stale 19.8 km Mästocka-Västralt-era linework and must be suppressed. Knäred transit is strong; Mästocka transit is weak and access relies on parking/pickup. Core Mästocka/Bollaltebygget/Krokån/Knäred facilities are ready with side/connection filtering for Västralt, Gula villan and Flammabadet."
+    },
+    {
+      "batchId": "hallandsleden-knared-ekegarden-initial-6-lane-2026-04-30",
+      "sectionId": "hallandsleden-knared-ekegarden",
+      "startedAt": "2026-04-30T03:10:00Z",
+      "status": "synthesized-section-json-written",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "nickname": "Carson"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "nickname": "Darwin"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "nickname": "Beauvoir the 2nd"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "nickname": "Poincare the 2nd"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "nickname": "Rawls the 2nd"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "nickname": "Kuhn the 2nd"
+        }
+      ],
+      "requestedOutputs": [
+        "official facts",
+        "geometry verification",
+        "facilities",
+        "transit/access",
+        "field reports",
+        "rules/safety/currentness"
+      ],
+      "notes": [
+        "Research only; agents must not edit files. Main thread owns final JSON/progress writes.",
+        "Focus on Knäred S7/S8 handoff, current official Knäred-Ekegården naming, official GPX/API/overview linework consistency, possible Västralt/Gula villan leakage from old S7/current S8 context, endpoint access/transit at Knäred and Ekegården, facilities/water/camping/fire/toilet evidence, protected-area/currentness and final Södra handoff to Koarp."
+      ],
+      "receivedReports": [
+        {
+          "lane": "official-sources",
+          "receivedAt": "2026-04-30T03:45:00Z",
+          "summary": "Confirmed canonical Knäred - Ekegården identity, Södra local order 8 / official order 24, 25 km, blue/medium, no official time, route description, GPX/API metadata, official facilities/places, 2024 Timmershult/Eketsbygget reroute notice and stale map-line/Naturkartan risks."
+        },
+        {
+          "lane": "route-geometry",
+          "receivedAt": "2026-04-30T03:45:00Z",
+          "summary": "Confirmed official GPX/API geo_json as canonical 342-point/25.057 km geometry from Knäred 56.520714,13.316460 to Ekegården 56.425017,13.199396. S7/S8 handoff is 5.3 m and S8/S9 official handoff is 0.0 m. Suppress Hallandsleden line.geometry, Naturkartan metadata and OSM legacy relations 7396989/7396990 as direct S8 geometry."
+        },
+        {
+          "lane": "facilities",
+          "receivedAt": "2026-04-30T03:45:00Z",
+          "summary": "Classified core candidates: Hållplats/Coop/Hotell/Pizzeria Knäred, Dricksvatten i Gula villan, Lägerplats Västralt, Vacker utsikt mot Knäred, Vippentorpet, Midsommarstugan side POI, Hållplats Flammabygget, Kvarnen/Laxtrappa/Safsan vid Smedjeån and Lägerplats Ekegården. Hjörnered facilities are side-area only; Krokån/Dödsröset/Knäred north records are S7/start-area leakage."
+        },
+        {
+          "lane": "transit-access",
+          "receivedAt": "2026-04-30T03:45:00Z",
+          "summary": "Confirmed Smedjebacken/Hållplats Knäred as high-confidence start transit within about 7-15 m. Ekegården has no close bus stop; Sandvad is about 6.02 km and Smedjeåvägen about 7.38 km away as distant line 227 fallbacks. Endpoint road/service access and parking near Ekegården need verification."
+        },
+        {
+          "lane": "field-reports",
+          "receivedAt": "2026-04-30T03:45:00Z",
+          "summary": "Found no active S8 closure. Confirmed 2024 official reroute at Timmershult/Eketsbygget and stale June 2022 paper-map warning. Route-app/local reports support highway 15 caution, forest-trail climb/descent near Knäred-Timmershult, roads/path mix, seasonally muddy/icy/stony Hjörnered local context and stale 18 km Västralt-Ekegården source risks."
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "receivedAt": "2026-04-30T03:45:00Z",
+          "summary": "Found no active closure/reroute. Mapped Knäreds VV water-protection span near km 0.71-2.56 and Smedjeån Skönhult reserve span around km 18.66-20.06. Västralt and Oxhult are nearby/adjoining cautions, not direct GPX spans. Recorded fire/dog/livestock/hunting/road/water/forestry/currentness caveats, including a 2026-04-21 forestry notice near km 18.65."
+        }
+      ],
+      "mainThreadBaseline": {
+        "completedAt": "2026-04-30T03:25:00Z",
+        "summary": "Main thread checked S8 official page, official GPX, Hallandsleden API map/places, Naturkartan and basic endpoint/access context. Official GPX/API geo_json is the likely canonical current S8 geometry: GPX Last-Modified 2025-06-23, 342 points, computed 25.057 km, start 56.520714,13.316460, end 56.425017,13.199396; API geo_json matches and reports 25 km/medium. Hallandsleden API line.geometry is suspect/partial at 887 points/19.697 km from 56.511979,13.300674 to 56.426784,13.202941, omitting the official Knäred start and ending about 292 m from the GPX endpoint. Official places API returned 21 records with core S8 candidates at Gula villan, Västralt, Vacker utsikt, Vippentorpet, Midsommarstugan, Flammabygget, Smedjeån/Horsabäck and Ekegården, plus Knäred/Krokån/S7 carryover records to filter. S7/S8 handoff is about 5.34 m; S8/S9 handoff needs S9 GPX/API validation. Naturkartan title is current but slug/visible length remain Västralt-Ekegården/18.0 km while the GPX is reverse 24.774 km, so use as corroboration/stale-source context. Start transit is strong at Knäred; Flammabygget line 228 appears as mid/near-end fallback about 2.48 km from Ekegården."
+      },
+      "completedAt": "2026-04-30T03:45:00Z",
+      "synthesizedAt": "2026-04-30T04:00:00Z",
+      "synthesisOutput": "sections/hallandsleden-knared-ekegarden.research.json",
+      "synthesisSummary": "Synthesized S8 Knäred - Ekegården into a research-ready section JSON after all six lane reports plus main-thread official/API/GPX/Naturkartan/OSM/places/rules checks. Canonical geometry is the official GPX/API geo_json, 342 points and 25.057 km computed, with exact/strong S7 and S9 handoffs. Hallandsleden line.geometry, Naturkartan visible 18 km metadata and OSM relation 7396990 preserve stale Västralt-Ekegården-era evidence and must be suppressed. Knäred transit is strong; Ekegården transit is weak and access relies on shelter/road/pickup/continuation caveats. Core Gula villan/Västralt/Vippentorpet/Smedjeån/Ekegården records are ready with water, side-facility, protected-area, 2024 reroute, forestry and dynamic fire/currentness caveats."
     }
   ],
   "sourceCoverage": {
@@ -4874,10 +4985,25 @@
       "fieldReports": "complete from field-report lane; no active closure found, wetness/waymarking/local-condition and stale Mästocka-Västralt risks recorded",
       "rulesSafety": "complete from rules-safety-currentness lane; Bollaltebygget/Prästaskogen/Mästocka/Västralt/currentness/forestry/fire/dog/hunting caveats recorded",
       "synthesis": "complete; section JSON written and validation passed before commit"
+    },
+    "hallandsleden-knared-ekegarden": {
+      "overview": "complete from trail.research.json overview pass",
+      "officialSources": "complete from official-source lane and main-thread official page/API/GPX/places baseline",
+      "routeGeometry": "complete from route-geometry lane and main-thread baseline; official GPX/API geo_json canonical, API line.geometry and Naturkartan/OSM stale/legacy sources suppressed",
+      "endpointCoordinates": "complete from official GPX/API endpoints and route-geometry lane; S7/S8 and S8/S9 continuity verified",
+      "facilities": "complete from facilities lane and main-thread official places/proximity checks; import/pending/suppress decisions ready for synthesis",
+      "commuteAccess": "complete from transit/access lane; strong Knäred transit, weak Ekegården transit and road/pickup caveats recorded",
+      "fieldReports": "complete from field-report lane; no active closure found, 2024 reroute/stale map warning and condition context recorded",
+      "rulesSafety": "complete from rules-safety-currentness lane; Knäreds VV/Smedjeån Skönhult/reserve/fire/forestry/currentness caveats recorded",
+      "synthesis": "complete; section JSON written and validation passed before commit"
     }
   },
   "knownGaps": [
-    "Only the overview and first twenty-three sections have been researched/synthesized; 12 later sections still need the six-lane workflow.",
+    "Only the overview and first twenty-four sections have been researched/synthesized; 11 later sections still need the six-lane workflow.",
+    "S8: official GPX/API geo_json is canonical; Hallandsleden line.geometry, Naturkartan visible metadata and OSM relation 7396990 preserve stale/partial Västralt-Ekegården/18 km evidence and should be suppressed for current S8 import.",
+    "S8: Ekegården endpoint has weak/no close public transit; model as shelter/road-access/pickup/continuation access unless later vehicle/parking/transit research improves it.",
+    "S8: Gula villan is the only official drinking-water point found and is seasonal 15 Apr-15 Oct; do not promise water at Västralt or Ekegården without stronger evidence.",
+    "S8: Knäreds VV water-protection, Smedjeån Skönhult reserve, nearby Västralt/Oxhult reserve cautions, road 15 crossing, 2024 Timmershult/Eketsbygget reroute and forestry/currentness issues need import-time recheck.",
     "S7: official GPX/API geo_json is canonical; Hallandsleden line.geometry, Naturkartan and OSM relation 7396989 preserve stale 19.8 km Mästocka-Västralt-era geometry and should be suppressed for current S7 import.",
     "S7: Västralt, Gula villan and Flammabadet are adjacent/side/next-section records, not current S7 core facilities unless a side-service or connector policy is chosen.",
     "S7: Knäred endpoint access is strong, but stop naming differs between official Hållplats Knäred and OSM Smedjebacken; normalize carefully.",
@@ -5072,9 +5198,9 @@
     "S6 research-ready caveat: old Assman-Mästocka 16-17 km route-app/tourism sources are stale and must be suppressed."
   ],
   "nextActions": [
-    "Validate S7 JSON/progress/README and commit before starting S8.",
-    "After S7 commit, start S8 hallandsleden-knared-ekegarden with a six-lane agent batch.",
-    "For S8, pay attention to Knäred S7/S8 endpoint handoff, official GPX Sodra_Knared_Ekegarden.gpx, old Västralt/Gula villan source leakage, Ekegården endpoint access, water/camping/fire/toilet evidence, and protected-area/currentness context."
+    "Commit S8 research files before starting S9.",
+    "Start S9 six-lane workflow for hallandsleden-ekegarden-koarp after the S8 commit.",
+    "For S9, pay attention to Ekegården S8/S9 handoff, Koarp final Södra endpoint and Skåneleden connection, official GPX Sodra_Ekegarden_Koarp.gpx, weak rural access, water/camping/fire/toilet evidence, endpoint facilities, protected-area/rules/currentness and stale source risks."
   ],
   "handoffNotes": [
     "Work resumed on 2026-04-29 in /workspaces/hike-trails-codex-hallandsleden-research on branch codex/hallandsleden-research.",
@@ -5198,7 +5324,8 @@
     "S7: use official GPX/API geo_json as canonical 300-point 17.183 km Mästocka-to-Knäred geometry; suppress API line.geometry, Naturkartan and OSM relation 7396989 as stale Mästocka-Västralt geometry.",
     "S7: Knäred endpoint transit is strong through official Hållplats Knäred/OSM Smedjebacken, but Mästocka start transit is weak and should be modeled as parking/pickup/continuation access.",
     "S7: import core Mästocka, Bollaltebygget, Krokån and Knäred endpoint facilities; keep Västralt, Gula villan and Flammabadet as side/connection/next-section context pending policy.",
-    "S8 next target: hallandsleden-knared-ekegarden, official page https://www.hallandsleden.se/etapp/knared-ekegarden, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Knared_Ekegarden.gpx, distance 25 km, medium; starts Knäred and ends Ekegården."
+    "S8 synthesized into sections/hallandsleden-knared-ekegarden.research.json; validate and commit before starting S9.",
+    "S9 next target: hallandsleden-ekegarden-koarp, official page https://www.hallandsleden.se/etapp/ekegarden-koarp, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Ekegarden_Koarp.gpx, distance 13 km, medium; starts Ekegården and ends Koarp."
   ],
   "filesWritten": [
     "README.md",
@@ -5226,7 +5353,8 @@
     "sections/hallandsleden-gyltige-simlangsdalen.research.json",
     "sections/hallandsleden-simlangsdalen-halmstad.research.json",
     "sections/hallandsleden-simlangsdalen-mastocka.research.json",
-    "sections/hallandsleden-mastocka-knared.research.json"
+    "sections/hallandsleden-mastocka-knared.research.json",
+    "sections/hallandsleden-knared-ekegarden.research.json"
   ],
   "meaningfulPasses": [
     {
@@ -5798,6 +5926,31 @@
       "id": "phase-2-s7-validation-passed-2026-04-30",
       "completedAt": "2026-04-30T03:08:00Z",
       "summary": "Validated all Hallandsleden candidate JSON files with jq and checked whitespace with git diff --check before committing S7."
+    },
+    {
+      "id": "phase-2-s8-initial-six-lane-batch-started-2026-04-30",
+      "completedAt": "2026-04-30T03:10:00Z",
+      "summary": "Started S8 Knäred - Ekegården six-lane research batch with agents Carson, Darwin, Beauvoir the 2nd, Poincare the 2nd, Rawls the 2nd and Kuhn the 2nd. Main thread retains all file-write ownership."
+    },
+    {
+      "id": "phase-2-s8-main-thread-baseline-2026-04-30",
+      "completedAt": "2026-04-30T03:25:00Z",
+      "summary": "Main thread baseline for S8 checked official page/API/GPX/places, Naturkartan and adjacent endpoint/access context. Official GPX/API geo_json appears canonical at 342 points/25.057 km with strong S7/S8 continuity; Hallandsleden line.geometry is a suspect 19.697 km partial line and Naturkartan keeps Västralt-Ekegården/18.0 km stale metadata despite a reverse 24.774 km GPX. Official places, Knäred start transit and Flammabygget near-end fallback are captured in progress while agent lanes continue."
+    },
+    {
+      "id": "phase-2-s8-six-lane-reports-received-2026-04-30",
+      "completedAt": "2026-04-30T03:45:00Z",
+      "summary": "Received usable S8 reports from all six lanes. Reports confirm canonical official GPX/API geo_json, stale Västralt-Ekegården/18 km geometry and source risks, strong Knäred transit, weak Ekegården transit, core Knäred/Gula villan/Västralt/Vippentorpet/Smedjeån/Ekegården facilities, no active closure found, 2024 Timmershult/Eketsbygget reroute currentness, Knäreds VV/Smedjeån Skönhult protected-area context and fire/dog/hunting/forestry/currentness caveats."
+    },
+    {
+      "id": "phase-2-s8-six-lane-synthesis-complete-2026-04-30",
+      "completedAt": "2026-04-30T04:00:00Z",
+      "summary": "Synthesized S8 Knäred - Ekegården into sections/hallandsleden-knared-ekegarden.research.json after all six lane reports plus main-thread official/API/GPX/Naturkartan/OSM/places/rules checks. Marked S8 research-ready with caveats around canonical official GPX/API geo_json versus stale Västralt-Ekegården/18 km sources, weak Ekegården transit/access, seasonal/no-water gaps, core/side facility filtering, protected-area spans, 2024 reroute, forestry/currentness and dynamic fire/transit checks."
+    },
+    {
+      "id": "phase-2-s8-validation-passed-2026-04-30",
+      "completedAt": "2026-04-30T04:05:00Z",
+      "summary": "Validated all Hallandsleden candidate JSON files with jq and checked whitespace with git diff --check before committing S8."
     }
   ]
 }
