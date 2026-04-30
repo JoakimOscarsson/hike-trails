@@ -1,8 +1,8 @@
 {
   "schemaVersion": "candidate-trail-overview-research-v1",
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-29",
-  "status": "phase-1-overview-complete-section-research-pending",
+  "lastUpdated": "2026-04-30",
+  "status": "phase-2-section-research-and-candidate-geometry-complete",
   "officialName": "Hallandsleden",
   "aliases": [
     "Hallandsleden",
@@ -13,7 +13,7 @@
     "Mellersta delleden",
     "Södra delleden"
   ],
-  "purpose": "Research-only candidate trail packet. Do not import automatically or integrate into runtime app data until section research has been reviewed and normalized.",
+  "purpose": "Research-only candidate trail packet. Do not import automatically or integrate into runtime app data until section research and candidate geometry have been reviewed and normalized.",
   "officialSources": [
     {
       "title": "Hallandsleden official home",
@@ -1473,13 +1473,33 @@
       }
     }
   ],
+  "geometryArtifacts": {
+    "status": "research-only-candidate-geometry-complete",
+    "generatedAt": "2026-04-30T18:05:00Z",
+    "manifest": "data/research/candidate-trails/hallandsleden/geometry/geometry-index.research.json",
+    "canonicalDirectory": "data/research/candidate-trails/hallandsleden/geometry/canonical",
+    "drawReadyDirectory": "data/research/candidate-trails/hallandsleden/geometry/draw-ready",
+    "officialGpxFetched": 35,
+    "canonicalGeojsonWritten": 35,
+    "drawReadyGeojsonWritten": 35,
+    "unresolvedMissingGeometrySections": 0,
+    "drawReadyMaxInternalGapMeters": 248.99,
+    "notes": [
+      "Canonical GeoJSON files preserve exact official GPX track/segment coordinates.",
+      "Draw-ready GeoJSON files linearly densify long intra-segment official jumps over 250 m for rendering only.",
+      "Official GPX track/segment breaks are preserved; no invented connector geometry was added.",
+      "N5, K3 and K4 official segment breaks and the official K4-to-K5 coastal network gap remain explicit import policy decisions rather than missing local geometry."
+    ]
+  },
   "importReadiness": {
     "overviewReadyForSectionResearch": true,
+    "sectionResearchComplete": true,
+    "candidateGeometryComplete": true,
     "readyForRuntimeIntegration": false,
     "blockers": [
-      "Need 6-lane per-section research and synthesis for all 35 official sections.",
-      "Need endpoint, commute, facility, and rules verification per section.",
-      "Need GPX/OSM/Naturkartan geometry checks, especially official API linework gaps and 2024 rerouted sections."
+      "Runtime integration still needs a separate explicit import task.",
+      "Need normalization decisions for endpoint snapping, official segment-break handling, side-service filtering, facility dedupe and taxonomy mapping.",
+      "Need live currentness checks for transit, closures/reroutes, fire status, beach/reserve rules and seasonal services immediately before publication/import."
     ]
   }
 }

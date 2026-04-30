@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-30T17:35:00Z",
-  "currentPhase": "Phase 2 complete: all 35 current official Hallandsleden sections have research-ready candidate files; K10 committed",
+  "lastUpdated": "2026-04-30T18:20:00Z",
+  "currentPhase": "Geometry repair complete: all 35 current official Hallandsleden sections now have local canonical and draw-ready candidate geometry artifacts",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -41,6 +41,27 @@
   ],
   "inProgressSections": [],
   "blockedSections": [],
+  "geometryRepairStatus": {
+    "status": "complete-research-only",
+    "generatedAt": "2026-04-30T18:05:00Z",
+    "manifest": "data/research/candidate-trails/hallandsleden/geometry/geometry-index.research.json",
+    "builder": "data/research/candidate-trails/hallandsleden/geometry/build-candidate-geometry.mjs",
+    "canonicalDirectory": "data/research/candidate-trails/hallandsleden/geometry/canonical",
+    "drawReadyDirectory": "data/research/candidate-trails/hallandsleden/geometry/draw-ready",
+    "officialGpxFetched": 35,
+    "canonicalGeojsonWritten": 35,
+    "drawReadyGeojsonWritten": 35,
+    "unresolvedMissingGeometrySections": 0,
+    "drawReadyMaxInternalGapMeters": 248.99,
+    "totalInsertedDrawReadyPoints": 779,
+    "policy": "Canonical files are exact official GPX conversions. Draw-ready files linearly densify long intra-segment jumps over 250 m for rendering only and preserve official GPX track/segment breaks; no invented connector geometry was added.",
+    "remainingGeometryPolicyDecisions": [
+      "Preserve or separately model official MultiLineString breaks for N5, K3 and K4.",
+      "Keep the official K4 Frillesås-to-K5 Steninge coastal network gap visible as a network gap unless an official connector is later published.",
+      "Decide endpoint snapping policy during normalization.",
+      "Treat draw-ready interpolated points as approximate rendering helpers, not field-verified navigation turns."
+    ]
+  },
   "sectionStatusById": {
     "hallandsleden-alvsaker-naturum-fjaras-bracka": {
       "sectionId": "hallandsleden-alvsaker-naturum-fjaras-bracka",
@@ -6075,7 +6096,11 @@
     }
   },
   "knownGaps": [
-    "All 35 current official Hallandsleden sections have been researched and synthesized into candidate section files; remaining work is normalization/import planning only.",
+    "All 35 current official Hallandsleden sections have been researched and synthesized into candidate section files, and all 35 now have local canonical and draw-ready geometry artifacts under geometry/.",
+    "Geometry repair pass: geometry-index.research.json records 35 fetched official GPX sources, 35 canonical GeoJSON files, 35 draw-ready GeoJSON files, 0 unresolved missing-geometry sections, 779 inserted draw-ready interpolation points, and a draw-ready max internal gap of 248.99 m.",
+    "Geometry repair policy: canonical files preserve exact official GPX coordinates; draw-ready files linearly densify only long intra-segment jumps over 250 m for rendering; official GPX track/segment breaks are preserved and no invented connector geometry was added.",
+    "Geometry repair preserved official breaks: N5 has three official GPX segment breaks up to about 1908.67 m, K3 has two official GPX segment breaks up to about 202.56 m, and K4 has one official GPX segment break about 112.88 m; these are now explicit MultiLineString breaks in local geometry artifacts.",
+    "Geometry repair preserved official network gap: K4 Frillesås still does not connect to K5 Steninge in the current official coastal inventory; keep this as a visible route-network gap unless an official connector is later published.",
     "K10 research-ready caveat: official GPX/API geo_json is a 182-point LineString from 56.514711,12.949898 to 56.432153,12.906457, official 12 km, GPX desc 12.2 km and computed 12.144 km; use official geometry as canonical but keep it planning-grade until the 762.82 m sparse segment near the early beach corridor is manually QAed.",
     "K10 research-ready caveat: K9-to-K10 Mellbystrand handoff is about 10.82 m; Båstad station/Skåneleden terminal context is strong but Skåneleden connector geometry should not be imported as K10 geometry.",
     "K10 research-ready caveat: official places API returned 49 records with heavy side-service leakage; import route-adjacent official toilets, beach records, core Skummeslöv services and Båstad station access, and suppress or side-model far Hemmeslövsstrand, Malen and Båstad town/harbour records.",
@@ -6335,7 +6360,7 @@
   ],
   "nextActions": [
     "Use this branch as the research-ready Hallandsleden candidate packet; do not integrate it into runtime data without a separate explicit import task.",
-    "Next safe project step after this research branch is a normalization/import-planning review that resolves geometry QA flags, endpoint snapping, taxonomy mapping, side-service filtering, facility dedupe and live currentness checks without writing runtime app data."
+    "Next safe project step after this research branch is a normalization/import-planning review that uses geometry/geometry-index.research.json as the geometry manifest and resolves official segment-break policy, endpoint snapping, taxonomy mapping, side-service filtering, facility dedupe and live currentness checks without writing runtime app data."
   ],
   "handoffNotes": [
     "Work resumed on 2026-04-29 in /workspaces/hike-trails-codex-hallandsleden-research on branch codex/hallandsleden-research.",
@@ -6343,6 +6368,7 @@
     "Do not edit source/runtime/generated app data. Do not run forbidden generated-data/import commands.",
     "Overview files are complete for Phase 1.",
     "K10 Mellbystrand - Båstad station was synthesized into sections/hallandsleden-mellbystrand-bastad-station.research.json on 2026-04-30; all 35 current official Hallandsleden sections now have research-ready candidate files. JSON validation and git diff --check passed before the K10 commit.",
+    "Geometry repair pass on 2026-04-30 generated research-only canonical and draw-ready GeoJSON for all 35 sections under data/research/candidate-trails/hallandsleden/geometry/. The manifest records 0 unresolved missing-geometry sections and preserves official segment/network gaps without invented connectors.",
     "N7 initial six-lane agent batch started 2026-04-29T19:50:16Z with agents Popper, Newton, Bernoulli, Euler, Pasteur, and Mencius, and was synthesized into sections/hallandsleden-akulla-astad.research.json at 2026-04-29T20:06:11Z.",
     "N8 initial six-lane agent batch started 2026-04-29T20:09:28Z with agents Goodall, Kepler, Peirce, Hilbert, Kant, and Volta, and was synthesized into sections/hallandsleden-varberg-akulla.research.json at 2026-04-29T20:26:09Z.",
     "M1 initial six-lane agent batch started 2026-04-29T20:28:19Z with agents Einstein, Wegener, Ohm, Rawls, Hooke, and Arendt; Einstein errored from context exhaustion and was replaced by Turing for official-source research. M1 synthesized into sections/hallandsleden-akulla-ullared.research.json at 2026-04-29T20:45:45Z.",
@@ -7415,6 +7441,11 @@
       "id": "phase-2-k10-validation-passed-2026-04-30",
       "completedAt": "2026-04-30T17:30:00Z",
       "summary": "Validated the K10 section JSON, all Hallandsleden candidate JSON files and whitespace before committing K10."
+    },
+    {
+      "id": "geometry-repair-local-candidate-artifacts-generated-2026-04-30",
+      "completedAt": "2026-04-30T18:20:00Z",
+      "summary": "Generated research-only local candidate geometry for all 35 Hallandsleden sections from official GPX sources. Wrote canonical GeoJSON files preserving exact official GPX coordinates, draw-ready GeoJSON files that linearly densify long intra-segment jumps over 250 m for rendering, geometry/geometry-index.research.json with source hashes/gaps/caveats, and geometry/README.md. The manifest records 0 unresolved missing-geometry sections, draw-ready max internal gap 248.99 m, 779 inserted draw-ready interpolation points, preserved official segment breaks for N5/K3/K4 and preserved the official K4-to-K5 coastal network gap."
     }
   ]
 }

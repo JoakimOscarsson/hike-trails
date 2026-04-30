@@ -10,6 +10,7 @@ Phase 1 overview is complete from the live official Hallandsleden site/API as ac
 
 - `trail.research.json`: whole-trail overview, official source URLs, subtrail structure, section inventory, overview rules/currentness risks.
 - `research-progress.json`: resumable progress ledger for this trail.
+- `geometry/`: research-only candidate geometry artifacts generated from all 35 official GPX files. `canonical/*.geojson` preserves exact official GPX track/segment coordinates, `draw-ready/*.geojson` linearly densifies long intra-segment jumps over 250 m for rendering while preserving official segment breaks, and `geometry-index.research.json` records source hashes, gaps and caveats.
 - `sections/hallandsleden-alvsaker-naturum-fjaras-bracka.research.json`: N1 section research synthesized from the required six-lane agent batch.
 - `sections/hallandsleden-naturum-fjaras-bracka-askhults-by.research.json`: N2 section research synthesized from the required six-lane agent batch.
 - `sections/hallandsleden-askhults-by-stattared.research.json`: N3 section research synthesized from the required six-lane agent batch.
@@ -103,4 +104,4 @@ The inland route is branched rather than a single line. It meets Bohusleden at Ã
 
 ## Next Safe Step
 
-All current official Hallandsleden sections have research-ready candidate files. The next safe step is a normalization/import-planning review that reads these candidate files, resolves geometry QA flags, endpoint snapping, side-service policy, facility dedupe, currentness checks and taxonomy mapping, without writing runtime app data until an explicit import task is approved.
+All current official Hallandsleden sections have research-ready candidate files and local candidate geometry artifacts. The next safe step is a normalization/import-planning review that reads these candidate files, uses `geometry/geometry-index.research.json` as the geometry manifest, resolves endpoint snapping, official segment-break policy, side-service policy, facility dedupe, currentness checks and taxonomy mapping, without writing runtime app data until an explicit import task is approved.

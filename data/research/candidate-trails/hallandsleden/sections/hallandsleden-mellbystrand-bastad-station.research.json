@@ -185,7 +185,7 @@
     }
   },
   "routeGeometry": {
-    "summary": "Official GPX/API geo_json is the canonical K10 route geometry. It is directionally correct and internally consistent, but the 182-point single LineString contains one 762.82 m consecutive-point jump near the early beach segment. Treat as planning-grade until that sparse segment is manually QAed for navigation use.",
+    "summary": "Official GPX/API geo_json is the canonical K10 route geometry. It is directionally correct and internally consistent, but the 182-point single LineString contains one 762.82 m consecutive-point jump near the early beach segment. Local candidate geometry now includes exact canonical GeoJSON plus draw-ready GeoJSON that linearly densifies long intra-segment jumps for rendering; field/navigation QA is still needed before treating the densified segment as turn-detail evidence.",
     "officialGeometryGrade": "planning-grade",
     "geometryDirection": "Mellbystrand to Båstad station, matching official section order",
     "geometryFiles": [
@@ -335,8 +335,27 @@
         "reason": "Nearby/overlapping bicycle-route context, not Hallandsleden K10 canonical hiking geometry."
       }
     ],
+    "localGeometryArtifacts": {
+      "generatedAt": "2026-04-30T18:05:00Z",
+      "manifest": "data/research/candidate-trails/hallandsleden/geometry/geometry-index.research.json",
+      "canonicalGeojson": {
+        "path": "data/research/candidate-trails/hallandsleden/geometry/canonical/hallandsleden-mellbystrand-bastad-station.geojson",
+        "description": "Exact official GPX track coordinates converted to GeoJSON.",
+        "pointCount": 182,
+        "maxInternalGapMeters": 762.82,
+        "confidence": "high for official source provenance"
+      },
+      "drawReadyGeojson": {
+        "path": "data/research/candidate-trails/hallandsleden/geometry/draw-ready/hallandsleden-mellbystrand-bastad-station.geojson",
+        "description": "Official GPX geometry with long intra-segment jumps over 250 m linearly densified for rendering only.",
+        "pointCount": 209,
+        "insertedPointCount": 27,
+        "maxInternalGapMeters": 244.77,
+        "confidence": "medium for rendering continuity; inserted points are approximate interpolation, not field-verified route turns"
+      }
+    },
     "openGeometryQuestions": [
-      "Manually QA the 762.82 m sparse GPX/API segment before navigation-grade release.",
+      "Draw-ready local geometry resolves the renderer-facing sparse-segment issue by linearly densifying the 762.82 m official GPX/API jump to a maximum internal gap of 244.77 m; manually QA the segment before navigation-grade turn-detail release.",
       "Decide whether to snap the 10.82 m K9/K10 Mellbystrand handoff during normalization or preserve official coordinates exactly.",
       "Decide how the graph should expose the Båstad station Hallandsleden-to-Skåneleden terminal connection without importing Skåneleden connector geometry into K10."
     ]
@@ -1158,7 +1177,7 @@
       "sources": [
         "Official GPX 182 points and API geo_json 182 coordinates both include a 762.82 m point-to-point jump near the early beach segment"
       ],
-      "resolution": "The geometry is official and internally consistent, but grade it planning-grade pending manual QA.",
+      "resolution": "Use canonical local GeoJSON for exact official provenance and draw-ready local GeoJSON for rendering. The draw-ready file linearly densifies long intra-segment jumps but does not replace field/navigation QA.",
       "importImpact": "medium-high"
     },
     {
@@ -1245,11 +1264,11 @@
     {
       "iteration": "synthesis",
       "completedAt": "2026-04-30T17:20:00Z",
-      "summary": "Synthesized K10 into this research JSON. The section is marked research-ready with caveats and should not be integrated into runtime data until normalization/import decisions are made."
+      "summary": "Synthesized K10 into this research JSON. A later geometry repair pass generated local canonical and draw-ready GeoJSON artifacts under geometry/. The section is marked research-ready with caveats and should not be integrated into runtime data until normalization/import decisions are made."
     }
   ],
   "openQuestions": [
-    "Manually QA the official GPX/API 762.82 m sparse segment near the early beach section before navigation-grade import.",
+    "Use the local draw-ready GeoJSON artifact for rendering if a renderer cannot tolerate the official 762.82 m sparse segment; manually QA the segment before navigation-grade turn-detail import.",
     "Decide endpoint snapping for the approximately 10.82 m K9-to-K10 Mellbystrand handoff and the Båstad station/Skåneleden terminal context.",
     "Confirm whether OSM-only Mellbyvägen drinking water is public/current before importing it.",
     "Confirm whether OSM-only BBQ/grill candidates at Mellbystrand and Allarp/Hemmeslöv are public/current and legal to use under local/reserve fire rules.",
@@ -1263,12 +1282,12 @@
     "readyForNormalization": true,
     "readyForRuntimeImport": false,
     "recommendedGeometrySource": "official GPX/API geo_json",
-    "geometryReadiness": "planning-grade until 762.82 m sparse segment is manually QAed",
+    "geometryReadiness": "canonical official GeoJSON and draw-ready densified GeoJSON are available locally; rendering gap is addressed, but navigation-grade turn detail still needs manual QA around the original 762.82 m sparse segment",
     "facilityReadiness": "route-adjacent official toilets, beach records, core Skummeslöv services and Båstad station access are ready for normalization; OSM-only water/BBQ and far side-service records need verification or suppression",
     "commuteAccessReadiness": "strong at both endpoints, with Mellbystrand bus/parking start and Båstad station bus/train/toilet/parking end; verify live cross-county schedules before publication",
     "rulesReadiness": "Södra Skummeslöv reserve rules and Laholm beach rules are well-supported; dynamic fire/currentness and reserve-work/burn checks remain required",
     "blockedBy": [
-      "Navigation-grade import should wait for manual QA of the official 762.82 m sparse geometry segment.",
+      "Navigation-grade turn-detail import should wait for manual QA of the original official 762.82 m sparse geometry segment.",
       "Public water/fire facility import should wait for confirmation of OSM-only water/BBQ candidates."
     ],
     "recommendedNextStep": "Keep K10 in candidate research only. During normalization, use official GPX/API geometry with QA flag, import a curated facility/access set, suppress far official place-feed leakage, and run live currentness checks for transit, fire, beach rules, reserve works/burns and station services."
