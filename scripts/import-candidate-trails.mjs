@@ -128,6 +128,50 @@ const importConfigs = {
       url: "https://www.vastsverige.com/skovde/leder/vastra-vatterleden/",
       lastFetchedAt: "2026-04-30"
     }
+  },
+  hallandsleden: {
+    name: "Hallandsleden",
+    region: "Hallands län / Västra Götalands län / Skåne län",
+    country: "Sweden",
+    difficulty: "Varied",
+    estimatedTime: "35 stages",
+    season: "April-October",
+    routeType: "Trail network",
+    description:
+      "A long-distance trail network through Halland, with northern, central, southern and coastal chains linking forests, lakes, towns, beaches and protected areas.",
+    gettingThere:
+      "Use the selected chain and section endpoints for access planning. Kungsbacka, Varberg, Ullared, Oskarström, Halmstad, Knäred and Båstad have the strongest public-transport context; several rural endpoints need current timetable checks.",
+    utilities: [
+      "Services vary sharply by chain and section; town and resort endpoints are much stronger than inland forest stages.",
+      "Shelters, drinking water, toilets, fire permissions, coastal rules, opening hours and transit should be checked before publication."
+    ],
+    waterSources: [
+      "Use only listed verified water points as refill context.",
+      "No natural water should be treated as potable without treatment."
+    ],
+    notes: [
+      "Imported from normalized candidate research on 2026-04-30.",
+      "The official overview headline is about 612 km; runtime distance uses the normalized section display distances.",
+      "The coastal route has an official gap between Frillesås and Steninge until future coastal stages are published.",
+      "Protected-area, beach, dog, hunting, forestry and fire-currentness warnings remain publication-time checks."
+    ],
+    selectableRouteGroupKinds: ["mainline", "branch"],
+    routeGroupNames: {
+      "hallandsleden-norra": "Norra delleden",
+      "hallandsleden-varberg-branch": "Varberg-Åkulla",
+      "hallandsleden-mellersta-west": "Mellersta västra grenen",
+      "hallandsleden-mellersta-east": "Mellersta östra grenen",
+      "hallandsleden-sodra-west": "Södra västra grenen",
+      "hallandsleden-sodra-gyltige-branch": "Kvarnforsen-Gyltige",
+      "hallandsleden-sodra-east": "Södra östra grenen",
+      "hallandsleden-kustleden-north": "Kusten norr",
+      "hallandsleden-kustleden-south": "Kusten söder"
+    },
+    source: {
+      provider: "hallandsleden/official-gpx-candidate-research",
+      url: "https://hallandsleden.se/",
+      lastFetchedAt: "2026-04-30"
+    }
   }
 };
 
@@ -161,12 +205,12 @@ async function buildTrailSystem(trailId, config) {
 
   const sectionGeometryById = new Map((routeGeometryIndex.sections ?? []).map((section) => [section.sectionId, section]));
   const normalFacilitiesBySectionId = groupNormalFacilities(facilities.records ?? []);
-  const orderedSections = (routeSections.sections ?? [])
+  const orderedSections = [...(routeSections.sections ?? [])]
+    .sort((left, right) => sectionOrderValue(left) - sectionOrderValue(right))
     .map((section) =>
       toRuntimeSection(trailId, section, sectionGeometryById.get(section.sectionId), normalFacilitiesBySectionId.get(section.sectionId) ?? [])
-    )
-    .sort((left, right) => (left.stageNumber ?? 0) - (right.stageNumber ?? 0));
-  const runtimeRouteGroups = toRuntimeRouteGroups(routeTopology.routeGroups ?? []);
+    );
+  const runtimeRouteGroups = toRuntimeRouteGroups(routeTopology.routeGroups ?? [], config);
   const runtimeConnections = toRuntimeConnections(routeTopology.connections ?? [], orderedSections);
   const locationStart = orderedSections[0]?.endpointCoordinates?.start;
   const bounds = await routeBounds(trailId, orderedSections, sectionGeometryById);
@@ -247,7 +291,7 @@ function groupNormalFacilities(records) {
   const grouped = new Map();
   for (const record of records) {
     if (record.state !== "normal") continue;
-    if (!record.sectionId || !isLatLonPair(record.coordinatesLatLon)) continue;
+    if (!record.sectionId) continue;
     if (!grouped.has(record.sectionId)) grouped.set(record.sectionId, []);
     grouped.get(record.sectionId).push(record);
   }
@@ -260,7 +304,7 @@ function toRuntimeFacility(record) {
     name: record.name,
     type: record.primaryType,
     sectionId: record.sectionId,
-    coordinates: record.coordinatesLatLon,
+    ...(isLatLonPair(record.coordinatesLatLon) ? { coordinates: record.coordinatesLatLon } : {}),
     description: facilityDescription(record),
     source: {
       provider: "candidate-research",
@@ -292,14 +336,17 @@ function sectionWaterSources(facilities) {
   return labels.length ? labels : ["No verified potable water source is listed for this section; carry water and treat natural water."];
 }
 
-function toRuntimeRouteGroups(routeGroups) {
+function toRuntimeRouteGroups(routeGroups, config) {
+  const selectableKinds = new Set(config.selectableRouteGroupKinds ?? ["mainline"]);
   return routeGroups.map((group) => ({
     id: group.groupId ?? group.id,
-    name: group.name ?? humanizeId(group.groupId ?? group.id),
-    kind: group.kind,
+    name: config.routeGroupNames?.[group.groupId ?? group.id] ?? group.name ?? humanizeId(group.groupId ?? group.id),
+    kind: selectableKinds.has(group.kind) ? "mainline" : group.kind,
     sectionIds: group.sectionIds ?? [],
     connectsToSectionIds: group.connectsToSectionIds ?? [],
-    notice: group.status ? `Imported from candidate topology: ${group.status}.` : undefined
+    notice: group.status
+      ? `Imported from candidate topology: ${group.status}${selectableKinds.has(group.kind) && group.kind !== "mainline" ? `; candidate ${group.kind} shown as a selectable chain` : ""}.`
+      : undefined
   }));
 }
 
@@ -351,7 +398,7 @@ function buildPresets(sections, routeGroups) {
     presets.push({
       id: isOnlyGroup ? "full-route" : `full-${group.id}`,
       name: isOnlyGroup ? "Full route" : `Full ${group.name}`,
-      description: `All ${groupSections.length} stages in ${group.name}.`,
+      description: `All ${groupSections.length} stage${groupSections.length === 1 ? "" : "s"} in ${group.name}.`,
       startSectionId: groupSections[0].id,
       endSectionId: groupSections.at(-1).id
     });
@@ -473,6 +520,13 @@ function endpointLatLon(endpoints, position) {
     if (isLatLonPair(coordinates)) return coordinates;
   }
   return undefined;
+}
+
+function sectionOrderValue(section) {
+  if (typeof section.order === "number" && Number.isFinite(section.order)) return section.order;
+  if (typeof section.sectionNumber === "number" && Number.isFinite(section.sectionNumber)) return section.sectionNumber;
+  const match = String(section.sectionNumber ?? "").match(/(\d+)/);
+  return match ? Number(match[1]) : 0;
 }
 
 function isLatLonPair(value) {
