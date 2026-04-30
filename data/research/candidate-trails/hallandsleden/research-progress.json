@@ -1,7 +1,7 @@
 {
   "trailId": "hallandsleden",
-  "lastUpdated": "2026-04-29T23:59:59Z",
-  "currentPhase": "Phase 2 section research complete through hallandsleden-kvarnforsen-gyltige; next section is hallandsleden-gyltige-simlangsdalen",
+  "lastUpdated": "2026-04-30T00:20:00Z",
+  "currentPhase": "Phase 2 section research complete through hallandsleden-gyltige-simlangsdalen; next section is hallandsleden-simlangsdalen-halmstad",
   "completedSections": [
     "hallandsleden-alvsaker-naturum-fjaras-bracka",
     "hallandsleden-naturum-fjaras-bracka-askhults-by",
@@ -21,7 +21,8 @@
     "hallandsleden-vessigebro-frodeparken",
     "hallandsleden-frodeparken-oskarstrom",
     "hallandsleden-oskarstrom-gyltige",
-    "hallandsleden-kvarnforsen-gyltige"
+    "hallandsleden-kvarnforsen-gyltige",
+    "hallandsleden-gyltige-simlangsdalen"
   ],
   "inProgressSections": [],
   "blockedSections": [],
@@ -522,19 +523,41 @@
       "sectionNumber": "S4",
       "name": "Gyltige - Simlångsdalen",
       "overviewStatus": "complete-from-official-overview-pass",
-      "officialSourceStatus": "section-page-and-official-api-discovered",
-      "routeGeometryStatus": "official-map-line-discovered-needs-gpx-cross-check",
-      "startEndCoordinateStatus": "official-map-line-endpoints-captured-needs-validation",
-      "commuteAccessStatus": "not-started",
-      "facilityResearchStatus": "not-started",
-      "rulesSafetyStatus": "overview-rules-captured-section-specific-not-started",
-      "synthesisStatus": "not-started",
-      "importReadiness": "not-ready-section-research-required",
+      "officialSourceStatus": "complete-from-official-source-lane",
+      "routeGeometryStatus": "complete-from-route-geometry-lane",
+      "startEndCoordinateStatus": "complete-from-route-geometry-and-official-source-lanes",
+      "commuteAccessStatus": "complete-from-transit-access-lane",
+      "facilityResearchStatus": "complete-from-facilities-lane",
+      "rulesSafetyStatus": "complete-from-rules-safety-currentness-lane",
+      "synthesisStatus": "complete-section-json-written",
+      "importReadiness": "research-ready-with-caveats",
       "remainingQuestions": [
         "Run six independent section research lanes and synthesize findings.",
         "Verify endpoint labels and coordinates against official GPX, section page, OSM/Naturkartan, and access points.",
         "Find closest transit/access point at both endpoints and verify coordinates.",
-        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision."
+        "Collect facilities/water/camping/fire/toilet records with coordinates and import decision.",
+        "S4 batch started using six research lanes.",
+        "Pay special attention to Gyltige shared endpoint and water/toilet conflict, Simlångsdalen access/service endpoint, highway 25 crossing, Hule/Breared/Sutarebo/Fylleån protected-area contexts, official GPX/API geometry and old Gyltige-Assman/Simlångsdalen naming risks.",
+        "Main-thread baseline: official GPX/API geo_json is 78 points/8.107 km from Gyltige 56.767296,13.182113 to Simlångsdalen 56.720758,13.130572; GPX desc Total: 8.1 km, timestamp 2025-06-23T09:26:50+02:00.",
+        "Main-thread baseline: API length_in_meters 7900/easy/time empty; official page distance 7.9 km while GPX desc/computed length are about 8.1 km.",
+        "Main-thread baseline: Hallandsleden API line.geometry is 184 points/12.713 km from 56.774162,13.175718 to 56.689895,13.158974, starts 897 m from GPX start and ends beyond official endpoint; likely stale/branch/overview line to suppress unless geometry lane finds otherwise.",
+        "Main-thread baseline: Naturkartan site 22049 title/shape are current Gyltige-Simlångsdalen but slug remains gyltige-assman-hallandsleden; 74-point/7.937 km shape matches official endpoints.",
+        "Main-thread baseline: official page says route crosses Fylleån, follows old Bolmenbanan railway embankment through lake valley, crosses road/highway 25 with explicit caution, Hule campsite/northern reserve, bathing/picnic/fire/toilet south of road 25 and final embankment to bus stop.",
+        "Main-thread baseline: official places API returned 17 records; import decisions needed for Gyltige/Hule facilities, Simlångsdalen bus/services, Hule reserve/Simlången/Bolmenbanan/Fylleån, and off-route Danska Fall/Gårdshult/Paulssons/Tallhöjden side records.",
+        "Main-thread baseline: S4 start at Gyltige is 7.81 m from S2 end and 9.21 m from S3 end; S4 end at Simlångsdalen is 6.46 m from S5 start and 4.95 m from S6 start, making Simlångsdalen another branch node.",
+        "Official-source lane confirmed S4 identity/order, 7.9 km official distance/API 7900 m, easy/green difficulty, no official time, official GPX metadata timestamp 2025-06-23T09:26:50+02:00 and HTTP last-modified 2025-06-27.",
+        "Official-source lane confirmed official GPX/API geo_json endpoints and branch topology: Gyltige is shared with S2/S3 endpoints and Simlångsdalen is shared with S5/S6 starts.",
+        "Official-source lane recorded Gyltige water/toilet contradiction, Hule toilet distance variation, Hule reserve rules, Simlångsdalen bus/service POIs and Naturkartan old slug risk.",
+        "Transit-access lane found S4 start public transport weak at Gyltige; practical start access is parking/pickup/continuation, while Simlångsdalen endpoint has strong bus access at Hallandstrafiken Simlångsdalen stop about 14 m from the endpoint.",
+        "Transit-access lane recorded Gyltige parking about 83 m from official start and Simlångsdalen adjacent/nearby parking options; use Hallandstrafiken planner for current line 318 departures and avoid treating highway 25 shoulder as pickup/dropoff.",
+        "Route-geometry lane confirmed official GPX and Hallandsleden API geo_json are identical at 78 points/8.107 km from Gyltige 56.767296,13.182113 to Simlångsdalen 56.720758,13.130572; use official GPX/API geo_json for import.",
+        "Route-geometry lane confirmed Naturkartan current title/shape endpoint-aligned but simplified at 7.937 km and old slug gyltige-assman-hallandsleden; OSM relation 7392725 corroborates but has ordering gaps; suppress Hallandsleden line.geometry 12.713 km stale/branch line.",
+        "Facilities lane categorized import candidates: Gyltige shelter/fireplace/parking, Fylleån, Simlången valley, Bolmenbanan, Hule reserve/shelter/fireplace/toilet, Brearedssjön/Vargaslätten side facilities, Simlångsdalen bus/info/services and selected village services.",
+        "Facilities lane marked Gyltige drinking water/toilet, Simlångsgården/Gyltige camping, Qstar and Paulssons Paleo B&B as pending/metadata or off-route; suppress Hålväg, Gårdshult, Danska Fall and other leakage for S4.",
+        "Rules-safety lane found no active S4 closure/reroute; import high-priority highway 25 crossing warning around km 7.24, Fylleån Natura 2000 crossing around km 0.56-0.60, Simlångsdalen-Hule water-protection span around km 4.40-7.22, Hule nature reserve rules around km 6.18-7.01 and dynamic fire/dog/hunting/forestry cautions.",
+        "Field-report lane found no active S4 closure/reroute and supports official highway 25 crossing warning.",
+        "Field-report lane supports easy/flat Bolmenbanan railway-embankment surface but most detailed reports are stale/adjacent.",
+        "Field-report lane flags Hule water as not confirmed potable/no tap and old Gyltige-Assman source risk."
       ]
     },
     "hallandsleden-simlangsdalen-halmstad": {
@@ -3875,6 +3898,250 @@
       "synthesizedAt": "2026-04-29T23:59:59Z",
       "synthesisOutput": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-kvarnforsen-gyltige.research.json",
       "synthesisSummary": "S3 synthesized as research-ready-with-caveats. Official GPX/API geo_json is canonical; Hallandsleden line.geometry is empty; OSM/Naturkartan/Pacer/Wikiloc preserve old Sandsjön composite semantics. Key caveats: Kvarnforsen first-point spur and M6 handoff, weak endpoint transit, Gyltige water/toilet conflict, Kvarnforsen access-dependent water/shower/firewood, forestry/currentness risks and Fylleån Natura crossing."
+    },
+    {
+      "batchId": "hallandsleden-gyltige-simlangsdalen-initial-6-lane-2026-04-29",
+      "sectionId": "hallandsleden-gyltige-simlangsdalen",
+      "startedAt": "2026-04-29T23:59:59Z",
+      "status": "complete-section-synthesized",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "nickname": "Carson"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "nickname": "Darwin"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "nickname": "Beauvoir the 2nd"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "nickname": "Poincare the 2nd"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "nickname": "Rawls the 2nd"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "nickname": "Kuhn the 2nd"
+        }
+      ],
+      "requestedOutputs": [
+        "official facts",
+        "geometry verification",
+        "facilities",
+        "transit/access",
+        "field reports",
+        "rules/safety/currentness"
+      ],
+      "notes": [
+        "Research only; agents must not edit files. Main thread owns final JSON/progress writes.",
+        "Focus on Gyltige shared endpoint, Simlångsdalen endpoint, highway 25 crossing, short-stage geometry, endpoint facilities/water/toilet conflicts, transit, protected areas/currentness and stale Gyltige-Assman/older source risks."
+      ],
+      "receivedReports": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb93-3a81-7e51-83f5-ecca45a900b6",
+          "receivedAt": "2026-04-30T00:05:00Z",
+          "summary": "S4 official-source lane confirmed canonical identity Gyltige - Simlångsdalen, official order 20, Södra local order 4, Södra delleden, official 7.9 km/API 7900 m and easy/green difficulty with no official time. Official GPX Sodra_Gyltige_Simlangsdalen has metadata time 2025-06-23T09:26:50+02:00, HTTP last-modified Fri, 27 Jun 2025 12:21:19 GMT, bounds 56.717943,13.130572 to 56.771376,13.182172, first point 56.767296,13.182113 and last point 56.720758,13.130572. Official description crosses Fylleån, follows the old Bolmenbanan railway embankment through the lake valley, passes Hule, warns to take great care crossing highway 25 and finishes by the Simlångsdalen bus stop.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/gyltige-simlangsdalen",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Gyltige_Simlangsdalen.gpx",
+            "https://www.naturkartan.se/en/hallands-lan/gyltige-assman-hallandsleden",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/hule.html",
+            "https://www.hallandsleden.se/item/kolla-brandrisken-4/h1orikco24kzjjuuyczmerpw6s8fe3it",
+            "https://www.destinationhalmstad.se/en/experience/nature-and-the-outdoor-life/hallandsleden---435-km-hiking-trail"
+          ],
+          "sourceFindings": [
+            "S4 start is within about 8-9 m of S2/S3 Gyltige endpoints; S4 end is within about 5-7 m of S5/S6 Simlångsdalen starts.",
+            "Gyltige official place has two shelters and fireplace; Hallandsleden section page says no toilet while Destination Halmstad says fireplace, drinking water and dry toilet.",
+            "Hule official place has shelter, fireplace and nearby dry toilet; section page says toilet about 50 m from shelter while place text says about 80 m on the other side of the embankment.",
+            "Simlångsdalen endpoint services include Hallandstrafiken stop Simlångsdalen, Tempo Simlångsdalen and Tallhöjden Hotell & Restaurang.",
+            "Hule reserve rules include no loose dogs, no camping/caravan, fire only at manager-designated place and motor vehicles only on designated road/parking."
+          ],
+          "contradictions": [
+            "Official page/API distance 7.9 km/7900 m vs GPX description/computed length about 8.1 km.",
+            "Gyltige toilet/drinking-water contradiction between Hallandsleden section page and Destination Halmstad.",
+            "Hule dry-toilet distance differs between 50 m and about 80 m.",
+            "Naturkartan title is current but slug remains gyltige-assman-hallandsleden."
+          ]
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb93-3b03-7713-97f2-beaa655411e1",
+          "receivedAt": "2026-04-30T00:09:00Z",
+          "summary": "S4 geometry lane confirmed the official GPX and Hallandsleden API geo_json exactly match: 78 points, 8.107 km computed, start 56.767296,13.182113 and end 56.720758,13.130572. Naturkartan site 22049 is endpoint-aligned and current in title/shape but simplified at 7.937 km with the old gyltige-assman slug. OSM relation 7392725 corroborates the corridor and endpoints within 27-38 m but has member-order gaps and should not be direct import geometry. Hallandsleden API line.geometry is stale/not S4: 184 points, 12.713 km, start offset 857.2 m and end offset 3844.8 m from official endpoints.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/gyltige-simlangsdalen",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Gyltige_Simlangsdalen.gpx",
+            "https://www.naturkartan.se/sv/hallands-lan/gyltige-assman-hallandsleden",
+            "https://api.naturkartan.se/v3.2/sites/22049",
+            "https://www.naturkartan.se/sv/hallands-lan/gyltige-assman-hallandsleden.gpx",
+            "https://www.openstreetmap.org/relation/7392725",
+            "https://overpass-api.de/api/interpreter"
+          ],
+          "importImpacts": [
+            "Use official GPX or Hallandsleden API geo_json as navigation-grade import authority.",
+            "Suppress Hallandsleden API line.geometry for S4.",
+            "Use Naturkartan as corroborating planning-grade linework and OSM relation as validation only.",
+            "Endpoint snapping is defensible at both branch hubs: Gyltige with S2/S3 and Simlångsdalen with S5/S6."
+          ]
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb93-3b2a-7100-bb89-c224407a4238",
+          "receivedAt": "2026-04-30T00:09:00Z",
+          "summary": "S4 facilities lane identified import-ready core facilities at Gyltige, Hule and Simlångsdalen, plus explicit suppressions for off-route/leakage POIs. Gyltige shelter/fireplace and parking are strong; Gyltige water and toilet are supported by OSM/Destination Halmstad but conflict with official trail text/no official water POI and should remain pending/conflict metadata. Hule shelter/fireplace/toilet and Hule reserve are strong. Brearedssjön/Vargaslätten is slightly off-route but explicitly described by the official S4 page as the swimming/picnic/barbecue/toilet area south of highway 25, so it can be modeled as a side facility.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/gyltige-simlangsdalen",
+            "https://www.hallandsleden.se/plats/lagerplats-gyltige",
+            "https://www.naturkartan.se/en/hallands-lan/gyltige",
+            "https://www.hallandsleden.se/plats/lagerplats-hule",
+            "https://www.naturkartan.se/sv/hallands-lan/vindskydd-lagerplats-hule",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/hule.html",
+            "https://www.naturkartan.se/sv/hallands-lan/brearedssjons-badplats",
+            "https://www.destinationhalmstad.se/uppleva/bad-och-kustliv/brearedssjon",
+            "https://www.hallandsleden.se/plats/hallplats-simlangsdalen",
+            "https://www.hallandsleden.se/plats/tempo-simlangsdalen",
+            "https://www.hallandsleden.se/plats/tallhojden-hotell-restaurang",
+            "https://www.openstreetmap.org/relation/7392725"
+          ],
+          "importCandidates": [
+            "Lägerplats Gyltige / Gyltige vindskydd 56.76735344,13.18214557: shelter, campsite, fireplace, picnic_site, endpoint_facility; import.",
+            "Gyltige parking 56.7670597,13.1833973: endpoint parking about 82 m from route; import.",
+            "Fylleån 56.77133517,13.17908764: natural/protected river crossing, not drinking water; import.",
+            "Simlången och dess dal 56.73003456,13.15187931: scenic/natural POI; import.",
+            "Bolmenbanan 56.72290634,13.14387560: old railway heritage/route character; import.",
+            "Hules norra naturreservat 56.72408956,13.14490557: reserve crossed by route; import.",
+            "Lägerplats Hule 56.72403722,13.14558836 and Hule toilet/firepit nearby: shelter, campsite, fireplace, toilet_nearby; import.",
+            "Brearedssjöns badplats/Vargaslätten 56.71771576282831,13.14133401473998: swimming/picnic/fireplace/toilet/parking side facility; import as side facility.",
+            "Hållplats Simlångsdalen 56.72069887,13.13051214 and Simlångsdalen guidepost/map: endpoint transit/information; import.",
+            "Tempo Simlångsdalen, Tallhöjden Hotell & Restaurang, Dalens Pizzeria and Simlångsdalen tourist information/village: import as endpoint services with distances."
+          ],
+          "pendingOrSuppress": [
+            "Pending/conflict: Gyltige drinking water, Gyltige toilet, Simlångsgården/Gyltige paid camping, Qstar Simlångsdalen, Paulssons Paleo B&B.",
+            "Suppress for S4: Hålväg, Gårdshults naturreservat/Rastplats Gårdshult, Danska Fall waterfall/rest/toilet/shelter, Klövaberget viewpoint, Sutarebo/Bröda parking and north-of-Gyltige non-endpoint parking."
+          ]
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb93-3c01-7061-87d2-3787901967d1",
+          "receivedAt": "2026-04-30T00:05:00Z",
+          "summary": "S4 transit-access lane found Gyltige start has weak public-transport access and should be modeled primarily as trail-continuation, parking or pickup access. Simlångsdalen endpoint has strong public-transport access with Hallandstrafiken Simlångsdalen bus stop about 14 m from the endpoint and route 318 toward/from Halmstad Resecentrum, with current departures to be checked in Hallandstrafiken planner/app.",
+          "endpointFindings": [
+            "Gyltige official GPX start 56.767296,13.182113, high confidence.",
+            "Simlångsdalen official GPX end 56.720758,13.130572, high confidence.",
+            "Gyltige parking 56.767060,13.183397 is about 83 m from the start; OSM way 366034182, access=yes, fee=no, capacity=30, medium-high confidence.",
+            "Roadside parking south 56.750736,13.184265 is about 1.85 km from start; OSM node 9945257352, capacity=2, medium confidence.",
+            "Simlångsdalen bus stop 56.720754,13.130341 is about 14 m from endpoint; Hallandstrafiken bus route 318, high confidence.",
+            "Unnamed Simlångsdalen parking 56.720964,13.129910 is about 46 m from endpoint; OSM way 1144645747, medium-low confidence pending signage.",
+            "Ljungblomman bus stop 56.719705,13.125000 is about 360 m from endpoint; medium-high confidence.",
+            "Brearedsskolan bus stop 56.722554,13.136846 is about 432 m from endpoint and about 5.69 km from Gyltige; medium confidence.",
+            "Hule Norra parking 56.725833,13.144444 is about 1.02 km from the Simlångsdalen endpoint and 5.15 km from Gyltige; official Länsstyrelsen/Halmstad parking, high confidence.",
+            "Simlångsdalen center parking 56.719339,13.121200 is about 593 m from endpoint; OSM way 961648704, access=yes, fee=no, capacity=20, medium confidence."
+          ],
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/gyltige-simlangsdalen",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Gyltige_Simlangsdalen.gpx",
+            "https://www.hallandstrafiken.se/",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/hule.html",
+            "https://www.openstreetmap.org/way/366034182",
+            "https://www.openstreetmap.org/way/1144645747",
+            "https://www.openstreetmap.org/way/961648704",
+            "https://www.openstreetmap.org/node/9945257352"
+          ],
+          "caveats": [
+            "Gyltige has no direct current bus stop found; do not advertise a direct transit start.",
+            "Hallandstrafiken GTFS/stop evidence supports line 318 but exact departures are date-dependent and should be checked in the planner.",
+            "Do not treat highway 25 shoulder as pickup/dropoff; official route explicitly warns to cross with great care."
+          ]
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb93-3c5e-7d73-80ad-aa2408a964c7",
+          "receivedAt": "2026-04-29T23:59:59Z",
+          "summary": "S4 field lane found no active closure or reroute in official/Naturkartan/Wikiloc/AllTrails/local sources. Current canonical facts supported: Gyltige-Simlångsdalen 7.9 km easy/green, crosses Fylleån, follows old Bolmenbanan railway embankment through the lake valley, explicit official warning to take great care crossing highway 25, Gyltige shelters/fireplace/no toilet, Hule campsite/shelter/toilet nearby. Field evidence is mostly old/adjacent: 2016 Gyltige-Gårdshult report supports easy flat railway embankment for S4 but later snow/slippery material belongs beyond S4; 2018 Wikiloc Simlångsdalen-Gyltige loop says easy to follow/perfect but not S4-only; old Gyltige-Assman/Halmstad-Simlångsdalen sources are stale/adjacent.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/gyltige-simlangsdalen",
+            "https://www.naturkartan.se/en/hallands-lan/gyltige-assman-hallandsleden",
+            "https://www.bejegard.se/vandring/halland/hallandsleden/hallandsleden-gyltige-gardshult-12-km/",
+            "https://www.wikiloc.com/hiking-trails/simlangsdalen-gyltige-26550479",
+            "https://www.viaalpina.dk/v/se/rute/halland3.htm",
+            "https://vindskyddskartan.se/sv/vindskydd/4248/Hule%20Norra",
+            "https://www.hallandsposten.se/nyheter/halmstad/populart-naturomrade-ska-fa-toalett-och-vindskydd-.412791c1-dcc4-49b9-819e-adfffefc406a",
+            "https://hallandsleden.se/item/kolla-brandrisken-4/h1orikco24kzjjuuyczmerpw6s8fe3it",
+            "https://www.halmstad.se/omsorgochstod/tryggochsaker/krisochberedskap/eldningsforbud.n2027.html",
+            "https://www.destinationhalmstad.se/en/experience/nature-and-the-outdoor-life/hallandsleden---435-km-hiking-trail",
+            "https://www.naturkartan.se/en/hallands-lan/halmstad-simlangsdalen-hallandsleden",
+            "https://e1.hiking-europe.eu/en/e1/stages/norway-finland-sweden/hallands-laen/gyltige-assman-halmstad"
+          ],
+          "conditionSignals": [
+            "No current S4-specific closure or reroute found; do not import closure/reroute.",
+            "Official highway 25 crossing warning is high-confidence active safety note.",
+            "Surface is consistently described as easy/flat/former railway embankment/firm ground with no steep climbs.",
+            "Hule shelter/facility context supported by official page and Vindskyddskartan; water at Hule is unknown/non-potable/no tap from field lane source.",
+            "2016 report supports durable S4 terrain signal but later snow/slippery notes likely outside current S4 and are stale.",
+            "2018 Wikiloc loop is old/non-S4-only but says easy to follow and no hazard notes."
+          ],
+          "contradictions": [
+            "Naturkartan title is current Gyltige-Simlångsdalen but slug remains gyltige-assman-hallandsleden; use title/current route, not slug.",
+            "Destination Halmstad and other old sources still use Gyltige-Assman or old stage structures; do not use as current S4 boundary.",
+            "Official page has Water heading but no detail; Vindskyddskartan says Hule has no tap and lake water is unknown quality/should be boiled."
+          ],
+          "importImpacts": [
+            "Use official page/GPX as canonical; import 7.9 km easy/green and Bolmenbanan/lake valley description.",
+            "Import highway 25 crossing warning.",
+            "Import Gyltige shelters/fireplace/no toilet and Hule shelter/fireplace/toilet if corroborated by facilities lane.",
+            "Do not import potable water without verification.",
+            "Do not import Gyltige-Assman, Halmstad-Simlångsdalen, Gyltige-Gårdshult or adjacent route-app distances as S4."
+          ]
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb93-3eaa-7883-ad2d-a4e4d98b63e7",
+          "receivedAt": "2026-04-30T00:09:00Z",
+          "summary": "S4 rules/safety lane found no active S4-specific official closure or reroute, no current Hule reserve news item, and several import-relevant constraints: highway 25 crossing warning at about km 7.24, Fylleån Natura 2000 crossing near km 0.56-0.60, Simlångsdalen-Hule water-protection span around km 4.40-7.22, Hule nature reserve span around km 6.18-7.01, dynamic fire-risk/fire-ban requirements, mandatory dog leash guidance, seasonal hunting awareness and nearby forestry-currentness risks.",
+          "keySources": [
+            "https://www.hallandsleden.se/etapp/gyltige-simlangsdalen",
+            "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Gyltige_Simlangsdalen.gpx",
+            "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/hule.html",
+            "https://geodata.naturvardsverket.se/n2000/wfs",
+            "https://geodata.naturvardsverket.se/naturvardsregistret/wfs",
+            "https://www.halmstad.se/byggaboochmiljo/vattenochavlopp/vattenskyddsomraden.n3787.html",
+            "https://hallandsleden.se/item/kolla-brandrisken-4/h1orikco24kzjjuuyczmerpw6s8fe3it",
+            "https://www.halmstad.se/omsorgochstod/tryggochsaker/krisochberedskap/brandriskprognos.n1495.html",
+            "https://www.halmstad.se/omsorgochstod/tryggochsaker/krisochberedskap/eldningsforbud.n2027.html",
+            "https://hallandsleden.se/item/allemansratten/5fogqeoayrfqw4vcyz7lruickdh88ahe",
+            "https://www.hallandsleden.se/item/vandra-under-jaktsasongen/fxm1j3j5ltmdkd65aqrztndfqhr3txnq",
+            "https://geodpags.skogsstyrelsen.se/arcgis/rest/services/Geodataportal/GeodataportalVisaSkogsbruk/MapServer/5"
+          ],
+          "importImpacts": [
+            "Do not import active closure/reroute.",
+            "Import high-priority highway 25 crossing warning around 56.720009,13.139931.",
+            "Import Fylleån Natura 2000 crossing/corridor warning and Fylleån bridge/currentness risk near the start.",
+            "Import Hule reserve rules: dogs controlled/leashed, no camping/caravan except designated official facility context, fire only at manager-designated places, no vegetation/nature/wildlife/facility damage, motor vehicles/parking only on designated roads/parking.",
+            "Import Simlångsdalen-Hule water-protection area as a planning/works/sanitation constraint, not a hiker closure.",
+            "Import dynamic fire-risk/fire-ban, seasonal hunting and nearby forestry-currentness warnings; felling notices are risk layers only, not proof of closure."
+          ]
+        }
+      ],
+      "mainThreadBaseline": {
+        "completedAt": "2026-04-29T23:59:59Z",
+        "summary": "Main thread checked S4 official page, official GPX, Hallandsleden map API, places API, Södra segment list, Naturkartan site 22049 and adjacent S2/S3/S5/S6 endpoint continuity. Official GPX/API geo_json are a 78-point 8.107 km line from Gyltige 56.767296,13.182113 to Simlångsdalen 56.720758,13.130572; GPX desc Total: 8.1 km, timestamp 2025-06-23T09:26:50+02:00. Hallandsleden API line.geometry is 184 points/12.713 km from 56.774162,13.175718 to 56.689895,13.158974, starting 897.3 m from official start and ending several km beyond official endpoint; likely stale/branch geometry and must be checked by geometry lane. Naturkartan site 22049 title/shape are current Gyltige-Simlångsdalen but slug remains gyltige-assman-hallandsleden; v2 shape has 74 points, 7.937 km, matching official endpoints. Official places API returned 17 records including Gyltige/Hule camps, Hule northern reserve, Fylleån, Bolmenbanan, Simlångsdalen bus/services, side/off-route Danska Fall/Gårdshult/Paulssons/Tallhöjden. S4 end is within 6.46 m of S5 Simlångsdalen-Halmstad start and 4.95 m of S6 Simlångsdalen-Mästocka start; S4 start is within 7.81 m of S2 end and 9.21 m of S3 end."
+      },
+      "synthesizedAt": "2026-04-30T00:20:00Z",
+      "synthesisOutput": "data/research/candidate-trails/hallandsleden/sections/hallandsleden-gyltige-simlangsdalen.research.json",
+      "synthesisSummary": "S4 synthesized as research-ready-with-caveats. Official GPX/API geo_json is canonical; Hallandsleden API line.geometry is stale and must be suppressed. Key caveats: Gyltige water/toilet conflict, Hule toilet distance variation and reserve rules, weak Gyltige transit, strong Simlångsdalen bus access, highway 25 crossing warning, Fylleån Natura 2000 crossing, Simlångsdalen-Hule water-protection span, stale Gyltige-Assman slug/source risks and branch-node snapping at Gyltige/Simlångsdalen."
     }
   ],
   "sourceCoverage": {
@@ -3908,10 +4175,21 @@
       "fieldReports": "complete from field-reports lane; no active closure found, stale combined-route risks and seasonal wet/icy caveats recorded",
       "rulesSafety": "complete from rules-safety-currentness lane; protected/water/fire/dog/livestock/hunting/forestry/currentness recorded",
       "synthesis": "complete; section JSON written"
+    },
+    "hallandsleden-gyltige-simlangsdalen": {
+      "overview": "complete from trail.research.json overview pass",
+      "officialSources": "complete from official-source lane and main-thread official page/API/GPX/places baseline",
+      "routeGeometry": "complete from geometry lane and main-thread baseline; official GPX/API geo_json preferred, stale line.geometry suppressed",
+      "endpointCoordinates": "complete from official-source and geometry lanes; Gyltige and Simlångsdalen branch endpoint continuity recorded",
+      "facilities": "complete from facilities lane; import/pending/suppress decisions recorded",
+      "commuteAccess": "complete from transit-access lane; Gyltige public transport weak and Simlångsdalen bus endpoint strong",
+      "fieldReports": "complete from field-reports lane; no active closure found, highway 25 warning and stale-source risks recorded",
+      "rulesSafety": "complete from rules-safety-currentness lane; protected/water/fire/dog/hunting/forestry/currentness recorded",
+      "synthesis": "complete; section JSON written"
     }
   },
   "knownGaps": [
-    "Only the overview and first seventeen sections have been researched/synthesized; 18 later sections still need the six-lane workflow.",
+    "Only the overview and first twenty sections have been researched/synthesized; 15 later sections still need the six-lane workflow.",
     "Coastal Hallandsleden is incomplete by official statement; future import must model gaps instead of stitching a continuous coast.",
     "Older sources may report 435 km / 26 stages / 3 parts; live official source reports 612 km / 35 sections / 4 subtrails.",
     "Paper maps printed June 2022 are stale for 2024 rerouted sections.",
@@ -4081,12 +4359,17 @@
     "S3 research-ready caveat: Kvarnforsen official first point is 162.1 m from M6 endpoint but S3 point 4 is 2.7 m from M6 endpoint; decide graph handoff policy.",
     "S3 research-ready caveat: Gyltige water/toilet conflict remains unresolved; official S3 says no toilet while Destination Halmstad/OSM say dry toilet/water.",
     "S3 research-ready caveat: both endpoints are weak for public transit; Kvarnforsen has long access to Rydöbruk/Torup and Gyltige needs parking/pickup or continuation to Simlångsdalen.",
-    "S3 research-ready caveat: old Sandsjön-Kvarnforsen-Gyltige composite geometry persists in OSM/Naturkartan slug/Wikiloc/Pacer/Destination Halmstad and must be suppressed."
+    "S3 research-ready caveat: old Sandsjön-Kvarnforsen-Gyltige composite geometry persists in OSM/Naturkartan slug/Wikiloc/Pacer/Destination Halmstad and must be suppressed.",
+    "S4 research-ready caveat: official GPX/API geo_json is canonical while Hallandsleden API line.geometry is a stale 12.713 km branch-like line ending beyond Simlångsdalen and must be suppressed.",
+    "S4 research-ready caveat: Naturkartan linework is endpoint-aligned but slug remains gyltige-assman-hallandsleden; do not derive boundaries from slug.",
+    "S4 research-ready caveat: Gyltige water/toilet remains conflicting across Destination Halmstad/OSM and Hallandsleden data; verify before importing as public amenities.",
+    "S4 research-ready caveat: Gyltige public transit is weak, while Simlångsdalen bus access is strong but needs live Hallandstrafiken schedule checks.",
+    "S4 research-ready caveat: import highway 25 crossing warning, Fylleån Natura 2000 crossing, Hule reserve rules and Simlångsdalen-Hule water-protection context as dynamic/currentness caveats."
   ],
   "nextActions": [
-    "Validate S3 JSON/progress/README and commit Add Hallandsleden S3 research.",
-    "Start S4 hallandsleden-gyltige-simlangsdalen with six parallel lanes: official sources, route geometry, facilities, transit/access, field reports, rules/safety/currentness.",
-    "For S4, pay special attention to Gyltige shared endpoint, Simlångsdalen access, highway 25 crossing, Hule/Breared/Sutarebo/Fylleån contexts, Gyltige water/toilet conflicts and old Gyltige-Assman/Simlångsdalen source risks."
+    "Validate S4 JSON/progress/README and commit Add Hallandsleden S4 research.",
+    "Start S5 hallandsleden-simlangsdalen-halmstad with six parallel lanes: official sources, route geometry, facilities, transit/access, field reports, rules/safety/currentness.",
+    "For S5, pay special attention to Simlångsdalen branch handoff, Halmstad endpoint/access/service density, highway/urban crossings, Fylleån/Nissan/protected-area context, official GPX/API geometry and old Halmstad-Simlångsdalen source risks."
   ],
   "handoffNotes": [
     "Work resumed on 2026-04-29 in /workspaces/hike-trails-codex-hallandsleden-research on branch codex/hallandsleden-research.",
@@ -4191,7 +4474,13 @@
     "S3 main-thread baseline: Hallandsleden line.geometry empty/null; official GPX/API geo_json is preferred pending geometry lane.",
     "S3 section JSON is written at data/research/candidate-trails/hallandsleden/sections/hallandsleden-kvarnforsen-gyltige.research.json and is research-ready-with-caveats.",
     "Commit S3 before starting S4 per user instruction to commit between sections.",
-    "S4 next target: hallandsleden-gyltige-simlangsdalen, official page https://www.hallandsleden.se/etapp/gyltige-simlangsdalen, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Gyltige_Simlangsdalen.gpx, distance 7.9 km, easy; starts Gyltige and ends Simlångsdalen."
+    "S4 next target: hallandsleden-gyltige-simlangsdalen, official page https://www.hallandsleden.se/etapp/gyltige-simlangsdalen, official GPX https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Gyltige_Simlangsdalen.gpx, distance 7.9 km, easy; starts Gyltige and ends Simlångsdalen.",
+    "S4 main-thread baseline: official GPX/API geo_json starts Gyltige 56.767296,13.182113 and ends Simlångsdalen 56.720758,13.130572.",
+    "S4 main-thread baseline: Hallandsleden line.geometry appears stale/branch-like at 12.713 km and extends beyond Simlångsdalen; prefer GPX/API geo_json pending geometry lane.",
+    "S4 main-thread baseline: Simlångsdalen is a branch node where S4 end is within 6.46 m of S5 start and 4.95 m of S6 start.",
+    "S4 section JSON is written at data/research/candidate-trails/hallandsleden/sections/hallandsleden-gyltige-simlangsdalen.research.json and is research-ready-with-caveats.",
+    "Commit S4 before starting S5 per user instruction to commit between sections.",
+    "S5 next target: hallandsleden-simlangsdalen-halmstad, official page https://www.hallandsleden.se/etapp/simlangsdalen-halmstad, starts Simlångsdalen and ends Halmstad."
   ],
   "filesWritten": [
     "README.md",
@@ -4213,7 +4502,10 @@
     "sections/hallandsleden-rydobruk-kvarnforsen.research.json",
     "sections/hallandsleden-astad-vessigebro.research.json",
     "sections/hallandsleden-vessigebro-frodeparken.research.json",
-    "sections/hallandsleden-frodeparken-oskarstrom.research.json"
+    "sections/hallandsleden-frodeparken-oskarstrom.research.json",
+    "sections/hallandsleden-oskarstrom-gyltige.research.json",
+    "sections/hallandsleden-kvarnforsen-gyltige.research.json",
+    "sections/hallandsleden-gyltige-simlangsdalen.research.json"
   ],
   "meaningfulPasses": [
     {
@@ -4705,6 +4997,11 @@
       "id": "phase-2-s2-field-report-lane-received-2026-04-29",
       "completedAt": "2026-04-29T23:42:30Z",
       "summary": "Received S2 field-report lane. It found no active S2 closure/reroute, mostly stale Ryet-Gyltige/Gyltige-Sennan condition sources, a 2020 good-markings note, 2016 winter snow/terrain/shelter context and a Gyltige water/toilet source conflict."
+    },
+    {
+      "id": "phase-2-s4-six-lane-synthesis-complete-2026-04-30",
+      "completedAt": "2026-04-30T00:20:00Z",
+      "summary": "Synthesized S4 Gyltige - Simlångsdalen into sections/hallandsleden-gyltige-simlangsdalen.research.json after all six lane reports plus main-thread official/API/GPX/Naturkartan/places checks. Marked S4 research-ready with caveats around canonical official GPX/API geo_json versus stale Hallandsleden line.geometry and old Naturkartan slug, Gyltige water/toilet conflict, Hule reserve rules/toilet distance, weak Gyltige transit, strong Simlångsdalen bus access, highway 25 crossing, Fylleån Natura 2000, Simlångsdalen-Hule water-protection and dynamic fire/forestry/transit checks."
     }
   ]
 }
