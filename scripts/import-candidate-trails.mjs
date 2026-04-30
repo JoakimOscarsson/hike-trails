@@ -172,6 +172,44 @@ const importConfigs = {
       url: "https://hallandsleden.se/",
       lastFetchedAt: "2026-04-30"
     }
+  },
+  hoglandsleden: {
+    name: "Höglandsleden",
+    region: "Jönköpings län / Kalmar län",
+    country: "Sweden",
+    difficulty: "Moderate to strenuous",
+    estimatedTime: "23 stages",
+    season: "April-October",
+    routeType: "Loop and branches",
+    description:
+      "A Smålandsleden long-distance trail network across the Småland highlands, with a main loop and official branches toward Mariannelund and Kärringabacka.",
+    gettingThere:
+      "Use the selected chain and section endpoints for access planning. Sävsjö, Nässjö-area access, Mariannelund, Hok, Byarum and Skillingaryd have the strongest public-transport context; several forest and reserve endpoints need current timetable checks.",
+    utilities: [
+      "Services are strongest in towns and villages; many forest, lake and reserve stages rely on shelters, rest areas or local facilities.",
+      "Water reliability, fire permissions, Storm-Dave clearance, opening hours and transit should be checked before publication."
+    ],
+    waterSources: [
+      "Use only listed verified water points as refill context.",
+      "Natural water should be treated before drinking."
+    ],
+    notes: [
+      "Imported from normalized candidate research on 2026-04-30.",
+      "Runtime topology follows the candidate model: a primary Västra Lägern-main-loop chain plus official Mariannelund and Tomtabacken-Kärringabacka branches.",
+      "Official summaries describe both an approximately 300 km loop and a wider 23-stage network; runtime distance uses the normalized section display distances for the imported chains.",
+      "Fire-ban, currentness, post-storm clearance, transit and water-reliability checks remain publication-time checks."
+    ],
+    selectableRouteGroupKinds: ["mainline", "branch"],
+    routeGroupNames: {
+      "hoglandsleden-main-loop": "Västra Lägern and main loop",
+      "hoglandsleden-mariannelund-branch": "Mariannelund branch",
+      "hoglandsleden-tomtabacken-karringabacka-branch": "Tomtabacken-Kärringabacka branch"
+    },
+    source: {
+      provider: "smalandsleden/naturkartan-candidate-research",
+      url: "https://www.smalandsleden.se/vandringsleder/hoglandsleden-en-del-av-smalandsleden-miniguide-trp-641",
+      lastFetchedAt: "2026-04-30"
+    }
   }
 };
 
