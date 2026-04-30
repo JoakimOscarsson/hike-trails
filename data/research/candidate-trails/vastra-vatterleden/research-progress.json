@@ -1,0 +1,707 @@
+{
+  "trailId": "vastra-vatterleden",
+  "lastUpdated": "2026-04-29T20:58:28Z",
+  "currentPhase": "static-import-readiness-research-complete",
+  "completedSections": [
+    "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+    "vastra-vatterleden-etapp-2-forsvik-molltorp",
+    "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa",
+    "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+    "vastra-vatterleden-etapp-5-hjo-bastasen",
+    "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+    "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult",
+    "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+  ],
+  "inProgressSections": [],
+  "blockedSections": [],
+  "sectionStatusById": {
+    "vastra-vatterleden-etapp-1-stenkallegarden-forsvik": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; current PDF/Naturkartan support 31 km with 30/36 km contradictions recorded",
+      "routeGeometryStatus": "complete for research handoff; variant normalization decision documented with direct-south primary and official alternates",
+      "startEndCoordinateStatus": "complete; high-confidence endpoints from Google KML/OSM/PDF synthesis",
+      "commuteAccessStatus": "complete; start access weak/pre-booked, Forsvik access strong",
+      "facilityResearchStatus": "complete for first pass; several facility records remain pending coordinate/currentness verification",
+      "rulesSafetyStatus": "complete for research handoff; protected-area overlay found no checked official stage-1 GPX hit in Tiveden NP, with variant-specific reserve scoping required after final geometry",
+      "synthesisStatus": "complete",
+      "importReadiness": "research-complete-ready-for-normalization-not-runtime-import",
+      "remainingQuestions": [
+        "Implement documented stage-1 primary/alternate variant model during geometry normalization.",
+        "Verify exact coordinates/currentness for pending water/service records before runtime import.",
+        "Repeat protected-area overlay against final normalized variants before attaching protected-area rules in runtime data."
+      ]
+    },
+    "vastra-vatterleden-etapp-2-forsvik-molltorp": {
+      "overviewStatus": "complete",
+      "officialSourceStatus": "complete; official PDF/overview and Naturkartan segment sources identified",
+      "routeGeometryStatus": "complete for research handoff; Naturkartan segment GPX preferred but branch and endpoint decisions must be normalized before import",
+      "startEndCoordinateStatus": "complete; Forsvik high confidence and Mölltorp endpoint resolved to Mölltorps hembygdsgård/kyrka endpoint area",
+      "commuteAccessStatus": "complete; Forsvik, Bruksvägen, Mölltorp centrum, Kyrkvägen and Mölltorp väg 49 identified",
+      "facilityResearchStatus": "complete for handoff; Klinten/importable items separated from Skackastugan/Bergsudden pending/restricted records",
+      "rulesSafetyStatus": "complete; no confirmed protected-area crossing, fire/dog/hunting/forestry cautions identified",
+      "synthesisStatus": "complete",
+      "importReadiness": "research-complete-ready-for-normalization-not-runtime-import",
+      "remainingQuestions": [
+        "Choose whether normalization imports the direct Fröjden-Bygget line, the Skackastugan/Bergsudden branch, or both as main/alternate route records.",
+        "Decide whether Mölltorp endpoint should be represented as the Naturkartan/KML hembygdsgård/kyrka endpoint or adjusted to a signed physical trailhead after field verification.",
+        "Verify Skackastugan/Bergsudden water, toilet, bathing and multiple-shelter coordinates before importing those facility records.",
+        "Do not import the Vaberget tower claim unless current rebuild evidence is found."
+      ]
+    },
+    "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa": {
+      "overviewStatus": "phase-1 inventory complete; OSM name caveat known",
+      "officialSourceStatus": "official-source lane complete; official name Etapp 3 Mölltorp-Gunnarflon-Röå, 14 km, stage PDF rev 2020-01-31, Naturkartan two-part labels Mölltorp-Gunnarflon and Gunnarflon-Röåsjön, E1 10.03 alias found",
+      "routeGeometryStatus": "route-geometry lane complete; official Google KML/Naturkartan two-segment line reaches Röåsjön and is preferred; OSM relation 1173503 also reaches Röå/Röåsjön but starts about 415 m from the official Mölltorp boundary",
+      "startEndCoordinateStatus": "complete; high-confidence official/KML endpoints: start about 58.49380,14.40534 and end about 58.41263,14.36451, cross-checked by official, transit and facilities lanes",
+      "commuteAccessStatus": "transit/access lane complete; Mölltorp start access strong via line 400/Närtrafik, Gunnarflon has no stop but Fagersanna is official Rankåsleden exit, Röåsjön endpoint has no nearby public transport and relies on Breviks Camping/Vättersvallen vehicle/service access or continuing stage 4",
+      "facilityResearchStatus": "facilities lane complete; core on-route facility cluster is Röåsjön shelter/fireplace/toilet, Gunnarflon is trail-junction metadata only, Mölltorp has start services, Brevik/Breviks Camping/Golf are off-route side-service candidates",
+      "conditionReportsStatus": "field-report lane complete; no strong 2025-2026 full-section condition report found, but overlapping AllTrails 2025-05-01 notes good conditions/clear orange markings and Pacer updated 2025-10-01 lists the direct stage",
+      "rulesSafetyStatus": "rules/safety lane complete; Stora Röå reserve likely intersects endpoint corridor, Röå alsumpskog/Natura 2000 nearby but direct route overlap unconfirmed, fire-ban feed checked 2026-04-29 showed no ban in Karlsborg/Tibro/Hjo, forestry notifications only bbox-level",
+      "synthesisStatus": "complete",
+      "importReadiness": "research-complete-ready-for-normalization-not-runtime-import",
+      "remainingQuestions": [
+        "Official geometry is segmented Mölltorp-Gunnarflon plus Gunnarflon-Röåsjön; later normalization must assemble both and keep Klevaberget viewpoint spur separate.",
+        "OSM relation 1173503 covers Röå/Röåsjön, but its Mölltorp start uses the OSM stage-2 boundary about 415 m from the official/KML stage endpoint; do not import raw OSM boundaries without correction.",
+        "Endpoint label should remain Röå / Röåsjön unless field signage later distinguishes settlement label from shelter/junction coordinate.",
+        "Rankåsleden connects at Gunnarflon; Breviks kyrka is an unmarked 2.4 km one-way side trip; nearby Gärdeslingan/Röåslingan loop geometry must not be merged into the main stage.",
+        "Röåsjön shelter can be imported; exact toilet point and co-located fireplace handling need normalization choice.",
+        "Röåsjön endpoint needs an access caveat: no stop at the endpoint; Breviks Camping/Vättersvallen is practical car/service access and Fagersanna/Hjo/Östralid are not direct endpoint transit.",
+        "Current Västtrafik line data should be rechecked before runtime import; older marketing text may mention stale line numbers such as Hjo line 405.",
+        "Breviks Camping coordinates conflict between OSM/Naturkartan-style area and the camping's own GPS; keep pending/off-route.",
+        "Stora Röå information-board coordinate was not found; do not create a point without verification.",
+        "Stora Röå reserve rules are limited in current Länsstyrelsen listing, while older PDF text overgeneralizes fire bans in reserves; re-check fire rules before runtime import.",
+        "Overlay official route with official Skyddad Natur/NVR boundaries for Stora Röå and Röå alsumpskog before runtime import.",
+        "Forestry notifications from 2025 occur in broad route corridor boxes; exact polygon-to-route-buffer intersection has not been done.",
+        "How should Röåsjön shelter water reliability be presented given dry-summer concerns and small-lake source quality?",
+        "Can current forestry/closure data confirm there are no 2026 route impacts?"
+      ]
+    },
+    "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo": {
+      "overviewStatus": "phase-1 inventory complete; OSM name caveat known",
+      "officialSourceStatus": "official-source lane complete; official name Etapp 4 Röå-Lunnakulle-Hjo, 26 km, Västsverige time 6-9 h / 1-2 days and difficulty Lätt, stage PDF rev 2019-12-17",
+      "routeGeometryStatus": "route-geometry lane complete; official KML/Naturkartan four-segment line reaches Hjo harbor, computed mainline 25.003 km, OSM relation 1251177 also reaches Hjo and OSM wiki label is stale/truncated",
+      "startEndCoordinateStatus": "route-geometry lane gives high-confidence official/KML boundaries: start Röåsjön 58.412664,14.364484 and end Hjo harbor/playground/Nya Hamnkrogen area 58.302558,14.291240",
+      "commuteAccessStatus": "transit/access lane complete; Röåsjön has no direct regular transit and uses Breviks Camping/Vättersvallen as car/service access, Östralid line 402 is useful midpoint, Hjo busstation is strong endpoint access about 300 m from harbor",
+      "facilityResearchStatus": "facilities lane complete; core facilities are Röåsjön shelter cluster, Skarpås shelter/toilet cluster, Stämmorna/Mullsjön rest cluster, Stampens Kvarn, Hjoåns dalgång and Hjo harbor endpoint services; several off-route and co-located amenities need import-scope decisions",
+      "conditionReportsStatus": "field-report lane complete; best recent direct evidence is a 2025 reverse-direction account Hjo-Mullsjön-Skarpås-Röåsjön, passable with no reported closure but notable forestry impact near Skarpås; Pacer direct listing updated 2026-03-01",
+      "rulesSafetyStatus": "rules/safety lane complete; Stora Röå reserve relevant at start, Hjoåns dalgång/Natura 2000 relevant on Hjo approach, Röå alsumpskog nearby, no live fire ban in Karlsborg/Tibro/Hjo on 2026-04-29, forestry findings only bbox-level",
+      "synthesisStatus": "complete",
+      "importReadiness": "research-complete-ready-for-normalization-not-runtime-import",
+      "remainingQuestions": [
+        "OSM relation 1251177 does cover the full Röå-Lunnakulle-Hjo stage; OSM wiki label is stale/truncated.",
+        "Confirm Hjo harbor endpoint coordinate.",
+        "Check official/current sources for forestry or reroute impacts near Skarpås before describing that area as quiet forest.",
+        "Official/Naturkartan stage 4 has four main segments: Röåsjön-Lunnakulle, Lunnakulle-Skarpås, Skarpås-Mullsjön, Mullsjön-Hjo, plus a short Skarpås shelter spur.",
+        "Normalize the four main GPX segments in official order and keep Skarpås shelter spur separate.",
+        "Stage 5 Hjo-Mullsjö GPX appears reversed relative to its name; preserve this as a stage-5 handoff note.",
+        "At Bisshult/Lunnakulle, Rankåsleden connects toward Rankås and Tibro; at Stämmorna/Mullsjön, stage 5 connects and Hjo-Mullsjön linework may be shared or duplicated.",
+        "Overlay official route against official NVR/Skyddad Natur boundaries for Stora Röå, Röå alsumpskog, Hjoåns dalgång and Västra Vättern before runtime import.",
+        "Hjoåns dalgång has specific restrictions including no fire, no loose dogs/pets, no wading/paddling in the stream and route-limited cycling/riding; keep final-approach rules distinct from general trail rules.",
+        "Stage-4 forestry checks found multiple 2025 Skogsstyrelsen bbox hits in Tibro and Hjo, but exact trail-buffer intersections are not confirmed.",
+        "Treat Visit Hjo line 405 mention as stale unless planner confirms; current evidence favors Hjo lines 402, 406, 415 and sparse/preordered 435.",
+        "Line 402 had reported longer travel time due roadworks through 2026-05-01 04:00; recheck before import/use.",
+        "Röåsjön and Skarpås shelter clusters are importable, but exact Röåsjön toilet coordinate remains pending and co-located fireplace handling needs normalization.",
+        "Stämmorna/Mullsjön cluster is likely useful but about 265-295 m from the stage-4 line; verify connector modelling before importing as on-route.",
+        "Östralid stop-direction coordinates differ materially in the official map; transit/access normalization should prefer verified Västtrafik stop coordinates.",
+        "Hjällö, Björkenäs, Ruder/Ruderna and generic Grebban should stay narrative/suppressed unless a discrete trail-relevant facility is verified."
+      ]
+    },
+    "vastra-vatterleden-etapp-5-hjo-bastasen": {
+      "overviewStatus": "phase-1 inventory complete",
+      "officialSourceStatus": "official-source lane complete; official name Etapp 5 Hjo-Baståsen, 23 km, 5-7 h / 1 day / easy, stage PDF rev 2014-09-16, official route order Hjo-Stampens Kvarn-Stämmorna/Åkarp-Hedsmossen-Baståsen",
+      "routeGeometryStatus": "route-geometry lane complete; official KML/Naturkartan stage 5 reaches Baståsen but both GPX segments are stored reverse to official Hjo-Baståsen order and must be reversed; E1 omits Hjo-Mullsjön/Stämmorna part and is not full-section geometry",
+      "startEndCoordinateStatus": "route-geometry lane gives high-confidence official/KML endpoints: Hjo harbor 58.302558,14.291240 and Baståsen/stage-6 boundary 58.225498,14.123760",
+      "commuteAccessStatus": "transit/access lane complete; Hjo busstation is strong start access, Åkarp is a candidate early/midsection access pending connector verification, Baståsen A/B are current line-402 stop names with exact coordinates/connector pending, and old Rödåkra/line 405 is stale/suppressed for current import",
+      "facilityResearchStatus": "facilities lane complete; strong Hjo/Stämmorna/Högaliden/Hedsmossen/Kärrabo/Pershov coverage, Hedsmossen shelter/toilet coordinate-backed, Hedsmossen pump and Kärrabo spring pending reliability caveats, Baståsen has no confirmed facility beyond endpoint/access metadata",
+      "conditionReportsStatus": "field-report lane complete; best recent evidence is a 2025 reverse-direction account into Hjo showing passability with cattle, marshy areas, possible forestry impact and Hedsmossen/water caveats; Pacer direct listing updated 2026-03-01",
+      "rulesSafetyStatus": "rules/safety lane complete; Hjoåns dalgång/Natura 2000 is route-relevant and the mapped fire/rest point should remain suppressed or pending, while forestry/fire/bathing remain volatile currentness checks",
+      "synthesisStatus": "complete; final section research file written at sections/vastra-vatterleden-etapp-5-hjo-bastasen.research.json",
+      "importReadiness": "research-complete-ready-for-normalization-not-runtime-import",
+      "remainingQuestions": [
+        "Normalize stage 5 by reversing both official Naturkartan GPX segments before assembly and deduplicating the tiny Baståsen backtrack around 58.227546,14.131992.",
+        "Use official display distance 23 km; keep the official GPX assembled length about 21.8 km, OSM 22.267 km and E1 17.7 km partial route as metadata only.",
+        "Protected-area research overlay is complete for candidate normalization: Hjoåns dalgång overlaps the Hjo approach/exit and Hökensås/Norra Fågelås are not section-wide rules; repeat overlay only against final normalized geometry before runtime import.",
+        "Keep the mapped Hjoåns dalgång fire/rest point suppressed or pending because overlay places it inside the reserve and no official fire exception was found.",
+        "Run exact Skogsstyrelsen polygon-to-final-route-buffer overlay after route normalization if forestry/impact claims will be displayed.",
+        "Keep Hedsmossen pump, Hedsmossen north stream and Kärrabo cold spring as water-reliability-caveated until current field/source verification.",
+        "Confirm Högaliden shelter overnight suitability and public water access before importing those facilities.",
+        "Resolve connector/import handling for Stämmorna/Mullsjön, Varpet, Pershov and selected Hjo endpoint services.",
+        "Use Baståsen A/B line 402 as coordinate-pending access evidence; do not import old Rödåkra/line 405 as current, and keep Baståsen parking unverified.",
+        "Do not attach unrelated Baståsen nature reserve search results from Åmål to this Baståsen endpoint.",
+        "Recheck fire bans, bathing-water samples, hunting dates and official closure/reroute notices before runtime import."
+      ]
+    },
+    "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas": {
+      "overviewStatus": "phase-1 inventory complete; current/legacy endpoint names known",
+      "officialSourceStatus": "official-source lane complete; current name Etapp 6 - Västra Vätterleden / Baståsen-First Camp Hökensås, aliases Baståsen-Semesterbyn and Baståsen-Hökensås Semesterby, official 23 km, about 5 h / 1 day, difficulty Medel, Vitsjön shelter after about 5.5 km, endpoint service at First Camp Hökensås, Rödåkra/line 405 stale-withdrawn",
+      "routeGeometryStatus": "route-geometry lane complete; official Naturkartan/Google KML mainline is primary, in correct Baståsen-First Camp Hökensås direction, computed 21.888 km with 1699 points, OSM 8997258/E1/Pacer cross-check around 21.6-21.9 km, four official short spurs must stay separate",
+      "startEndCoordinateStatus": "route-geometry lane complete; high-confidence route-line start Baståsen 58.225503,14.123754 and end First Camp/Hökensås route join 58.097821,14.075706, with First Camp POI about 55-62 m away as access/facility metadata",
+      "commuteAccessStatus": "transit/access lane complete; no current direct Baståsen stop found, Rödåkra/line 405 rejected as current access, nearest start-side candidates are weak/long connectors, Hökensås stop at First Camp is strong end access on Västtrafik line 321, Tidaholm Närtrafik is relevant for rural gaps",
+      "facilityResearchStatus": "facilities lane complete; core facilities are Vitsjön shelter/fireplace/rest cluster, First Camp Hökensås campsite/lodging/service cluster and Hökensås restaurant/shop/sportfishing, with Store Grubben pending coordinate, Lilla Havsjön off-route bathing, Baståsen endpoint access metadata only and Ibbesjön continuation metadata not stage-6 import",
+      "conditionReportsStatus": "field-report lane complete; best recent evidence is a 2025 northbound E1 account supporting passability with scenic sandy heath/forest terrain, steep dry valleys near Vitsjön, wet/boggy lakeside camping constraints and no reported closure; older 2014 reports confirm Vitsjön shelter/camping pattern but are stale",
+      "rulesSafetyStatus": "rules/safety lane complete; Hökensås naturvårdsområde and Hyltan naturreservat are directly relevant, Hökensås is not a national park, no closure/reroute found on checked official pages, no fire ban for Tidaholm/Habo on 2026-04-29 but SMHI risk banners existed, water is weak, forestry notifications near corridor are risk metadata not closure proof",
+      "synthesisStatus": "complete; final section research file written at sections/vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas.research.json",
+      "importReadiness": "research-complete-ready-for-normalization-not-runtime-import",
+      "remainingQuestions": [
+        "Use official display distance 23 km and store measured official GPX length 21.888 km as computed geometry metadata.",
+        "Normalize official Naturkartan/Google KML mainline in correct Baståsen-First Camp Hökensås direction and keep four official side spurs separate.",
+        "Use route-line endpoint 58.097821,14.075706 for geometry continuity and First Camp POI 58.0980712,14.0747654 as access/facility metadata.",
+        "Overlay official route against Hökensås naturvårdsområde and Hyltan naturreservat boundaries before runtime import.",
+        "Verify exact Vitsjön toilet/trash/parking and Store Grubben facility coordinates before separate POI import.",
+        "Keep Lilla Havsjön as off-route bathing/side-trip metadata unless a connector is explicitly modelled.",
+        "Confirm First Camp, restaurant/shop and Hökensås Sportfiske current hours/access before runtime import.",
+        "Recheck Västtrafik line 321/prebooking rules before runtime display; do not import Rödåkra/line 405 unless live planner data confirms a current stop.",
+        "Keep Baståsen as transit-weak/access metadata with no verified parking.",
+        "Do not model Hökensås as a national park.",
+        "Do not import lakes/streams as potable water; First Camp service water is the only reliable endpoint source when open/access permitted.",
+        "Recheck fire bans, SMHI fire risk, Lilla Havssjön bathing samples/algal bloom, hunting dates and official closure/reroute notices before runtime import.",
+        "Replace forestry notification corridor findings with exact polygon-to-route-buffer overlay before asserting the route is unaffected.",
+        "Suppress Ibbesjön shelter as stage-6 facility; model it under stage 7 or as continuation metadata.",
+        "Official lane found route order: Baståsen, Södra Hulan, Stora Bremsahemmet, Litteråsen, Kättlahålan, Hyltans naturreservat/Vitsjön, Rännestenen, Klockaremoröset, Klockaremohemmet, Rackes håla, pest-/cholera cemetery, Björnåsen/kyanite, Kämpenskärr, Hökensås landscape/rest areas, First Camp Hökensås/Semesterbyn.",
+        "Official lane found Naturkartan stage 6 page/GPX and Västsverige Google My Maps KML: https://www.naturkartan.se/sv/vastra-gotalands-lan/etapp-6-bastasen-vitsjon-first-camp-hokensas.gpx and https://www.google.com/maps/d/kml?mid=1n7vxw1r8flUR23uH9wSxfwmaRs77p1ww&forcekml=1.",
+        "Geometry lane found official mainline `1) Baståsen-Vitsjön-Semesterbyn`: 1699 points, computed 21.888 km, start 58.225482,14.123777, end 58.097835,14.075594, correct direction and navigation-grade after preserving endpoint POI caveat.",
+        "Geometry lane found OSM relation 8997258 `Västra Vätterleden: Etapp 6, Baståsen - Semesterbyn`, 24 ways, computed 21.660 km, start 58.2255031,14.1237536, end 58.0978207,14.0757059, exact OSM continuity with stage 5 and stage 7.",
+        "Geometry lane found E1 10.06 GPX is OSM-derived, 21.635 km, updated 2025-11-19, useful cross-check only; Pacer lists 13.5 mi/about 21.7 km and updated Apr 1, 2026.",
+        "Keep official display distance 23 km despite computed official geometry 21.888 km and OSM/E1/Pacer around 21.6-21.9 km.",
+        "Do not merge official side spurs into stage-6 mainline: Baståsen viewpoint 0.160 km, Stora Bremsahemmet pest grave 0.055 km, Vitsjön shelter 0.032 km, Rackes håla 0.028 km.",
+        "Facilities lane found Vitsjön shelter cluster at official KML 58.1911018,14.0997753, cross-check Vindskyddskartan 58.19117904,14.0997076; import shelter/fireplace/rest, keep exact toilet/trash/parking pending, suppress lake water as potable.",
+        "Facilities lane found Store Grubben rest/fireplace/picnic/waste/parking/fishing exists from official PDF/Hökensås sources but exact coordinate is weak, approximate 58.097667,14.109787; keep pending.",
+        "Facilities lane found Lilla/Lille Havsjön bathing side facility: beach 58.105834,14.085727 and grill 58.10521,14.08832, about 631 m straight-line / about 1 km unmarked side trip, latest HaV sample 2025-08-05 suitable with algal bloom noted; off-route/swimming only, not drinking water.",
+        "Facilities lane found First Camp Hökensås-Tidaholm at 58.0980712,14.0747654; import campsite/lodging/info with commercial/seasonal caveats, and keep internal water/toilet/shower/waste details unless exact markers are needed.",
+        "Facilities lane found Hökensås restaurant/shop at 58.0981885,14.0749136 and Hökensås Sportfiske at 58.0982532,14.0739889 as endpoint service candidates with seasonal/scope caveats.",
+        "Facilities lane found Caravan Club Hökensås about 0.9 km off endpoint and Camp Fjället about 3.4 km off-route; keep pending/suppress unless off-route lodging is desired.",
+        "Facilities lane found Ibbesjön shelter at 58.0881152,14.0841605 just beyond First Camp on stage 7; suppress for stage 6 and keep as continuation metadata.",
+        "Rules lane: Hökensås naturvårdsområde rules prohibit motor/off-road vehicles, overnight caravans/campers 22:00-04:00, tents/overnight shelter use except at arranged Västra Vätterleden places, unleashed dogs, damaging vegetation/dead wood and fires except at designated prepared places; camping stoves are excepted in the formal decision but total fire bans may override.",
+        "Rules lane: Hyltan naturreservat around Vitsjön/Hyltesjön is directly relevant and prohibits motor vehicles, cycling/riding, fire outside designated places, damage/removal of vegetation/dead wood and unleashed dogs.",
+        "Rules lane found no official closure/reroute on Stage 6 Västsverige, Naturkartan, Hökensås visitor or Hyltan pages; Hökensås and Hyltan visitor pages showed no current news.",
+        "Rules lane fire-ban query on 2026-04-29 returned Inget eldningsförbud for Tidaholm and Habo, but this is volatile and SMHI risk banners were present.",
+        "Rules lane bathing caveat: Lilla Havssjön latest listed bacterial sample was Tjänligt on 2025-08-05, but algal bloom was also marked on 2025-08-05 and 2025-07-22; 2026 classification is Ej klassificerad.",
+        "Rules lane forestry: 500 m route corridor found nearby notifications A 40527-2023, A 35795-2025, A 16352-2023, A 37179-2023, A 47615-2022 and A 11444-2022; broader bbox found A 16261-2026 but not in corridor. Treat as risk metadata, not proof of active closure.",
+        "Do not model Hökensås as a national park; use Länsstyrelsen legal wording naturvårdsområde and keep tourism/operator labels as contradictions.",
+        "Official lane found First Camp/Hökensås current transit clue: Västtrafik line 321 Tidaholm-Hökensås exists for 2025-12-14 to 2026-12-12, with Hökensås A/B stops and prebooking at least one hour before departure according to Hökensås leaflet.",
+        "Transit lane endpoint anchors from Naturkartan GPX: Baståsen 58.225482,14.123777 and First Camp Hökensås/Semesterbyn 58.097835,14.075594.",
+        "Transit lane start access candidates: Äskelid 58.212539,14.204547 about 4.9 km straight-line on line 406; Linderyd 58.225887,14.208999 about 5.0 km line 406; Mobacken 58.191137,14.046157 about 5.9 km line 321; Fröjered kyrka 58.246266,14.017147 about 6.7 km line 415; Nycklerör 58.230449,13.993029 about 7.7 km line 415. All need connector verification and are not trailhead-quality.",
+        "Transit lane end access: Hökensås stop 58.097836,14.075420 about 10 m from endpoint, Västtrafik line 321, high confidence but sparse/preordered trips must be checked; Blåhult 58.080498,14.068950 about 2.0 km is a backup.",
+        "Baståsen has no verified official parking; First Camp/Hökensås has parking/services but hours vary by season; Vitsjön parking exists in official PDF but exact coordinate still needs verification.",
+        "Hyltans naturreservat and Hökensås naturvårdsområde rules are stage-6 relevant; use reserve-specific fire/camping rules instead of blanket reserve-fire statements.",
+        "Endpoint naming contradiction: current Västsverige uses First Camp Hökensås; Skaraborgsleder/PDF/E1/Tidaholm older material uses Semesterbyn or Hökensås Semesterby.",
+        "Field-report lane found Vitsjön shelter evidence: Vindskyddskartan lists Vitsjön shelter at 58.19117904,14.0997076 with toilet, fireplace/grill, trash, swimming/fishing, parking 300 m and unknown water quality; verify against official/facility lanes before import.",
+        "Do not present Vitsjön lake/shelter water as reliable potable water; current official carry-water guidance should override older 2014 reports saying water was generally not an issue.",
+        "Field reports found no direct stage-6 closure/reroute, but recent direct public condition evidence is thin: Naturkartan has 0 reviews and Pacer has a visible review count without text."
+      ]
+    },
+    "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult": {
+      "overviewStatus": "phase-1 inventory complete; Naturkartan distance/direction caveat known",
+      "officialSourceStatus": "official-source lane complete; current name Etapp 7 - Västra Vätterleden / First Camp Hökensås-Fagerhult, legacy Semesterbyn-Fagerhult and Smålandsleden/Naturkartan Fagerhult-Hökensås, official 17 km / about 3.5 h / 1 day / Lätt, official order First Camp Hökensås to Fagerhult, PDF rev 2014-06-16",
+      "routeGeometryStatus": "route-geometry lane complete; official KML/Naturkartan VGR mainline is primary and correct First Camp->Gagnån direction, computed 15.219 km, with separate 0.886 km Accessled till Fagerhult; OSM 7468729/E1 continuity match the Gagnån junction; Smålandsleden/Naturkartan 15.622 km is stored reverse and should be reversed if used",
+      "startEndCoordinateStatus": "route-geometry lane complete; high-confidence start route-line 58.097821,14.075706, stage-8 continuity/Gagnån junction 58.002709,14.104708, and Fagerhult access endpoint 57.998895,14.116089",
+      "commuteAccessStatus": "transit/access lane complete; Hökensås stop at start is strong line 321 access with sparse/preordered caveat, Fagerhult (Habo k:n) is strong end bus access on JLT R115/R406, Fagerhults Belysning is closest mapped stop but needs planner verification, Habo station is regional rail hub",
+      "facilityResearchStatus": "facilities lane complete; core records are First Camp endpoint services, Ibbesjön shelter cluster, Store Öjasjön rest/fireplace, Sydvattnet rest/fireplace, Hållsdammsbäcken shelter/toilet/fireplace, Fagerhult endpoint/access/grocery, with Nordvattnet pending and Södra Kroksjön suppressed to stage 8",
+      "conditionReportsStatus": "field-report lane complete; recent 2025 accounts support passability through Hökensås with no reported closures, best direct stage-specific detail is a 2017 Fagerhult-Hökensås walk describing relatively easy mostly flat roads/trails in good condition with many lakes, and local 2025 AllTrails Ibbesjön reviews report good conditions",
+      "rulesSafetyStatus": "complete for research handoff; 2026-04-29 overlay resolves Hållsdammsbäcken as Hökensås NVO context, not Gagnån, while shelter maintenance remains currentness check",
+      "synthesisStatus": "complete; final section research file written at sections/vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult.research.json",
+      "importReadiness": "research-complete-ready-for-normalization-not-runtime-import",
+      "remainingQuestions": [
+        "Is Naturkartan VV7 GPX complete official stage 7 or shortened/smoothed linework?",
+        "Confirm Fagerhult endpoint coordinate and transit.",
+        "Official lane route order: First Camp/Hökensås Semesterby to Ibbesjön junction 1.3 km, short spur about 100 m to Ibbesjön shelter, Ibbesjön to Hållsdammsbäcken junction 9.0 km, short spur to Hållsdammsbäcken shelter, Hållsdammsbäcken to Gagnån/stage-8 continuation 5.6 km, plus 900 m connector from Gagnån junction to Fagerhult trail start.",
+        "Official lane sources: Västsverige stage page https://www.vastsverige.com/tidaholm/leder/etapp-7---vastra-vatterleden/, Google KML likely https://www.google.com/maps/d/kml?mid=1t8xNZVB6XtCUzhNP6Jj3hlK7DTwI6Ngc&forcekml=1, PDF https://www.vastsverige.com/globalassets/tidaholm/vastra-vatterleden-7.pdf, Smålandsleden/Naturkartan VV7 https://www.naturkartan.se/sv/jonkopings-lan/vastra-vatterleden-etapp-vv7-fagerhult-hokensas-en-del-at-smalandsleden.",
+        "Official lane facilities to verify: First Camp/Hökensås services, Hökensås Sportfiske, Ibbesjön shelter/toilet/fireplace/parking/jetties, Store Öjasjön, Nordvattnet, Sydvattnet, Hållsdammsbäcken shelter/toilet/fireplace, Fagerhult grocery/service/bus/parking, and Habo municipality Södra Kroksjön shelter note.",
+        "Official lane rules/currentness: Hökensås naturvårdsområde remains relevant; Gagnån naturreservat near Fagerhult is directly relevant and has stricter rules including no tenting, no fires, no fishing, no loose dogs, no cycling except existing roads, and no motor vehicles except parking.",
+        "Distance/direction contradiction: use official 17 km display distance; preserve Naturkartan/Smålandsleden 15.6 km and Runt Vättern/Naturkartan duplicate 15.2 km as geometry/source evidence; verify direction because Naturkartan title is Fagerhult-Hökensås while current official order is First Camp Hökensås-Fagerhult.",
+        "Stage page lodging text may be inherited from reverse/legacy direction because it says lodging at the end at First Camp even though current official order starts there.",
+        "Geometry lane: recommended interpretation is continuous mainline First Camp Hökensås/Semesterbyn to Gagnån/Fagerhult junction plus separate official 0.886 km Accessled till Fagerhult; use Gagnån junction 58.002709,14.104708 for stage-8 continuity and Fagerhult village 57.998895,14.116089 as access endpoint.",
+        "Geometry lane found official KML main `1) Semesterbyn-Fagerhult`: 1054 points, 15.219 km, correct First Camp->Gagnån direction; official access line `2) Accessled till Fagerhult`: 59 points, 0.886 km; main+access about 16.105 km before rounding/gaps.",
+        "Geometry lane found Naturkartan VGR GPX matches official KML mainline; Smålandsleden/Naturkartan GPX is 1044 points, 15.622 km, stored opposite official order from 58.002731,14.104634 to 58.097825,14.075534 and must be reversed if used.",
+        "Geometry lane found OSM relation 7468729: 18 ways, computed 15.599 km, start 58.0978207,14.0757059, end 58.0027086,14.1047078, no internal gaps >2 m; exact continuity with stage 6 and stage 8 OSM.",
+        "Geometry lane found E1 10.07 is OSM-derived, 638 points, computed 15.589 km, correct direction; Pacer lists 9.7 mi/about 15.6 km and last updated 2026-03-01.",
+        "Keep official side/access lines separate: Ibbesjön shelter spur 0.138 km, Stora Öjasjön grill spur 0.022 km, Sydvattnet rest-area spur 0.053 km, Hållsdammsbäcken shelter spur 0.027 km, Fagerhult access connector 0.886 km.",
+        "Transit lane endpoint anchors: start First Camp/Hökensås route start 58.097825,14.075534, end Fagerhult access-trail endpoint/trailhead 57.998895,14.116089, with mainline reaching Gagnån split 58.002731,14.104634 before official 0.9 km access line.",
+        "Transit lane start access: Hökensås bus stop 58.097836,14.075420 about 10 m from start, Västtrafik line 321 Tidaholm-Hökensås, high confidence but sparse/preordered; First Camp parking/services 58.098071,14.074765 about 55 m; Blåhult 58.080498,14.068950 about 2 km from start / 1 km from nearest line as backup.",
+        "Transit lane end access: Fagerhult (Habo k:n) bus stop 57.999138,14.119889 about 0.23 km from Fagerhult trailhead, JLT R115 and R406, high confidence; Fagerhults Belysning 57.998845,14.117866 about 0.10 km is closest mapped stop but verify in planner; Hultet/Habo backup 58.004437,14.126409 about 0.87 km.",
+        "Transit lane: Habo station 57.906659,14.076387 is the practical regional rail hub about 10.5 km from Fagerhult trailhead with bus 115 connection; no direct rail/ferry at endpoints.",
+        "Transit lane: Ibbesjön, Store Öjasjön, Sydvattnet and Hållsdammsbäcken have car/parking or shelter access clues but no bus; Fagerhult outdoor-area parking near 57.998895,14.116089 via Strömvägen.",
+        "Rules lane: Gagnån naturreservat/Natura 2000 SE0310409 is directly relevant near Fagerhult; rules include no tenting, no fires, no fishing, dogs leashed, no cycling except existing roads and no motor vehicles except parking.",
+        "Rules lane: Västra Fagerhult Natura 2000 SE0310710 is near Fagerhult but route overlap not confirmed.",
+        "Rules lane: do not import Ibbesjön, Store Öjasjön, Nordvattnet, Sydvattnet, Hållsdammsbäcken or Gagnån as reliable potable water; boil/filter if used.",
+        "Rules lane: forestry notifications near route include A 44439-2023, A 36194-2024, A 44466-2023, A 30874-2022 and A 2389-2024; treat as currentness/risk metadata, not closures.",
+        "Rules lane: Hållsdammsbäcken shelter/fireplace needs geometry overlay against Gagnån NR before importing fire/camping metadata.",
+        "Field lane direct stage report: Rickard Dahl walked Fagerhult-Hökensås on 2017-04-08, 17.2 km including 0.4 km access from Fagerhult bus stop, 4h03, relatively easy, mostly tractor/gravel roads plus good-condition trail, mostly flat, many lakes, no obstacles; stale but high relevance.",
+        "Field lane recent reports: 2025 Sverige på längden and Where's Kathryn E1 accounts support Hökensås/stage-7 passability with no closure/reroute, sandy heath/forest, lakes, anglers, ridge ups/downs and some narrow bike-rut-like tread; exact stage boundaries are blended with adjacent stages.",
+        "Field lane nearby current signal: AllTrails Håkängen/Ibbesjön loop has 2025-05-30 and 2025-03-01 reviews reporting good/great conditions, views, easy parking, not crowded; useful for Ibbesjön/First Camp local condition, not full stage 7.",
+        "Field lane older notes: Cesar 2014 describes generally well-marked route, lakes, picnic areas, Ibbesjön shelter and Hökensås/Semesterbyn services but also possible confusing markings near Semesterbyn; water comments are stale and superseded by official boil/filter guidance.",
+        "Field lane found no active stage-7 closure, reroute or forestry blockage in searched public reports; Naturkartan stage and shelter detours have 0 reviews, Pacer has a review count but no visible text.",
+        "Facilities lane: First Camp Hökensås-Tidaholm 58.098071,14.074765 import campsite/lodging/info/water/service cluster with seasonal/commercial caveats; restaurant/shop 58.098188,14.074914 and Hökensås Sportfiske 58.098253,14.073989 are endpoint service candidates.",
+        "Facilities lane: Ibbesjön shelter cluster official KML 58.088040,14.083862, OSM shelter 58.088115,14.084161, Tidaholm grill 58.08814,14.08336; import shelter/fireplace/rest, keep exact TC/parking pending.",
+        "Facilities lane: Store Öjasjön grill/rest has north grill 58.06289,14.07632 and south/parking-area grill 58.06114,14.07690; import rest/fireplace and keep parking/fishing as access metadata.",
+        "Facilities lane: Nordvattnet rest/grill/fishing at 58.05367,14.07482 is medium-high but pending exact split; note bird-protection sensitivity and no potable water.",
+        "Facilities lane: Sydvattnet rest areas north 58.05021,14.07185 and south 58.04825,14.06968; import rest/fireplace with parking/fishing metadata.",
+        "Facilities lane: Hållsdammsbäcken shelter cluster official KML 58.032095,14.063029, OSM shelter 58.032046,14.062755, OSM toilet/waste/info nearby; import with caveat that OSM note says roof is leaking and Gagnån NR/fire/camping overlay is needed.",
+        "Facilities lane: Fagerhult endpoint/stage marker 57.998893,14.116233 and access route end 57.998895,14.116089; parking pending. Fagerlivs/Time grocery at OSM 57.999292,14.120907 / KML 57.999316,14.120849 is pending currentness.",
+        "Facilities lane: Fagerhult bus/access KML 57.999122,14.119819; Södra Kroksjön shelter cluster around 57.992093,14.045567 belongs to stage 8/continuation and should be suppressed for stage 7.",
+        "Facilities lane water: reliable treated water only First Camp service house when accessible/open and purchased water at Fagerhult store when open; natural lakes/streams are not potable imports."
+      ]
+    },
+    "vastra-vatterleden-etapp-8-fagerhult-mullsjo": {
+      "overviewStatus": "phase-1 inventory complete; Naturkartan split caveat known",
+      "officialSourceStatus": "official-source lane complete; current official/Naturkartan model is VV8 split into Fagerhult-Furusjö 20.6 km / 5 h 10 min and Furusjö-Mullsjö Hotell 9.2 km / 2 h 20 min, both blue/medium; older PDFs list 29 km and 30.9 km totals; Hotel Mullsjö is practical endpoint with 1.9 km connector to Mullsjö centrum",
+      "routeGeometryStatus": "route-geometry lane complete; official Naturkartan/Smålandsleden split GPX should be reversed to planning order, first split runs Furusjö->Gagnån 20.586 km and second runs Hotel Mullsjö->Furusjö 9.215 km; 2026-04-29 import-risk pass compared current Naturkartan Furusjö-Mullsjö Hotell GPX to E1/OSM and resolved reroute risk to an endpoint/trailhead normalization decision",
+      "startEndCoordinateStatus": "route-geometry lane complete; mainline continuity start Gagnån 58.002709,14.104708, Fagerhult access endpoint 57.999550,14.116040, Furusjö split 57.93928,13.94233, Naturkartan Hotel Mullsjö endpoint 57.903080,13.872020, OSM/E1 endpoint about 57.9042,13.8706",
+      "commuteAccessStatus": "transit/access lane complete; Fagerhult start has JLT/Västtrafik bus access and parking, Furusjö split has bus/parking/bathing access with stop-name caveat, Hotel Mullsjö has nearby bus and parking, and Mullsjö Resecentrum is the rail/bus hub via about 2 km access connector",
+      "facilityResearchStatus": "facilities lane complete; core records are Fagerhult VV7/VV8 trailhead, Södra Kroksjön shelter/toilet/fireplace cluster, Hornsjön new shelter/fireplace/bin, Furusjöbadet/Furusjö access, Hotel Mullsjö trailhead/tap/lodging endpoint, with town/off-route services pending coordinate/currentness decisions",
+      "conditionReportsStatus": "field-report lane complete; best recent direct signal is 2025-07-05/06 full-trail FKT noting rainy wet-foot conditions and a shorter rerouted final approach into Mullsjö, with physical markings prioritized over older GPX; no current closure found; other direct reports are sparse and older",
+      "rulesSafetyStatus": "rules/safety lane complete; Gagnån reserve is directly route-relevant at the north/start area with no tenting/fires/fishing and leash/cycling/riding/motor restrictions; Södra Kroksjön is a service point, not a confirmed protected area; Ryfors gammelskog and Stråkens strandskogar are near Mullsjö/continuation context and should not be applied to VV8 without geometry overlay",
+      "synthesisStatus": "complete; final section research file written at sections/vastra-vatterleden-etapp-8-fagerhult-mullsjo.research.json",
+      "importReadiness": "research-complete-ready-for-normalization-not-runtime-import",
+      "remainingQuestions": [
+        "Import-risk pass on 2026-04-29 resolved the Mullsjö-end reroute/current-geometry risk to a normalization decision: current Naturkartan and E1/OSM Furusjö-Mullsjö geometry match closely, with a 0.8 m Furusjö gap, median nearest-point difference 0.4 m and about 154.8 m endpoint/trailhead difference.",
+        "Use current official Naturkartan/Smålandsleden split GPX as primary for stage 8, reverse both child GPX files for planning order, prefer Naturkartan Hotel Mullsjö endpoint 57.903080,13.872020, and retain OSM/E1 endpoint around 57.9042,13.8706 as an alternate/access cross-check.",
+        "Keep Mullsjö Resecentrum/centrum as separate access connector metadata, not the official mainline endpoint.",
+        "Check Furusjö split point services and optional Furusjö business currentness before runtime import.",
+        "Field lane: recent direct public hiking reports are sparse; 2021 Sweden Thruhike/Outside Ittoqqortoormiit notes nice forests/lakes and a possible cow-pasture bushwalk before Mullsjö, but this may be stale or route-choice-specific.",
+        "Field lane: Södra Kroksjön shelter has a 2022 Komoot positive facility note; Hornsjön is reported as a new shelter on current Smålandsleden pages; Furusjö-Mullsjö substage lacks shelters/dry toilets per Smålandsleden miniguide.",
+        "Field lane: no public current closure, blowdown or impassable-section report found; wetland/bog terrain and rain can mean wet feet; treat natural water as boil/filter only and use Hotel Mullsjö tap/service water as reliable endpoint source if access is open.",
+        "Official lane: source model is one official stage in overview material but current Smålandsleden/Naturkartan splits VV8 into Fagerhult-Furusjö and Furusjö-Mullsjö Hotell; keep this split in research and later normalize as a single official section with subgeometry records or child segments.",
+        "Official lane: endpoint naming conflict should resolve to Hotel Mullsjö as the stage endpoint and Mullsjö centrum as a separate 1.9 km orange-marked connector; official sources vary between Mullsjö, Hotel Mullsjö and Mullsjö centrum access.",
+        "Official lane: Fagerhult start has a local `Anslutning Fagerhult - VV7/VV8`; Gagnån junction is 0.9 km from Fagerhult start and connects stage 7 to stage 8.",
+        "Official lane: official GPX downloads exist for both Naturkartan split records; KML/GeoJSON variants were not found.",
+        "Official lane: Gagnån naturreservat is crossed by Västra Vätterleden and has strict restrictions: no tenting, no fires, no fishing, dogs leashed, no cycling/riding except existing roads, no motor vehicles except parking.",
+        "Facilities lane: import/access candidates include Fagerhult ledstart 57.999567,14.115661, Södra Kroksjön shelter 57.992077,14.045566, Hornsjön windbreak 57.982767,14.024359, Furusjöbadet grill 57.932798,13.958414, Furusjö entrance 57.933250,13.959340 and Hotel Mullsjö ledstart 57.902970,13.871820.",
+        "Facilities lane: Södra Kroksjön toilet/parking coordinates need child-cluster handling; toilet around 57.992033,14.047787 and parking around 57.99251,14.04757 / 57.99173,14.04836.",
+        "Facilities lane: Hornsjön shelter appears newer than the 2021 PDF, so import with current Smålandsleden/Naturkartan source but mark older-source conflict/currentness caveat.",
+        "Facilities lane: optional endpoint services include Sjöhaga Pensionat 57.928853,13.958055, Mullsjö Camping, Motell VIP, Björkhaga Hotell 57.921606,13.880376 and The Green Glamping, but several need coordinate/business-currentness verification before import.",
+        "Rules lane: do not import nature reserve or Natura 2000 status for Södra Kroksjön/Kroksjöarna based on non-local search hits; treat it as a service point unless official geometry proves otherwise.",
+        "Rules lane: Ryfors gammelskog and Stråkens strandskogar are near Mullsjö/Stråken continuation/detour context; they have strict visitor rules but should only be attached to stage 8 if route/access geometry overlap is verified.",
+        "Rules lane: on 2026-04-29 no active official Habo/Mullsjö fire-ban notice was found in checked sources, but this is volatile and must be rechecked same day; reserve-specific fire bans apply regardless.",
+        "Rules lane: current Mullsjö notice says Strandvägen commuter parking is closed 2026-04-30 06:00-12:00 for sweeping; logistics-only, not a trail closure.",
+        "Rules lane: no current official VV8 closure/reroute notice found on Smålandsleden/Naturkartan/Habo/Mullsjö searches, but Skogsstyrelsen forestry geometry was not verified against the trail corridor.",
+        "Transit lane: start access Fagerhult (Habo k:n) stop 57.999123,14.119818 on JLT 115 and JLT/Västtrafik 406; Fagerhult friluftsområde/elljusspår parking at Voltvägen 1 is relevant but exact trailhead distance is medium confidence.",
+        "Transit lane: Furusjö split/bailout access Furusjö Badet 57.934221,13.956633 on JLT 113 with direction-dependent stop caveat; current planner may prefer Furusjö Strandvägen 57.928024,13.960877.",
+        "Transit lane: Hotel Mullsjö finish uses Mullsjö Friluftshotellet stop 57.904068,13.870843 on JLT 116/432 and hotel parking/trailhead; Mullsjö Resecentrum/station 57.915131,13.882738 is best all-purpose rail/bus hub via 1.8-2.3 km orange-marked access connector.",
+        "Transit lane: JLT Närtrafik is not a general hiker shuttle; eligibility and booking limitations apply.",
+        "Geometry lane: Naturkartan/Smålandsleden VV8 Fagerhult-Furusjö GPX is stored Furusjö -> Gagnån, 20.586 km, endpoint 58.002710,14.104710, and must be reversed for official north-to-south planning order.",
+        "Geometry lane: Naturkartan/Smålandsleden VV8 Furusjö-Mullsjö Hotell GPX is stored Hotel Mullsjö -> Furusjö, 9.215 km, and must be reversed; it joins the first split at Furusjö with about 1.35 m gap.",
+        "Geometry lane: Fagerhult access connector GPX is separate, 0.817 km from 57.999550,14.116040 to 58.002680,14.104590, and is not embedded in the two VV8 main stage GPX files.",
+        "Geometry lane: OSM relation 7468730 starts at Gagnån 58.002709,14.104708 and ends near Hotel Mullsjö at 57.904144,13.870689, computed about 29.816 km with no internal gaps; E1 10.08 matches closely and was updated 2025-07-09.",
+        "Geometry lane: Naturkartan Hotel Mullsjö endpoint 57.903080,13.872020 differs by about 140-150 m from OSM/E1 endpoint around 57.9042,13.8706, so local endpoint modeling needs normalization review."
+      ]
+    }
+  },
+  "agentBatches": [
+    {
+      "batchId": "stage-1-initial-six-lanes",
+      "sectionId": "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+      "startedAt": "2026-04-29T00:10:00+02:00",
+      "completedAt": "2026-04-29T00:45:00+02:00",
+      "status": "completed",
+      "agents": [
+        {
+          "agentId": "019dda3c-0f5e-7891-b60b-b88ab3ebba84",
+          "nickname": "Mill",
+          "lane": "official sources"
+        },
+        {
+          "agentId": "019dda3c-1058-7b32-b782-52d9e50ba85e",
+          "nickname": "Euclid",
+          "lane": "route geometry"
+        },
+        {
+          "agentId": "019dda3c-1297-7ba2-9d9e-6423b30c3a85",
+          "nickname": "Plato",
+          "lane": "facilities"
+        },
+        {
+          "agentId": "019dda3c-1311-7243-85f7-bb023dee7835",
+          "nickname": "Aquinas",
+          "lane": "transit/access"
+        },
+        {
+          "agentId": "019dda3c-15a6-7782-b83e-ab989e6f1702",
+          "nickname": "Boole",
+          "lane": "field reports"
+        },
+        {
+          "agentId": "019dda3c-170e-7543-ac59-41e6c27b4900",
+          "nickname": "Harvey",
+          "lane": "rules/safety/currentness"
+        }
+      ],
+      "notes": "Initial required six-lane parallel research pass for official stage 1. Agents did not edit files. Main thread synthesized results into sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.research.json."
+    },
+    {
+      "batchId": "stage-2-initial-six-lanes",
+      "sectionId": "vastra-vatterleden-etapp-2-forsvik-molltorp",
+      "startedAt": "2026-04-29T18:26:26Z",
+      "completedAt": "2026-04-29T18:35:30Z",
+      "status": "completed",
+      "agents": [
+        {
+          "agentId": "019dda7d-fbfb-77f2-b31c-e29f24e7f78b",
+          "nickname": "Ptolemy",
+          "lane": "official sources"
+        },
+        {
+          "agentId": "019dda7d-fc33-7421-90da-e386900316d3",
+          "nickname": "Carson",
+          "lane": "route geometry"
+        },
+        {
+          "agentId": "019dda7d-fca8-75a0-9649-fe34701f7823",
+          "nickname": "Lagrange",
+          "lane": "facilities"
+        },
+        {
+          "agentId": "019dda7d-fcf4-7c81-bb6c-2d8791c9f1d9",
+          "nickname": "Archimedes",
+          "lane": "transit/access"
+        },
+        {
+          "agentId": "019dda7d-fd6a-74c2-aefb-b1492812d5a5",
+          "nickname": "Turing",
+          "lane": "field reports"
+        },
+        {
+          "agentId": "019dda7d-ff6e-7de2-9bbf-1902eb6fd5ad",
+          "nickname": "Wegener",
+          "lane": "rules/safety/currentness"
+        }
+      ],
+      "notes": "Initial required six-lane parallel research pass for official stage 2. Agents did not edit files. Follow-up needed for Bergsudden/Skackastugan facility coordinates, Mölltorp endpoint conflict, and Vaberget tower/currentness."
+    },
+    {
+      "batchId": "stage-2-targeted-follow-up",
+      "sectionId": "vastra-vatterleden-etapp-2-forsvik-molltorp",
+      "startedAt": "2026-04-29T18:36:03Z",
+      "completedAt": "2026-04-29T18:45:48Z",
+      "status": "completed",
+      "agents": [
+        {
+          "agentId": "019dda86-ca0c-75c3-bba8-9fe02a135c87",
+          "nickname": "Hubble",
+          "lane": "Bergsudden/Skackastugan facilities"
+        },
+        {
+          "agentId": "019dda86-ca8c-7300-8562-50e880c41acd",
+          "nickname": "Singer",
+          "lane": "Mölltorp endpoint contradiction"
+        },
+        {
+          "agentId": "019dda86-cb5d-77d0-b5fe-133f55d8dd32",
+          "nickname": "Harvey",
+          "lane": "Vaberget tower/Klinten/fortification currentness"
+        }
+      ],
+      "notes": "Targeted follow-up after the initial stage-2 synthesis decision. Agents did not edit files. Main thread synthesized final section JSON at sections/vastra-vatterleden-etapp-2-forsvik-molltorp.research.json."
+    },
+    {
+      "batchId": "stage-3-initial-six-lanes",
+      "sectionId": "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa",
+      "startedAt": "2026-04-29T18:47:48Z",
+      "completedAt": "2026-04-29T19:03:29Z",
+      "status": "completed",
+      "agents": [
+        {
+          "agentId": "019dda91-8511-7563-bdba-f766ab6ae17d",
+          "nickname": "Hilbert",
+          "lane": "official sources"
+        },
+        {
+          "agentId": "019dda91-8593-7df3-bcd5-8a8eef761045",
+          "nickname": "Faraday",
+          "lane": "route geometry"
+        },
+        {
+          "agentId": "019dda91-8698-7b72-847d-cd9c29ee9d15",
+          "nickname": "Ampere",
+          "lane": "facilities"
+        },
+        {
+          "agentId": "019dda91-873b-7181-a01b-6756f84297d6",
+          "nickname": "Fermat",
+          "lane": "transit/access"
+        },
+        {
+          "agentId": "019dda91-87b4-7a82-b666-970398b72123",
+          "nickname": "Dewey",
+          "lane": "field reports"
+        },
+        {
+          "agentId": "019dda91-883d-7862-ab53-053df1df9de5",
+          "nickname": "Descartes",
+          "lane": "rules/safety/currentness"
+        }
+      ],
+      "notes": "Initial required six-lane parallel research pass for official stage 3. Agents did not edit files. Field-report lane returned: Pacer direct stage updated 2025-10-01; overlapping AllTrails 2025-05-01 reports good conditions and clear orange marking; direct full-section narrative evidence remains stale (2019) and Röåsjön shelter has road-noise/mosquito/water-reliability caveats. Geometry lane returned: official Google KML/Naturkartan has two main GPX segments totaling 13.175 km and a separate 0.231 km Klevaberget spur; OSM 1173503 reaches Röå/Röåsjön but uses a different Mölltorp boundary. Official-source lane returned: stage identity/distance, endpoint ambiguity, Rankåsleden connection, Breviks kyrka side trip, Stora Röå reserve/current fire-rule caveat. Facilities lane returned: Röåsjön shelter cluster importable, Gunnarflon is junction metadata, start/off-route services need import-distance judgement. Transit/access lane returned: start access strong, Gunnarflon midpoint exit via Fagersanna, no direct transit at Röåsjön. Rules lane returned: Stora Röå and nearby Röå alsumpskog/Natura restrictions, no live fire ban as of 2026-04-29, dog/hunting/forestry/water caveats."
+    },
+    {
+      "batchId": "stage-4-initial-six-lanes",
+      "sectionId": "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+      "startedAt": "2026-04-29T19:10:33Z",
+      "completedAt": "2026-04-29T19:17:36Z",
+      "status": "completed",
+      "agents": [
+        {
+          "agentId": "019ddaa6-503e-7a13-9f7a-47ce060cf400",
+          "nickname": "Mill",
+          "lane": "official sources"
+        },
+        {
+          "agentId": "019ddaa6-54a3-7bb2-b8e7-50df8fe4f07f",
+          "nickname": "Gauss",
+          "lane": "route geometry"
+        },
+        {
+          "agentId": "019ddaa6-5724-7d10-a51d-4d1a98195c27",
+          "nickname": "Schrodinger",
+          "lane": "facilities"
+        },
+        {
+          "agentId": "019ddaa6-595e-7ed1-8740-50bd6c902613",
+          "nickname": "Cicero",
+          "lane": "transit/access"
+        },
+        {
+          "agentId": "019ddaa6-5a5c-74f2-b926-53e718c6b40b",
+          "nickname": "Boyle",
+          "lane": "field reports"
+        },
+        {
+          "agentId": "019ddaa6-5b02-7082-8927-fa01b1e83c7d",
+          "nickname": "Avicenna",
+          "lane": "rules/safety/currentness"
+        }
+      ],
+      "notes": "Initial required six-lane parallel research pass for official stage 4. Agents did not edit files. Field-report lane returned: 2026-03-01 Pacer direct listing; 2025 reverse-direction account supports route passable Hjo-Mullsjön-Skarpås-Röåsjön with no reported closure but forestry impact near Skarpås; Röåsjön shelter reports mention road noise, wind, mosquitoes and boil/filter water. Official-source lane returned: stage identity/distance/time/difficulty, Hjo harbor endpoint clue, Östralid access clue, four Naturkartan segments plus Skarpås spur, Rankåsleden and stage-5 connections, Hjoåns dalgång/Stora Röå/Röå alsumpskog rule context. Geometry lane returned: four main GPX segments totaling 25.003 km, Hjo harbor endpoint 58.302558,14.291240, OSM 1251177 reaches Hjo, Skarpås shelter spur separate. Rules lane returned: protected-area rules, fire-ban status, dogs, hunting, forestry bbox hits and water/bathing cautions. Transit/access lane returned: no direct Röåsjön transit, Östralid midpoint line 402, Hjo busstation strong endpoint, stale line 405 and temporary roadwork caveats. Facilities lane returned: Röåsjön, Skarpås, Stämmorna/Mullsjön, Stampens Kvarn, Hjoåns dalgång and Hjo harbor service clusters, with off-route/suppression cautions."
+    },
+    {
+      "batchId": "stage-5-initial-six-lanes",
+      "sectionId": "vastra-vatterleden-etapp-5-hjo-bastasen",
+      "startedAt": "2026-04-29T19:23:54Z",
+      "completedAt": "2026-04-29T19:31:01Z",
+      "status": "completed",
+      "agents": [
+        {
+          "agentId": "019ddab2-8a77-7e60-aaa4-76e40a99406c",
+          "nickname": "Euclid",
+          "lane": "official sources"
+        },
+        {
+          "agentId": "019ddab2-8ba2-7b22-aab9-f4e6b60a5af6",
+          "nickname": "Noether",
+          "lane": "route geometry"
+        },
+        {
+          "agentId": "019ddab2-8c31-7553-8219-add3ee7b7def",
+          "nickname": "Leibniz",
+          "lane": "facilities"
+        },
+        {
+          "agentId": "019ddab2-8ce8-76e1-8d15-3ac8cd285ed0",
+          "nickname": "Laplace",
+          "lane": "transit/access"
+        },
+        {
+          "agentId": "019ddab2-8dcf-7d81-bfae-901bad6bf172",
+          "nickname": "Dalton",
+          "lane": "field reports"
+        },
+        {
+          "agentId": "019ddab2-8ef4-7811-8460-f0e20958f6f3",
+          "nickname": "Volta",
+          "lane": "rules/safety/currentness"
+        }
+      ],
+      "notes": "Initial required six-lane parallel research pass for official stage 5. Agents did not edit files. Field-report lane returned: 2025 reverse-direction account supports passability with cattle, marshy areas, shelter lunch stop, possible forestry impact, Högaliden/MTB context, Mullsjön and surfaced riverside Hjo approach; no closure/reroute reported. Hedsmossen water needs caveats: iron-rich well, possible better stream about 150 m north, and carry-water recommendation. Geometry lane returned: Hjo harbor to Baståsen endpoints, both official GPX segments stored reverse to official order, tiny Baståsen duplicate/backtrack, OSM 1690568 reaches Baståsen, and E1 omits Hjo-Mullsjön. Rules lane returned: Hjoåns dalgång restrictions, adjacent/bbox protected-area cautions, fire-ban status, dog/livestock/hunting rules, forestry bbox hits and Baståsen road/access caveat. Official-source lane returned: official facts, route order, side/rest points, cycling note and stale-source risks. Facilities lane returned: Hjo, Stämmorna, Högaliden, Hedsmossen, Kärrabo, Pershov and Baståsen facility/access decisions. Transit/access lane returned: Hjo busstation strong, Åkarp candidate, Baståsen no direct current transit/parking, Rödåkra/line 405 stale-unverified."
+    },
+    {
+      "batchId": "stage-6-initial-six-lanes",
+      "sectionId": "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+      "startedAt": "2026-04-29T19:40:31Z",
+      "completedAt": "2026-04-29T19:47:37Z",
+      "status": "completed",
+      "agents": [
+        {
+          "agentId": "019ddac1-d071-7370-a5c2-33c7c18aeede",
+          "nickname": "Godel",
+          "lane": "official sources"
+        },
+        {
+          "agentId": "019ddac1-d128-70a2-aea7-f4ce823ab22e",
+          "nickname": "Aquinas",
+          "lane": "route geometry"
+        },
+        {
+          "agentId": "019ddac1-d282-7312-ada1-b76dd5633875",
+          "nickname": "Bernoulli",
+          "lane": "facilities"
+        },
+        {
+          "agentId": "019ddac1-d3b5-7781-9ce7-256eb6582226",
+          "nickname": "Pascal",
+          "lane": "transit/access"
+        },
+        {
+          "agentId": "019ddac1-d4c2-7b40-9a76-53873145d794",
+          "nickname": "Herschel",
+          "lane": "field reports"
+        },
+        {
+          "agentId": "019ddac1-d5a8-7812-97fe-8e12e3ac93a1",
+          "nickname": "Parfit",
+          "lane": "rules/safety/currentness"
+        }
+      ],
+      "notes": "Initial required six-lane parallel research pass for official stage 6. Agents did not edit files. Official-source lane returned: current First Camp Hökensås naming, 23 km, 5 h, Medel, route order via Vitsjön, official KML/Naturkartan GPX and Rödåkra/line 405 stale-withdrawn caveat. Geometry lane returned: official mainline is correct direction, computed 21.888 km, OSM 8997258 continuity, E1/Pacer cross-check and four short official spurs. Facilities lane returned: Baståsen endpoint metadata, Vitsjön shelter cluster, Store Grubben pending coordinate, Lilla Havsjön off-route bathing, First Camp endpoint services, Hökensås restaurant/shop/sportfishing and Ibbesjön continuation metadata. Transit lane returned: no current direct Baståsen transit, weak long start-side candidates, Hökensås stop line 321 high-confidence end access, and Närtrafik caveats. Field-report lane returned: 2025 passability evidence around sandy heath/forest and Vitsjön, older 2014 Vitsjön shelter evidence, and water reliability caveats. Rules lane returned: Hökensås NVO and Hyltan NR rules, no official closures found, 2026-04-29 no fire ban with risk caveat, water/bathing caveats and forestry notification risk metadata."
+    },
+    {
+      "batchId": "stage-7-initial-six-lanes",
+      "sectionId": "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult",
+      "startedAt": "2026-04-29T19:53:59Z",
+      "completedAt": "2026-04-29T20:00:07Z",
+      "status": "completed",
+      "agents": [
+        {
+          "agentId": "019ddace-1c3f-7d73-93e7-aecdfd7756c4",
+          "nickname": "Copernicus",
+          "lane": "official sources"
+        },
+        {
+          "agentId": "019ddace-1d93-7c73-afd1-3cf8f41fd2bb",
+          "nickname": "Aristotle",
+          "lane": "route geometry"
+        },
+        {
+          "agentId": "019ddace-1e2b-7253-be04-3c588bbbee65",
+          "nickname": "Darwin",
+          "lane": "facilities"
+        },
+        {
+          "agentId": "019ddace-1f5b-7c33-b248-50728d7ee0f4",
+          "nickname": "Gibbs",
+          "lane": "transit/access"
+        },
+        {
+          "agentId": "019ddace-208e-7cc1-9c25-f54dc3072bc5",
+          "nickname": "Halley",
+          "lane": "field reports"
+        },
+        {
+          "agentId": "019ddace-215a-7482-b7d8-12e3d1d07855",
+          "nickname": "Poincare",
+          "lane": "rules/safety/currentness"
+        }
+      ],
+      "notes": "Initial required six-lane parallel research pass for official stage 7. Agents did not edit files. Official-source lane returned: current First Camp Hökensås-Fagerhult name/order, 17 km, 3.5 h, Lätt, legacy/Naturkartan reverse naming, facilities and Gagnån/Hökensås rules. Geometry lane returned: official KML/Naturkartan mainline is First Camp to Gagnån, 15.219 km, separate 0.886 km Fagerhult access line, OSM/E1 continuity at Gagnån and Smålandsleden reverse GPX caveat. Facilities lane returned: First Camp services, Ibbesjön, Store Öjasjön, Nordvattnet, Sydvattnet, Hållsdammsbäcken, Fagerhult endpoint/grocery/access and Södra Kroksjön stage-8 suppression. Transit lane returned: Hökensås line 321 start access, Fagerhult (Habo k:n) JLT R115/R406 end access, Fagerhults Belysning closest mapped stop, Habo station regional hub. Field-report lane returned: 2025 passability evidence, 2017 direct Fagerhult-Hökensås report, local Ibbesjön reviews and no active closure. Rules lane returned: Hökensås NVO and Gagnån NR/Natura rules, no closure/reroute, no fire ban on 2026-04-29 but risk caveat, natural water caveats and forestry notification risk metadata. Main thread synthesized final section JSON at sections/vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult.research.json."
+    },
+    {
+      "batchId": "stage-8-initial-six-lanes",
+      "sectionId": "vastra-vatterleden-etapp-8-fagerhult-mullsjo",
+      "startedAt": "2026-04-29T20:07:32Z",
+      "completedAt": "2026-04-29T20:11:48Z",
+      "status": "completed",
+      "agents": [
+        {
+          "agentId": "019ddada-8c73-7703-a322-a7828ad9f8cb",
+          "nickname": "Bacon",
+          "lane": "official sources"
+        },
+        {
+          "agentId": "019ddada-8cbb-7be1-890a-93ca440975e6",
+          "nickname": "Hegel",
+          "lane": "route geometry"
+        },
+        {
+          "agentId": "019ddada-8d55-7ee2-a6c9-0525ca0393b2",
+          "nickname": "Goodall",
+          "lane": "facilities"
+        },
+        {
+          "agentId": "019ddada-8d76-78a2-9b6a-75bcf1d6407d",
+          "nickname": "Russell",
+          "lane": "transit/access"
+        },
+        {
+          "agentId": "019ddada-8ddf-75d2-bc14-ca499e6d8e2a",
+          "nickname": "Planck",
+          "lane": "field reports"
+        },
+        {
+          "agentId": "019ddada-8dff-7a82-a0f7-810240efb595",
+          "nickname": "Averroes",
+          "lane": "rules/safety/currentness"
+        }
+      ],
+      "notes": "Initial required six-lane parallel research pass for official stage 8. Agents did not edit files. Official-source lane returned current split model Fagerhult-Furusjö plus Furusjö-Mullsjö Hotell, 29/29.8/30.9 km distance conflict, Hotel Mullsjö endpoint and Gagnån/Fagerhult access context. Geometry lane returned reverse-stored split GPX files, Gagnån mainline start, Furusjö 1.35 m split continuity, separate Fagerhult connector, OSM/E1 cross-check and Hotel Mullsjö endpoint discrepancy. Facilities lane returned Fagerhult ledstart, Södra Kroksjön, Hornsjön, Furusjöbadet/Furusjö, Hotel Mullsjö and optional town services. Transit lane returned Fagerhult/Furusjö/Hotel Mullsjö/Mullsjö station access. Field lane returned sparse reports and July 2025 Mullsjö-end reroute signal. Rules lane returned Gagnån restrictions, Södra Kroksjön protected-area caveat and nearby Ryfors/Stråken context. Main thread synthesized final section JSON at sections/vastra-vatterleden-etapp-8-fagerhult-mullsjo.research.json."
+    }
+  ],
+  "sourceCoverage": {
+    "overview": [
+      "Västsverige Swedish and English overview pages",
+      "Skaraborgsleder overview HTML",
+      "Skaraborgsleder overview PDF",
+      "Mullsjö municipality hiking page",
+      "Region Jönköpings län Smålandsleden page",
+      "Naturkartan stage/segment pages found in initial pass",
+      "OSM wiki national trails table with relation IDs"
+    ],
+    "sections": {
+      "officialSources": "complete for sections 1-8",
+      "routeGeometry": "complete for sections 1-8 research handoff; normalization decisions for stage 1 variants, stage 2 branches, stage 7 access split and stage 8 connectors are documented",
+      "facilities": "complete for sections 1-8 first pass/handoff; selected coordinates and business/currentness records remain pending",
+      "transitAccess": "complete for sections 1-8; current timetables still need same-day/runtime verification",
+      "fieldReports": "complete for sections 1-8; source depth varies by section",
+      "rulesSafetyCurrentness": "complete for sections 1-8 research handoff; protected-area overlay decisions are documented, while fire/transit/forestry/business/bathing/shelter maintenance remain volatile runtime checks"
+    },
+    "importRiskResolution": {
+      "status": "complete for research handoff",
+      "artifact": "data/research/candidate-trails/vastra-vatterleden/import-risk-resolution.research.json",
+      "completedAt": "2026-04-29T20:34:20Z",
+      "notes": "Resolved or downgraded the major import risks that could be researched remotely. Remaining risks are mostly normalization-policy decisions, protected-area/forestry overlays and volatile runtime currentness checks."
+    },
+    "staticImportReadinessResolution": {
+      "status": "complete",
+      "artifact": "data/research/candidate-trails/vastra-vatterleden/import-readiness-resolution.research.json",
+      "completedAt": "2026-04-29T20:58:28Z",
+      "notes": "Resolved not-import-ready research risks into normalization, suppression, protected-area scoping and volatile-data policy decisions."
+    }
+  },
+  "knownGaps": [
+    "No runtime app data, generated outputs, hiking source files, public data or shared scripts have been edited.",
+    "All eight sections are ready for candidate normalization handoff, but normalized route/alternate/connector geometry files have not been created.",
+    "Runtime import remains intentionally false because integration is out of scope in this worktree.",
+    "Final normalized geometry should repeat protected-area overlay if the chosen route/connector set changes.",
+    "Baståsen A/B are confirmed current line-402 stop names, but exact stop-side coordinates and walking connector need verification before coordinate POI import.",
+    "Old Rödåkra/line 405 access text is stale and should be suppressed unless future planner data confirms a current stop.",
+    "Forestry notifications, fire bans, transit departures/prebooking, business hours, bathing-water quality and shelter maintenance are volatile pre-publication checks, not durable static import blockers.",
+    "Selected facility records still need coordinate/currentness verification before runtime import, especially optional businesses, water points, subfacilities and shelter-maintenance caveats."
+  ],
+  "nextActions": [
+    "Begin a separate normalization implementation pass only after explicit instruction; keep writes under data/research/candidate-trails/vastra-vatterleden/ unless runtime integration is explicitly requested.",
+    "Use import-readiness-resolution.research.json as the static import-readiness decision record and import-risk-resolution.research.json as the risk matrix.",
+    "Normalize geometry in this order: stage 1 variants, stage 2 direct/Skackastugan branch, stages 3-5 segment assembly/reversal, stage 7 mainline/access split, and stage 8 reversed child GPX plus Fagerhult/Mullsjö connectors.",
+    "Before any runtime import, recheck Västtrafik/JLT/Resrobot, fire-ban sources, Skogsstyrelsen forestry overlays, business/service hours, bathing-water status and shelter maintenance.",
+    "Keep old Rödåkra/line 405 suppressed; use Baståsen A/B line 402 only as coordinate-pending access evidence until stop coordinates are verified."
+  ],
+  "handoffNotes": [
+    "All writes so far are under data/research/candidate-trails/vastra-vatterleden/ in dedicated worktree /workspaces/hike-trails-codex-vastra-vatterleden-research.",
+    "Do not run generated-data commands. Do not edit runtime source or public outputs.",
+    "Use `vastra-vatterleden` as the trail id and ASCII section ids while preserving Swedish names in display fields.",
+    "Overview files are complete enough for handoff: README.md and trail.research.json.",
+    "Stage 1 file is complete enough for handoff: sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.research.json.",
+    "Stage 2 file is complete enough for handoff: sections/vastra-vatterleden-etapp-2-forsvik-molltorp.research.json.",
+    "Stage 3 file is complete enough for handoff: sections/vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa.research.json.",
+    "Stage 4 file is complete enough for handoff: sections/vastra-vatterleden-etapp-4-roa-lunnakulle-hjo.research.json.",
+    "Stage 5 file is complete enough for handoff: sections/vastra-vatterleden-etapp-5-hjo-bastasen.research.json.",
+    "Stage 6 file is complete enough for handoff: sections/vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas.research.json.",
+    "Stage 7 file is complete enough for handoff: sections/vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult.research.json.",
+    "Stage 8 file is complete enough for handoff: sections/vastra-vatterleden-etapp-8-fagerhult-mullsjo.research.json.",
+    "All 8 official section research files now exist and validate as JSON.",
+    "Import-risk resolution file exists and should be read before any normalization/import attempt: data/research/candidate-trails/vastra-vatterleden/import-risk-resolution.research.json.",
+    "README.md and trail.research.json were updated to reflect section research completion and normalization-pending status.",
+    "User changed scope earlier on 2026-04-29: stop after overview and first section, commit and push branch so work can resume on another computer.",
+    "Current user request resumed deep research for sections 2-8 without runtime integration; that section-research pass is complete.",
+    "Current user request then asked to resolve import risks. Remote research and local geometry checks resolved stage 8 reroute/endpoint risk, Hjoåns dalgång fireplace handling, stage 7/8 Fagerhult-Gagnån continuity, Tiveden scope, Hökensås legal label, natural-water import policy and OSM label caveats. Stage 1/2 branch choices remain normalization decisions; protected-area/forestry/transit/fire/business/bathing/shelter currentness remain runtime prerequisites.",
+    "Section files for stages 1, 4, 5 and 8 were tightened to align with import-risk-resolution.research.json so they no longer present resolved risks as open research blockers.",
+    "2026-04-29 import-readiness follow-up resolved stage 1 and stage 2 model risks, protected-area overlays, Hållsdammsbäcken/Gagnån scoping and stale Baståsen/Rödåkra transit risk. Candidate packet is ready for a normalization-only implementation pass, not runtime import."
+  ]
+}

@@ -1,0 +1,348 @@
+{
+  "schemaVersion": "candidate-trail-caveat-resolution/v1",
+  "trailId": "kungsleden",
+  "scope": {
+    "sectionIds": [
+      "kungsleden-section-01-abisko-abiskojaure",
+      "kungsleden-section-02-abiskojaure-alesjaure",
+      "kungsleden-section-03-alesjaure-tjaktja",
+      "kungsleden-section-04-tjaktja-salka",
+      "kungsleden-section-05-salka-singi"
+    ],
+    "purpose": "Targeted follow-up research to resolve or narrow caveats discovered during section-level research. This is research-only candidate data and is not runtime app data."
+  },
+  "accessedDate": "2026-04-29",
+  "createdAt": "2026-04-29T20:35:46Z",
+  "agentBatch": {
+    "batchId": "kungsleden-sections-01-05-caveat-resolution-2026-04-29",
+    "agents": [
+      {
+        "lane": "geometry-endpoint-conventions",
+        "agentId": "019ddae9-9c56-7191-a476-27373b4fe6fd",
+        "nickname": "Halley",
+        "status": "complete"
+      },
+      {
+        "lane": "protected-areas-rules-overlay",
+        "agentId": "019ddae9-9c91-7122-a960-185b44b1a432",
+        "nickname": "Epicurus",
+        "status": "complete"
+      },
+      {
+        "lane": "facilities-poi-verification",
+        "agentId": "019ddae9-9d2a-7b33-af51-96f9abbced6a",
+        "nickname": "Banach",
+        "status": "complete"
+      },
+      {
+        "lane": "transit-boats-shops-access-currentness",
+        "agentId": "019ddae9-9d49-77c1-bf73-91bd775b9bc3",
+        "nickname": "Pasteur",
+        "status": "complete"
+      },
+      {
+        "lane": "closures-current-conditions-bridges-fire-hunting",
+        "agentId": "019ddae9-9d75-72f0-b2ea-f567190c67f4",
+        "nickname": "Kuhn",
+        "status": "complete"
+      }
+    ]
+  },
+  "resolvedCaveats": [
+    {
+      "id": "abiskojaure-section-boundary-continuity",
+      "status": "fact-resolved-import-policy-open",
+      "sections": [
+        "kungsleden-section-01-abisko-abiskojaure",
+        "kungsleden-section-02-abiskojaure-alesjaure"
+      ],
+      "finding": "Naturkartan and OSM both preserve exact continuity at the Abiskojaure section boundary. Naturkartan sections 1 and 2 share 68.286000203,18.590492322 with 0 m gap and about 31.1 m distance to STF Abiskojaure. OSM sections 1 and 2 share 68.286052708,18.590396212 with 0 m gap and about 32.2 m distance to the hut.",
+      "importConsequence": "The remaining decision is not factual but a normalization convention: either keep continuous section-boundary points or deduplicate/model the Kamajakka hut access as shared connector metadata.",
+      "confidence": "high",
+      "sources": [
+        "https://api.naturkartan.se/v3.2/sites/12850",
+        "https://api.naturkartan.se/v3.2/sites/14092",
+        "https://www.openstreetmap.org/relation/6289365",
+        "https://www.openstreetmap.org/relation/8928539",
+        "https://www.swedishtouristassociation.com/facilities/stf-abiskojaure-mountain-cabin/"
+      ]
+    },
+    {
+      "id": "section-01-geometry-availability",
+      "status": "partly-resolved",
+      "sections": [
+        "kungsleden-section-01-abisko-abiskojaure"
+      ],
+      "finding": "Naturkartan site 12850 API/page geometry exists and reports a single 460-point line of about 14.023 km from 68.358896048,18.779224884 to 68.286000203,18.590492322. Direct public GPX for the section still returned HTTP 500 during the caveat pass.",
+      "importConsequence": "Planning-grade geometry source is identified. A stable downloadable official GPX/KML/GeoJSON remains unavailable for section 1, so source policy and capture method must be decided before runtime geometry import.",
+      "confidence": "medium-high",
+      "sources": [
+        "https://www.naturkartan.se/en/norrbottens-lan/vandringsled-bd25-mellan-abisko-och-abiskojaure",
+        "https://api.naturkartan.se/v3.2/sites/12850"
+      ]
+    },
+    {
+      "id": "section-01-bridge-closure-report",
+      "status": "resolved-as-unconfirmed-anecdote",
+      "sections": [
+        "kungsleden-section-01-abisko-abiskojaure"
+      ],
+      "finding": "No official current closure, reroute or bridge-out notice was found for section 1 as of 2026-04-29. The 2025-08-06 AllTrails bridge-closure report remains anecdotal and unidentified; official/current sources still describe Nissunjohka and Kamajakka bridge access as route features.",
+      "importConsequence": "Do not encode the AllTrails report as a standing closure. Retain it only as a dated condition-report caveat and recheck official current pages before public/runtime use.",
+      "confidence": "medium-high",
+      "sources": [
+        "https://www.lansstyrelsen.se/norrbotten/besoksmal/friluftsliv-och-allemansratt/aktuellt-i-fjallen.html",
+        "https://www.sverigesnationalparker.se/park/abisko-nationalpark/",
+        "https://www.naturkartan.se/en/norrbottens-lan/vandringsled-bd25-mellan-abisko-och-abiskojaure",
+        "https://www.alltrails.com/"
+      ]
+    },
+    {
+      "id": "section-02-abisko-national-park-exit",
+      "status": "resolved-for-research",
+      "sections": [
+        "kungsleden-section-02-abiskojaure-alesjaure"
+      ],
+      "finding": "The Abisko National Park exit on section 2 was resolved by overlaying official Naturkartan GPX evidence against the NVR Abisko polygon. Approximate exit coordinate: 68.268303887,18.580143337. It is about 2.21 km southbound from the Abiskojaure GPX start and lies between GPX points 68.268366181,18.580138295 and 68.268191064,18.580152469.",
+      "importConsequence": "Abisko National Park camping/fire/dog/drone/hunting restrictions apply at the section start and stop after this boundary. General allemansratten, reindeer/dog control, fire-ban, fishing and hunting permit rules continue beyond the park.",
+      "confidence": "medium-high",
+      "sources": [
+        "https://www.naturkartan.se/en/norrbottens-lan/vandringsled-bd26-mellan-abiskojaure-och-alesjaure_e",
+        "https://www.naturvardsverket.se/en/services-and-permits/map-services-and-geodata/",
+        "https://www.sverigesnationalparker.se/park/abisko-nationalpark/"
+      ]
+    },
+    {
+      "id": "section-02-alesjaure-boat-currentness",
+      "status": "mostly-resolved-currentness-caveat-remains",
+      "sections": [
+        "kungsleden-section-02-abiskojaure-alesjaure"
+      ],
+      "finding": "STF lists the Alesjaure boat as a private optional shortcut, not a required Kungsleden crossing. Operator/contact: Roland Enoksson. Departures from STF Alesjaure are 10:00, 15:00, 17:00 and 18:30; from the outlet pier 10:30, 15:30, 17:30 and 19:00. Extra trips are offered 08:00-20:00 with at least 6 people. Price evidence: adult 500 SEK, child 200 SEK, extra backpack 200 SEK, dog free. Payment evidence: Swedish cash, EUR/NOK and card; no Swish evidence found.",
+      "coordinates": [
+        {
+          "label": "Alesjaure hut/south pier",
+          "lat": 68.137225,
+          "lon": 18.418609,
+          "source": "OSM node 312876862"
+        },
+        {
+          "label": "Alesjaure outlet/north pier",
+          "lat": 68.182615,
+          "lon": 18.470543,
+          "source": "OSM node 1882915971"
+        }
+      ],
+      "importConsequence": "Model as optional shortcut/access metadata only. Do not use boat geometry as mandatory section geometry. Recheck directly before public use because the available STF page is a 2025 until-further-notice source rather than an explicitly 2026 operator page.",
+      "confidence": "medium-high",
+      "sources": [
+        "https://www.swedishtouristassociation.com/guides/mountains/transport/boats/",
+        "https://www.svenskaturistforeningen.se/boende/stf-alesjaure-fjallstuga/upplev/",
+        "https://www.openstreetmap.org/node/312876862",
+        "https://www.openstreetmap.org/node/1882915971"
+      ]
+    },
+    {
+      "id": "sections-03-04-tjaktja-stage-divider",
+      "status": "fact-resolved-import-policy-open",
+      "sections": [
+        "kungsleden-section-03-alesjaure-tjaktja",
+        "kungsleden-section-04-tjaktja-salka"
+      ],
+      "finding": "The stage divider at Tjaktja is clear in STF/Naturkartan stage text, but verified hut-spur geometry remains unavailable. STF Tjaktja is 68.051648,18.241082. Naturkartan's nearest combined-route line point is 68.051278650,18.246285616, about 220.1 m from the hut. OSM sections 3/4 share 68.049123502,18.245140770, about 327.5 m from the hut.",
+      "importConsequence": "Do not synthesize a hut spur for navigation. Later normalization must choose between hut POI endpoint plus connector metadata or continuous mainline section boundary.",
+      "confidence": "high for measured gaps; low for any inferred spur",
+      "sources": [
+        "https://api.naturkartan.se/v3.2/sites/12865",
+        "https://www.openstreetmap.org/relation/10861495",
+        "https://www.openstreetmap.org/relation/10861494",
+        "https://www.swedishtouristassociation.com/facilities/stf-tjaktja-mountain-cabin/"
+      ]
+    },
+    {
+      "id": "section-03-ford-and-capacity",
+      "status": "resolved-for-research",
+      "sections": [
+        "kungsleden-section-03-alesjaure-tjaktja"
+      ],
+      "finding": "Sielmmanjira ford coordinate is resolved well enough for a route-hazard note at 68.061904,18.253420 from Naturkartan text plus OSM support. Tjaktja capacity contradiction should be normalized to the current STF range 11-25 and stale OSM/Naturkartan exact 33 should be suppressed unless reverified.",
+      "importConsequence": "Use the ford as a hazard/route note with medium-high confidence. Avoid importing exact Tjaktja capacity 33.",
+      "confidence": "medium-high",
+      "sources": [
+        "https://www.naturkartan.se/en/norrbottens-lan/vandringsled-bd31-mellan-alesjaure-och-salka",
+        "https://www.swedishtouristassociation.com/facilities/stf-tjaktja-mountain-cabin/",
+        "https://www.openstreetmap.org/"
+      ]
+    },
+    {
+      "id": "section-04-tjaktjapasset-shelter",
+      "status": "resolved-for-research",
+      "sections": [
+        "kungsleden-section-04-tjaktja-salka"
+      ],
+      "finding": "Tjaktjapasset rest shelter coordinate is resolved at 68.019682,18.246937 with latrine at 68.019638,18.247057. The main bridge before Salka is medium-high confidence at 67.972246,18.263515.",
+      "importConsequence": "Shelter can be treated as a high-confidence facility. Latrine and bridge import depend on app taxonomy.",
+      "confidence": "high for shelter; medium-high for bridge",
+      "sources": [
+        "https://www.naturkartan.se/en/norrbottens-lan/raststuga-tjaktjapasset",
+        "https://www.openstreetmap.org/"
+      ]
+    },
+    {
+      "id": "section-05-bridges-kuoperjakka-singi",
+      "status": "resolved-for-research",
+      "sections": [
+        "kungsleden-section-05-salka-singi"
+      ],
+      "finding": "Section 5 bridge and shelter facts are now source-backed enough for research handoff. Gaskkasjohka bridge cluster coordinates: 67.927352,18.286078; 67.924985,18.286963; 67.922209,18.287163; 67.920577,18.291163. Guobirjohka bridge/rest point: 67.897503,18.328526. Kuoperjakka/Kebnekatan shelter: official 67.891744,18.322880, OSM shelter 67.891783,18.322867, dry toilet 67.891516,18.323050. Singi parent hut and junction are high confidence, but child amenities should be folded unless standalone emergency/toilet import is supported.",
+      "importConsequence": "Import shelter if shelter taxonomy exists; fold/import dry toilet depending on taxonomy. Avoid over-naming bridge cluster records. Suppress informal camp/meditation/wet-camp OSM pins and represent them as generalized route context.",
+      "confidence": "medium-high to high",
+      "sources": [
+        "https://www.naturkartan.se/en/norrbottens-lan/vandringsled-bd38-mellan-salka-och-singi",
+        "https://www.naturkartan.se/sv/norrbottens-lan/raststuga-kebnekatan",
+        "https://www.swedishtouristassociation.com/facilities/stf-singi-mountain-cabin/",
+        "https://www.openstreetmap.org/"
+      ]
+    },
+    {
+      "id": "sections-03-05-protected-area-currentness",
+      "status": "resolved-with-final-overlay-caveat",
+      "sections": [
+        "kungsleden-section-03-alesjaure-tjaktja",
+        "kungsleden-section-04-tjaktja-salka",
+        "kungsleden-section-05-salka-singi"
+      ],
+      "finding": "NVR WFS bbox checks around the route corridor returned no current national park, nature reserve or current reserve features for sections 3-5. N2000 WFS returned only SE0820430 Torne och Kalix alvsystem. Kebnekaise proposed national park is a planning/proposal layer, not current legal protected-area rules.",
+      "importConsequence": "No current land-reserve rule should be inferred for sections 3-5 from this pass. A final selected-geometry line and watercourse crossing overlay is still needed before rules normalization because the Torne/Kalix Natura 2000 water-system layer may affect watercourse context rather than broad land access.",
+      "confidence": "medium-high",
+      "sources": [
+        "https://www.naturvardsverket.se/en/services-and-permits/map-services-and-geodata/",
+        "https://www.lansstyrelsen.se/norrbotten/besoksmal/friluftsliv-och-allemansratt/aktuellt-i-fjallen.html"
+      ]
+    },
+    {
+      "id": "sections-01-05-current-closures-and-fire",
+      "status": "resolved-as-of-access-date",
+      "sections": [
+        "kungsleden-section-01-abisko-abiskojaure",
+        "kungsleden-section-02-abiskojaure-alesjaure",
+        "kungsleden-section-03-alesjaure-tjaktja",
+        "kungsleden-section-04-tjaktja-salka",
+        "kungsleden-section-05-salka-singi"
+      ],
+      "finding": "No official current closure, reroute or bridge-out notice for sections 1-5 was found as of 2026-04-29. Lanstyrelsen 2026-03-27 and 2026-04-22 winter-route warnings are spring/ice safety warnings, not summer hiking closures. No 2026 summer snow report was found; the STF snow report remains historical dated 2025-07-08. No active Norrbotten county fire-ban notice was found on checked official pages, but no-ban status is not durable.",
+      "importConsequence": "Use no-current-official-closure only as an accessed-date research statement. Recheck official current pages, bridge reports, fire bans, hunting/reindeer restrictions and hut service dates immediately before public/runtime use.",
+      "confidence": "medium-high",
+      "sources": [
+        "https://www.lansstyrelsen.se/norrbotten/besoksmal/friluftsliv-och-allemansratt/aktuellt-i-fjallen.html",
+        "https://www.lansstyrelsen.se/norrbotten/besoksmal/friluftsliv-och-allemansratt/aktuellt-i-fjallen/aktuellt-i-fjallen/2026-04-22-lansstyrelsen-upphor-med-kontroll-av-leder.html",
+        "https://www.swedishtouristassociation.com/guides/mountains/snow-conditions/"
+      ]
+    },
+    {
+      "id": "sections-01-05-shops-staffing",
+      "status": "resolved-for-research",
+      "sections": [
+        "kungsleden-section-01-abisko-abiskojaure",
+        "kungsleden-section-02-abiskojaure-alesjaure",
+        "kungsleden-section-03-alesjaure-tjaktja",
+        "kungsleden-section-04-tjaktja-salka",
+        "kungsleden-section-05-salka-singi"
+      ],
+      "finding": "STF hut staffing for sections 1-5 is listed as 2026-02-20 to 2026-04-19 and 2026-06-18 to 2026-09-13 for Abiskojaure, Alesjaure, Tjaktja, Salka and Singi. Shop status: Abiskojaure, Alesjaure and Salka have shops with large selection; Tjaktja and Singi have no shop and require hikers to carry food.",
+      "importConsequence": "Encode shop/resupply only where taxonomy supports it and keep hut opening dates as currentness-sensitive metadata. Recheck before public use.",
+      "confidence": "high",
+      "sources": [
+        "https://www.swedishtouristassociation.com/guides/mountains/shops/",
+        "https://www.swedishtouristassociation.com/stays/stay/stay-stf-mountain-cabin/",
+        "https://www.swedishtouristassociation.com/facilities/stf-abiskojaure-mountain-cabin/",
+        "https://www.swedishtouristassociation.com/facilities/stf-alesjaure-mountain-cabin/",
+        "https://www.swedishtouristassociation.com/facilities/stf-tjaktja-mountain-cabin/",
+        "https://www.swedishtouristassociation.com/facilities/stf-salka-mountain-cabin/",
+        "https://www.swedishtouristassociation.com/facilities/stf-singi-mountain-cabin/"
+      ]
+    }
+  ],
+  "connectorAndAccessFindings": [
+    {
+      "id": "laddjujavri-nikkaluokta-access",
+      "finding": "The Laddjujavri boat is relevant only to the Nikkaluokta-Kebnekaise-Singi access corridor. STF explicitly says Singi-Nikkaluokta is not official Kungsleden. The boat shortens the Kebnekaise-Nikkaluokta access walk by about 6 km. OSM landing coordinates: east/lower 67.845181,18.887993 and west/higher 67.853000,18.789310.",
+      "importConsequence": "Do not model the Laddjujavri boat as a section 5 or mainline Kungsleden crossing. If later access connectors are included, recheck 2026 schedule because Enoks still showed summer 2025 timetable/prices in this pass.",
+      "confidence": "high for relevance; medium for current schedule",
+      "sources": [
+        "https://www.swedishtouristassociation.com/trails/signature-trail-kungsleden-abisko/",
+        "https://www.enoks.se/en/boat-departures/",
+        "https://nikkaluokta.com/en/mountain-transport/summer",
+        "https://www.openstreetmap.org/node/495165113",
+        "https://www.openstreetmap.org/node/2593701173"
+      ]
+    },
+    {
+      "id": "nikkaluoktaexpressen-2026",
+      "finding": "Nikkaluoktaexpressen summer 2026 service is published for 2026-06-12 to 2026-09-20. Timetable PDFs are split for 2026-06-12 to 2026-08-02, 2026-08-03 to 2026-08-09, and 2026-08-10 to 2026-09-20. Adult Kiruna-Nikkaluokta online one-way fare is 300 SEK; onboard purchase is online price plus 200 SEK. Nikkaluokta bus stop coordinate from OSM: 67.850883,19.016419.",
+      "importConsequence": "Relevant to Singi/Kebnekaise/Nikkaluokta connector access, not sections 1-5 mainline endpoints. Use booking/PDF for exact dates because times and connections vary.",
+      "confidence": "high",
+      "sources": [
+        "https://nikkaluoktaexpressen.se/?lang=en",
+        "https://nikkaluoktaexpressen.se/tidtabell",
+        "https://nikkaluoktaexpressen.se/priser",
+        "https://kirunalapland.se/en/plan-your-trip/nikkaluokta-kebnekaise/",
+        "https://www.openstreetmap.org/node/495165182"
+      ]
+    },
+    {
+      "id": "abisko-rail-bus-2026-caveat",
+      "finding": "Abisko Turiststation remains valid section 1 access. STF says daily trains stop at unmanned Abisko Turiststation opposite STF, about 5 minutes' walk across E10; bus/transfer from Kiruna is via Lanstrafiken with some airport trips requiring a Kiruna change. Coordinates: STF Abisko 68.358392,18.783634; rail halt 68.357442,18.782515; bus stops 68.357858,18.781659 and 68.358419,18.778829.",
+      "importConsequence": "Major 2026 caveat: Trafikverket platform works fully close Abisko Turiststation platform in ISO weeks 35-36, 2026-08-24 to 2026-09-06, with replacement transport by train operator.",
+      "confidence": "high",
+      "sources": [
+        "https://www.swedishtouristassociation.com/facilities/stf-abisko-turiststation/",
+        "https://www.sverigesnationalparker.se/sv/upptack-nationalparkerna/abisko-nationalpark/besok-parken/hitta-hit/",
+        "https://www.trafikverket.se/vara-projekt/projekt-i-norrbottens-lan/malmbanan-abisko-turist-hojning-av-plattform/",
+        "https://www.openstreetmap.org/node/388484555"
+      ]
+    },
+    {
+      "id": "road-to-ritsem-future-access",
+      "finding": "Road to Ritsem is out of scope for sections 1-5 mainline but relevant for later Vakkotavare/Ritsem access. Summer 2026 bus connects Gallivare with Kebnats/Saltoluokta, Stora Sjofallet, Suorva, Vakkotavare and Ritsem. Service is affected by planned rail-work train irregularity. Tur 1 runs 2026-07-18 to 2026-09-05. Tur 2 outbound runs 2026-06-22 to 2026-08-30 and inbound 2026-06-23 to 2026-08-31. Vakkotavare bus stop 67.581543,18.101005; Ritsem Fjallstation stop 67.722536,17.468211.",
+      "importConsequence": "Do not use as access for sections 1-5. Carry forward for later sections around Vakkotavare/Ritsem and recheck booking partners for exact 2026 departures.",
+      "confidence": "high",
+      "sources": [
+        "https://roadtoritsem.com/sommar/",
+        "https://www.swedishtouristassociation.com/facilities/stf-ritsem/transportation/",
+        "https://www.openstreetmap.org/node/1894654528",
+        "https://www.openstreetmap.org/node/984716281"
+      ]
+    }
+  ],
+  "stillOpenImportPolicyDecisions": [
+    "Confirm project source/licensing policy before storing or importing Naturkartan API/GPX geometry or OSM-derived route geometry.",
+    "Choose endpoint convention for hut-adjacent stages: hut POI endpoints, continuous section-boundary points, or explicit connector/access metadata. This remains relevant at Abiskojaure, Tjaktja, Salka and Singi.",
+    "Decide whether child facilities such as hut toilets, saunas, emergency phones, water points and dry toilets should be standalone POIs or folded into parent hut/shelter records.",
+    "Decide whether route bridges should be imported as standalone infrastructure POIs, represented as route notes, or suppressed unless they affect access/safety.",
+    "Run final protected-area/Natura 2000 line overlay against the selected geometry before rules normalization, especially for Torne och Kalix alvsystem watercourse crossings.",
+    "Recheck official current conditions, fire bans, hut opening/service dates, boat/bus timetables, hunting/reindeer restrictions and any bridge notices immediately before public/runtime import."
+  ],
+  "perSectionRecommendations": [
+    {
+      "sectionId": "kungsleden-section-01-abisko-abiskojaure",
+      "recommendation": "Keep section research ready for normalization with caveats. Treat AllTrails bridge report as unconfirmed dated field report, not current closure. Use API geometry as planning-grade if source policy allows; direct official GPX remains unavailable. Keep Abiskojakka viewpoint pending and import Abiskojaure beach only if bathing POIs are in scope."
+    },
+    {
+      "sectionId": "kungsleden-section-02-abiskojaure-alesjaure",
+      "recommendation": "Add the Abisko National Park exit coordinate to rules normalization notes. Model Alesjaure boat as optional shortcut/access metadata with 2025-until-further-notice currentness caveat. Use resolved Siellajohka and Radunjarga coordinates for facilities if taxonomy supports them."
+    },
+    {
+      "sectionId": "kungsleden-section-03-alesjaure-tjaktja",
+      "recommendation": "Use current STF Tjaktja capacity range 11-25. Add Sielmmanjira ford coordinate as route-hazard note. Keep Tjaktja hut-spur geometry unresolved and do not create synthetic navigation geometry."
+    },
+    {
+      "sectionId": "kungsleden-section-04-tjaktja-salka",
+      "recommendation": "Treat Tjaktjapasset shelter coordinate as resolved. Keep endpoint/spur and geometry source decisions as normalization policy. Suppress OSM-only picnic/meditation/camp examples unless independently verified."
+    },
+    {
+      "sectionId": "kungsleden-section-05-salka-singi",
+      "recommendation": "Treat Kuoperjakka shelter/toilet and bridge cluster findings as research-ready. Keep Singi-Kebnekaise/Nikkaluokta as connector/access metadata. Do not import informal OSM camp/rest/meditation pins."
+    }
+  ]
+}

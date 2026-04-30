@@ -1,0 +1,936 @@
+{
+  "schemaVersion": "1.0",
+  "trailId": "hogakustenleden",
+  "createdAt": "2026-04-29T20:39:49Z",
+  "lastUpdated": "2026-04-29T20:39:49Z",
+  "accessedDate": "2026-04-29",
+  "purpose": "Targeted follow-up research to resolve or narrow the remaining import caveats after the first-pass overview and section research for Höga Kustenleden. This file is research-only and is not runtime app data.",
+  "agentBatch": {
+    "batchId": "targeted-caveat-resolution-2026-04-29",
+    "status": "complete",
+    "agents": [
+      {
+        "lane": "A",
+        "focus": "authoritative transit, GTFS, timetables",
+        "agentId": "019ddaec-883a-7bb1-af54-dee89f863024"
+      },
+      {
+        "lane": "B",
+        "focus": "protected areas, current notices, fire, closures, boundaries",
+        "agentId": "019ddaec-8d07-72e3-9528-780c35397f27"
+      },
+      {
+        "lane": "C",
+        "focus": "facilities and service coordinates/currentness for sections 1-5",
+        "agentId": "019ddaec-8d9f-7921-9177-1dffdeb5ae30"
+      },
+      {
+        "lane": "D",
+        "focus": "facilities and service coordinates/currentness for sections 6-9",
+        "agentId": "019ddaec-8e69-7fe2-a234-521edf81e8fc"
+      },
+      {
+        "lane": "E",
+        "focus": "geometry contradictions and import-policy decisions",
+        "agentId": "019ddaec-8f5b-74e0-b4e5-cd07b2af4b23"
+      }
+    ]
+  },
+  "overallResolutions": [
+    {
+      "id": "gtfs-authority-status",
+      "topic": "authoritative transit data",
+      "status": "partly-resolved",
+      "finding": "DinTur is available through Trafiklab GTFS Sweden 3 / Regional GTFS, Trafiklab Stop Lookup / Timetables, and Stops data NeTEx, but these authoritative sources require an API key. The targeted pass resolved DinTur/Fskab stop-area IDs and WGS84 coordinates from DinTur's embedded planner. Treat these as good research-grade stop IDs, not final national ResRobot/Trafiklab stop IDs.",
+      "recommendation": "Use the DinTur/Fskab stop-area IDs below for research and candidate normalization notes. Replace with authoritative Trafiklab/ResRobot national stop IDs before automated transit import if a Trafiklab key is available.",
+      "confidence": "medium-high",
+      "sourceUrls": [
+        "https://www.trafiklab.se/api/gtfs-datasets/gtfs-sweden/",
+        "https://www.trafiklab.se/api/gtfs-datasets/gtfs-regional/",
+        "https://www.trafiklab.se/api/our-apis/trafiklab-realtime-apis/stop-lookup/",
+        "https://www.trafiklab.se/api/netex-datasets/stops-data/",
+        "https://www.dintur.se/navigation/sok-resa/",
+        "https://www.dintur.se/navigation/tidtabeller/"
+      ]
+    },
+    {
+      "id": "seasonal-shuttle-status",
+      "topic": "Nationalparksbussen / Världsarvsbussen",
+      "status": "resolved-suppress-for-2026-until-new-source",
+      "finding": "No current authoritative 2026 Nationalparksbussen timetable was found. The current Skuleskogen official access page points to line 50 and lines 421/422. Höga Kusten FAQ still mentions Världsarvsbussen, but current travel pages do not provide a current timetable, and secondary current guidance says the World Heritage Bus ran in 2023.",
+      "recommendation": "Do not import or display a 2026 shuttle as active unless a new official timetable appears.",
+      "confidence": "medium-high",
+      "sourceUrls": [
+        "https://www.sverigesnationalparker.se/sv/upptack-nationalparkerna/skuleskogens-nationalpark/besok-parken/hitta-hit",
+        "https://www.hogakusten.com/en/plan-your-trip/faq"
+      ]
+    },
+    {
+      "id": "boats-2026-status",
+      "topic": "seasonal boats as optional access",
+      "status": "resolved-current-2026-schedules-found",
+      "finding": "M/F Ulvön has current 2026 timetables including summer service 18 June-16 August 2026 from Köpmanholmen toward Ulvön, Trysunda and Strängöarna. Höga Kusten Båtarna has 2026 Ulvön service 15 June-16 August 2026 from Ullånger, Docksta and Mjällomslandet to Ulvöhamn and return. Högbonden 2026 service from Barsta/Bönhamn is active for 22 June-16 August.",
+      "recommendation": "Model these as optional seasonal onward/side access only, not as required trail crossings.",
+      "confidence": "high",
+      "sourceUrls": [
+        "https://www.mfulvon.se/turlistor",
+        "https://hkship.se/mobile/turlistor.asp",
+        "https://www.hkship.se/"
+      ]
+    },
+    {
+      "id": "fire-ban-status",
+      "topic": "countywide fire ban",
+      "status": "resolved-dynamic",
+      "finding": "Länsstyrelsen Västernorrland showed no countywide fire ban on the access date. Fire-ban status is dynamic and can override all fireplace records.",
+      "recommendation": "Keep fireplace records caveated and recheck fire-ban status immediately before public display/import.",
+      "confidence": "high-for-access-date",
+      "sourceUrls": [
+        "https://www.lansstyrelsen.se/vasternorrland/samhalle/sakerhet-och-beredskap/brandrisk-och-eldningsforbud.html"
+      ]
+    }
+  ],
+  "resolvedDinTurStopAreas": [
+    {
+      "candidate": "Hornöberget",
+      "resolvedStop": "Hornöberget E4",
+      "dinTurFskabId": "22082520",
+      "coordinates": { "lat": 62.8069136560105, "lon": 17.9523351591541 },
+      "confidence": "medium-high"
+    },
+    {
+      "candidate": "Hornöberget local",
+      "resolvedStop": "Hornöberget",
+      "dinTurFskabId": "22082242",
+      "coordinates": { "lat": 62.8033256230742, "lon": 17.9521915273422 },
+      "confidence": "medium-high"
+    },
+    {
+      "candidate": "Lövvik",
+      "resolvedStop": "Lövvik",
+      "dinTurFskabId": "22082130",
+      "coordinates": { "lat": 62.8043032106712, "lon": 18.0957228792523 },
+      "confidence": "medium-high"
+    },
+    {
+      "candidate": "Salteå",
+      "resolvedStop": "Salteå",
+      "dinTurFskabId": "22001144",
+      "coordinates": { "lat": 62.8945290988326, "lon": 18.1422999598382 },
+      "confidence": "medium-high"
+    },
+    {
+      "candidate": "Vännersta",
+      "resolvedStop": "Vännersta",
+      "dinTurFskabId": "22001553",
+      "coordinates": { "lat": 62.9323255377282, "lon": 18.217665775309 },
+      "confidence": "medium-high"
+    },
+    {
+      "candidate": "Nordingrå",
+      "resolvedStop": "Nordingrå Vallen",
+      "dinTurFskabId": "22001059",
+      "coordinates": { "lat": 62.9307330470592, "lon": 18.2954216233513 },
+      "confidence": "medium-high"
+    },
+    {
+      "candidate": "Nordingrå alternate",
+      "resolvedStop": "Nordingrå Affären",
+      "dinTurFskabId": "22082347",
+      "coordinates": { "lat": 62.929814946066, "lon": 18.2925071329013 },
+      "confidence": "medium-high"
+    },
+    {
+      "candidate": "Ullånger / OKQ8",
+      "resolvedStop": "Ullånger Bstn",
+      "dinTurFskabId": "22082048",
+      "coordinates": { "lat": 63.0109343715748, "lon": 18.1883639810314 },
+      "confidence": "medium-high"
+    },
+    {
+      "candidate": "Docksta",
+      "resolvedStop": "Docksta Busstation",
+      "dinTurFskabId": "22000772",
+      "coordinates": { "lat": 63.0546256404642, "lon": 18.3265303883776 },
+      "confidence": "medium-high"
+    },
+    {
+      "candidate": "Skoved",
+      "resolvedStop": "Skoved E4",
+      "dinTurFskabId": "22082331",
+      "coordinates": { "lat": 63.0269249134009, "lon": 18.3011328190463 },
+      "confidence": "medium-high"
+    },
+    {
+      "candidate": "Skule / Naturum E4",
+      "resolvedStop": "Naturum Höga Kusten E4",
+      "dinTurFskabId": "22082250",
+      "coordinates": { "lat": 63.0704809358286, "lon": 18.3574736790213 },
+      "confidence": "medium-high"
+    },
+    {
+      "candidate": "Naturum local",
+      "resolvedStop": "Naturum Höga Kusten",
+      "dinTurFskabId": "22082320",
+      "coordinates": { "lat": 63.0735363007003, "lon": 18.3562962508793 },
+      "confidence": "medium-high"
+    },
+    {
+      "candidate": "Entré Väst access",
+      "resolvedStop": "Skuleskogen entré V E4",
+      "dinTurFskabId": "22021007",
+      "coordinates": { "lat": 63.1140051499614, "lon": 18.3830189299311 },
+      "confidence": "medium-high"
+    },
+    {
+      "candidate": "Näske",
+      "resolvedStop": "Näske (ÖVIK)",
+      "dinTurFskabId": "22001077",
+      "coordinates": { "lat": 63.1573350182, "lon": 18.5081125237494 },
+      "confidence": "medium-high"
+    },
+    {
+      "candidate": "Köpmanholmen",
+      "resolvedStop": "Köpmanholmen C",
+      "dinTurFskabId": "22000965",
+      "coordinates": { "lat": 63.1741482694571, "lon": 18.5683636347182 },
+      "confidence": "medium-high"
+    },
+    {
+      "candidate": "Köpmanholmen service",
+      "resolvedStop": "Konsum Hummelviksvägen",
+      "dinTurFskabId": "22084074",
+      "coordinates": { "lat": 63.168545619608, "lon": 18.5637780307836 },
+      "confidence": "medium-high"
+    },
+    {
+      "candidate": "Bäckvägen",
+      "resolvedStop": "Bäckvägen",
+      "dinTurFskabId": "22001566",
+      "coordinates": { "lat": 63.2322650456766, "lon": 18.6505340627404 },
+      "confidence": "medium-high"
+    },
+    {
+      "candidate": "Svedjeholmen",
+      "resolvedStop": "Svedjeholmen",
+      "dinTurFskabId": "22014208",
+      "coordinates": { "lat": 63.2711957953257, "lon": 18.6651932356081 },
+      "confidence": "medium-high"
+    },
+    {
+      "candidate": "Svedjeholmsvägen",
+      "resolvedStop": "Svedjeholmsvägen",
+      "dinTurFskabId": "22002219",
+      "coordinates": { "lat": 63.2679898581739, "lon": 18.6746025755249 },
+      "confidence": "medium-high"
+    },
+    {
+      "candidate": "Varvsbergsvägen",
+      "resolvedStop": "Varvsbergsvägen",
+      "dinTurFskabId": "22002107",
+      "coordinates": { "lat": 63.2748905646937, "lon": 18.7031402005336 },
+      "confidence": "medium-high"
+    },
+    {
+      "candidate": "Örnparken",
+      "resolvedStop": "Örnparken",
+      "dinTurFskabId": "22002100",
+      "coordinates": { "lat": 63.2894229061913, "lon": 18.7182634185658 },
+      "confidence": "medium-high"
+    },
+    {
+      "candidate": "Örnsköldsvik bus",
+      "resolvedStop": "Örnsköldsvik ReseC",
+      "dinTurFskabId": "22009005",
+      "coordinates": { "lat": 63.2877315171667, "lon": 18.707880298497 },
+      "confidence": "medium-high"
+    }
+  ],
+  "dinTurLineAssociations": [
+    {
+      "lines": ["50"],
+      "stops": ["Hornöberget E4", "Docksta", "Skoved E4", "Naturum Höga Kusten E4", "Skuleskogen entré V E4", "Ullånger"],
+      "confidence": "medium"
+    },
+    {
+      "lines": ["421", "422"],
+      "stops": ["Näske", "Köpmanholmen C", "Konsum Hummelviksvägen", "Bäckvägen"],
+      "confidence": "medium"
+    },
+    {
+      "lines": ["407"],
+      "stops": ["Svedjeholmen", "Svedjeholmsvägen"],
+      "confidence": "medium"
+    },
+    {
+      "lines": ["401", "407", "417"],
+      "stops": ["Varvsbergsvägen"],
+      "confidence": "medium"
+    },
+    {
+      "lines": ["217", "218", "221"],
+      "stops": ["Nordingrå Vallen", "Vännersta", "Salteå", "Ullånger"],
+      "confidence": "medium"
+    },
+    {
+      "lines": ["228", "229", "230"],
+      "stops": ["Hornöberget", "Lövvik-side local access"],
+      "confidence": "medium"
+    }
+  ],
+  "transitSuppressOrPending": [
+    {
+      "candidate": "Genesön",
+      "status": "suppress-as-transit",
+      "finding": "No DinTur stop area found. Planner resolves Geneskolan as a stop and Genesön 101 Domsjö as an address only.",
+      "affectedSections": ["hogakustenleden-section-8-entre-nord-balesudden", "hogakustenleden-section-9-balesudden-ornskoldsvik"]
+    },
+    {
+      "candidate": "Lappudden",
+      "status": "suppress-as-direct-transit",
+      "finding": "No stop area found. Planner has address Lappudden 101 Nordingrå only. Use nearby verified Nordingrå/Vännersta/Järnsta-type access options with caveats.",
+      "affectedSections": ["hogakustenleden-section-3-gavik-lappudden", "hogakustenleden-section-4-lappudden-ullanger"]
+    },
+    {
+      "candidate": "Gavik",
+      "status": "suppress-as-direct-transit",
+      "finding": "No stop area found; planner only has address results. Use Salteå/Vännersta fallback access with distance caveats.",
+      "affectedSections": ["hogakustenleden-section-2-lovvik-gavik", "hogakustenleden-section-3-gavik-lappudden"]
+    },
+    {
+      "candidate": "Skulebergets linbana",
+      "status": "pending",
+      "finding": "Autocomplete gives a stop-like ID, but it was absent from the stop map export.",
+      "affectedSections": ["hogakustenleden-section-5-ullanger-skuleberget"]
+    }
+  ],
+  "protectedAreaBoundaryResolutions": [
+    {
+      "protectedArea": "Skuleberget nature reserve",
+      "affectedSections": ["hogakustenleden-section-5-ullanger-skuleberget", "hogakustenleden-section-6-skuleberget-entre-syd"],
+      "routePortions": [
+        "section 5 approx km 16.12-19.62, tiny edge re-entries around km 19.83-19.90 and km 19.96-20.46",
+        "section 6 approx km 0.00-0.54"
+      ],
+      "recommendation": "Apply Skuleberget reserve rules only to these route portions/endpoints, not to whole sections 5-6.",
+      "confidence": "medium-high",
+      "sourceUrls": [
+        "https://www.lansstyrelsen.se/vasternorrland/besoksmal/naturreservat/skuleberget.html"
+      ]
+    },
+    {
+      "protectedArea": "Skuleskogen national park",
+      "affectedSections": ["hogakustenleden-section-6-skuleberget-entre-syd", "hogakustenleden-section-7-entre-syd-entre-nord", "hogakustenleden-section-8-entre-nord-balesudden"],
+      "routePortions": [
+        "section 6 approx km 9.95-10.13 and km 10.60-10.86",
+        "section 7 essentially whole line, approx km 0.00-7.50",
+        "section 8 no meaningful line overlap after the Entré Nord start point"
+      ],
+      "recommendation": "Apply full national-park rules to section 7. For section 6 apply endpoint/approach rules only. Do not apply national-park rules to all of section 8.",
+      "confidence": "medium-high",
+      "sourceUrls": [
+        "https://www.lansstyrelsen.se/vasternorrland/besoksmal/skuleskogens-nationalpark.html",
+        "https://www.sverigesnationalparker.se/en/choose-park---list/skuleskogen-national-park/visitor-information/safety-and-rules/",
+        "https://www.sverigesnationalparker.se/en/choose-park---list/skuleskogen-national-park/visitor-information/services-in-the-park/"
+      ]
+    },
+    {
+      "protectedArea": "Balesudden nature reserve",
+      "affectedSections": ["hogakustenleden-section-8-entre-nord-balesudden", "hogakustenleden-section-9-balesudden-ornskoldsvik"],
+      "routePortions": [
+        "section 8 approx km 12.20-18.29",
+        "section 9 no line overlap by boundary check; Sandlågan start is adjacent/outside the reserve"
+      ],
+      "recommendation": "Apply Balesudden reserve rules to the section 8 reserve segment and nearby reserve facilities. Do not apply Balesudden reserve rules to all of section 9.",
+      "confidence": "medium-high",
+      "sourceUrls": [
+        "https://www.lansstyrelsen.se/vasternorrland/besoksmal/naturreservat/balesudden.html"
+      ]
+    },
+    {
+      "protectedArea": "Hörnsjön nature reserve",
+      "affectedSections": ["hogakustenleden-section-9-balesudden-ornskoldsvik"],
+      "routePortions": [
+        "section 9 approx km 15.71-17.18"
+      ],
+      "recommendation": "Apply Hörnsjön rules only to this urban-reserve segment.",
+      "confidence": "medium-high",
+      "sourceUrls": [
+        "https://www.lansstyrelsen.se/vasternorrland/besoksmal/naturreservat/hornsjon.html",
+        "https://naturguiden.ornskoldsvik.se/hornsjon"
+      ]
+    }
+  ],
+  "currentnessAndSafetyResolutions": [
+    {
+      "topic": "Slåttdalsskrevan",
+      "affectedSections": ["hogakustenleden-section-7-entre-syd-entre-nord"],
+      "status": "resolved-as-hazard-not-formal-closure",
+      "finding": "Current official trail wording says passage through Slåttdalsskrevan is not recommended due to rockfall risk. No formal legal closure notice was found in the current official pages checked.",
+      "recommendation": "Model as hazard / avoid-through-passage / use current route, not as a legally closed segment unless a formal Länsstyrelsen closure notice is later found.",
+      "confidence": "medium-high",
+      "sourceUrls": [
+        "https://www.hogakusten.com/sv/hoga-kusten-leden-etapp-7-entresyd-entrenord",
+        "https://www.naturkartan.se/en/vasternorrlands-lan/etapp-7-entre-syd-entre-nord-skuleskogens-nationalpark-hoga-kusten-leden"
+      ]
+    },
+    {
+      "topic": "Hörnsjön active notice",
+      "affectedSections": ["hogakustenleden-section-9-balesudden-ornskoldsvik"],
+      "status": "resolved-current-notice",
+      "finding": "Länsstyrelsen page says no destination news, but Örnsköldsvik municipality has an active notice dated 2026-01-09: the lighted track is out of function until further notice. Naturguiden says lighting replacement is planned during 2026.",
+      "recommendation": "Carry a currentness caveat for possible work/terrain disturbance around Hörnsjön and recheck before public display.",
+      "confidence": "high",
+      "sourceUrls": [
+        "https://www.ornskoldsvik.se/aktuella-handelser/2026-01-09-elljussparen-pa-hornsjon-ur-funktion",
+        "https://naturguiden.ornskoldsvik.se/hornsjon"
+      ]
+    },
+    {
+      "topic": "section 7 cycling",
+      "affectedSections": ["hogakustenleden-section-7-entre-syd-entre-nord"],
+      "status": "resolved-suppress-cycling-permission",
+      "finding": "The current section 7 GPX does not follow the cycling-permitted Kuststigen corridor except for a tiny near-overlap around km 6.17-6.25. Kuststigen is a separate 5.6 km blue trail.",
+      "recommendation": "Do not mark section 7 as cycling-permitted. Only model cycling permission if Kuststigen is imported as a separate route/corridor.",
+      "confidence": "high",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/vasternorrlands-lan/kuststigen"
+      ]
+    }
+  ],
+  "geometryAndImportPolicy": [
+    {
+      "id": "section-2-distance-policy",
+      "affectedSections": ["hogakustenleden-section-2-lovvik-gavik"],
+      "status": "resolved-display-official-distance",
+      "finding": "Höga Kusten overview and section page list section 2 as 26.8 km. Naturkartan lists 23.7 km, while GPX/OSM computes about 24.8-24.9 km.",
+      "recommendation": "Use 26.8 km as the normalized displayed distance. Store computed geometry distance in metadata. Do not use Naturkartan 23.7 km as primary.",
+      "confidence": "medium-high",
+      "sourceUrls": [
+        "https://www.hogakusten.com/sv/hogakustenleden/etapp-2-lovvik-gavik",
+        "https://www.naturkartan.se/sv/vasternorrlands-lan/lovvik-fjardbotten-hoga-kusten-leden-etapp-2"
+      ]
+    },
+    {
+      "id": "ullanger-endpoint-offset",
+      "affectedSections": ["hogakustenleden-section-4-lappudden-ullanger", "hogakustenleden-section-5-ullanger-skuleberget"],
+      "status": "resolved-accept-official-offset",
+      "finding": "The official section 4 end and section 5 start have a minor 20-25 m Ullånger endpoint mismatch.",
+      "recommendation": "Do not snap or redraw official geometry. Keep each official GPX endpoint aligned to its own route geometry. If a later route graph needs a shared logical node, add a logical junction/access point instead of editing the geometry.",
+      "confidence": "high"
+    },
+    {
+      "id": "section-5-distance-elevation-policy",
+      "affectedSections": ["hogakustenleden-section-5-ullanger-skuleberget"],
+      "status": "resolved-primary-geometry-policy",
+      "finding": "Official display distance is 20.8 km. Naturkartan GPX/API is the current primary geometry. Höga Kusten GPX has old split-track artifacts and a 72.6 m segment gap.",
+      "recommendation": "Display 20.8 km and use Naturkartan GPX/API as primary geometry. Do not blindly transfer Höga Kusten GPX elevations. If elevation is needed, prefer Naturkartan API elevation on the primary line; otherwise keep Höga Kusten elevation as contextual, caveated metadata.",
+      "confidence": "high",
+      "sourceUrls": [
+        "https://www.hogakusten.com/sv/hogakustenleden/etapp-5-ullanger-skuleberget",
+        "https://www.naturkartan.se/sv/vasternorrlands-lan/ullanger-skoved-hoga-kusten-leden-etapp-6"
+      ]
+    },
+    {
+      "id": "section-7-difficulty-policy",
+      "affectedSections": ["hogakustenleden-section-7-entre-syd-entre-nord"],
+      "status": "resolved-normalize-red",
+      "finding": "Höga Kusten says Medel, while Naturkartan/API says Röd - krävande. The terrain and Slåttdalsskrevan rockfall/upper-route context support the harder rating.",
+      "recommendation": "Normalize to Röd - krävande and preserve Höga Kusten Medel as an alternate-source caveat.",
+      "confidence": "medium-high",
+      "sourceUrls": [
+        "https://www.hogakusten.com/sv/hoga-kusten-leden-etapp-7-entresyd-entrenord",
+        "https://www.naturkartan.se/sv/vasternorrlands-lan/etapp-7-entre-syd-entre-nord-skuleskogens-nationalpark-hoga-kusten-leden"
+      ]
+    },
+    {
+      "id": "section-8-9-endpoint-labels",
+      "affectedSections": ["hogakustenleden-section-8-entre-nord-balesudden", "hogakustenleden-section-9-balesudden-ornskoldsvik"],
+      "status": "resolved-endpoint-labels",
+      "finding": "Section 8 starts at Entré Nord, not Coop Köpmanholmen. Section 8 end and section 9 start are Balesuddens naturreservat / Sandlågan north access. Section 9 ends at Stadsträdgården, Örnsköldsvik; Resecentrum is access metadata, not the route endpoint.",
+      "recommendation": "Use these labels for normalized endpoints and keep Coop/Resecentrum as service/access metadata.",
+      "confidence": "high",
+      "sourceUrls": [
+        "https://www.lansstyrelsen.se/vasternorrland/besoksmal/naturreservat/balesudden.html",
+        "https://www.naturkartan.se/sv/vasternorrlands-lan/etapp-8-balesuddens-naturreservat-ornskoldsvik-hoga-kusten-leden"
+      ]
+    },
+    {
+      "id": "section-9-gpx-policy",
+      "affectedSections": ["hogakustenleden-section-9-balesudden-ornskoldsvik"],
+      "status": "resolved-use-naturkartan-gpx",
+      "finding": "Naturkartan URL slug says etapp-8, but page content is current Etapp 9. Höga Kusten visible section 9 page embeds the section 8 GPX. A direct hidden Höga Kusten section-9 GPX can corroborate the line, but Naturkartan GPX is the primary usable source.",
+      "recommendation": "Use Naturkartan GPX as primary. Do not use the visible Höga Kusten section-9 embedded GPX unless it is corrected.",
+      "confidence": "high",
+      "sourceUrls": [
+        "https://www.hogakusten.com/sv/hoga-kusten-leden-etapp-9-balesudden-ovik"
+      ]
+    },
+    {
+      "id": "side-trip-poi-policy",
+      "affectedSections": ["all"],
+      "status": "resolved-policy",
+      "finding": "The existing app taxonomy supports attraction, viewpoint, rest-area, shelter, parking, transit and similar POIs, and runtime hides records whose route proximity is off-route.",
+      "recommendation": "Import official short detours with good coordinates and clear hiker value as POIs with side-trip descriptions. Keep non-core logistics, weak buses, distant parking, private/uncertain huts, fishing-only POIs and more-than-2-km detours as access metadata or suppressed. Do not create fake mainline facilities solely because a side trip is famous.",
+      "confidence": "medium-high"
+    }
+  ],
+  "sectionFindings": [
+    {
+      "sectionId": "hogakustenleden-section-1-hornoberget-lovvik",
+      "resolvedCaveats": [
+        {
+          "topic": "Hornöberget parking",
+          "status": "resolved",
+          "finding": "Current Höga Kusten FAQ says Hornöberget is suitable for long-term parking, free of charge and partly camera-monitored. Naturkompaniet says 24h free then paid, but that page uses stale seven-stage trail info.",
+          "recommendation": "Use official FAQ free long-stay wording. Do not use paid-after-24h wording.",
+          "confidence": "high",
+          "sourceUrls": ["https://www.hogakusten.com/en/plan-your-trip/faq"]
+        },
+        {
+          "topic": "Over the Edge / Kulberget coordinate",
+          "status": "mostly-resolved",
+          "finding": "Official Höga Kusten/Naturkartan point is around 62.811856,18.047801 / 62.811918,18.048010, but OSM, Udda Utflykter, Wikimedia and Vindskyddskartan cluster around 62.8093808,18.0535004; OSM has check_date=2025-08-19.",
+          "recommendation": "For the physical shelter, prefer 62.8093808,18.0535004 with a caveat that the official POI coordinate differs by about 400 m.",
+          "confidence": "medium-high",
+          "sourceUrls": [
+            "https://www.hogakusten.com/en/over-edge",
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/vindskydd-kulberget",
+            "https://www.openstreetmap.org/node/5859289117",
+            "https://uddautflykter.se/guide/angermanland/arknat-over-the-edge/"
+          ]
+        },
+        {
+          "topic": "Lövvik B&B coordinate",
+          "status": "resolved",
+          "finding": "Official Höga Kusten embedded map gives 62.8029248,18.0716301 for Lövvik Bed & Breakfast, address Lövvik 309.",
+          "recommendation": "Import lodging at 62.8029248,18.0716301 if lodging is included.",
+          "confidence": "high",
+          "sourceUrls": ["https://www.hogakusten.com/en/lovvik-bed-breakfast"]
+        },
+        {
+          "topic": "Lövviks Restaurang Café / Livs",
+          "status": "partly-resolved",
+          "finding": "Official coordinate from embedded map is 62.80356636501,18.06770324707, address Lövvik 205. Page says summertime only; no exact 2026 dates found.",
+          "recommendation": "Import as seasonal food/provisions at official coordinate, but do not mark as guaranteed resupply.",
+          "confidence": "medium-high",
+          "sourceUrls": ["https://www.hogakusten.com/en/lovvik-restaurang-cafe"]
+        }
+      ],
+      "remainingCaveats": [
+        "Decide endpoint UI emphasis between the Naturkartan GPX endpoint and Sjöbodviken/Lövviks gästhamn service cluster.",
+        "Replace DinTur/Fskab research stop IDs with authoritative Trafiklab/ResRobot IDs if a key becomes available."
+      ]
+    },
+    {
+      "sectionId": "hogakustenleden-section-2-lovvik-gavik",
+      "resolvedCaveats": [
+        {
+          "topic": "display distance",
+          "status": "resolved",
+          "finding": "Use official Höga Kusten 26.8 km as displayed distance; keep computed geometry distance as metadata."
+        },
+        {
+          "topic": "ArkNat Stranded coordinate",
+          "status": "resolved-enough",
+          "finding": "ArkNat gives 62.8024167,18.1539728; Naturkartan gives 62.8023503490109,18.15504880812739; Udda Utflykter gives 62.80219,18.15482.",
+          "recommendation": "Prefer ArkNat builder coordinate 62.8024167,18.1539728 and keep Naturkartan as alternate in notes.",
+          "confidence": "medium-high",
+          "sourceUrls": [
+            "https://arknat.com/hogakusten/stranded/",
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/vindskydd-stranded-rodhallorna"
+          ]
+        },
+        {
+          "topic": "Fjärdbotten cabin count",
+          "status": "not-fully-resolved",
+          "finding": "Dedicated Naturkartan overnight page says three timber rest huts plus a larger timber building. Naturkartan rest-place page says five fäbod huts, two new. Höga Kusten section text says three.",
+          "recommendation": "Import the Fjärdbotten cluster without a hard cabin count. If a count is required, use three sleeping/rest huts plus communal building and note the conflicting five-hut text.",
+          "confidence": "medium",
+          "sourceUrls": [
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/overnattningsstuga-2",
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/fjardbotten",
+            "https://www.hogakusten.com/sv/hogakustenleden/etapp-2-lovvik-gavik"
+          ]
+        }
+      ],
+      "remainingCaveats": [
+        "Grönsviksfjärden water remains unreliable: Naturkartan lists it as drinking water at 62.79673104215546,18.15092650884037, but a prior field note said closed due to algae. Import only as official mapped water with verify-current-status caveat, not dependable potable water.",
+        "Short detour facilities should follow the side-trip POI policy in this file."
+      ]
+    },
+    {
+      "sectionId": "hogakustenleden-section-3-gavik-lappudden",
+      "resolvedCaveats": [
+        {
+          "topic": "Lappudden services",
+          "status": "resolved",
+          "finding": "2026 site says main opening 2026-05-08 to 2026-09-11, autumn opening 2026-09-28 to 2026-10-04, Annexet year-round. Tent camping includes toilet, shower, dish room, water, charging and grills; non-guests pay separate fee for shower/toilet/dish room. Lappudden cluster coordinate is 62.93127001936128,18.25595596916639; water point 62.9312992473746,18.2563906917459.",
+          "recommendation": "Import as private seasonal service cluster. Water, toilet, food and camping are service-dependent rather than public guaranteed amenities.",
+          "confidence": "high",
+          "sourceUrls": [
+            "https://www.lappudden.se/",
+            "https://www.lappudden.se/boende.html",
+            "https://www.hogakusten.com/sv/lappuddens-friluftscenter-taltcamping"
+          ]
+        },
+        {
+          "topic": "Ryd toilet / Älgaberget informal campsite",
+          "status": "partly-resolved",
+          "finding": "OSM still has a dry toilet at 62.9009317,18.2328512 and campsite node at 62.8924355,18.237244. Nearby Älgaberget shelter description says tenting is possible below the shelter.",
+          "recommendation": "Keep Ryd toilet pending until local/official verification. Suppress the informal campsite or keep pending; do not import as official camping.",
+          "confidence": "low-medium",
+          "sourceUrls": [
+            "https://www.openstreetmap.org/node/12094732084",
+            "https://www.openstreetmap.org/node/13058765345",
+            "https://www.openstreetmap.org/node/5859310985",
+            "https://hogakustenleden.com/vandra-hoga-kustenleden/5-lappudden-ullanger/"
+          ]
+        }
+      ],
+      "remainingCaveats": [
+        "Resolve exact naming/source for Järnsta Cafe and Körningsgården/Kiorningsgården if imported as nearby services.",
+        "Replace DinTur/Fskab research stop IDs with authoritative Trafiklab/ResRobot IDs if a key becomes available."
+      ]
+    },
+    {
+      "sectionId": "hogakustenleden-section-4-lappudden-ullanger",
+      "resolvedCaveats": [
+        {
+          "topic": "Erikskojan toilet and water",
+          "status": "partly-resolved",
+          "finding": "Hut coordinate from Äventyrligare is 62.9797,18.21934. Legacy/current official text confirms hut and dry toilet; water is natural. Naturkartan maps spring at 62.980153280621984,18.217648515871762 and says natural water for cooking/boiling.",
+          "recommendation": "Import hut. Import toilet as medium confidence. Import spring as untreated/seasonal-uncertain, not dependable drinking water.",
+          "confidence": "medium",
+          "sourceUrls": [
+            "https://www.aventyrligare.se/poi/erikskojan-10585/",
+            "https://hogakustenleden.com/vandra-hoga-kustenleden/5-lappudden-ullanger/",
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/naturvatten-kallkalla-i-narheten-av-erikskojan"
+          ]
+        },
+        {
+          "topic": "Vedasjön rest coordinate",
+          "status": "unresolved-suppress-precise-poi",
+          "finding": "No official POI found. OSM only identifies lake center 62.9521639,18.2598193; route passes the east/north shore, but no precise rest-area object found.",
+          "recommendation": "Do not import a precise Vedasjön rest facility. Keep as descriptive route note only.",
+          "confidence": "low"
+        },
+        {
+          "topic": "Ringråberget cairn",
+          "status": "medium-confidence",
+          "finding": "Peakbook gives Ringråberget UTM 34V 358904 6985864, converted in existing research to about 62.975053,18.216166.",
+          "recommendation": "Import only as approximate natural/cultural POI if that precision is acceptable; otherwise keep pending.",
+          "confidence": "medium",
+          "sourceUrls": ["https://peakbook.org/de/peakbook-element/105746/de/Ringr%C3%A5berget.html"]
+        },
+        {
+          "topic": "Cesars Pizzeria",
+          "status": "coordinate-resolved",
+          "finding": "OSM/Nominatim resolves Cesar's at 63.0062819,18.1835315, Sundbrogatan 1. Sluurpy lists current-looking opening hours, but directory quality is medium. Naturkartan/Höga Kusten says Cesars offers food and rooms.",
+          "recommendation": "Import restaurant as medium-high confidence. Keep lodging as pending/low-medium unless directly verified.",
+          "confidence": "medium-high",
+          "sourceUrls": [
+            "https://se.sluurpy.com/ull%C3%A5nger/restaurant/8335621/cesars-restaurang-and-pizzeria",
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/lappudden-ullanger-hoga-kusten-leden-etapp-5"
+          ]
+        }
+      ],
+      "remainingCaveats": [
+        "Recheck DinTur/coach schedules and seasonal boat schedules close to publication.",
+        "Use the side-trip POI policy for Nordingrå side services and heritage points."
+      ]
+    },
+    {
+      "sectionId": "hogakustenleden-section-5-ullanger-skuleberget",
+      "resolvedCaveats": [
+        {
+          "topic": "Vedån shelter/fireplace",
+          "status": "resolved",
+          "finding": "Naturkartan has Vindskydd, Skuleberget at 63.07397838451059,18.35756248520612, described as shelter with grill/table. Section text says a shelter with grill exists at Vedån.",
+          "recommendation": "Import as Skuleberget/Vedån shelter plus fireplace with fire-ban caveat.",
+          "confidence": "high",
+          "sourceUrls": [
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/vindskydd-skuleberget",
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/ullanger-skoved-hoga-kusten-leden-etapp-6"
+          ]
+        },
+        {
+          "topic": "Skule Naturscen",
+          "status": "resolved",
+          "finding": "Official Naturscen map gives 63.0767871,18.3584226, address Skuleberget 107. Höga Kusten page lists toilets.",
+          "recommendation": "Import as event/access POI, not dependable water/service for hikers. Toilets are event/venue-dependent.",
+          "confidence": "high",
+          "sourceUrls": [
+            "https://naturscen.se/hitta-hit/",
+            "https://www.hogakusten.com/en/skule-naturscen"
+          ]
+        },
+        {
+          "topic": "ICA Dockstahallen",
+          "status": "resolved",
+          "finding": "Official ICA page confirms Dockstavägen 24 and hours Mon-Fri 08-20, Sat-Sun 09-18; May 1 listed 09-18. OSM/Nominatim coordinate is 63.0541993,18.3265373.",
+          "recommendation": "Import grocery/resupply at 63.0541993,18.3265373; bottled water depends on store hours.",
+          "confidence": "high",
+          "sourceUrls": ["https://www.ica.se/butiker/docksta/"]
+        },
+        {
+          "topic": "Naturum / Skuleberget services",
+          "status": "resolved",
+          "finding": "Naturum coordinate from Höga Kusten map is 63.072968243481,18.355653501057. 2026 hours: Apr 2-Jun 21 10-16; Jun 22-Aug 16 9-18; Aug 17-Oct 4 10-16. Visitor-center page confirms café and accessible toilets; FAQ says Naturum/Skuleberget has bottle refill and taps at Naturum parking.",
+          "recommendation": "Import visitor center, toilet, café and water as seasonal/opening-dependent. Outdoor taps still need winter/off-season caveat.",
+          "confidence": "high",
+          "sourceUrls": [
+            "https://varldsarvethogakusten.se/sv/besokscenter/",
+            "https://www.hogakusten.com/en/naturum-hoga-kusten",
+            "https://www.hogakusten.com/en/plan-your-trip/faq"
+          ]
+        },
+        {
+          "topic": "Gårdberget / Mäjasjön water",
+          "status": "resolved",
+          "finding": "Äskjaberget/Gårdberget page explicitly says no drinking water. Mäjasjön water page says fresh water exists in summer at 63.02508431776883,18.226032981584694; section text also says summer fresh water.",
+          "recommendation": "Gårdberget: no water. Mäjasjön: import seasonal water only, not reliable year-round.",
+          "confidence": "high",
+          "sourceUrls": [
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/raststuga-askjaberget",
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/vatten-majasjons-fabodar"
+          ]
+        }
+      ],
+      "remainingCaveats": [
+        "Apply Skuleberget reserve rules only to the boundary-overlap portions listed in this file.",
+        "Use the side-trip POI policy for Fäberget, Per-Olsbo, Grottstigen and Via Ferrata.",
+        "Recheck service hours and bus/coach schedules close to publication."
+      ]
+    },
+    {
+      "sectionId": "hogakustenleden-section-6-skuleberget-entre-syd",
+      "resolvedCaveats": [
+        {
+          "topic": "Käl water",
+          "status": "coordinate-resolved",
+          "finding": "Naturkartan Vatten, Käl coordinate is 63.0723359599,18.4446581687 and was updated 2026-04-10.",
+          "recommendation": "Import as service/private water with caveat, not guaranteed public potable supply.",
+          "confidence": "medium-high",
+          "sourceUrls": ["https://www.naturkartan.se/sv/vasternorrlands-lan/vatten-4"]
+        },
+        {
+          "topic": "Kallkälla syd / Bjestoberget",
+          "status": "coordinate-resolved",
+          "finding": "Naturkartan Naturvatten, Kallkälla Bjestoberget coordinate is 63.0765144758,18.3914770892 and was updated 2026-02-27.",
+          "recommendation": "Import as natural/cooking water with boil/filter warning.",
+          "confidence": "high",
+          "sourceUrls": ["https://www.naturkartan.se/sv/vasternorrlands-lan/naturvatten-kallkalla-bjestoberget"]
+        },
+        {
+          "topic": "Entré Syd fireplace",
+          "status": "partly-resolved-suppress-discrete-fire-poi",
+          "finding": "Naturkartan Entré Syd at 63.0860832949,18.4827955230 says benches, grill/fireplace, dry toilet and waste, updated 2026-03-26. Conflict remains because the page is categorized only as information while Skuleskogen park service guidance points visitors to designated fire/rest areas deeper in the park.",
+          "recommendation": "Do not create a separate Entré Syd fireplace POI. Keep as endpoint amenity note unless another official fire POI appears.",
+          "confidence": "medium",
+          "sourceUrls": ["https://www.naturkartan.se/sv/vasternorrlands-lan/entre-syd"]
+        }
+      ],
+      "remainingCaveats": [
+        "Apply Skuleberget and Skuleskogen protected-area rules only to the boundary-overlap portions listed in this file.",
+        "Recheck fixed transit/coach and any shuttle service close to publication."
+      ]
+    },
+    {
+      "sectionId": "hogakustenleden-section-7-entre-syd-entre-nord",
+      "resolvedCaveats": [
+        {
+          "topic": "Kälsviken cluster",
+          "status": "resolved-with-water-pending",
+          "finding": "Tent/rest/shelter records are resolved around 63.0860-63.0880,18.4939-18.5019. No discrete official water POI found for Kälsviken.",
+          "recommendation": "Import camping/shelter/fire cluster. Leave water pending unless modeled as natural/untested bay water.",
+          "confidence": "medium-high",
+          "sourceUrls": [
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/taltplats-skuleskogen-7",
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/tillganglighetsanpassat-vindskydd"
+          ]
+        },
+        {
+          "topic": "Tärnättvattnen cabin",
+          "status": "coordinate-resolved",
+          "finding": "Cabin coordinate is 63.1119719666,18.5089513379. No separate water point found.",
+          "recommendation": "Import cabin. Do not import a standalone Tärnättvattnen water point.",
+          "confidence": "high",
+          "sourceUrls": ["https://www.naturkartan.se/sv/vasternorrlands-lan/overnattningsstuga-vid-tarnattvattnen"]
+        },
+        {
+          "topic": "Näskebodarna water",
+          "status": "coordinate-resolved-side-facility",
+          "finding": "Naturkartan Naturvatten, bäcken vid Näskebodarna coordinate is 63.1025971553,18.5322330042, updated 2025-06-27. Source says go upstream and do not take water right by the cabin.",
+          "recommendation": "Import only if the Näskebodarna side facility is modeled; mark as natural water needing treatment.",
+          "confidence": "high",
+          "sourceUrls": ["https://www.naturkartan.se/sv/vasternorrlands-lan/naturvatten-backen-vid-naskebodarna"]
+        },
+        {
+          "topic": "Tärnättsundet / Tärnättholmarna cluster",
+          "status": "coordinate-resolved-side-facility",
+          "finding": "Tärnättsundet cabin 63.1118678214,18.5308388031, toilet 63.1119134902,18.5311288795, fireplace 63.1117281656,18.5304378514. Tärnättholmarna cabin 63.1103940250,18.5370205895. Skravelbäcken water upper 63.1215883658,18.5229159831 and lower 63.1212241106,18.5284320268.",
+          "recommendation": "Import as side/continuation metadata unless the spur/continuation is modeled. Natural water requires boil/filter warning.",
+          "confidence": "high",
+          "sourceUrls": [
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/naturvatten-skravelbacken",
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/naturvatten-norr-om-tarnattholmarna"
+          ]
+        }
+      ],
+      "remainingCaveats": [
+        "No dependable potable water inside the national park; water should be natural/untested unless a specific official water POI is imported.",
+        "Use Röd - krävande as normalized difficulty while preserving Höga Kusten Medel as alternate-source caveat.",
+        "Treat Slåttdalsskrevan as a high-priority rockfall hazard / avoid-through-passage note, not a legal closure unless a formal notice appears."
+      ]
+    },
+    {
+      "sectionId": "hogakustenleden-section-8-entre-nord-balesudden",
+      "resolvedCaveats": [
+        {
+          "topic": "Hålviken dry toilet",
+          "status": "cluster-resolved",
+          "finding": "Separate toilet coordinate unresolved. Naturkartan Rastplats, Hålviken cluster is 63.1868251923,18.6401543149 and is categorized with shelter/toilet, updated 2025-06-27.",
+          "recommendation": "Use cluster-level toilet if acceptable; keep separate toilet POI pending.",
+          "confidence": "medium",
+          "sourceUrls": ["https://www.naturkartan.se/sv/vasternorrlands-lan/rastplats-halviken"]
+        },
+        {
+          "topic": "Näske toilet and water",
+          "status": "partly-resolved",
+          "finding": "Separate Näske toilet coordinate unresolved. Naturkartan Rastplats, Näske cluster is 63.1545832561,18.5170753759 and categorized with shelter/toilet, updated 2025-06-27. Näske water coordinate is 63.1547826623,18.5175780945.",
+          "recommendation": "Use cluster-level toilet only. Import water as service water with seasonal/currentness caveat because it depends on Näske boat association.",
+          "confidence": "medium",
+          "sourceUrls": [
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/rastplats-naske",
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/vatten-naske"
+          ]
+        },
+        {
+          "topic": "Coop Köpmanholmen",
+          "status": "coordinate-resolved",
+          "finding": "Store coordinate is 63.1679798354,18.5626048262; water/tap is 63.1678264343,18.5633729160.",
+          "recommendation": "Import store and water as service/resupply, but mark opening/current availability unverified.",
+          "confidence": "medium",
+          "sourceUrls": [
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/livsmedel-hummelvik",
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/dricksvatten-coop-kopmanholmen"
+          ]
+        },
+        {
+          "topic": "Köpmanholmen beach/harbor duplicates",
+          "status": "resolved-dedupe-policy",
+          "finding": "Official Nässjöbäcken rest/beach cluster is stronger than scattered shelter duplicates. Rest area 63.1809199592,18.5984928511; beach 63.1805248644,18.5971388828; ArkNat Skogsdunge 63.1806639735,18.5965329058.",
+          "recommendation": "Import one beach/rest cluster plus optional named ArkNat POI as pending/alias; avoid importing every OSM shelter as a separate facility.",
+          "confidence": "medium-high"
+        },
+        {
+          "topic": "Balesudden / Balestjärnen / Balesberget",
+          "status": "partly-resolved",
+          "finding": "Balesudden viewpoint resolved at 63.1770832767,18.6829149096. Balesberget viewpoint is 63.1619758317,18.7207452652. Balestjärn/Balesviken water is 63.1730740759,18.6991239963; Bodviken/Sågbäcken water is 63.1858396391,18.6980218010.",
+          "recommendation": "Import Balesudden viewpoint. Treat Balesberget and Balestjärn as side-trip metadata rather than mainline facilities unless side-route geometry is modeled.",
+          "confidence": "medium-high",
+          "sourceUrls": [
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/utsikt-balesudden-2000678-balesudden-se0710057",
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/utsiktsplats-balesberget"
+          ]
+        }
+      ],
+      "remainingCaveats": [
+        "Suppress Genesön as transit unless a real DinTur stop-area and useful service can be verified.",
+        "Apply Balesudden reserve rules only to the boundary-overlap portions listed in this file.",
+        "Use current 2026 boat timetables only as optional seasonal access metadata."
+      ]
+    },
+    {
+      "sectionId": "hogakustenleden-section-9-balesudden-ornskoldsvik",
+      "resolvedCaveats": [
+        {
+          "topic": "Hörnsjön dedupe and tent policy",
+          "status": "partly-resolved",
+          "finding": "Official Rastplats, Hörnsjön cluster is 63.2836316000,18.6945679595 and categories include shelter/fire/toilet/tent. Separate Naturkartan shelter/fireplace is 63.2833334513,18.6963777414; water 63.2848802917,18.6930280685; parking 63.2880769800,18.6954285317. OSM confirms shelters/toilets/camp-site nodes, but Länsstyrelsen rules do not clearly grant camping permission.",
+          "recommendation": "Import one official rest cluster plus water/parking. Keep tent-site as pending or low-confidence attribute, not normalized campground.",
+          "confidence": "medium-high",
+          "sourceUrls": [
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/rastplats-hornsjon",
+            "https://www.lansstyrelsen.se/vasternorrland/besoksmal/naturreservat/hornsjon.html"
+          ]
+        },
+        {
+          "topic": "Varvsberget",
+          "status": "partly-resolved",
+          "finding": "Official viewpoint coordinate is 63.2884696469,18.6931941816. Restaurant coordinate from OSM is 63.2880456,18.6963842. Current opening source not found.",
+          "recommendation": "Import viewpoint. Do not import restaurant as dependable food/service until current opening is verified.",
+          "confidence": "medium-high-for-viewpoint",
+          "sourceUrls": [
+            "https://www.naturkartan.se/sv/vasternorrlands-lan/utsiktsplats-varvsberget",
+            "https://www.openstreetmap.org/node/702356073"
+          ]
+        },
+        {
+          "topic": "Haffestuga / Bergom stuga",
+          "status": "pending-suppress-for-now",
+          "finding": "Only strong coordinate found is OSM Haffestuga wilderness hut at 63.2522792,18.6315422, access=yes, drinking_water=no, check_date=2025-08-27. No official/Naturkartan source found for Haffestuga or Bergom stuga.",
+          "recommendation": "Keep pending/OSM-only. Do not import into official facility set yet.",
+          "confidence": "low-medium",
+          "sourceUrls": ["https://www.openstreetmap.org/node/5859424197"]
+        },
+        {
+          "topic": "Gårdtjärnbäcken",
+          "status": "unresolved-suppress",
+          "finding": "Searches did not find an official or named OSM feature. Nearby streams/Utbyån candidates are not enough to assign a water point.",
+          "recommendation": "Do not import. Keep as natural-water lead needing field or official confirmation.",
+          "confidence": "low"
+        }
+      ],
+      "remainingCaveats": [
+        "Use Naturkartan GPX as primary for section 9 and do not use the visible Höga Kusten embedded GPX unless fixed.",
+        "Suppress Genesön as transit unless a real DinTur stop-area and useful service can be verified.",
+        "Carry the active 2026-01-09 Hörnsjön lighted-track notice until rechecked."
+      ]
+    }
+  ],
+  "summaryByStatus": {
+    "resolvedOrResolvedEnough": [
+      "Hornöberget parking free long-stay wording",
+      "Lövvik B&B coordinate",
+      "Lövviks Restaurang Café / Livs coordinate with seasonal caveat",
+      "section 2 display distance policy",
+      "ArkNat Stranded coordinate preference",
+      "Lappudden 2026 seasonal service terms and cluster coordinates",
+      "Erikskojan hut/spring/toilet import posture",
+      "Cesars Pizzeria coordinate",
+      "section 5 distance/primary geometry policy",
+      "Vedån/Skuleberget shelter coordinate",
+      "Skule Naturscen coordinate",
+      "ICA Dockstahallen coordinate",
+      "Naturum/Skuleberget 2026 service hours",
+      "Gårdberget no-water and Mäjasjön summer-water posture",
+      "Käl water coordinate",
+      "Kallkälla Bjestoberget coordinate",
+      "section 7 normalized difficulty",
+      "Slåttdalsskrevan hazard wording",
+      "section 7 cycling suppression",
+      "section 8/9 endpoint labels",
+      "section 9 GPX source policy",
+      "protected-area boundary overlap policy",
+      "DinTur/Fskab research stop areas"
+    ],
+    "stillPendingOrSuppress": [
+      "Authoritative Trafiklab/ResRobot stop IDs require an API key",
+      "Nationalparksbussen/Världsarvsbussen 2026 should be suppressed unless a new official timetable appears",
+      "Grönsviksfjärden water reliability remains unresolved",
+      "Fjärdbotten cabin count remains contradictory; avoid a hard count",
+      "Ryd toilet requires local/official verification",
+      "Älgaberget informal campsite should be suppressed or kept pending",
+      "Vedasjön rest POI should not be imported without a precise official coordinate",
+      "Entré Syd fireplace should not be imported as a separate fire POI",
+      "Kälsviken and Tärnättvattnen have no discrete dependable potable-water POI",
+      "Genesön should be suppressed as transit",
+      "Hörnsjön tent-site status remains low-confidence/pending",
+      "Varvsberget restaurant current opening remains unverified",
+      "Haffestuga/Bergom stuga is OSM-only pending",
+      "Gårdtjärnbäcken water should not be imported"
+    ]
+  }
+}

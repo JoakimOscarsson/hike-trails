@@ -1,0 +1,1557 @@
+{
+  "schemaVersion": 1,
+  "trailId": "padjelantaleden",
+  "sectionId": "padjelantaleden-stage-05-staloluokta-duottar",
+  "sectionNumber": 5,
+  "name": "Etapp 5: BLT Stáloluoktastugan - BLT Duottarstugan",
+  "from": "BLT Stáloluoktastugan",
+  "to": "BLT Duottarstugan",
+  "distanceKm": {
+    "officialDisplay": 18,
+    "officialSourceClaims": [
+      {
+        "source": "STF Padjelantaleden",
+        "distanceKm": 18
+      },
+      {
+        "source": "Padjelanta.se / BLT Stáloluokta and Duottar hut pages",
+        "distanceKm": 18
+      },
+      {
+        "source": "Naturkartan BD69 Stáloluokta-Duottar-Darreluoppal",
+        "distanceKm": 19,
+        "notes": "Naturkartan gives 19 km for Stáloluokta-Duottar and 30 km for the combined two-stage route; computed GPX split and STF/BLT sources support using 18 km."
+      },
+      {
+        "source": "Wikiloc 2024 full-trail report, reverse stage",
+        "distanceKm": 18.86,
+        "notes": "Third-party user-recorded distance; use as field corroboration only."
+      }
+    ],
+    "computedGeometryKm": {
+      "naturkartanBd69Full": 27.548,
+      "naturkartanBd69Stage5SplitAtOsmDuottarHut": 17.795,
+      "naturkartanBd69Stage5SplitAtFjeldsDuottarCandidate": 17.889,
+      "osmRelation19111626Full": 27.225,
+      "osmRelation19111626Stage5SplitAtDuottar": 17.574
+    },
+    "confidence": "high for 18 km official display; medium-high for approximately 17.8-18.2 km geometry after hut access offsets"
+  },
+  "estimatedTime": {
+    "officialStf": "5-7 hours",
+    "naturkartan": "6-8 hours",
+    "fieldReports": [
+      "FarFarFromHome reported the reverse Duottar-Stáloluokta day as 18 km in 5 hours 10 minutes on 2023-07-12.",
+      "Outdoor Wilda describes the stage as long but generally uncomplicated, with the more barren and stony part after Bållávrjåhkå.",
+      "Wikiloc 2024 marks the reverse segment as moderate and notes that bad weather can make navigation and footing harder."
+    ],
+    "confidence": "medium-high"
+  },
+  "difficulty": {
+    "label": "long exposed mountain stage; not officially graded",
+    "officialClaims": [
+      "STF lists a 18 km stage and describes a route past Gieddávrre, Bållávrjåhkå, moorland, small lakes, and finally Duottar.",
+      "Naturkartan gives 19 km and 6-8 hours for the Stáloluokta-Duottar part and warns that water is scarce after Bållávrjåhkå.",
+      "BLT/Padjelanta cabin pages place the endpoints in a remote hut chain with no road access."
+    ],
+    "keyHazards": [
+      "Long distance with sustained exposure to weather and limited shelter between hut sites.",
+      "Seasonal Bållávrjåhkå suspension bridge; installation/removal timing can affect early/late season travel.",
+      "Water is reported as scarce after Bållávrjåhkå until closer to Duottar, so water planning matters.",
+      "Two generally simple wades before Duottar are reported by field sources, but difficulty depends on weather and meltwater.",
+      "Wet boardwalks, willow/marsh sections, stony ground, mosquitoes/blackflies, and poor mobile coverage can slow travel.",
+      "Reindeer herding areas and the Gieddávrre calf-marking enclosure require care and distance."
+    ],
+    "confidence": "medium-high"
+  },
+  "routeType": {
+    "type": "point-to-point remote hut-to-hut hiking stage",
+    "directionForImport": "Stáloluokta to Duottar, matching STF north-to-south section order",
+    "connectionsAndAlternates": [
+      {
+        "name": "Nordkalottleden / Arctic Trail split near Stáloluokta",
+        "description": "The stage leaves Stáloluokta with shared/nearby trail context, but Nordkalottleden/Arctic Trail turns south toward Staddajåkkå/Sårjåsjaure while Padjelantaleden continues southeast toward Duottar.",
+        "modelingRecommendation": "Record as junction/route-overlap metadata only. Do not merge OSM relation 6261462 or Staddajåkkå geometry into this section."
+      },
+      {
+        "name": "Naturkartan BD69 combined route",
+        "description": "Naturkartan packages Stáloluokta-Duottar and Duottar-Darreluoppal in one GPX file.",
+        "modelingRecommendation": "Split the GPX at the Duottar hut/route crossing and use only the reversed Stáloluokta-Duottar segment for this section."
+      },
+      {
+        "name": "Stáloluokta access routes",
+        "description": "Stáloluokta has scheduled helicopter service to Ritsem/Kvikkjokk in the summer season and arranged local boat access on Virihaure/Virihávrre.",
+        "modelingRecommendation": "Keep as access metadata. Do not model helicopter or boat as hiking route geometry."
+      },
+      {
+        "name": "Darreluoppal onward access",
+        "description": "Duottar has no direct scheduled public access. The nearest southern scheduled helicopter-related gateway is Darreluoppal, one official stage onward.",
+        "modelingRecommendation": "Keep Darreluoppal as onward access context for section 6, not as a section 5 endpoint."
+      }
+    ]
+  },
+  "officialSources": [
+    {
+      "id": "stf_padjelantaleden",
+      "title": "STF Padjelantaleden",
+      "url": "https://www.svenskaturistforeningen.se/guider-tips/leder/padjelantaleden/",
+      "accessed": "2026-04-29",
+      "type": "official trail overview and stage inventory",
+      "findings": [
+        "Lists stage 5 as BLT Stáloluoktastugan - BLT Duottarstugan.",
+        "Gives distance/time as 18 km and 5-7 hours.",
+        "Places the stage after Árasluokta-Stáloluokta and before Duottar-Darreluoppal in the official section order.",
+        "Describes the route leaving Stáloluokta, crossing Gieddejåhkå, passing boardwalked marsh and birch terrain, following Gieddávrre, crossing Bållávrjåhkå, then continuing over moorland and rougher terrain toward Duottar."
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "stf_padjelanta_trail_en",
+      "title": "STF Padjelanta Trail",
+      "url": "https://www.swedishtouristassociation.com/trails/padjelantatrail/",
+      "accessed": "2026-04-29",
+      "type": "official English trail overview",
+      "findings": [
+        "Confirms the English section sequence and the Duottar/Tarraluoppal downstream stage context.",
+        "Useful as a spelling and visitor-facing overview cross-check, but Swedish STF and BLT/Padjelanta pages provide more detailed stage/service facts."
+      ],
+      "confidence": "medium-high"
+    },
+    {
+      "id": "naturkartan_bd69",
+      "title": "Naturkartan BD69 Stáloluokta-Duottar-Darreluoppal",
+      "url": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd69-fran-staloluokta-via-touttarstugorna-till-tarraluoppalstugorna",
+      "downloadUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd69-fran-staloluokta-via-touttarstugorna-till-tarraluoppalstugorna.gpx",
+      "accessed": "2026-04-29",
+      "type": "official route description and GPX",
+      "findings": [
+        "Groups the Stáloluokta-Duottar and Duottar-Darreluoppal stages in one route record.",
+        "Gives Stáloluokta-Duottar as 19 km and 6-8 hours, conflicting with STF/BLT 18 km.",
+        "Provides the best official downloadable linework found for the stage, but the GPX must be split at Duottar and reversed for official stage direction.",
+        "Warns to fill water at Bållávrjåhkå because water becomes scarce on the following stretch toward Duottar.",
+        "Describes small lakes, tundra polygons/permafrost landforms, and two simpler wades before Duottar."
+      ],
+      "confidence": "high for geometry source; medium for the 19 km text distance"
+    },
+    {
+      "id": "padjelanta_se_overview",
+      "title": "Padjelanta.se Padjelantaleden overview",
+      "url": "https://www.padjelanta.se/",
+      "accessed": "2026-04-29",
+      "type": "regional trail overview and access/service table",
+      "findings": [
+        "Lists Stáloluokta and Tuottar/Duottar in the official hut chain with a 18 km distance between them.",
+        "Stáloluokta is listed with help phone, sauna, helicopter connections to Ritsem and Kvikkjokk, boat context, and 42 beds.",
+        "Tuottar/Duottar is listed as a BLT hut site with help phone and 32 beds.",
+        "April 2026 note says times and prices were updated."
+      ],
+      "confidence": "high"
+    },
+    {
+      "id": "padjelanta_se_staloluokta",
+      "title": "Padjelanta.se Staloluokta",
+      "url": "https://www.padjelanta.se/staloluokta/",
+      "accessed": "2026-04-29",
+      "type": "regional hut page with coordinate",
+      "findings": [
+        "Gives Stáloluokta lat/lon as 67.318108, 16.697541.",
+        "Places the huts by Stáloluokta Sámi settlement at the southeastern bay of Virihaure.",
+        "Lists sauna and church goahte/kyrkkåta.",
+        "States previous Parfas kiosk provisions have ceased; other Stáloluokta sales information is currentness-sensitive.",
+        "Lists Duottar as 18 km away."
+      ],
+      "confidence": "high for coordinate/services; medium for provisions currentness"
+    },
+    {
+      "id": "padjelanta_se_tuottar",
+      "title": "Padjelanta.se Tuottar / Duottar",
+      "url": "https://www.padjelanta.se/tuottar/",
+      "accessed": "2026-04-29",
+      "type": "regional hut page with coordinate",
+      "findings": [
+        "Gives Tuottar/Duottar lat/lon as 67.268495, 17.031717.",
+        "Places the hut between Duottarjávrre/Tuottarjaure and Tsiekkimjávrre/Tjekimjaure.",
+        "Lists Stáloluokta as 18 km away and Darreluoppal as the next hut south.",
+        "Lists 32 beds, a help phone, and BLT operation."
+      ],
+      "confidence": "high for endpoint coordinate and service context"
+    },
+    {
+      "id": "blt_staloluokta",
+      "title": "BLT Stáloluokta",
+      "url": "https://padjelanta.com/en/cabins-and-map/staloluokta-en/",
+      "accessed": "2026-04-29",
+      "type": "official hut/operator information",
+      "findings": [
+        "Stáloluokta has 42 beds, one year-round open room, sauna, church hut, boat shuttle/transport across Virihaure, and summer air connection with Kvikkjokk and Ritsem.",
+        "Lists distance to Duottar as 18 km.",
+        "States smaller food sales may occur but also contains stale/contradictory kiosk text; Parfa's kiosk has stopped selling.",
+        "States provisions may run out and hut-host sales are cash-only."
+      ],
+      "confidence": "high for hut/access services; medium for provisions/currentness"
+    },
+    {
+      "id": "blt_duottar",
+      "title": "BLT Duottar",
+      "url": "https://padjelanta.com/en/cabins-and-map/duottar-en/",
+      "accessed": "2026-04-29",
+      "type": "official hut/operator information",
+      "findings": [
+        "Duottar/Tuottar has 32 beds and one cabin/room open year-round.",
+        "Lists distance to Stáloluokta as 18 km and Darreluoppal as the next hut south.",
+        "Notes a basic provisions/shop context, but BLT warns provisions may run out and food sales are cash-only.",
+        "Supports keeping the Duottar hut as the official stage end even though the BD69 GPX route line is offset from the hut coordinate."
+      ],
+      "confidence": "high for hut existence/services; medium for provisions currentness"
+    },
+    {
+      "id": "blt_prices_opening_2026",
+      "title": "BLT prices and opening times",
+      "url": "https://padjelanta.com/priset-och-oppet/",
+      "accessed": "2026-04-29",
+      "type": "official BLT payment/season page",
+      "findings": [
+        "Lists 2026 prices for all BLT cabin camps and opening period 28/6-6/9.",
+        "Says card payment is possible in summer at all cabin camps, but asks visitors to prefer prepayment and carry cash due to mountain logistics.",
+        "States winter has no provisions and no card payments.",
+        "Repeats that dogs may only be brought leashed to Badjelánnda from 1 January to 30 April."
+      ],
+      "confidence": "medium-high; exact service/payment facts are operational and should be rechecked before publication"
+    },
+    {
+      "id": "blt_faq",
+      "title": "BLT frequently asked questions",
+      "url": "https://padjelanta.com/en/frequently-asked-questions/",
+      "accessed": "2026-04-29",
+      "type": "official hut-operator FAQ",
+      "findings": [
+        "Confirms emergency/help phones at BLT hut camps and poor/no mobile coverage along the trail.",
+        "Explains provisions are basic, can run out, and food/provision purchases are cash-only.",
+        "Supports modeling emergency phones and provisions as hut metadata unless standalone coordinates are verified."
+      ],
+      "confidence": "high for operator-policy context"
+    },
+    {
+      "id": "laponia_rules_current",
+      "title": "Laponia rules and current information",
+      "urls": [
+        "https://laponia.nu/foreskrifter-qr/",
+        "https://laponia.nu/aktuell-information-i-varldsarvet/",
+        "https://laponia.nu/nationalparker-och-naturreservat/badjelannda/"
+      ],
+      "accessed": "2026-04-29",
+      "type": "official protected-area rules/currentness",
+      "findings": [
+        "Confirms Padjelanta/Badjelánnda National Park and Laponia rule context.",
+        "No explicit Stage 5 closure or reroute was found on 2026-04-29.",
+        "Current information on bridges, snow/ice, fire risk, and temporary restrictions is dynamic and must be rechecked before public import.",
+        "The current information page still indicated Sarek/Badjelánnda bridges were lifted for winter 2025/2026, so 2026 summer bridge installation should be verified."
+      ],
+      "confidence": "high for rule context; dynamic for currentness"
+    },
+    {
+      "id": "fiskflyg_regular_services",
+      "title": "Fiskflyg regular flights and Stáloluokta routes",
+      "urls": [
+        "https://www.fiskflyg.se/en/reguljara-flygningar",
+        "https://www.fiskflyg.se/en/ritsem-staloluokta",
+        "https://www.fiskflyg.se/en/kvikkjokk-staloluokta"
+      ],
+      "accessed": "2026-04-29",
+      "type": "official helicopter access",
+      "findings": [
+        "Confirms scheduled 2026 summer helicopter access to Stáloluokta from Ritsem and Kvikkjokk.",
+        "2026 service window found by the access lane was 24 June-4 September and 2100 kr/person, subject to booking, weather, and timetable dependencies.",
+        "No direct scheduled helicopter service to Duottar was found."
+      ],
+      "confidence": "high for Stáloluokta scheduled helicopter access; dynamic for 2026 operating details"
+    }
+  ],
+  "endpointCoordinates": {
+    "start": {
+      "selectedRouteEndpoint": {
+        "label": "BLT Stáloluoktastugan",
+        "role": "official stage start and section 4 handoff",
+        "coordinates": {
+          "lat": 67.318108,
+          "lon": 16.697541
+        },
+        "coordinateSource": "Padjelanta.se Stáloluokta lat/long, cross-checked with BLT grid coordinate, OSM hut node, and Naturkartan BD69 route endpoint.",
+        "sourceUrls": [
+          "https://www.padjelanta.se/staloluokta/",
+          "https://padjelanta.com/en/cabins-and-map/staloluokta-en/",
+          "https://www.openstreetmap.org/node/1356459001",
+          "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd69-fran-staloluokta-via-touttarstugorna-till-tarraluoppalstugorna.gpx"
+        ],
+        "confidence": "high",
+        "alternateCoordinates": [
+          {
+            "lat": 67.3180938,
+            "lon": 16.6975135,
+            "source": "OSM node 1356459001, Stáloluokta Fjällstuga alpine_hut",
+            "gapFromSelectedMeters": 2,
+            "confidence": "high"
+          },
+          {
+            "lat": 67.3189238604201,
+            "lon": 16.6949459434594,
+            "source": "Naturkartan BD69 GPX stored endpoint at Stáloluokta side",
+            "gapFromSelectedMeters": 140,
+            "confidence": "high for route-line endpoint, medium for hut centroid"
+          },
+          {
+            "lat": 67.3188613,
+            "lon": 16.6949701,
+            "source": "OSM relation 19111626 reconstructed start",
+            "gapFromSelectedMeters": 138,
+            "confidence": "medium-high for route-line endpoint"
+          }
+        ],
+        "normalizationNote": "Use the hut coordinate for endpoint/facility metadata and the route-line point for geometry unless the importer intentionally snaps endpoints to hut centroids."
+      }
+    },
+    "end": {
+      "selectedRouteEndpoint": {
+        "label": "BLT Duottarstugan / Tuottarstugorna",
+        "role": "official stage end and section 6 handoff",
+        "coordinates": {
+          "lat": 67.268495,
+          "lon": 17.031717
+        },
+        "coordinateSource": "Padjelanta.se Tuottar/Duottar lat/long derived from BLT/Padjelanta hut coordinate, cross-checked with OSM hut way, Fjelds of Sweden, and Naturkartan BD69 split candidates.",
+        "sourceUrls": [
+          "https://www.padjelanta.se/tuottar/",
+          "https://padjelanta.com/en/cabins-and-map/duottar-en/",
+          "https://www.openstreetmap.org/way/622411605",
+          "https://www.fjeldsofsweden.com/facility/Duottar",
+          "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd69-fran-staloluokta-via-touttarstugorna-till-tarraluoppalstugorna.gpx"
+        ],
+        "confidence": "high for hut endpoint; medium-high for exact centroid",
+        "alternateCoordinates": [
+          {
+            "lat": 67.26839245,
+            "lon": 17.03353977,
+            "source": "OSM way 622411605 computed center, Duottar hut building area",
+            "gapFromSelectedMeters": 78,
+            "confidence": "medium-high"
+          },
+          {
+            "lat": 67.267778,
+            "lon": 17.032778,
+            "source": "Fjelds of Sweden DMS-derived coordinate",
+            "gapFromSelectedMeters": 91,
+            "confidence": "medium"
+          },
+          {
+            "lat": 67.268652610111,
+            "lon": 17.03625141819498,
+            "source": "Naturkartan BD69 nearest split point to OSM hut center, index 419 in stored GPX",
+            "gapFromSelectedMeters": 196,
+            "confidence": "high for route-line split, medium for hut centroid"
+          },
+          {
+            "lat": 67.2684892,
+            "lon": 17.031604,
+            "source": "OSM relation 19111626 nearest point to selected Duottar coordinate during main-thread reconstruction",
+            "gapFromSelectedMeters": 5.6,
+            "confidence": "medium-high for OSM route relation"
+          }
+        ],
+        "normalizationNote": "Split the Naturkartan BD69 GPX near index 419 or nearest route crossing to the hut; keep the hut as endpoint/facility with an explicit route-line offset."
+      }
+    },
+    "coordinateConfidenceSummary": "Both hut coordinates are well supported. The main caveat is not hut location but linework endpoint/split placement: BD69 linework is offset by about 140 m from Stáloluokta hut and about 196 m from the selected Duottar coordinate."
+  },
+  "routeGeometry": {
+    "preferredGeometry": {
+      "source": "Naturkartan BD69 GPX",
+      "pageUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd69-fran-staloluokta-via-touttarstugorna-till-tarraluoppalstugorna",
+      "downloadUrl": "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd69-fran-staloluokta-via-touttarstugorna-till-tarraluoppalstugorna.gpx",
+      "sourceDistanceKm": {
+        "staloDuottarText": 19,
+        "combinedBd69Text": 30
+      },
+      "computedStats": {
+        "fullPointCount": 1221,
+        "fullComputedDistanceKm": 27.548,
+        "storedStart": {
+          "lat": 67.1928513404956,
+          "lon": 17.12270822456787,
+          "label": "Darreluoppal/Tarraluoppal side"
+        },
+        "storedEnd": {
+          "lat": 67.3189238604201,
+          "lon": 16.6949459434594,
+          "label": "Stáloluokta side"
+        },
+        "maxPointSpacingMeters": 318.7,
+        "stepsOver500Meters": 0,
+        "nearestSelectedStaloluoktaCoordinate": {
+          "index": 1214,
+          "lat": 67.3189238604201,
+          "lon": 16.6949459434594,
+          "gapMeters": 140.4,
+          "cumulativeKmFromStoredStart": 27.446
+        },
+        "nearestSelectedDuottarCoordinate": {
+          "index": 419,
+          "lat": 67.268652610111,
+          "lon": 17.03625141819498,
+          "gapMeters": 195.6,
+          "cumulativeKmFromStoredStart": 9.753
+        },
+        "stage5SegmentDistanceKmUsingIndex419": 17.795
+      },
+      "storedDirection": "Darreluoppal/Tarraluoppal to Duottar to Stáloluokta, reverse of official stage 5 direction for the Stáloluokta-Duottar segment",
+      "directionForImport": "Use the subset from the Stáloluokta side of BD69 to the Duottar split and reverse it to Stáloluokta-to-Duottar.",
+      "splitRecommendation": "Split BD69 at or near GPX index 419 if using the OSM Duottar hut center/Padjelanta coordinate as the stronger hut endpoint; document the hut access offset.",
+      "geometryGrade": "navigation-grade candidate with split and endpoint-offset caveats",
+      "confidence": "high"
+    },
+    "osmCrossCheck": {
+      "source": "OSM relation 19111626, Padjelantaleden - Section 5",
+      "url": "https://www.openstreetmap.org/relation/19111626",
+      "downloadUrl": "https://api.openstreetmap.org/api/0.6/relation/19111626/full",
+      "parentPadjelantaledenRelation": "https://www.openstreetmap.org/relation/897726",
+      "relationTags": {
+        "name": "Padjelantaleden - Section 5",
+        "from": "Stáloluokta",
+        "via": "Duottar",
+        "to": "Darreluoppal",
+        "network": "rwn"
+      },
+      "computedStats": {
+        "memberWays": 14,
+        "pointCount": 339,
+        "fullComputedDistanceKm": 27.225,
+        "start": {
+          "lat": 67.3188613,
+          "lon": 16.6949701
+        },
+        "end": {
+          "lat": 67.1928971,
+          "lon": 17.1227542
+        },
+        "maxVertexSpacingMeters": 925.6,
+        "stepsOver500Meters": 2,
+        "maxJoinGapMeters": 0,
+        "stage5SplitAtDuottarKm": 17.574,
+        "stage6RemainderKm": 9.651
+      },
+      "direction": "Stáloluokta to Darreluoppal; first segment matches official stage 5 direction before continuing into stage 6.",
+      "geometryGrade": "good planning-grade cross-check, but less dense than Naturkartan",
+      "confidence": "medium-high"
+    },
+    "secondaryGeometry": [
+      {
+        "source": "Fjelds of Sweden Duottar coordinate",
+        "url": "https://www.fjeldsofsweden.com/facility/Duottar",
+        "use": "Coordinate cross-check only; not route linework.",
+        "notes": "Using the Fjelds candidate to split Naturkartan BD69 gives a stage 5 geometry of about 17.889 km."
+      },
+      {
+        "source": "Wikiloc Padjelantaleden Suecia 2024",
+        "url": "https://www.wikiloc.com/hiking-trails/padjelantaleden-suecia-2024-188098340",
+        "use": "Third-party field/GPS corroboration only.",
+        "notes": "Reverse Duottar-Stáloluokta segment listed at 18.86 km, moderate."
+      }
+    ],
+    "standaloneKmlGeojson": {
+      "status": "not-found",
+      "notes": "The geometry lane tested KML, GeoJSON, and JSON variants for Naturkartan BD69; only GPX was confirmed."
+    },
+    "endpointGapNotes": [
+      "BD69 is a combined two-stage GPX and does not encode Duottar as an explicit stage split point.",
+      "The Stáloluokta GPX endpoint is about 140 m from the official hut coordinate.",
+      "The Duottar BD69 split candidate is about 196 m from the selected Padjelanta/BLT hut coordinate.",
+      "The OSM relation lands much closer to the selected Duottar coordinate but is less dense than Naturkartan and has larger vertex spacing.",
+      "Do not include OSM relation 6261462, Nordkalottruta Etapp 39 Stáloluokta-Staddajåkkåstugorna; it is a different branch."
+    ]
+  },
+  "commuteAccess": {
+    "summary": "Stáloluokta is the section's only direct scheduled access point, via summer Fiskflyg helicopter routes and arranged/local Virihaure boat context. Duottar is a remote hut endpoint with no direct road, bus, ferry, rail, parking, or scheduled helicopter service found.",
+    "start": [
+      {
+        "name": "Stáloluokta Fiskflyg helipad area - Ritsem route",
+        "type": "scheduled_helicopter",
+        "coordinates": {
+          "lat": 67.3203873,
+          "lon": 16.6953552
+        },
+        "distanceFromEndpointKm": 0.27,
+        "operatorNetwork": "Fiskflyg / Rotor Service Norden",
+        "sourceUrls": [
+          "https://www.fiskflyg.se/en/reguljara-flygningar",
+          "https://www.fiskflyg.se/en/ritsem-staloluokta",
+          "https://www.openstreetmap.org/node/11051038021"
+        ],
+        "confidence": "high for service, medium for exact pad-to-route assignment",
+        "caveats": "2026 service found as 24 June-4 September at 2100 kr/person; booking, weather, aircraft loads, and gateway bus timing must be rechecked before import."
+      },
+      {
+        "name": "Stáloluokta Fiskflyg helipad area - Kvikkjokk route",
+        "type": "scheduled_helicopter",
+        "coordinates": {
+          "lat": 67.3200328,
+          "lon": 16.6946541
+        },
+        "distanceFromEndpointKm": 0.25,
+        "operatorNetwork": "Fiskflyg / Rotor Service Norden",
+        "sourceUrls": [
+          "https://www.fiskflyg.se/en/reguljara-flygningar",
+          "https://www.fiskflyg.se/en/kvikkjokk-staloluokta",
+          "https://www.openstreetmap.org/node/11051040288"
+        ],
+        "confidence": "high for service, medium for exact pad-to-route assignment",
+        "caveats": "2026 service found as 24 June-4 September at 2100 kr/person; booking/weather dependencies and route-specific times must be rechecked before import."
+      },
+      {
+        "name": "Stáloluokta local Virihaure boat access",
+        "type": "private_or_arranged_boat",
+        "coordinates": {
+          "lat": 67.318108,
+          "lon": 16.697541
+        },
+        "distanceFromEndpointKm": 0,
+        "operatorNetwork": "BLT/Stáloluokta hosts, local boat transport on Virihaure/Virihávrre",
+        "sourceUrls": [
+          "https://padjelanta.com/en/cabins-and-map/staloluokta-en/",
+          "https://www.padjelanta.se/staloluokta/",
+          "https://www.openstreetmap.org/way/369928592"
+        ],
+        "confidence": "medium for service existence, low for exact landing coordinate",
+        "caveats": "No public timetable found. OSM pier cluster is about 0.6-0.7 km from the hut but exact visitor landing was not confirmed."
+      }
+    ],
+    "end": [
+      {
+        "name": "Duottar / Tuottar hut endpoint",
+        "type": "remote_hut_no_direct_public_transit",
+        "coordinates": {
+          "lat": 67.268495,
+          "lon": 17.031717
+        },
+        "distanceFromEndpointKm": 0,
+        "operatorNetwork": "BLT hut chain only",
+        "sourceUrls": [
+          "https://www.padjelanta.se/tuottar/",
+          "https://padjelanta.com/en/cabins-and-map/duottar-en/",
+          "https://www.fiskflyg.se/en/reguljara-flygningar"
+        ],
+        "confidence": "high",
+        "caveats": "No road, bus, rail, ferry, parking, or scheduled helicopter stop at Duottar was found. Treat as trail-only access."
+      },
+      {
+        "name": "Darreluoppal / Tarraluoppal onward helicopter-related gateway",
+        "type": "scheduled_helicopter_gateway_on_next_stage",
+        "coordinates": {
+          "lat": 67.19285,
+          "lon": 17.122082
+        },
+        "distanceFromEndpointKm": 11,
+        "operatorNetwork": "Fiskflyg Kvikkjokk-Stáloluokta route can use the national-park boundary/Darreluoppal area by arrangement or schedule context",
+        "sourceUrls": [
+          "https://www.fiskflyg.se/en/reguljara-flygningar",
+          "https://www.fiskflyg.se/en/kvikkjokk-staloluokta",
+          "https://www.padjelanta.se/"
+        ],
+        "confidence": "medium",
+        "caveats": "Not on section 5 and exact landing coordinate was not verified. Use only as onward access context for the Duottar endpoint."
+      },
+      {
+        "name": "Backtrack to Stáloluokta helicopter access",
+        "type": "scheduled_helicopter_gateway_on_previous_endpoint",
+        "coordinates": {
+          "lat": 67.3203873,
+          "lon": 16.6953552
+        },
+        "distanceFromEndpointKm": 18,
+        "operatorNetwork": "Fiskflyg / Rotor Service Norden",
+        "sourceUrls": [
+          "https://www.fiskflyg.se/en/reguljara-flygningar",
+          "https://www.fiskflyg.se/en/ritsem-staloluokta",
+          "https://www.fiskflyg.se/en/kvikkjokk-staloluokta"
+        ],
+        "confidence": "high for service, medium as practical endpoint access because it requires backtracking the whole stage",
+        "caveats": "Useful only for route-planning context; do not model as the closest public commute point to Duottar in straight-line terms."
+      }
+    ],
+    "gateways": [
+      {
+        "name": "Ritsem gateway",
+        "type": "road_bus_helicopter_ferry_gateway",
+        "coordinates": {
+          "busStop": {
+            "lat": 67.7225362,
+            "lon": 17.4682111
+          },
+          "fiskflygHelipad": {
+            "lat": 67.7169666,
+            "lon": 17.4794345
+          },
+          "ferryTerminal": {
+            "lat": 67.7182989,
+            "lon": 17.4715748
+          }
+        },
+        "operatorNetwork": "Road to Ritsem / Falcks Omnibus, Fiskflyg, M/S Storlule/Tjacko AB",
+        "sourceUrls": [
+          "https://roadtoritsem.com/sommar/",
+          "https://www.swedishtouristassociation.com/facilities/stf-ritsem/transportation/",
+          "https://www.padjelanta.se/akkajaure/"
+        ],
+        "confidence": "medium-high",
+        "caveats": "Gateway only, not on this section. Road/bus/ferry/helicopter schedules are dynamic."
+      },
+      {
+        "name": "Kvikkjokk gateway",
+        "type": "road_bus_helicopter_boat_gateway",
+        "coordinates": {
+          "busStopKvikkjokkKyrkan": {
+            "lat": 66.9516569,
+            "lon": 17.7215238
+          },
+          "heliport": {
+            "lat": 66.9419434,
+            "lon": 17.7390584
+          },
+          "boatTerminal": {
+            "lat": 66.9501108,
+            "lon": 17.7173966
+          }
+        },
+        "operatorNetwork": "Länstrafiken, Fiskflyg, Båttrafik i Kvikkjokk",
+        "sourceUrls": [
+          "https://www.sverigesnationalparker.se/upptack-nationalparkerna/padjelantabadjelannda-nationalpark/besok-parken/hitta-hit",
+          "https://www.fiskflyg.se/en/kvikkjokk-staloluokta",
+          "https://battrafikikvikkjokk.se/padjelantaleden.html"
+        ],
+        "confidence": "medium-high",
+        "caveats": "Gateway only, not on this section. Road/bus/boat/helicopter schedules are dynamic."
+      }
+    ],
+    "negativeFindings": [
+      "No road, bus, rail, public ferry, scheduled helicopter, or parking was confirmed at Duottar.",
+      "No road, bus, rail, or car parking exists at Stáloluokta; scheduled access is helicopter and arranged/local boat only.",
+      "Do not attach Ritsem or Kvikkjokk parking/bus stops directly to the Stáloluokta or Duottar hut endpoints."
+    ]
+  },
+  "facilities": [
+    {
+      "id": "padjelantaleden-stage-05-staloluokta-hut",
+      "name": "BLT Stáloluokta Fjällstuga / Stáloluoktastugan",
+      "candidateType": "lodging",
+      "coordinates": {
+        "lat": 67.318108,
+        "lon": 16.697541
+      },
+      "coordinateSource": "Padjelanta.se official coordinate; OSM hut node 1356459001 is about 2 m away.",
+      "description": "BLT cabin camp at the stage start with 42 beds, one year-round open room, emergency/help phone, sauna, church hut, summer helicopter access, and arranged/local boat context.",
+      "sourceUrls": [
+        "https://www.padjelanta.se/staloluokta/",
+        "https://padjelanta.com/en/cabins-and-map/staloluokta-en/",
+        "https://www.naturkartan.se/en/norrbottens-lan/staloluokta-fjallstuga-2",
+        "https://www.openstreetmap.org/node/1356459001"
+      ],
+      "routeProximity": {
+        "status": "near-route-line-endpoint",
+        "distanceKm": 0.14
+      },
+      "confidence": "high",
+      "importRecommendation": "import-or-deduplicate-with-section-04-endpoint"
+    },
+    {
+      "id": "padjelantaleden-stage-05-staloluokta-emergency-phone",
+      "name": "Stáloluokta emergency phone",
+      "candidateType": "emergency_phone",
+      "coordinates": {
+        "lat": 67.3180856,
+        "lon": 16.6976888
+      },
+      "coordinateSource": "OSM emergency phone node near Stáloluokta hut, supported by BLT/Padjelanta/Naturkartan emergency-phone descriptions.",
+      "description": "Emergency/help phone at the Stáloluokta cabin camp. Import as standalone only if emergency-phone POIs are supported; otherwise attach to hut metadata.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/11051032251",
+        "https://padjelanta.com/en/frequently-asked-questions/",
+        "https://www.padjelanta.se/staloluokta/"
+      ],
+      "routeProximity": {
+        "status": "near-route-line-endpoint",
+        "distanceKm": 0.147
+      },
+      "confidence": "medium-high",
+      "importRecommendation": "import-if-taxonomy-supported-or-attach-to-hut"
+    },
+    {
+      "id": "padjelantaleden-stage-05-staloluokta-sauna",
+      "name": "Stáloluokta sauna",
+      "candidateType": "sauna",
+      "coordinates": {
+        "lat": 67.3167306,
+        "lon": 16.6969167
+      },
+      "coordinateSource": "OSM node 6644200310; supported by BLT/Padjelanta/Naturkartan Stáloluokta service descriptions.",
+      "description": "Sauna at the Stáloluokta cabin camp.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/6644200310",
+        "https://www.padjelanta.se/staloluokta/",
+        "https://padjelanta.com/en/cabins-and-map/staloluokta-en/"
+      ],
+      "routeProximity": {
+        "status": "near-route-line-endpoint",
+        "distanceKm": 0.188
+      },
+      "confidence": "medium-high",
+      "importRecommendation": "import-if-taxonomy-supported-or-attach-to-hut"
+    },
+    {
+      "id": "padjelantaleden-stage-05-staloluokta-provisions",
+      "name": "Stáloluokta provisions / cabin-host sales",
+      "candidateType": "food",
+      "coordinates": {
+        "lat": 67.318108,
+        "lon": 16.697541
+      },
+      "coordinateSource": "Hut cluster coordinate; no current verified standalone shop coordinate found.",
+      "description": "Provision sales at Stáloluokta are currentness-sensitive. BLT mentions smaller/basic food sales and cash-only provisions, Padjelanta.se says the previous Parfas kiosk provisions have ceased, and recent field reports disagree on replacement availability.",
+      "sourceUrls": [
+        "https://padjelanta.com/en/cabins-and-map/staloluokta-en/",
+        "https://padjelanta.com/en/frequently-asked-questions/",
+        "https://www.padjelanta.se/staloluokta/",
+        "https://www.reddit.com/r/Kungsleden/comments/1lkl9j0/padjelantaleden_resupply/"
+      ],
+      "routeProximity": {
+        "status": "near-route-line-endpoint",
+        "distanceKm": 0.14
+      },
+      "confidence": "medium-low for active shop availability, high for limited hut-sales caveat",
+      "importRecommendation": "attach-to-hut-with-currentness-caveat; suppress active standalone Parfas Kiosk unless reverified"
+    },
+    {
+      "id": "padjelantaleden-stage-05-staloluokta-kyrkkata",
+      "name": "Stáloluokta kyrkkåta / church hut",
+      "candidateType": "cultural_site",
+      "coordinates": {
+        "lat": 67.3184749,
+        "lon": 16.699428
+      },
+      "coordinateSource": "OSM node 6644188175; supported textually by BLT and Padjelanta.se.",
+      "description": "Church hut/kyrkkåta in the Stáloluokta settlement area. Relevant for context but may be outside app hiking-facility taxonomy.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/6644188175",
+        "https://padjelanta.com/en/cabins-and-map/staloluokta-en/",
+        "https://www.padjelanta.se/staloluokta/"
+      ],
+      "routeProximity": {
+        "status": "near-route-line-endpoint",
+        "distanceKm": 0.224
+      },
+      "confidence": "medium",
+      "importRecommendation": "keep-pending-or-suppress-unless-cultural-pois-are-supported"
+    },
+    {
+      "id": "padjelantaleden-stage-05-staloluokta-campsite",
+      "name": "Stáloluokta campsite / tent area",
+      "candidateType": "campsite",
+      "coordinates": {
+        "lat": 67.3180343,
+        "lon": 16.6889144
+      },
+      "coordinateSource": "OSM way 1480807035 approximate center.",
+      "description": "OSM-mapped campsite/tent area west of the hut/route-line endpoint. Official current confirmation was not found in this pass.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/way/1480807035"
+      ],
+      "routeProximity": {
+        "status": "near-start-area-but-off-main-route-line",
+        "distanceKm": 0.146
+      },
+      "confidence": "low-medium",
+      "importRecommendation": "pending-coordinate-and-official-use-verification"
+    },
+    {
+      "id": "padjelantaleden-stage-05-staloluokta-toilets",
+      "name": "Stáloluokta campsite toilets",
+      "candidateType": "toilet",
+      "coordinates": {
+        "lat": 67.3173445,
+        "lon": 16.6853729
+      },
+      "coordinateSource": "OSM node 11051028658; national-park service pages support toilets at cabin sites generally.",
+      "description": "Mapped toilet near the Stáloluokta campsite area. Verify whether this is intended for hikers and whether a closer hut toilet exists before standalone import.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/11051028658",
+        "https://www.sverigesnationalparker.se/sv/upptack-nationalparkerna/padjelantabadjelannda-nationalpark/besok-parken/service-i-parken/"
+      ],
+      "routeProximity": {
+        "status": "near-start-area-but-off-main-route-line",
+        "distanceKm": 0.261
+      },
+      "confidence": "medium-low",
+      "importRecommendation": "pending-coordinate-and-use-verification"
+    },
+    {
+      "id": "padjelantaleden-stage-05-staloluokta-waste",
+      "name": "Stáloluokta waste/recycling point",
+      "candidateType": "waste",
+      "coordinates": {
+        "lat": 67.317397,
+        "lon": 16.68532
+      },
+      "coordinateSource": "OSM-mapped waste/recycling features in the Stáloluokta campsite/service area.",
+      "description": "Potential waste/recycling point near the Stáloluokta campsite area. No official hiking-source confirmation found.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/11051028658"
+      ],
+      "routeProximity": {
+        "status": "near-start-area-but-off-main-route-line",
+        "distanceKm": 0.264
+      },
+      "confidence": "low",
+      "importRecommendation": "suppress-or-keep-pending"
+    },
+    {
+      "id": "padjelantaleden-stage-05-staloluokta-helipad-ritsem",
+      "name": "Stáloluokta helipad - Ritsem route",
+      "candidateType": "access_point",
+      "coordinates": {
+        "lat": 67.3203873,
+        "lon": 16.6953552
+      },
+      "coordinateSource": "OSM node 11051038021 cross-checked with Fiskflyg scheduled Stáloluokta access.",
+      "description": "Helipad/access point for the Ritsem-Stáloluokta scheduled helicopter route.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/11051038021",
+        "https://www.fiskflyg.se/en/ritsem-staloluokta",
+        "https://www.fiskflyg.se/en/reguljara-flygningar"
+      ],
+      "routeProximity": {
+        "status": "near-start-area",
+        "distanceKm": 0.252
+      },
+      "confidence": "medium-high",
+      "importRecommendation": "model-as-access-metadata-not-trail-facility"
+    },
+    {
+      "id": "padjelantaleden-stage-05-staloluokta-helipad-kvikkjokk",
+      "name": "Stáloluokta helipad - Kvikkjokk route",
+      "candidateType": "access_point",
+      "coordinates": {
+        "lat": 67.3200328,
+        "lon": 16.6946541
+      },
+      "coordinateSource": "OSM node 11051040288 cross-checked with Fiskflyg scheduled Stáloluokta access.",
+      "description": "Helipad/access point for the Kvikkjokk-Stáloluokta scheduled helicopter route.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/11051040288",
+        "https://www.fiskflyg.se/en/kvikkjokk-staloluokta",
+        "https://www.fiskflyg.se/en/reguljara-flygningar"
+      ],
+      "routeProximity": {
+        "status": "near-start-area",
+        "distanceKm": 0.209
+      },
+      "confidence": "medium-high",
+      "importRecommendation": "model-as-access-metadata-not-trail-facility"
+    },
+    {
+      "id": "padjelantaleden-stage-05-gieddejahka-bridge",
+      "name": "Gieddejåhkå / Luoppal bridge near Stáloluokta",
+      "candidateType": "bridge",
+      "coordinates": {
+        "lat": 67.3187894,
+        "lon": 16.6946172
+      },
+      "coordinateSource": "OSM mapped bridge/way near the BD69 Stáloluokta-side route endpoint; supported by STF/Naturkartan route description saying the stage crosses Gieddejåhkå shortly after Stáloluokta.",
+      "description": "Bridge/crossing near the Stáloluokta start where the route leaves the settlement area and crosses Gieddejåhkå/Luoppal-side water.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/way/369928592",
+        "https://www.svenskaturistforeningen.se/guider-tips/leder/padjelantaleden/",
+        "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd69-fran-staloluokta-via-touttarstugorna-till-tarraluoppalstugorna"
+      ],
+      "routeProximity": {
+        "status": "on-or-near-route-line",
+        "distanceKm": 0.072
+      },
+      "confidence": "medium-high",
+      "importRecommendation": "import-if-bridges-are-modeled"
+    },
+    {
+      "id": "padjelantaleden-stage-05-ballavrjahka-bridge",
+      "name": "Bållávrjåhkå suspension bridge",
+      "candidateType": "bridge",
+      "coordinates": {
+        "lat": 67.2945276,
+        "lon": 16.8289635
+      },
+      "coordinateSource": "OSM bridge feature and Naturkartan/Laponia bridge POI context; route-proximity check places it within a few meters of the stage segment.",
+      "description": "Suspension bridge over Bållávrjåhkå, a key mid-stage landmark and water/camping area. Treat currentness as dynamic because it is a seasonal summer bridge.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd69-fran-staloluokta-via-touttarstugorna-till-tarraluoppalstugorna",
+        "https://laponia.nu/aktuell-information-i-varldsarvet/",
+        "https://www.openstreetmap.org/"
+      ],
+      "routeProximity": {
+        "status": "on-route",
+        "distanceKm": 0.003,
+        "approxDistanceFromStaloluoktaKm": 7.5
+      },
+      "confidence": "high for existence/location, medium for current-season status",
+      "importRecommendation": "import-with-seasonal-currentness-caveat"
+    },
+    {
+      "id": "padjelantaleden-stage-05-ballavrjahka-tent-pitches",
+      "name": "Bållávrjåhkå tent pitches",
+      "candidateType": "campsite",
+      "coordinates": {
+        "lat": 67.2945,
+        "lon": 16.829
+      },
+      "coordinateSource": "Approximate bridge/river coordinate from Naturkartan, Outdoor Wilda, Lukas & Kim, and Silke field reports; exact tent platforms or sites not mapped.",
+      "description": "Field reports and Naturkartan support good tent pitches around Bållávrjåhkå bridge/river, but exact durable tent spots were not independently mapped.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd69-fran-staloluokta-via-touttarstugorna-till-tarraluoppalstugorna",
+        "https://outdoorwilda.com/padjelantaleden-staloluokta-och-duottar/",
+        "https://www.lukasandkim.com/blog/gb-day-22",
+        "https://www.silke-in-europa.de/de/nordisch/laponia/padjelanta/ballavrjahka.htm"
+      ],
+      "routeProximity": {
+        "status": "on-or-near-route",
+        "distanceKm": 0.01
+      },
+      "confidence": "medium for camping area, low for exact coordinate",
+      "importRecommendation": "keep-pending-or-route-note-until-coordinate-verified"
+    },
+    {
+      "id": "padjelantaleden-stage-05-ballavrjahka-water",
+      "name": "Bållávrjåhkå water",
+      "candidateType": "water",
+      "coordinates": {
+        "lat": 67.2945276,
+        "lon": 16.8289635
+      },
+      "coordinateSource": "Bridge/stream coordinate; Naturkartan explicitly advises filling water here.",
+      "description": "Important mid-stage stream/water point. Naturkartan warns to fill here because water is scarce on the stretch ahead toward Duottar.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd69-fran-staloluokta-via-touttarstugorna-till-tarraluoppalstugorna",
+        "https://outdoorwilda.com/padjelantaleden-staloluokta-och-duottar/"
+      ],
+      "routeProximity": {
+        "status": "on-route",
+        "distanceKm": 0.003
+      },
+      "confidence": "medium-high",
+      "importRecommendation": "import-as-natural-water-or-route-note-with-treatment/reliability-caveat"
+    },
+    {
+      "id": "padjelantaleden-stage-05-duottar-side-wade-1",
+      "name": "Duottar-side wade / stream crossing 1",
+      "candidateType": "ford",
+      "coordinates": {
+        "lat": 67.2709089,
+        "lon": 17.0236321
+      },
+      "coordinateSource": "OSM mapped ford/crossing candidate near Duottar, supported by Naturkartan and Outdoor Wilda reports of two simple wades before Duottar.",
+      "description": "One of two reported simple wades shortly before Duottar when walking from Stáloluokta. Difficulty may change with water levels.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd69-fran-staloluokta-via-touttarstugorna-till-tarraluoppalstugorna",
+        "https://outdoorwilda.com/padjelantaleden-staloluokta-och-duottar/",
+        "https://www.openstreetmap.org/"
+      ],
+      "routeProximity": {
+        "status": "on-or-near-route",
+        "distanceKm": 0.002
+      },
+      "confidence": "medium",
+      "importRecommendation": "import-if-fords-are-modeled-otherwise-keep-as-safety-note"
+    },
+    {
+      "id": "padjelantaleden-stage-05-duottar-side-wade-2",
+      "name": "Duottar-side wade / stream crossing 2",
+      "candidateType": "ford",
+      "coordinates": {
+        "lat": 67.2701804,
+        "lon": 17.0326316
+      },
+      "coordinateSource": "OSM mapped ford/crossing candidate near Duottar, supported by Naturkartan and Outdoor Wilda reports of two simple wades before Duottar.",
+      "description": "Second reported simple wade before Duottar. The crossing is near the hut approach and should be treated as condition-dependent.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd69-fran-staloluokta-via-touttarstugorna-till-tarraluoppalstugorna",
+        "https://outdoorwilda.com/padjelantaleden-staloluokta-och-duottar/",
+        "https://www.openstreetmap.org/"
+      ],
+      "routeProximity": {
+        "status": "on-or-near-route",
+        "distanceKm": 0.037
+      },
+      "confidence": "medium",
+      "importRecommendation": "import-if-fords-are-modeled-otherwise-keep-as-safety-note"
+    },
+    {
+      "id": "padjelantaleden-stage-05-duottar-hut",
+      "name": "BLT Duottar Fjällstuga / Tuottarstugorna",
+      "candidateType": "lodging",
+      "coordinates": {
+        "lat": 67.268495,
+        "lon": 17.031717
+      },
+      "coordinateSource": "Padjelanta.se Tuottar official coordinate; OSM hut way 622411605 center is about 78 m away.",
+      "description": "BLT cabin camp at the stage end with 32 beds, one year-round open cabin/room, emergency/help phone, and basic provisions subject to availability.",
+      "sourceUrls": [
+        "https://www.padjelanta.se/tuottar/",
+        "https://padjelanta.com/en/cabins-and-map/duottar-en/",
+        "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd69-fran-staloluokta-via-touttarstugorna-till-tarraluoppalstugorna",
+        "https://www.openstreetmap.org/way/622411605"
+      ],
+      "routeProximity": {
+        "status": "near-route-split",
+        "distanceKm": 0.196
+      },
+      "confidence": "high",
+      "importRecommendation": "import-or-deduplicate-with-section-06-start"
+    },
+    {
+      "id": "padjelantaleden-stage-05-duottar-emergency-phone",
+      "name": "Duottar emergency phone",
+      "candidateType": "emergency_phone",
+      "coordinates": null,
+      "coordinateSource": "No standalone coordinate found; BLT FAQ, Padjelanta.se, and Naturkartan confirm emergency/help phone context at BLT hut camps.",
+      "description": "Emergency/help phone at the Duottar cabin camp. Keep as hut metadata unless a verified standalone point is found.",
+      "sourceUrls": [
+        "https://www.padjelanta.se/tuottar/",
+        "https://padjelanta.com/en/frequently-asked-questions/",
+        "https://padjelanta.com/en/cabins-and-map/duottar-en/"
+      ],
+      "routeProximity": {
+        "status": "attached-to-hut",
+        "distanceKm": 0.196
+      },
+      "confidence": "medium",
+      "importRecommendation": "attach-to-hut-or-keep-pending-as-standalone"
+    },
+    {
+      "id": "padjelantaleden-stage-05-duottar-provisions",
+      "name": "Duottar provisions / cabin-host sales",
+      "candidateType": "food",
+      "coordinates": {
+        "lat": 67.268495,
+        "lon": 17.031717
+      },
+      "coordinateSource": "Hut cluster coordinate; no separate shop coordinate found.",
+      "description": "Basic provisions may be sold by hut hosts at Duottar, but stock is limited, may run out, and provision sales are cash-only. Field reports describe availability as variable.",
+      "sourceUrls": [
+        "https://padjelanta.com/en/cabins-and-map/duottar-en/",
+        "https://padjelanta.com/en/frequently-asked-questions/",
+        "https://www.silke-in-europa.de/de/nordisch/laponia/padjelanta/ballavrjahka.htm",
+        "https://farfarfromhome.com/padjelantaleden"
+      ],
+      "routeProximity": {
+        "status": "attached-to-hut",
+        "distanceKm": 0.196
+      },
+      "confidence": "medium",
+      "importRecommendation": "attach-to-hut-with-currentness-caveat"
+    },
+    {
+      "id": "padjelantaleden-stage-05-duottar-toilet",
+      "name": "Duottar dry toilet",
+      "candidateType": "toilet",
+      "coordinates": {
+        "lat": 67.2682856,
+        "lon": 17.0323283
+      },
+      "coordinateSource": "OSM mapped toilet/building near Duottar hut; supported generically by national-park service pages for cabin-site toilets.",
+      "description": "Mapped dry toilet near Duottar hut. Coordinate should be verified before standalone import.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/way/622411605",
+        "https://www.sverigesnationalparker.se/sv/upptack-nationalparkerna/padjelantabadjelannda-nationalpark/besok-parken/service-i-parken/"
+      ],
+      "routeProximity": {
+        "status": "near-route-split",
+        "distanceKm": 0.173
+      },
+      "confidence": "medium",
+      "importRecommendation": "pending-coordinate-verification-or-attach-to-hut"
+    }
+  ],
+  "waterSources": {
+    "summary": "Water is a more important planning issue here than on the shorter hut-to-hut stages. Naturkartan specifically advises filling at Bållávrjåhkå because water is scarce afterward toward Duottar. Treat all natural water as condition- and treatment-dependent.",
+    "records": [
+      {
+        "name": "Stáloluokta / Virihaure start-area water",
+        "coordinates": null,
+        "source": "Padjelanta.se and BLT hut/location context; no discrete potable-water point found.",
+        "reliability": "medium",
+        "notes": "Use as general hut/settlement/lake context only. Do not import a standalone water point without verified coordinate."
+      },
+      {
+        "name": "Gieddávrre and route streams before Bållávrjåhkå",
+        "coordinates": null,
+        "source": "STF/Naturkartan route descriptions and map water features.",
+        "reliability": "medium",
+        "notes": "Likely practical route water in normal conditions, but no official named potable point was found."
+      },
+      {
+        "name": "Bållávrjåhkå",
+        "coordinates": {
+          "lat": 67.2945276,
+          "lon": 16.8289635
+        },
+        "source": "Naturkartan BD69 water-scarcity instruction, field reports, and bridge/stream coordinate.",
+        "reliability": "medium-high",
+        "notes": "Key refill location. Naturkartan says to fill water here before the scarcer stretch toward Duottar. Treat and verify water conditions."
+      },
+      {
+        "name": "Duottar-side wades and nearby lakes/streams",
+        "coordinates": null,
+        "source": "Naturkartan and field reports mention two wades and nearby Duottar lakes/streams.",
+        "reliability": "medium",
+        "notes": "Likely late-stage water context, but not a mapped potable point. Water level and access depend on season and weather."
+      },
+      {
+        "name": "Duottar hut area water",
+        "coordinates": null,
+        "source": "Padjelanta.se places Duottar between Duottarjávrre/Tuottarjaure and Tsiekkimjávrre/Tjekimjaure; no discrete drinking-water point found.",
+        "reliability": "medium",
+        "notes": "Use as hut/lake context only until a specific water source coordinate is verified."
+      }
+    ],
+    "confidence": "medium"
+  },
+  "campingAndFire": {
+    "camping": [
+      {
+        "topic": "General national-park camping",
+        "notes": "Camping is generally possible in Padjelanta/Badjelánnda, but visitors must avoid private huts, goahtes/kåtor, paths, reindeer enclosures, and sensitive herding activity. Larger organized activities can require permission.",
+        "sourceUrls": [
+          "https://laponia.nu/foreskrifter-qr/",
+          "https://laponia.nu/nationalparker-och-naturreservat/badjelannda/"
+        ],
+        "confidence": "high"
+      },
+      {
+        "topic": "Bållávrjåhkå camping",
+        "notes": "Naturkartan and multiple field reports support Bållávrjåhkå bridge/river as the strongest mid-stage tent area. Exact tent coordinates were not mapped, so keep as route note unless verified.",
+        "sourceUrls": [
+          "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd69-fran-staloluokta-via-touttarstugorna-till-tarraluoppalstugorna",
+          "https://outdoorwilda.com/padjelantaleden-staloluokta-och-duottar/",
+          "https://www.lukasandkim.com/blog/gb-day-22",
+          "https://www.silke-in-europa.de/de/nordisch/laponia/padjelanta/ballavrjahka.htm"
+        ],
+        "confidence": "medium"
+      },
+      {
+        "topic": "Hut-site camping",
+        "notes": "Stáloluokta and Duottar have BLT hut camps and likely nearby tenting practices, but hut-site camping fees/rules and exact tent areas should be checked with BLT before import.",
+        "sourceUrls": [
+          "https://padjelanta.com/priset-och-oppet/",
+          "https://padjelanta.com/en/cabins-and-map/staloluokta-en/",
+          "https://padjelanta.com/en/cabins-and-map/duottar-en/"
+        ],
+        "confidence": "medium"
+      }
+    ],
+    "fire": [
+      {
+        "topic": "Fire restrictions",
+        "notes": "Official Laponia/park rules allow only limited use of loose dead sticks/branches and prohibit damaging/cutting vegetation or taking bark. Temporary fire bans and wildfire-risk guidance override normal rules.",
+        "sourceUrls": [
+          "https://laponia.nu/foreskrifter-qr/",
+          "https://www.lansstyrelsen.se/norrbotten/samhalle/sakerhet-och-beredskap/brandrisk-och-eldningsforbud.html",
+          "https://www.krisinformation.se/"
+        ],
+        "confidence": "high for rule context; dynamic for current bans"
+      },
+      {
+        "topic": "Fireplaces",
+        "notes": "No official or confidently mapped fireplace was found along stage 5. Do not import a fireplace POI for this section without new evidence.",
+        "sourceUrls": [
+          "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd69-fran-staloluokta-via-touttarstugorna-till-tarraluoppalstugorna"
+        ],
+        "confidence": "medium-high"
+      }
+    ],
+    "toilets": [
+      {
+        "name": "Stáloluokta hut/campsite toilets",
+        "coordinates": {
+          "lat": 67.3173445,
+          "lon": 16.6853729
+        },
+        "notes": "OSM-mapped toilet near the campsite/service area; verify intended user access and exact hut toilet location before import.",
+        "confidence": "medium-low"
+      },
+      {
+        "name": "Duottar dry toilet",
+        "coordinates": {
+          "lat": 67.2682856,
+          "lon": 17.0323283
+        },
+        "notes": "OSM-supported hut-area toilet candidate; verify exact coordinate before standalone import.",
+        "confidence": "medium"
+      }
+    ]
+  },
+  "rulesAndSafety": {
+    "protectedArea": {
+      "name": "Padjelanta/Badjelánnda National Park within Laponia World Heritage Area",
+      "municipality": "Jokkmokk",
+      "county": "Norrbotten",
+      "sourceUrls": [
+        "https://laponia.nu/nationalparker-och-naturreservat/badjelannda/",
+        "https://www.sverigesnationalparker.se/park/padjelanta--badjelannda-nationalpark/"
+      ],
+      "confidence": "high"
+    },
+    "rules": [
+      {
+        "topic": "Dogs",
+        "rule": "Dogs are not allowed in the normal hiking season; BLT/Laponia rules state dogs may only be brought leashed from 1 January to 30 April.",
+        "sourceUrls": [
+          "https://padjelanta.com/priset-och-oppet/",
+          "https://laponia.nu/foreskrifter-qr/"
+        ],
+        "confidence": "high"
+      },
+      {
+        "topic": "Drones",
+        "rule": "Drone flight/start/landing is restricted and requires permission from Länsstyrelsen.",
+        "sourceUrls": [
+          "https://laponia.nu/foreskrifter-qr/",
+          "https://www.sverigesnationalparker.se/park/padjelanta--badjelannda-nationalpark/"
+        ],
+        "confidence": "high"
+      },
+      {
+        "topic": "Reindeer herding",
+        "rule": "Avoid disturbing reindeer, splitting herds, or camping near reindeer enclosures. The route passes reindeer-herding landscapes and a Gieddávrre calf-marking enclosure context was identified.",
+        "sourceUrls": [
+          "https://laponia.nu/foreskrifter-qr/",
+          "https://www.svenskaturistforeningen.se/guider-tips/leder/padjelantaleden/"
+        ],
+        "confidence": "medium-high"
+      },
+      {
+        "topic": "Fishing and hunting",
+        "rule": "Hunting is prohibited. Fishing is only allowed in designated waters with valid permits and current Jokkmokkskortet rules; 2026 material allows fishing within 1 km each side of Padjelantaleden with catch and gear restrictions.",
+        "sourceUrls": [
+          "https://laponia.nu/foreskrifter-qr/",
+          "https://www.lansstyrelsen.se/download/18.42fea26019b2bf9219caeeb/1767883566246/Fiskeregler%20i%20fj%C3%A4llen%20-%20Jokkmokkskortet_2026_TA-web-utskrift.pdf"
+        ],
+        "confidence": "medium-high; recheck annual fishing rules before publication"
+      },
+      {
+        "topic": "Mobile coverage and emergency",
+        "rule": "Do not rely on mobile coverage. BLT says there is no mobile coverage along the trail and emergency/help phones are available at all BLT hut camps.",
+        "sourceUrls": [
+          "https://padjelanta.com/en/frequently-asked-questions/",
+          "https://www.padjelanta.se/"
+        ],
+        "confidence": "high"
+      }
+    ],
+    "stageSpecificSafety": [
+      {
+        "topic": "Bållávrjåhkå seasonal bridge",
+        "notes": "The stage crosses Bållávrjåhkå by a suspension bridge. It is part of the summer-bridge system installed around the last week of June and removed around mid-September depending on snow/water. On 2026-04-29, Laponia current information still indicated Sarek/Badjelánnda bridges were lifted for winter 2025/2026; no 2026 installation confirmation was found in this pass.",
+        "sourceUrls": [
+          "https://laponia.nu/aktuell-information-i-varldsarvet/",
+          "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd69-fran-staloluokta-via-touttarstugorna-till-tarraluoppalstugorna"
+        ],
+        "confidence": "high for seasonal bridge model; dynamic for current status"
+      },
+      {
+        "topic": "Water scarcity after Bållávrjåhkå",
+        "notes": "Naturkartan explicitly advises filling at Bållávrjåhkå because water is scarce on the following stretch toward Duottar.",
+        "sourceUrls": [
+          "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd69-fran-staloluokta-via-touttarstugorna-till-tarraluoppalstugorna"
+        ],
+        "confidence": "high"
+      },
+      {
+        "topic": "Wades before Duottar",
+        "notes": "Naturkartan and field reports mention two generally simple wades before Duottar, but water levels can change with rain and snowmelt.",
+        "sourceUrls": [
+          "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd69-fran-staloluokta-via-touttarstugorna-till-tarraluoppalstugorna",
+          "https://outdoorwilda.com/padjelantaleden-staloluokta-och-duottar/"
+        ],
+        "confidence": "medium-high"
+      },
+      {
+        "topic": "Weather, footing, and insects",
+        "notes": "Reports emphasize exposed terrain, slippery boardwalks in wet weather, willow/marsh sections, rocky ground, mosquitoes/blackflies, and navigation difficulty in poor weather.",
+        "sourceUrls": [
+          "https://outdoorwilda.com/padjelantaleden-staloluokta-och-duottar/",
+          "https://www.wikiloc.com/hiking-trails/padjelantaleden-suecia-2024-188098340",
+          "https://www.silke-in-europa.de/de/nordisch/laponia/padjelanta/ballavrjahka.htm"
+        ],
+        "confidence": "medium"
+      }
+    ],
+    "currentnessChecks": [
+      {
+        "checkedDate": "2026-04-29",
+        "source": "Laponia current information",
+        "result": "No explicit Stage 5 closure or reroute found; winter bridge-removal notice still relevant until summer installation is confirmed."
+      },
+      {
+        "checkedDate": "2026-04-29",
+        "source": "Länsstyrelsen current mountain conditions",
+        "result": "Spring 2026 snow/ice warning context exists; recheck before any early-season publication."
+      },
+      {
+        "checkedDate": "2026-04-29",
+        "source": "BLT 2026 opening/payment pages",
+        "result": "BLT cabin camps listed open 28/6-6/9 in 2026; card/payment/provisions details remain operational and should be rechecked."
+      },
+      {
+        "checkedDate": "2026-04-29",
+        "source": "Fiskflyg 2026 pages",
+        "result": "Stáloluokta scheduled helicopter access found for 2026; Duottar direct scheduled access not found."
+      }
+    ]
+  },
+  "conditionReports": [
+    {
+      "source": "Outdoor Wilda",
+      "url": "https://outdoorwilda.com/padjelantaleden-staloluokta-och-duottar/",
+      "reportDate": "2025-2026 web report; exact hike date not encoded in extracted notes",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Describes the Stáloluokta-Duottar day as very beautiful and generally easy walking.",
+        "Notes more barren and stony terrain after Bållávrjåhkå.",
+        "Mentions heat, mosquitoes, exposed ground, and two shallow/easy wades before Duottar.",
+        "Supports lunch/swim/rest context around Bållávrjåhkå bridge."
+      ],
+      "confidence": "medium-high"
+    },
+    {
+      "source": "FarFarFromHome",
+      "url": "https://farfarfromhome.com/padjelantaleden",
+      "reportDate": "2023-07-12",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Walked the reverse Tuottar-Stáloluokta day as 18 km in 5 hours 10 minutes.",
+        "Described open/easy walking with some up and down, marshy ground by lakes, and views toward Norway.",
+        "Provides field support for the 18 km distance rather than Naturkartan's 19 km text."
+      ],
+      "confidence": "medium-high"
+    },
+    {
+      "source": "Silke in Europa",
+      "urls": [
+        "https://www.silke-in-europa.de/de/nordisch/laponia/padjelanta/ballavrjahka.htm",
+        "https://www.silke-in-europa.de/de/nordisch/laponia/padjelanta/dijdderhalbinsel.htm"
+      ],
+      "reportDate": "older web report; exact walking date not extracted",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Reverse-direction report describes broad shallow water near Duottar, smaller tributaries near Rådokjåhkå, stony/uneven walking, and willow/mosquito sections near Gieddávrre.",
+        "Mentions Bållávrjåhkå seasonal bridge/currentness and good camping nearby.",
+        "Observed Duottar provisions as limited/variable, with only chocolate available in that report."
+      ],
+      "confidence": "medium"
+    },
+    {
+      "source": "Lukas and Kim",
+      "url": "https://www.lukasandkim.com/blog/gb-day-22",
+      "reportDate": "2021-07-31",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Camped near Bållávrjåhkå and described good tent spots and swimming context.",
+        "Useful for camping corroboration but not exact coordinate import."
+      ],
+      "confidence": "medium"
+    },
+    {
+      "source": "Wikiloc Padjelantaleden Suecia 2024",
+      "url": "https://www.wikiloc.com/hiking-trails/padjelantaleden-suecia-2024-188098340",
+      "reportDate": "2024",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Lists reverse Duottar-Stáloluokta at 18.86 km, +338/-646 m reverse, moderate.",
+        "Notes bad weather can affect navigation and that boardwalks can be slippery or in poor condition."
+      ],
+      "confidence": "medium"
+    },
+    {
+      "source": "Reddit Padjelantaleden bridge/resupply threads",
+      "urls": [
+        "https://www.reddit.com/r/Ultralight/comments/1l3ayvj/",
+        "https://www.reddit.com/r/Kungsleden/comments/1lkl9j0/padjelantaleden_resupply/"
+      ],
+      "reportDate": "2025",
+      "accessed": "2026-04-29",
+      "findings": [
+        "Shows current user concern about June bridge installation/removal timing, including Bållávrjåhkå-type seasonal bridge risk.",
+        "Shows current uncertainty around Stáloluokta resupply after Parfas changes; supports suppressing active Parfas Kiosk unless verified."
+      ],
+      "confidence": "low-medium; useful for currentness questions, not as primary fact source"
+    }
+  ],
+  "sourceContradictions": [
+    {
+      "topic": "Stage 5 distance",
+      "sources": [
+        {
+          "source": "STF Padjelantaleden",
+          "claim": "18 km, 5-7 hours"
+        },
+        {
+          "source": "Padjelanta.se / BLT Stáloluokta and Duottar pages",
+          "claim": "18 km"
+        },
+        {
+          "source": "Naturkartan BD69",
+          "claim": "19 km, 6-8 hours for Stáloluokta-Duottar; 30 km for combined Stáloluokta-Duottar-Darreluoppal"
+        },
+        {
+          "source": "Computed Naturkartan BD69 split",
+          "claim": "about 17.795 km line segment plus hut access offsets"
+        }
+      ],
+      "resolution": "Use 18 km as official display distance because STF, BLT/Padjelanta, field reports, and computed geometry support it; record Naturkartan's 19 km as a source contradiction.",
+      "confidence": "high"
+    },
+    {
+      "topic": "Duottar spelling and endpoint label",
+      "sources": [
+        {
+          "source": "STF/BLT",
+          "claim": "Duottarstugan / BLT Duottarstugan"
+        },
+        {
+          "source": "Padjelanta.se and some map/report sources",
+          "claim": "Tuottar / Tuottarstugorna"
+        },
+        {
+          "source": "Naturkartan URL/title",
+          "claim": "Touttarstugorna spelling appears in the URL/title text"
+        }
+      ],
+      "resolution": "Use STF/BLT official display 'Duottar' for section ID/name, keep Tuottar/Touttar as aliases/source spellings.",
+      "confidence": "medium-high"
+    },
+    {
+      "topic": "Stáloluokta provisions",
+      "sources": [
+        {
+          "source": "BLT Stáloluokta and FAQ",
+          "claim": "Smaller/basic food sales may be available, provisions can run out, provision sales are cash-only."
+        },
+        {
+          "source": "Padjelanta.se Stáloluokta",
+          "claim": "Previous Parfas kiosk provisions have ceased."
+        },
+        {
+          "source": "Field reports / Reddit 2025 / Silke",
+          "claim": "Parfas/replacement shop availability has changed and may have closed early or be uncertain."
+        }
+      ],
+      "resolution": "Do not import an active standalone Stáloluokta shop. Attach limited/currentness-sensitive provisions to the hut and require recheck before publication.",
+      "confidence": "medium"
+    },
+    {
+      "topic": "Bållávrjåhkå bridge currentness",
+      "sources": [
+        {
+          "source": "Naturkartan/field reports",
+          "claim": "Stage crosses Bållávrjåhkå by bridge."
+        },
+        {
+          "source": "Laponia current information on 2026-04-29",
+          "claim": "Badjelánnda/Sarek bridges were lifted for winter 2025/2026; summer 2026 installation confirmation was not found."
+        }
+      ],
+      "resolution": "Model Bållávrjåhkå as a seasonal bridge with currentness caveat; recheck Laponia/Länsstyrelsen before import/publication.",
+      "confidence": "medium-high"
+    }
+  ],
+  "researchIterations": [
+    {
+      "iterationId": "section-05-initial-six-lane-2026-04-29",
+      "startedAt": "2026-04-29T18:54:30+00:00",
+      "completedAt": "2026-04-29T19:03:08+00:00",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019dda97-aa55-7ea2-b9fa-13049374d0ae",
+          "nickname": "Carson",
+          "result": "Official STF/BLT/Naturkartan stage facts, route description, 18 km versus 19 km contradiction, Duottar/Stáloluokta services, water-scarcity warning, and BLT 2026 season/payment notes collected."
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019dda97-ab2c-7151-9989-1eaba33b1cd7",
+          "nickname": "Zeno",
+          "result": "Naturkartan BD69 selected as primary combined geometry, stored reverse and split at Duottar; OSM relation 19111626 and branch caveat collected."
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019dda97-abff-7d90-b1de-9237352fd6ec",
+          "nickname": "Russell",
+          "result": "Stáloluokta and Duottar hut/service facilities, Bållávrjåhkå bridge/water/tent area, Duottar-side wades, and suppressions/currentness caveats collected."
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019dda97-ad73-7d71-8c8d-44579ed98bf2",
+          "nickname": "Aristotle",
+          "result": "Stáloluokta scheduled helicopter/local boat access and Duottar no-direct-transit model collected, with Ritsem/Kvikkjokk/Darreluoppal gateway caveats."
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019dda97-ae8d-7361-920b-ae329d3e2144",
+          "nickname": "Bacon",
+          "result": "Recent and older field reports on terrain, exposure, Bållávrjåhkå camping/water, Duottar-side wades, Stáloluokta resupply uncertainty, and no normal-summer reroute collected."
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019dda97-afca-79a0-895e-5c52bbdfc203",
+          "nickname": "Hubble",
+          "result": "Protected-area rules, dog/drone/fire/reindeer/fishing/hunting constraints, Bållávrjåhkå seasonal bridge currentness, water scarcity, emergency phones, and no explicit Stage 5 closure collected."
+        }
+      ],
+      "synthesisDecision": "No targeted follow-up batch required before writing. Import-critical facts are covered; remaining gaps are normalization decisions, dynamic bridge/access/provisions currentness, and secondary POI coordinate verification."
+    },
+    {
+      "iterationId": "main-thread-geometry-synthesis-2026-04-29",
+      "findings": [
+        "Main thread parsed Naturkartan BD69 GPX as 27.548 km, 1221 points, max point spacing 318.7 m, no gaps over 500 m.",
+        "Main thread confirmed BD69 starts at Darreluoppal/Tarraluoppal and ends at Stáloluokta, so stage 5 must be reversed after splitting.",
+        "Main thread selected BD69 index 419 as the Duottar split candidate closest to official/OSM hut evidence, giving a 17.795 km Stáloluokta-Duottar route-line segment.",
+        "Main thread reconstructed OSM relation 19111626 as 27.225 km, with the Stáloluokta-Duottar split at about 17.574 km.",
+        "Main thread decided the remaining weak points can be carried as import caveats rather than launching a second research batch."
+      ]
+    }
+  ],
+  "openQuestions": [
+    "During normalization, decide whether to split Naturkartan BD69 at index 419, at the closest route point to the selected Padjelanta Duottar coordinate, or at an OSM-derived hut approach point.",
+    "Decide whether the final geometry should preserve route-line endpoints/splits with hut facilities nearby or snap/extend to hut centroids at Stáloluokta and Duottar.",
+    "Verify 2026 Bållávrjåhkå bridge installation/current status before public-facing import, especially for early/late season use.",
+    "Verify Stáloluokta and Duottar provisions shortly before import; do not import an active standalone Parfas/replacement shop without current operator confirmation.",
+    "Verify whether Stáloluokta campsite/toilet/waste OSM nodes belong to hiker services and should be imported.",
+    "Verify exact standalone coordinate for Duottar emergency phone before importing it separately.",
+    "Verify Duottar dry-toilet coordinate and whether to attach it to the hut instead of importing as standalone.",
+    "Decide whether Bållávrjåhkå tent pitches should remain a route note or become a low-confidence campsite candidate.",
+    "Before publication, recheck BLT 2026 opening/payment/service details, Fiskflyg schedules, Laponia/Länsstyrelsen current conditions, bridge notices, fire bans, and gateway bus/boat schedules."
+  ],
+  "importReadiness": {
+    "status": "ready-for-normalization-with-caveats",
+    "readyItems": [
+      "Official section labels, order, 18 km distance, and 5-7 hour STF time.",
+      "Start/end hut coordinates with route-line alternatives and endpoint/split caveats.",
+      "Primary Naturkartan BD69 combined geometry with stage 5 split recommendation and OSM cross-check.",
+      "Remote access model with Stáloluokta scheduled helicopter/local boat metadata and Duottar no-direct-transit finding.",
+      "Major hut, bridge, water, wade, emergency-phone, sauna, toilet, and access-facility candidates with import recommendations.",
+      "Rules/safety/currentness notes and dated field-report synthesis."
+    ],
+    "notReadyItems": [
+      "Naturkartan BD69 must be split and reversed during normalization; it is not a one-stage GPX.",
+      "Route-line endpoint/split offsets at Stáloluokta and Duottar need an importer decision.",
+      "Bållávrjåhkå bridge installation/currentness must be rechecked before publication.",
+      "Stáloluokta and Duottar provisions are limited/currentness-sensitive.",
+      "Secondary POI coordinates for Duottar phone/toilet, Stáloluokta campsite/toilet/waste, and Bållávrjåhkå tent pitches need verification before standalone import.",
+      "Operational helicopter, bus, boat, fire-ban, and current-condition details are dynamic and need fresh checks before user-facing publication."
+    ],
+    "normalizationRecommendation": "Use official 18 km display distance. Use Naturkartan BD69 as the primary geometry after splitting at Duottar and reversing the Stáloluokta-Duottar segment; use OSM relation 19111626 as a cross-check, especially near Duottar. Import/deduplicate Stáloluokta and Duottar huts carefully, import Bållávrjåhkå bridge and water with seasonal/currentness caveats, keep Duottar-side wades as safety/fording metadata unless fords are supported, suppress active Parfas Kiosk, and keep Stáloluokta helicopter/boat details as access metadata unless access POIs are supported."
+  }
+}

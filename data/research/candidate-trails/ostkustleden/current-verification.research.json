@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "candidate-trail-current-verification-v1",
+  "trailId": "ostkustleden",
+  "lastUpdated": "2026-04-30T06:13:27Z",
+  "scope": "Research-only current/source verification pass for remaining caveats. This file does not integrate data into runtime app sources.",
+  "verificationDate": "2026-04-30",
+  "summary": {
+    "fireBan": "Oskarshamn municipality currently says there is no fire ban, but Länsstyrelsen pages show a current forest-fire-risk notice for Kalmar län. Same-day fire checks remain mandatory before publication or use of grill/fireplace metadata.",
+    "transit": "KLT Närtrafik rules and Oskarshamn Närtrafik PDF timetables were verified as current enough for research metadata. Exact departures and fixed-line journeys still require the KLT journey planner/app at publication time.",
+    "cabinsAndWater": "Current Naturkartan cabin pages confirm cabin inventories, fees, no-outdoor-fire rules and known water caveats. Water quality/reliability remains publication-time information unless a current official page explicitly states otherwise.",
+    "hunting": "Länsstyrelsen Kalmar's public Älgjakt page still points to the 2025/2026 decision on 2026-04-30. No 2026/2027 moose decision was verified in this pass.",
+    "forestry": "Humlenäs and Etapp 6 forestry caveats remain passability/currentness checks. This pass did not perform a fresh geometry overlay against Skogsstyrelsen's live map service."
+  },
+  "verifiedSources": [
+    {
+      "label": "Oskarshamn municipality: Eldningsförbud",
+      "url": "https://www.oskarshamn.se/mer-om-kommunen/raddning-sakerhet-kris/raddningstjansten/eldningsforbud/",
+      "accessedDate": "2026-04-30",
+      "finding": "Page states no fire ban in Oskarshamn municipality at the moment. The page says users still need to judge conditions and use SMHI fire-risk forecasts.",
+      "confidence": "high-for-page-status-time-sensitive"
+    },
+    {
+      "label": "Länsstyrelsen Kalmar: Om eldningsförbud",
+      "url": "https://www.lansstyrelsen.se/kalmar/samhalle/sakerhet-och-beredskap/om-eldningsforbud.html",
+      "accessedDate": "2026-04-30",
+      "finding": "Explains county/municipal fire-ban authority, map service, and restrictions for ordinary and stricter fire bans. Use as policy source, not proof of no ban by itself.",
+      "confidence": "high"
+    },
+    {
+      "label": "Länsstyrelsen Kalmar pages with current fire-risk banner",
+      "url": "https://www.lansstyrelsen.se/kalmar/djur/jakt-och-vilt/algjakt.html",
+      "accessedDate": "2026-04-30",
+      "finding": "Page displayed a current 'Risk för skogsbrand i Kalmar län' SMHI banner. Treat as fire-risk warning even where no municipal fire ban is active.",
+      "confidence": "high-for-banner-observation-time-sensitive"
+    },
+    {
+      "label": "Kalmar länstrafik: Närtrafik",
+      "url": "https://www.kalmarlanstrafik.se/trafiken/nartrafik/",
+      "accessedDate": "2026-04-30",
+      "finding": "Närtrafik is book-ahead public transport for areas without fixed service. Rural trips must normally be booked at least 2 hours before departure; weekend trips must be booked by 18:00 the last non-holiday weekday before the weekend. Pets are not allowed except assistance dogs and group capacity is limited.",
+      "confidence": "high"
+    },
+    {
+      "label": "Kalmar länstrafik: Närtrafik Oskarshamns området PDF",
+      "url": "https://kalmarlanstrafik.se/globalassets/tidtabeller/tidtabell-nartrafik/oskarshamn-kommun/oskarshamn.pdf",
+      "accessedDate": "2026-04-30",
+      "finding": "PDF valid from 2025-08-11 until further notice. Confirms Oskarshamn-area Närtrafik times and booking notes.",
+      "confidence": "high-for-pdf-currentness-medium-for-specific-trail-use"
+    },
+    {
+      "label": "Kalmar länstrafik: Närtrafik Misterhult/Mörtfors/Solstadström/Blankaholm PDF",
+      "url": "https://kalmarlanstrafik.se/globalassets/tidtabeller/tidtabell-nartrafik/oskarshamn-kommun/misterhult_mortfors_solstadstrom_blankaholm.pdf",
+      "accessedDate": "2026-04-30",
+      "finding": "PDF valid from 2025-08-11 until further notice. Confirms rural Närtrafik for the Misterhult/Mörtfors/Solstadström/Blankaholm area and the need for booking/current journey planning.",
+      "confidence": "high"
+    },
+    {
+      "label": "Kalmar länstrafik: Närtrafik öster om E22 målort Figeholm/Fårbo PDF",
+      "url": "https://kalmarlanstrafik.se/globalassets/tidtabeller/tidtabell-nartrafik/oskarshamn-kommun/oster-om-e22_malortfigeholm_farbo.pdf",
+      "accessedDate": "2026-04-30",
+      "finding": "PDF valid from 2025-08-11 until further notice. Confirms Figeholm/Fårbo Närtrafik timing windows and that local trips between the target towns are not allowed.",
+      "confidence": "high"
+    },
+    {
+      "label": "Kalmar länstrafik: Närtrafik väster om E22 målort Fårbo/Figeholm PDF",
+      "url": "https://kalmarlanstrafik.se/globalassets/tidtabeller/tidtabell-nartrafik/oskarshamn-kommun/vaster-om-e22_malortfarbo_figeholm.pdf",
+      "accessedDate": "2026-04-30",
+      "finding": "PDF valid from 2025-08-11 until further notice. Confirms Fårbo/Figeholm-side Närtrafik timing windows for rural areas west of E22.",
+      "confidence": "high"
+    },
+    {
+      "label": "Kalmar länstrafik: Oskarshamn municipality line map",
+      "url": "https://kalmarlanstrafik.se/globalassets/tidtabeller/kartor/kartor-over-linjer/linjekarta_oskarshamn_kommun.pdf",
+      "accessedDate": "2026-04-30",
+      "finding": "Official line map confirms route numbers relevant to researched access nodes, including 44, 45, 47, 48, 52, 53, 160 and 161 in the Oskarshamn/Fårbo/Figeholm/Misterhult/Mörtfors context. Use the journey planner for actual departures.",
+      "confidence": "medium-high"
+    },
+    {
+      "label": "Naturkartan: Övernattningsstuga Nynäs",
+      "url": "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-nynas",
+      "accessedDate": "2026-04-30",
+      "finding": "Current visible page says Nynäs is available to Ostkustleden hikers, has no electricity, dry toilet and well, but the well has dried so water is fetched from Hummeln and should always be boiled. Page also carries a 2025 forestry/restoration disturbance notice.",
+      "confidence": "high-for-current-visible-text"
+    },
+    {
+      "label": "Länsstyrelsen Kalmar: Humlenäs",
+      "url": "https://www.lansstyrelsen.se/kalmar/besoksmal/naturreservat/humlenas.html",
+      "accessedDate": "2026-04-30",
+      "finding": "Page says Ostkustleden passes through Humlenäs, Nynässtugan is along the route, there is a small bathing place signed down to Hummeln, no current visitor news is posted, and reserve rules include no loose dogs, no camping more than one day, and no fire except own grill/friluftskök or designated places.",
+      "confidence": "high"
+    },
+    {
+      "label": "Naturkartan: Övernattningsstuga Lönhult",
+      "url": "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-lonhult",
+      "accessedDate": "2026-04-30",
+      "finding": "Current visible page lists electric hotplate, summer water at the corner, dry toilet behind the barn, no outdoor fires and standard cabin/tent fees.",
+      "confidence": "high-for-current-visible-text"
+    },
+    {
+      "label": "Naturkartan: Övernattningsstuga Krokstorp",
+      "url": "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-krokstorp",
+      "accessedDate": "2026-04-30",
+      "finding": "Current visible page lists electricity, electric hotplate, well water in yard, lake water if well dries and then must be boiled, swimming nearby, locked cabin/key location, fire ban in all fireplaces and no outdoor fires.",
+      "confidence": "high-for-current-visible-text"
+    },
+    {
+      "label": "Naturkartan: Övernattningsstuga Mörtfors",
+      "url": "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-i-mortfors?guide_id=201",
+      "accessedDate": "2026-04-30",
+      "finding": "Current visible page lists kitchen/electric stove, five upstairs bedrooms, toilet beside the house, damp smell after old water damage, no fireplaces and no outdoor fires. It does not verify a potable water point.",
+      "confidence": "high-for-current-visible-text"
+    },
+    {
+      "label": "Naturkartan: Övernattningsstuga Stjärneberg",
+      "url": "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-stjarneberg",
+      "accessedDate": "2026-04-30",
+      "finding": "Current visible page lists the cabin as available to Ostkustleden hikers, with two-room main cabin, smaller overnight cabin, electricity, hotplate, iron stove/fireplace, well about 75 m away, boil-water recommendation, dry toilet, woodshed, no outdoor fires and standard fees. No visible closure or arsenic wording was found.",
+      "confidence": "high-for-current-visible-text"
+    },
+    {
+      "label": "Naturkartan: Övernattningsstuga Lilla Laxemar",
+      "url": "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-lilla-laxemar",
+      "accessedDate": "2026-04-30",
+      "finding": "Current visible page lists electricity, wood stoves, summer water line on the yard with instruction to flush before drinking, winter water in the yellow slaughter shed, dry toilet in yard outbuilding and no outdoor fires.",
+      "confidence": "high-for-current-visible-text"
+    },
+    {
+      "label": "Naturkartan: Övernattningsstuga Hällveberg",
+      "url": "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-hallveberg",
+      "accessedDate": "2026-04-30",
+      "finding": "Current visible page confirms Hällveberg as the current map name and Hedvigsberg as the original name. It lists well and dry toilet in the yard, recommends boiling well water, says there is no electricity and forbids outdoor fires.",
+      "confidence": "high-for-current-visible-text"
+    },
+    {
+      "label": "Naturkartan: Övernattningsstuga Lilla Hycklinge",
+      "url": "https://www.naturkartan.se/sv/kalmar-lan/overnattningsstuga-i-hycklinge",
+      "accessedDate": "2026-04-30",
+      "finding": "Current visible page lists water in the house, toilet between the red and yellow houses, grill ring usable only if there is no stricter municipal fire ban, and standard cabin/tent fees.",
+      "confidence": "high-for-current-visible-text"
+    },
+    {
+      "label": "Länsstyrelsen Kalmar: Älgjakt",
+      "url": "https://www.lansstyrelsen.se/kalmar/djur/jakt-och-vilt/algjakt.html",
+      "accessedDate": "2026-04-30",
+      "finding": "The page still links to the 2025/2026 moose-hunt decision. No 2026/2027 decision was verified in this pass.",
+      "confidence": "medium-high"
+    }
+  ],
+  "currentDecisions": [
+    {
+      "topic": "Fire status",
+      "decision": "Record no Oskarshamn municipal fire ban as of 2026-04-30 source check, but keep all grill/fireplace use as same-day conditional because Länsstyrelsen showed a current forest-fire-risk banner.",
+      "importEffect": "Do not suppress grill/fireplace metadata solely because of a current ban, but never present fire as always allowed."
+    },
+    {
+      "topic": "Närtrafik",
+      "decision": "Keep Närtrafik as access metadata with booking and group-size caveats. Do not treat it as a guaranteed scheduled bus at the trailhead.",
+      "importEffect": "Commute records can be planning-grade; exact departures require KLT planner/app at publication time."
+    },
+    {
+      "topic": "Stjärneberg",
+      "decision": "Stjärneberg remains corrected from static closure/arsenic to current official boil-water/publication-time availability check.",
+      "importEffect": "Import as cabin cluster candidate, not closed; model well as cabin water note unless exact coordinate and current quality are verified."
+    },
+    {
+      "topic": "Water",
+      "decision": "Nynäs, Krokstorp, Stjärneberg, Lilla Laxemar and Hällveberg all require treatment/currentness wording. Mörtfors lacks current official potable-water verification in the rechecked cabin page.",
+      "importEffect": "Do not import any endpoint cabin water as unqualified potable water."
+    },
+    {
+      "topic": "Hunting",
+      "decision": "Treat current hunting information as seasonal safety metadata. No active moose season was verified for 2026-04-30, and the 2026/2027 decision was not yet verified.",
+      "importEffect": "Do not model hunting as a current closure."
+    }
+  ],
+  "stillUnresolvedAfterCurrentPass": [
+    "Exact KLT fixed-line departures, stop-level active service and weekend/holiday service still need the KLT journey planner/app immediately before publication.",
+    "Exact water quality and well yield cannot be fully resolved from web pages; confirm with maintainer or field signage before user-facing potable-water claims.",
+    "Humlenäs forestry/restoration notice on the Nynäs cabin page refers to late summer/autumn 2025 and may be stale by 2026-04-30; Länsstyrelsen Humlenäs page has no current visitor news, but field signage still controls.",
+    "Etapp 6 Skogsstyrelsen forestry notices remain passability risks until a live map/GIS overlay or maintainer/on-site check confirms status.",
+    "Optional POI coordinates and protected-area boundary intersections are not resolved by this current-source pass."
+  ],
+  "recommendedHandling": "Use this file as a currentness snapshot only. Anything involving schedules, fire-risk, water quality, cabin availability, forestry operations or hunting must be rechecked again when preparing user-facing runtime data."
+}

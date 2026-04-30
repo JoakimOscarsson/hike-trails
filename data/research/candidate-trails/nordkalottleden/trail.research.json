@@ -1,8 +1,8 @@
 {
   "schemaVersion": "trail-research-overview-v1",
   "trailId": "nordkalottleden",
-  "lastUpdated": "2026-04-29T19:20:24+02:00",
-  "status": "phase-1-overview-complete-section-research-not-started",
+  "lastUpdated": "2026-04-30T06:26:53.662Z",
+  "status": "phase-1-overview-complete-first-section-research-complete",
   "purpose": "Research-only candidate packet for later import planning. Do not auto-import this file.",
   "runtimeIntegration": {
     "integratedIntoRuntime": false,
@@ -1016,9 +1016,25 @@
     ]
   },
   "geometrySources": {
-    "overallStatus": "planning-grade-only",
-    "officialGeometryFound": false,
+    "overallStatus": "official-source research geometry ready for the Reisa/Kasivarsi/Kautokeino 12-section candidate model; broader whole-trail Swedish/southern variants remain unresolved",
+    "officialGeometryFound": true,
     "sourceCandidates": [
+      {
+        "id": "kartverket-geonorge-turrutebasen-gpx",
+        "format": "GPX extracts ordered through Geonorge Nedlasting API",
+        "url": "https://kartkatalog.geonorge.no/metadata/d1422d17-6d95-4ef1-96ab-8af31744dd63",
+        "status": "used-for-sections-6-12",
+        "quality": "official-source route linework from Turrutebasen/DNT/municipal contributors",
+        "notes": "Nordreisa and Guovdageaidnu/Kautokeino WGS84 GPX extracts are stored under geometry/source-downloads and used by the geometry generator."
+      },
+      {
+        "id": "luontoon-metsahallitus-kalottireitti-ogc",
+        "format": "OGC API GeoJSON linework",
+        "url": "https://www.luontoon.fi/geo/features/collections/public.all_lines_details_view/items?limit=1&source_unique_id=uljas-9F510DA4-B3F2-4389-A7E5-B2F0B2E72D7A",
+        "status": "used-for-sections-1-6",
+        "quality": "official-source route linework",
+        "notes": "Used directly for sections 1-5 and joined with Turrutebasen at the Finland-Norway boundary for section 6."
+      },
       {
         "id": "e1-gpx-stage-pages",
         "format": "GPX",
@@ -1051,12 +1067,42 @@
       }
     ],
     "knownGeometryGapsAndRisks": [
+      "Sections 7-8 need Saraelv/Ovi connector or compound-endpoint policy because the generated section 7 artifact ends at Saraelv and section 8 starts at Ovi Raishiin, leaving about a 1003.9 m inter-section continuity gap.",
+      "Reisa/Kasivarsi 12-section candidate artifacts no longer depend on E1/OSM planning-grade geometry; generated artifacts use official Luontoon and/or Kartverket/Geonorge sources.",
+      "Sections 1-2 still need Saarijarvi endpoint/spur policy because the current hut yard is about 152.3 m from the official route line.",
+      "Sections 11-12 still need Madam Bongos/Cunovuohppi endpoint policy because the legacy place coordinate is about 65.4 m from the Turrutebasen E1 route projection.",
+      "Section 6 mixed official-source line has a 36.8 m Luontoon-to-Turrutebasen source-boundary junction gap that should remain QA metadata until normalization.",
       "E1 04.05 Caihnavaggi-Gautelis and 04.06 Gautelis-Skoaddejavre pages exist but no GPX download was found by the geometry lane.",
       "E1 03.10 Lappjordhytta-Palnostugan GPX measured about 1.0 km against listed 2.7 km.",
       "E1 04.12 Kutjaure-Laddejakk GPX measured about 6.2 km against listed 17.2 km and may omit a shared Padjelantaleden continuation.",
       "E1 04.10 Roysvatn-Vaisaluokta is a very long 51.2 km leg with coarse GPX sampling and a known long hut gap.",
       "Official route variants around Abisko-Gautelis and Gappohytta-Rostahytta are not resolved."
-    ]
+    ],
+    "generatedQaArtifacts": {
+      "status": "complete for researched 12-section model; research-only and not runtime app data",
+      "reportPath": "data/research/candidate-trails/nordkalottleden/geometry/geometry-quality-report.json",
+      "combinedGeojsonPath": "data/research/candidate-trails/nordkalottleden/geometry/all-sections.geojson",
+      "sectionGeojsonGlob": "data/research/candidate-trails/nordkalottleden/geometry/sections/*.geojson",
+      "generatedAt": "2026-04-30T06:26:02.442Z",
+      "sourceMix": {
+        "sectionCount": 12,
+        "artifactCount": 12,
+        "officialLuontoonArtifacts": 5,
+        "officialGeonorgeArtifacts": 6,
+        "officialMixedArtifacts": 1,
+        "e1OsmArtifacts": 0,
+        "maxEndpointGapMeters": 152.3,
+        "maxInterSectionGapMeters": 1003.9,
+        "sectionsRequiringConnectorOrEndpointPolicy": [
+          "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi",
+          "nordkalottleden-kalottireitti-02-saarijarvi-kuonjarjohka",
+          "nordkalottleden-kalottireitti-11-reisavannhytta-madam-bongos",
+          "nordkalottleden-kalottireitti-12-madam-bongos-kautokeino",
+          "nordkalottleden-kalottireitti-08-saraelv-sieimma"
+        ]
+      },
+      "sourcePolicy": "Prefer official Luontoon/Metsähallitus OGC linework for the Finnish section and official Kartverket/Geonorge Turrutebasen GPX linework for Norwegian sections. Use mixed official Luontoon + Turrutebasen linework for the cross-border Kopmajoki-Somashytta section. Do not create synthetic hut-yard, town-centre, private-road or access connectors."
+    }
   },
   "accessAndTransitOverview": {
     "majorAccessPoints": [
@@ -1335,7 +1381,47 @@
       }
     ]
   },
+  "sectionResearchProgress": {
+    "sectionPacketsWritten": 1,
+    "completedSections": [
+      {
+        "sectionId": "nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi",
+        "sectionNumber": 1,
+        "name": "Kalottireitti pohjoiseen: Kilpisjärvi - Saarijärvi",
+        "from": "Kilpisjärvi",
+        "to": "Saarijärvi",
+        "distanceKmOfficial": 11,
+        "researchFile": "data/research/candidate-trails/nordkalottleden/sections/nordkalottleden-kalottireitti-01-kilpisjarvi-saarijarvi.research.json",
+        "status": "research-complete-needs-normalization",
+        "importReadiness": "ready for human normalization review, not automated import",
+        "keyBlockers": [
+          "Saarijärvi endpoint ambiguity between old route/bridge cluster and 2023 new hut yard.",
+          "Luontoon/Metsähallitus official linework should be extracted or visually validated before treating geometry as navigation-grade.",
+          "OSM relation 9518275 must be reversed/trimmed; E1 GPX should not be used as-is for this 11 km official section.",
+          "Several facility records remain pending coordinate/currentness verification."
+        ]
+      }
+    ],
+    "nextRecommendedSectionBatch": "After section 1 geometry is normalized, continue with the remaining Reisa/Käsivarsi official legs rather than the unresolved Swedish/E1/southern variants.",
+    "geometryQaArtifacts": {
+      "sectionPacketsCovered": 12,
+      "status": "generated for all researched section JSON files",
+      "reportPath": "data/research/candidate-trails/nordkalottleden/geometry/geometry-quality-report.json"
+    }
+  },
   "sourceContradictions": [
+    {
+      "id": "section-01-kilpisjarvi-saarijarvi-distance-geometry",
+      "topic": "first section distance and geometry",
+      "details": "Reisa and Luontoon list Kilpisjärvi-Saarijärvi as 11 km. OSM relation 9518275 measures about 12.8 km, and E1 GPX measures about 18.4 km because it includes a broader E1/access alignment beyond the official Kilpisjärvi endpoint.",
+      "importImpact": "Use the section packet's endpoint and geometry caveats; do not import E1 GPX as-is."
+    },
+    {
+      "id": "section-01-saarijarvi-old-new-hut-endpoint",
+      "topic": "first section Saarijärvi endpoint",
+      "details": "OSM/E1 endpoint aligns with an older Saarijärvi hut/bridge cluster while the 2023 new hut yard has separate official coordinates a few hundred meters away.",
+      "importImpact": "Normalize endpoint and hut facilities together to avoid duplicate or misplaced Saarijärvi facilities."
+    },
     {
       "id": "total-distance-680-800",
       "topic": "total distance",
@@ -1392,11 +1478,12 @@
   ],
   "importReadiness": {
     "overviewReady": true,
+    "firstSectionResearchReady": true,
     "sectionInventoryReady": false,
-    "geometryReady": false,
+    "geometryReady": "true for researched Reisa/Kasivarsi/Kautokeino 12-section candidate artifacts; false for whole-trail runtime import until endpoint/distance/variant policy is normalized, including section 7-8 Saraelv/Ovi continuity",
     "facilitiesReady": false,
     "commuteAccessReady": false,
-    "rulesReady": "overview-only",
-    "recommendedNextStep": "Before writing section packets, freeze a Phase 2 section inventory. Recommended first batch: the 12 Reisa/Kasivarsi official hut-distance legs, because they have the strongest official section evidence."
+    "rulesReady": "overview plus first section",
+    "recommendedNextStep": "Use the research-only official-source geometry artifacts for human normalization review. Do not integrate runtime app data until Saarijarvi, section 7-8 Saraelv/Ovi, mixed-border and Madam Bongos/Cunovuohppi endpoint policies are resolved."
   }
 }

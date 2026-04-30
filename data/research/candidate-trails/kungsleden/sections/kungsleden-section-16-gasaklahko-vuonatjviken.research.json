@@ -1,0 +1,909 @@
+{
+  "schemaVersion": 1,
+  "trailId": "kungsleden",
+  "sectionId": "kungsleden-section-16-gasaklahko-vuonatjviken",
+  "sectionNumber": 16,
+  "name": "Gásakláhko-Vuonatjviken",
+  "from": "Gásakláhko",
+  "to": "Vuonatjviken",
+  "distanceKm": 13,
+  "estimatedTime": "4-6 hours",
+  "difficulty": {
+    "official": null,
+    "summary": "No official difficulty grade found. Treat as a remote, partly exposed section with open fell at the start, poor-visibility risk, descent through birch forest, boggy/overgrown ground and many boardwalks approaching Vuonatjviken.",
+    "confidence": "medium"
+  },
+  "routeType": "mainline hiking stage; roadless endpoint service node; onward Riebnes motorboat connection after section",
+  "officialSources": [
+    {
+      "name": "STF Kungsleden Kvikkjokk-Ammarnäs route page",
+      "url": "https://www.swedishtouristassociation.com/trails/kvikkjokk-ammarnas/",
+      "alternateUrls": [
+        "https://www.svenskaturistforeningen.se/guider-tips/leder/kungsleden-kvikkjokk-ammarnas/"
+      ],
+      "accessedDate": "2026-04-29",
+      "evidence": "Identifies stage 4 / etapp 4 as Gásakláhko-Vuonatjviken, 13 km and 4-6 hours. Describes a few kilometers of open mountain terrain, descent into mountain birch forest near Riebnes, crossing the Arctic Circle shortly before Vuonatjviken, and Vuonatjviken cabin village with tenting possibility and restaurant.",
+      "confidence": "high",
+      "caveat": "No exact coordinate for the Gásakláhko stage boundary is published."
+    },
+    {
+      "name": "Naturkartan / Länsstyrelsen BD78 Piteälven-Jäckvik route",
+      "url": "https://www.naturkartan.se/en/norrbottens-lan/vandringsled-bd78-mellan-vasterfjall-och-jackvik",
+      "alternateUrls": [
+        "https://www.naturkartan.se/sv/norrbottens-lan/vandringsled-bd78-mellan-vasterfjall-och-jackvik",
+        "https://www.naturkartan.se/fi/norrbottens-lan/vandringsled-bd78-mellan-vasterfjall-och-jackvik"
+      ],
+      "accessedDate": "2026-04-29",
+      "evidence": "Official broader BD78 route page lists Gásakláhko-Vuonatjviken, 13 km, 4-6 hours. Notes high open terrain around Gásakláhko/Barturtte, difficult painted stone markers in rain/fog, partly overgrown/boggy Vilitjåhkå-Vuonatjviken path with many boardwalks, Arctic Circle crossing before Vuonatjviken, and Riebnes motorboat with no rowboats.",
+      "confidence": "high",
+      "caveat": "The page covers the broader Piteälven-Jäckvik route and is not section-split geometry."
+    },
+    {
+      "name": "Naturkartan BD78 API and GPX",
+      "url": "https://api.naturkartan.se/v3.2/sites/12905",
+      "alternateUrls": [
+        "https://www.naturkartan.se/en/norrbottens-lan/vandringsled-bd78-mellan-vasterfjall-och-jackvik.gpx"
+      ],
+      "accessedDate": "2026-04-29",
+      "evidence": "API site 12905 / public GPX exposes generalized broader-route geometry. API updated_at was 2026-04-29T13:54:22 and trail_status_reported_at/comment were null. GPX Vuonatjviken/boat point is around 66.4920400,17.2417961.",
+      "confidence": "medium-high",
+      "caveat": "Generalized broader-route geometry; not a discrete section-16 geometry and cumulative distance enters the later Riebnes boat segment."
+    },
+    {
+      "name": "Naturvårdsverket state trail WFS BD78",
+      "url": "https://geodata.naturvardsverket.se/leder_friluftsliv/wfs",
+      "accessedDate": "2026-04-29",
+      "evidence": "Official WFS BD78 linework supports WFS official-distance split 66.5839492,17.2754676 as section start and WFS foot-line end 66.4904687,17.2417888 near Vuonatjviken. WFS Riebnes boat-passage endpoint is near 66.4922764,17.2435414.",
+      "confidence": "high for linework, medium for section split",
+      "caveat": "WFS line is not stage-split; section start derives from section 15 official-distance split."
+    },
+    {
+      "name": "Lantmäteriet Sök ortnamn",
+      "url": "https://www.lantmateriet.se/sv/kartor/Ortnamn/sok-ortnamn/",
+      "accessedDate": "2026-04-29",
+      "evidence": "Confirms Gásakláhko as an official Lule Sami nature/terrain name and Vuonatjviken as an official Swedish settlement name in Arjeplog municipality, Norrbotten.",
+      "confidence": "high for toponyms",
+      "caveat": "Place-name points are not trail-stage endpoints."
+    },
+    {
+      "name": "OSM / Waymarked relations 18864494 and 18864495",
+      "url": "https://www.openstreetmap.org/relation/18864494",
+      "alternateUrls": [
+        "https://hiking.waymarkedtrails.org/api/v1/details/relation/18864494",
+        "https://www.openstreetmap.org/relation/18864495"
+      ],
+      "accessedDate": "2026-04-29",
+      "evidence": "OSM relation 18864494 maps Gásakláhko-Vuonatjviken from OSM campsite boundary 66.6202757,17.2743685 to Vuonatjviken 66.4915145,17.2431982. Relation 18864495 starts exactly at that Vuonatjviken point.",
+      "confidence": "medium",
+      "caveat": "OSM relation 18864494 computes about 16.1 km while tagged/official distance is 13 km; geometry lane concluded OSM starts too far north at the campsite."
+    },
+    {
+      "name": "Hornavan-Sädvajaure nature reserve / Skyddad Natur",
+      "url": "https://www.lansstyrelsen.se/norrbotten/besoksmal/naturreservat/hornavan-sadvajaure.html",
+      "alternateUrls": [
+        "https://skyddadnatur.naturvardsverket.se/"
+      ],
+      "accessedDate": "2026-04-29",
+      "evidence": "Rules lane point sampling found southern/last-kilometers section overlap with Hornavan-Sädvajaure fjällurskog nature reserve and Natura 2000 SCI SE0820123 near the approach to Vuonatjviken.",
+      "confidence": "medium",
+      "caveat": "Point-sampling evidence only; final selected-line polygon overlay remains required."
+    }
+  ],
+  "endpointCoordinates": {
+    "start": {
+      "label": "Gásakláhko highland/stage boundary",
+      "coordinates": {
+        "lat": 66.5839492,
+        "lon": 17.2754676
+      },
+      "coordinateSource": "Provisional WFS BD78 official-distance split carried forward from section 15",
+      "confidence": "medium-high",
+      "caveats": [
+        "Official STF/Naturkartan sources do not publish a precise Gásakláhko coordinate.",
+        "OSM/Wikidata Gásakláhko campsite at 66.6202912,17.2744719 is about 4.0-4.2 km north and should remain a section-15 facility if the WFS boundary is used.",
+        "Lantmäteriet Gásakláhko is a terrain-name/text-placement point, not a route endpoint."
+      ]
+    },
+    "end": {
+      "label": "Vuonatjviken endpoint zone",
+      "coordinates": {
+        "lat": 66.4904687,
+        "lon": 17.2417888
+      },
+      "coordinateSource": "WFS BD78 foot-line end near Vuonatjviken",
+      "confidence": "medium-high",
+      "caveats": [
+        "Model Vuonatjviken as an endpoint zone: WFS foot-line end 66.4904687,17.2417888, OSM/Waymarked shared section 16/17 endpoint 66.4915145,17.2431982, Naturkartan GPX boat-start point 66.4920400,17.2417961, WFS boat-passage endpoint 66.4922764,17.2435414 and Vuonatjvikens Stugby service node 66.4910928,17.2429033 cluster within about 50-215 m.",
+        "For facilities/access, use Vuonatjvikens Stugby service node and Riebnes east boat landing rather than only the WFS foot endpoint."
+      ]
+    },
+    "routeEndpoints": {
+      "primaryStart": {
+        "lat": 66.5839492,
+        "lon": 17.2754676
+      },
+      "primaryEnd": {
+        "lat": 66.4904687,
+        "lon": 17.2417888
+      },
+      "alternateEndCandidates": [
+        {
+          "label": "OSM/Waymarked section 16/17 shared Vuonatjviken endpoint",
+          "coordinates": {
+            "lat": 66.4915145,
+            "lon": 17.2431982
+          },
+          "source": "OSM relations 18864494 and 18864495",
+          "use": "continuity QA and possible stage-boundary endpoint if using OSM relations"
+        },
+        {
+          "label": "Naturkartan GPX Vuonatjviken / boat-start point",
+          "coordinates": {
+            "lat": 66.49204,
+            "lon": 17.2417961
+          },
+          "source": "Naturkartan BD78 GPX",
+          "use": "official GPX endpoint / boat connector context"
+        },
+        {
+          "label": "WFS Riebnes boat-passage endpoint",
+          "coordinates": {
+            "lat": 66.4922764,
+            "lon": 17.2435414
+          },
+          "source": "Naturvårdsverket WFS boat passage geometry",
+          "use": "connector metadata"
+        },
+        {
+          "label": "Vuonatjvikens Stugby service node",
+          "coordinates": {
+            "lat": 66.4910928,
+            "lon": 17.2429033
+          },
+          "source": "OSM node 1750315974 and Vuonatjviken service sources",
+          "use": "facility/access endpoint node"
+        }
+      ]
+    },
+    "endpointConventionRecommendation": "Use WFS BD78 split 66.5839492,17.2754676 as start and WFS foot-line end 66.4904687,17.2417888 as route end for WFS-based geometry. Treat Vuonatjviken as a small endpoint zone for facilities/access/boat metadata."
+  },
+  "routeGeometry": {
+    "status": "planning-grade-with-endpoint-zone-caveat",
+    "primaryCandidate": {
+      "source": "Naturvårdsverket WFS BD78 split from official stage distances",
+      "sectionStart": {
+        "lat": 66.5839492,
+        "lon": 17.2754676
+      },
+      "sectionEnd": {
+        "lat": 66.4904687,
+        "lon": 17.2417888
+      },
+      "computedDistanceKm": 11.681,
+      "wfsAttributeRemainderKm": 11.77,
+      "officialDisplayDistanceKm": 13,
+      "direction": "Gásakláhko south toward Vuonatjviken/Riebnes; matches official section order",
+      "geometryQuality": "planning-grade official WFS base line, geometry quality <=20 m, not section-split",
+      "confidence": "medium-high"
+    },
+    "officialDownloads": [
+      {
+        "type": "WFS",
+        "url": "https://geodata.naturvardsverket.se/leder_friluftsliv/wfs",
+        "description": "Official BD78 foot-line and Riebnes boat-passage geometry."
+      },
+      {
+        "type": "GPX",
+        "url": "https://www.naturkartan.se/en/norrbottens-lan/vandringsled-bd78-mellan-vasterfjall-och-jackvik.gpx",
+        "description": "Naturkartan broader-route GPX; not section-split."
+      },
+      {
+        "type": "API",
+        "url": "https://api.naturkartan.se/v3.2/sites/12905",
+        "description": "Naturkartan broader-route site record; updated 2026-04-29T13:54:22."
+      }
+    ],
+    "secondaryGeometry": [
+      {
+        "source": "OSM relation 18864494 / Waymarked",
+        "url": "https://www.openstreetmap.org/relation/18864494",
+        "start": {
+          "lat": 66.6202757,
+          "lon": 17.2743685
+        },
+        "end": {
+          "lat": 66.4915145,
+          "lon": 17.2431982
+        },
+        "computedDistanceKm": 16.098,
+        "waymarkedApiDistanceKm": 16.143,
+        "taggedDistanceKm": 13,
+        "confidence": "medium as linework, low as section start",
+        "caveat": "Starts too far north at the OSM/Wikidata Gásakláhko campsite if official distances control."
+      },
+      {
+        "source": "OSM relation 18864494 truncated at WFS split",
+        "url": "https://www.openstreetmap.org/relation/18864494",
+        "computedDistanceKm": 11.867,
+        "confidence": "medium",
+        "caveat": "Useful QA; not a separately published route geometry."
+      },
+      {
+        "source": "Naturkartan GPX projected from WFS split",
+        "url": "https://www.naturkartan.se/en/norrbottens-lan/vandringsled-bd78-mellan-vasterfjall-och-jackvik.gpx",
+        "start": {
+          "lat": 66.5839285,
+          "lon": 17.2749529
+        },
+        "end": {
+          "lat": 66.49204,
+          "lon": 17.2417961
+        },
+        "computedDistanceKm": 11.036,
+        "confidence": "medium",
+        "caveat": "Generalized GPX; shorter than official display distance."
+      }
+    ],
+    "endpointGapNotes": [
+      "OSM/Waymarked 18864494 starts about 4.214 km north along WFS / 4.231 km into OSM relation before the WFS split.",
+      "OSM relation 18864494 computes about 16.1 km while tagged 13 km, while section 15 OSM relation computes about 14.5 km while tagged 19 km.",
+      "WFS foot end to OSM shared Vuonatjviken endpoint is about 132 m; WFS foot end to WFS boat endpoint is about 216 m.",
+      "OSM relation 18864495 starts exactly where 18864494 ends, so OSM has clean Vuonatjviken continuity."
+    ],
+    "connectorsAndSpurs": [
+      {
+        "name": "Riebnes motorboat connector",
+        "type": "boat connector beyond section end",
+        "coordinates": {
+          "from": {
+            "lat": 66.4902902,
+            "lon": 17.2421864
+          },
+          "to": {
+            "lat": 66.4877243,
+            "lon": 17.1222745
+          }
+        },
+        "distanceKm": 5.4,
+        "description": "Onward Kungsleden continuation after Vuonatjviken; private/commercial motorboat, no rowboats.",
+        "confidence": "medium-high"
+      }
+    ],
+    "geometryImportRecommendation": "Use WFS BD78 as primary base and split section 16 from 66.5839492,17.2754676 to the WFS foot-line end near Vuonatjviken. Model Vuonatjviken as an endpoint zone and keep Riebnes boat as connector metadata for section 17/continuation. Mark planning-grade pending source policy and final endpoint convention."
+  },
+  "commuteAccess": {
+    "summary": "The section start is a remote wilderness boundary with no direct access. Vuonatjviken is an endpoint service/accommodation node but is roadless and not public transport. Southbound public transport is only practical after Riebnes boat plus more hiking to Jäckvik.",
+    "startClosestCommutePoint": {
+      "stopName": "Vuonatjvikens Stugby / Vuonatjviken",
+      "type": "private/local roadless access via accommodation and boat/snowmobile arrangements",
+      "coordinates": {
+        "lat": 66.4910928,
+        "lon": 17.2429033
+      },
+      "distanceFromEndpoint": "official 13 km hike south from WFS start",
+      "operatorOrNetwork": "Vuonatjvikens Stugby; Riebnesjaure private boat by Geir/Sandra",
+      "sourceUrls": [
+        "https://vuonatjviken.com/index.html",
+        "https://www.swedishtouristassociation.com/guides/mountains/transport/boats/"
+      ],
+      "confidence": "high",
+      "caveats": "Not public transport and not a road trailhead. Access is by hiking, booked boat, snowmobile/ATV/local service or helicopter."
+    },
+    "endClosestCommutePoint": {
+      "stopName": "Vuonatjvikens Stugby",
+      "type": "endpoint local accommodation/service and private boat coordination",
+      "coordinates": {
+        "lat": 66.4910928,
+        "lon": 17.2429033
+      },
+      "distanceFromEndpoint": "0-0.2 km depending endpoint convention",
+      "operatorOrNetwork": "Vuonatjvikens Stugby / Geir and Sandra contacts",
+      "sourceUrls": [
+        "https://www.naturkartan.se/en/norrbottens-lan/vuonatjvikens-stugby",
+        "https://vuonatjviken.com/om.html"
+      ],
+      "confidence": "high",
+      "caveats": "Roadless and not normal public transport; Naturkartan public transport widget returned no stops in the access lane."
+    },
+    "publicTransportAndRoadheads": [
+      {
+        "name": "Jäckvik affären",
+        "type": "bus",
+        "coordinates": {
+          "lat": 66.3901167,
+          "lon": 16.9651583
+        },
+        "distanceFromEndpoint": "about 5.4 km Riebnes boat plus 18 km hiking from Vuonatjviken; about 36.4 km route distance from WFS start",
+        "operatorOrNetwork": "Länstrafiken Norrbotten line 104; Flinkfeldts Buss AB",
+        "sourceUrls": [
+          "https://lanstrafikennorrbotten.se/trafikforetag",
+          "https://appassets.mvtdev.com/map/155/l/1083/172148909.pdf"
+        ],
+        "confidence": "high for stop/operator, medium for practical section access",
+        "caveats": "Sparse/seasonal service; realistic public exit only after private Riebnes boat and additional Kungsleden hiking."
+      },
+      {
+        "name": "Riebnesluspen",
+        "type": "local/private road, boat or winter snowmobile access context",
+        "coordinates": {
+          "lat": 66.4015368,
+          "lon": 17.3370092
+        },
+        "distanceFromEndpoint": "about 10.7 km straight-line boat from Vuonatjviken; local report says about 25 min by boat",
+        "operatorOrNetwork": "Vuonatjviken/local boat or snowmobile arrangements",
+        "sourceUrls": [
+          "https://vuonatjviken.com/historia.html",
+          "https://topofarjeplog.org/2013/09/vuonatjviken-att-passera-polcirkeln-langs-kungsleden/"
+        ],
+        "confidence": "medium",
+        "caveats": "Not public transit; road/winter access and private/local arrangements are not normal trailhead access."
+      },
+      {
+        "name": "Kvikkjokk Kyrkan",
+        "type": "bus north-context access only",
+        "coordinates": {
+          "lat": 66.9516569,
+          "lon": 17.7215238
+        },
+        "distanceFromEndpoint": "about 55 km north via prior official stages plus Kvikkjokk boat context",
+        "operatorOrNetwork": "Länstrafiken Norrbotten bus 94 high season; line 47 off-season weekdays",
+        "sourceUrls": [
+          "https://www.swedishtouristassociation.com/trails/kvikkjokk-ammarnas/",
+          "https://www.swedishtouristassociation.com/om-stf/stf-medlemsservice/faq/nar-gar-bussen-till-fran-kvikkjokk/"
+        ],
+        "confidence": "medium",
+        "caveats": "Not close to section 16; include only for multi-section itinerary context."
+      }
+    ]
+  },
+  "facilities": [
+    {
+      "name": "Gásakláhko / Barturtte highland camping zone",
+      "normalizedCandidateType": "camping_zone",
+      "coordinates": {
+        "lat": 66.5839492,
+        "lon": 17.2754676,
+        "approximate": true
+      },
+      "coordinateSource": "Provisional WFS section start; official sources give area text, not a campsite point",
+      "description": "Highland camping area around Gásakláhko and Barturtte, suitable in good weather according to official sources.",
+      "sourceUrls": [
+        "https://www.swedishtouristassociation.com/trails/kvikkjokk-ammarnas/",
+        "https://www.naturkartan.se/en/norrbottens-lan/vandringsled-bd78-mellan-vasterfjall-och-jackvik"
+      ],
+      "routeProximity": "section start / first open fell portion",
+      "confidence": "medium",
+      "importRecommendation": "model-as-section-camping-note",
+      "caveats": "Do not import as precise POI; no toilet, shelter, fireplace or serviced water confirmed."
+    },
+    {
+      "name": "Vilitjåhkå / Arctic Circle-side bridge candidate",
+      "normalizedCandidateType": "bridge",
+      "coordinates": {
+        "lat": 66.5672855,
+        "lon": 17.2708821
+      },
+      "coordinateSource": "OSM way 1370501784 midpoint",
+      "description": "OSM bridge on Kungsleden near Vilitjåhkå and near the Arctic Circle crossing context.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/way/1370501784",
+        "https://www.naturkartan.se/en/norrbottens-lan/vandringsled-bd78-mellan-vasterfjall-och-jackvik",
+        "https://www.hikingexperience.net/trails/kungsleden/map-stages-sweden.html"
+      ],
+      "routeProximity": "about 1.9 km from provisional start",
+      "confidence": "low-medium",
+      "importRecommendation": "pending-current-verification",
+      "caveats": "No matching Naturvårdsverket Anordningar record found; do not treat as official-condition bridge."
+    },
+    {
+      "name": "Polcirkeln / Arctic Circle sign on Kungsleden",
+      "normalizedCandidateType": "marker",
+      "coordinates": {
+        "lat": 66.562371,
+        "lon": 17.262808
+      },
+      "coordinateSource": "Komoot highlight 4793110 embedded coordinates",
+      "description": "Small/hidden Arctic Circle sign or sign cluster on the trail north of Vuonatjviken. Official sources confirm the trail crosses the Arctic Circle before Vuonatjviken.",
+      "sourceUrls": [
+        "https://www.komoot.com/highlight/4793110",
+        "https://topofarjeplog.org/2013/09/vuonatjviken-att-passera-polcirkeln-langs-kungsleden/",
+        "https://www.mywanderfullife.de/en/kungsleden-vuonatjviken-tjaeurakatan-en/",
+        "https://www.naturkartan.se/en/norrbottens-lan/vandringsled-bd78-mellan-vasterfjall-och-jackvik"
+      ],
+      "routeProximity": "about 2.6 km from provisional start",
+      "confidence": "medium",
+      "importRecommendation": "pending-as-marker",
+      "caveats": "Physical sign position may not equal the current astronomical Arctic Circle; field reports conflict on visibility."
+    },
+    {
+      "name": "Hängbro över Gåbdåk / Bartek bridge",
+      "normalizedCandidateType": "bridge",
+      "coordinates": {
+        "lat": 66.5272975,
+        "lon": 17.2385344
+      },
+      "coordinateSource": "Naturvårdsverket Anordningar ID 30325238, SWEREF99 TM 599480.004/7380468.961 converted to WGS84",
+      "description": "Official BD78 steel suspension bridge, 32 m long, over Gåbdåk/Bartek.",
+      "sourceUrls": [
+        "https://geodata.naturvardsverket.se/nedladdning/friluftsliv/Anordningar.geojson",
+        "https://www.vuonatjviken.com/files/Fishing%20Bartek_ENG.pdf",
+        "https://www.mywanderfullife.de/en/kungsleden-vuonatjviken-tjaeurakatan-en/"
+      ],
+      "routeProximity": "about 6.9 km from provisional start; about 4.1 km before Vuonatjviken GPX endpoint",
+      "confidence": "high",
+      "importRecommendation": "import-if-bridge-taxonomy-supported",
+      "caveats": "Recheck current bridge condition before publication."
+    },
+    {
+      "name": "Bartek/Gåbdåk riverside camping and water zone",
+      "normalizedCandidateType": "informal_camping_and_natural_water",
+      "coordinates": {
+        "lat": 66.5272975,
+        "lon": 17.2385344,
+        "approximate": true
+      },
+      "coordinateSource": "Anchored to official Gåbdåk bridge; camping/water evidence from field reports and Naturkartan text",
+      "description": "Field reports describe tent spots and water near the Bartek/Gåbdåk bridge area.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/en/norrbottens-lan/vandringsled-bd78-mellan-vasterfjall-och-jackvik",
+        "https://www.mywanderfullife.de/en/kungsleden-vuonatjviken-tjaeurakatan-en/",
+        "https://topofarjeplog.org/2013/09/vuonatjviken-att-passera-polcirkeln-langs-kungsleden/"
+      ],
+      "routeProximity": "around the Gåbdåk bridge, roughly 4 km north of Vuonatjviken",
+      "confidence": "medium",
+      "importRecommendation": "model-as-camping-water-note",
+      "caveats": "No official campsite, toilet, waste, potable-water tap or legal fireplace confirmed."
+    },
+    {
+      "name": "Small bridge south of Gåbdåk",
+      "normalizedCandidateType": "bridge",
+      "coordinates": {
+        "lat": 66.5165403,
+        "lon": 17.2364291
+      },
+      "coordinateSource": "OSM way 1370501782 midpoint",
+      "description": "Small OSM-mapped bridge south of the Gåbdåk/Bartek crossing.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/way/1370501782",
+        "https://www.mywanderfullife.de/en/kungsleden-vuonatjviken-tjaeurakatan-en/"
+      ],
+      "routeProximity": "about 8.2 km from provisional start; about 2.9 km before Vuonatjviken GPX endpoint",
+      "confidence": "low",
+      "importRecommendation": "pending-current-verification",
+      "caveats": "OSM-only; possible stale/damaged bridge report nearby but exact match uncertain."
+    },
+    {
+      "name": "Vuonatjviken / Vuonatjvikens Stugby",
+      "normalizedCandidateType": "lodging_service_node",
+      "coordinates": {
+        "lat": 66.4910928,
+        "lon": 17.2429033
+      },
+      "coordinateSource": "OSM node 1750315974; corroborated by Fjelds of Sweden coordinate and Naturkartan GPX endpoint nearby",
+      "description": "Roadless cabin village and service node at section end. STF lists non-STF accommodation where hikers may stay or pitch tents; service site lists cabins, kitchen facilities, sauna, WC/shower/drying facilities and restaurant.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/1750315974",
+        "https://www.swedishtouristassociation.com/trails/kvikkjokk-ammarnas/",
+        "https://www.vuonatjviken.com/index_e.html",
+        "https://www.vuonatjviken.com/e_stugby.html",
+        "https://www.fjeldsofsweden.com/facility/Vuonatjviken",
+        "https://www.arjeploglapland.se/wp-content/uploads/2024/04/ARJEPLOG_sommar_plus_vintersidan-1-komprimerad.pdf"
+      ],
+      "routeProximity": "section end service cluster",
+      "confidence": "high",
+      "importRecommendation": "import-as-lodging-service-node",
+      "caveats": "Not STF; roadless; booking/opening/payment/current services should be checked before publication."
+    },
+    {
+      "name": "Vuonatjviken tenting at Stugby",
+      "normalizedCandidateType": "campsite_child_amenity",
+      "coordinates": {
+        "lat": 66.4910928,
+        "lon": 17.2429033
+      },
+      "coordinateSource": "STF text and Komoot user reports anchored to Vuonatjviken service node",
+      "description": "STF says hikers can stay overnight or pitch tents at Vuonatjviken; recent route-app reports mention camping at the rest stop.",
+      "sourceUrls": [
+        "https://www.swedishtouristassociation.com/trails/kvikkjokk-ammarnas/",
+        "https://www.komoot.com/highlight/5505244"
+      ],
+      "routeProximity": "section end",
+      "confidence": "medium-high",
+      "importRecommendation": "fold-into-vuonatjviken-service-node-or-import-as-child-campsite",
+      "caveats": "Confirm current fee/policy directly with Vuonatjviken before standalone campsite import."
+    },
+    {
+      "name": "Restaurant Nåidde / Vuonatjviken food service",
+      "normalizedCandidateType": "restaurant",
+      "coordinates": {
+        "lat": 66.4910928,
+        "lon": 17.2429033
+      },
+      "coordinateSource": "Vuonatjviken service node",
+      "description": "Restaurant at Vuonatjviken; service site says it is open when pre-ordered and accepts cash/cards. STF also notes a restaurant.",
+      "sourceUrls": [
+        "https://www.vuonatjviken.com/e_restaurang.html",
+        "https://www.swedishtouristassociation.com/trails/kvikkjokk-ammarnas/"
+      ],
+      "routeProximity": "section end",
+      "confidence": "high",
+      "importRecommendation": "import-as-child-food-service-or-fold-into-service-node",
+      "caveats": "Not walk-up reliable; pre-order/opening should be verified."
+    },
+    {
+      "name": "Vuonatjviken provisions / small shop candidate",
+      "normalizedCandidateType": "shop_resupply_candidate",
+      "coordinates": {
+        "lat": 66.4910928,
+        "lon": 17.2429033
+      },
+      "coordinateSource": "Route-app/secondary reports anchored to Vuonatjviken service node",
+      "description": "Recent Komoot report mentions a few food/drinks and gas cartridges; other reports mention limited store/snacks. Official/service pages confirm restaurant and cabins but not a formal shop.",
+      "sourceUrls": [
+        "https://www.komoot.com/highlight/5505244",
+        "https://www.togstrek.com/hiking/kungsleden/etapp-15-vuonatjviken-to-jkkvik",
+        "https://www.vuonatjviken.com/e_restaurang.html"
+      ],
+      "routeProximity": "section end",
+      "confidence": "low-medium",
+      "importRecommendation": "pending",
+      "caveats": "Do not import as reliable shop/resupply without current stock and gas verification."
+    },
+    {
+      "name": "Vuonatjviken sauna / WC / shower / drying facilities",
+      "normalizedCandidateType": "lodging_child_amenities",
+      "coordinates": {
+        "lat": 66.4910928,
+        "lon": 17.2429033
+      },
+      "coordinateSource": "Vuonatjviken service node; OSM hotel node includes shower=yes",
+      "description": "Service site lists sauna, WC/shower access for some cabins, private WC/shower in other cabins and drying cabinet/service building.",
+      "sourceUrls": [
+        "https://www.vuonatjviken.com/e_stugby.html",
+        "https://www.openstreetmap.org/node/1750315974",
+        "https://www.komoot.com/highlight/5505244"
+      ],
+      "routeProximity": "section end",
+      "confidence": "high",
+      "importRecommendation": "fold-into-vuonatjviken-service-node",
+      "caveats": "Do not import as separate public toilet/shower unless child amenities are in scope."
+    },
+    {
+      "name": "Vuonatjviken / Riebnes east boat landing and shuttle",
+      "normalizedCandidateType": "boat_landing_and_ferry_access",
+      "coordinates": {
+        "lat": 66.4902902,
+        "lon": 17.2421864
+      },
+      "coordinateSource": "OSM ferry way 163306709 east endpoint; Naturkartan GPX endpoint/service node nearby",
+      "description": "Onward Kungsleden connection over Lake Riebnes. STF and Naturkartan say motorboat/private shuttle is required and no rowing boats are available; Vuonatjviken says to contact them to arrange the Riebnes crossing.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/way/163306709",
+        "https://www.swedishtouristassociation.com/guides/mountains/transport/boats/",
+        "https://www.swedishtouristassociation.com/trails/kvikkjokk-ammarnas/",
+        "https://www.naturkartan.se/en/norrbottens-lan/vandringsled-bd78-mellan-vasterfjall-och-jackvik",
+        "https://www.vuonatjviken.com/index_e.html",
+        "https://www.vuonatjviken.com/e_om.html"
+      ],
+      "routeProximity": "section end / start of section-17 connector",
+      "confidence": "high for service need, medium-high for exact landing coordinate",
+      "importRecommendation": "import-as-access-connector-metadata",
+      "caveats": "Operator/contact details have changed across sources. Current STF and Vuonatjviken contact pages list Geir/Sandra; OSM/older reports list Jan/Eva. Schedule, season, weather, booking and payment are date-sensitive."
+    }
+  ],
+  "waterSources": [
+    {
+      "name": "Vilitjåhkå and early section streams",
+      "type": "natural_water_zone",
+      "coordinates": null,
+      "coordinateSource": "Naturkartan text and field reports",
+      "sourceUrls": [
+        "https://www.naturkartan.se/en/norrbottens-lan/vandringsled-bd78-mellan-vasterfjall-och-jackvik",
+        "https://www.outdooractive.com/en/route/hiking-trail/lappland/kungsleden-day-14-2022-09-10-from-juoksakjahka-to-vuonatjviken/253066271/"
+      ],
+      "reliability": "generally available but uneven on exposed plateau",
+      "confidence": "medium",
+      "caveats": "Carry water over exposed/plateau stretch; use flowing streams rather than swamp pools."
+    },
+    {
+      "name": "Bartek/Gåbdåk river area",
+      "type": "natural_water_source",
+      "coordinates": {
+        "lat": 66.5272975,
+        "lon": 17.2385344
+      },
+      "coordinateSource": "Official Gåbdåk bridge coordinate and field reports",
+      "sourceUrls": [
+        "https://www.vuonatjviken.com/files/Fishing%20Bartek_ENG.pdf",
+        "https://www.mywanderfullife.de/en/kungsleden-vuonatjviken-tjaeurakatan-en/"
+      ],
+      "reliability": "likely reliable natural stream/river water",
+      "confidence": "medium-high",
+      "caveats": "Untreated natural water; no potable tap or official campsite."
+    },
+    {
+      "name": "Vuonatjviken / Riebnes endpoint water",
+      "type": "natural_and_guest_water_context",
+      "coordinates": {
+        "lat": 66.4910928,
+        "lon": 17.2429033
+      },
+      "coordinateSource": "Vuonatjviken service node and Riebnes lake endpoint",
+      "sourceUrls": [
+        "https://www.vuonatjviken.com/e_stugby.html"
+      ],
+      "reliability": "guest water likely available through lodging/services; natural lake/stream water nearby",
+      "confidence": "medium",
+      "caveats": "No standalone public drinking-water POI found; swampy/stagnant water near Vuonatjviken should be avoided in favor of flowing water or guest service water."
+    }
+  ],
+  "campingAndFire": {
+    "wildCamping": {
+      "status": "available-with-exposure-and-reserve-caveats",
+      "summary": "Official sources describe good camping around Gásakláhko/Barturtte in good weather and tent sites/water along the broader route. Field reports support camping near Bartek/Gåbdåk. Vuonatjviken offers tenting/service-node camping by arrangement/policy.",
+      "confidence": "medium-high",
+      "caveats": "Highland start is exposed with little shelter; final approach intersects Hornavan-Sädvajaure reserve/Natura context where general reserve rules and fire bans still apply."
+    },
+    "primitiveCampsites": [
+      {
+        "name": "Gásakláhko/Barturtte highland camping zone",
+        "coordinates": {
+          "lat": 66.5839492,
+          "lon": 17.2754676
+        },
+        "source": "STF/Naturkartan text",
+        "confidence": "medium",
+        "recommendation": "section note only"
+      },
+      {
+        "name": "Bartek/Gåbdåk informal camping and water zone",
+        "coordinates": {
+          "lat": 66.5272975,
+          "lon": 17.2385344
+        },
+        "source": "Field reports anchored to official bridge",
+        "confidence": "medium",
+        "recommendation": "section note, not serviced campsite"
+      },
+      {
+        "name": "Vuonatjviken tenting",
+        "coordinates": {
+          "lat": 66.4910928,
+          "lon": 17.2429033
+        },
+        "source": "STF text and route-app reports",
+        "confidence": "medium-high",
+        "recommendation": "fold into service node or child campsite pending current policy"
+      }
+    ],
+    "fire": {
+      "status": "fire-ban-dependent",
+      "summary": "No importable in-section fireplace found. Hornavan-Sädvajaure rules generally allow fires subject to general laws, but Länsstyrelsen/municipal fire bans override. Check current fire risk and bans before publication.",
+      "sourceUrls": [
+        "https://www.lansstyrelsen.se/norrbotten/samhalle/sakerhet-och-beredskap/brandrisk-och-eldningsforbud.html",
+        "https://www.krisinformation.se/detta-kan-handa/gras--och-skogsbrand/eldningsforbud"
+      ],
+      "confidence": "high"
+    },
+    "waste": {
+      "status": "no confirmed public waste facility",
+      "summary": "No source-backed public waste facility found on section 16. Carry waste out.",
+      "confidence": "medium"
+    }
+  },
+  "rulesAndSafety": {
+    "protectedAreas": [
+      {
+        "name": "Hornavan-Sädvajaure fjällurskog nature reserve",
+        "identifier": "NVR 2001062",
+        "applicability": "southern/last-kilometers approach into Vuonatjviken by WMS point sampling",
+        "sourceUrls": [
+          "https://www.lansstyrelsen.se/norrbotten/besoksmal/naturreservat/hornavan-sadvajaure.html",
+          "https://skyddadnatur.naturvardsverket.se/"
+        ],
+        "confidence": "medium",
+        "caveats": "Point samples hit reserve at about 66.510931,17.235616 and southward; full selected-line polygon overlay required."
+      },
+      {
+        "name": "Hornavan-Sädvajaure Natura 2000 SCI",
+        "identifier": "SE0820123",
+        "applicability": "southern/last-kilometers approach into Vuonatjviken by WMS point sampling",
+        "sourceUrls": [
+          "https://skyddadnatur.naturvardsverket.se/"
+        ],
+        "confidence": "medium",
+        "caveats": "Point sampling only. SCI compiled 1995-10-01, updated 2018-05-31, SCI 200312, SAC 200912."
+      }
+    ],
+    "closuresAndReroutes": {
+      "status": "none found",
+      "accessedDate": "2026-04-29",
+      "sourceUrls": [
+        "https://www.lansstyrelsen.se/norrbotten/besoksmal/friluftsliv-och-allemansratt/aktuellt-i-fjallen.html",
+        "https://www.naturkartan.se/en/norrbottens-lan/vandringsled-bd78-mellan-vasterfjall-och-jackvik"
+      ],
+      "confidence": "medium",
+      "caveats": "No section-specific closure/reroute found. Naturkartan API trail_status fields were null. Recheck before publication."
+    },
+    "terrainAndWeather": [
+      "Open high ground around Gásakláhko/Barturtte is exposed; rain/fog can make painted stone markers hard to see.",
+      "If the WFS split is used as section start, some of the broader Gásakláhko plateau hazard belongs to section 15 rather than section 16.",
+      "Vilitjåhkå-Vuonatjviken is partly overgrown and boggy with many boardwalks.",
+      "Older field reports mention damaged/collapsed small bridges, but current condition was not confirmed.",
+      "The Arctic Circle is crossed shortly before Vuonatjviken; marker visibility and exact sign position vary by report."
+    ],
+    "reserveVisitorRules": {
+      "summary": "Hornavan-Sädvajaure visitor rules allow walking, tenting, fires, berry/mushroom picking, fishing and hunting subject to general laws; damaging plants/animals is not allowed. Fire permission is overridden by active fire bans.",
+      "confidence": "medium-high",
+      "caveats": "Summarized from reserve page; final app rules should use normalized reserve regulation data."
+    },
+    "dogsReindeerHuntingFishing": {
+      "summary": "Norrbotten is reindeer-herding area. Länsstyrelsen notice 2026-02-05 says dogs must be leashed or enclosed where reindeer are present and herding is permitted unless otherwise allowed. Small-game hunting and fishing rules are date/place-specific and require NatureIT/Länsstyrelsen/Arjeplog permit rechecks.",
+      "sourceUrls": [
+        "https://www.lansstyrelsen.se/norrbotten/om-oss/nyheter-och-press/nyheter---norrbotten/2026-02-05-koppeltvang-pa-hund-i-renskotselomrade.html",
+        "https://www.lansstyrelsen.se/norrbotten/djur/jakt-och-vilt/jakt-i-fjallen.html",
+        "https://www.lansstyrelsen.se/norrbotten/djur/fiske/fiska-i-fjallen.html",
+        "https://natureit.se/"
+      ],
+      "confidence": "medium",
+      "caveats": "Exact sameby/hunting/fishing overlays were not normalized in this research-only pass."
+    },
+    "currentnessNotes": [
+      "2026-04-22 Länsstyrelsen stopped winter-trail checks because spring warmth degraded snow/ice; weak ice/open water risk.",
+      "2026-03-27 Länsstyrelsen noted changed snow/ice conditions, weak lake ice, open leads and variable snow depth.",
+      "On 2026-04-29 Länsstyrelsen pages showed an SMHI banner for wind on bare mountain in Norrbotten; treat as dynamic, not persistent metadata.",
+      "Riebnes commercial motorboat is just beyond the endpoint and should be confirmed directly with Vuonatjvikens Stugby before relying on onward travel."
+    ]
+  },
+  "conditionReports": [
+    {
+      "source": "AllTrails section 16",
+      "url": "https://www.alltrails.com/trail/sweden/norrbotten/kungsleden-etapp-16-gasaklahko-vuonatjviken",
+      "dateObservedOrUpdated": "updated 2026-04-27; reviews noted August 2025 and August 2020",
+      "summary": "Lists about 13.2 km and roughly 3.5-4 hours, supporting official/WFS-length convention rather than OSM campsite-start geometry.",
+      "confidence": "medium",
+      "caveats": "Route-app data; no reliable endpoint coordinates exposed."
+    },
+    {
+      "source": "A Tog's Trek",
+      "url": "https://www.togstrek.com/hiking/kungsleden/etapp-14-tsielekjkk-to-vuonatjviken",
+      "dateObservedOrUpdated": "accessed 2026-04-29",
+      "summary": "Describes route-finding/vegetation context and supports the overgrown-but-marked character of the approach toward Vuonatjviken.",
+      "confidence": "medium",
+      "caveats": "Field report, not official."
+    },
+    {
+      "source": "Outdooractive 2022 route",
+      "url": "https://www.outdooractive.com/en/route/hiking-trail/lappland/kungsleden-day-14-2022-09-10-from-juoksakjahka-to-vuonatjviken/253066271/",
+      "dateObservedOrUpdated": "2022 route; accessed 2026-04-29",
+      "summary": "Track starts around 66.609926,17.276874 and gives 14.8 km to Vuonatjviken, between OSM campsite boundary and WFS split. Useful evidence that field-route starts vary.",
+      "confidence": "medium",
+      "caveats": "Community route convention, not official boundary."
+    },
+    {
+      "source": "MyWanderfulLife",
+      "url": "https://www.mywanderfullife.de/en/kungsleden-vuonatjviken-tjaeurakatan-en/",
+      "dateObservedOrUpdated": "2019 field report; accessed 2026-04-29",
+      "summary": "Reports camping/water around Tjäurakåtan/Bartek context and older small-bridge/damaged-condition clues. Useful but dated.",
+      "confidence": "medium",
+      "caveats": "Do not treat bridge/facility condition as current without verification."
+    },
+    {
+      "source": "Komoot Vuonatjviken and Arctic Circle highlights",
+      "url": "https://www.komoot.com/highlight/5505244",
+      "dateObservedOrUpdated": "2022-2024 route-app reports; accessed 2026-04-29",
+      "summary": "Reports Vuonatjviken service/camping and Arctic Circle marker visibility/currentness; a September 2024 tip mentioned boat price/timing and service details that must be verified.",
+      "confidence": "medium",
+      "caveats": "Route-app user reports; prices/times are volatile."
+    }
+  ],
+  "sourceContradictions": [
+    {
+      "topic": "Gásakláhko start boundary",
+      "details": "Official STF/Naturkartan distance/time supports a 13 km Gásakláhko-Vuonatjviken section and the WFS official-distance split at 66.5839492,17.2754676, while OSM/Wikivoyage/Mapcarta place a Gásakláhko campsite around 66.6202912,17.2744719 and OSM relation 18864494 starts there.",
+      "importImpact": "Use WFS split as provisional start if preserving official distances; keep OSM campsite as section-15 facility and caveat.",
+      "severity": "high"
+    },
+    {
+      "topic": "OSM relation length mismatch",
+      "details": "OSM/Waymarked relation 18864494 computes about 16.1 km while tagged/official distance is 13 km. Truncating at WFS split leaves about 11.9 km, closer to official distance.",
+      "importImpact": "Do not import OSM relation 18864494 as section geometry without boundary correction/source-policy decision.",
+      "severity": "high"
+    },
+    {
+      "topic": "Vuonatjviken endpoint point",
+      "details": "WFS foot-line end, WFS boat endpoint, Naturkartan GPX endpoint, OSM section join and Vuonatjvikens Stugby service node differ by about 50-215 m.",
+      "importImpact": "Model an endpoint zone and keep route endpoint, boat landing and service node distinct in normalization.",
+      "severity": "medium"
+    },
+    {
+      "topic": "Official versus route-app facility certainty at Vuonatjviken",
+      "details": "Official sources confirm accommodation/tenting/restaurant, while route apps mention extra provisions/gas/prices/times. The latter are volatile and not fully official.",
+      "importImpact": "Import service node and restaurant/tenting caveats; keep shop/resupply pending unless current operator confirms.",
+      "severity": "medium"
+    },
+    {
+      "topic": "Protected-area attribution",
+      "details": "Point sampling indicates Hornavan-Sädvajaure reserve/Natura overlap only on the southern/last-kilometers approach; no full polygon overlay was run.",
+      "importImpact": "Attach as research caveat and run selected-line overlay before rules normalization.",
+      "severity": "medium"
+    },
+    {
+      "topic": "Bridge/current condition",
+      "details": "Official Gåbdåk bridge is high confidence, but OSM small bridge and older damaged-bridge field reports are uncertain.",
+      "importImpact": "Import official bridge if taxonomy supports it; keep OSM small bridge pending and recheck current condition.",
+      "severity": "medium"
+    },
+    {
+      "topic": "Currentness volatility",
+      "details": "Fire bans, weather, snow/ice, Riebnes boat operations, service opening, hunting/fishing closures and dog/reindeer restrictions are date-sensitive.",
+      "importImpact": "Recheck all currentness items before public/runtime use.",
+      "severity": "high"
+    }
+  ],
+  "researchIterations": [
+    {
+      "iterationId": "initial-six-lane-2026-04-29",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddb91-8b37-7af0-8639-24423adc4347",
+          "nickname": "Dalton",
+          "result": "Confirmed official stage name, distance/time, description, Vuonatjviken services, Riebnes boat context, Arctic Circle note and official support for WFS split over OSM campsite."
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddb91-8bd5-7570-bd85-f1455306032c",
+          "nickname": "Hume",
+          "result": "Documented WFS, Naturkartan GPX, OSM/Waymarked and endpoint-zone geometry, confirming OSM mis-split and WFS split recommendation."
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddb91-8c0a-79e1-9351-886638de567e",
+          "nickname": "Rawls",
+          "result": "Identified highland camping note, Arctic Circle marker candidate, bridges, Bartek/Gåbdåk water/camping zone, Vuonatjviken service node/amenities and Riebnes boat landing; documented suppressions."
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddb91-8c92-75b2-b660-76a234028fd2",
+          "nickname": "Ptolemy",
+          "result": "Confirmed roadless endpoint/access context, Vuonatjviken private/local access, Riebnes boat and Jäckvik public bus exit after boat+hike."
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddb91-8cb8-7da1-9e7f-6d3e449569a6",
+          "nickname": "Volta",
+          "result": "Documented terrain, water, camping, route-finding, Arctic Circle visibility, Vuonatjviken facilities and field-distance/boundary caveats."
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddb91-8d29-7f20-8e44-b08d8400eeba",
+          "nickname": "Parfit",
+          "result": "Found Hornavan-Sädvajaure reserve/Natura point-sampled overlap near Vuonatjviken and documented current notices, dog/reindeer, hunting/fishing/fire and Riebnes boat risk."
+        }
+      ],
+      "coordinatorDecision": "Complete enough for section-level research handoff. No targeted follow-up spawned because all six lanes support the WFS official-distance split as the provisional start and remaining issues are documented normalization/currentness caveats: endpoint zone, protected-area overlay, source policy, facility currentness and Riebnes boat/operator checks."
+    }
+  ],
+  "openQuestions": [
+    "Before runtime import, confirm geometry source/licensing policy for WFS, Naturkartan GPX/API and OSM/Waymarked linework.",
+    "Run true selected-line GIS overlay for Hornavan-Sädvajaure reserve/Natura, other protected-area layers, sameby, hunting/fishing and current restrictions.",
+    "Verify Vuonatjviken current operator, opening, booking, payment, restaurant, tenting, shower/sauna, provisions/gas and boat details.",
+    "Recheck Riebnes boat schedule/price/payment/weather policy and no-rowboat status before publication.",
+    "Verify official Gåbdåk bridge and OSM small bridge condition before importing bridge/hazard POIs.",
+    "Decide whether Arctic Circle marker is in app taxonomy and verify current sign location/visibility.",
+    "Section 17 should use a clear connector model from Vuonatjviken over Riebnes before the next walking segment toward Jäckvik."
+  ],
+  "importReadiness": {
+    "status": "research-ready-with-caveats",
+    "readyForNormalization": true,
+    "blockingIssuesForRuntimeImport": [
+      "Geometry source/licensing policy must be confirmed.",
+      "Endpoint-zone handling at Vuonatjviken and WFS-vs-OSM boundary convention must be accepted.",
+      "Selected-line protected-area/Natura overlay must be run.",
+      "Vuonatjviken services, Riebnes boat details, Arctic Circle marker and bridge/current condition require current verification.",
+      "Date-sensitive official currentness, fire-ban, hunting/fishing, weather and access checks must be repeated before publication."
+    ],
+    "suggestedNextStep": "Research section 17 Vuonatjviken-Jäckvik with special attention to Riebnes boat connector, Kapellströmmarna rowboat, Vuonatjviken endpoint zone and Hornavan-Sädvajaure/Pieljekaise protected-area transition."
+  }
+}

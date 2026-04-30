@@ -1,0 +1,1407 @@
+{
+  "schemaVersion": "candidate-trail-section-research-v1",
+  "trailId": "sjuharadsleden",
+  "sectionId": "sjuharadsleden-etapp-8-prangens-camping-bone-kyrka",
+  "sectionNumber": 8,
+  "name": "Sjuhäradsleden, etapp 8: Prångens Camping - Böne kyrka",
+  "from": "Prångens Camping",
+  "to": "Böne kyrka",
+  "distanceKm": {
+    "official": 15,
+    "naturkartan": 15.1,
+    "computedNaturkartanGpxSegmentSum": 15.115,
+    "computedNaturkartanGpxNaiveConcatenation": 15.163,
+    "computedNaturkartanApi": 15.113,
+    "osmComputed": 15.053,
+    "displayRecommendation": "Use 15 km as the official planning distance and preserve the 15.1 km Naturkartan/GPX-derived measure for geometry QA. Treat the three Naturkartan GPX/API parts as connected MultiLineString parts rather than adding artificial inter-track jumps."
+  },
+  "estimatedTime": {
+    "official": "4.5 hours",
+    "otherSources": [
+      {
+        "source": "E1 Hiking Europe",
+        "value": "Reverse-direction Böne kyrka to Prångens Camping stage lists 15.1 km and 4 h 30 min; GPX updated 2024-01-26.",
+        "accessed": "2026-04-29"
+      }
+    ]
+  },
+  "difficulty": {
+    "official": "Lätt / Easy",
+    "description": "Current Borås official page labels the stage Lätt. Older official brochure wording says Lätt/medel and gives 70% asphalt/gravel road and 30% tractor road/path. The stage begins on the old railway embankment, now an asphalt walking/cycle path, then continues on gravel road, forest road and some path sections.",
+    "contradictions": [
+      {
+        "source": "Older Ulricehamn official brochure text",
+        "value": "Lätt/medel",
+        "importImpact": "Normalize display difficulty to Lätt/Easy, but preserve the older light/medium caveat."
+      }
+    ]
+  },
+  "routeType": "point-to-point hiking stage",
+  "officialSources": [
+    {
+      "id": "boras-stad-sjuharadsleden",
+      "title": "Borås Stad: Sjuhäradsleden (orange), flera längder",
+      "url": "https://www.boras.se/upplevaochgora/friluftslivochnatur/motionssparochvandringsleder/sjuharadsledenorangefleralangder.5.24ebe11318ec1938e09b18ee.html",
+      "type": "municipal trail inventory",
+      "publisher": "Borås Stad",
+      "accessed": "2026-04-29",
+      "evidence": "Lists Etapp 8 as Prångens Camping to Böne kyrka, 15 km, 4.5 hours, Lätt, first 2.5 km on old railway embankment/asphalt walking-cycling path, then gravel/forest roads, with start/end coordinates and PDF map.",
+      "currentness": "Official-source lane observed page as last changed 2026-04-06.",
+      "confidence": "high",
+      "caveat": "The stage 8 Böne kyrka coordinate line appears to contain an extra digit in the easting; stage 9 and GPX support easting 412026 rather than 4120226."
+    },
+    {
+      "id": "boras-stad-etapp-8-pdf-map",
+      "title": "Borås Stad PDF map: Sjuhäradsleden etapp 8",
+      "url": "https://www.boras.se/download/18.66558cf31730da0c2e5d370/1593762406201/Sjuh%C3%A4radsleden%20etapp%208%2C%20karta.pdf",
+      "type": "official map PDF",
+      "publisher": "Borås Stad",
+      "accessed": "2026-04-29",
+      "evidence": "Official stage map/brochure with endpoint labels, Prångens Camping and Böne kyrka context, and access symbols. Used as current official map source; older Ulricehamn brochure details are treated as supporting/stale where they differ.",
+      "confidence": "high"
+    },
+    {
+      "id": "naturkartan-etapp-8",
+      "title": "Naturkartan: Sjuhäradsleden, etapp 8",
+      "url": "https://www.naturkartan.se/sv/vastra-gotalands-lan/sjuharadsleden-etapp-8",
+      "type": "official map/trail platform",
+      "publisher": "Naturkartan / Outdoormap",
+      "accessed": "2026-04-29",
+      "evidence": "Publishes Etapp 8 as a 15.1 km Prångens Camping-to-Böne kyrka route and carries the trail-wide warning that Sjuhäradsleden has not yet been fully quality-assured by Västkuststiftelsen.",
+      "confidence": "high for route identity and geometry availability; medium-high for current field condition"
+    },
+    {
+      "id": "naturkartan-etapp-8-gpx",
+      "title": "Naturkartan GPX: Sjuhäradsleden, etapp 8",
+      "url": "https://www.naturkartan.se/sv/vastra-gotalands-lan/sjuharadsleden-etapp-8.gpx",
+      "type": "official GPX",
+      "publisher": "Naturkartan / Outdoormap",
+      "accessed": "2026-04-29",
+      "evidence": "Public GPX returns three track/segment parts, 420 points, 15.115 km segment-sum length, official-direction endpoints and no gap over 500 m. Rules lane observed GPX timestamp 2026-04-29T20:08:58Z.",
+      "confidence": "high",
+      "caveat": "Do not naively concatenate inter-track gaps into route length; they add artificial 39.9 m and 8.7 m jumps."
+    },
+    {
+      "id": "naturkartan-etapp-8-api",
+      "title": "Naturkartan API site 21674",
+      "url": "https://api.naturkartan.se/v3.2/sites/21674",
+      "type": "official JSON:API linework",
+      "publisher": "Naturkartan / Outdoormap",
+      "accessed": "2026-04-29",
+      "evidence": "Route-geometry lane observed MultiLineString linework with three parts, 340 points, 15.113 km part-sum length and same endpoints as the GPX. API publish_gpx flag was false despite the public GPX URL working.",
+      "confidence": "high"
+    },
+    {
+      "id": "ulricehamn-vandringsleder",
+      "title": "Ulricehamns kommun: Vandringsleder och strövområden",
+      "url": "https://www.ulricehamn.se/uppleva-och-gora/idrott-motion-och-friluftsliv/motion-och-friluftsliv/vandringsleder-och-strovomraden",
+      "type": "municipal outdoor page",
+      "publisher": "Ulricehamns kommun",
+      "accessed": "2026-04-29",
+      "evidence": "Municipal trail context for Sjuhäradsleden and overlapping Ulricehamn-area trails.",
+      "currentness": "Official-source lane observed page as last updated 2026-04-27.",
+      "confidence": "medium-high"
+    },
+    {
+      "id": "vastsverige-sjuharadsleden",
+      "title": "Västsverige: Sjuhäradsleden",
+      "url": "https://www.vastsverige.com/naturupplevelser/vandra/vandringsleder/sjuharadsleden/",
+      "type": "official tourism overview",
+      "publisher": "Västsverige",
+      "accessed": "2026-04-29",
+      "evidence": "Confirms section context, Ulricehamn services, Prångens Camping and Böne kyrka as named trail places; source lane observed currentness 2025-08-19.",
+      "confidence": "medium-high"
+    },
+    {
+      "id": "vastsverige-redvagsleden",
+      "title": "Västsverige: Redvägsleden",
+      "url": "https://www.vastsverige.com/ulricehamn/leder/redvagsleden/",
+      "type": "official tourism route page",
+      "publisher": "Västsverige / Ulricehamn",
+      "accessed": "2026-04-29",
+      "evidence": "Confirms Redvägsleden overlap context and Jordkulan services including rest area, fireplace/cooking area, tables/benches, wind shelter/overnight shelter and toilet.",
+      "confidence": "high for overlapping-trail facility context"
+    },
+    {
+      "id": "vastsverige-asundenleden",
+      "title": "Västsverige: Åsundenleden",
+      "url": "https://www.vastsverige.com/ulricehamn/leder/asundenleden/",
+      "type": "official tourism route page",
+      "publisher": "Västsverige / Ulricehamn",
+      "accessed": "2026-04-29",
+      "evidence": "Supports a short early overlap/context with Åsundenleden near Prångens Camping.",
+      "confidence": "medium-high"
+    },
+    {
+      "id": "prangens-camping",
+      "title": "Prångens Camping",
+      "url": "https://prangenscamping.se/",
+      "type": "official camping/service site",
+      "publisher": "Prångens Camping",
+      "accessed": "2026-04-29",
+      "evidence": "Confirms paid camping/cottages/ställplatser and endpoint services such as WC, showers, fresh water, kitchen, cafe, parking, grill, waste services, beach, minigolf and playground.",
+      "confidence": "high"
+    },
+    {
+      "id": "svenska-kyrkan-bone-kyrka",
+      "title": "Svenska kyrkan: Böne kyrka",
+      "url": "https://www.svenskakyrkan.se/ulricehamn/bone-kyrka",
+      "type": "church/parish page",
+      "publisher": "Svenska kyrkan Ulricehamn",
+      "accessed": "2026-04-29",
+      "evidence": "Confirms Böne kyrka endpoint address Böne 140, 523 75 Dalum and church context.",
+      "currentness": "Rules/safety lane observed page updated 2021-08-04.",
+      "confidence": "high for endpoint identity"
+    }
+  ],
+  "endpointCoordinates": {
+    "start": {
+      "label": "Prångens Camping / section 8 route-line start",
+      "coordinates": [
+        57.8026283,
+        13.4102686
+      ],
+      "coordinateSource": "Naturkartan Etapp 8 GPX first point",
+      "confidence": "high for route-line endpoint; medium for exact camping/access label",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/vastra-gotalands-lan/sjuharadsleden-etapp-8.gpx",
+        "https://api.naturkartan.se/v3.2/sites/21674",
+        "https://www.boras.se/download/18.66558cf31730da0c2e5d370/1593762406201/Sjuh%C3%A4radsleden%20etapp%208%2C%20karta.pdf",
+        "https://prangenscamping.se/"
+      ],
+      "alternateCoordinates": [
+        {
+          "label": "Borås Stad Prångens Camping coordinate converted from probable SWEREF 99 TM",
+          "coordinates": [
+            57.8024677,
+            13.4080378
+          ],
+          "source": "Borås Stad/PDF coordinate 6407831 405388, interpreted as SWEREF 99 TM",
+          "gapFromPrimaryMetersApprox": 133,
+          "note": "Closer to the campsite/access cluster than the route-line start; preserve as access metadata."
+        },
+        {
+          "label": "Naturkartan Etapp 7 GPX end",
+          "coordinates": [
+            57.801619,
+            13.412034
+          ],
+          "source": "Naturkartan Etapp 7 GPX last point",
+          "gapFromPrimaryMetersApprox": 153,
+          "note": "Section 7 route-line endpoint differs from section 8 start; geometry lane found the section 7 end is only about 12 m from the section 8 line."
+        },
+        {
+          "label": "OSM relation 5607243 official-direction start after reversing",
+          "coordinates": [
+            57.8026283,
+            13.4102686
+          ],
+          "source": "OSM relation 5607243 normalized by route-geometry lane",
+          "gapFromPrimaryMetersApprox": 0,
+          "note": "OSM matches the Naturkartan start after reversing the stored member order."
+        }
+      ]
+    },
+    "end": {
+      "label": "Böne kyrka / section 8-9 continuity endpoint",
+      "coordinates": [
+        57.8825367,
+        13.515455
+      ],
+      "coordinateSource": "Naturkartan Etapp 8 GPX last point",
+      "confidence": "high for route-line endpoint; medium-high for church/access label",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/vastra-gotalands-lan/sjuharadsleden-etapp-8.gpx",
+        "https://www.naturkartan.se/sv/vastra-gotalands-lan/sjuharadsleden-etapp-9.gpx",
+        "https://www.boras.se/upplevaochgora/friluftslivochnatur/motionssparochvandringsleder/sjuharadsledenorangefleralangder.5.24ebe11318ec1938e09b18ee.html",
+        "https://www.svenskakyrkan.se/ulricehamn/bone-kyrka"
+      ],
+      "alternateCoordinates": [
+        {
+          "label": "Corrected Borås Stad Böne kyrka coordinate converted from probable SWEREF 99 TM",
+          "coordinates": [
+            57.8827392,
+            13.5164446
+          ],
+          "source": "Borås stage 9 coordinate 6416620 412026, interpreted as SWEREF 99 TM; stage 8 printed 4120226 is treated as typo",
+          "gapFromPrimaryMetersApprox": 63,
+          "note": "Use this as the official access/church coordinate, not the mistyped stage 8 easting."
+        },
+        {
+          "label": "Böne kyrka building / OSM church",
+          "coordinates": [
+            57.8826902,
+            13.5162903
+          ],
+          "source": "OSM way 243123578 / Svenska kyrkan endpoint context",
+          "gapFromPrimaryMetersApprox": 52,
+          "note": "Represents the church building/heritage POI rather than the route-line endpoint."
+        },
+        {
+          "label": "Böne kyrka parking",
+          "coordinates": [
+            57.8825488,
+            13.5157018
+          ],
+          "source": "OSM node 2505561889",
+          "gapFromPrimaryMetersApprox": 15,
+          "note": "Strong endpoint access object near the Naturkartan route end."
+        },
+        {
+          "label": "Naturkartan Etapp 9 GPX start",
+          "coordinates": [
+            57.8825367,
+            13.515455
+          ],
+          "source": "Naturkartan Etapp 9 GPX first point",
+          "gapFromPrimaryMetersApprox": 0,
+          "note": "Exact continuity between Etapp 8 and Etapp 9 in Naturkartan."
+        }
+      ]
+    }
+  },
+  "routeGeometry": {
+    "primary": {
+      "source": "Naturkartan GPX",
+      "url": "https://www.naturkartan.se/sv/vastra-gotalands-lan/sjuharadsleden-etapp-8.gpx",
+      "status": "available",
+      "httpStatusChecked": 200,
+      "contentType": "application/gpx+xml",
+      "trackCount": 3,
+      "segmentCount": 3,
+      "pointCount": 420,
+      "computedDistanceKmSegmentSum": 15.115,
+      "computedDistanceKmNaiveConcatenation": 15.163,
+      "hasElevation": false,
+      "hasTimestamps": false,
+      "start": [
+        57.8026283,
+        13.4102686
+      ],
+      "end": [
+        57.8825367,
+        13.515455
+      ],
+      "interTrackGapsMeters": [
+        39.9,
+        8.7
+      ],
+      "maxInterPointGapMetersWithinTracks": 354.6,
+      "stepsOver200MetersInNaiveLocalAudit": 6,
+      "stepsOver500Meters": 0,
+      "directionRelativeToOfficialOrder": "matches Prångens Camping to Böne kyrka",
+      "geometryGrade": "B / planning-grade with good official direction and endpoint continuity",
+      "navigationCaveat": "Use as primary route candidate but preserve its three-part structure or explicitly bridge the small inter-track gaps. Do not use the mistyped Borås stage 8 Böne coordinate as a route endpoint."
+    },
+    "naturkartanApiLinework": {
+      "source": "Naturkartan map API, site id 21674",
+      "url": "https://api.naturkartan.se/v3.2/sites/21674",
+      "status": "observed by route-geometry lane",
+      "shapeType": "MultiLineString",
+      "lineCount": 3,
+      "pointCount": 340,
+      "computedDistanceKm": 15.113,
+      "start": [
+        57.8026283,
+        13.4102686
+      ],
+      "end": [
+        57.8825367,
+        13.515455
+      ],
+      "publishGpxFlag": false,
+      "agreementWithGpx": "Max vertex-to-line deviation about 1.0 m and p95 about 0.7 m; effectively the same route, lightly simplified."
+    },
+    "osm": {
+      "relationId": 5607243,
+      "relationUrl": "https://www.openstreetmap.org/relation/5607243",
+      "memberWayCount": 53,
+      "pointCountAfterAssembly": 478,
+      "computedDistanceKm": 15.053,
+      "storedDirection": "Relation tags say from=Prångens Camping and to=Böne kyrka, but member order is reversed; reverse the ordered chain for official direction.",
+      "officialOrderStart": [
+        57.8026283,
+        13.4102686
+      ],
+      "officialOrderEnd": [
+        57.882527,
+        13.515454
+      ],
+      "continuity": "0 m internal way gaps after merge and 0 m continuity to adjacent OSM stages after normalization.",
+      "endpointAgreement": "End is about 1.1 m from Naturkartan end; overall OSM vs Naturkartan GPX max deviation about 29.9 m, p95 about 4.2 m.",
+      "confidence": "medium-high as routable cross-check and overlap attribution source"
+    },
+    "overlaps": [
+      {
+        "trailName": "Åsundenleden",
+        "osmRelationId": 10998479,
+        "sourceUrl": "https://www.openstreetmap.org/relation/10998479",
+        "overlapKmApprox": 0.627,
+        "stageChainageRangeKmApprox": "0.000-0.627",
+        "confidence": "medium-high",
+        "note": "Short early overlap near Prångens Camping/Åsunden."
+      },
+      {
+        "trailName": "Redvägsleden",
+        "osmRelationId": 12075887,
+        "sourceUrl": "https://www.openstreetmap.org/relation/12075887",
+        "overlapKmApprox": 7.489,
+        "stageChainageRangesKmApprox": [
+          "2.538-9.038",
+          "10.033-10.794",
+          "11.320-11.547"
+        ],
+        "confidence": "medium-high",
+        "note": "Official-source lane and route-geometry lane both support a substantial northern-stage Redvägsleden overlap, with a later split before Böne."
+      }
+    ],
+    "vastsverigeKml": {
+      "source": "Västsverige Google My Maps KML",
+      "url": "https://www.google.com/maps/d/viewer?mid=1PV6BSidOBlvb-p34sVe33Co2tgSDo0zE",
+      "status": "not-applicable-for-section-8-route-line",
+      "assessment": "The linked My Maps is titled Sjuhäradsleden etapp 3 - 7 and contains a Start etapp 8 point, but no section 8 route line to Böne kyrka."
+    },
+    "otherGeometrySources": [
+      {
+        "source": "GeoJSON",
+        "url": null,
+        "assessment": "No official GeoJSON found in public sources checked."
+      }
+    ],
+    "endpointGapNotes": [
+      "Naturkartan Etapp 7 end to Etapp 8 start is about 153.4 m, but only about 12.1 m from the Etapp 8 line per section 7 geometry lane.",
+      "Naturkartan Etapp 8 end to Etapp 9 start is 0 m exact continuity.",
+      "Borås converted Prångens coordinate is about 133.4 m from Naturkartan Etapp 8 start.",
+      "Corrected Borås/Böne coordinate is about 62.7 m from the Naturkartan/OSM route endpoint.",
+      "Stage 8 printed easting 4120226 is inconsistent with stage 9, GPX and the actual Böne kyrka area and should be treated as a typo."
+    ]
+  },
+  "commuteAccess": {
+    "start": {
+      "closestCommutePoint": {
+        "stopName": "Ulricehamn Karlsnäs",
+        "type": "bus stop",
+        "coordinates": [
+          57.803889,
+          13.41107
+        ],
+        "distanceFromEndpointMetersApprox": 150,
+        "operatorNetwork": "Västtrafik, buses 201, 209 and 262",
+        "sourceUrls": [
+          "https://busmaps.com/en/sweden/public_transit-stop-Ulricehamn-Karlsn%C3%A4s-13476912550973097768",
+          "https://www.vasttrafik.se/en/travel-planning/timetables/line/9011014220100000/",
+          "https://www.vasttrafik.se/en/travel-planning/timetables/line/9011014220900000/",
+          "https://www.vasttrafik.se/en/travel-planning/timetables/line/9011014226200000/"
+        ],
+        "confidence": "high",
+        "caveats": "Closest current stop found by the access lane for the section 8 start."
+      },
+      "secondaryCommutePoints": [
+        {
+          "stopName": "Ulricehamn Bronäs",
+          "type": "bus stop",
+          "coordinates": [
+            57.800989,
+            13.412558
+          ],
+          "distanceFromEndpointMetersApprox": 230,
+          "operatorNetwork": "Västtrafik, buses 201, 209 and 262",
+          "sourceUrls": [
+            "https://busmaps.com/en/sweden/public_transit-stop-Ulricehamn-Bron%C3%A4s-10674538811454114234"
+          ],
+          "confidence": "high",
+          "caveats": "Also strong for Prångens Camping/Åsunden access."
+        },
+        {
+          "stopName": "Ågatan",
+          "type": "bus stop",
+          "coordinates": [
+            57.799425,
+            13.413015
+          ],
+          "distanceFromEndpointMetersApprox": 390,
+          "operatorNetwork": "Västtrafik, buses 201, 209 and 262",
+          "sourceUrls": [
+            "https://busmaps.com/en/sweden/public_transit-stop-%C3%85gatan-627331823449911265"
+          ],
+          "confidence": "high",
+          "caveats": "Good central/lakeside fallback."
+        },
+        {
+          "stopName": "Ulricehamn busstation",
+          "type": "bus station",
+          "coordinates": [
+            57.793759,
+            13.411674
+          ],
+          "distanceFromEndpointMetersApprox": 1000,
+          "operatorNetwork": "Västtrafik regional/local hub, including buses 200, 201, 204, 208, 209, 250, 261, 262, 265 and 267",
+          "sourceUrls": [
+            "https://busmaps.com/en/sweden/public_transit-stop-Ulricehamn-busstation-7820746350946284476"
+          ],
+          "confidence": "high",
+          "caveats": "Best regional-arrival hub; walk or change to local stop."
+        },
+        {
+          "stopName": "Brunnsnäs",
+          "type": "older brochure stop reference",
+          "coordinates": null,
+          "distanceFromEndpointMetersApprox": 750,
+          "operatorNetwork": "Västtrafik, unverified current stop",
+          "sourceUrls": [
+            "https://www.boras.se/download/18.66558cf31730da0c2e5d370/1593762406201/Sjuh%C3%A4radsleden%20etapp%208%2C%20karta.pdf"
+          ],
+          "confidence": "low-medium",
+          "caveats": "Official/older text mentions Brunnsnäs, but current access lane found Karlsnäs/Bronäs/Ågatan as practical active stops. Treat Brunnsnäs as older reference unless live Västtrafik planner confirms it."
+        }
+      ],
+      "parking": [
+        {
+          "name": "Prångens start parking",
+          "coordinates": [
+            57.8027825,
+            13.4087782
+          ],
+          "source": "OSM way 1322124828 and official stage start parking note",
+          "sourceUrls": [
+            "https://www.openstreetmap.org/way/1322124828",
+            "https://www.boras.se/download/18.66558cf31730da0c2e5d370/1593762406201/Sjuh%C3%A4radsleden%20etapp%208%2C%20karta.pdf",
+            "https://prangenscamping.se/"
+          ],
+          "confidence": "high",
+          "caveats": "Deduplicate with Prångens Camping and section 7 endpoint parking/service cluster."
+        }
+      ],
+      "gettingThereNotes": "Prångens Camping has strong bus access through Ulricehamn Karlsnäs, Bronäs and Ågatan, plus Ulricehamn busstation about 1 km away. Use these current stops rather than the older Brunnsnäs reference unless the live Västtrafik planner confirms Brunnsnäs."
+    },
+    "end": {
+      "closestCommutePoint": {
+        "stopName": "Dalum Tingvallen / Tingvallen",
+        "type": "bus stop",
+        "coordinates": null,
+        "distanceFromEndpointMetersApprox": 3400,
+        "walkingDistanceMetersApprox": 4500,
+        "operatorNetwork": "Västtrafik, buses 209 and 265",
+        "sourceUrls": [
+          "https://busmaps.com/en/sweden/public_transit-stop-Dalum-Tingvallen-17827570344553558189?cityId=2666493",
+          "https://www.vasttrafik.se/en/travel-planning/timetables/line/9011014220900000/",
+          "https://www.vasttrafik.se/en/travel-planning/Timetables/line/9011014226500000/"
+        ],
+        "confidence": "medium-high",
+        "caveats": "Closest current regular stop found by access lane, but still a long road walk from Böne kyrka; exact GTFS coordinates were not returned in the lane summary."
+      },
+      "secondaryCommutePoints": [
+        {
+          "stopName": "Dalum",
+          "type": "bus stop",
+          "coordinates": null,
+          "distanceFromEndpointMetersApprox": 3450,
+          "operatorNetwork": "Västtrafik, buses 209 and 265",
+          "sourceUrls": [
+            "https://busmaps.com/en/sweden/public_transit-stop-Dalum-11242669614803504503?cityId=2666493"
+          ],
+          "confidence": "medium-high",
+          "caveats": "Similar practical option on Centralvägen; expect several kilometres of road walking."
+        },
+        {
+          "stopName": "Vedåslavägen, Dalum",
+          "type": "bus stop / Närtrafik stop",
+          "coordinates": null,
+          "distanceFromEndpointMetersApprox": 3700,
+          "operatorNetwork": "Västtrafik, buses 209 and 265; also named as Närtrafik stop",
+          "sourceUrls": [
+            "https://www.vasttrafik.se/en/travel-planning/pre-ordered-traffic/nartrafik/ulricehamn/"
+          ],
+          "confidence": "medium",
+          "caveats": "Useful if using Västtrafik pre-ordered local service. Verify address eligibility and pickup window when booking."
+        }
+      ],
+      "parking": [
+        {
+          "name": "Böne kyrka parking",
+          "coordinates": [
+            57.8825488,
+            13.5157018
+          ],
+          "source": "OSM node 2505561889; Borås stage 9 confirms parking/information at Böne kyrka",
+          "sourceUrls": [
+            "https://www.openstreetmap.org/node/2505561889",
+            "https://www.boras.se/upplevaochgora/friluftslivochnatur/motionssparochvandringsleder/sjuharadsledenorangefleralangder.5.24ebe11318ec1938e09b18ee.html",
+            "https://www.svenskakyrkan.se/ulricehamn/bone-kyrka"
+          ],
+          "confidence": "high",
+          "caveats": "No confirmed public toilet or potable water at the church; field report says water was signed not drinkable."
+        }
+      ],
+      "gettingThereNotes": "Böne kyrka has parking/information but no current regular bus stop at the church itself. Plan pickup/drop-off at the church parking area, pre-book Västtrafik Närtrafik if available for the address, or add a road walk to/from Dalum/Tingvallen."
+    },
+    "intermediateAccess": [
+      {
+        "name": "Jordkulan parking",
+        "type": "small gravel parking",
+        "coordinates": [
+          57.8654073,
+          13.4628269
+        ],
+        "operatorNetwork": null,
+        "confidence": "medium",
+        "notes": "OSM small parking near Jordkulan, capacity around 3; model as access/connection metadata rather than stage endpoint."
+      },
+      {
+        "name": "Redvägsleden/Sjuhäradsleden split",
+        "type": "trail junction",
+        "coordinates": [
+          57.8736045,
+          13.4863972
+        ],
+        "operatorNetwork": null,
+        "confidence": "high",
+        "notes": "Official brochure/OSM guidepost context; useful for overlap metadata."
+      }
+    ],
+    "seasonalOrServiceLimitations": [
+      "Västtrafik line pages observed by the access lane show timetable validity 2025-12-14 to 2026-12-12; verify same-day departures before import.",
+      "Närtrafik in Ulricehamn runs Monday-Friday in fixed time windows and must be ordered at least one hour before the window.",
+      "No ferry access is relevant for this section."
+    ]
+  },
+  "facilities": [
+    {
+      "name": "Prångens Camping & Stugby",
+      "normalizedCandidateType": [
+        "camping",
+        "lodging",
+        "toilet",
+        "water",
+        "shower",
+        "food",
+        "waste",
+        "service"
+      ],
+      "coordinates": [
+        57.8021388,
+        13.4067791
+      ],
+      "coordinateSource": "OSM relation 10257497 representative center, supported by official camping site and tourism pages",
+      "description": "Paid start facility cluster with camping/stugby, WC, water, showers, waste services, grill, cafe, parking, minigolf, playground and beach context. Treat utilities as guest/service-dependent rather than free trail utilities.",
+      "sourceUrls": [
+        "https://prangenscamping.se/",
+        "https://prangenscamping.se/camping/",
+        "https://www.vastsverige.com/ulricehamn/produkter/prangens-camping/",
+        "https://www.openstreetmap.org/relation/10257497"
+      ],
+      "routeProximityMetersApprox": 214,
+      "chainageKmApprox": 0,
+      "confidence": "high",
+      "importDecision": "import-as-paid-start-camping/service-cluster",
+      "caveats": "Deduplicate with section 7 Prångens endpoint and Prångens badplats facilities."
+    },
+    {
+      "name": "Prångens start parking",
+      "normalizedCandidateType": [
+        "parking"
+      ],
+      "coordinates": [
+        57.8027825,
+        13.4087782
+      ],
+      "coordinateSource": "OSM way 1322124828",
+      "description": "Start-side parking at Prångens Camping/Prången.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/way/1322124828",
+        "https://www.boras.se/download/18.66558cf31730da0c2e5d370/1593762406201/Sjuh%C3%A4radsleden%20etapp%208%2C%20karta.pdf"
+      ],
+      "routeProximityMetersApprox": 90,
+      "chainageKmApprox": 0,
+      "confidence": "high",
+      "importDecision": "model-as-start-access-metadata",
+      "caveats": "Deduplicate with Prångens Camping parking/service object."
+    },
+    {
+      "name": "Prångens info board/map",
+      "normalizedCandidateType": [
+        "information"
+      ],
+      "coordinates": [
+        57.8030519,
+        13.4087054
+      ],
+      "coordinateSource": "OSM node 6127007144",
+      "description": "Map/information board at the Prångens start area.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/6127007144",
+        "https://www.boras.se/download/18.66558cf31730da0c2e5d370/1593762406201/Sjuh%C3%A4radsleden%20etapp%208%2C%20karta.pdf"
+      ],
+      "routeProximityMetersApprox": 104,
+      "chainageKmApprox": 0,
+      "confidence": "medium-high",
+      "importDecision": "import-or-deduplicate-with-start-access",
+      "caveats": "May be the same map board modeled for section 7 endpoint."
+    },
+    {
+      "name": "Prångens badplats / swim area",
+      "normalizedCandidateType": [
+        "swimming",
+        "service"
+      ],
+      "coordinates": [
+        57.8017001,
+        13.4056699
+      ],
+      "coordinateSource": "OSM swimming node 6945751132, supported by Prångens Camping/Västsverige",
+      "description": "Beach/bathing area at Prången/Åsunden near the section start.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/6945751132",
+        "https://prangenscamping.se/",
+        "https://www.vastsverige.com/en/ulricehamn/produkter/prangens-camping/"
+      ],
+      "routeProximityMetersApprox": 291,
+      "chainageKmApprox": 0,
+      "confidence": "high",
+      "importDecision": "import-as-start-bathing/service-cluster",
+      "caveats": "Deduplicate with section 7 endpoint and Prångens Camping service records."
+    },
+    {
+      "name": "Ulricehamns Kallbadhus / restaurant",
+      "normalizedCandidateType": [
+        "sauna",
+        "restaurant",
+        "swimming_service"
+      ],
+      "coordinates": [
+        57.7963508,
+        13.4081141
+      ],
+      "coordinateSource": "OSM sauna node 3312586285; nearby restaurant node 3144409435 at 57.7964516, 13.4082747",
+      "description": "Nearby lakeside sauna/spa/restaurant service south of the route start.",
+      "sourceUrls": [
+        "https://www.vastsverige.com/ulricehamn/produkter/ulricehamns-kallbadhus/?site=614",
+        "https://www.openstreetmap.org/node/3312586285",
+        "https://www.openstreetmap.org/node/3144409435"
+      ],
+      "routeProximityMetersApprox": 600,
+      "chainageKmApprox": 0.17,
+      "confidence": "medium",
+      "importDecision": "pending-nearby-asunden-service",
+      "caveats": "Off-route service; include only if nearby town/lakeside services are in scope."
+    },
+    {
+      "name": "Hotell Nyboholm",
+      "normalizedCandidateType": [
+        "lodging",
+        "food",
+        "service"
+      ],
+      "coordinates": [
+        57.8048026,
+        13.420454
+      ],
+      "coordinateSource": "Vandrarhemsguiden coordinate, supported by official tourism/accommodation pages",
+      "description": "Hotel/hostel near the early route, listed in official stage context and current tourism pages. Older brochure mentions restaurant at the hostel; current service/opening should be verified before import as food.",
+      "sourceUrls": [
+        "https://www.vastsverige.com/ulricehamn/produkter/hotell-nyboholm/",
+        "https://www.vandrarhemsguiden.se/vandrarhem/hotell-vandrarhem-nyboholm/"
+      ],
+      "routeProximityMetersApprox": 489,
+      "chainageKmApprox": 0.56,
+      "confidence": "high",
+      "importDecision": "import-as-nearby-lodging/service",
+      "caveats": "Verify restaurant/public service currentness before exposing food service."
+    },
+    {
+      "name": "Ica Maxi Ulricehamn",
+      "normalizedCandidateType": [
+        "food",
+        "resupply"
+      ],
+      "coordinates": [
+        57.8126711,
+        13.421854
+      ],
+      "coordinateSource": "OSM node 7446348321",
+      "description": "Supermarket/resupply near the old railway/road service cluster early in the stage.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/7446348321"
+      ],
+      "routeProximityMetersApprox": 107,
+      "chainageKmApprox": 2.35,
+      "confidence": "high",
+      "importDecision": "import-as-resupply",
+      "caveats": "Confirm opening hours before publication if used for planning."
+    },
+    {
+      "name": "Circle K Ulricehamn",
+      "normalizedCandidateType": [
+        "food",
+        "resupply",
+        "service"
+      ],
+      "coordinates": [
+        57.8130133,
+        13.4190345
+      ],
+      "coordinateSource": "OSM node 13094139139",
+      "description": "Convenience/service station near the early stage corridor.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/13094139139"
+      ],
+      "routeProximityMetersApprox": 67,
+      "chainageKmApprox": 2.04,
+      "confidence": "high",
+      "importDecision": "import-as-resupply/service",
+      "caveats": "Confirm current opening/services before publication."
+    },
+    {
+      "name": "McDonald's Ulricehamn",
+      "normalizedCandidateType": [
+        "food"
+      ],
+      "coordinates": [
+        57.8124223,
+        13.4189539
+      ],
+      "coordinateSource": "OSM way 534299525",
+      "description": "Fast-food restaurant near the early stage service cluster.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/way/534299525"
+      ],
+      "routeProximityMetersApprox": 129,
+      "chainageKmApprox": 2.19,
+      "confidence": "medium",
+      "importDecision": "pending-or-import-per-food-poi-policy",
+      "caveats": "Commercial POI; normalize only if app includes nearby food services."
+    },
+    {
+      "name": "Fornåkrar vid ridhuset",
+      "normalizedCandidateType": [
+        "historic_site",
+        "heritage"
+      ],
+      "coordinates": [
+        57.8172369,
+        13.4425026
+      ],
+      "coordinateSource": "Nearest OSM guidepost node 2924825963; exact field polygon not found",
+      "description": "Official stage POI: prehistoric farmland near the riding facility, kept open by grazing horses.",
+      "sourceUrls": [
+        "https://www.boras.se/download/18.66558cf31730da0c2e5d370/1593762406201/Sjuh%C3%A4radsleden%20etapp%208%2C%20karta.pdf",
+        "https://www.openstreetmap.org/node/2924825963"
+      ],
+      "routeProximityMetersApprox": 0,
+      "chainageKmApprox": 3.71,
+      "confidence": "medium",
+      "importDecision": "pending-exact-heritage-geometry",
+      "caveats": "Coordinate is a guidepost/approximation; verify exact heritage area before high-precision import."
+    },
+    {
+      "name": "Varggrop",
+      "normalizedCandidateType": [
+        "historic_site",
+        "heritage"
+      ],
+      "coordinates": [
+        57.8192605,
+        13.4470341
+      ],
+      "coordinateSource": "OSM node 2924825929",
+      "description": "OSM-mapped cultural/historic attraction near the route.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/2924825929"
+      ],
+      "routeProximityMetersApprox": 52,
+      "chainageKmApprox": 4.18,
+      "confidence": "medium",
+      "importDecision": "pending-or-import-as-minor-cultural-poi",
+      "caveats": "Needs official/local-source confirmation if shown prominently."
+    },
+    {
+      "name": "Jordkulan i Nöre",
+      "normalizedCandidateType": [
+        "historic_site",
+        "hut",
+        "rest_area"
+      ],
+      "coordinates": [
+        57.8631192,
+        13.4647528
+      ],
+      "coordinateSource": "OSM way 288929808 representative center, supported by official Redvägsleden/stage sources",
+      "description": "1800s earth-dug emergency dwelling/rest destination, inhabited until 1885 and open to visitors. Major section facility cluster with shelter, fireplace, picnic tables, toilet and waste nearby.",
+      "sourceUrls": [
+        "https://www.vastsverige.com/ulricehamn/produkter/jordkulan-i-nore/",
+        "https://www.vastsverige.com/ulricehamn/leder/redvagsleden/",
+        "https://www.openstreetmap.org/way/288929808"
+      ],
+      "routeProximityMetersApprox": 20,
+      "chainageKmApprox": 10.98,
+      "confidence": "high",
+      "importDecision": "import-as-heritage/rest-area-cluster",
+      "caveats": "Do not conflate the historic jordkula itself with the adjacent overnight shelter."
+    },
+    {
+      "name": "Jordkulan vindskydd",
+      "normalizedCandidateType": [
+        "shelter",
+        "rest_area"
+      ],
+      "coordinates": [
+        57.8631101,
+        13.4644304
+      ],
+      "coordinateSource": "OSM node 4098318637; supported by Redvägsleden service notes and shelter-map sources",
+      "description": "Shelter at the Jordkulan facility cluster. Some sources tag sleeping/overnight shelter, while rules lane advises importing Jordkulan as rest shelter only until overnight status is confirmed.",
+      "sourceUrls": [
+        "https://www.vastsverige.com/ulricehamn/leder/redvagsleden/",
+        "https://www.openstreetmap.org/node/4098318637",
+        "https://vindskyddskartan.se/en/trails/Sjuh%C3%A4radsleden"
+      ],
+      "routeProximityMetersApprox": 35,
+      "chainageKmApprox": 11,
+      "confidence": "high for existence; medium for overnight use",
+      "importDecision": "import-as-shelter-with-overnight-caveat",
+      "caveats": "Verify overnight permission/current condition before labeling as overnight accommodation."
+    },
+    {
+      "name": "Jordkulan grill/firepit",
+      "normalizedCandidateType": [
+        "fireplace"
+      ],
+      "coordinates": [
+        57.8631954,
+        13.4646402
+      ],
+      "coordinateSource": "OSM node 2924826957 and Grillplatser nearby coordinate",
+      "description": "Fireplace/grill at Jordkulan. Fire use remains dependent on current fire-ban and fire-safety status.",
+      "sourceUrls": [
+        "https://grillplatser.nu/Grillplats/Visa/Vindskydd-Jordkulan",
+        "https://www.openstreetmap.org/node/2924826957",
+        "https://www.vastsverige.com/ulricehamn/leder/redvagsleden/"
+      ],
+      "routeProximityMetersApprox": 22,
+      "chainageKmApprox": 10.99,
+      "confidence": "high",
+      "importDecision": "import-with-dynamic-fire-ban-caveat",
+      "caveats": "Check SÄRF/Krisinformation before any fire-related publication."
+    },
+    {
+      "name": "Jordkulan picnic tables",
+      "normalizedCandidateType": [
+        "picnic_site"
+      ],
+      "coordinates": [
+        57.8632225,
+        13.4647881
+      ],
+      "coordinateSource": "OSM picnic table node 2924826958; second nearby table at 57.8631832, 13.4648381",
+      "description": "Picnic/rest table cluster at Jordkulan.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/2924826958",
+        "https://www.boras.se/download/18.66558cf31730da0c2e5d370/1593762406201/Sjuh%C3%A4radsleden%20etapp%208%2C%20karta.pdf"
+      ],
+      "routeProximityMetersApprox": 18,
+      "chainageKmApprox": 10.98,
+      "confidence": "high",
+      "importDecision": "import-one-picnic-cluster",
+      "caveats": "Deduplicate individual table nodes unless app supports micro-features."
+    },
+    {
+      "name": "Jordkulan toilet",
+      "normalizedCandidateType": [
+        "toilet"
+      ],
+      "coordinates": [
+        57.8635364,
+        13.4645314
+      ],
+      "coordinateSource": "OSM node 2924826964, supported by Redvägsleden service notes",
+      "description": "Toilet at Jordkulan facility cluster.",
+      "sourceUrls": [
+        "https://www.vastsverige.com/ulricehamn/leder/redvagsleden/",
+        "https://www.openstreetmap.org/node/2924826964"
+      ],
+      "routeProximityMetersApprox": 16,
+      "chainageKmApprox": 11,
+      "confidence": "high",
+      "importDecision": "import",
+      "caveats": "Verify current maintenance/seasonality if possible."
+    },
+    {
+      "name": "Jordkulan spring",
+      "normalizedCandidateType": [
+        "water"
+      ],
+      "coordinates": [
+        57.8631789,
+        13.4647094
+      ],
+      "coordinateSource": "OSM node 12400627515",
+      "description": "Natural spring/spring box at Jordkulan, not tagged potable. Recent field report noted Rabbaberget/Jordkulan-area water appeared empty/unreliable.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/12400627515",
+        "https://trekkingadventuresbackpacking.com/2025/08/29/e1-goteborg-to-grovelsjon-and-more-an-epic-seven-week-adventure/"
+      ],
+      "routeProximityMetersApprox": 22,
+      "chainageKmApprox": 10.99,
+      "confidence": "medium",
+      "importDecision": "pending-natural-water-not-potable",
+      "caveats": "Do not import as reliable or potable water; carry/treat water."
+    },
+    {
+      "name": "Jordkulan waste basket",
+      "normalizedCandidateType": [
+        "waste"
+      ],
+      "coordinates": [
+        57.8631589,
+        13.4645994
+      ],
+      "coordinateSource": "OSM node 12400627513",
+      "description": "Waste basket at Jordkulan facility cluster.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/12400627513"
+      ],
+      "routeProximityMetersApprox": 26,
+      "chainageKmApprox": 10.99,
+      "confidence": "medium",
+      "importDecision": "import-with-maintenance-caveat",
+      "caveats": "Verify current maintenance before relying on it in user-facing planning."
+    },
+    {
+      "name": "Jordkulan parking",
+      "normalizedCandidateType": [
+        "parking"
+      ],
+      "coordinates": [
+        57.8654073,
+        13.4628269
+      ],
+      "coordinateSource": "OSM node 2923650733",
+      "description": "Small gravel parking near Jordkulan, OSM capacity about 3.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/2923650733"
+      ],
+      "routeProximityMetersApprox": 183,
+      "chainageKmApprox": 11.16,
+      "confidence": "medium",
+      "importDecision": "model-as-access/connection-metadata",
+      "caveats": "Small capacity; do not present as major trailhead parking."
+    },
+    {
+      "name": "Redvägsleden / Sjuhäradsleden split",
+      "normalizedCandidateType": [
+        "trail_junction",
+        "information"
+      ],
+      "coordinates": [
+        57.8736045,
+        13.4863972
+      ],
+      "coordinateSource": "OSM guidepost node 2923650794, supported by official brochure overlap notes",
+      "description": "Trail junction where Redvägsleden and Sjuhäradsleden split; Sjuhäradsleden continues toward Äspås and Böne kyrka.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/2923650794",
+        "https://www.vastsverige.com/ulricehamn/leder/redvagsleden/"
+      ],
+      "routeProximityMetersApprox": 5,
+      "chainageKmApprox": 13.02,
+      "confidence": "high",
+      "importDecision": "model-as-route-overlap/junction-metadata",
+      "caveats": "Useful for route description and overlap normalization."
+    },
+    {
+      "name": "Böne kyrka",
+      "normalizedCandidateType": [
+        "church",
+        "historic_site",
+        "trailhead"
+      ],
+      "coordinates": [
+        57.8826902,
+        13.5162903
+      ],
+      "coordinateSource": "OSM way 243123578 / Svenska kyrkan endpoint context",
+      "description": "Official endpoint church, an 1820s empire-style church on the site of a medieval predecessor. Church/interior access may be limited; 2025 field report found it locked.",
+      "sourceUrls": [
+        "https://www.svenskakyrkan.se/ulricehamn/bone-kyrka",
+        "https://bebyggelseregistret.raa.se/bbr2/anlaggning/visaHistorik.raa?anlaggningId=21300000003207&page=historik&visaHistorik=true",
+        "https://www.openstreetmap.org/way/243123578",
+        "https://trekkingadventuresbackpacking.com/2025/08/29/e1-goteborg-to-grovelsjon-and-more-an-epic-seven-week-adventure/"
+      ],
+      "routeProximityMetersApprox": 52,
+      "chainageKmApprox": 15.1,
+      "confidence": "high",
+      "importDecision": "import-as-endpoint-heritage/church-poi",
+      "caveats": "Do not imply interior access, toilet or potable water; apply churchyard conduct rules."
+    },
+    {
+      "name": "Böne kyrka parking",
+      "normalizedCandidateType": [
+        "parking"
+      ],
+      "coordinates": [
+        57.8825488,
+        13.5157018
+      ],
+      "coordinateSource": "OSM node 2505561889",
+      "description": "Parking at/near the route endpoint and church.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/2505561889",
+        "https://www.boras.se/upplevaochgora/friluftslivochnatur/motionssparochvandringsleder/sjuharadsledenorangefleralangder.5.24ebe11318ec1938e09b18ee.html"
+      ],
+      "routeProximityMetersApprox": 15,
+      "chainageKmApprox": 15.1,
+      "confidence": "high",
+      "importDecision": "import-as-end-access-metadata",
+      "caveats": "Parking is the strongest Böne access; public transit is several kilometres away."
+    }
+  ],
+  "waterSources": [
+    {
+      "name": "Prångens Camping fresh water",
+      "type": "paid/service water",
+      "coordinates": [
+        57.8021388,
+        13.4067791
+      ],
+      "coordinateSource": "Prångens Camping/OSM service cluster",
+      "description": "Prångens Camping lists fresh water as part of its paid/guest service facilities at the stage start.",
+      "sourceUrls": [
+        "https://prangenscamping.se/",
+        "https://prangenscamping.se/camping/"
+      ],
+      "reliability": "high for paid/guest service; unknown for public non-guest use",
+      "confidence": "high",
+      "importDecision": "model-as-paid-start-service"
+    },
+    {
+      "name": "Jordkulan spring",
+      "type": "natural spring",
+      "coordinates": [
+        57.8631789,
+        13.4647094
+      ],
+      "coordinateSource": "OSM node 12400627515",
+      "description": "OSM natural spring/spring box at the Jordkulan cluster. It is not tagged potable, and a 2025 E1 field report said the Rabbaberget/Jordkulan-area well appeared empty/unreliable.",
+      "sourceUrls": [
+        "https://www.openstreetmap.org/node/12400627515",
+        "https://trekkingadventuresbackpacking.com/2025/08/29/e1-goteborg-to-grovelsjon-and-more-an-epic-seven-week-adventure/"
+      ],
+      "reliability": "unreliable/seasonal; not confirmed potable",
+      "confidence": "medium",
+      "importDecision": "pending-natural-water-do-not-mark-potable"
+    },
+    {
+      "name": "Böne kyrka water",
+      "type": "suppressed water claim",
+      "coordinates": [
+        57.8826902,
+        13.5162903
+      ],
+      "coordinateSource": "Böne kyrka / field-report context",
+      "description": "A 2025 firsthand E1 report says Böne kyrka had a notice that water was not drinkable. Do not import Böne kyrka as a potable-water source.",
+      "sourceUrls": [
+        "https://trekkingadventuresbackpacking.com/2025/08/29/e1-goteborg-to-grovelsjon-and-more-an-epic-seven-week-adventure/",
+        "https://www.svenskakyrkan.se/ulricehamn/bone-kyrka"
+      ],
+      "reliability": "not potable per 2025 report",
+      "confidence": "medium-high",
+      "importDecision": "suppress-as-water-source"
+    }
+  ],
+  "campingAndFire": {
+    "shelters": [
+      {
+        "name": "Jordkulan vindskydd",
+        "overnightUse": "uncertain: OSM/Swetrails/shelter-map context suggests sleeping shelter, but rules lane recommends rest shelter only until overnight permission/current condition is confirmed",
+        "coordinates": [
+          57.8631101,
+          13.4644304
+        ],
+        "sourceUrls": [
+          "https://www.openstreetmap.org/node/4098318637",
+          "https://www.vastsverige.com/ulricehamn/leder/redvagsleden/",
+          "https://vindskyddskartan.se/en/trails/Sjuh%C3%A4radsleden"
+        ],
+        "confidence": "high for shelter existence; medium for overnight use"
+      }
+    ],
+    "camping": {
+      "officialDesignatedCampsiteFound": true,
+      "startCamping": "Prångens Camping is the paid designated camping/stugby/ställplats service at the start.",
+      "generalRule": "Ulricehamn local ordinance treats hiking trails and cemeteries/churchyards as public-place equivalents for several rules; no camping on public/equated public places including hiking trails and cemeteries except designated campsites. Allemansrätten still applies outside restricted/public-place contexts when not damaging or disturbing.",
+      "confidence": "high",
+      "sourceUrls": [
+        "https://prangenscamping.se/camping/",
+        "https://www.ulricehamn.se/innehall/2023/06/Allmanna-lokala-ordningsforeskrifter.pdf",
+        "https://www.naturvardsverket.se/vagledning-och-stod/allemansratten/allemansratten-for-markagare/"
+      ]
+    },
+    "fire": {
+      "currentStatusOnAccessDate": "On 2026-04-29, the Länsstyrelsen fire-ban layer for Ulricehamn returned no fire ban, but the row dates were old; SÄRF/Krisinformation status remains dynamic.",
+      "ruleSummary": "Jordkulan has a fireplace/firepit, but fire use must follow current SÄRF/Krisinformation/local fire-ban and fire-safety rules. Do not import no-fire-ban status statically.",
+      "knownFireplaces": [
+        "Jordkulan grill/firepit"
+      ],
+      "sourceUrls": [
+        "https://www.krisinformation.se/forbered-dig/gras--och-skogsbrand/eldningsforbud/",
+        "https://ext-webbgis.lansstyrelsen.se/lst_eldningsforbud/",
+        "https://www.ulricehamn.se/bygga-bo-och-miljo/brandskydd-och-sotning/elda-utomhus",
+        "https://www.serf.se/globalassets/foretag/pm_eldning_grillning.pdf"
+      ],
+      "confidence": "high for dynamic-advisory requirement"
+    }
+  },
+  "rulesAndSafety": {
+    "protectedAreas": {
+      "sectionSpecificReserveFound": false,
+      "notes": "Rules lane checked Naturvårdsregistret and Natura 2000 WFS bbox around the route on 2026-04-29 and found no protected-area features on the route. Do not import unrelated Åsundenleden reserve rules into Etapp 8.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/vastra-gotalands-lan/sjuharadsleden-etapp-8"
+      ],
+      "confidence": "high"
+    },
+    "dogsLivestockPrivateLand": {
+      "notes": "Ulricehamn local ordinance applies to hiking trails and cemeteries as public-place equivalents for dog rules; dogs must be leashed and waste picked up. Naturvårdsverket guidance applies for wildlife/livestock and cultivated land: keep dogs controlled, close pasture gates, avoid damaging crops/fields and respect farming/forestry/hunting/fishing.",
+      "sourceUrls": [
+        "https://www.ulricehamn.se/innehall/2023/06/Allmanna-lokala-ordningsforeskrifter.pdf",
+        "https://www.naturvardsverket.se/vagledning-och-stod/allemansratten/allemansratten-for-markagare/"
+      ],
+      "confidence": "high"
+    },
+    "roadAndSurfaceHazards": {
+      "notes": "The stage starts on a shared paved walking/cycle path and then follows gravel/forest roads and some tractor road/path. Transportstyrelsen guidance says pedestrians should use the left side on road shoulder/roadway/shared GC path where possible. 2025 E1 field report noted wet/slippery path toward Böne after rain.",
+      "sourceUrls": [
+        "https://www.transportstyrelsen.se/sv/vagtrafik/trafikregler-och-vagmarken/trafikregler/gaende-rullstolsburen-rullskridskor/gaende/",
+        "https://trekkingadventuresbackpacking.com/2025/08/29/e1-goteborg-to-grovelsjon-and-more-an-epic-seven-week-adventure/"
+      ],
+      "confidence": "high"
+    },
+    "churchyardAndCulturalRules": {
+      "notes": "Böne kyrka and kyrkogård are endpoint cultural/churchyard contexts. Local ordinance covers cemetery conduct including dog leash/waste, no camping and alcohol restrictions. Svenska kyrkan gravestone-safety page was updated 2026-03-11; avoid climbing/leaning on monuments/gravestones and respect churchyard conduct. Field report says the church may be locked.",
+      "sourceUrls": [
+        "https://www.svenskakyrkan.se/ulricehamn/bone-kyrka",
+        "https://www.svenskakyrkan.se/ulricehamn/bone-kyrkogard",
+        "https://www.svenskakyrkan.se/ulricehamn/sakerhetskontroll-av-gravstenar",
+        "https://www.ulricehamn.se/innehall/2023/06/Allmanna-lokala-ordningsforeskrifter.pdf"
+      ],
+      "confidence": "high"
+    },
+    "hunting": {
+      "notes": "No section-specific hunting closure found. Naturvårdsverket says access can continue during hunting if visitors do not disturb; signs such as 'jakt pågår' are warnings, not automatic closure.",
+      "sourceUrls": [
+        "https://www.naturvardsverket.se/vagledning-och-stod/allemansratten/allemansratten-for-markagare/"
+      ],
+      "confidence": "medium"
+    },
+    "closuresAndCurrentness": {
+      "activeClosureFound": false,
+      "notes": "No stage-8-specific closure found in official sources. Naturkartan warns the whole Sjuhäradsleden is not fully quality-assured and may have signage/passability issues.",
+      "sourceUrls": [
+        "https://www.naturkartan.se/sv/vastra-gotalands-lan/sjuharadsleden-etapp-8",
+        "https://www.boras.se/upplevaochgora/friluftslivochnatur/motionssparochvandringsleder/sjuharadsledenorangefleralangder.5.24ebe11318ec1938e09b18ee.html"
+      ],
+      "confidence": "medium-high"
+    },
+    "emergency": {
+      "emergencyNumber": "112",
+      "notes": "For emergencies, call 112 and provide exact position/nearest road. The route has good road access in the early Ulricehamn section and more rural access toward Böne/Jordkulan.",
+      "sourceUrls": [
+        "https://www.serf.se/"
+      ],
+      "confidence": "high"
+    }
+  },
+  "conditionReports": [
+    {
+      "date": "2025-05-21/2025-05-22",
+      "published": "2025-08-29",
+      "source": "Where's Kathryn E1 report",
+      "url": "https://trekkingadventuresbackpacking.com/2025/08/29/e1-goteborg-to-grovelsjon-and-more-an-epic-seven-week-adventure/",
+      "summary": "Firsthand E1 hiker left Prångens, climbed in rain to Rabbaberget/Jordkulan-area shelter, reported the well appeared empty, shelter/cabin usable, then next morning the path toward Böne kyrka was wet and potentially slippery. At Böne kyrka the church was locked and a notice said water was not drinkable.",
+      "confidence": "high",
+      "importImpact": "Add wet/slippery-when-rainy note, mark Jordkulan/Rabbaberget water unreliable, mark Böne kyrka no potable water and church access unreliable."
+    },
+    {
+      "date": "2024-04-28",
+      "source": "AllTrails whole-trail review",
+      "url": "https://www.alltrails.com/trail/sweden/vastra-gotaland/sjuharadsleden",
+      "summary": "Whole-trail review says the Ulricehamn-Mullsjö stretch is mostly dirt roads and fairly monotonous.",
+      "confidence": "medium",
+      "importImpact": "Surface/experience note for section 8 and following stages: expect extensive gravel/dirt road walking."
+    },
+    {
+      "date": "2024-08-03/2024-08-04",
+      "source": "Flickr Sjuhäradsleden / Jordkulan photo tags",
+      "url": "https://www.flickr.com/photos/tags/sjuh%C3%A4radsleden/",
+      "summary": "Photo-title evidence for Sjuhäradsleden section 8 Böne kyrka to Prångens Camping, including Jordkulan and local features. No condition complaint visible in indexed text.",
+      "confidence": "low-medium",
+      "importImpact": "Historical evidence of section use; not a current condition clearance."
+    },
+    {
+      "date": "2026-04-29",
+      "source": "Naturkartan Etapp 8",
+      "url": "https://www.naturkartan.se/sv/vastra-gotalands-lan/sjuharadsleden-etapp-8",
+      "summary": "Naturkartan warning says Sjuhäradsleden is not fully quality-assured by Västkuststiftelsen and generally has signage/passability deficiencies. Section 8 had no visible user reviews/questions in the field-report lane.",
+      "confidence": "high for warning",
+      "importImpact": "Add currentness warning, not closure."
+    },
+    {
+      "date": "2024-01-26",
+      "source": "E1 Hiking Europe reverse stage",
+      "url": "https://e1.hiking-europe.eu/e1/etappen/norwegen-finnland-schweden/vaestra-goetalands-laen-joenkoepings-laen/boene-kyrka-prangens-camping",
+      "summary": "Reverse-direction E1 stage Böne kyrka to Prångens Camping lists 15.1 km, 4 h 30 min, and Jordkulan/Prångens Camping as accommodation entries; no condition comments.",
+      "confidence": "medium-high",
+      "importImpact": "Metadata/geometry cross-check only."
+    }
+  ],
+  "sourceContradictions": [
+    {
+      "topic": "Böne kyrka coordinate typo",
+      "sources": [
+        "https://www.boras.se/upplevaochgora/friluftslivochnatur/motionssparochvandringsleder/sjuharadsledenorangefleralangder.5.24ebe11318ec1938e09b18ee.html",
+        "https://www.naturkartan.se/sv/vastra-gotalands-lan/sjuharadsleden-etapp-8.gpx",
+        "https://www.naturkartan.se/sv/vastra-gotalands-lan/sjuharadsleden-etapp-9.gpx"
+      ],
+      "description": "Borås stage 8 prints Böne kyrka as 6416620 4120226, which is almost certainly an extra-digit easting typo. Borås stage 9, the GPX endpoint and the actual Böne kyrka area support 6416620 412026.",
+      "importImpact": "Use the corrected easting 412026 for Borås/SWEREF-derived Böne access metadata and preserve the stage 8 printed value as a typo.",
+      "confidence": "high"
+    },
+    {
+      "topic": "Difficulty wording",
+      "sources": [
+        "https://www.boras.se/upplevaochgora/friluftslivochnatur/motionssparochvandringsleder/sjuharadsledenorangefleralangder.5.24ebe11318ec1938e09b18ee.html",
+        "https://ulricehamn.se/innehall/2022/10/Sjuharadsleden-etapp-8.pdf"
+      ],
+      "description": "Current Borås page says Lätt, while older official brochure text says Lätt/medel.",
+      "importImpact": "Use Lätt/Easy as display difficulty and keep older light/medium note as caveat.",
+      "confidence": "medium-high"
+    },
+    {
+      "topic": "Distance and geometry length",
+      "sources": [
+        "https://www.boras.se/upplevaochgora/friluftslivochnatur/motionssparochvandringsleder/sjuharadsledenorangefleralangder.5.24ebe11318ec1938e09b18ee.html",
+        "https://www.naturkartan.se/sv/vastra-gotalands-lan/sjuharadsleden-etapp-8",
+        "https://www.openstreetmap.org/relation/5607243"
+      ],
+      "description": "Borås lists 15 km, Naturkartan page/geometry gives about 15.1 km, Naturkartan GPX part-sum is about 15.115 km and OSM about 15.053 km.",
+      "importImpact": "Use official rounded 15 km for display; use Naturkartan/OSM measures for geometry QA.",
+      "confidence": "high"
+    },
+    {
+      "topic": "Prångens endpoint/start semantics",
+      "sources": [
+        "https://www.naturkartan.se/sv/vastra-gotalands-lan/sjuharadsleden-etapp-7.gpx",
+        "https://www.naturkartan.se/sv/vastra-gotalands-lan/sjuharadsleden-etapp-8.gpx",
+        "https://www.boras.se/download/18.66558cf31730da0c2e5d370/1593762406201/Sjuh%C3%A4radsleden%20etapp%208%2C%20karta.pdf"
+      ],
+      "description": "Naturkartan section 7 end, section 8 start and Borås/Prångens Camping access coordinates do not collapse to one point. Section 8 start is better aligned with OSM, while Borås access coordinate is closer to the campsite.",
+      "importImpact": "Use Naturkartan route-line points for route continuity and model Prångens Camping as a nearby access/service cluster.",
+      "confidence": "high"
+    },
+    {
+      "topic": "Water reliability at Jordkulan and Böne",
+      "sources": [
+        "https://www.openstreetmap.org/node/12400627515",
+        "https://trekkingadventuresbackpacking.com/2025/08/29/e1-goteborg-to-grovelsjon-and-more-an-epic-seven-week-adventure/",
+        "https://www.svenskakyrkan.se/ulricehamn/bone-kyrka"
+      ],
+      "description": "OSM has a spring at Jordkulan, but field evidence says the well appeared empty/unreliable. A 2025 report says Böne kyrka water was signed not drinkable.",
+      "importImpact": "Do not import Jordkulan or Böne as reliable potable water. Carry water from Prångens/Ulricehamn or treat natural water.",
+      "confidence": "medium-high"
+    },
+    {
+      "topic": "Jordkulan overnight-shelter status",
+      "sources": [
+        "https://www.vastsverige.com/ulricehamn/leder/redvagsleden/",
+        "https://www.openstreetmap.org/node/4098318637",
+        "https://vindskyddskartan.se/en/trails/Sjuh%C3%A4radsleden"
+      ],
+      "description": "Facilities lane found shelter sources suggesting sleeping/overnight use at Jordkulan, while rules lane recommends importing Jordkulan as rest shelter only until overnight permission/current condition is confirmed.",
+      "importImpact": "Import shelter with overnight-use caveat or pending overnight flag.",
+      "confidence": "medium-high"
+    }
+  ],
+  "researchIterations": [
+    {
+      "iteration": 1,
+      "startedAt": "2026-04-29T20:12:00Z",
+      "completedAt": "2026-04-29T20:28:00Z",
+      "agentBatchId": "section-8-batch-1",
+      "lanes": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddadb-6775-75c0-99fe-57cb00937b46",
+          "nickname": "Mencius",
+          "summary": "Confirmed official label Prångens Camping - Böne kyrka, 15 km/15.1 km, 4.5 h, Lätt, surface split, official POIs, Åsundenleden/Redvägsleden overlaps, and the Böne coordinate typo."
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddadb-67db-7013-aa2e-a06f33a8a72e",
+          "nickname": "Kierkegaard",
+          "summary": "Audited Naturkartan GPX/API and OSM relation 5607243. Naturkartan has three parts and 15.115 km segment-sum; OSM is connected but reversed. Confirmed exact section 8/9 continuity and OSM overlap lengths for Åsundenleden/Redvägsleden."
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddadb-6812-7ba3-8e9d-acca22037704",
+          "nickname": "Ohm",
+          "summary": "Found Prångens Camping, start parking/info, Prången badplats, early Ulricehamn services, Fornåkrar, Varggrop, Jordkulan facility cluster, Redvägsleden split, Böne kyrka and Böne parking, with import/suppress decisions."
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddadb-6874-79d0-8f3e-7564d2b364a7",
+          "nickname": "Curie",
+          "summary": "Verified strong start access via Karlsnäs/Bronäs/Ågatan/Ulricehamn busstation, treated Brunnsnäs as older stop reference, and found weak Böne transit via Dalum/Tingvallen/Vedåslavägen plus parking at Böne kyrka."
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddadb-68c2-7800-bb3f-8a89e53e38c6",
+          "nickname": "Pasteur",
+          "summary": "Found a direct 2025 E1 report noting rain, wet/slippery path toward Böne, unreliable/empty water at Rabbaberget/Jordkulan, Böne church locked and water not drinkable; no current section-specific closure found."
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddadb-68fa-7830-800a-0f46a3512361",
+          "nickname": "Boole",
+          "summary": "Confirmed no protected-area overlap from WFS checks, dynamic fire-ban status, local leash/no-camping/churchyard rules, road safety, water reliability caveats and no stage-specific closure."
+        }
+      ],
+      "synthesisDecision": "Section 8 is strong enough for normalization review with caveats. No second agent batch needed; remaining gaps are exact import policy for Prångens access, corrected Böne coordinate use, Jordkulan overnight/water reliability, Böne transit weakness and endpoint churchyard/service claims."
+    }
+  ],
+  "openQuestions": [
+    "Use corrected Böne easting 412026 for Borås-derived endpoint/access metadata and preserve the stage 8 printed 4120226 as a typo.",
+    "Decide whether the import endpoint should use Naturkartan route-line endpoint, Böne church building coordinate or Böne parking coordinate.",
+    "Confirm whether Jordkulan vindskydd should be marked overnight shelter or rest shelter only.",
+    "Verify current maintenance/seasonality of Jordkulan toilet, waste basket and shelter.",
+    "Do not import Jordkulan spring or Böne kyrka as potable water without current confirmation; verify if any safe water exists between Prångens and Böne.",
+    "Verify Brunnsnäs stop currentness; current active start stops appear to be Karlsnäs/Bronäs/Ågatan.",
+    "Verify whether Böne kyrka has any current public toilet/open church hours before showing services.",
+    "Refresh Västtrafik line 201/209/262/265 schedules and SÄRF/Krisinformation fire status immediately before import."
+  ],
+  "importReadiness": {
+    "status": "ready-for-normalization-with-caveats",
+    "readyForRuntimeImport": false,
+    "summary": "Section 8 has enough official source, GPX/API/OSM geometry, facilities, commute/access, field-report and rules/safety evidence for normalization. It is not ready for direct runtime import because Böne's printed coordinate typo must be corrected, Prångens and Böne endpoint/access semantics must be modeled separately, Jordkulan overnight/water status needs cautious treatment, Böne transit is weak and water/service claims are limited.",
+    "descriptionDraft": "Etapp 8 runs from Prångens Camping in Ulricehamn to Böne kyrka. The route starts on the old railway embankment, now an asphalt walking/cycling path, then continues on gravel roads, forest roads and some paths toward Böne. It overlaps briefly with Åsundenleden near the start and shares a longer northern section with Redvägsleden before the trails split. Prångens/Ulricehamn has strong services at the start; Jordkulan i Nöre is the major mid/late-stage heritage and rest cluster with shelter, fireplace, toilet and picnic facilities, but water there is not reliable. Böne kyrka is the endpoint with parking and heritage context, but weak public transport and no confirmed potable water.",
+    "recommendedGeometry": "Use Naturkartan Etapp 8 GPX/API as the primary geometry, preserving its three-part MultiLineString structure or bridging the small inter-track gaps intentionally. Use OSM relation 5607243 as a routable cross-check after reversing member order and for Åsundenleden/Redvägsleden overlap attribution.",
+    "recommendedEndpointPolicy": "Use Naturkartan GPX endpoints for route continuity. Model Prångens Camping/service and Böne kyrka/parking/church as nearby access/facility clusters. For Borås-derived Böne metadata, use corrected easting 412026 and not the stage 8 printed 4120226 typo.",
+    "recommendedFacilityPolicy": [
+      "Import Prångens Camping as paid start camping/lodging/service and deduplicate with sections 7/8 Prångens badplats and info/parking.",
+      "Import early Ulricehamn services such as Ica Maxi and Circle K only if nearby resupply is in scope.",
+      "Keep Fornåkrar pending exact heritage geometry; use current guidepost approximation only as a low-precision clue.",
+      "Import Jordkulan i Nöre as a heritage/rest cluster with shelter, fireplace, toilet, picnic and waste records, while treating spring/water as non-potable/unreliable.",
+      "Import Jordkulan shelter with overnight-use caveat until permission/current condition is verified.",
+      "Import Böne kyrka and parking as endpoint heritage/access metadata, but suppress water/toilet/opening claims unless verified."
+    ],
+    "majorCaveats": [
+      "Borås stage 8 Böne easting 4120226 is a typo; use 412026 as supported by stage 9, GPX and church location.",
+      "Naturkartan/STF QA and reroute warnings remain relevant; no section-specific closure found.",
+      "Naturkartan GPX/API is three parts; avoid artificial inter-track length unless deliberately bridged.",
+      "Böne public transport is weak; current regular stops are around Dalum/Tingvallen several kilometres away.",
+      "Böne kyrka water was reported not drinkable in 2025 and the church may be locked.",
+      "Jordkulan spring/well is unreliable and not confirmed potable.",
+      "Jordkulan overnight shelter status needs verification."
+    ],
+    "nextSafeStep": "Commit this section packet, then proceed to section 9 six-agent batch with special attention to Böne kyrka/Årås säteri versus Årås kvarn naming, Årås reserve/service/facility rules, Redvägsleden overlap and water/transit access."
+  }
+}

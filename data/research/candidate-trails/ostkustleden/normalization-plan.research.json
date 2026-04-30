@@ -1,0 +1,362 @@
+{
+  "schemaVersion": "candidate-trail-normalization-plan-v1",
+  "trailId": "ostkustleden",
+  "lastUpdated": "2026-04-30T06:13:27Z",
+  "scope": "Research-only normalization planning. This file describes how later import should use the candidate research; it does not create runtime route, source, public or generated app data.",
+  "inputs": [
+    "README.md",
+    "trail.research.json",
+    "caveat-resolution.research.json",
+    "current-verification.research.json",
+    "sections/*.research.json"
+  ],
+  "doNotRunDuringThisTask": [
+    "npm run data:build",
+    "npm run data:build:hiking",
+    "npm run data:kayak:import",
+    "npm run import:naturkartan",
+    "any command that rewrites shared generated app outputs"
+  ],
+  "overallDecision": {
+    "readyForNormalizationPlanning": true,
+    "readyForRuntimeImport": false,
+    "reason": "All eight sections are researched and static caveats now have a controlling policy, but runtime import still needs an explicit import task, geometry implementation, GIS overlays for boundary-sensitive rules, duplicate facility resolution and publication-time checks for unstable facts."
+  },
+  "canonicalTrail": {
+    "trailId": "ostkustleden",
+    "displayName": "Ostkustleden",
+    "type": "closed ring split into eight official linear stages",
+    "canonicalStartFinish": "Lilla Hycklinge",
+    "sectionOrder": [
+      "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "ostkustleden-etapp-2-nynas-lonhult",
+      "ostkustleden-etapp-3-lonhult-krokstorp",
+      "ostkustleden-etapp-4-krokstorp-mortfors",
+      "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+    ],
+    "displayDistanceKmBySection": [
+      16,
+      20.6,
+      20.5,
+      17.4,
+      19,
+      18.4,
+      21.6,
+      16.9
+    ],
+    "displayDistanceKmTotal": 150.4,
+    "distancePolicy": "Use official section-page display distances where straightforward. For Etapp 5, display about 19 km and preserve Naturkartan 21.4 km as a duplicate-geometry artifact note; keep computed GPX lengths as geometry metadata."
+  },
+  "geometryPlan": [
+    {
+      "sectionId": "ostkustleden-etapp-1-lilla-hycklinge-nynas",
+      "sectionNumber": 1,
+      "from": "Lilla Hycklinge",
+      "to": "Nynäs",
+      "officialGpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/lilla-hycklinge-nynas-ostkustleden-etapp-1.gpx",
+      "displayDistanceKm": 16,
+      "computedDistanceKm": {
+        "rawConcatenated": 20.354076,
+        "normalized": 15.98596
+      },
+      "normalizationAction": "Use track 1 followed by reversed track 2, snapping the approximately 0.2 m join.",
+      "normalizedStart": [
+        57.276033434166,
+        16.3824610921365
+      ],
+      "normalizedEnd": [
+        57.3578725758454,
+        16.2658329902812
+      ],
+      "endpointDecision": "Use official GPX endpoint for route continuity with Etapp 2. Keep Nynäs/Nynässtugan as the human stage-goal facility and access/cabin metadata; do not snap the geometry to the cabin without a sourced access leg.",
+      "endpointGaps": [
+        "Normalized GPX endpoint is about 565.9 m from Nynäs cabin marker.",
+        "Etapp 2 GPX start matches the Etapp 1 normalized endpoint."
+      ],
+      "geometryGradeForImport": "usable after track reversal, but route/cabin endpoint policy must be explicit",
+      "requiresVisualCheck": true
+    },
+    {
+      "sectionId": "ostkustleden-etapp-2-nynas-lonhult",
+      "sectionNumber": 2,
+      "from": "Nynäs",
+      "to": "Lönhult",
+      "officialGpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/nynas-lonhult-ostkustleden-etapp-2.gpx",
+      "displayDistanceKm": 20.6,
+      "computedDistanceKm": {
+        "normalized": 20.622734
+      },
+      "normalizationAction": "Use official GPX in stored order. No reversal or sequencing needed.",
+      "normalizedStart": [
+        57.3578725758206,
+        16.2658329902813
+      ],
+      "normalizedEnd": [
+        57.4360461623922,
+        16.137966678238
+      ],
+      "endpointDecision": "Use GPX start for continuity from Etapp 1 and keep Nynäs cabin as nearby stage-goal/access metadata around route km 0.699. Use Lönhult cabin as endpoint facility metadata, not a geometry snap target.",
+      "endpointGaps": [
+        "Nynäs cabin marker is about 565.9 m direct from GPX start; nearest GPX point is about 13.1 m from cabin marker at route km 0.699.",
+        "Lönhult cabin marker is about 24.2 m direct from the GPX endpoint."
+      ],
+      "geometryGradeForImport": "navigation-grade with Nynäs endpoint policy caveat",
+      "requiresVisualCheck": false
+    },
+    {
+      "sectionId": "ostkustleden-etapp-3-lonhult-krokstorp",
+      "sectionNumber": 3,
+      "from": "Lönhult",
+      "to": "Krokstorp",
+      "officialGpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/lonhult-krokstorp-ostkustleden-etapp-3.gpx",
+      "displayDistanceKm": 20.5,
+      "computedDistanceKm": {
+        "sumPieceDistance": 20.459872,
+        "rawConcatenatedWithJumps": 54.841849,
+        "normalizedWithSmallJoins": 20.549165
+      },
+      "normalizationAction": "Apply sequence 10, 1, 9R, 8, 6R, 7, 5, 2R, 4R, 3R. Snap or bridge documented small joins under about 35 m as metadata.",
+      "normalizedStart": [
+        57.4360461623922,
+        16.137966678238
+      ],
+      "normalizedEnd": [
+        57.4433415338587,
+        16.3866097138442
+      ],
+      "endpointDecision": "Use GPX endpoints for section continuity. Keep Lönhult and Krokstorp cabin markers as endpoint facility metadata.",
+      "endpointGaps": [
+        "Start is about 24.2 m from Lönhult cabin.",
+        "End is about 26.4 m from Krokstorp cabin.",
+        "Largest documented route-piece joins are 33.98 m and 23.01 m near Krokstorp."
+      ],
+      "geometryGradeForImport": "navigation-grade after sequencing/reversal; raw GPX is not importable",
+      "requiresVisualCheck": true
+    },
+    {
+      "sectionId": "ostkustleden-etapp-4-krokstorp-mortfors",
+      "sectionNumber": 4,
+      "from": "Krokstorp",
+      "to": "Mörtfors",
+      "officialGpxUrl": "https://www.naturkartan.se/en/kalmar-lan/krokstorp-mortfors-ostkustleden-etapp-4.gpx",
+      "displayDistanceKm": 17.4,
+      "computedDistanceKm": {
+        "rawStoredOrderWithFalseJumps": 41.635,
+        "normalized": 17.409
+      },
+      "normalizationAction": "Apply sequence 7R, 8R, 9R, 10, 1R, 5, 6R, 2, 3R. Drop or deduplicate track 4 because it is a 9.9 m internal duplicate of track 3.",
+      "normalizedStart": [
+        57.443342,
+        16.38661
+      ],
+      "normalizedEnd": [
+        57.524671,
+        16.471527
+      ],
+      "endpointDecision": "Use repaired GPX endpoints; keep Krokstorp and Mörtfors cabin markers as endpoint facilities. Do not use the route-page pin as an endpoint.",
+      "endpointGaps": [
+        "Krokstorp cabin marker is 26.4 m from normalized route start.",
+        "Mörtfors cabin marker is 5.7 m from normalized route end."
+      ],
+      "geometryGradeForImport": "navigation-grade after sequencing; raw GPX is not importable",
+      "requiresVisualCheck": true
+    },
+    {
+      "sectionId": "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "sectionNumber": 5,
+      "from": "Mörtfors",
+      "to": "Stjärneberg",
+      "officialGpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/mortfors-stjarneberg-ostkustleden-etapp-5.gpx",
+      "displayDistanceKm": 19,
+      "computedDistanceKm": {
+        "rawDuplicateInflated": 21.346,
+        "cleanedOfficialLine": 18.734025,
+        "cleanedWithEndpointConnectors": 18.747551
+      },
+      "normalizationAction": "Discard T2 as exact duplicate of T1. Reverse T1 from Mörtfors cabin area to shared junction. Reverse T3, trim the stored final 4.037 m overshoot/tail, then join at the shared junction and continue to Stjärneberg.",
+      "normalizedStart": [
+        57.524670505041,
+        16.4715270282426
+      ],
+      "normalizedEnd": [
+        57.5144154529917,
+        16.6018438162613
+      ],
+      "endpointDecision": "Use repaired GPX endpoints. Keep Mörtfors and Stjärneberg cabin markers as endpoint facility metadata. Do not carry a static Stjärneberg closed/arsenic warning.",
+      "endpointGaps": [
+        "Mörtfors cabin marker is 5.654 m from cleaned GPX start.",
+        "Stjärneberg cabin marker is 7.872 m from cleaned GPX end.",
+        "Naturkartan route page/API marker is a mid-route junction and must not be treated as an endpoint."
+      ],
+      "geometryGradeForImport": "planning-grade after repair; not raw-importable",
+      "requiresVisualCheck": true
+    },
+    {
+      "sectionId": "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "sectionNumber": 6,
+      "from": "Stjärneberg",
+      "to": "Lilla Laxemar",
+      "officialGpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/stjarneberg-lilla-laxemar-ostkustleden-etapp-6.gpx",
+      "displayDistanceKm": 18.4,
+      "computedDistanceKm": {
+        "officialGpx": 18.406812509,
+        "apiLinework": 18.400816298
+      },
+      "normalizationAction": "Reverse the single official GPX track to official Stjärneberg-to-Lilla Laxemar direction. Do not replace with lower-density API linework.",
+      "normalizedStart": [
+        57.5144154529917,
+        16.6018438162613
+      ],
+      "normalizedEnd": [
+        57.4170131696001,
+        16.6403880252345
+      ],
+      "endpointDecision": "Use reversed GPX endpoints. Keep Stjärneberg and Lilla Laxemar cabin clusters as endpoint facility metadata.",
+      "endpointGaps": [
+        "Stjärneberg cabin marker is 7.87 m from corrected GPX start.",
+        "Lilla Laxemar cabin marker is 13.83 m from corrected GPX end.",
+        "Naturkartan stage marker equals the Lilla Laxemar endpoint, not the Stjärneberg start."
+      ],
+      "geometryGradeForImport": "navigation-grade after reversing direction",
+      "requiresVisualCheck": true
+    },
+    {
+      "sectionId": "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "sectionNumber": 7,
+      "from": "Lilla Laxemar",
+      "to": "Hällveberg",
+      "officialGpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/lilla-laxemar-hedvigsberg-hallveberg-ostkustleden-etapp-7.gpx",
+      "displayDistanceKm": 21.6,
+      "computedDistanceKm": {
+        "officialGpx": 21.611762,
+        "apiLinework": 21.609366
+      },
+      "normalizationAction": "Use official GPX unchanged in stored Lilla Laxemar-to-Hällveberg direction.",
+      "normalizedStart": [
+        57.41701328186738,
+        16.64038912388307
+      ],
+      "normalizedEnd": [
+        57.3622443,
+        16.4542086
+      ],
+      "endpointDecision": "Use GPX endpoints. Use Hällveberg as display name; preserve Hedvigsberg as older alias. Do not include Figeholm/Fårbo/Fårbosjön detours in main geometry without sourced spur geometry.",
+      "endpointGaps": [
+        "Lilla Laxemar cabin marker is 13.8 m from GPX start.",
+        "Hällveberg cabin marker is 15.9 m from GPX end."
+      ],
+      "geometryGradeForImport": "navigation-grade as-is",
+      "requiresVisualCheck": false
+    },
+    {
+      "sectionId": "ostkustleden-etapp-8-hallveberg-lilla-hycklinge",
+      "sectionNumber": 8,
+      "from": "Hällveberg",
+      "to": "Lilla Hycklinge",
+      "officialGpxUrl": "https://www.naturkartan.se/sv/kalmar-lan/hedvigsberg-lilla-hycklinge-ostkustleden-etapp-8.gpx",
+      "displayDistanceKm": 16.9,
+      "computedDistanceKm": {
+        "officialGpxSegmentSum": 16.8335,
+        "officialGpxWithJoinGaps": 16.834,
+        "apiLineworkWithJoinGaps": 16.8263
+      },
+      "normalizationAction": "Use official GPX after sequencing tracks 8, 4, 3, 1, 5R, 6R and excluding duplicate sliver tracks 2 and 7.",
+      "normalizedStart": [
+        57.3621595292002,
+        16.4541861270027
+      ],
+      "normalizedEnd": [
+        57.276033434166,
+        16.3824610921364
+      ],
+      "endpointDecision": "Use official GPX endpoint to close the digital ring with Etapp 1. Keep Lilla Hycklinge cabin marker as endpoint facility/access metadata pending a separately sourced access leg.",
+      "endpointGaps": [
+        "Hällveberg cabin marker is 14.7 m from normalized GPX start.",
+        "Lilla Hycklinge cabin marker is 156.4 m from normalized GPX end.",
+        "Naturkartan Etapp 8 marker is mid-route, not start/end."
+      ],
+      "geometryGradeForImport": "navigation-grade after sequencing and duplicate-sliver removal",
+      "requiresVisualCheck": true
+    }
+  ],
+  "facilityImportPlan": {
+    "importAsCandidateFacilities": [
+      "Official endpoint cabin clusters: Nynäs, Lönhult, Krokstorp, Mörtfors, Stjärneberg, Lilla Laxemar, Hällveberg, Lilla Hycklinge.",
+      "High-confidence official access/parking/toilet records already present in section files, subject to duplicate resolution.",
+      "High-confidence official POIs such as Snäckedal and Stensjö by, preserving access restrictions."
+    ],
+    "modelAsFacilityMetadataOrClusteredSubfacility": [
+      "Cabin-yard wells, taps, toilets, fireplaces, grills and woodsheds where no separate source-backed coordinate exists.",
+      "Stjärneberg well, Hällveberg well, Lilla Laxemar summer/winter water, Lilla Hycklinge water/toilet and similar cabin-support details."
+    ],
+    "modelAsAccessOrServiceMetadata": [
+      "Närtrafik and taxi/pickup dependencies.",
+      "Figeholm, Fårbo, Klintemåla, Stensjö by service, Tilias and other food/lodging/shop/marina clusters unless they are route-adjacent and source-backed.",
+      "Hällveberg access via Sippetorp/Fårbo E22 because the cabin has no direct car road access."
+    ],
+    "keepPendingOrSuppressFromDefaultImport": [
+      "Narrative POIs without exact coordinates.",
+      "Approximate locality/lake-centroid swimming records.",
+      "Protected-area or water-protection context not confirmed by GIS overlay."
+    ],
+    "dedupeKeysToReview": [
+      "Shared endpoint cabins between adjacent stages.",
+      "Mörtfors toilets/parking records shared between Etapp 4 and Etapp 5.",
+      "Krokstorp cabin/toilet/well records shared between Etapp 3 and Etapp 4.",
+      "Lilla Laxemar records shared between Etapp 6 and Etapp 7.",
+      "Hällveberg records shared between Etapp 7 and Etapp 8."
+    ]
+  },
+  "rulesAndCurrentnessPlan": {
+    "applyAsStaticRulesOnlyWhenConfirmed": [
+      "Official reserve/cultural-reserve rules where the source says the route passes through the area, such as Humlenäs and Stensjö by.",
+      "Cabin-specific no-outdoor-fire/no-electricity/boil-water wording from current official cabin pages, with accessed dates."
+    ],
+    "publicationTimeChecks": [
+      "Fire bans and fire-risk warnings.",
+      "KLT fixed-route and Närtrafik service.",
+      "Cabin availability and fees.",
+      "Water reliability and quality.",
+      "Hunting signs/notices.",
+      "Forestry and route passability."
+    ],
+    "requiresGisOverlayBeforeRuleImport": [
+      "Bråbygden Natura 2000",
+      "Krokshult reserve context",
+      "Misterhults skärgård reserve/Natura 2000 C-areas",
+      "Stamsjövägen reserve",
+      "Fårbo water-protection area",
+      "Virån Natura 2000",
+      "biotopskydd SK 568-2007",
+      "other water-protection areas near route context"
+    ]
+  },
+  "normalizationImplementationNotes": [
+    "Implement geometry transforms in a staging script or notebook under candidate research first; do not write public/data, public/routes or data/source/hiking until the user explicitly requests runtime integration.",
+    "For each normalized section, preserve raw source URL, transform instructions, computed length, official display distance, endpoint gap notes and route-page marker caveats.",
+    "Generate visual QA artifacts only under candidate research if needed.",
+    "Before runtime import, run a map visual review of every repaired multi-track section against the official PDF/map viewer and adjacent section endpoints.",
+    "Do not silently drop route-piece joins; store join distances in metadata where they exceed normal GPS jitter."
+  ],
+  "readinessBySection": {
+    "readyForGeometryNormalizationAfterPlan": [
+      "ostkustleden-etapp-2-nynas-lonhult",
+      "ostkustleden-etapp-3-lonhult-krokstorp",
+      "ostkustleden-etapp-4-krokstorp-mortfors",
+      "ostkustleden-etapp-5-mortfors-stjarneberg",
+      "ostkustleden-etapp-6-stjarneberg-lilla-laxemar",
+      "ostkustleden-etapp-7-lilla-laxemar-hallveberg",
+      "ostkustleden-etapp-8-hallveberg-lilla-hycklinge"
+    ],
+    "readyWithExplicitEndpointPolicy": [
+      "ostkustleden-etapp-1-lilla-hycklinge-nynas"
+    ],
+    "notReadyForRuntimeImport": [
+      "all sections"
+    ]
+  },
+  "recommendedNextStep": "If runtime integration is later requested, first implement a candidate-only geometry normalization prototype and QA output under data/research/candidate-trails/ostkustleden/, then review it before touching shared hiking source data."
+}

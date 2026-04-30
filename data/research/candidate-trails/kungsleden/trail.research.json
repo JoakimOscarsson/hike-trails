@@ -1,9 +1,9 @@
 {
   "schemaVersion": "trail-research-v1",
   "trailId": "kungsleden",
-  "lastUpdated": "2026-04-29T19:13:37+02:00",
+  "lastUpdated": "2026-04-30T06:25:00Z",
   "accessedDate": "2026-04-29",
-  "status": "phase-1-overview-complete",
+  "status": "phase-2-section-research-and-geometry-qa-complete-research-only",
   "purpose": "Research-only candidate trail overview for later import. Not runtime app data.",
   "officialName": "Kungsleden",
   "aliases": [
@@ -759,6 +759,35 @@
     "osm": {
       "status": "overview_pending",
       "notes": "OSM/Waymarked Trails likely contains Kungsleden relations, but relation IDs and continuity must be verified during section geometry research. Do not use unsourced OSM linework as official geometry."
+    },
+    "crossTrailGeometryQa": {
+      "status": "complete-for-research-and-normalization-planning",
+      "file": "data/research/candidate-trails/kungsleden/geometry-qa-2026-04-30.research.json",
+      "completedAt": "2026-04-30T06:25:00Z",
+      "conclusion": "Every section now has a selected official master geometry candidate or official master geometry plus typed connector candidate. Geometry-affecting caveats are addressed for research by source hierarchy, split/clip policy, direction normalization, endpoint-zone policy and connector policy.",
+      "preferredMasterSource": "Naturvardsverket/Lansstyrelsen state-trail linework from Leder.geojson/WFS/REST, with Naturkartan GPX/API as corroboration and OSM/Waymarked as QA/fallback only.",
+      "relevantOfficialFeatures": [
+        "BD21",
+        "BD26",
+        "BD31",
+        "BD38",
+        "BD46",
+        "BD49",
+        "BD50",
+        "BD62",
+        "BD63",
+        "BD65",
+        "BD66",
+        "BD77",
+        "BD78",
+        "BD87",
+        "BD88",
+        "AC20",
+        "AC16",
+        "AC2",
+        "AC3"
+      ],
+      "naturkartanGpxSpotCheck": "23 of 24 referenced GPX URLs reachable on 2026-04-30; the failed section-1 BD21 GPX is not a blocker because official BD21 linework exists in Naturvardsverket Leder."
     }
   },
   "sourceContradictionsAndRisks": [
@@ -812,19 +841,27 @@
     "Resolve Kvikkjokk-Ammarnas 8-stage summary versus 9 listed headings.",
     "Confirm whether any official route variant near Hemavan should be included as alternate geometry or only described in notes.",
     "Verify Tjalmejaure bird protection dates and allowed Kungsleden corridor behavior from current protected-area sources.",
-    "Verify 2026 boat and bus timetables after seasonal operators publish current schedules."
+    "Verify 2026 boat and bus timetables after seasonal operators publish current schedules.",
+    "Now that all 27 section research files are complete, decide the cross-trail normalization policy for route-line endpoints versus hut/village/portal POIs.",
+    "Decide whether official Naturvardsverket/WFS state-trail geometry, Naturkartan GPX/API geometry, OSM/Waymarked geometry or explicit connector records are primary per section before runtime import.",
+    "Build a research-only duplicate/suppression checklist for shared endpoint facilities, bridge/toilet/help-phone POIs, boat/rowboat connectors, village services and side-route features."
   ],
   "importReadiness": {
     "overviewReadyForSectionResearch": true,
+    "sectionResearchComplete": true,
+    "sectionsResearched": 27,
+    "readyForNormalizationWithCaveats": true,
     "readyForRuntimeIntegration": false,
     "blockingGapsBeforeImport": [
-      "No per-section research files yet.",
-      "No verified endpoint coordinate set.",
-      "No verified commute/access point set.",
-      "No facility coordinate/proximity normalization.",
-      "No route geometry QA for all sections.",
-      "Transport and boat currentness must be checked per section."
+      "Runtime import/source-policy decision is still required for Naturvardsverket, Naturkartan, OSM/Waymarked, transit feeds and field-report metadata.",
+      "Importer must transform EPSG:3006 official geometry to WGS84, assemble multi-part official lines, split/clip grouped features, reverse directions where needed, simplify geometry and apply endpoint-zone snapping policy.",
+      "Typed connector model must be implemented for boats, rowboats, ferry/water lines and road/bus transfers before runtime geometry is generated.",
+      "Facility taxonomy and deduplication must be applied to shared huts, shelters, bridges, toilets, help phones, shops, saunas, water, waste, viewpoints, Naturum, parking, lodging and village services.",
+      "Live currentness refresh is still required for trail/bridge notices, closures, fire bans, weather, hut seasons, boat operators, bus timetables, protected-area rules, reindeer/hunting/fishing and parking rules.",
+      "Generated app outputs and source hiking runtime data have intentionally not been edited."
     ],
-    "recommendedNextStep": "Begin Phase 2 with six parallel agent lanes for section 1, synthesize, update progress, and continue section-by-section."
+    "recommendedNextStep": "Use the geometry QA packet to write a research-only normalization/import specification; do not import runtime data until source policy, importer behavior and live-currentness refresh are approved.",
+    "geometryQaComplete": true,
+    "geometryReadyForNormalizationPlanning": true
   }
 }

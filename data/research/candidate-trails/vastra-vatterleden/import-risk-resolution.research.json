@@ -1,0 +1,471 @@
+{
+  "schemaVersion": "trail-import-risk-resolution-v1",
+  "trailId": "vastra-vatterleden",
+  "createdAt": "2026-04-29T20:31:21Z",
+  "lastUpdated": "2026-04-29T20:58:28Z",
+  "status": {
+    "readyForCandidateNormalization": true,
+    "readyForRuntimeImport": false,
+    "headlineFinding": "The previously not-import-ready research risks are now resolved to normalization decisions, protected-area scoping decisions, suppression decisions, or volatile runtime currentness policies. Runtime import remains false only because integration and generated-data edits are out of scope.",
+    "doNotImportYetReasons": [
+      "Runtime app integration was not requested.",
+      "Route geometry normalization has not been implemented in normalized route files.",
+      "Volatile transit, fire-ban, forestry, business, bathing and shelter-maintenance facts must be rechecked immediately before public runtime display."
+    ]
+  },
+  "scope": "Research-only import-risk resolution for Västra Vätterleden candidate data. This file does not integrate anything into runtime app data.",
+  "summary": "Static research blockers resolved for candidate normalization. See import-readiness-resolution.research.json for the final route, protected-area, transit and volatile-data decisions.",
+  "sourcesConsulted": [
+    {
+      "sourceId": "local-section-research",
+      "title": "Existing section research files for sections 1-8",
+      "type": "local-research-files",
+      "paths": [
+        "data/research/candidate-trails/vastra-vatterleden/sections/vastra-vatterleden-etapp-1-stenkallegarden-forsvik.research.json",
+        "data/research/candidate-trails/vastra-vatterleden/sections/vastra-vatterleden-etapp-2-forsvik-molltorp.research.json",
+        "data/research/candidate-trails/vastra-vatterleden/sections/vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa.research.json",
+        "data/research/candidate-trails/vastra-vatterleden/sections/vastra-vatterleden-etapp-4-roa-lunnakulle-hjo.research.json",
+        "data/research/candidate-trails/vastra-vatterleden/sections/vastra-vatterleden-etapp-5-hjo-bastasen.research.json",
+        "data/research/candidate-trails/vastra-vatterleden/sections/vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas.research.json",
+        "data/research/candidate-trails/vastra-vatterleden/sections/vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult.research.json",
+        "data/research/candidate-trails/vastra-vatterleden/sections/vastra-vatterleden-etapp-8-fagerhult-mullsjo.research.json"
+      ],
+      "accessedDate": "2026-04-29"
+    },
+    {
+      "sourceId": "mullsjo-torestorp-plan",
+      "title": "Mullsjö kommun planbeskrivning Torestorp 1:300",
+      "type": "municipal-plan-pdf",
+      "url": "https://www.mullsjo.se/download/18.17933b616ed54804718312/1576223813316/Planbeskrivning%20Torestorp%201%20300%20antagande.pdf",
+      "accessedDate": "2026-04-29",
+      "usedFor": [
+        "Mullsjö-end reroute corroboration",
+        "Stage 8 endpoint risk"
+      ],
+      "notes": "The municipal planning document says Västra Vätterleden crosses the planning area and will be rerouted so it continues north and west. This corroborates later field-report evidence that the final approach into Mullsjö changed, but it does not by itself define the current import geometry."
+    },
+    {
+      "sourceId": "naturkartan-hjoans-dalgang-firepoint",
+      "title": "Naturkartan: Eldstad Hjoåns dalgång",
+      "type": "official-naturkartan-object",
+      "url": "https://www.naturkartan.se/sv/vastra-gotalands-lan/eldstad-hjoans-dalgang",
+      "accessedDate": "2026-04-29",
+      "usedFor": [
+        "Hjoåns dalgång fireplace legality conflict"
+      ],
+      "notes": "Naturkartan/Västra Götaland exposes a mapped fire/rest object in Hjoåns dalgång. This conflicts with reserve-rule evidence recorded in the stage 4 and 5 research files that prohibits fire in the reserve unless an exception or outside-boundary placement is proven."
+    },
+    {
+      "sourceId": "stage-1-official-pdf",
+      "title": "Skaraborgsleder/Västsverige: Västra Vätterleden Etapp 1 PDF",
+      "type": "official-pdf",
+      "url": "https://skaraborgsleder.se/vandring/pdf/vandring_vastra_vatterleden-1_%28se_A4%29.pdf",
+      "accessedDate": "2026-04-29",
+      "usedFor": [
+        "Stage 1 official distance",
+        "Stage 1 variant structure",
+        "Stenkällegården-Forsvik source consistency"
+      ],
+      "notes": "The PDF revision checked in this pass labels stage 1 as 31 km and describes multiple official alternative legs around Stora Djäknasjön/Granvik and Kalvöåsen/Källebacken."
+    },
+    {
+      "sourceId": "naturkartan-vv8-fagerhult-furusjo",
+      "title": "Naturkartan/Smålandsleden: VV8 Fagerhult-Furusjö",
+      "type": "official-route-page-and-gpx",
+      "url": "https://www.naturkartan.se/en/jonkopings-lan/vv8-fagerhult-furusjo",
+      "accessedDate": "2026-04-29",
+      "usedFor": [
+        "Stage 8 split model",
+        "Official route geometry"
+      ]
+    },
+    {
+      "sourceId": "naturkartan-vv8-furusjo-mullsjo-hotell",
+      "title": "Naturkartan/Smålandsleden: VV8 Furusjö-Mullsjö Hotell",
+      "type": "official-route-page-and-gpx",
+      "url": "https://www.naturkartan.se/sv/jonkopings-lan/vv8-furusjo-mullsjo-hotell",
+      "gpxUrl": "https://www.naturkartan.se/sv/jonkopings-lan/vv8-furusjo-mullsjo-hotell.gpx",
+      "accessedDate": "2026-04-29",
+      "usedFor": [
+        "Stage 8 split model",
+        "Official route geometry",
+        "Hotel Mullsjö endpoint coordinate"
+      ]
+    },
+    {
+      "sourceId": "e1-stage-10-08",
+      "title": "E1 Hiking Europe stage 10.08 Fagerhult-Mullsjö",
+      "type": "route-page-and-gpx-cross-check",
+      "url": "https://e1.hiking-europe.eu/en/e1/stages/norway-finland-sweden/vaestra-goetalands-laen-joenkoepings-laen/fagerhult-mullsjoe",
+      "gpxUrl": "https://e1.hiking-europe.eu/gpx/no-sf-s/no-sf-s-10-08-fagerhult-mullsjoe.gpx",
+      "accessedDate": "2026-04-29",
+      "usedFor": [
+        "Stage 8 OSM/E1 geometry cross-check",
+        "Mullsjö endpoint discrepancy",
+        "Reroute currentness signal"
+      ],
+      "notes": "The section research recorded this GPX as updated 2025-07-09. It is useful as a cross-check but should not override current official Naturkartan geometry without a normalization decision."
+    },
+    {
+      "sourceId": "gagnan-county-reserve",
+      "title": "Länsstyrelsen Jönköping: Gagnån naturreservat",
+      "type": "official-protected-area-page",
+      "url": "https://www.lansstyrelsen.se/jonkoping/besoksmal/naturreservat/gagnan.html",
+      "accessedDate": "2026-04-29",
+      "usedFor": [
+        "Stage 7 and 8 rule scoping",
+        "Hållsdammsbäcken/Gagnån legality caveat"
+      ]
+    },
+    {
+      "sourceId": "tiveden-national-park",
+      "title": "Sveriges nationalparker: Tiveden National Park",
+      "type": "official-national-park-page",
+      "url": "https://www.sverigesnationalparker.se/en/choose-park---list/tiveden-national-park/",
+      "accessedDate": "2026-04-29",
+      "usedFor": [
+        "Stage 1 Tiveden National Park scope caveat"
+      ],
+      "notes": "Used with the stage 1 route/source packet to narrow, not eliminate, the national-park scoping risk. The final import still needs a boundary overlay if a connector enters the park."
+    },
+    {
+      "sourceId": "static-import-readiness-resolution",
+      "title": "Static import-readiness resolution artifact",
+      "url": "data/research/candidate-trails/vastra-vatterleden/import-readiness-resolution.research.json",
+      "accessedAt": "2026-04-29"
+    }
+  ],
+  "geometryChecks": [
+    {
+      "checkId": "stage-8-naturkartan-vs-e1-furusjo-mullsjo",
+      "performedAt": "2026-04-29T20:31:21Z",
+      "method": "Fetched the current Naturkartan VV8 Furusjö-Mullsjö Hotell GPX and E1 10.08 GPX, reversed Naturkartan to official Furusjö-to-Mullsjö order, sliced the E1 track from the nearest Furusjö point, then compared endpoint gaps and nearest-point distances.",
+      "inputs": [
+        "https://www.naturkartan.se/sv/jonkopings-lan/vv8-furusjo-mullsjo-hotell.gpx",
+        "https://e1.hiking-europe.eu/gpx/no-sf-s/no-sf-s-10-08-fagerhult-mullsjoe.gpx"
+      ],
+      "result": {
+        "naturkartanStoredDirection": {
+          "points": 246,
+          "start": [
+            57.90308,
+            13.87202
+          ],
+          "end": [
+            57.93928,
+            13.94233
+          ],
+          "direction": "Hotel Mullsjö to Furusjö; reverse for official planning order"
+        },
+        "naturkartanForward": {
+          "points": 246,
+          "start": [
+            57.93928,
+            13.94233
+          ],
+          "end": [
+            57.90308,
+            13.87202
+          ]
+        },
+        "e1FurusjoToMullsjoTail": {
+          "points": 243,
+          "start": [
+            57.9392799,
+            13.9423431
+          ],
+          "end": [
+            57.9042234,
+            13.870526
+          ],
+          "originalPointIndex": 398
+        },
+        "furusjoGapM": 0.8,
+        "endpointGapM": 154.8,
+        "nearestPointStatsM": {
+          "naturkartanForwardToE1Tail": {
+            "medianM": 0.4,
+            "p95M": 55.5,
+            "maxM": 80.6
+          },
+          "e1TailToNaturkartanForward": {
+            "medianM": 0.4,
+            "p95M": 37.7,
+            "maxM": 140.4
+          }
+        },
+        "about2500mBeforeEndpoint": {
+          "naturkartanForward": [
+            57.90947,
+            13.91272
+          ],
+          "e1Tail": [
+            57.9091038,
+            13.9120106
+          ]
+        }
+      },
+      "interpretation": "Current Naturkartan and E1/OSM geometry are materially the same in the final Furusjö-Mullsjö corridor. The remaining risk is endpoint/trailhead selection around Hotel Mullsjö, not a stale full-route geometry problem.",
+      "confidence": "high"
+    }
+  ],
+  "resolvedRisks": [
+    {
+      "riskId": "stage-8-mullsjo-reroute-and-endpoint",
+      "sections": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "previousRisk": "A July 2025 field report said the last kilometres into Mullsjö had been rerouted and shortened, raising concern that the current official split GPX might be stale.",
+      "status": "resolved-to-normalization-decision",
+      "finding": "The reroute signal is real enough to preserve as history/currentness context, but the current official Naturkartan split GPX and E1/OSM linework now match closely through the final Furusjö-Mullsjö corridor. The only material difference is the Hotel Mullsjö endpoint/trailhead point, about 155 m apart.",
+      "normalizationDecision": "Use the current official Naturkartan/Smålandsleden split GPX as primary geometry. Reverse the Furusjö-Mullsjö Hotell GPX for planning order and use 57.903080,13.872020 as the official Hotel Mullsjö endpoint unless a maintainer later states otherwise. Retain OSM/E1 endpoint about 57.9042,13.8706 as an alternate trailhead/access cross-check, not as an import blocker.",
+      "runtimeImportHandling": "No extra field-source research is required before candidate normalization. Recheck official Smålandsleden/Naturkartan geometry immediately before runtime import if the import is delayed.",
+      "evidenceStrength": "high"
+    },
+    {
+      "riskId": "stage-8-one-stage-vs-split",
+      "sections": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "previousRisk": "Official overview material treats stage 8 as one stage, while current Smålandsleden/Naturkartan source material exposes two route pages and two GPX files.",
+      "status": "resolved",
+      "finding": "This is a data-model issue, not a research blocker.",
+      "normalizationDecision": "Keep one official section id and stage number for Etapp 8, with two official child geometry components: Gagnån/Fagerhult-Furusjö and Furusjö-Hotel Mullsjö. Keep the Fagerhult access connector and Hotel Mullsjö-Mullsjö centrum connector separate from the mainline.",
+      "runtimeImportHandling": "Import logic should preserve one user-facing official section while allowing component geometries.",
+      "evidenceStrength": "high"
+    },
+    {
+      "riskId": "stage-7-stage-8-fagerhult-gagnan-continuity",
+      "sections": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult",
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "previousRisk": "Fagerhult is the named access endpoint, but the continuous stage 7/8 trail handoff occurs at Gagnån.",
+      "status": "resolved",
+      "finding": "The continuous mainline handoff is Gagnån around 58.002709,14.104708. Fagerhult village/start area is an access connector, not the mainline continuity point.",
+      "normalizationDecision": "Model stage 7 mainline to Gagnån, stage 8 mainline from Gagnån, and the Fagerhult connector as access geometry used for transit/trailhead display.",
+      "runtimeImportHandling": "Avoid snapping the continuous mainline to Fagerhult village; use Fagerhult as access metadata.",
+      "evidenceStrength": "high"
+    },
+    {
+      "riskId": "stage-8-protected-area-scoping",
+      "sections": [
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "previousRisk": "Nearby protected-area search hits could accidentally attach unrelated rules to stage 8.",
+      "status": "resolved-for-research",
+      "finding": "Gagnån naturreservat/Natura 2000 is directly route-relevant at the stage 7/8 handoff. Södra Kroksjön should be treated as a service/facility point, not a confirmed protected area. Ryfors gammelskog and Stråkens strandskogar are near the broader Mullsjö/Stråken context but should not attach to stage 8 without geometry overlap.",
+      "normalizationDecision": "Apply Gagnån rules to the route area that overlaps Gagnån after boundary overlay. Do not attach Södra Kroksjön, Ryfors or Stråken protected-area rules without exact route/access overlap.",
+      "runtimeImportHandling": "Still requires boundary overlay before runtime rule attribution.",
+      "evidenceStrength": "medium-high"
+    },
+    {
+      "riskId": "stage-1-tiveden-national-park-scope",
+      "sections": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "previousRisk": "Stage 1 starts at Stenkällegården near Tiveden National Park; blanket-applying national park rules to the section could be wrong.",
+      "status": "resolved-for-research",
+      "finding": "Stenkällegården is adjacent to, not automatically inside all relevant national-park rule scope for the stage. The stage should not inherit Tiveden National Park restrictions unless the normalized line or a modeled connector actually enters the park boundary.",
+      "normalizationDecision": "Do not attach Tiveden National Park rules section-wide. Apply national-park rules only to route/access geometry proved by boundary overlay to enter the park.",
+      "runtimeImportHandling": "Boundary overlay still required if the Stenkällegården connector or chosen stage-1 variant touches the park.",
+      "evidenceStrength": "medium"
+    },
+    {
+      "riskId": "hokensas-legal-label",
+      "sections": [
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult"
+      ],
+      "previousRisk": "Some tourism/operator wording could cause Hökensås to be mislabeled as a national park or otherwise over-scoped.",
+      "status": "resolved",
+      "finding": "The correct legal label for Hökensås in this packet is naturvårdsområde, with Hyltan naturreservat also relevant around Vitsjön/Hyltesjön.",
+      "normalizationDecision": "Model Hökensås as naturvårdsområde. Do not call it a national park.",
+      "runtimeImportHandling": "Use the formal protected-area class in rule display after overlay.",
+      "evidenceStrength": "high"
+    },
+    {
+      "riskId": "hjoans-dalgang-fireplace",
+      "sections": [
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+        "vastra-vatterleden-etapp-5-hjo-bastasen"
+      ],
+      "previousRisk": "Naturkartan maps an Hjoåns dalgång firepoint, but reserve rules in the section research prohibit fire.",
+      "status": "resolved-to-suppress-or-pending",
+      "finding": "The mapped Naturkartan firepoint is real, but no public source in this pass proved that it is a legal exception to the Hjoåns dalgång no-fire rule or outside the restricted boundary.",
+      "normalizationDecision": "Do not import the Hjoåns dalgång firepoint as a usable public fireplace. Keep it suppressed or pending until boundary overlay or an official exception confirms it is legally usable.",
+      "runtimeImportHandling": "If retained in candidate data, mark as pending legality verification rather than importable.",
+      "evidenceStrength": "high"
+    },
+    {
+      "riskId": "stage-3-4-osm-truncated-labels",
+      "sections": [
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa",
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo"
+      ],
+      "previousRisk": "OSM/wiki labels truncate or shift section names and endpoints.",
+      "status": "resolved",
+      "finding": "Official/Naturkartan/KML endpoints and section labels are stronger than OSM/wiki labels for these sections.",
+      "normalizationDecision": "Use official section names and endpoint coordinates from the section research; use OSM only as a geometry cross-check after endpoint correction.",
+      "runtimeImportHandling": "Do not import raw OSM relation names as canonical display names.",
+      "evidenceStrength": "high"
+    },
+    {
+      "riskId": "natural-water-import-policy",
+      "sections": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+        "vastra-vatterleden-etapp-2-forsvik-molltorp",
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa",
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+        "vastra-vatterleden-etapp-5-hjo-bastasen",
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult",
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "previousRisk": "Many lakes, streams, springs and shelter-side water clues appear in route descriptions and field reports, but reliability and potability vary.",
+      "status": "resolved-as-policy",
+      "finding": "Natural water should not be imported as potable water unless a managed, source-backed drinking-water facility is identified. Lakes/streams can remain narrative or safety context with boil/filter caveats.",
+      "normalizationDecision": "Import only managed taps/pumps/service-water points with source-backed coordinates and access caveats. Keep springs and natural water pending unless verified.",
+      "runtimeImportHandling": "Recheck water currentness before display where water access is user-facing.",
+      "evidenceStrength": "high"
+    }
+  ],
+  "partiallyResolvedRisks": [
+    {
+      "riskId": "stage-1-variant-model",
+      "sections": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik"
+      ],
+      "status": "resolved-to-normalization-decision",
+      "finding": "Current official display distance is 31 km. The direct south route aligns better with 31 km, while Källebacken is an official alternate/variant. The north branch still has two official choices via Djäknatorp or Djäknasundet.",
+      "remainingDecision": "No research decision remains. Implement the documented primary/direct-south plus alternate-variant model during geometry normalization.",
+      "recommendedHandling": "Ready for candidate normalization; do not use incomplete full-stage Naturkartan GPX as runtime geometry.",
+      "evidenceStrength": "medium-high"
+    },
+    {
+      "riskId": "stage-2-branch-model",
+      "sections": [
+        "vastra-vatterleden-etapp-2-forsvik-molltorp"
+      ],
+      "status": "resolved-to-normalization-decision",
+      "finding": "Direct Fröjden-Bygget is the primary continuity route; Skackastugan/Bergsudden is an official shelter-side alternate/branch.",
+      "remainingDecision": "No research decision remains. Implement direct primary plus Skackastugan alternate during geometry normalization.",
+      "recommendedHandling": "Ready for candidate normalization; preserve measured direct and alternate lengths as geometry metadata.",
+      "evidenceStrength": "medium-high"
+    },
+    {
+      "riskId": "hallsdammsbacken-gagnan-overlay",
+      "sections": [
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult"
+      ],
+      "status": "resolved-by-boundary-overlay",
+      "finding": "Official NVR/Natura 2000 overlay resolves Hållsdammsbäcken as Hökensås NVO context, not Gagnån. Gagnån rules apply to the stage-8 start/Gagnån area.",
+      "remainingDecision": "No protected-area legality decision remains for Gagnån. Shelter roof/maintenance and local fireplace usability are runtime currentness checks.",
+      "recommendedHandling": "Import Hållsdammsbäcken as shelter/rest with Hökensås caveats, not as Gagnån no-fire/no-tent context.",
+      "evidenceStrength": "medium-high"
+    },
+    {
+      "riskId": "stage-5-bastasen-rodakra-line-405",
+      "sections": [
+        "vastra-vatterleden-etapp-5-hjo-bastasen",
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas"
+      ],
+      "status": "resolved-current-source-stale-risk",
+      "finding": "Current Västtrafik line 402 confirms Baståsen A/B stop names valid 2025-12-14 to 2026-12-12. Västtrafik says Hjo-Tidaholm line 405 was withdrawn; current line 405 is unrelated Svaneholm-Kinna service.",
+      "remainingDecision": "Verify exact Baståsen A/B stop-side coordinates and walking connector before coordinate POI import. Do not import old Rödåkra/line 405 as current.",
+      "recommendedHandling": "Use Baståsen A/B as coordinate-pending transit access evidence; suppress Rödåkra/line 405 as stale unless planner data later confirms a current stop.",
+      "evidenceStrength": "high"
+    },
+    {
+      "riskId": "protected-area-overlays",
+      "sections": [
+        "vastra-vatterleden-etapp-1-stenkallegarden-forsvik",
+        "vastra-vatterleden-etapp-3-molltorp-gunnarflon-roa",
+        "vastra-vatterleden-etapp-4-roa-lunnakulle-hjo",
+        "vastra-vatterleden-etapp-5-hjo-bastasen",
+        "vastra-vatterleden-etapp-6-bastasen-first-camp-hokensas",
+        "vastra-vatterleden-etapp-7-first-camp-hokensas-fagerhult",
+        "vastra-vatterleden-etapp-8-fagerhult-mullsjo"
+      ],
+      "status": "resolved-for-candidate-normalization-repeat-for-runtime",
+      "finding": "Official NVR/Natura 2000 WKT overlay was run against current official route components. Route-relevant areas and nearby-only areas are now documented in import-readiness-resolution.research.json.",
+      "remainingDecision": "Repeat overlay against final normalized geometries if geometry changes before runtime import.",
+      "recommendedHandling": "Ready for candidate normalization; attach rules only to proven overlapping route/access geometry.",
+      "evidenceStrength": "medium-high"
+    }
+  ],
+  "unresolvedOrRuntimeOnlyRisks": [
+    {
+      "riskId": "forestry-exact-overlays",
+      "status": "volatile-pre-publication-check",
+      "reason": "Skogsstyrelsen avverkningsanmälningar are currentness/impact data, not durable static trail facts.",
+      "handling": "Run exact Skogsstyrelsen polygon-to-final-route-buffer overlay after route normalization and before making public closure/impact claims."
+    },
+    {
+      "riskId": "current-transit-schedules",
+      "status": "volatile-runtime-currentness-check",
+      "reason": "Current stop/line evidence is recorded, including Baståsen A/B line 402 and the withdrawal of old line 405, but departures and prebooking rules remain volatile.",
+      "handling": "Recheck Västtrafik/JLT/Resrobot planner data immediately before runtime display."
+    },
+    {
+      "riskId": "fire-bans-and-smhi-fire-risk",
+      "status": "runtime-import-prerequisite",
+      "reason": "Municipal fire bans and fire-risk alerts are same-day currentness data, separate from reserve-specific standing rules.",
+      "handling": "Do not hard-code same-day fire-ban state from 2026-04-29 research. Recheck official fire-ban sources before display."
+    },
+    {
+      "riskId": "business-and-service-hours",
+      "status": "runtime-import-prerequisite",
+      "reason": "Campsites, shops, restaurants, lodging and sport-fishing services are seasonal or commercial and may change.",
+      "handling": "Import only first-party/current services with coordinates and opening/access caveats."
+    },
+    {
+      "riskId": "bathing-water-currentness",
+      "status": "runtime-import-prerequisite",
+      "reason": "Bathing-water quality and algal bloom notices are date-specific.",
+      "handling": "Recheck HaV/municipal bathing data before exposing swimming quality/status."
+    },
+    {
+      "riskId": "shelter-maintenance-currentness",
+      "status": "runtime-import-prerequisite",
+      "reason": "Some shelter records have currentness caveats, including Hållsdammsbäcken roof condition and Hornsjön newer-shelter status.",
+      "handling": "Verify shelter maintenance/status before importing overnight-shelter details as user-facing facts."
+    },
+    {
+      "riskId": "optional-business-coordinate-verification",
+      "status": "normalization-or-runtime-scope-decision",
+      "reason": "Several off-route/town services near endpoints are useful but not core trail facilities.",
+      "handling": "Decide app scope for optional services before spending more coordinate verification effort."
+    }
+  ],
+  "recommendedNormalizationPlan": [
+    {
+      "step": 1,
+      "name": "Normalize route geometry first",
+      "details": "Resolve stage 1 variants, stage 2 branches, stages 3-5 segment assembly/reversal, stage 7 mainline/access split and stage 8 two child GPX components plus connectors."
+    },
+    {
+      "step": 2,
+      "name": "Apply protected-area rule scoping after geometry",
+      "details": "Run boundary overlays before attaching Tiveden, Granvik/Håketjärnarna, Stora Röå/Röå alsumpskog, Hjoåns dalgång, Hökensås/Hyltan, Gagnån or Mullsjö/Stråken area rules."
+    },
+    {
+      "step": 3,
+      "name": "Import only high-confidence facilities",
+      "details": "Import facilities with source-backed coordinates and clear legal/currentness status. Keep Hjoåns dalgång fireplace, Hållsdammsbäcken fireplace/camping, Rödåkra/line 405, natural water, optional businesses and unverified subfacilities pending or suppressed."
+    },
+    {
+      "step": 4,
+      "name": "Recheck volatile sources immediately before runtime import",
+      "details": "Transit schedules, fire bans, SMHI fire risk, forestry notices, business hours, bathing-water status, water reliability and shelter maintenance should be checked near the actual import date."
+    }
+  ],
+  "nextSafeStep": "Proceed only with a candidate normalization implementation pass under data/research/candidate-trails/vastra-vatterleden/ if explicitly requested. Do not integrate runtime app data yet.",
+  "notesForFutureThreads": [
+    "This file intentionally resolves research risk, not app import policy.",
+    "Stage 8 reroute risk is no longer a blocker for candidate normalization; preserve endpoint discrepancy as a local trailhead/access decision.",
+    "Stage 1 and stage 2 still need explicit branch/alternate modeling decisions.",
+    "Hjoåns dalgång firepoint should be treated as suppress-or-pending, not importable fireplace.",
+    "Natural water should not become potable-water POIs without managed-source evidence."
+  ]
+}
