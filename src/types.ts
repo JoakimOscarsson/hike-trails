@@ -50,7 +50,7 @@ export type HikeLocation = {
   start: [number, number];
 };
 
-export type RecommendedTime = "dayhike" | "weekend" | "3-5-days" | "6-plus-days";
+export type RecommendedTime = "dayhike" | "weekend" | "3-5-days" | "6-10-days" | "10-plus-days" | "6-plus-days";
 
 export type TripDuration = "half-day" | RecommendedTime;
 
@@ -61,6 +61,32 @@ export type RouteGeometryRef = {
   navigationUse: NavigationUse;
   sourceFormat: RouteGeometrySourceFormat;
   warning?: string;
+};
+
+export type TrailTransitStopType = "bus" | "train" | "ferry";
+
+export type TrailConnectionMode = "same-island" | "walk" | "bus" | "ferry" | "rowboat" | "none";
+
+export type TrailConnectionEndpoint = {
+  sectionId: string;
+  label: string;
+  coordinates?: [number, number];
+  coordinateSource?: "route-geometry" | "official-marker" | "approximate" | "transit-stop";
+};
+
+export type TrailSectionConnection = {
+  id: string;
+  mode: TrailConnectionMode;
+  from: TrailConnectionEndpoint;
+  to: TrailConnectionEndpoint;
+  operator?: string;
+  lineName?: string;
+  timetableUrl?: string;
+  seasonality?: string;
+  currentness?: string;
+  note: string;
+  source?: HikeSource;
+  route?: RouteGeometryRef;
 };
 
 export type Hike = {
@@ -136,15 +162,19 @@ export type TrailSection = {
   route: HikeRoute;
 };
 
-export type TrailCommuteStop = {
+export type TrailTransitStop = {
   id: string;
   osmId?: string;
   name: string;
-  type: "bus" | "train";
+  type: TrailTransitStopType;
   coordinates: [number, number];
   distanceKm: number;
   network?: string;
   sourceUrl?: string;
+};
+
+export type TrailCommuteStop = TrailTransitStop & {
+  type: "bus" | "train";
 };
 
 export type TrailAccessPoint = {
@@ -155,7 +185,8 @@ export type TrailAccessPoint = {
   coordinateSource: "route-geometry" | "official-marker" | "approximate";
   busStop?: TrailCommuteStop;
   trainStop?: TrailCommuteStop;
-  nearestStop?: TrailCommuteStop;
+  ferryStop?: TrailTransitStop;
+  nearestStop?: TrailTransitStop;
 };
 
 export type TrailFacility = {
@@ -178,6 +209,7 @@ export type TrailFacility = {
     | "rule-warning"
     | "unofficial-shelter"
     | "trail-junction"
+    | "emergency-phone"
     | "lodging"
     | "waste"
     | "hazard"
@@ -240,6 +272,7 @@ export type TrailSystem = {
   };
   sections: TrailSection[];
   routeGroups?: TrailRouteGroup[];
+  connections?: TrailSectionConnection[];
   presets: TrailPreset[];
 };
 
@@ -264,6 +297,7 @@ export type TrailSystemIndexItem = Pick<
   manifestPath?: string;
   sectionsIndexPath?: string;
   routeGroupsPath?: string;
+  connectionsPath?: string;
   presetsPath?: string;
   overviewFeatureId?: string;
   detailPath?: string;
@@ -469,10 +503,11 @@ export type LibraryOverviewFeatureCollection = GeoJSON.FeatureCollection<
   generatedFrom?: string;
 };
 
-export type TrailSystemManifest = Omit<TrailSystem, "sections" | "routeGroups" | "presets"> & {
+export type TrailSystemManifest = Omit<TrailSystem, "sections" | "routeGroups" | "connections" | "presets"> & {
   manifestPath?: string;
   sectionsIndexPath?: string;
   routeGroupsPath?: string;
+  connectionsPath?: string;
   presetsPath?: string;
 };
 

@@ -1,6 +1,7 @@
 import L from "leaflet";
-import type { TrailSection } from "../types";
+import type { TrailConnectionMode, TrailSection, TrailSectionConnection } from "../types";
 import { loadRouteGeometry } from "./routeGeometry";
+import { trailConnectionDisplayName } from "./trailSystemConnections";
 
 export type LoadedTrailSectionRoute = {
   state: "loaded";
@@ -16,6 +17,20 @@ export type FailedTrailSectionRoute = {
 
 export type TrailSectionRouteResult = LoadedTrailSectionRoute | FailedTrailSectionRoute | null;
 
+export type LoadedTrailConnectionRoute = {
+  state: "loaded";
+  connection: TrailSectionConnection;
+  geojson: GeoJSON.FeatureCollection;
+};
+
+export type FailedTrailConnectionRoute = {
+  state: "failed";
+  connection: TrailSectionConnection;
+  error: unknown;
+};
+
+export type TrailConnectionRouteResult = LoadedTrailConnectionRoute | FailedTrailConnectionRoute | null;
+
 export function uniqueTrailSections(sections: TrailSection[]) {
   return sections.filter((section, index) => sections.findIndex((candidate) => candidate.id === section.id) === index);
 }
@@ -30,6 +45,17 @@ export async function loadTrailSectionRoute(section: TrailSection): Promise<Trai
   }
 }
 
+export async function loadTrailConnectionRoute(connection: TrailSectionConnection): Promise<TrailConnectionRouteResult> {
+  const path = connection.route?.geojsonPath;
+  if (!path) return null;
+  try {
+    const { geojson } = await loadRouteGeometry(path);
+    return { state: "loaded", connection, geojson };
+  } catch (error) {
+    return { state: "failed", connection, error };
+  }
+}
+
 function coordinatesFromGeoJSON(geojson: GeoJSON.FeatureCollection) {
   const coordinates: GeoJSON.Position[] = [];
   for (const feature of geojson.features ?? []) {
@@ -41,6 +67,91 @@ function coordinatesFromGeoJSON(geojson: GeoJSON.FeatureCollection) {
     }
   }
   return coordinates;
+}
+
+const trailConnectionStyles: Record<TrailConnectionMode, L.PathOptions> = {
+  "same-island": {
+    color: "#8b8f86",
+    weight: 2,
+    opacity: 0.4,
+    dashArray: "3 7",
+    lineCap: "round",
+    className: "trail-connection-route trail-connection-route-same-island"
+  },
+  walk: {
+    color: "#796b56",
+    weight: 3,
+    opacity: 0.66,
+    dashArray: "4 7",
+    lineCap: "round",
+    className: "trail-connection-route trail-connection-route-walk"
+  },
+  bus: {
+    color: "#5267a3",
+    weight: 3,
+    opacity: 0.68,
+    dashArray: "8 8",
+    lineCap: "round",
+    className: "trail-connection-route trail-connection-route-bus"
+  },
+  ferry: {
+    color: "#176f86",
+    weight: 3.5,
+    opacity: 0.74,
+    dashArray: "9 8",
+    lineCap: "round",
+    className: "trail-connection-route trail-connection-route-ferry"
+  },
+  rowboat: {
+    color: "#2f7a61",
+    weight: 3.5,
+    opacity: 0.78,
+    dashArray: "2 8",
+    lineCap: "round",
+    className: "trail-connection-route trail-connection-route-rowboat"
+  },
+  none: {
+    color: "#8b8f86",
+    weight: 2,
+    opacity: 0.38,
+    dashArray: "2 8",
+    lineCap: "round",
+    className: "trail-connection-route trail-connection-route-none"
+  }
+};
+
+export function drawTrailConnectionRoutes({
+  routeResults,
+  routeLayers
+}: {
+  routeResults: TrailConnectionRouteResult[];
+  routeLayers: L.LayerGroup;
+}) {
+  const connectionLayers: L.GeoJSON[] = [];
+  const failedConnectionRoutes: FailedTrailConnectionRoute[] = [];
+
+  for (const result of routeResults) {
+    if (!result) continue;
+    if (result.state === "failed") {
+      failedConnectionRoutes.push(result);
+      continue;
+    }
+
+    const layer = L.geoJSON(result.geojson, {
+      style: trailConnectionStyles[result.connection.mode],
+      onEachFeature: (_feature, featureLayer) => {
+        featureLayer.bindTooltip(trailConnectionDisplayName(result.connection), {
+          className: "trail-connection-tooltip",
+          direction: "top",
+          sticky: true
+        });
+      }
+    }).addTo(routeLayers);
+
+    connectionLayers.push(layer);
+  }
+
+  return { connectionLayers, failedConnectionRoutes };
 }
 
 export function drawTrailSectionRoutes({
@@ -93,8 +204,18 @@ export function trailSectionMarkerLatLng(
   return section.endpointCoordinates?.[endpoint] ?? null;
 }
 
-export function trailRouteLoadWarningText(failedRoutes: FailedTrailSectionRoute[]) {
-  return `Selected route geometry could not fully load. ${failedRoutes.length} route file${
-    failedRoutes.length === 1 ? "" : "s"
-  } failed.`;
+export function trailRouteLoadWarningText(
+  failedRoutes: FailedTrailSectionRoute[],
+  failedConnectionRoutes: FailedTrailConnectionRoute[] = []
+) {
+  const parts: string[] = [];
+  if (failedRoutes.length) {
+    parts.push(`${failedRoutes.length} route file${failedRoutes.length === 1 ? "" : "s"} failed`);
+  }
+  if (failedConnectionRoutes.length) {
+    parts.push(
+      `${failedConnectionRoutes.length} connection file${failedConnectionRoutes.length === 1 ? "" : "s"} failed`
+    );
+  }
+  return `Selected map geometry could not fully load. ${parts.join("; ")}.`;
 }

@@ -12,13 +12,16 @@ function omitKeys(value, keys) {
 }
 
 function toManifest(trailSystem) {
-  return {
-    ...omitKeys(trailSystem, ["sections", "routeGroups", "presets"]),
+  const connections = trailSystem.connections ?? [];
+  const manifest = {
+    ...omitKeys(trailSystem, ["sections", "routeGroups", "connections", "presets"]),
     manifestPath: runtimePath(trailSystem.id, "manifest.json"),
     sectionsIndexPath: runtimePath(trailSystem.id, "sections-index.json"),
     routeGroupsPath: runtimePath(trailSystem.id, "route-groups.json"),
     presetsPath: runtimePath(trailSystem.id, "presets.json")
   };
+  if (connections.length) manifest.connectionsPath = runtimePath(trailSystem.id, "connections.json");
+  return manifest;
 }
 
 function toSectionIndexItem(trailSystemId, section) {
@@ -60,6 +63,7 @@ export async function writeTrailSystemShards(trailSystem, publicTrailSystemsDir)
   const systemDir = path.join(publicTrailSystemsDir, trailSystem.id);
   const sectionsDir = path.join(systemDir, "sections");
   const sections = trailSystem.sections ?? [];
+  const connections = trailSystem.connections ?? [];
 
   await mkdir(sectionsDir, { recursive: true });
 
@@ -67,7 +71,10 @@ export async function writeTrailSystemShards(trailSystem, publicTrailSystemsDir)
     writeJson(path.join(systemDir, "manifest.json"), toManifest(trailSystem)),
     writeJson(path.join(systemDir, "sections-index.json"), sections.map((section) => toSectionIndexItem(trailSystem.id, section))),
     writeJson(path.join(systemDir, "route-groups.json"), trailSystem.routeGroups ?? []),
-    writeJson(path.join(systemDir, "presets.json"), trailSystem.presets ?? [])
+    writeJson(path.join(systemDir, "presets.json"), trailSystem.presets ?? []),
+    connections.length
+      ? writeJson(path.join(systemDir, "connections.json"), connections)
+      : rm(path.join(systemDir, "connections.json"), { force: true })
   ]);
 
   await Promise.all(

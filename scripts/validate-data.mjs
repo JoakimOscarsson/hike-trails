@@ -33,6 +33,9 @@ const allowedKayakRouteConfidences = new Set(["low", "medium", "medium-high", "h
 const allowedRouteGroupKinds = new Set(["mainline", "branch", "access", "connector"]);
 const allowedGeometryStatuses = new Set(["ready", "approximate-waypoint-corridor", "single-point-only", "missing"]);
 const allowedOverviewGeometryStatuses = new Set(["ready", "single-point-only", "missing"]);
+const allowedTrailTransitStopTypes = new Set(["bus", "train", "ferry"]);
+const allowedTrailConnectionModes = new Set(["same-island", "walk", "bus", "ferry", "rowboat", "none"]);
+const trailConnectionModesRequiringCoordinates = new Set(["walk", "bus", "ferry", "rowboat"]);
 const allowedFacilityTypes = new Set([
   "campsite",
   "shelter",
@@ -50,6 +53,7 @@ const allowedFacilityTypes = new Set([
   "rule-warning",
   "unofficial-shelter",
   "trail-junction",
+  "emergency-phone",
   "lodging",
   "waste",
   "hazard",
@@ -194,6 +198,25 @@ function validateEnum(scope, label, value, allowedValues, { required = true } = 
   if (!allowedValues.has(value)) addError(scope, `${label} has unsupported value "${value}"`);
 }
 
+function validateString(scope, label, value, { required = true } = {}) {
+  if (typeof value !== "string" || !value.trim()) {
+    if (required) addError(scope, `${label} is required`);
+  }
+}
+
+function validateTransitStop(scope, label, stop, expectedType = null) {
+  if (!isObject(stop)) {
+    addError(scope, `${label} must be an object`);
+    return;
+  }
+  validateString(scope, `${label}.id`, stop.id);
+  validateString(scope, `${label}.name`, stop.name);
+  validateEnum(scope, `${label}.type`, stop.type, allowedTrailTransitStopTypes);
+  if (expectedType && stop.type !== expectedType) addError(scope, `${label}.type must be "${expectedType}"`);
+  validateLatLon(scope, `${label}.coordinates`, stop.coordinates, { required: true });
+  if (!isFiniteNumber(stop.distanceKm)) addError(scope, `${label}.distanceKm must be a number`);
+}
+
 function haversineKmLatLon(a, b) {
   const toRadians = (degrees) => (degrees * Math.PI) / 180;
   const radiusKm = 6371.0088;
@@ -325,6 +348,73 @@ async function loadRouteGeojson(publicUrl, scope) {
   return geojson;
 }
 
+function validateTrailConnectionEndpoint(scope, label, endpoint, sectionIds, { coordinatesRequired = false } = {}) {
+  if (!isObject(endpoint)) {
+    addError(scope, `${label} must be an object`);
+    return;
+  }
+  validateString(scope, `${label}.sectionId`, endpoint.sectionId);
+  if (typeof endpoint.sectionId === "string" && !sectionIds.has(endpoint.sectionId)) {
+    addError(scope, `${label}.sectionId references unknown section "${endpoint.sectionId}"`);
+  }
+  validateString(scope, `${label}.label`, endpoint.label);
+  validateLatLon(scope, `${label}.coordinates`, endpoint.coordinates, { required: coordinatesRequired });
+}
+
+async function validateTrailConnections(connections, scope, sectionIds, { runRouteAudits = true } = {}) {
+  if (connections == null) return;
+  if (!Array.isArray(connections)) {
+    addError(scope, "connections must be an array");
+    return;
+  }
+
+  validateUnique(scope, "connection IDs", connections.map((connection) => connection?.id));
+  for (const connection of connections) {
+    const connectionScope = `${scope} connection ${connection?.id ?? "(missing id)"}`;
+    if (!isObject(connection)) {
+      addError(connectionScope, "connection must be an object");
+      continue;
+    }
+    validateString(connectionScope, "id", connection.id);
+    validateEnum(connectionScope, "mode", connection.mode, allowedTrailConnectionModes);
+    validateString(connectionScope, "note", connection.note);
+    const coordinatesRequired = trailConnectionModesRequiringCoordinates.has(connection.mode);
+    validateTrailConnectionEndpoint(connectionScope, "from", connection.from, sectionIds, { coordinatesRequired });
+    validateTrailConnectionEndpoint(connectionScope, "to", connection.to, sectionIds, { coordinatesRequired });
+
+    if (connection.timetableUrl != null && (typeof connection.timetableUrl !== "string" || !connection.timetableUrl.trim())) {
+      addError(connectionScope, "timetableUrl must be a non-empty string when present");
+    }
+
+    if (connection.mode === "none" && connection.route?.geojsonPath) {
+      addError(connectionScope, "mode none must not include a route.geojsonPath");
+    }
+
+    if (!connection.route) continue;
+    validateEnum(connectionScope, "route.geometryStatus", connection.route.geometryStatus, allowedGeometryStatuses);
+    validateEnum(connectionScope, "route.mapConfidence", connection.route.mapConfidence, allowedMapConfidences);
+    validateEnum(connectionScope, "route.navigationUse", connection.route.navigationUse, allowedNavigationUses);
+    validateEnum(connectionScope, "route.sourceFormat", connection.route.sourceFormat, allowedRouteSourceFormats);
+
+    if (["ferry", "rowboat"].includes(connection.mode) && connection.route.navigationUse === "navigable-route") {
+      addError(connectionScope, "ferry and rowboat route geometry must be planning-reference or not-for-navigation");
+    }
+
+    if (connection.route.geometryStatus !== "missing" && !connection.route.geojsonPath) {
+      addError(connectionScope, "route.geojsonPath is required when route.geometryStatus is not missing");
+    }
+
+    if (connection.route.geojsonPath) {
+      const routePath = publicPath(connection.route.geojsonPath);
+      if (!routePath || !(await pathExists(routePath))) {
+        addError(connectionScope, `connection route file does not exist: ${connection.route.geojsonPath}`);
+      } else if (runRouteAudits) {
+        await loadRouteGeojson(connection.route.geojsonPath, connectionScope);
+      }
+    }
+  }
+}
+
 function validateHike(hike, scope) {
   if (!isObject(hike)) {
     addError(scope, "Hike entry must be an object");
@@ -375,10 +465,13 @@ async function validateTrailSystem(trailSystem, scope, { runRouteAudits = true }
     for (const [index, accessPoint] of (section.accessPoints ?? []).entries()) {
       const accessScope = `${sectionScope} accessPoints[${index}]`;
       validateLatLon(accessScope, "coordinates", accessPoint.coordinates, { required: true });
-      for (const stopKey of ["busStop", "trainStop", "nearestStop"]) {
-        if (accessPoint[stopKey]) {
-          validateLatLon(accessScope, `${stopKey}.coordinates`, accessPoint[stopKey].coordinates, { required: true });
-        }
+      for (const [stopKey, expectedType] of [
+        ["busStop", "bus"],
+        ["trainStop", "train"],
+        ["ferryStop", "ferry"],
+        ["nearestStop", null]
+      ]) {
+        if (accessPoint[stopKey]) validateTransitStop(accessScope, stopKey, accessPoint[stopKey], expectedType);
       }
     }
 
@@ -417,6 +510,8 @@ async function validateTrailSystem(trailSystem, scope, { runRouteAudits = true }
       if (!sectionIds.has(sectionId)) addError(groupScope, `connectsToSectionIds references unknown section "${sectionId}"`);
     }
   }
+
+  await validateTrailConnections(trailSystem.connections ?? [], scope, sectionIds, { runRouteAudits });
 
   for (const preset of trailSystem.presets ?? []) {
     const presetScope = `${scope} preset ${preset.id ?? "(missing id)"}`;
@@ -712,11 +807,31 @@ async function validateLibraryIndex() {
     const sectionsIndex = loadedShards.sectionsIndexPath;
     const routeGroups = loadedShards.routeGroupsPath;
     const presets = loadedShards.presetsPath;
+    let connections = [];
 
     if (manifest?.id !== item.id) addError(itemScope, `manifest ID "${manifest?.id}" does not match index ID "${item.id}"`);
     if (!Array.isArray(sectionsIndex)) addError(itemScope, "sectionsIndexPath must point to an array");
     if (!Array.isArray(routeGroups)) addError(itemScope, "routeGroupsPath must point to an array");
     if (!Array.isArray(presets)) addError(itemScope, "presetsPath must point to an array");
+    if (item.connectionsPath && manifest?.connectionsPath && item.connectionsPath !== manifest.connectionsPath) {
+      addError(itemScope, "connectionsPath differs between library index and manifest");
+    }
+
+    const connectionsPath = item.connectionsPath ?? manifest?.connectionsPath;
+    if (connectionsPath) {
+      const expectedConnectionsPath = `/data/trail-systems/${item.id}/connections.json`;
+      if (connectionsPath !== expectedConnectionsPath) addError(itemScope, `connectionsPath must be "${expectedConnectionsPath}"`);
+      const filePath = publicPath(connectionsPath);
+      if (!filePath || !(await pathExists(filePath))) {
+        addError(itemScope, `connectionsPath does not exist: ${connectionsPath}`);
+      } else {
+        connections = await readJson(filePath, `${itemScope} connectionsPath`);
+        if (!Array.isArray(connections)) {
+          addError(itemScope, "connectionsPath must point to an array");
+          connections = [];
+        }
+      }
+    }
 
     if (Array.isArray(sectionsIndex)) {
       const sectionIds = new Set(sectionsIndex.map((section) => section.id).filter((id) => typeof id === "string"));
@@ -753,6 +868,8 @@ async function validateLibraryIndex() {
           if (!sectionIds.has(preset.endSectionId)) addError(presetScope, `endSectionId references unknown section "${preset.endSectionId}"`);
         }
       }
+
+      await validateTrailConnections(connections, itemScope, sectionIds);
     }
   }
 
@@ -778,6 +895,8 @@ async function readHikingSourceTrailSystems() {
     const manifest = await readJson(path.join(systemDir, "manifest.json"), `${scope}/manifest.json`);
     const sectionIds = (await readJson(path.join(systemDir, "sections-index.json"), `${scope}/sections-index.json`)) ?? [];
     const routeGroups = (await readJson(path.join(systemDir, "route-groups.json"), `${scope}/route-groups.json`)) ?? [];
+    const connectionsPath = path.join(systemDir, "connections.json");
+    const connections = (await pathExists(connectionsPath)) ? await readJson(connectionsPath, `${scope}/connections.json`) : [];
     const presets = (await readJson(path.join(systemDir, "presets.json"), `${scope}/presets.json`)) ?? [];
     const sectionFiles = new Set((await readdir(sectionsDir).catch(() => [])).filter((file) => file.endsWith(".json")));
     const sections = [];
@@ -787,11 +906,12 @@ async function readHikingSourceTrailSystems() {
       continue;
     }
     if (manifest.id !== entry.name) addError(`${scope}/manifest.json`, `manifest ID must match directory name "${entry.name}"`);
-    for (const field of ["sections", "routeGroups", "presets"]) {
+    for (const field of ["sections", "routeGroups", "connections", "presets"]) {
       if (field in manifest) addError(`${scope}/manifest.json`, `manifest must not duplicate ${field}; keep it in its source shard`);
     }
     if (!Array.isArray(sectionIds)) addError(`${scope}/sections-index.json`, "Expected an array of ordered section IDs");
     if (!Array.isArray(routeGroups)) addError(`${scope}/route-groups.json`, "Expected an array");
+    if (!Array.isArray(connections)) addError(`${scope}/connections.json`, "Expected an array");
     if (!Array.isArray(presets)) addError(`${scope}/presets.json`, "Expected an array");
     if (!sectionFiles.size) addError(`${scope}/sections`, "Expected at least one section shard");
     validateUnique(`${scope}/sections-index.json`, "section IDs", Array.isArray(sectionIds) ? sectionIds : []);
@@ -825,6 +945,7 @@ async function readHikingSourceTrailSystems() {
       ...manifest,
       sections,
       ...(Array.isArray(routeGroups) && routeGroups.length ? { routeGroups } : {}),
+      ...(Array.isArray(connections) && connections.length ? { connections } : {}),
       presets: Array.isArray(presets) ? presets : []
     });
   }
@@ -914,6 +1035,7 @@ async function validateTrailSystemShards() {
     const manifestPath = path.join(systemDir, "manifest.json");
     const sectionsIndexPath = path.join(systemDir, "sections-index.json");
     const routeGroupsPath = path.join(systemDir, "route-groups.json");
+    const connectionsPath = path.join(systemDir, "connections.json");
     const presetsPath = path.join(systemDir, "presets.json");
 
     for (const requiredPath of [manifestPath, sectionsIndexPath]) {
@@ -923,10 +1045,11 @@ async function validateTrailSystemShards() {
     const manifest = await readJson(manifestPath, `${scope} manifest`);
     const sectionsIndex = await readJson(sectionsIndexPath, `${scope} sections-index`);
     const routeGroups = (await pathExists(routeGroupsPath)) ? await readJson(routeGroupsPath, `${scope} route-groups`) : [];
+    const connections = (await pathExists(connectionsPath)) ? await readJson(connectionsPath, `${scope} connections`) : [];
     const presets = (await pathExists(presetsPath)) ? await readJson(presetsPath, `${scope} presets`) : [];
 
     if (manifest?.id !== entry.name) addError(scope, `manifest ID "${manifest?.id}" does not match shard directory "${entry.name}"`);
-    for (const field of ["sections", "routeGroups", "presets"]) {
+    for (const field of ["sections", "routeGroups", "connections", "presets"]) {
       if (field in (manifest ?? {})) addError(scope, `manifest.json must not duplicate ${field}`);
     }
     if (!Array.isArray(sectionsIndex)) {
@@ -934,7 +1057,14 @@ async function validateTrailSystemShards() {
       continue;
     }
     if (!Array.isArray(routeGroups)) addError(scope, "route-groups.json must be an array");
+    if (!Array.isArray(connections)) addError(scope, "connections.json must be an array");
     if (!Array.isArray(presets)) addError(scope, "presets.json must be an array");
+
+    if (manifest?.connectionsPath) {
+      const expectedConnectionsPath = `/data/trail-systems/${entry.name}/connections.json`;
+      if (manifest.connectionsPath !== expectedConnectionsPath) addError(scope, `manifest connectionsPath must be "${expectedConnectionsPath}"`);
+      if (!(await pathExists(connectionsPath))) addError(scope, "manifest connectionsPath is present but connections.json is missing");
+    }
 
     validateUnique(scope, "sections-index IDs", sectionsIndex.map((section) => section.id));
     const sectionIds = new Set(sectionsIndex.map((section) => section.id));
@@ -972,6 +1102,8 @@ async function validateTrailSystemShards() {
         addError(scope, `preset ${preset.id} references unknown end section "${preset.endSectionId}"`);
       }
     }
+
+    await validateTrailConnections(Array.isArray(connections) ? connections : [], scope, sectionIds);
   }
 }
 

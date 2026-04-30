@@ -2,11 +2,14 @@ import React from "react";
 import L from "leaflet";
 import type { TrailFacility, TrailSection, TrailSystem } from "../types";
 import { fitSelectedLayersOrMarkers } from "./fitMapBounds";
-import { addHikingCommuteMarkers } from "./hikingCommuteMarkers";
-import { addHikingFacilityMarkers, visibleHikingMapFacilities } from "./hikingFacilityMarkers";
+import { addHikingPoiMarkers, visibleHikingMapFacilities } from "./hikingFacilityMarkers";
 import { selectedAccessPoints, type FacilityType } from "./hikingFacilities";
+import { addRouteEndpointMarker } from "./routeEndpointMarkers";
+import { selectedTrailConnections } from "./trailSystemConnections";
 import {
+  drawTrailConnectionRoutes,
   drawTrailSectionRoutes,
+  loadTrailConnectionRoute,
   loadTrailSectionRoute,
   trailRouteLoadWarningText,
   trailSectionMarkerLatLng,
@@ -14,18 +17,29 @@ import {
 } from "./trailSystemRouteLayers";
 import { useLeafletMap } from "./useLeafletMap";
 
+export type TrailMapFocusTarget = {
+  id: string;
+  coordinates: [number, number];
+  requestId: number;
+  zoom?: number;
+};
+
 export function TrailSystemMap({
   trailSystem,
   selectedSections,
   primarySections = selectedSections,
   facilities,
-  visibleFacilityTypes
+  visibleFacilityTypes,
+  visibleCommuteTypes,
+  focusTarget
 }: {
   trailSystem: TrailSystem;
   selectedSections: TrailSection[];
   primarySections?: TrailSection[];
   facilities?: TrailFacility[];
   visibleFacilityTypes?: Set<FacilityType>;
+  visibleCommuteTypes?: Set<"bus" | "train">;
+  focusTarget?: TrailMapFocusTarget | null;
 }) {
   const { containerRef, mapRef } = useLeafletMap(trailSystem.map.center, trailSystem.map.zoom);
   const [routeLoadWarning, setRouteLoadWarning] = React.useState("");
@@ -35,12 +49,19 @@ export function TrailSystemMap({
   const commuteKey = accessPoints
     .flatMap((accessPoint) => [accessPoint.busStop, accessPoint.trainStop])
     .filter(Boolean)
+    .filter((stop) => !visibleCommuteTypes || visibleCommuteTypes.has(stop!.type))
     .map((stop) => `${stop?.id}:${stop?.distanceKm}`)
     .join("|");
   const facilityKey = (facilities ?? [])
     .filter((facility) => facility.coordinates && (visibleFacilityTypes?.has(facility.type) ?? true))
     .map((facility) => `${facility.id}:${facility.type}`)
     .join("|");
+
+  React.useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !focusTarget) return;
+    map.setView(focusTarget.coordinates, Math.max(map.getZoom(), focusTarget.zoom ?? 15), { animate: true });
+  }, [focusTarget, mapRef]);
 
   React.useEffect(() => {
     const currentMap = mapRef.current;
@@ -52,35 +73,33 @@ export function TrailSystemMap({
     const markerFacilities = visibleHikingMapFacilities(facilities, visibleFacilityTypes);
     const routeLayers = L.layerGroup().addTo(map);
     const markerLayerGroup = L.layerGroup().addTo(map);
-
-    const startIcon = L.divIcon({
-      className: "route-marker route-marker-start",
-      html: "Start",
-      iconSize: [52, 26],
-      iconAnchor: [26, 13]
-    });
-
-    const finishIcon = L.divIcon({
-      className: "route-marker route-marker-finish",
-      html: "End",
-      iconSize: [44, 26],
-      iconAnchor: [22, 13]
-    });
+    const poiLayerGroup = L.layerGroup().addTo(map);
 
     let cancelled = false;
     setRouteLoadWarning("");
 
     async function drawSections() {
       const markerLayerRefs: L.Layer[] = [];
+      const routeConnectionsToLoad = selectedTrailConnections(trailSystem.connections, primaryRouteSections);
 
-      const selectedRouteResults = await Promise.all(routeSectionsToLoad.map(loadTrailSectionRoute));
+      const [selectedConnectionResults, selectedRouteResults] = await Promise.all([
+        Promise.all(routeConnectionsToLoad.map(loadTrailConnectionRoute)),
+        Promise.all(routeSectionsToLoad.map(loadTrailSectionRoute))
+      ]);
       if (cancelled) return;
+
+      const { connectionLayers, failedConnectionRoutes } = drawTrailConnectionRoutes({
+        routeResults: selectedConnectionResults,
+        routeLayers
+      });
       const { selectedLayers, routeCoordinatesBySection, failedRoutes } = drawTrailSectionRoutes({
         routeResults: selectedRouteResults,
         routeLayers,
         selectedIds
       });
-      if (failedRoutes.length) setRouteLoadWarning(trailRouteLoadWarningText(failedRoutes));
+      if (failedRoutes.length || failedConnectionRoutes.length) {
+        setRouteLoadWarning(trailRouteLoadWarningText(failedRoutes, failedConnectionRoutes));
+      }
 
       const first = trailSectionMarkerLatLng(primaryRouteSections[0], "start", routeCoordinatesBySection);
       const last = trailSectionMarkerLatLng(
@@ -89,19 +108,38 @@ export function TrailSystemMap({
         routeCoordinatesBySection
       );
       if (first) {
-        const marker = L.marker(first, { icon: startIcon }).addTo(markerLayerGroup);
+        const marker = addRouteEndpointMarker({ coordinates: first, kind: "start", layerGroup: markerLayerGroup });
         markerLayerRefs.push(marker);
       }
       if (last) {
-        const marker = L.marker(last, { icon: finishIcon }).addTo(markerLayerGroup);
+        const marker = addRouteEndpointMarker({ coordinates: last, kind: "end", layerGroup: markerLayerGroup });
         markerLayerRefs.push(marker);
       }
 
-      markerLayerRefs.push(...addHikingFacilityMarkers({ facilities: markerFacilities, markerLayerGroup }));
-      markerLayerRefs.push(...addHikingCommuteMarkers({ accessPoints, markerLayerGroup }));
-
-      fitSelectedLayersOrMarkers({ map, selectedLayers, markerLayers: markerLayerRefs });
+      fitSelectedLayersOrMarkers({
+        map,
+        selectedLayers: [...connectionLayers, ...selectedLayers],
+        markerLayers: markerLayerRefs
+      });
+      drawPointsOfInterest();
+      if (focusTarget) {
+        map.setView(focusTarget.coordinates, Math.max(map.getZoom(), focusTarget.zoom ?? 15), { animate: true });
+      }
     }
+
+    function drawPointsOfInterest() {
+      poiLayerGroup.clearLayers();
+      addHikingPoiMarkers({
+        accessPoints,
+        facilities: markerFacilities,
+        visibleCommuteTypes,
+        markerLayerGroup: poiLayerGroup,
+        map,
+        focusedFacilityId: focusTarget?.id
+      });
+    }
+
+    map.on("zoomend", drawPointsOfInterest);
 
     drawSections().catch(() => {
       if (cancelled) return;
@@ -111,10 +149,23 @@ export function TrailSystemMap({
 
     return () => {
       cancelled = true;
+      map.off("zoomend", drawPointsOfInterest);
       routeLayers.remove();
       markerLayerGroup.remove();
+      poiLayerGroup.remove();
     };
-  }, [accessPoints, commuteKey, facilities, facilityKey, primaryKey, selectedKey, trailSystem, visibleFacilityTypes]);
+  }, [
+    accessPoints,
+    commuteKey,
+    facilities,
+    facilityKey,
+    focusTarget,
+    primaryKey,
+    selectedKey,
+    trailSystem,
+    visibleCommuteTypes,
+    visibleFacilityTypes
+  ]);
 
   return (
     <>

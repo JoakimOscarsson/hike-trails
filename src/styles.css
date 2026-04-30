@@ -226,11 +226,26 @@ select:focus-visible {
 }
 
 .hike-meta {
+  display: flex;
+  flex-wrap: wrap;
   min-width: 0;
   color: #687264;
   font-size: 0.78rem;
   line-height: 1.35;
+}
+
+.hike-meta-part {
+  min-width: 0;
   overflow-wrap: anywhere;
+}
+
+.hike-meta-part:not(:last-child)::after {
+  content: " · ";
+  white-space: pre;
+}
+
+.hike-distance {
+  white-space: nowrap;
 }
 
 .star-button,
@@ -525,24 +540,12 @@ dd {
   background: #e8ece2 !important;
 }
 
-.route-marker {
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(32, 35, 31, 0.2);
-  border-radius: 999px;
-  background: #fbfaf6;
-  color: #20321f;
+.trail-connection-tooltip {
+  border-color: #b9d3d0;
+  background: rgba(251, 250, 246, 0.96);
+  color: #164653;
   font-size: 0.72rem;
-  font-weight: 800;
-  box-shadow: 0 8px 18px rgba(32, 35, 31, 0.16);
-}
-
-.route-marker-start {
-  background: #e8ece2;
-}
-
-.route-marker-finish {
-  background: #f4dfd5;
+  font-weight: 780;
 }
 
 .facility-marker {
@@ -555,6 +558,84 @@ dd {
   background: #20321f;
   color: #ffffff;
   box-shadow: 0 7px 16px rgba(32, 35, 31, 0.24);
+}
+
+.route-endpoint-marker {
+  position: absolute;
+  color: #20321f;
+  pointer-events: none;
+}
+
+.route-endpoint-label {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  height: 25px;
+  padding: 0 10px;
+  border: 1px solid rgba(32, 35, 31, 0.22);
+  border-radius: 999px;
+  color: #20321f;
+  font-size: 0.72rem;
+  font-weight: 850;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 8px 18px rgba(32, 35, 31, 0.16);
+}
+
+.route-endpoint-line {
+  position: absolute;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(32, 35, 31, 0.62);
+  transform-origin: left center;
+}
+
+.route-endpoint-dot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  box-shadow: 0 3px 9px rgba(32, 35, 31, 0.26);
+}
+
+.route-endpoint-marker-start .route-endpoint-label {
+  top: 5px;
+  left: 7px;
+  background: #e8ece2;
+}
+
+.route-endpoint-marker-start .route-endpoint-line {
+  top: 25px;
+  left: 57px;
+  width: 35px;
+  transform: rotate(31deg);
+}
+
+.route-endpoint-marker-start .route-endpoint-dot {
+  top: 32px;
+  left: 82px;
+  background: #3f5b36;
+}
+
+.route-endpoint-marker-end .route-endpoint-label {
+  top: 28px;
+  left: 51px;
+  background: #f4dfd5;
+}
+
+.route-endpoint-marker-end .route-endpoint-line {
+  top: 21px;
+  left: 25px;
+  width: 35px;
+  transform: rotate(35deg);
+}
+
+.route-endpoint-marker-end .route-endpoint-dot {
+  top: 14px;
+  left: 18px;
+  background: #d46645;
 }
 
 .facility-cluster-marker {
@@ -584,6 +665,11 @@ dd {
 
 .facility-spider-marker {
   box-shadow: 0 9px 20px rgba(32, 35, 31, 0.32);
+}
+
+.facility-spider-leg {
+  stroke-linecap: round;
+  pointer-events: none;
 }
 
 .facility-cluster-popup {
@@ -631,35 +717,52 @@ dd {
   line-height: 1;
 }
 
-.facility-marker-campsite,
 .facility-marker-shelter,
-.facility-marker-unofficial-shelter {
+.facility-marker-unofficial-shelter,
+.facility-marker-emergency-phone {
   background: #46623b;
 }
 
-.facility-marker-fireplace,
-.facility-marker-rest-area {
+.facility-marker-campsite,
+.facility-marker-camping {
+  background: #46623b;
+}
+
+.facility-marker-fireplace {
   background: #c25a31;
 }
 
 .facility-marker-water,
-.facility-marker-natural-water,
-.facility-marker-toilet {
+.facility-marker-natural-water {
   background: #2f6f8f;
 }
 
+.facility-marker-toilet,
+.facility-marker-waste {
+  background: #52605f;
+}
+
 .facility-marker-food,
-.facility-marker-swimming,
-.facility-marker-parking {
+.facility-marker-lodging,
+.facility-marker-service {
   background: #6d5b9b;
 }
 
+.facility-marker-parking,
+.facility-marker-transit {
+  background: #5c5f8f;
+}
+
+.facility-marker-rest-area,
 .facility-marker-attraction,
-.facility-marker-heritage {
+.facility-marker-heritage,
+.facility-marker-viewpoint,
+.facility-marker-swimming {
   background: #6f5a35;
 }
 
-.facility-marker-rule-warning {
+.facility-marker-rule-warning,
+.facility-marker-hazard {
   background: #a24c2f;
 }
 
@@ -700,8 +803,167 @@ dd {
   stroke-width: 2.5;
 }
 
+.commute-cluster-marker {
+  cursor: pointer;
+}
+
+.commute-cluster-marker span {
+  display: grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: #f5c84b;
+  color: #342403;
+  font-size: 0.72rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.commute-spider-marker {
+  box-shadow: 0 9px 20px rgba(32, 35, 31, 0.32);
+}
+
+.commute-spider-leg {
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+.poi-cluster-marker.facility-cluster-marker.commute-cluster-marker:not(.poi-cluster-origin-dot) {
+  background: linear-gradient(135deg, #20321f 0 50%, #1f4864 50% 100%);
+}
+
+.poi-cluster-origin-dot {
+  background: #20321f;
+  color: transparent;
+  box-shadow: 0 5px 12px rgba(32, 35, 31, 0.24);
+  cursor: pointer;
+}
+
+.poi-cluster-origin-dot.commute-cluster-marker {
+  background: #1f4864;
+}
+
+.poi-cluster-origin-dot.facility-cluster-marker.commute-cluster-marker {
+  background: linear-gradient(135deg, #20321f 0 50%, #1f4864 50% 100%);
+}
+
+.poi-cluster-origin-dot span {
+  display: none;
+}
+
+.poi-cluster-origin-dot::after {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: #f5c84b;
+}
+
 .commute-marker-train {
   background: #262f74;
+}
+
+.map-with-controls[data-highlight-group="warnings"] .route-map :is(
+  .facility-marker-rule-warning,
+  .facility-marker-hazard,
+  .facility-cluster-has-rule-warning,
+  .facility-cluster-has-hazard
+),
+.map-with-controls[data-highlight-group="shelter-emergency"] .route-map :is(
+  .facility-marker-shelter,
+  .facility-marker-unofficial-shelter,
+  .facility-marker-emergency-phone,
+  .facility-cluster-has-shelter,
+  .facility-cluster-has-unofficial-shelter,
+  .facility-cluster-has-emergency-phone
+),
+.map-with-controls[data-highlight-group="water"] .route-map :is(
+  .facility-marker-water,
+  .facility-marker-natural-water,
+  .facility-cluster-has-water,
+  .facility-cluster-has-natural-water
+),
+.map-with-controls[data-highlight-group="tent-sites"] .route-map :is(
+  .facility-marker-campsite,
+  .facility-marker-camping,
+  .facility-cluster-has-campsite,
+  .facility-cluster-has-camping
+),
+.map-with-controls[data-highlight-group="fire"] .route-map :is(
+  .facility-marker-fireplace,
+  .facility-cluster-has-fireplace
+),
+.map-with-controls[data-highlight-group="toilets-waste"] .route-map :is(
+  .facility-marker-toilet,
+  .facility-marker-waste,
+  .facility-cluster-has-toilet,
+  .facility-cluster-has-waste
+),
+.map-with-controls[data-highlight-group="food-lodging-services"] .route-map :is(
+  .facility-marker-food,
+  .facility-marker-lodging,
+  .facility-marker-service,
+  .facility-cluster-has-food,
+  .facility-cluster-has-lodging,
+  .facility-cluster-has-service
+),
+.map-with-controls[data-highlight-group="parking-transit"] .route-map :is(
+  .facility-marker-parking,
+  .facility-marker-transit,
+  .facility-cluster-has-parking,
+  .facility-cluster-has-transit,
+  .commute-marker-bus,
+  .commute-marker-train,
+  .commute-cluster-has-bus,
+  .commute-cluster-has-train
+),
+.map-with-controls[data-highlight-group="places"] .route-map :is(
+  .facility-marker-rest-area,
+  .facility-marker-attraction,
+  .facility-marker-heritage,
+  .facility-marker-viewpoint,
+  .facility-marker-swimming,
+  .facility-cluster-has-rest-area,
+  .facility-cluster-has-attraction,
+  .facility-cluster-has-heritage,
+  .facility-cluster-has-viewpoint,
+  .facility-cluster-has-swimming
+) {
+  border-color: #f5c84b;
+  box-shadow: 0 0 0 4px rgba(245, 200, 75, 0.48), 0 12px 26px rgba(32, 35, 31, 0.34);
+  z-index: 900 !important;
+}
+
+.map-with-controls[data-highlight-group="warnings"] .route-map :is(.facility-marker-rule-warning, .facility-marker-hazard) svg,
+.map-with-controls[data-highlight-group="shelter-emergency"] .route-map :is(
+  .facility-marker-shelter,
+  .facility-marker-unofficial-shelter,
+  .facility-marker-emergency-phone
+) svg,
+.map-with-controls[data-highlight-group="water"] .route-map :is(.facility-marker-water, .facility-marker-natural-water) svg,
+.map-with-controls[data-highlight-group="tent-sites"] .route-map :is(.facility-marker-campsite, .facility-marker-camping) svg,
+.map-with-controls[data-highlight-group="fire"] .route-map .facility-marker-fireplace svg,
+.map-with-controls[data-highlight-group="toilets-waste"] .route-map :is(.facility-marker-toilet, .facility-marker-waste) svg,
+.map-with-controls[data-highlight-group="food-lodging-services"] .route-map :is(
+  .facility-marker-food,
+  .facility-marker-lodging,
+  .facility-marker-service
+) svg,
+.map-with-controls[data-highlight-group="parking-transit"] .route-map :is(
+  .facility-marker-parking,
+  .facility-marker-transit,
+  .commute-marker-bus,
+  .commute-marker-train
+) svg,
+.map-with-controls[data-highlight-group="places"] .route-map :is(
+  .facility-marker-rest-area,
+  .facility-marker-attraction,
+  .facility-marker-heritage,
+  .facility-marker-viewpoint,
+  .facility-marker-swimming
+) svg {
+  stroke-width: 3;
 }
 
 .facility-distance-inline {
@@ -838,6 +1100,11 @@ p.inline-warning,
 
 .map-filter-chip:hover:not(:disabled) {
   border-color: #31482d;
+}
+
+.map-filter-chip:focus-visible {
+  outline: 3px solid rgba(245, 200, 75, 0.55);
+  outline-offset: 2px;
 }
 
 .map-filter-chip.active {
@@ -1291,15 +1558,41 @@ p.inline-warning,
 }
 
 .transit-toggle {
+  margin-top: 8px;
   margin-bottom: 8px;
   border: 1px solid #d7d9d1;
   border-radius: 8px;
   background: #fbfaf6;
 }
 
+.transit-block-head {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.transit-block-head h2 {
+  margin-bottom: 0;
+}
+
+.transit-block-head > span {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  min-width: 28px;
+  height: 26px;
+  border-radius: 999px;
+  background: #e8ece2;
+  color: #3f5b36;
+  font-size: 0.78rem;
+  font-weight: 820;
+}
+
 .transit-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: 8px;
 }
 
@@ -1311,10 +1604,29 @@ p.inline-warning,
 .transit-item {
   display: grid;
   gap: 8px;
+  min-width: 0;
   padding: 9px;
   border: 1px solid #d7d9d1;
   border-radius: 8px;
   background: #fbfaf6;
+}
+
+.transit-item.selected-endpoint {
+  border-color: #9cab90;
+  background: #f0f3ec;
+}
+
+.selected-transit-list {
+  margin-bottom: 10px;
+}
+
+.transit-subhead {
+  margin: 2px 0 8px;
+  color: #697064;
+  font-size: 0.72rem;
+  font-weight: 820;
+  letter-spacing: 0;
+  text-transform: uppercase;
 }
 
 .transit-item span {
@@ -1331,25 +1643,31 @@ p.inline-warning,
   margin: 0;
   color: #20231f;
   font-size: 0.9rem;
+  line-height: 1.2;
+  overflow-wrap: anywhere;
 }
 
 .commute-lines {
   display: grid;
   gap: 5px;
+  min-width: 0;
 }
 
 .commute-line {
   display: flex !important;
   align-items: center;
   gap: 7px;
+  min-width: 0;
   margin: 0 !important;
   text-transform: none !important;
   color: #3d4739 !important;
   font-size: 0.78rem !important;
   font-weight: 650 !important;
+  overflow-wrap: anywhere;
 }
 
 .commute-line strong {
+  flex: 0 0 auto;
   min-width: 34px;
   color: #697064;
   font-size: 0.68rem;
@@ -1357,6 +1675,7 @@ p.inline-warning,
 }
 
 .commute-line small {
+  flex: 0 0 auto;
   margin-left: auto;
   color: #20321f;
   font-size: 0.72rem;
@@ -1446,16 +1765,56 @@ p.inline-warning,
   background: #fbfaf6;
 }
 
-.facility-item span {
+.facility-focus-button {
+  display: block;
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.facility-focus-button:disabled {
+  cursor: default;
+}
+
+.facility-focus-button:not(:disabled):hover h3,
+.facility-focus-button:not(:disabled):focus-visible h3 {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.facility-focus-button:focus-visible {
+  outline: 2px solid #3f5b36;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.facility-kind,
+.facility-focus-action {
   display: inline-flex;
   align-items: center;
   gap: 5px;
+}
+
+.facility-kind {
   margin-bottom: 6px;
   color: #697064;
   font-size: 0.68rem;
   font-weight: 750;
   text-transform: uppercase;
   letter-spacing: 0;
+}
+
+.facility-focus-action {
+  margin-top: 8px;
+  color: #3f5b36;
+  font-size: 0.76rem;
+  font-weight: 760;
 }
 
 .facility-item h3 {
@@ -1537,6 +1896,16 @@ p.inline-warning,
     position: static;
     height: auto;
     padding: 14px;
+  }
+
+  .has-selection .sidebar {
+    order: 2;
+    border-top: 1px solid #ddded7;
+    border-right: 0;
+  }
+
+  .has-selection .content {
+    order: 1;
   }
 
   .hike-list {
@@ -1633,6 +2002,15 @@ p.inline-warning,
     grid-template-columns: 1fr;
   }
 
+  .context-routes-head {
+    display: grid;
+    gap: 2px;
+  }
+
+  .context-routes-head small {
+    text-align: left;
+  }
+
   .selected-route-bar div {
     text-align: left;
   }
@@ -1666,7 +2044,10 @@ p.inline-warning,
   .select-field select,
   .primary-action,
   .secondary-action,
+  .hike-select,
   .facility-group-toggle,
+  .facility-item a,
+  .map-panel > a,
   .context-route,
   .section-row {
     min-height: 44px;
@@ -1680,8 +2061,8 @@ p.inline-warning,
   }
 
   .leaflet-control-zoom a {
-    width: 36px !important;
-    height: 36px !important;
+    width: 44px !important;
+    height: 44px !important;
   }
 }
 
@@ -1739,7 +2120,6 @@ p.inline-warning,
   .facts,
   .compact-facts,
   .overview-stats,
-  .transit-list,
   .facility-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

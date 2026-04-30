@@ -2,6 +2,7 @@ import React from "react";
 import L from "leaflet";
 import type { Hike } from "../types";
 import { loadRouteGeometry } from "./routeGeometry";
+import { addRouteEndpointMarker } from "./routeEndpointMarkers";
 import type { HikeMapStatus } from "./types";
 import { useLeafletMap } from "./useLeafletMap";
 
@@ -22,20 +23,6 @@ export function RouteMap({
     setRouteLoadWarning("");
     onLoadStateChange?.(hike.route.geojsonPath ? "loading" : "marker-only");
     const routeLayers = L.layerGroup().addTo(map);
-
-    const startIcon = L.divIcon({
-      className: "route-marker route-marker-start",
-      html: "Start",
-      iconSize: [52, 26],
-      iconAnchor: [26, 13]
-    });
-
-    const finishIcon = L.divIcon({
-      className: "route-marker route-marker-finish",
-      html: "End",
-      iconSize: [44, 26],
-      iconAnchor: [22, 13]
-    });
 
     let cancelled = false;
 
@@ -65,8 +52,8 @@ export function RouteMap({
       const first = coordinates[0];
       const last = coordinates[coordinates.length - 1];
 
-      if (first) L.marker([first[1], first[0]], { icon: startIcon }).addTo(routeLayers);
-      if (last) L.marker([last[1], last[0]], { icon: finishIcon }).addTo(routeLayers);
+      if (first) addRouteEndpointMarker({ coordinates: [first[1], first[0]], kind: "start", layerGroup: routeLayers });
+      if (last) addRouteEndpointMarker({ coordinates: [last[1], last[0]], kind: "end", layerGroup: routeLayers });
 
       const bounds = layer.getBounds();
       if (bounds.isValid()) {

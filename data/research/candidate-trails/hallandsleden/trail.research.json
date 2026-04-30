@@ -1,0 +1,1505 @@
+{
+  "schemaVersion": "candidate-trail-overview-research-v1",
+  "trailId": "hallandsleden",
+  "lastUpdated": "2026-04-30",
+  "status": "phase-2-section-research-and-candidate-geometry-complete",
+  "officialName": "Hallandsleden",
+  "aliases": [
+    "Hallandsleden",
+    "Hallandsleden inland",
+    "Hallandsleden Kusten",
+    "Kusten",
+    "Norra delleden",
+    "Mellersta delleden",
+    "Södra delleden"
+  ],
+  "purpose": "Research-only candidate trail packet. Do not import automatically or integrate into runtime app data until section research and candidate geometry have been reviewed and normalized.",
+  "officialSources": [
+    {
+      "title": "Hallandsleden official home",
+      "url": "https://www.hallandsleden.se/",
+      "accessed": "2026-04-29",
+      "notes": "Official homepage. Live page headline reports 612 km and describes inland branches plus the emerging coastal route."
+    },
+    {
+      "title": "Hallandsleden official map/planning tool",
+      "url": "https://www.hallandsleden.se/kartplaneringsverktyg/hallandsleden",
+      "accessed": "2026-04-29",
+      "notes": "Official digital map; source of current linework after 2024 reroutes."
+    },
+    {
+      "title": "Official tracks API",
+      "url": "https://www.hallandsleden.se/api/v2/tracks?token=<site-token>&limit=100&cleaner=true",
+      "accessed": "2026-04-29",
+      "notes": "Observed Hoodin API behind the official site; used only as research evidence, not as a runtime dependency."
+    },
+    {
+      "title": "Official track-segments map API",
+      "url": "https://www.hallandsleden.se/api/v2/track-segments/map?token=<site-token>&track=<subtrail>&limit=100&cleaner=true",
+      "accessed": "2026-04-29",
+      "notes": "Provides official section names, distances, difficulty, downloadable GPX URLs, and map linework when populated."
+    },
+    {
+      "title": "Norra delleden official page",
+      "url": "https://www.hallandsleden.se/delled/norra-delleden",
+      "accessed": "2026-04-29"
+    },
+    {
+      "title": "Mellersta delleden official page",
+      "url": "https://www.hallandsleden.se/delled/mellersta-delleden",
+      "accessed": "2026-04-29"
+    },
+    {
+      "title": "Södra delleden official page",
+      "url": "https://www.hallandsleden.se/delled/sodra-delleden",
+      "accessed": "2026-04-29"
+    },
+    {
+      "title": "Kusten official page",
+      "url": "https://www.hallandsleden.se/delled/kusten",
+      "accessed": "2026-04-29"
+    },
+    {
+      "title": "Viktig information",
+      "url": "https://www.hallandsleden.se/item/viktig-information/i48rep1ncwkafz7wux50lp0dhxvboodp",
+      "accessed": "2026-04-29",
+      "notes": "Official currentness/rules page; page says updated 2025-04-15."
+    },
+    {
+      "title": "Nya leddragningar",
+      "url": "https://www.hallandsleden.se/item/nya-leddragningar-1/f22cgopgvzykg0snvt9jgr6lxgvdb1n5",
+      "accessed": "2026-04-29",
+      "notes": "Official reroute page; page says updated 2024-11-07 and lists 2024 reroutes."
+    },
+    {
+      "title": "Vandra med hund",
+      "url": "https://www.hallandsleden.se/item/vandra-med-hund/gkvddie3ttmazifzlnqae9q4phuhj32b",
+      "accessed": "2026-04-29",
+      "notes": "Official dog guidance and leash-period note."
+    },
+    {
+      "title": "MSB Brandrisk Ute",
+      "url": "https://www.msb.se/sv/om-msb/informationskanaler/appar/brandrisk-ute/",
+      "accessed": "2026-04-29",
+      "notes": "Linked by Hallandsleden for current fire-risk checks."
+    },
+    {
+      "title": "Naturvårdsverket Allemansrätten",
+      "url": "https://www.naturvardsverket.se/amnesomraden/allemansratten/",
+      "accessed": "2026-04-29",
+      "notes": "Linked by Hallandsleden for general right-of-public-access rules."
+    },
+    {
+      "title": "Länsstyrelsen Halland nature reserves",
+      "url": "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat.html",
+      "accessed": "2026-04-29",
+      "notes": "Linked by Hallandsleden dog page for special reserve rules."
+    }
+  ],
+  "overview": {
+    "officialHeadlineDistanceKm": 612,
+    "distanceKmFromCurrentOfficialSections": 610.9,
+    "officialSectionCount": 35,
+    "officialSubtrailCount": 4,
+    "officialSectionNumbering": "The official site does not expose simple numeric stage numbers. This research assigns stable synthetic order labels N1-N8, M1-M8, S1-S9, and K1-K10 based on official subtrail page order.",
+    "routeType": "multi-section hiking trail with branched inland routes and an emerging coastal route",
+    "countyAndRegion": [
+      "Halland County / Region Halland",
+      "Skåne County at the Båstad station coastal endpoint",
+      "connection northward toward Bohusleden/Västra Götaland at Älvsåker"
+    ],
+    "municipalities": [
+      "Kungsbacka",
+      "Varberg",
+      "Falkenberg",
+      "Hylte",
+      "Halmstad",
+      "Laholm",
+      "Båstad endpoint in Skåne"
+    ],
+    "officialCollaboration": "The official footer describes Hallandsleden as a collaboration between Laholm, Halmstad, Hylte, Falkenberg, Varberg, Kungsbacka and Region Halland.",
+    "officialMapAndGeometrySources": {
+      "digitalMap": "https://www.hallandsleden.se/kartplaneringsverktyg/hallandsleden",
+      "sectionPages": "https://www.hallandsleden.se/etapp/<official-slug>",
+      "downloadableGpx": "Official section GPX URLs are exposed by the official map API and section pages.",
+      "hoodinApi": "The official site uses Hoodin API endpoints for tracks, track-segments, and places. Keep as research evidence; do not rely on the token or endpoint shape for production import without a later approved integration pass.",
+      "lineworkCaveat": "On 2026-04-29, several official map API section records had empty line geometry even though official GPX downloads existed. These require GPX parsing or alternate geometry verification during section research."
+    }
+  },
+  "routeStructure": {
+    "subtrails": [
+      {
+        "slug": "norra-delleden",
+        "name": "Norra delleden",
+        "title": "Norra - inland",
+        "officialUrl": "https://www.hallandsleden.se/delled/norra-delleden",
+        "sectionCount": 8,
+        "distanceKm": 135.8,
+        "note": "Kungsbacka-Varberg inland. The northern inland trail meets Bohusleden at Älvsåker and splits at Åkulla Bokskogar toward Varberg or onward to Åkulla/Ästad.",
+        "sections": [
+          {
+            "sectionNumber": "N1",
+            "sectionId": "hallandsleden-alvsaker-naturum-fjaras-bracka",
+            "name": "Älvsåker - naturum Fjärås Bräcka",
+            "distanceKm": 15,
+            "difficulty": "hard",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/alvsaker-naturum-fjaras-bracka"
+          },
+          {
+            "sectionNumber": "N2",
+            "sectionId": "hallandsleden-naturum-fjaras-bracka-askhults-by",
+            "name": "naturum Fjärås Bräcka - Äskhults by",
+            "distanceKm": 9.8,
+            "difficulty": "medium",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/naturum-fjaras-bracka-askhults-by"
+          },
+          {
+            "sectionNumber": "N3",
+            "sectionId": "hallandsleden-askhults-by-stattared",
+            "name": "Äskhults by - Stättared",
+            "distanceKm": 17,
+            "difficulty": "hard",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/askhults-by-stattared"
+          },
+          {
+            "sectionNumber": "N4",
+            "sectionId": "hallandsleden-stattared-veddige",
+            "name": "Stättared - Veddige",
+            "distanceKm": 15,
+            "difficulty": "hard",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/stattared-veddige"
+          },
+          {
+            "sectionNumber": "N5",
+            "sectionId": "hallandsleden-veddige-nosslinge",
+            "name": "Veddige - Nösslinge",
+            "distanceKm": 28,
+            "difficulty": "hard",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/veddige-nosslinge"
+          },
+          {
+            "sectionNumber": "N6",
+            "sectionId": "hallandsleden-nosslinge-akulla",
+            "name": "Nösslinge - Åkulla",
+            "distanceKm": 17,
+            "difficulty": "hard",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/nosslinge-akulla"
+          },
+          {
+            "sectionNumber": "N7",
+            "sectionId": "hallandsleden-akulla-astad",
+            "name": "Åkulla - Ästad",
+            "distanceKm": 12,
+            "difficulty": "medium",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/akulla-astad"
+          },
+          {
+            "sectionNumber": "N8",
+            "sectionId": "hallandsleden-varberg-akulla",
+            "name": "Varberg - Åkulla",
+            "distanceKm": 22,
+            "difficulty": "easy",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/varberg-akulla"
+          }
+        ]
+      },
+      {
+        "slug": "mellersta-delleden",
+        "name": "Mellersta delleden",
+        "title": "Mellersta - inland",
+        "officialUrl": "https://www.hallandsleden.se/delled/mellersta-delleden",
+        "sectionCount": 8,
+        "distanceKm": 146,
+        "note": "Falkenberg-Hylte inland. At Åkulla/Ästad the inland trail has an eastern line via Ullared toward Kvarnforsen and a western line via Ätradalen toward Frodeparken.",
+        "sections": [
+          {
+            "sectionNumber": "M1",
+            "sectionId": "hallandsleden-akulla-ullared",
+            "name": "Åkulla - Ullared",
+            "distanceKm": 17,
+            "difficulty": "medium",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/akulla-ullared"
+          },
+          {
+            "sectionNumber": "M2",
+            "sectionId": "hallandsleden-ullared-karnebygd",
+            "name": "Ullared - Kärnebygd",
+            "distanceKm": 17,
+            "difficulty": "hard",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/ullared-karnebygd"
+          },
+          {
+            "sectionNumber": "M3",
+            "sectionId": "hallandsleden-karnebygd-atran",
+            "name": "Kärnebygd - Ätran",
+            "distanceKm": 11,
+            "difficulty": "medium",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/karnebygd-atran"
+          },
+          {
+            "sectionNumber": "M4",
+            "sectionId": "hallandsleden-atran-langesjon",
+            "name": "Ätran - Långesjön",
+            "distanceKm": 22,
+            "difficulty": "medium",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/atran-langesjon"
+          },
+          {
+            "sectionNumber": "M5",
+            "sectionId": "hallandsleden-langesjon-rydobruk",
+            "name": "Långesjön - Rydöbruk",
+            "distanceKm": 19,
+            "difficulty": "medium",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/langesjon-rydobruk"
+          },
+          {
+            "sectionNumber": "M6",
+            "sectionId": "hallandsleden-rydobruk-kvarnforsen",
+            "name": "Rydöbruk - Kvarnforsen",
+            "distanceKm": 10,
+            "difficulty": "easy",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/rydobruk-kvarnforsen"
+          },
+          {
+            "sectionNumber": "M7",
+            "sectionId": "hallandsleden-astad-vessigebro",
+            "name": "Ästad - Vessigebro",
+            "distanceKm": 21,
+            "difficulty": "hard",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/astad-vessigebro"
+          },
+          {
+            "sectionNumber": "M8",
+            "sectionId": "hallandsleden-vessigebro-frodeparken",
+            "name": "Vessigebro - Frodeparken",
+            "distanceKm": 29,
+            "difficulty": "medium",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/vessigebro-frodeparken"
+          }
+        ]
+      },
+      {
+        "slug": "sodra-delleden",
+        "name": "Södra delleden",
+        "title": "Södra - inland",
+        "officialUrl": "https://www.hallandsleden.se/delled/sodra-delleden",
+        "sectionCount": 9,
+        "distanceKm": 185.9,
+        "note": "Halmstad-Laholm inland. South of/north of Simlångsdalen the trail splits around Gyltige, with western/eastern approaches before continuing toward Koarp and Skåneleden.",
+        "sections": [
+          {
+            "sectionNumber": "S1",
+            "sectionId": "hallandsleden-frodeparken-oskarstrom",
+            "name": "Frodeparken - Oskarström",
+            "distanceKm": 23,
+            "difficulty": "hard",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/frodeparken-oskarstrom"
+          },
+          {
+            "sectionNumber": "S2",
+            "sectionId": "hallandsleden-oskarstrom-gyltige",
+            "name": "Oskarström - Gyltige",
+            "distanceKm": 22,
+            "difficulty": "medium",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/oskarstrom-gyltige"
+          },
+          {
+            "sectionNumber": "S3",
+            "sectionId": "hallandsleden-kvarnforsen-gyltige",
+            "name": "Kvarnforsen - Gyltige",
+            "distanceKm": 24,
+            "difficulty": "medium",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/kvarnforsen-gyltige"
+          },
+          {
+            "sectionNumber": "S4",
+            "sectionId": "hallandsleden-gyltige-simlangsdalen",
+            "name": "Gyltige - Simlångsdalen",
+            "distanceKm": 7.9,
+            "difficulty": "easy",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/gyltige-simlangsdalen"
+          },
+          {
+            "sectionNumber": "S5",
+            "sectionId": "hallandsleden-simlangsdalen-halmstad",
+            "name": "Simlångsdalen - Halmstad",
+            "distanceKm": 28,
+            "difficulty": "medium",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/simlangsdalen-halmstad"
+          },
+          {
+            "sectionNumber": "S6",
+            "sectionId": "hallandsleden-simlangsdalen-mastocka",
+            "name": "Simlångsdalen - Mästocka",
+            "distanceKm": 26,
+            "difficulty": "hard",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/simlangsdalen-mastocka"
+          },
+          {
+            "sectionNumber": "S7",
+            "sectionId": "hallandsleden-mastocka-knared",
+            "name": "Mästocka - Knäred",
+            "distanceKm": 17,
+            "difficulty": "medium",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/mastocka-knared"
+          },
+          {
+            "sectionNumber": "S8",
+            "sectionId": "hallandsleden-knared-ekegarden",
+            "name": "Knäred - Ekegården",
+            "distanceKm": 25,
+            "difficulty": "medium",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/knared-ekegarden"
+          },
+          {
+            "sectionNumber": "S9",
+            "sectionId": "hallandsleden-ekegarden-koarp",
+            "name": "Ekegården - Koarp",
+            "distanceKm": 13,
+            "difficulty": "medium",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/ekegarden-koarp"
+          }
+        ]
+      },
+      {
+        "slug": "kusten",
+        "name": "Kusten",
+        "title": "Kusten",
+        "officialUrl": "https://www.hallandsleden.se/delled/kusten",
+        "sectionCount": 10,
+        "distanceKm": 143.2,
+        "note": "Coastal Hallandsleden. The official site says the coastal line is being built in stages; Kungsbacka and Båstad/Laholm-Halmstad/Steninge sections are available, while Falkenberg and Varberg coastal gaps are expected to be added during 2026-2027.",
+        "sections": [
+          {
+            "sectionNumber": "K1",
+            "sectionId": "hallandsleden-sandsjobacka-kungsbacka-c",
+            "name": "Sandsjöbacka - Kungsbacka C",
+            "distanceKm": 8.7,
+            "difficulty": "medium",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/sandsjobacka-kungsbacka-c"
+          },
+          {
+            "sectionNumber": "K2",
+            "sectionId": "hallandsleden-kungsbacka-c-tjoloholm",
+            "name": "Kungsbacka C - Tjolöholm",
+            "distanceKm": 22,
+            "difficulty": "easy",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/kungsbacka-c-tjoloholm"
+          },
+          {
+            "sectionNumber": "K3",
+            "sectionId": "hallandsleden-tjoloholm-asa",
+            "name": "Tjolöholm - Åsa",
+            "distanceKm": 29,
+            "difficulty": "easy",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/tjoloholm-asa"
+          },
+          {
+            "sectionNumber": "K4",
+            "sectionId": "hallandsleden-asa-frillesas",
+            "name": "Åsa - Frillesås",
+            "distanceKm": 8.9,
+            "difficulty": "easy",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/asa-frillesas"
+          },
+          {
+            "sectionNumber": "K5",
+            "sectionId": "hallandsleden-steninge-haverdal",
+            "name": "Steninge - Haverdal",
+            "distanceKm": 7.3,
+            "difficulty": "easy",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/steninge-haverdal"
+          },
+          {
+            "sectionNumber": "K6",
+            "sectionId": "hallandsleden-haverdal-tylosand",
+            "name": "Haverdal - Tylösand",
+            "distanceKm": 12.7,
+            "difficulty": "easy",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/haverdal-tylosand"
+          },
+          {
+            "sectionNumber": "K7",
+            "sectionId": "hallandsleden-tylosand-halmstad-c",
+            "name": "Tylösand - Halmstad C",
+            "distanceKm": 15,
+            "difficulty": "medium",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/tylosand-halmstad-c"
+          },
+          {
+            "sectionNumber": "K8",
+            "sectionId": "hallandsleden-halmstad-c-paarp",
+            "name": "Halmstad C - Påarp",
+            "distanceKm": 14.6,
+            "difficulty": "easy",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/halmstad-c-paarp"
+          },
+          {
+            "sectionNumber": "K9",
+            "sectionId": "hallandsleden-paarp-mellbystrand",
+            "name": "Påarp - Mellbystrand",
+            "distanceKm": 13,
+            "difficulty": "easy",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/paarp-mellbystrand"
+          },
+          {
+            "sectionNumber": "K10",
+            "sectionId": "hallandsleden-mellbystrand-bastad-station",
+            "name": "Mellbystrand - Båstad station",
+            "distanceKm": 12,
+            "difficulty": "easy",
+            "officialPageUrl": "https://www.hallandsleden.se/etapp/mellbystrand-bastad-station"
+          }
+        ]
+      }
+    ],
+    "branchesAndConnections": [
+      "Northern inland route connects to Bohusleden at Älvsåker and branches in/near Åkulla between Varberg and Åkulla/Ästad alignments.",
+      "Mellersta inland route has eastern and western alternatives: Åkulla-Ullared-Kvarnforsen and Ästad-Vessigebro-Frodeparken.",
+      "Southern inland route has separate approaches around Gyltige/Simlångsdalen, then continues toward Koarp where it meets Skåneleden.",
+      "Coastal Hallandsleden is incomplete as a continuous coastal line; official text says sections through Falkenberg and Varberg are planned to be added during 2026-2027."
+    ],
+    "ferriesRowboatsTransfers": {
+      "overviewFinding": "No whole-trail ferry, rowboat, or required bus-transfer dependency was confirmed in the Phase 1 overview pass. Each section still needs transit/access and field-report verification.",
+      "confidence": "medium"
+    }
+  },
+  "rulesAndAccessOverview": {
+    "fire": "Official important-information page says to check current fire rules in dry conditions, use established fireplaces along the trail, and ensure fires are extinguished. It links to MSB Brandrisk Ute. Current fire bans are date-sensitive and must be checked per municipality/date before import copy claims anything current.",
+    "allemansratten": "Official important-information page emphasizes general right-of-public-access principles: do not disturb or destroy, avoid growing crops, and respect home privacy zones.",
+    "dogs": "Official dog page says dogs can be brought, but must be leashed or under strict supervision during 1 March-20 August; special rules can apply on beaches and in nature/culture reserves. It also allows overnighting with dogs at shelters if under supervision and not disturbing other hikers.",
+    "water": "Official important-information page highlights drinking water at Nösslinge kyrka and notes the nearby Gällarpesjön shelter lacks drinking water. Summer wells can be dry/unreliable according to the dog-equipment page.",
+    "currentness": "Official important-information page says updated 2025-04-15. Official reroute page says updated 2024-11-07. Digital map is current for 2024 reroutes; paper maps printed June 2022 contain old alignments.",
+    "diseaseBiosecurity": "Official important-information page includes African swine fever guidance: take food waste home or put it in bins, do not leave food scraps in nature, and report sick/dead wild boar to SVA.",
+    "reserves": "Many sections pass through or near nature reserves. Reserve-specific rules, dog restrictions, camping/fire restrictions, and access rules need section-level verification from Länsstyrelsen/municipality pages."
+  },
+  "currentnessRisksAndContradictions": [
+    {
+      "topic": "Total length and section count",
+      "finding": "The live official site/API on 2026-04-29 support 612 km, 4 subtrails, and 35 current sections. Older external pages and snippets may still describe Hallandsleden as about 435 km / 26 stages / 3 parts; treat those as stale unless they have a newer publication date.",
+      "importImpact": "Use the live official section inventory for candidate research; record older figures only as contradictions/stale-source risks.",
+      "confidence": "high"
+    },
+    {
+      "topic": "2024 reroutes vs paper maps",
+      "finding": "Official reroute page says 2024 reroutes are reflected in the digital map but not in paper maps printed June 2022.",
+      "importImpact": "Prefer official digital map/GPX over older scanned or paper-map-derived geometry. Mark affected sections for geometry verification.",
+      "confidence": "high"
+    },
+    {
+      "topic": "Official map API linework gaps",
+      "finding": "Several sections have official GPX download links but no line coordinates in the official map API response on 2026-04-29.",
+      "importImpact": "Route geometry should parse the official GPX, compare endpoints with section pages and OSM/Naturkartan, and not treat empty API linework as missing official geometry.",
+      "confidence": "high"
+    }
+  ],
+  "sections": [
+    {
+      "sectionId": "hallandsleden-alvsaker-naturum-fjaras-bracka",
+      "officialSlug": "alvsaker-naturum-fjaras-bracka",
+      "sectionNumber": "N1",
+      "officialOrder": 1,
+      "subtrail": "Norra delleden",
+      "subtrailSlug": "norra-delleden",
+      "subtrailOrder": 1,
+      "name": "Älvsåker - naturum Fjärås Bräcka",
+      "from": "Älvsåker",
+      "to": "naturum Fjärås Bräcka",
+      "distanceKm": 15,
+      "difficulty": "hard",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/alvsaker-naturum-fjaras-bracka",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Norra_Alvsaker_FjarasBracka.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=norra-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 772,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 57.56352536380291,
+          "lon": 12.14036758057773
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 57.4939139932394,
+          "lon": 12.17107317410409
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-naturum-fjaras-bracka-askhults-by",
+      "officialSlug": "naturum-fjaras-bracka-askhults-by",
+      "sectionNumber": "N2",
+      "officialOrder": 2,
+      "subtrail": "Norra delleden",
+      "subtrailSlug": "norra-delleden",
+      "subtrailOrder": 2,
+      "name": "naturum Fjärås Bräcka - Äskhults by",
+      "from": "naturum Fjärås Bräcka",
+      "to": "Äskhults by",
+      "distanceKm": 9.8,
+      "difficulty": "medium",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/naturum-fjaras-bracka-askhults-by",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Norra_FjarasBracka_Askhultsby.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=norra-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 849,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 57.4939139932394,
+          "lon": 12.171073174104095
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 57.42539872415364,
+          "lon": 12.28255994617939
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-askhults-by-stattared",
+      "officialSlug": "askhults-by-stattared",
+      "sectionNumber": "N3",
+      "officialOrder": 3,
+      "subtrail": "Norra delleden",
+      "subtrailSlug": "norra-delleden",
+      "subtrailOrder": 3,
+      "name": "Äskhults by - Stättared",
+      "from": "Äskhults by",
+      "to": "Stättared",
+      "distanceKm": 17,
+      "difficulty": "hard",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/askhults-by-stattared",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Norra_Askhultsby_Stattared.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=norra-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 642,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 57.42540123872459,
+          "lon": 12.282558185979724
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 57.34319161623716,
+          "lon": 12.354136873036623
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-stattared-veddige",
+      "officialSlug": "stattared-veddige",
+      "sectionNumber": "N4",
+      "officialOrder": 4,
+      "subtrail": "Norra delleden",
+      "subtrailSlug": "norra-delleden",
+      "subtrailOrder": 4,
+      "name": "Stättared - Veddige",
+      "from": "Stättared",
+      "to": "Veddige",
+      "distanceKm": 15,
+      "difficulty": "hard",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/stattared-veddige",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Norra_Stattared_Veddige.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=norra-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 786,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 57.34319161623716,
+          "lon": 12.354136873036623
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 57.261063884943724,
+          "lon": 12.380721420049667
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-veddige-nosslinge",
+      "officialSlug": "veddige-nosslinge",
+      "sectionNumber": "N5",
+      "officialOrder": 5,
+      "subtrail": "Norra delleden",
+      "subtrailSlug": "norra-delleden",
+      "subtrailOrder": 5,
+      "name": "Veddige - Nösslinge",
+      "from": "Veddige",
+      "to": "Nösslinge",
+      "distanceKm": 28,
+      "difficulty": "hard",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/veddige-nosslinge",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Norra_Veddige_Nosslinge250923.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=norra-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 971,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 57.26103622466326,
+          "lon": 12.380652856081724
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 57.21005271188915,
+          "lon": 12.536352993920445
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-nosslinge-akulla",
+      "officialSlug": "nosslinge-akulla",
+      "sectionNumber": "N6",
+      "officialOrder": 6,
+      "subtrail": "Norra delleden",
+      "subtrailSlug": "norra-delleden",
+      "subtrailOrder": 6,
+      "name": "Nösslinge - Åkulla",
+      "from": "Nösslinge",
+      "to": "Åkulla",
+      "distanceKm": 17,
+      "difficulty": "hard",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/nosslinge-akulla",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Norra_Nosslinge_Akulla.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=norra-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 954,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 57.21004458144307,
+          "lon": 12.5364934746176
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 57.12501863949001,
+          "lon": 12.56292924284935
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-akulla-astad",
+      "officialSlug": "akulla-astad",
+      "sectionNumber": "N7",
+      "officialOrder": 7,
+      "subtrail": "Norra delleden",
+      "subtrailSlug": "norra-delleden",
+      "subtrailOrder": 7,
+      "name": "Åkulla - Ästad",
+      "from": "Åkulla",
+      "to": "Ästad",
+      "distanceKm": 12,
+      "difficulty": "medium",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/akulla-astad",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Akulla_Astad.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=norra-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 382,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 57.12660332210362,
+          "lon": 12.552281627431512
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 57.06249534152448,
+          "lon": 12.54824012517929
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-varberg-akulla",
+      "officialSlug": "varberg-akulla",
+      "sectionNumber": "N8",
+      "officialOrder": 8,
+      "subtrail": "Norra delleden",
+      "subtrailSlug": "norra-delleden",
+      "subtrailOrder": 8,
+      "name": "Varberg - Åkulla",
+      "from": "Varberg",
+      "to": "Åkulla",
+      "distanceKm": 22,
+      "difficulty": "easy",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/varberg-akulla",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Norra_Varberg_Akulla.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=norra-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 175,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 57.109547490254045,
+          "lon": 12.244312483817339
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 57.12502718903124,
+          "lon": 12.562934271991253
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-akulla-ullared",
+      "officialSlug": "akulla-ullared",
+      "sectionNumber": "M1",
+      "officialOrder": 9,
+      "subtrail": "Mellersta delleden",
+      "subtrailSlug": "mellersta-delleden",
+      "subtrailOrder": 1,
+      "name": "Åkulla - Ullared",
+      "from": "Åkulla",
+      "to": "Ullared",
+      "distanceKm": 17,
+      "difficulty": "medium",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/akulla-ullared",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Akulla_Ullared.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=mellersta-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 587,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 57.12501268833876,
+          "lon": 12.562950029969215
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 57.11602829396725,
+          "lon": 12.687989668920636
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-ullared-karnebygd",
+      "officialSlug": "ullared-karnebygd",
+      "sectionNumber": "M2",
+      "officialOrder": 10,
+      "subtrail": "Mellersta delleden",
+      "subtrailSlug": "mellersta-delleden",
+      "subtrailOrder": 2,
+      "name": "Ullared - Kärnebygd",
+      "from": "Ullared",
+      "to": "Kärnebygd",
+      "distanceKm": 17,
+      "difficulty": "hard",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/ullared-karnebygd",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Ullared_Karnebygd.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=mellersta-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 692,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 57.11602829396725,
+          "lon": 12.687989668920636
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 57.17910471372306,
+          "lon": 12.856430215761065
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-karnebygd-atran",
+      "officialSlug": "karnebygd-atran",
+      "sectionNumber": "M3",
+      "officialOrder": 11,
+      "subtrail": "Mellersta delleden",
+      "subtrailSlug": "mellersta-delleden",
+      "subtrailOrder": 3,
+      "name": "Kärnebygd - Ätran",
+      "from": "Kärnebygd",
+      "to": "Ätran",
+      "distanceKm": 11,
+      "difficulty": "medium",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/karnebygd-atran",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Karnebygd_Atran.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=mellersta-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 567,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 57.17910471372306,
+          "lon": 12.856430215761065
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 57.123409900814295,
+          "lon": 12.949582831934094
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-atran-langesjon",
+      "officialSlug": "atran-langesjon",
+      "sectionNumber": "M4",
+      "officialOrder": 12,
+      "subtrail": "Mellersta delleden",
+      "subtrailSlug": "mellersta-delleden",
+      "subtrailOrder": 4,
+      "name": "Ätran - Långesjön",
+      "from": "Ätran",
+      "to": "Långesjön",
+      "distanceKm": 22,
+      "difficulty": "medium",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/atran-langesjon",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Atran_Langesjon.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=mellersta-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 1283,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 57.12338324636221,
+          "lon": 12.949485769495368
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 57.03622302040458,
+          "lon": 13.012177208438516
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-langesjon-rydobruk",
+      "officialSlug": "langesjon-rydobruk",
+      "sectionNumber": "M5",
+      "officialOrder": 13,
+      "subtrail": "Mellersta delleden",
+      "subtrailSlug": "mellersta-delleden",
+      "subtrailOrder": 5,
+      "name": "Långesjön - Rydöbruk",
+      "from": "Långesjön",
+      "to": "Rydöbruk",
+      "distanceKm": 19,
+      "difficulty": "medium",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/langesjon-rydobruk",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Langesjon_Rydobruk.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=mellersta-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 1159,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 57.03394523821771,
+          "lon": 13.006756966933608
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 56.9436480011791,
+          "lon": 13.168666251003742
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-rydobruk-kvarnforsen",
+      "officialSlug": "rydobruk-kvarnforsen",
+      "sectionNumber": "M6",
+      "officialOrder": 14,
+      "subtrail": "Mellersta delleden",
+      "subtrailSlug": "mellersta-delleden",
+      "subtrailOrder": 6,
+      "name": "Rydöbruk - Kvarnforsen",
+      "from": "Rydöbruk",
+      "to": "Kvarnforsen",
+      "distanceKm": 10,
+      "difficulty": "easy",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/rydobruk-kvarnforsen",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Rydobruk_Kvarnforsen.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=mellersta-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 1479,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 56.9436480011791,
+          "lon": 13.168666251003742
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 56.76676503382623,
+          "lon": 13.183192759752274
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-astad-vessigebro",
+      "officialSlug": "astad-vessigebro",
+      "sectionNumber": "M7",
+      "officialOrder": 15,
+      "subtrail": "Mellersta delleden",
+      "subtrailSlug": "mellersta-delleden",
+      "subtrailOrder": 7,
+      "name": "Ästad - Vessigebro",
+      "from": "Ästad",
+      "to": "Vessigebro",
+      "distanceKm": 21,
+      "difficulty": "hard",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/astad-vessigebro",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Astad_Vessigebro.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=mellersta-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 1070,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 57.0623629912734,
+          "lon": 12.548770867288113
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 56.95665244013071,
+          "lon": 12.676146291196346
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-vessigebro-frodeparken",
+      "officialSlug": "vessigebro-frodeparken",
+      "sectionNumber": "M8",
+      "officialOrder": 16,
+      "subtrail": "Mellersta delleden",
+      "subtrailSlug": "mellersta-delleden",
+      "subtrailOrder": 8,
+      "name": "Vessigebro - Frodeparken",
+      "from": "Vessigebro",
+      "to": "Frodeparken",
+      "distanceKm": 29,
+      "difficulty": "medium",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/vessigebro-frodeparken",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Vessigebro_Frodeparken.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=mellersta-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 1037,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 56.95665244013071,
+          "lon": 12.676146291196346
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 56.858784165233374,
+          "lon": 12.839018320664763
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-frodeparken-oskarstrom",
+      "officialSlug": "frodeparken-oskarstrom",
+      "sectionNumber": "S1",
+      "officialOrder": 17,
+      "subtrail": "Södra delleden",
+      "subtrailSlug": "sodra-delleden",
+      "subtrailOrder": 1,
+      "name": "Frodeparken - Oskarström",
+      "from": "Frodeparken",
+      "to": "Oskarström",
+      "distanceKm": 23,
+      "difficulty": "hard",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/frodeparken-oskarstrom",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/S%C3%B6dra_Frodeparken_Oskarstrom260114.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=sodra-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 369,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 56.85941171832383,
+          "lon": 12.841546051204205
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 56.85086611658335,
+          "lon": 12.916378928348422
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-oskarstrom-gyltige",
+      "officialSlug": "oskarstrom-gyltige",
+      "sectionNumber": "S2",
+      "officialOrder": 18,
+      "subtrail": "Södra delleden",
+      "subtrailSlug": "sodra-delleden",
+      "subtrailOrder": 2,
+      "name": "Oskarström - Gyltige",
+      "from": "Oskarström",
+      "to": "Gyltige",
+      "distanceKm": 22,
+      "difficulty": "medium",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/oskarstrom-gyltige",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Oskarstrom_Gyltige.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=sodra-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 983,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 56.801215494051576,
+          "lon": 13.03245889954269
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 56.77134532481432,
+          "lon": 13.179562138393521
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-kvarnforsen-gyltige",
+      "officialSlug": "kvarnforsen-gyltige",
+      "sectionNumber": "S3",
+      "officialOrder": 19,
+      "subtrail": "Södra delleden",
+      "subtrailSlug": "sodra-delleden",
+      "subtrailOrder": 3,
+      "name": "Kvarnforsen - Gyltige",
+      "from": "Kvarnforsen",
+      "to": "Gyltige",
+      "distanceKm": 24,
+      "difficulty": "medium",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/kvarnforsen-gyltige",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Kvarnforsen_Gyltige.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=sodra-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 0,
+        "startCoordinateFromOfficialMapLine": null,
+        "endCoordinateFromOfficialMapLine": null,
+        "geometryGradeFromOverviewPass": "official-gpx-available-but-map-api-line-empty-or-sparse"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-gyltige-simlangsdalen",
+      "officialSlug": "gyltige-simlangsdalen",
+      "sectionNumber": "S4",
+      "officialOrder": 20,
+      "subtrail": "Södra delleden",
+      "subtrailSlug": "sodra-delleden",
+      "subtrailOrder": 4,
+      "name": "Gyltige - Simlångsdalen",
+      "from": "Gyltige",
+      "to": "Simlångsdalen",
+      "distanceKm": 7.9,
+      "difficulty": "easy",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/gyltige-simlangsdalen",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Gyltige_Simlangsdalen.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=sodra-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 184,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 56.77416214719415,
+          "lon": 13.17571769468486
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 56.6898952703923,
+          "lon": 13.1589740049094
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-simlangsdalen-halmstad",
+      "officialSlug": "simlangsdalen-halmstad",
+      "sectionNumber": "S5",
+      "officialOrder": 21,
+      "subtrail": "Södra delleden",
+      "subtrailSlug": "sodra-delleden",
+      "subtrailOrder": 5,
+      "name": "Simlångsdalen - Halmstad",
+      "from": "Simlångsdalen",
+      "to": "Halmstad",
+      "distanceKm": 28,
+      "difficulty": "medium",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/simlangsdalen-halmstad",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Simlangsdalen_Halmstad.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=sodra-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 0,
+        "startCoordinateFromOfficialMapLine": null,
+        "endCoordinateFromOfficialMapLine": null,
+        "geometryGradeFromOverviewPass": "official-gpx-available-but-map-api-line-empty-or-sparse"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-simlangsdalen-mastocka",
+      "officialSlug": "simlangsdalen-mastocka",
+      "sectionNumber": "S6",
+      "officialOrder": 22,
+      "subtrail": "Södra delleden",
+      "subtrailSlug": "sodra-delleden",
+      "subtrailOrder": 6,
+      "name": "Simlångsdalen - Mästocka",
+      "from": "Simlångsdalen",
+      "to": "Mästocka",
+      "distanceKm": 26,
+      "difficulty": "hard",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/simlangsdalen-mastocka",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Simlangsdalen_Mastocka_250818.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=sodra-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 674,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 56.6898952703923,
+          "lon": 13.158974004909396
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 56.60929857753217,
+          "lon": 13.248396255075932
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-mastocka-knared",
+      "officialSlug": "mastocka-knared",
+      "sectionNumber": "S7",
+      "officialOrder": 23,
+      "subtrail": "Södra delleden",
+      "subtrailSlug": "sodra-delleden",
+      "subtrailOrder": 7,
+      "name": "Mästocka - Knäred",
+      "from": "Mästocka",
+      "to": "Knäred",
+      "distanceKm": 17,
+      "difficulty": "medium",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/mastocka-knared",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Mastocka_Knared.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=sodra-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 833,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 56.60929857753217,
+          "lon": 13.248396255075932
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 56.51197914965451,
+          "lon": 13.300674268975854
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-knared-ekegarden",
+      "officialSlug": "knared-ekegarden",
+      "sectionNumber": "S8",
+      "officialOrder": 24,
+      "subtrail": "Södra delleden",
+      "subtrailSlug": "sodra-delleden",
+      "subtrailOrder": 8,
+      "name": "Knäred - Ekegården",
+      "from": "Knäred",
+      "to": "Ekegården",
+      "distanceKm": 25,
+      "difficulty": "medium",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/knared-ekegarden",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Knared_Ekegarden.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=sodra-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 887,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 56.51197914965451,
+          "lon": 13.300674268975854
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 56.42678380943835,
+          "lon": 13.202940607443452
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-ekegarden-koarp",
+      "officialSlug": "ekegarden-koarp",
+      "sectionNumber": "S9",
+      "officialOrder": 25,
+      "subtrail": "Södra delleden",
+      "subtrailSlug": "sodra-delleden",
+      "subtrailOrder": 9,
+      "name": "Ekegården - Koarp",
+      "from": "Ekegården",
+      "to": "Koarp",
+      "distanceKm": 13,
+      "difficulty": "medium",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/ekegarden-koarp",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Sodra_Ekegarden_Koarp.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=sodra-delleden&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 554,
+        "startCoordinateFromOfficialMapLine": {
+          "lat": 56.42667509615421,
+          "lon": 13.20307295769453
+        },
+        "endCoordinateFromOfficialMapLine": {
+          "lat": 56.35651873424649,
+          "lon": 13.10737894847989
+        },
+        "geometryGradeFromOverviewPass": "planning-grade-official-line"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-sandsjobacka-kungsbacka-c",
+      "officialSlug": "sandsjobacka-kungsbacka-c",
+      "sectionNumber": "K1",
+      "officialOrder": 26,
+      "subtrail": "Kusten",
+      "subtrailSlug": "kusten",
+      "subtrailOrder": 1,
+      "name": "Sandsjöbacka - Kungsbacka C",
+      "from": "Sandsjöbacka",
+      "to": "Kungsbacka C",
+      "distanceKm": 8.7,
+      "difficulty": "medium",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/sandsjobacka-kungsbacka-c",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Sandsjobacka_Kungsbacka.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=kusten&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 0,
+        "startCoordinateFromOfficialMapLine": null,
+        "endCoordinateFromOfficialMapLine": null,
+        "geometryGradeFromOverviewPass": "official-gpx-available-but-map-api-line-empty-or-sparse"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-kungsbacka-c-tjoloholm",
+      "officialSlug": "kungsbacka-c-tjoloholm",
+      "sectionNumber": "K2",
+      "officialOrder": 27,
+      "subtrail": "Kusten",
+      "subtrailSlug": "kusten",
+      "subtrailOrder": 2,
+      "name": "Kungsbacka C - Tjolöholm",
+      "from": "Kungsbacka C",
+      "to": "Tjolöholm",
+      "distanceKm": 22,
+      "difficulty": "easy",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/kungsbacka-c-tjoloholm",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Kungsbacka_Tjoloholm.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=kusten&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 0,
+        "startCoordinateFromOfficialMapLine": null,
+        "endCoordinateFromOfficialMapLine": null,
+        "geometryGradeFromOverviewPass": "official-gpx-available-but-map-api-line-empty-or-sparse"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-tjoloholm-asa",
+      "officialSlug": "tjoloholm-asa",
+      "sectionNumber": "K3",
+      "officialOrder": 28,
+      "subtrail": "Kusten",
+      "subtrailSlug": "kusten",
+      "subtrailOrder": 3,
+      "name": "Tjolöholm - Åsa",
+      "from": "Tjolöholm",
+      "to": "Åsa",
+      "distanceKm": 29,
+      "difficulty": "easy",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/tjoloholm-asa",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Tjoloholm_Asa.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=kusten&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 0,
+        "startCoordinateFromOfficialMapLine": null,
+        "endCoordinateFromOfficialMapLine": null,
+        "geometryGradeFromOverviewPass": "official-gpx-available-but-map-api-line-empty-or-sparse"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-asa-frillesas",
+      "officialSlug": "asa-frillesas",
+      "sectionNumber": "K4",
+      "officialOrder": 29,
+      "subtrail": "Kusten",
+      "subtrailSlug": "kusten",
+      "subtrailOrder": 4,
+      "name": "Åsa - Frillesås",
+      "from": "Åsa",
+      "to": "Frillesås",
+      "distanceKm": 8.9,
+      "difficulty": "easy",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/asa-frillesas",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Asa_Frillesas.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=kusten&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 0,
+        "startCoordinateFromOfficialMapLine": null,
+        "endCoordinateFromOfficialMapLine": null,
+        "geometryGradeFromOverviewPass": "official-gpx-available-but-map-api-line-empty-or-sparse"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-steninge-haverdal",
+      "officialSlug": "steninge-haverdal",
+      "sectionNumber": "K5",
+      "officialOrder": 30,
+      "subtrail": "Kusten",
+      "subtrailSlug": "kusten",
+      "subtrailOrder": 5,
+      "name": "Steninge - Haverdal",
+      "from": "Steninge",
+      "to": "Haverdal",
+      "distanceKm": 7.3,
+      "difficulty": "easy",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/steninge-haverdal",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Steninge_Haverdal.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=kusten&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 0,
+        "startCoordinateFromOfficialMapLine": null,
+        "endCoordinateFromOfficialMapLine": null,
+        "geometryGradeFromOverviewPass": "official-gpx-available-but-map-api-line-empty-or-sparse"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-haverdal-tylosand",
+      "officialSlug": "haverdal-tylosand",
+      "sectionNumber": "K6",
+      "officialOrder": 31,
+      "subtrail": "Kusten",
+      "subtrailSlug": "kusten",
+      "subtrailOrder": 6,
+      "name": "Haverdal - Tylösand",
+      "from": "Haverdal",
+      "to": "Tylösand",
+      "distanceKm": 12.7,
+      "difficulty": "easy",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/haverdal-tylosand",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Haverdal_Tylosand.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=kusten&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 0,
+        "startCoordinateFromOfficialMapLine": null,
+        "endCoordinateFromOfficialMapLine": null,
+        "geometryGradeFromOverviewPass": "official-gpx-available-but-map-api-line-empty-or-sparse"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-tylosand-halmstad-c",
+      "officialSlug": "tylosand-halmstad-c",
+      "sectionNumber": "K7",
+      "officialOrder": 32,
+      "subtrail": "Kusten",
+      "subtrailSlug": "kusten",
+      "subtrailOrder": 7,
+      "name": "Tylösand - Halmstad C",
+      "from": "Tylösand",
+      "to": "Halmstad C",
+      "distanceKm": 15,
+      "difficulty": "medium",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/tylosand-halmstad-c",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Tylosand_HalmstadC.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=kusten&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 0,
+        "startCoordinateFromOfficialMapLine": null,
+        "endCoordinateFromOfficialMapLine": null,
+        "geometryGradeFromOverviewPass": "official-gpx-available-but-map-api-line-empty-or-sparse"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-halmstad-c-paarp",
+      "officialSlug": "halmstad-c-paarp",
+      "sectionNumber": "K8",
+      "officialOrder": 33,
+      "subtrail": "Kusten",
+      "subtrailSlug": "kusten",
+      "subtrailOrder": 8,
+      "name": "Halmstad C - Påarp",
+      "from": "Halmstad C",
+      "to": "Påarp",
+      "distanceKm": 14.6,
+      "difficulty": "easy",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/halmstad-c-paarp",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_HalmstadC_Paarp.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=kusten&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 0,
+        "startCoordinateFromOfficialMapLine": null,
+        "endCoordinateFromOfficialMapLine": null,
+        "geometryGradeFromOverviewPass": "official-gpx-available-but-map-api-line-empty-or-sparse"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-paarp-mellbystrand",
+      "officialSlug": "paarp-mellbystrand",
+      "sectionNumber": "K9",
+      "officialOrder": 34,
+      "subtrail": "Kusten",
+      "subtrailSlug": "kusten",
+      "subtrailOrder": 9,
+      "name": "Påarp - Mellbystrand",
+      "from": "Påarp",
+      "to": "Mellbystrand",
+      "distanceKm": 13,
+      "difficulty": "easy",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/paarp-mellbystrand",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Paarp_Mellbystrand.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=kusten&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 0,
+        "startCoordinateFromOfficialMapLine": null,
+        "endCoordinateFromOfficialMapLine": null,
+        "geometryGradeFromOverviewPass": "official-gpx-available-but-map-api-line-empty-or-sparse"
+      }
+    },
+    {
+      "sectionId": "hallandsleden-mellbystrand-bastad-station",
+      "officialSlug": "mellbystrand-bastad-station",
+      "sectionNumber": "K10",
+      "officialOrder": 35,
+      "subtrail": "Kusten",
+      "subtrailSlug": "kusten",
+      "subtrailOrder": 10,
+      "name": "Mellbystrand - Båstad station",
+      "from": "Mellbystrand",
+      "to": "Båstad station",
+      "distanceKm": 12,
+      "difficulty": "easy",
+      "estimatedTime": null,
+      "officialPageUrl": "https://www.hallandsleden.se/etapp/mellbystrand-bastad-station",
+      "officialGpxUrl": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Kust_Mellbystrand_Bastad.gpx",
+      "officialMapApiUrl": "https://www.hallandsleden.se/api/v2/track-segments/map?token=eyJpdiI6Ikc5WVBxSlhpb0w0R3VXZzN2SVJ4eXc9PSIsInZhbHVlIjoiWWpackg5TSs2VTV6a2pmTW9yelZZckZ0dkc3YzJneWxvSVgrN1JvTHV0T3RWMUplYWNGdk5JaDRTUjJMaisrQiIsIm1hYyI6ImYwYjAwMzNkYzQ2NjljMTMzYmQwODlmNjU4YWI4ZTMxNzFiMWEyMmVlOWNmMDJlMGE1OTEwMDRiNTRkMWI0NmQifQ%3D%3D&track=kusten&limit=100&cleaner=true",
+      "geometry": {
+        "officialMapLineCoordinateCount": 0,
+        "startCoordinateFromOfficialMapLine": null,
+        "endCoordinateFromOfficialMapLine": null,
+        "geometryGradeFromOverviewPass": "official-gpx-available-but-map-api-line-empty-or-sparse"
+      }
+    }
+  ],
+  "geometryArtifacts": {
+    "status": "research-only-candidate-geometry-complete",
+    "generatedAt": "2026-04-30T18:05:00Z",
+    "manifest": "data/research/candidate-trails/hallandsleden/geometry/geometry-index.research.json",
+    "canonicalDirectory": "data/research/candidate-trails/hallandsleden/geometry/canonical",
+    "drawReadyDirectory": "data/research/candidate-trails/hallandsleden/geometry/draw-ready",
+    "officialGpxFetched": 35,
+    "canonicalGeojsonWritten": 35,
+    "drawReadyGeojsonWritten": 35,
+    "unresolvedMissingGeometrySections": 0,
+    "drawReadyMaxInternalGapMeters": 248.99,
+    "notes": [
+      "Canonical GeoJSON files preserve exact official GPX track/segment coordinates.",
+      "Draw-ready GeoJSON files linearly densify long intra-segment official jumps over 250 m for rendering only.",
+      "Official GPX track/segment breaks are preserved; no invented connector geometry was added.",
+      "N5, K3 and K4 official segment breaks and the official K4-to-K5 coastal network gap remain explicit import policy decisions rather than missing local geometry."
+    ]
+  },
+  "importReadiness": {
+    "overviewReadyForSectionResearch": true,
+    "sectionResearchComplete": true,
+    "candidateGeometryComplete": true,
+    "readyForRuntimeIntegration": false,
+    "blockers": [
+      "Runtime integration still needs a separate explicit import task.",
+      "Need normalization decisions for endpoint snapping, official segment-break handling, side-service filtering, facility dedupe and taxonomy mapping.",
+      "Need live currentness checks for transit, closures/reroutes, fire status, beach/reserve rules and seasonal services immediately before publication/import."
+    ]
+  }
+}

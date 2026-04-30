@@ -8,17 +8,20 @@ This document tracks the data-contract refactor in small implementation slices. 
 
 Runtime data is now in a transitional hiking-plus-kayak public contract. The visible app loads hiking and kayaking records from the shared index. Kayaking has a typed overview/detail branch, compact kayak-specific filters, water/exposure/research-confidence filtering, linked facility rendering on kayak detail maps, and a live browser runtime-path/interaction/accessibility/print probe; richer overview facility layers and caveat-severity workflows remain future work.
 
-As of Slice 22, overview maps still initialize immediately because they are primary navigation surfaces. Non-overview route/detail maps defer on small screens until their reserved map area is near the viewport, reducing below-fold route-geometry and tile work without changing the desktop behavior or public data contract. As of Slice 23, trail-system detail maps render selected/context route geometry only; the hiking overview map remains the full-network orientation surface. As of Slices 24-28, map extraction has moved `DeferredMapMount`, standalone hike `RouteMap`, kayak `KayakTripMap`, and `TrailSystemMap` into `src/map/**`; route-builder orchestration and top-level library load/filter state still live in `src/main.tsx`. As of Slice 31, trail-system route loading/drawing helpers live in `src/map/trailSystemRouteLayers.ts`; as of Slice 32, hiking facility marker rendering lives in `src/map/hikingFacilityMarkers.tsx`; as of Slice 33, hiking commute marker rendering lives in `src/map/hikingCommuteMarkers.tsx`; as of Slice 34, selected-route-first bounds fitting lives in `src/map/fitMapBounds.ts`; as of Slice 40, hiking detail maps and facility lists hide facilities marked off-route by the existing proximity metadata, and same-coordinate hiking facilities render as expandable map clusters. As of Slice 41, sidebar/detail view shells and filter contracts live outside `src/main.tsx`. As of Slice 42, overview routes use a generated deterministic color scale instead of a six-color palette. As of Slice 43, kayak validation derives source/runtime counts from `source-manifest.json` and source shards rather than first-import constants. As of Slice 44, route geometry caching is bounded by an LRU entry limit. As of Slice 45, the generated shared library index is composed from hiking and kayaking activity-owned fragments so scoped activity builds do not regenerate the other activity. As of Slice 46, legacy hiking compatibility index and all-in-one trail-system JSON outputs are no longer generated. As of Slice 47, Roslagsleden and Sörmlandsleden builders share common GPX, route-writing, section-cleanup, location, and persistence helpers. As of Slice 48, kayak trip start/end/waypoint/access details are normalized into typed public runtime shapes and validated before the app consumes them.
+As of Slice 22, overview maps still initialize immediately because they are primary navigation surfaces. Non-overview route/detail maps defer on small screens until their reserved map area is near the viewport, reducing below-fold route-geometry and tile work without changing the desktop behavior or public data contract. As of Slice 23, trail-system detail maps render selected/context route geometry only; the hiking overview map remains the full-network orientation surface. As of Slices 24-28, map extraction has moved `DeferredMapMount`, standalone hike `RouteMap`, kayak `KayakTripMap`, and `TrailSystemMap` into `src/map/**`. As of Slice 31, trail-system route loading/drawing helpers live in `src/map/trailSystemRouteLayers.ts`; as of Slice 32, hiking facility marker rendering lives in `src/map/hikingFacilityMarkers.tsx`; as of Slice 33, hiking commute marker rendering lives in `src/map/hikingCommuteMarkers.tsx`; as of Slice 34, selected-route-first bounds fitting lives in `src/map/fitMapBounds.ts`; as of Slice 40, hiking detail maps and facility lists hide facilities marked off-route by the existing proximity metadata, and same-coordinate hiking facilities render as expandable map clusters. As of Slice 41, sidebar/detail view shells and filter contracts live outside `src/main.tsx`. As of Slice 42, overview routes use a generated deterministic color scale instead of a six-color palette. As of Slice 43, kayak validation derives source/runtime counts from `source-manifest.json` and source shards rather than first-import constants. As of Slice 44, route geometry caching is bounded by an LRU entry limit. As of Slice 45, the generated shared library index is composed from hiking and kayaking activity-owned fragments so scoped activity builds do not regenerate the other activity. As of Slice 46, legacy hiking compatibility index and all-in-one trail-system JSON outputs are no longer generated. As of Slice 47, Roslagsleden and Sörmlandsleden builders share common GPX, route-writing, section-cleanup, location, and persistence helpers. As of Slice 48, kayak trip start/end/waypoint/access details are normalized into typed public runtime shapes and validated before the app consumes them. As of Slice 49, top-level library loading, detail caching, filter derivation, selection/hover state, and starred-item persistence are extracted from `src/main.tsx` into focused hooks under `src/data/**`; `src/main.tsx` is now mostly app composition. As of Slice 50, local and CI-oriented testing includes a fast `npm test` unit layer, a no-write generated-data drift check, and a documented `npm run test:all` browser-capable suite.
 
 Kayak `hasFollowup` is intentionally an internal audit/detail signal as of Slice 19. It stays in the compact public contract for validation and future editorial workflows, but it is not exposed as a sidebar filter because every current kayak route has follow-up/research notes and a visible filter would not narrow the list.
 
 CI gate split as of Slice 20:
 
-- `npm run ci:check` is the portable required gate for environments without a guaranteed browser. It runs data validation, the mocked runtime contract probe, the route-geometry cache probe, TypeScript typecheck, and production build.
+- `npm test` is the fast unit-test gate for pure runtime helpers: search normalization, overview colors, route-range selection, distance/kayak filters, library loaders, and loader error paths.
+- `npm run data:check` is a no-write generated-output drift gate. It regenerates `npm run data:build` outputs in a temporary copy and diffs generated `public/data/**`, `public/routes/kayaking/**`, and the kayak generated source manifest/readme against the committed files.
+- `npm run ci:check` is the portable required gate for environments without a guaranteed browser. It runs data validation, generated-output drift, unit tests, the mocked runtime contract probe, the route-geometry cache probe, TypeScript typecheck, and production build.
 - `npm run ci:check:browser` is the browser-enabled required gate. It runs `ci:check` plus `npm run runtime:browser-probe`.
 - `runtime:browser-probe` is intentionally strict: it fails if Chrome/Chromium is unavailable. Browser-enabled CI should install Chrome/Chromium or set `CHROME_BIN` / `BROWSER_BIN`.
 - `npm run ui:smoke` generates the current scripted UI smoke report at `docs/test-reports/hike-ui-smoke-report-2026-04-28.md`; it requires Chrome/Chromium like the browser runtime probe.
 - `npm run ui:smoke:artifact` runs the same smoke report but writes to `artifacts/ui-smoke/hike-ui-smoke-report.md` for CI artifact upload without touching committed docs.
+- `npm run test:all` is the full browser-capable local suite: `ci:check:browser` plus `ui:smoke:artifact`.
 - As of Slices 29-30 and Slice 38, `.github/workflows/ci.yml` runs `npm run ci:check` in a portable job and `npm run ci:check:browser` plus `npm run ui:smoke:artifact` in a browser-capable job on push, pull request, and manual dispatch. The browser job locates Chrome/Chromium on the GitHub-hosted Ubuntu runner before running the probe and smoke report.
 
 Current validation state: as of Slice 17, `npm run data:validate` passes without known warnings. Earlier slice notes mention hiking endpoint-topology warnings because those warnings existed when those slices were completed; Slice 17 resolved them by aligning route geometry direction and declared endpoint coordinates with stage order.
@@ -30,6 +33,7 @@ Use this section as the quick handoff view. The detailed slice log below remains
 Completed and stable enough to build on:
 
 - Read-only hiking/kayak runtime validation, shared domain types, `data:validate`, `typecheck`, `ci:check`, `ci:check:browser`, and project-owned GitHub Actions checks.
+- Fast unit tests, no-write generated-output drift checking, and a documented local test matrix in `docs/testing.md`.
 - Hiking trail-system runtime shards and app runtime loading from `library-index.json` plus sharded trail-system data.
 - Bounded route geometry cache, per-route load resilience, and Leaflet lifecycle fixes.
 - Hiking and kayaking overview/detail runtime paths, kayak source import, kayak detail facility rendering, and compact kayak filters.
@@ -41,6 +45,7 @@ Completed and stable enough to build on:
 - Sidebar/detail view extraction through Slice 41: `LibrarySidebar`, `TrailSystemDetails`, `HikeDetails`, `KayakTripDetails`, shared detail blocks, load-state type, and activity/filter helpers now live in focused modules.
 - Trail-system selected section-detail loading is isolated in `src/data/useTrailSectionDetails.ts`.
 - Trail-system route-group range and section lookup helpers are isolated in `src/data/trailRouteSelection.ts`.
+- App-shell runtime state is isolated in `src/data/useLibraryData.ts`, `src/data/useLibraryFilters.ts`, `src/data/useLibrarySelection.ts`, and `src/data/useStarredItems.ts`; `src/main.tsx` stays as the composition layer.
 - Trail-specific hiking builders share common helper code in `scripts/lib/trail-system-builder.mjs`.
 - Hiking trail-system facility display now uses existing `routeProximity` metadata to keep off-route facilities out of selected-section lists/maps, and overlapping same-coordinate hiking facility markers expand into individual icons.
 - Kayak source/runtime validation derives route, facility, and parking expectations from `data/source/kayaking/source-manifest.json` plus source shard files.
@@ -52,16 +57,17 @@ Still transitional:
 - Hiking trail-system source now lives in `data/source/hiking/**`; `data/trail-systems.json` is no longer a source input.
 - `npm run data:build:hiking` rewrites hiking runtime data plus the hiking index fragment and recomposes `library-index.json`; it no longer imports or rewrites kayak runtime files.
 - `npm run data:kayak:import` rewrites kayak runtime data plus the kayak index fragment and recomposes `library-index.json`; it no longer reads existing `library-index.json` to preserve hiking records.
-- `npm run data:build` is still a local/manual gate for source data, generator, or public contract changes; `ci:check` validates current outputs but does not regenerate them.
+- `npm run data:build` is still the command that rewrites generated files after source data, generator, or public contract changes. `ci:check` now catches generated-output drift by regenerating in a temporary copy, but it does not rewrite the working tree.
 - `npm run ui:smoke` still rewrites `docs/test-reports/hike-ui-smoke-report-2026-04-28.md` locally; hosted CI uses `npm run ui:smoke:artifact` instead.
 - Candidate trail research and kayak research seed files remain import inputs only, not runtime dependencies.
 
 Recommended next safe milestones:
 
 1. Reassess whether `src/map/TrailSystemMap.tsx` is small enough to pause map extraction.
-2. Continue route-builder/data-loading cleanup only in small behavior-preserving slices with browser probes after each change; the next app-shell cleanup candidate is extracting library loading and filter orchestration from `src/main.tsx`.
-3. Add deploy/cache-header validation only after the static hosting target is known.
-4. Decide whether the UI smoke artifact should later include screenshots or be split into a separate optional workflow if runtime becomes too slow.
+2. Decide whether route-builder state/view extraction from `TrailSystemDetails.tsx` is worth doing as a separate behavior-preserving slice.
+3. Broaden generated-output drift coverage only if trail-specific remote-source builders become part of routine CI.
+4. Add deploy/cache-header validation only after the static hosting target is known.
+5. Decide whether the UI smoke artifact should later include screenshots or be split into a separate optional workflow if runtime becomes too slow.
 
 Current runtime output paths covered by validation:
 
@@ -100,7 +106,7 @@ Research-only inputs are not runtime data:
 
 ## Target Runtime Contract
 
-Large trail systems should move toward purpose-specific runtime shards:
+Large trail systems use purpose-specific runtime shards:
 
 ```text
 public/data/trail-systems/<trail-system-id>/
@@ -112,7 +118,7 @@ public/data/trail-systems/<trail-system-id>/
     <section-id>.json
 ```
 
-The legacy all-in-one trail-system files may remain temporarily for compatibility, but new runtime code should not depend on downloading a many-thousand-line trail-system payload just to initialize the route builder.
+Legacy all-in-one trail-system runtime JSON is no longer generated. Validation rejects `public/data/hikes-index.json` and root-level `public/data/trail-systems/<trail-system-id>.json` if they reappear.
 
 ## Slice 1: Validation And Shared Contract Foundation
 
@@ -1422,7 +1428,7 @@ Known warnings and follow-up:
 
 Recommended next work:
 
-1. Keep library loading/filter orchestration extraction as the next behavior-preserving cleanup candidate if continuing implementation.
+1. Library loading/filter orchestration extraction was completed later in Slice 49.
 2. Add deploy/cache-header validation only after the static hosting target is known.
 3. Decide when legacy compatibility hiking JSON can stop being generated after deploy compatibility is clear.
 
@@ -1444,7 +1450,7 @@ Not done:
 
 - No runtime data, generated JSON, route geometry, source data, validation rules, map request strategy, or public data contract changed in this slice.
 - Route-builder state is still owned by the trail-system detail view because this slice only moved the existing behavior out of `src/main.tsx`.
-- Library loading/filter orchestration still lives in `src/main.tsx`; move it into hooks only in a later focused slice.
+- Library loading/filter orchestration was still in `src/main.tsx` at the end of this slice; it was moved into hooks later in Slice 49.
 - Detail components were split by current activity/domain rather than introducing a generic plugin system or route registry.
 
 Known warnings and follow-up:
@@ -1455,7 +1461,7 @@ Known warnings and follow-up:
 
 Recommended next work:
 
-1. Extract library loading, activity filter state, and derived visible-item computation from `src/main.tsx` into focused hooks if continuing app-shell cleanup.
+1. Library loading, activity filter state, and visible-item hook extraction was completed later in Slice 49.
 2. Keep route-builder extraction as a separate later slice after the loading/filter hook boundary is stable.
 3. Add deploy/cache-header validation only after the static hosting target is known.
 
@@ -1485,7 +1491,7 @@ Known warnings and follow-up:
 Recommended next work:
 
 1. Replace first-import kayak validation magic counts with manifest-derived completeness checks.
-2. Keep library loading/filter orchestration extraction as a later app-shell cleanup candidate.
+2. Library loading/filter orchestration extraction was completed later in Slice 49.
 3. Add deploy/cache-header validation only after the static hosting target is known.
 
 ## Slice 43: Kayak Validation Counts From Source Manifest
@@ -1514,7 +1520,7 @@ Known warnings and follow-up:
 Recommended next work:
 
 1. Add an LRU or bounded invalidation strategy for the route geometry cache.
-2. Keep library loading/filter orchestration extraction as a later app-shell cleanup candidate.
+2. Library loading/filter orchestration extraction was completed later in Slice 49.
 3. Add deploy/cache-header validation only after the static hosting target is known.
 
 ## Slice 44: Bounded Route Geometry Cache
@@ -1541,7 +1547,7 @@ Known warnings and follow-up:
 
 Recommended next work:
 
-1. Extract library loading, activity filter state, and derived visible-item computation from `src/main.tsx` into focused hooks if continuing app-shell cleanup.
+1. Library loading, activity filter state, and visible-item hook extraction was completed later in Slice 49.
 2. Decide when legacy compatibility hiking JSON can stop being generated after deploy compatibility is clear.
 3. Add deploy/cache-header validation only after the static hosting target is known.
 
@@ -1670,6 +1676,69 @@ Recommended next work:
 2. Keep source-record flexibility in `data/source/kayaking/**`, but require all public runtime additions to be typed and validated.
 3. Add deploy/cache-header validation once the static hosting target is known.
 
+## Slice 49: App-Shell State Hook Extraction
+
+Status: implemented in the current worktree after Slice 48.
+
+Done:
+
+- Extracted library index, overview, kayak facility, selected-detail, retry, and detail-cache loading from `src/main.tsx` into `src/data/useLibraryData.ts`.
+- Extracted activity filter state, reset behavior, location options, and visible-item derivation into `src/data/useLibraryFilters.ts`.
+- Extracted active activity, selected item, hovered item, and visible-item selection guard behavior into `src/data/useLibrarySelection.ts`.
+- Extracted localStorage-backed starred-item state and stale-ID pruning into `src/data/useStarredItems.ts`.
+- Moved the `isTrailSystem` type guard into `src/utils/libraryItem.ts` beside the existing item/detail guards.
+- Reduced `src/main.tsx` from the app-shell state owner to the app composition layer while keeping existing component props and runtime fetch paths stable.
+- Preserved the previous behavior that clears selected items when filters hide them and refreshes selected item records after the library index reloads.
+
+Not done:
+
+- No source data, generated public data, route geometry, map behavior, validation rules, or public data contract changed in this slice.
+- Route-builder state still belongs to `TrailSystemDetails.tsx`; split that only as a separate behavior-preserving UI slice if it becomes painful.
+- No generic route registry/plugin system was introduced; the app still branches explicitly by current activity/detail type.
+
+Known warnings and follow-up:
+
+- App-shell hook extraction should keep using `npm run runtime:browser-probe` after changes because startup/detail/facility load behavior can regress even when typecheck passes.
+- `useLibraryData` intentionally remains a single runtime-data hook for now. Split it further only if index, overview, facility, and detail loading start changing independently.
+- Historical planning/test reports still mention old `src/main.tsx` and legacy compatibility paths because they are point-in-time records, not current handoff guidance.
+
+Recommended next work:
+
+1. Decide whether route-builder state/view extraction from `TrailSystemDetails.tsx` is worth doing as a separate behavior-preserving slice.
+2. Keep the local test matrix in `docs/testing.md` aligned with package scripts and GitHub Actions whenever CI changes.
+3. Add deploy/cache-header validation once the static hosting target is known.
+
+## Slice 50: Testing And Local CI Readiness
+
+Status: implemented in the current worktree after Slice 49.
+
+Done:
+
+- Added `scripts/unit-tests.mjs`, a lightweight Vite SSR unit-test runner that uses the existing toolchain instead of adding a new test framework dependency.
+- Added `npm test` and `npm run test:unit` for fast local unit coverage of search normalization, overview color generation, trail route-range selection, route-group distance filtering, kayak filters, library shard loading, detail dispatch, and loader error paths.
+- Added `scripts/check-generated-data.mjs` and `npm run data:check`, which regenerate `npm run data:build` outputs in a temporary project copy and compare generated files without touching the working tree.
+- Wired `data:check` and `test:unit` into `npm run ci:check`.
+- Added `npm run test:all` as the browser-capable local suite: `ci:check:browser` plus `ui:smoke:artifact`.
+- Added `docs/testing.md` with the local command matrix, coverage map, and known limits before GitHub CI changes.
+
+Not done:
+
+- No new dependency or full test framework was introduced.
+- No visual regression or screenshot-diff testing was added; the existing UI smoke report remains behavioral.
+- `data:check` covers the outputs owned by `npm run data:build`. Trail-specific remote-source builders still need explicit runs when those builders or remote-source inputs change.
+
+Known warnings and follow-up:
+
+- Keep `docs/testing.md`, `package.json`, and `.github/workflows/ci.yml` in sync whenever CI gates change.
+- If unit coverage grows beyond pure helper contracts, consider moving to a dedicated test framework instead of expanding the custom runner too far.
+- Browser-capable verification still requires Chrome/Chromium or `CHROME_BIN` / `BROWSER_BIN`.
+
+Recommended next work:
+
+1. Connect the existing `.github/workflows/ci.yml` gates to branch protection once the repository policy is ready.
+2. Add deploy/cache-header validation once the static hosting target is known.
+3. Consider screenshot artifacts only if visual regressions become common enough to justify the extra CI time.
+
 ## Verification Checklist
 
 Run after each implementation slice:
@@ -1677,11 +1746,10 @@ Run after each implementation slice:
 ```bash
 npm run data:build   # when source data, generator code, or public data contracts changed
 npm run ci:check
-npm run runtime:cache-probe
 npm run runtime:browser-probe   # when Chrome/Chromium is available; equivalent to the extra check in ci:check:browser
 git diff --check
 ```
 
-Use `npm run ci:check:browser` instead of separate `ci:check` plus `runtime:browser-probe` when working in a browser-capable environment.
+Use `npm run test:all` when working in a browser-capable environment and you want the full local suite, including the CI smoke artifact.
 
 For validation changes, also run local negative probes for a missing route file, duplicate section ID, and invalid app coordinate, then remove the probe files before handoff.

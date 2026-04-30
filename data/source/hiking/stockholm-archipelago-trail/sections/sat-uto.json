@@ -1,0 +1,328 @@
+{
+  "id": "sat-uto",
+  "stageNumber": 17,
+  "name": "Utö",
+  "from": "Utö",
+  "to": "Utö",
+  "distanceKm": 18.4,
+  "estimatedTime": "6 hours",
+  "description": {
+    "short": "A challenging Utö loop with the trail's densest service hub at Gruvbryggan, mining heritage, wetland birdlife, rocky east-coast hiking, cliff bathing and shallow sandy beach stops.",
+    "long": "Utö functions almost like a compressed SAT sampler: ferry village, shop, inn, harbor, old mining landscape, campground, wetland boardwalk/rest area, technical coastal rock, open sea views, pasture, Kroka and Barnens bad. The route is best handled counterclockwise so hikers leave the service cluster, pass Spränga and Södra Fladen, then take the harder eastern coast before the easier final return.",
+    "doNotOverstate": [
+      "Do not imply Spränga Brygga has services; SAT explicitly says it has none.",
+      "Do not present the whole island as free camping; the reserve allows camping only at designated places.",
+      "Do not market southern Utö/Storsand as a route facility because the shooting-field access context is separate from SAT."
+    ]
+  },
+  "utilities": [],
+  "waterSources": [],
+  "notes": [
+    "Route shape: counterclockwise loop from Gruvbryggan or Spränga Brygga across Gruvbyn services, the campground, Spränga, Södra Fladen wetland, the technical eastern coast via Rävstavik and Kroka, Barnens bad, then back to Gruvbryggan.",
+    "Iteration 1 found unusually strong service evidence for Gruvbryggan, but later passes should decide whether commercial food/lodging should become normal app records or remain a grouped services layer.",
+    "Iteration 2 resolved the main distance conflict in favor of the current SAT-linked GPX and official 18.4 km section page; preserve older 16.7/16.8 km PDF/Outdooractive/OSM evidence as stale/conflicting.",
+    "Iteration 2 promoted Rävstavik north skärgårdsmaja as a normal toilet candidate after finding it about 2 m from the current SAT GPX, while leaving the south Rävstavik OSM-only toilet pending.",
+    "Iteration 2 originally promoted Barnens bad / Norra Sand as a grouped beach/rest/toilet/fire context; that grouped concept is superseded by the iteration 3 split and should not be recreated as a normal combined app record.",
+    "Iteration 3 split Barnens bad to avoid duplicate normal records: sat-uto-barnens-bad remains the normal beach POI, sat-uto-barnens-bad-toilet is the normal toilet facility, and sat-uto-barnens-bad-toilet-fireplace is now guarded fire/rest/waste context.",
+    "Iteration 4 raw HTTP checks found Naturkartan deep links for Barnens bad and Rävstavik north returned 404 despite search-index evidence. Keep those links in brittle-source notes only and avoid using them as sole active sources for normal imports.",
+    "Iteration 4 found Outdooractive Utö URLs dead or blocked/unstable. Preserve Outdooractive only as GPX metadata/provenance or stale conflict evidence, not as a live app-facing source.",
+    "Iteration 4 confirms Södra Fladen can remain a normal rest-area/shelter candidate, while its grill/fire component and Barnens bad fire/rest/waste context remain conditional on reserve rules, live fire bans and leave-no-trace waste guidance.",
+    "Iteration 4 upgrades Utö Värdshus AED evidence to emergency metadata via Hjärtstartarregistret id 23722/OpenAEDMap/Wikimedia, but it still should not become a normal facility without current public access and hours validation.",
+    "Iteration 4 confirms ICA is a resupply shop only; do not tag it as medical/pharmacy. Apoteket evidence points instead to an ombud at Utö Turistbyrå/Gruvbryggan and should be optional service metadata at most.",
+    "Iteration 4 confirms Försvarsmakten direct Utö shooting-field PDFs rotate. Use the stable Utö skjutfält page/RSS and current signage rather than direct week-PDF URLs.",
+    "Iteration 5 found the direct SAT-hosted GPX URL and confirmed it matches the H25 geometry already measured from the Google Drive copy; use SAT-hosted GPX plus Drive as current route geometry evidence.",
+    "Iteration 5 confirmed the step-by-step page and old PDF still carry 16.7 km data, so official segment distances should be treated as stale route narrative until SAT updates them.",
+    "Iteration 5 kept Gruvbryggan/Hamnboden harbor toilet, Utö Camping, ICA, Södra Fladen rest area, Barnens bad toilet, Södra Fladen wetland/bird tower, Rävstavik viewpoint and Barnens bad as normal candidates.",
+    "Iteration 5 kept Rävstavik north toilet as a cautious normal candidate at medium-high confidence, with active sources limited to OSM and Wikimedia and the Naturkartan deep link stored only as brittle/context evidence.",
+    "Iteration 5 added a Gruvbryggan commercial-service cluster for lodging, restaurants, rentals, pharmacy/post ombud and paid harbor services without expanding normal imports.",
+    "Iteration 2 demoted Hamnboden and Utö Bakgård from normal standalone candidates to commercial/service-cluster records because current opening-hour/operator evidence is seasonal and uneven.",
+    "Iteration 3 confirmed ICA and Utö Camping as the only strong normal commercial/resupply/camping service candidates; Hamnboden, Bakgården, Seglarbaren, Värdshus lodging/restaurant, rentals and marina services stay commercial/conditional or cluster-only.",
+    "Iteration 3 confirmed utobakgard.se should not be cited because it appears hijacked/spammy; use Explore Archipelago, Utö.se contact/context and company registry evidence instead.",
+    "Utö Camping is the only designated camping candidate for normal import in iteration 1.",
+    "Nordsyd 2026 dates are stable from SAT, exact times are not.",
+    "Line 21, line 19, line 20 and bus 846 have useful non-summer 2026 PDFs, but high-summer line 40/Nordsyd exact times still need live/current operator revalidation.",
+    "Do not use the OSM record for Finnish Utö; several generic Utö searches return Finland results."
+  ],
+  "facilities": [
+    {
+      "id": "sat-uto-gruvbryggan-vanthall-public-toilet",
+      "name": "Gruvbryggan/Hamnboden harbor public toilet",
+      "type": "toilet",
+      "sectionId": "sat-uto",
+      "coordinates": [
+        58.97023,
+        18.324792
+      ],
+      "description": "Strong normal toilet candidate at the Gruvbryggan/Hamnboden harbor area. SAT step guide says toilets are in the harbor; OSM marks access=yes, 24/7, flush toilets and drinking_water=yes, but water should stay separate/pending until verified. Iteration 5 avoids the older 'waiting-hall toilet' wording because historic reporting suggests a previous waiting-hall toilet was demolished.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/uto/step-by-step-hiking-description-section-uto/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-uto-uto-camping",
+      "name": "Utö Camping",
+      "type": "camping",
+      "sectionId": "sat-uto",
+      "coordinates": [
+        58.967099,
+        18.317931
+      ],
+      "description": "Designated paid campsite south of the guest harbor and near the SAT route. Operator confirms service cottage with toilets, showers and simple kitchen plus four grill places and its own sandy beach.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "utogasthamn.se",
+        "url": "https://www.utogasthamn.se/camping/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-uto-ica-uto-livs",
+      "name": "ICA Nära Utö Livs",
+      "type": "food",
+      "sectionId": "sat-uto",
+      "coordinates": [
+        58.969294,
+        18.322049
+      ],
+      "description": "Core resupply candidate in Gruvbyn. Official SAT FAQ lists Utö ICA as the food shop for Utö; ICA's own page shows current opening hours and parcel/Systembolaget-agent services.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/questions-and-aswers/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-uto-sodra-fladen-rest-area-shelter",
+      "name": "Södra Fladen wetland rest area (shelter)",
+      "type": "shelter",
+      "sectionId": "sat-uto",
+      "coordinates": [
+        58.95173,
+        18.28636
+      ],
+      "description": "Route-side wetland rest-area cluster with bird tower, shelter/lean-to and benches. SAT explicitly places a rest area with grill, wind shelter and benches here, and OSM corroborates two lean-to shelter nodes. Import the rest/shelter function normally; keep fire use conditional on live fire-ban and designated-place caveats.",
+      "routeProximity": {
+        "status": "on-route",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/uto/step-by-step-hiking-description-section-uto/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-uto-sodra-fladen-rest-area-fireplace",
+      "name": "Södra Fladen wetland rest area (fireplace)",
+      "type": "fireplace",
+      "sectionId": "sat-uto",
+      "coordinates": [
+        58.95173,
+        18.28636
+      ],
+      "description": "Route-side wetland rest-area cluster with bird tower, shelter/lean-to and benches. SAT explicitly places a rest area with grill, wind shelter and benches here, and OSM corroborates two lean-to shelter nodes. Import the rest/shelter function normally; keep fire use conditional on live fire-ban and designated-place caveats.",
+      "routeProximity": {
+        "status": "on-route",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/uto/step-by-step-hiking-description-section-uto/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-uto-sodra-fladen-rest-area-rest-area",
+      "name": "Södra Fladen wetland rest area (rest area)",
+      "type": "rest-area",
+      "sectionId": "sat-uto",
+      "coordinates": [
+        58.95173,
+        18.28636
+      ],
+      "description": "Route-side wetland rest-area cluster with bird tower, shelter/lean-to and benches. SAT explicitly places a rest area with grill, wind shelter and benches here, and OSM corroborates two lean-to shelter nodes. Import the rest/shelter function normally; keep fire use conditional on live fire-ban and designated-place caveats.",
+      "routeProximity": {
+        "status": "on-route",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/uto/step-by-step-hiking-description-section-uto/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-uto-barnens-bad-toilet",
+      "name": "Barnens bad toilet",
+      "type": "toilet",
+      "sectionId": "sat-uto",
+      "coordinates": [
+        58.973413,
+        18.338597
+      ],
+      "description": "Public toilet at Barnens bad. Iteration 3 split the Barnens bad group into separate beach POI, toilet facility and guarded fire/rest/waste context to avoid duplicate normal app-visible beach/facility records. Iteration 4 removed the brittle Naturkartan deep link from the active source list and kept the toilet through Utö, Länsstyrelsen, OSM and Wikimedia corroboration.",
+      "routeProximity": {
+        "status": "near-route",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "uto.se",
+        "url": "https://www.uto.se/barnens-uto/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-uto-ravstavik-north-toilet",
+      "name": "Rävstavik north skärgårdsmaja",
+      "type": "toilet",
+      "sectionId": "sat-uto",
+      "coordinates": [
+        58.978513,
+        18.363432
+      ],
+      "description": "Skärgårdsmaja/toilet at Rävstavik north. Iteration 2 geometry pass found the candidate lies essentially on the current SAT GPX, resolving the iteration 1 route-proximity concern. Iterations 4-5 found the Naturkartan deep link brittle and moved it to brittle-source notes, so confidence is medium-high rather than high and the waste-shed detail stays guarded.",
+      "routeProximity": {
+        "status": "on-route",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org/node/13050416339",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-uto-sodra-fladen-wetland-bird-tower",
+      "name": "Södra Fladen wetland and bird tower",
+      "type": "viewpoint",
+      "sectionId": "sat-uto",
+      "coordinates": [
+        58.9517,
+        18.2864
+      ],
+      "description": "Route-side wetland created by Haninge/Initiativ Utö work, with a bird tower/rest area; SAT describes rainwater purification, fish spawning and bird life here.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/uto/step-by-step-hiking-description-section-uto/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-uto-ravstavik-cliff-bathing-viewpoint",
+      "name": "Rävstavik cliff bathing and east-coast viewpoint",
+      "type": "viewpoint",
+      "sectionId": "sat-uto",
+      "coordinates": [
+        58.960322,
+        18.336206
+      ],
+      "description": "Named SAT route location on the technical eastern coast, with rocky shoreline, sea views, cliff bathing and slippery-rock warning when wet. Import as scenic/bathing context rather than an easy-access beach; iteration 4 specifically flags deep water, harder water access and slippery rocks as safety context for less confident swimmers.",
+      "routeProximity": {
+        "status": "near-route",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/uto/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-uto-barnens-bad",
+      "name": "Barnens bad",
+      "type": "swimming",
+      "sectionId": "sat-uto",
+      "coordinates": [
+        58.97455,
+        18.3388
+      ],
+      "description": "Shallow sandy beach north of Gruvbyn on/near the final SAT segment. Länsstyrelsen and Utö pages describe it as an easy, child-friendly beach/rest area. Iteration 3 keeps this as the normal beach POI and splits the toilet and fire/rest/waste details into separate facility/guarded records; iteration 4 removed the brittle Naturkartan deep link from the active source list.",
+      "routeProximity": {
+        "status": "near-route",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/uto/step-by-step-hiking-description-section-uto/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-uto-gruvbyn-mines-and-gruvmuseet",
+      "name": "Utö mines and mining heritage",
+      "type": "heritage",
+      "sectionId": "sat-uto",
+      "coordinates": [
+        58.967117,
+        18.329011
+      ],
+      "description": "Water-filled mine shafts, mining boards and museum/heritage context near Gruvbyn. SAT and Länsstyrelsen emphasize Utö's 700-year mining history; Länsstyrelsen asks visitors to leave stones/minerals in place. Iteration 2 moved this to secondary/detour context because the current SAT GPX does not pass directly through the museum/mines cluster.",
+      "routeProximity": {
+        "status": "detour-context",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/uto/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-uto-kvarnen-windmill",
+      "name": "Utö kvarn",
+      "type": "heritage",
+      "sectionId": "sat-uto",
+      "coordinates": [
+        58.96732,
+        18.323247
+      ],
+      "description": "Historic windmill above Gruvbyn, built in 1791 per Länsstyrelsen and identified as a viewpoint/cultural landmark in OSM/Naturkartan context. Iteration 2 moved this to secondary/detour context due to route distance.",
+      "routeProximity": {
+        "status": "detour-context",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Länsstyrelsen",
+        "url": "https://www.lansstyrelsen.se/stockholm/besoksmal/naturreservat/uto.html",
+        "lastFetchedAt": "2026-04-26"
+      }
+    }
+  ],
+  "endpointCoordinates": {
+    "source": "approximate",
+    "start": [
+      58.970492,
+      18.325196
+    ],
+    "end": [
+      58.957656,
+      18.294498
+    ]
+  },
+  "accessPoints": [],
+  "source": {
+    "provider": "stockholm-archipelago-trail",
+    "url": "https://stockholmarchipelagotrail.com/section/uto/",
+    "lastFetchedAt": "2026-04-26"
+  },
+  "route": {
+    "status": "marker-only"
+  }
+}

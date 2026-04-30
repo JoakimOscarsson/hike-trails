@@ -261,6 +261,14 @@ async function waitForText(client, text) {
   });
 }
 
+async function waitForScrollNearTop(client, label) {
+  await waitFor(() => evaluate(client, `window.scrollY <= 24`), {
+    timeoutMs: 4_000,
+    label: `${label} scroll reset`
+  });
+  addPass(`${label}: viewport returned to the top summary area.`);
+}
+
 async function settleTrackedRequests() {
   const startedAt = Date.now();
   let previousCount = networkRequests.length + tileNetworkRequests.length;
@@ -537,7 +545,9 @@ async function collectAccessibility(client) {
   } else {
     addPass("Search inputs expose accessible names.");
   }
-  if (result.activityButtons.some((button) => button.pressed !== "true" && button.pressed !== "false")) {
+  if (!result.activityButtons.length) {
+    addPass("Activity switch is temporarily hidden while the app focuses on hiking.");
+  } else if (result.activityButtons.some((button) => button.pressed !== "true" && button.pressed !== "false")) {
     addFinding("accessibility", "Activity switch buttons are missing aria-pressed state.", "accessibility");
   } else {
     addPass("Activity switch buttons expose pressed state.");
@@ -630,6 +640,13 @@ async function exerciseUi(client, origin) {
   await client.send("Page.navigate", { url: `${origin}/` });
   await waitForText(client, "Hiking Routes");
   await collectLayout(client, "390x844 mobile hiking overview");
+  await setViewport(client, 320, 640, true);
+  await collectLayout(client, "320x640 narrow mobile hiking overview");
+  await setViewport(client, 430, 932, true);
+  await collectLayout(client, "430x932 large mobile hiking overview");
+  await setViewport(client, 768, 1024, true);
+  await collectLayout(client, "768x1024 tablet hiking overview");
+  await setViewport(client, 390, 844, true);
   await collectAccessibility(client);
   await settleTrackedRequests();
 
@@ -643,20 +660,33 @@ async function exerciseUi(client, origin) {
     label: "context route buttons"
   });
   await clickFirstContextRoute(client);
-  await collectLayout(client, "390x844 mobile Sörmlandsleden builder");
+  const mobileBuilderLayout = await collectLayout(client, "390x844 mobile Sörmlandsleden builder");
+  await setViewport(client, 320, 640, true);
+  await collectLayout(client, "320x640 narrow mobile Sörmlandsleden builder");
+  await setViewport(client, 430, 932, true);
+  await collectLayout(client, "430x932 large mobile Sörmlandsleden builder");
+  await setViewport(client, 768, 1024, true);
+  await collectLayout(client, "768x1024 tablet Sörmlandsleden builder");
+  await setViewport(client, 390, 844, true);
   await collectAccessibility(client);
   await settleTrackedRequests();
   const mobileBuilderRequests = requestSummary();
   const mobileRouteRequestDelta = mobileBuilderRequests.routes - mobileBuilderRequestBaseline.routes;
   const mobileTileRequestDelta = mobileBuilderRequests.tiles - mobileBuilderRequestBaseline.tiles;
-  if (mobileRouteRequestDelta > 0) {
+  const mobileMap = mobileBuilderLayout.elements.find((element) => element.selector === ".map-with-controls");
+  const mobileMapDistanceBelowViewportPx =
+    mobileMap?.present && Number.isFinite(mobileMap.top)
+      ? Math.max(0, mobileMap.top - mobileBuilderLayout.viewport.height)
+      : Number.POSITIVE_INFINITY;
+  const mapIsNearFirstMobileScroll = mobileMapDistanceBelowViewportPx <= 480;
+  if (mobileRouteRequestDelta > 0 && !mapIsNearFirstMobileScroll) {
     addFinding(
       "mobile map deferral",
       `Below-fold mobile route-builder map requested ${mobileRouteRequestDelta} route payload(s) before it was near the viewport.`,
       "performance"
     );
   }
-  if (mobileTileRequestDelta > 0) {
+  if (mobileTileRequestDelta > 0 && !mapIsNearFirstMobileScroll) {
     addFinding(
       "mobile map deferral",
       `Below-fold mobile route-builder map requested ${mobileTileRequestDelta} tile request(s) before it was near the viewport.`,
@@ -665,6 +695,10 @@ async function exerciseUi(client, origin) {
   }
   if (mobileRouteRequestDelta === 0 && mobileTileRequestDelta === 0) {
     addPass("Below-fold mobile route-builder map did not request route GeoJSON or tiles before it was near the viewport.");
+  } else if (mapIsNearFirstMobileScroll) {
+    addPass(
+      `Mobile route-builder map was ${Math.round(mobileMapDistanceBelowViewportPx)}px below the first viewport, so route-map requests were allowed as near first-scroll work.`
+    );
   }
   await collectPrintChecks(client, "Sörmlandsleden builder print");
 
@@ -675,24 +709,25 @@ async function exerciseUi(client, origin) {
   await clearTextZoom(client);
   await collectLayout(client, "1024x768 desktop Sörmlandsleden builder");
 
+  await setViewport(client, 390, 844, true);
   await clickButton(client, "Select route and view info");
   await waitForText(client, "Facilities");
+  await waitForScrollNearTop(client, "390x844 mobile builder-to-info transition");
+  await setViewport(client, 390, 844, true);
+  await collectLayout(client, "390x844 mobile Sörmlandsleden info");
+  await setViewport(client, 320, 640, true);
+  await collectLayout(client, "320x640 narrow mobile Sörmlandsleden info");
+  await setViewport(client, 430, 932, true);
+  await collectLayout(client, "430x932 large mobile Sörmlandsleden info");
+  await setViewport(client, 768, 1024, true);
+  await collectLayout(client, "768x1024 tablet Sörmlandsleden info");
+  await setViewport(client, 1024, 768, false);
   await collectLayout(client, "1024x768 Sörmlandsleden info");
   await collectAccessibility(client);
   await collectPrintChecks(client, "Sörmlandsleden info print");
 
   await clickButton(client, "Back to overview");
   await waitForText(client, "Hiking Routes");
-  await clickButton(client, "Kayaking");
-  await waitForText(client, "Kayak Trips");
-  await collectLayout(client, "1024x768 kayaking overview");
-  await clickButton(client, "Långholmen and Reimersholme loop");
-  await waitForText(client, "Do not use this line for navigation");
-  await collectLayout(client, "1024x768 kayak detail");
-  await collectAccessibility(client);
-
-  await setViewport(client, 320, 640);
-  await collectLayout(client, "320x640 kayak detail");
   await settleTrackedRequests();
 
   const finalRequests = requestSummary();
@@ -815,12 +850,12 @@ function renderReport({ chromePath, origin }) {
     "",
     "## Coverage",
     "",
-    "- Hiking overview at mobile width.",
+    "- Hiking overview at narrow, standard, large mobile, and tablet widths.",
     "- Sörmlandsleden route builder with a range that exposes related route options.",
+    "- Sörmlandsleden route info at narrow, standard, large mobile, and tablet widths.",
     "- 200% text zoom checks at mobile and desktop widths.",
     "- Print-media checks for route-builder and route-info states.",
-    "- Kayaking overview and a kayak detail route with the not-for-navigation warning.",
-    "- Basic accessibility state checks for search, activity switch, route buttons, disclosures, and Leaflet focus noise.",
+    "- Basic accessibility state checks for search, the temporary hiking-only activity state, route buttons, disclosures, and Leaflet focus noise.",
     "- Local hiking-route request budget for selected/context route geometry loading.",
     "",
     "## Findings",
@@ -851,7 +886,7 @@ function renderReport({ chromePath, origin }) {
     "",
     "- This is not a screenshot or pixel-regression suite.",
     "- It does not replace manual keyboard/screen-reader review.",
-    "- It does not test every route, every filter combination, or every mobile breakpoint from the older reports.",
+    "- It does not test every route, every filter combination, or every possible mobile breakpoint.",
     "- Browser availability is still required; set `CHROME_BIN` or `BROWSER_BIN` if auto-discovery fails.",
     "",
     "## Follow-Up",

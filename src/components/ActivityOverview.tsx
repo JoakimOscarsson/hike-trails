@@ -1,8 +1,7 @@
 import React from "react";
-import { AlertTriangle, CalendarDays, MapPin, Mountain, Route } from "lucide-react";
-import type { ActivityKind, LibraryIndexItem, LibraryOverviewFeatureCollection, TripDuration } from "../types";
+import { AlertTriangle, MapPin, Route } from "lucide-react";
+import type { ActivityKind, LibraryIndexItem, LibraryOverviewFeatureCollection } from "../types";
 import { OverviewMap } from "../map/OverviewMap";
-import { durationLabel, itemLocationLabel } from "../utils/libraryItem";
 
 type OverviewLoadState = { status: "idle" | "loading" | "ready" | "error"; message?: string };
 
@@ -19,14 +18,6 @@ const overviewLabels: Record<ActivityKind, { eyebrow: string; title: string; map
     mapLabel: "Kayaking overview map",
     distanceLabel: "Known distance"
   }
-};
-
-const durationWeight: Record<TripDuration, number> = {
-  "half-day": 0,
-  dayhike: 1,
-  weekend: 2,
-  "3-5-days": 3,
-  "6-plus-days": 4
 };
 
 const kayakNavigationWarning = "Approximate waypoint corridor for planning context only. Do not use this line for navigation.";
@@ -70,13 +61,6 @@ export function ActivityOverview({
     (sum, item) => sum + (typeof item.distanceKm === "number" && Number.isFinite(item.distanceKm) ? item.distanceKm : 0),
     0
   );
-  const locationCount = new Set(items.map(itemLocationLabel)).size;
-  const longestDuration = items.reduce<TripDuration | null>((longest, item) => {
-    for (const duration of item.recommendedTimes) {
-      if (!longest || durationWeight[duration] > durationWeight[longest]) return duration;
-    }
-    return longest;
-  }, null);
   const labels = overviewLabels[activity];
   const overviewWarnings =
     activity === "kayaking" && overview
@@ -105,8 +89,6 @@ export function ActivityOverview({
         <div className="overview-stats">
           <OverviewStat icon={<Route size={17} />} label="Visible routes" value={`${items.length}`} />
           <OverviewStat icon={<MapPin size={17} />} label={labels.distanceLabel} value={`${Math.round(totalDistance)} km`} />
-          <OverviewStat icon={<Mountain size={17} />} label="Locations" value={`${locationCount}`} />
-          <OverviewStat icon={<CalendarDays size={17} />} label="Longest" value={longestDuration ? durationLabel(longestDuration) : "None"} />
         </div>
       </section>
 

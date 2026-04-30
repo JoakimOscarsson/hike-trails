@@ -1,0 +1,525 @@
+{
+  "id": "sat-moja",
+  "stageNumber": 10,
+  "name": "Möja",
+  "from": "Möja",
+  "to": "Möja",
+  "distanceKm": 13.8,
+  "estimatedTime": "4:30",
+  "description": "Möja is an easy but distinctive SAT section: about 13.8 km of mostly gravel/local road walking from Långvik through Ramsmora, Löka, Berg and Möjaström to Hamn, then back to Berg where the main services are. It is not a full island loop, and Hamn has no ferry quay or services. Treat the route as a multi-access linear section through living archipelago villages, with Berg/Kyrkviken as the primary public-service cluster and several other villages/quays useful for shorter variants.",
+  "utilities": [
+    "Confirmed public hiker-facing toilet at Berg/Kyrkviken guest harbour; SAT says not in winter.",
+    "Confirmed water at Berg/Kyrkviken guest harbour; SAT says not in winter. Iteration 2 added a possible fee/container-refill caveat.",
+    "Coop Berg is the strongest year-round food/shop service; opening/staffed-service details vary.",
+    "Coop Långvik exists but requires the Coop app plus Swedish BankID; do not expose as food/resupply unless the app supports conditional BankID-gated service notes.",
+    "Jeppes in Långvik, Möja Värdshus/Bageri, Les Poissonniers/Möja Fisk, Möja Hamnbar/Hamncafé and Möja Gästhem are useful food/cafe/lodging context when open, but hours are seasonal or verify-before-relying.",
+    "No official campsite, public SAT firepit or hiker shelter confirmed in iteration 1.",
+    "Guest-harbour toilets/water/showers outside Berg, paid/customer toilet/water and shower/sauna/gym services remain conditional/non-rendering metadata, not general public trail utilities.",
+    "Waste should default to pack-out guidance. Municipal waste/recycling infrastructure, including Möja ÅVC/recycling, and harbour waste should not be rendered as normal trail litter service."
+  ],
+  "waterSources": [
+    "Use Berg/Kyrkviken guest harbour as the strongest confirmed public water refill point, seasonal and not in winter. Visit Möja describes container refill and harbor guides/OSM indicate limited or fee-based water, so verify current terms before relying on free access.",
+    "Jeppes may have toilet/water during opening hours for customers or fee per SAT winter/off-season notes; keep conditional, not an unconditional public tap.",
+    "Långvik/Löka/Möjaström harbour water should remain conditional boat-harbour metadata until hiker access and seasonality are verified.",
+    "Do not expose lakes, reserve water or wells/hand pumps as ordinary drinking water without later confirmation."
+  ],
+  "notes": [
+    "Route shape: linear north-to-south route from Långvik to Hamn, then return to Berg for services.",
+    "Model Möja as a multi-access linear route with a return to Berg for services, not as a full loop or Möja runt.",
+    "Hamn is a route endpoint/hamlet but has no ferry quay or services according to SAT; do not create access or facility pins there.",
+    "Berg/Kyrkviken is the primary public service cluster; guest-harbour toilet/water are seasonal and not in winter.",
+    "Render ferry stops from accessMetadataDraft as the primary access layer; keep transit facilities only as fallback if the app cannot consume access metadata. Never render both layers at once.",
+    "Do not promote Dragedet, Södermöja, Granholmen or Korsö as SAT Möja trail-access quays unless a later integration supports secondary/non-SAT ferry context.",
+    "Keep Björndalen/naturstigen separate from SAT geometry unless later passes prove the SAT main route uses it. It is valuable nearby nature context but not the main gravel-road SAT section.",
+    "No official campsite is confirmed. Möja-Björndalen reserve prohibits camping; do not convert general allemansrätten context into a campsite facility.",
+    "No official public SAT fireplace/firepit is confirmed. Suppress OSM/harbour grills until public hiker use is verified.",
+    "Use opening-hours, customer/fee and booking caveats for food, lodging, showers, sauna, harbour services and restaurant/shop toilets.",
+    "Do not expose local lakes, wells or hand pumps as drinking-water facilities without later confirmation.",
+    "Treat informal bathing candidates as unmonitored unless a stronger municipal/Naturkartan source supports a specific spot; do not add HaV water-quality status unless HaV lists it.",
+    "Keep dogs controlled/leashed around wildlife, villages and protected areas; SAT states dogs must be leashed March-September and reserve rules may be stricter.",
+    "Do not import Björndalen reserve service icons as SAT facilities; the reserve is optional/local-trail context and has stricter rules than the road-based SAT section.",
+    "Do not promote wild-camping waypoints on the main island; one-off blog bivouac reports are conflict-discovery only, not sources for campsites."
+  ],
+  "facilities": [
+    {
+      "id": "sat-moja-berg-kyrkviken-guest-harbor-toilet",
+      "name": "Berg/Kyrkviken guest harbour toilet",
+      "type": "toilet",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.406299,
+        18.883248
+      ],
+      "description": "Public toilet at Berg/Kyrkviken guest harbour, the primary service cluster for the Möja section. SAT says toilet/water are available here but not in winter.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-moja/step-by-step-hiking-instruction-section-moja/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-berg-kyrkviken-guest-harbor-water",
+      "name": "Water at Berg/Kyrkviken guest harbour",
+      "type": "water",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.406267,
+        18.882949
+      ],
+      "description": "Confirmed seasonal water refill at Berg/Kyrkviken guest harbour. SAT says not in winter; Visit Möja describes container refill and harbor guides/OSM indicate limited or fee-based water. Verify current terms before relying on free access.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-moja/step-by-step-hiking-instruction-section-moja/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-coop-berg",
+      "name": "Coop Berg",
+      "type": "food",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.40667,
+        18.88697
+      ],
+      "description": "Main grocery/shop service in Berg. Local sources describe Coop Berg as year-round with additional staffed services such as post, pharmacy and Systembolaget pickup during staffed hours.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-moja/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-jeppes",
+      "name": "Jeppes in Långvik",
+      "type": "food",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.44137,
+        18.91774
+      ],
+      "description": "Restaurant/café in Långvik on or near the SAT start area. Opening hours vary by season; customer/fee caveats apply to any toilet/water use.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-moja/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-les-poissonniers",
+      "name": "Les Poissonniers de Möja / Möja Fisk",
+      "type": "food",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.40707,
+        18.88562
+      ],
+      "description": "Fish/seafood restaurant in Berg. Useful food option when open; do not treat customer facilities as public utilities.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "visitmoja.se",
+        "url": "https://www.visitmoja.se/%C3%A4ta-och-handla-p%C3%A5-m%C3%B6ja/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-moja-vardshus-bageri",
+      "name": "Möja Värdshus & Bageri",
+      "type": "food",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.40672,
+        18.88498
+      ],
+      "description": "Restaurant/bakery/service option in Berg. Current public sources conflict between year-round restaurant, summer-open local descriptions and sparse operator hours, so verify exact public opening before relying.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "visitmoja.se",
+        "url": "https://www.visitmoja.se/%C3%A4ta-och-handla-p%C3%A5-m%C3%B6ja/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-moja-hamnbar",
+      "name": "Möja Hamnbar",
+      "type": "food",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.40637,
+        18.88454
+      ],
+      "description": "Summer/variable pizza/food stand by Kyrkviken guest harbour. Verify current opening before relying.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "visitmoja.se",
+        "url": "https://www.visitmoja.se/%C3%A4ta-och-handla-p%C3%A5-m%C3%B6ja/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-langvik-ferry",
+      "name": "Långvik ferry quay",
+      "type": "transit",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.442326,
+        18.920814
+      ],
+      "description": "Recommended northern start for SAT Möja. Transit fallback only; prefer accessMetadataDraft for rendering.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-moja/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-ramsmora-ferry",
+      "name": "Ramsmora ferry quay",
+      "type": "transit",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.423739,
+        18.90967
+      ],
+      "description": "Mid-route ferry access near the Roland Svensson Museum. Transit fallback only; prefer accessMetadataDraft for rendering.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-moja/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-loka-ferry",
+      "name": "Löka ferry quay",
+      "type": "transit",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.410313,
+        18.896113
+      ],
+      "description": "Mid-route ferry access about 300 m from the Löka three-way junction. Transit fallback only; prefer accessMetadataDraft for rendering.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-moja/step-by-step-hiking-instruction-section-moja/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-berg-ferry",
+      "name": "Berg ferry quay",
+      "type": "transit",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.40614,
+        18.888766
+      ],
+      "description": "Main ferry stop for Berg, the service hub and practical finish. Transit fallback only; prefer accessMetadataDraft for rendering.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-moja/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-mojastrom-ferry",
+      "name": "Möjaström ferry quay",
+      "type": "transit",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.404006,
+        18.874722
+      ],
+      "description": "Southern ferry access near the Hamn/Södermöja side. Transit fallback only; prefer accessMetadataDraft for rendering.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-moja/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-roland-svensson-museum",
+      "name": "Roland Svensson Museum",
+      "type": "heritage",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.4239,
+        18.9096
+      ],
+      "description": "Small art museum at Ramsmora brygga dedicated to archipelago artist and writer Roland Svensson. SAT explicitly calls it worth a visit; the museum says visits are possible year-round by booking and daily from midsummer in 2026.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-moja/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-ramsmora-fishing-harbor",
+      "name": "Ramsmora fishing village and harbour",
+      "type": "heritage",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.42374,
+        18.90967
+      ],
+      "description": "Ramsmora harbour/village context near the ferry quay and Roland Svensson Museum. Treat as fishing-village heritage and route atmosphere, not as a fishing permission or public service claim.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-moja/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-loka-village",
+      "name": "Löka village",
+      "type": "heritage",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.4143,
+        18.8949
+      ],
+      "description": "Well-preserved village with turn-of-the-century character, narrow passages, close-set houses, small agricultural traces and stone-lined watercourses. Treat as village heritage context, not a single facility.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-moja/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-berg-kyrkviken-village",
+      "name": "Berg / Kyrkviken",
+      "type": "heritage",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.4076,
+        18.8823
+      ],
+      "description": "Möja's largest village and service hub, with guest harbour, church, dance pavilion, local heritage museum, shop and food services nearby. Use as broad village/service heritage context.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-moja/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-moja-kyrka",
+      "name": "Möja kyrka",
+      "type": "heritage",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.40526,
+        18.88146
+      ],
+      "description": "Church from 1768 on southern Stora Möja between Möjaström and Berg. Good high-confidence heritage stop near the service hub.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "svenskakyrkan.se",
+        "url": "https://www.svenskakyrkan.se/djuro-moja-namdo/moja-kyrka",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-hembygdsmuseum",
+      "name": "Möja Hembygdsmuseum",
+      "type": "heritage",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.404915,
+        18.88598
+      ],
+      "description": "Small local heritage museum uphill in Bergs by with 19th-century roots and views over Bergbofjärden. Add accessibility caveat in later integration because the museum itself may be difficult to access.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "hembygd.se",
+        "url": "https://www.hembygd.se/moja",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-moja-dansbana",
+      "name": "Möja Dansbana",
+      "type": "heritage",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.41043,
+        18.88734
+      ],
+      "description": "Outdoor dance pavilion just north of Berg. SAT mentions it before hikers reach Berg, and local sources describe it as a long-running cultural gathering place. Treat as heritage/culture POI, not shelter or rest facility.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-moja/step-by-step-hiking-instruction-section-moja/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-hamn-village",
+      "name": "Hamn",
+      "type": "heritage",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.42824,
+        18.8544
+      ],
+      "description": "Small secluded western-side hamlet by a natural harbour, with older houses descending toward the water and early-1900s village character. SAT says there are no ferry quay or services in Hamn, so this is heritage/narrative only.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-moja/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-bjorndalen-nature-reserve",
+      "name": "Möja-Björndalen nature reserve",
+      "type": "attraction",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.4341,
+        18.8783
+      ],
+      "description": "Nearby nature-reserve and yellow-marked local nature-trail context around the Ramsmora-Hamn side of Möja. Keep separate from the SAT main gravel-road geometry and do not import reserve service icons as SAT facilities. Reserve rules prohibit camping and open fire and require leashed dogs/cats.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Länsstyrelsen",
+        "url": "https://www.lansstyrelsen.se/stockholm/besoksmal/naturreservat/moja-bjorndalen.html",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-langvik-yttre-bathing",
+      "name": "Långvik yttre bathing spot",
+      "type": "swimming",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.4428,
+        18.9209
+      ],
+      "description": "Natural bathing spot by Långvik outer harbour. Naturkartan/Värmdö describe a built beach west of the guest pier with an accessible ramp, but no HaV registered bathing-water status has been found; do not attach water-quality, lifeguard or toilet claims.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "naturkartan.se",
+        "url": "https://www.naturkartan.se/sv/stockholms-lan/langvik-yttre-badplats",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-moja-saltvik-bathing",
+      "name": "Saltvik bathing rocks and beach",
+      "type": "swimming",
+      "sectionId": "sat-moja",
+      "coordinates": [
+        59.41411,
+        18.85839
+      ],
+      "description": "Informal natural bathing at Saltvik with rocks and sand beach. Local sources support bathing, but Visit Möja says Möja has no official bathing place and HaV does not list Saltvik as a registered monitored bathing water.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "visitmoja.se",
+        "url": "https://www.visitmoja.se/aktiviteter-p%C3%A5-m%C3%B6ja/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    }
+  ],
+  "endpointCoordinates": {
+    "source": "approximate",
+    "start": [
+      59.442326,
+      18.920814
+    ],
+    "end": [
+      59.40614,
+      18.888766
+    ]
+  },
+  "accessPoints": [],
+  "source": {
+    "provider": "stockholm-archipelago-trail",
+    "url": "https://stockholmarchipelagotrail.com/section/section-moja/",
+    "lastFetchedAt": "2026-04-26"
+  },
+  "route": {
+    "status": "marker-only"
+  }
+}

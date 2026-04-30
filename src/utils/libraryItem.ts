@@ -4,6 +4,7 @@ import type {
   KayakTripIndexItem,
   LibraryDetail,
   LibraryIndexItem,
+  TrailSystem,
   TripDuration
 } from "../types";
 
@@ -12,7 +13,9 @@ const durationLabels: Record<TripDuration, string> = {
   dayhike: "Day hike",
   weekend: "Weekend",
   "3-5-days": "3-5 days",
-  "6-plus-days": "6+ days"
+  "6-10-days": "6-10 days",
+  "10-plus-days": "10+ days",
+  "6-plus-days": "6-10 days"
 };
 
 export function isKayakTripIndexItem(item: LibraryIndexItem): item is KayakTripIndexItem {
@@ -25,6 +28,10 @@ export function isHikingLibraryIndexItem(item: LibraryIndexItem): item is Hiking
 
 export function isKayakTrip(detail: LibraryDetail): detail is KayakTrip {
   return "activity" in detail && detail.activity === "kayaking" && detail.itemType === "kayak-trip";
+}
+
+export function isTrailSystem(detail: LibraryDetail): detail is TrailSystem {
+  return "itemType" in detail && detail.itemType === "trail-system";
 }
 
 export function itemLocationLabel(item: LibraryIndexItem) {

@@ -1,0 +1,551 @@
+{
+  "trailSystemId": "stockholm-archipelago-trail",
+  "id": "sat-grinda",
+  "stageNumber": 11,
+  "name": "Grinda",
+  "from": "Grinda",
+  "to": "Grinda",
+  "distanceKm": 9.8,
+  "estimatedTime": "3:30",
+  "description": "Grinda is a moderate 9.8 km clockwise SAT island loop with a public start/end at Södra Grinda ferry quay and a natural service-hub start option at Grinda Wärdshus. The route mixes gravel road, forest road, pasture edges, shoreline walking and more technical rocky/rooty trail on the northern and eastern/southeastern coast. Treat it as a nature-reserve loop with excellent seasonal services, but with strict rules for camping, fire and dogs.",
+  "utilities": [
+    "SAT confirms toilets and water at the guest harbor and Grinda Sea Lodge, not during winter, but operator pages frame several utilities as seasonal, paid, harbor, lodging or customer services.",
+    "Länsstyrelsen explicitly says dry toilets exist at all bathing places and at Södra ångbåtsbryggan; iteration 3 keeps Södra water guarded and adds separate dry toilets for Södra, Källviken and Badviken/Norra.",
+    "Grinda Camping is the official/designated paid campsite with dry toilets, water pumps, waste handling, communal BBQ and high-season shower access via the guest-harbor service house.",
+    "Grinda Wärdshus, Lanthandel & Café, bakery, Framfickan, Sea Lodge, cottage village and guest-harbor services are seasonal, opening-hours dependent, customer/guest/fee-based or mixed-access.",
+    "Expose guest harbor and Sea Lodge toilet/water with not-winter plus fee/customer caveats; keep showers, electricity, waste, sauna, boat rentals, septic pump-out and many service-house details guarded unless later passes confirm broad public hiker access.",
+    "Default waste guidance should remain pack-out/mainland where possible; do not render customer/harbor environmental stations as ordinary trail litter service."
+  ],
+  "waterSources": [
+    "Water at the guest harbor, not during winter per SAT; operator price list frames canister refill as paid harbor service, so include fee/customer caveat.",
+    "Water at Grinda Sea Lodge, not during winter per SAT; operator pages do not clearly prove broad public hiker access, so include current-hours/customer caveat.",
+    "Water pumps at the paid campsite; verify season and whether they are for camping guests.",
+    "Do not render Södra, Källviken or Badviken/Norra beach/toilet-point water from OSM alone; official sources currently verify dry toilets/bathing places rather than public drinking taps.",
+    "Carry water outside the main season or when businesses/service points may be closed."
+  ],
+  "notes": [
+    "Route shape: clockwise island loop; step-by-step guide starts at Grinda Södra ferry quay, while the section page also describes Grinda Wärdshus as the natural start.",
+    "Use current SAT web/step-guide facts for public route scalar values: Moderate, 9.8 km, 3:30 and 55 m gain.",
+    "Do not import older official PDF, linked GPX/Outdooractive or secondary platform distances as canonical until later iterations reconcile the 8.1-8.9 km geometry conflict.",
+    "Follow blue/yellow SAT markings. AllTrails visitor reviews and third-party route maps report mismatch/signage issues; treat those as conflict discovery only.",
+    "Render accessMetadataDraft as the primary ferry layer; transit facilities are fallback only and should not render at the same time.",
+    "Grinda Norra must remain exact-date verified access because at least one secondary source reports it was not operating in June 2025.",
+    "Use Waxholmsbolaget v11 as the strongest current 2026 static evidence for both Grinda piers; do not imply v12/v13 serve Norra unless later current timetables prove it.",
+    "Use the stricter Grinda reserve rule for dogs: leashed year-round, despite less strict general SAT seasonal wording.",
+    "Länsstyrelsen/Explore Archipelago support exact designated grill coordinates at Södra Grinda and the tent site; keep them tied to designated-place and fire-ban caveats.",
+    "Do not store current fire-ban status as a static Grinda fact; always present as check-current-status guidance from Länsstyrelsen/Storstockholms brandförsvar.",
+    "Treat Strömma/Cinderella as separate-ticket seasonal access to Södra Grinda only, not as Waxholmsbolaget/SL access.",
+    "Iteration 3 models separate dry toilets at Södra Grinda/Södra bryggan, Källviken and Badviken/Norra; Södra/toilet-point drinking water remains unverified and guarded.",
+    "Public/customer boundaries matter: showers, electricity, sauna, waste, rentals and several toilets/taps may be customer, harbor or lodging services.",
+    "A defibrillator is documented at Grinda Wärdshus in SAT low-season material; keep it in emergencyMetadataDraft only because access depends on opening and circumstances.",
+    "Do not mechanically copy pendingFacilityDraft or emergencyMetadataDraft into app facilities; app integration must explicitly filter renderPolicy never_render_as_facility_or_poi and map only approved entries into TrailFacility shape.",
+    "Do not directly import fallback_only transit facilities into the app facilities layer when accessMetadataDraft is rendered; the app does not consume renderPolicy and would duplicate ferry markers.",
+    "Current app marker rendering has no clustering/spiderfy; use serviceClustersDraft or hub-style mapping for close Hemviken/guest-harbor and Sea Lodge facilities.",
+    "Several draft source URLs are intentionally stale/conflict evidence, such as Outdooractive returning 410 Gone; do not treat stale artifact URLs as live primary sources.",
+    "Suppress Grinda Säteri/mainland farm results; they are not the island Grinda Lantbruk."
+  ],
+  "facilities": [
+    {
+      "id": "sat-grinda-guest-harbor-toilet",
+      "name": "Guest harbour toilet",
+      "type": "toilet",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.41414,
+        18.55652
+      ],
+      "description": "Primary SAT-confirmed open toilet at the Hemviken/guest-harbor service hub, not available in winter. Operator material frames harbor toilets/service-house access in a harbor fee/service context, so do not present as unconditional year-round free utility. Showers and other harbor service-house features are customer/fee or seasonal metadata, not ordinary public trail utilities.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-grinda/step-by-step-hiking-instruction-section-grinda/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-guest-harbor-water",
+      "name": "Water at guest harbour",
+      "type": "water",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.41414,
+        18.55652
+      ],
+      "description": "SAT-confirmed water at the Hemviken/guest-harbor service hub, with operator material framing canister refill as a paid harbor service and fresh-water filling near piers. Verify current season, fee and service-house access before relying outside main season.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-grinda/step-by-step-hiking-instruction-section-grinda/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-sea-lodge-toilet",
+      "name": "Grinda Sea Lodge toilet",
+      "type": "toilet",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.406667,
+        18.564611
+      ],
+      "description": "SAT-confirmed open toilet at Grinda Sea Lodge on the southern/eastern side of the loop, not available in winter. Operator material supports Sea Lodge area toilets but frames many services in lodging/customer context, so current opening and public access should be checked.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-grinda/step-by-step-hiking-instruction-section-grinda/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-sea-lodge-water",
+      "name": "Water at Grinda Sea Lodge",
+      "type": "water",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.406667,
+        18.564611
+      ],
+      "description": "SAT-confirmed water at Grinda Sea Lodge. Operator material supports running-water sinks in the Sea Lodge area but mostly in accommodation context, so verify current season/opening before relying outside the Midsummer-to-mid-August public service period.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-grinda/step-by-step-hiking-instruction-section-grinda/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-camping",
+      "name": "Grinda Camping",
+      "type": "campsite",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.417318,
+        18.558267
+      ],
+      "description": "Designated paid campsite/tenting area. Official rules allow camping only at designated places; do not expose dispersed camping elsewhere on Grinda.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "grinda.se",
+        "url": "https://grinda.se/en/accommodation/camping/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-sodra-brygga-dry-toilet",
+      "name": "Södra Grinda dry toilet",
+      "type": "toilet",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.40796,
+        18.55481
+      ],
+      "description": "Public dry toilet at/near Södra ångbåtsbryggan and Södra Grinda bathing area. Länsstyrelsen confirms dry toilets at all bathing places and at Södra ångbåtsbryggan; Explore Archipelago/Wikimedia/OSM secondary checks support this point.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Länsstyrelsen",
+        "url": "https://www.lansstyrelsen.se/stockholm/besoksmal/naturreservat/grinda.html",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-kallviken-dry-toilet",
+      "name": "Källviken dry toilet",
+      "type": "toilet",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.41184,
+        18.55799
+      ],
+      "description": "Public dry toilet linked to Källviken bathing place. Länsstyrelsen confirms dry toilets at Grinda bathing places; Explore Archipelago service-map data and OSM secondary checks support this individual point. Do not infer drinking water from this toilet point.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Länsstyrelsen",
+        "url": "https://www.lansstyrelsen.se/stockholm/besoksmal/naturreservat/grinda.html",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-badviken-dry-toilet",
+      "name": "Badviken / Norra Grinda dry toilet",
+      "type": "toilet",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.41926,
+        18.55618
+      ],
+      "description": "Public dry toilet linked to the Badviken/Norra Grinda bathing area. Länsstyrelsen confirms dry toilets at Grinda bathing places; Explore Archipelago service-map data and OSM secondary checks support this individual point. Do not infer drinking water from this toilet point.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Länsstyrelsen",
+        "url": "https://www.lansstyrelsen.se/stockholm/besoksmal/naturreservat/grinda.html",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-wardshus-food",
+      "name": "Grinda Wärdshus",
+      "type": "food",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.41362,
+        18.558719
+      ],
+      "description": "Main food/lodging anchor near the loop and natural mid-island start option. Treat hotel/lodging functions as service context, not trail utility.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-grinda/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-lanthandel-cafe",
+      "name": "Grinda Lanthandel & Café",
+      "type": "food",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.413071,
+        18.559231
+      ],
+      "description": "Shop/cafe/bakery service near Wärdshus, useful for groceries, picnic food, simple lunches and fresh bread when open.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "grinda.se",
+        "url": "https://grinda.se/en/food-festivities/farm-shop-cafe/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-sea-lodge-food",
+      "name": "Grinda Sea Lodge food service",
+      "type": "food",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.406667,
+        18.564611
+      ],
+      "description": "Seasonal Sea Lodge food/lodging context with breakfast/lunch/dinner during individual/family periods. Other services such as showers, sauna and rentals are customer/paid metadata.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "grinda.se",
+        "url": "https://grinda.se/en/accommodation/sea-lodge/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-bakery-food",
+      "name": "Grinda Bakery",
+      "type": "food",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.413881,
+        18.556779
+      ],
+      "description": "Seasonal bakery/Bageriboden by the guest-harbor side. Useful for bread and breakfast-style supplies when open; keep Lanthandeln as the broader shop/cafe service.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "grinda.se",
+        "url": "https://grinda.se/en/food-festivities/bakery/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-framfickan-food",
+      "name": "Framfickan",
+      "type": "food",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.413893,
+        18.556669
+      ],
+      "description": "Seasonal drop-in/takeaway food service by the guest harbor. Treat as current-hours-required service rather than dependable year-round resupply.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "grinda.se",
+        "url": "https://grinda.se/en/food-festivities/framfickan/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-sodra-grinda-ferry",
+      "name": "Södra Grinda ferry quay",
+      "type": "transit",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.407269,
+        18.553001
+      ],
+      "description": "Primary SAT Grinda trailhead and loop start/end. Transit fallback only; prefer accessMetadataDraft for rendering.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-grinda/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-norra-grinda-ferry",
+      "name": "Norra Grinda ferry quay",
+      "type": "transit",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.419093,
+        18.55882
+      ],
+      "description": "Secondary Waxholmsbolaget access near the northern loop. Transit fallback only; verify current timetable and prefer accessMetadataDraft for rendering.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-grinda/step-by-step-hiking-instruction-section-grinda/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-firepit-cluster-camping",
+      "name": "Designated fire area by camping",
+      "type": "fireplace",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.41741,
+        18.5599
+      ],
+      "description": "Designated fire/grill place by the tent site/camping area. Never imply fires are allowed outside designated places, and fire bans override static guidance.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "skargardsstiftelsen.se",
+        "url": "https://skargardsstiftelsen.se/var-verksamhet/tillganglig-skargard/att-besoka-skyddad-natur/grilla/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-firepit-cluster-south",
+      "name": "Designated fire area near southern services",
+      "type": "fireplace",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.40774,
+        18.55504
+      ],
+      "description": "Designated fire/grill place at/near Södra Grinda. Never imply fires are allowed outside designated places, and fire bans override static guidance.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "skargardsstiftelsen.se",
+        "url": "https://skargardsstiftelsen.se/var-verksamhet/tillganglig-skargard/att-besoka-skyddad-natur/grilla/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-klubbudden-viewpoint",
+      "name": "Klubbuddens utsiktsplats / Klubbudden viewpoint",
+      "type": "attraction",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.40581,
+        18.57906
+      ],
+      "description": "Highest-point/view highlight on the eastern/southeastern technical part of the loop; Länsstyrelsen names Klubbudden as the island's about 35 m high viewpoint and Explore Archipelago has a service-map viewpoint at this coordinate. Treat as one viewpoint-style attraction, not a separate summit plus viewpoint pair.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Länsstyrelsen",
+        "url": "https://www.lansstyrelsen.se/stockholm/besoksmal/naturreservat/grinda.html",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-northwest-viewpoint",
+      "name": "Northwest viewpoint",
+      "type": "attraction",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.41559,
+        18.5566
+      ],
+      "description": "Generic north/west/Hemviken-side viewpoint candidate. Do not rename this to Lilla utsikten; iteration 4 found Lilla utsikten is a different, secondary/guarded OSM/Komoot candidate.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2,
+        "note": "near_route_viewpoint_candidate"
+      },
+      "source": {
+        "provider": "Explore Archipelago",
+        "url": "https://www.explorearchipelago.com/sthlm/central-archipelago/grinda",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-kallviken-beach",
+      "name": "Källviken beach",
+      "type": "swimming",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.41203,
+        18.55756
+      ],
+      "description": "Sand beach/bathing cove, with Länsstyrelsen noting accessible entrance context. A separate Källviken dry-toilet facility is modeled in facilitiesDraft. Observe reserve rules and fire restrictions.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Explore Archipelago",
+        "url": "https://www.explorearchipelago.com/sv/sthlm/mellersta-skargarden/grinda/grinda-kallviken",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-badviken-beach",
+      "name": "Badviken beach",
+      "type": "swimming",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.41935,
+        18.55532
+      ],
+      "description": "North-side bathing POI near the northern access/service context. Länsstyrelsen and Explore Archipelago identify this as one of the primary bathing places, and a separate Badviken/Norra dry-toilet facility is modeled in facilitiesDraft.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Explore Archipelago",
+        "url": "https://www.explorearchipelago.com/sthlm/central-archipelago/grinda",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-sodra-beach",
+      "name": "Södra Grinda beach",
+      "type": "swimming",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.40745,
+        18.55486
+      ],
+      "description": "Child-friendly southern swimming near Södra bryggan and the SAT start/end side. Länsstyrelsen notes accessible water-entry context at Södra bryggan.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Länsstyrelsen",
+        "url": "https://www.lansstyrelsen.se/stockholm/besoksmal/naturreservat/grinda.html",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-lantbruk",
+      "name": "Grinda Lantbruk",
+      "type": "heritage",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.411899,
+        18.56159
+      ],
+      "description": "Farm/cultural-landscape context where grazing animals help maintain the reserve landscape. It is a valid nearby context point but not directly on the SAT line; do not confuse with mainland Grinda Säteri search results.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2,
+        "note": "nearby_short_detour"
+      },
+      "source": {
+        "provider": "Explore Archipelago",
+        "url": "https://www.explorearchipelago.com/sthlm/central-archipelago/grinda/grinda-lantbruk",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-grinda-nature-culture-trail",
+      "name": "Grinda nature and culture trail",
+      "type": "attraction",
+      "sectionId": "sat-grinda",
+      "coordinates": [
+        59.41354,
+        18.55871
+      ],
+      "description": "Secondary about 2.5 km nature/culture trail context around southeast Grinda, starting at gården Hemviken per Länsstyrelsen. Coordinate is only an approximate Hemviken/Wärdshus-area anchor and should not be used as an exact trailhead without better source data.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Länsstyrelsen",
+        "url": "https://www.lansstyrelsen.se/stockholm/besoksmal/naturreservat/grinda.html",
+        "lastFetchedAt": "2026-04-26"
+      }
+    }
+  ],
+  "endpointCoordinates": {
+    "source": "approximate",
+    "start": [
+      59.407269,
+      18.553001
+    ],
+    "end": [
+      59.407269,
+      18.553001
+    ]
+  },
+  "accessPoints": [],
+  "source": {
+    "provider": "stockholm-archipelago-trail",
+    "url": "https://stockholmarchipelagotrail.com/section/section-grinda/",
+    "lastFetchedAt": "2026-04-26"
+  },
+  "route": {
+    "status": "marker-only"
+  }
+}

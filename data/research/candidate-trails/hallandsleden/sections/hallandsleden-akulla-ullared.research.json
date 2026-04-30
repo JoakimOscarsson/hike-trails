@@ -1,0 +1,1519 @@
+{
+  "schemaVersion": "candidate-trail-section-research-v1",
+  "trailId": "hallandsleden",
+  "sectionId": "hallandsleden-akulla-ullared",
+  "sectionNumber": "M1",
+  "name": "Åkulla - Ullared",
+  "from": "Åkulla",
+  "to": "Ullared",
+  "distanceKm": 17,
+  "estimatedTime": {
+    "official": null,
+    "secondarySources": [
+      {
+        "source": "Vandra.se",
+        "value": "about 15 km to the commercial accommodation endpoint, +199 m / -224 m",
+        "coverage": "commercial Varberg-Simlångsdalen itinerary day, not exactly the official bus-terminal endpoint",
+        "confidence": "medium-low"
+      },
+      {
+        "source": "En Vandringssaga",
+        "value": "about 2 hours to pass Kogstorp on the older Åkulla-Kogstorp part",
+        "coverage": "partial older 11 km segment only, walked before the current Åkulla-Ullared section structure",
+        "confidence": "low"
+      },
+      {
+        "source": "Wikiloc Åkulla-Kogstorp",
+        "value": "2 h 16 min moving time for 12.01 km",
+        "coverage": "partial older segment listing uploaded September 2020",
+        "confidence": "low"
+      }
+    ],
+    "confidence": "low",
+    "notes": "Official Hallandsleden page/API did not state an estimated time. Secondary times are partial, commercial, or old-segmentation estimates and should not be imported as official."
+  },
+  "difficulty": {
+    "officialLabel": "Blå",
+    "officialApiValue": "medium",
+    "normalized": "medium",
+    "confidence": "high",
+    "notes": "Hallandsleden describes an easy start on the old Ätranbanan railway embankment, then uphill walking on paths and forest roads, a return to the embankment at Kogstorp, a loop around Musasjön, and paved road through Ullared. Naturkartan metadata says red/krävande on a stale 11.0 km page even though its geometry mirrors the official GPX; do not use that difficulty as canonical."
+  },
+  "routeType": {
+    "type": "point-to-point inland section",
+    "notes": "This is the first researched section of Mellersta delleden/Central section in the local M numbering. It leaves the Åkulla multi-section junction used by N6/N7/N8 and continues east/southeast to Ullared bus station, where M2 begins nearby."
+  },
+  "officialSources": [
+    {
+      "title": "Hallandsleden section page",
+      "url": "https://www.hallandsleden.se/etapp/akulla-ullared",
+      "accessed": "2026-04-29",
+      "sourceType": "official trail page",
+      "note": "Primary official page for section name, distance, difficulty, narrative, access, facilities and GPX download. The Swedish URL redirects to the English mirror in some anonymous fetches but content identifies the same section."
+    },
+    {
+      "title": "Hallandsleden English section page",
+      "url": "https://www.hallandsleden.se/en/etapp/akulla-ullared",
+      "accessed": "2026-04-29",
+      "sourceType": "official trail page mirror",
+      "note": "Useful English mirror. Page navigation still names the next section as Ullared - Kvarnlyckan, while the live inventory/GPX uses Ullared - Kärnebygd."
+    },
+    {
+      "title": "Official Hallandsleden GPX",
+      "url": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Akulla_Ullared.gpx",
+      "accessed": "2026-04-29",
+      "sourceType": "official GPX",
+      "note": "Canonical planning-grade geometry. GPX metadata name Mellersta_Akulla_Ullared, track name Åkulla - Ullared, generated/time 2025-06-23T09:29:24+02:00, desc Total: 16.9 km."
+    },
+    {
+      "title": "Hallandsleden section map API",
+      "url": "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=akulla-ullared&token=<public-page-token>",
+      "accessed": "2026-04-29",
+      "sourceType": "official trail API",
+      "note": "API meta reports name Åkulla - Ullared, length_in_meters 17000, degree_of_difficulty medium and the same GPX download. API geo_json exactly mirrors the GPX; API line.geometry preserves an old/incomplete Åkulla-Kogstorp line and should not be used as canonical."
+    },
+    {
+      "title": "Hallandsleden places API",
+      "url": "https://www.hallandsleden.se/api/v2/places?trackSegment=akulla-ullared&bigLimit=150&withImages=true&output=json&token=<public-page-token>",
+      "accessed": "2026-04-29",
+      "sourceType": "official places API",
+      "note": "Returned 27 official place records, including route facilities at Åkulla, Kogstorp and Ullared plus off-route side-trip/context records that require import filtering."
+    },
+    {
+      "title": "Hallandsleden Central Section",
+      "url": "https://www.hallandsleden.se/en/delled/mellersta-delleden",
+      "accessed": "2026-04-29",
+      "sourceType": "official subtrail page",
+      "note": "Identifies the section as part of the central/forest trail and lists Åkulla - Ullared first in that branch/section navigation."
+    },
+    {
+      "title": "Naturkartan Åkulla - Ullared, Hallandsleden",
+      "url": "https://www.naturkartan.se/sv/hallands-lan/akulla-kogstorp-hallandsleden",
+      "accessed": "2026-04-29",
+      "sourceType": "official-ish Naturkartan page",
+      "note": "Slug still says akulla-kogstorp-hallandsleden and page metadata says 11.0 km/red, but page title says Åkulla - Ullared and facility text matches Hallandsleden. HTML preselected site id is 19217."
+    },
+    {
+      "title": "Naturkartan site API 19217",
+      "url": "https://api.naturkartan.se/v2/sites/19217",
+      "accessed": "2026-04-29",
+      "sourceType": "secondary geometry API",
+      "note": "Agent route-geometry pass found shapes[0].vertices coordinate-identical to the official GPX/API geo_json. Treat as verification only because page metadata remains stale."
+    },
+    {
+      "title": "OpenStreetMap relation 4175923",
+      "url": "https://www.openstreetmap.org/relation/4175923",
+      "accessed": "2026-04-29",
+      "sourceType": "OSM route relation",
+      "note": "Old Åkulla-Kogstorp relation, about 11 km, timestamped in OSM as old segmentation. Useful stale-source clue only."
+    },
+    {
+      "title": "OpenStreetMap relation 4175922",
+      "url": "https://www.openstreetmap.org/relation/4175922",
+      "accessed": "2026-04-29",
+      "sourceType": "OSM route relation",
+      "note": "Old Kogstorp-Kärnebygd relation. Current official M1 endpoint at Ullared lies internally near this old relation, but the relation is not a current M1 relation."
+    },
+    {
+      "title": "Hallandsleden Important Information",
+      "url": "https://www.hallandsleden.se/item/viktig-information/i48rep1ncwkafz7wux50lp0dhxvboodp",
+      "accessed": "2026-04-29",
+      "sourceType": "official currentness/rules page"
+    },
+    {
+      "title": "Hallandsleden New Trail Routes",
+      "url": "https://hallandsleden.se/item/nya-leddragningar-1/f22cgopgvzykg0snvt9jgr6lxgvdb1n5",
+      "accessed": "2026-04-29",
+      "sourceType": "official currentness/reroute page",
+      "pageUpdated": "2024-11-07",
+      "note": "No M1-specific reroute found. Adjacent Nösslinge-Åkulla and Åkulla-Ästad reroutes are listed; digital map/GPX supersedes June 2022 paper maps."
+    },
+    {
+      "title": "Hallandsleden Public Transport and Planning Your Hike",
+      "url": "https://www.hallandsleden.se/item/ta-dig-till-hallandsleden/fwa7jth9dwbpczinom1jwalgifsmvkmg",
+      "accessed": "2026-04-29",
+      "sourceType": "official access guidance",
+      "note": "General guidance says public-transport stops are shown in the map tool, details vary by section, and hikers should always check Hallandstrafiken/Västtrafik planners."
+    },
+    {
+      "title": "Hallandstrafiken Åkturen",
+      "url": "https://www.hallandstrafiken.se/akturen",
+      "accessed": "2026-04-29",
+      "sourceType": "official transit operator page",
+      "note": "Åkturen 2026 operates 15 June through 16 August, daily from Varbergs bussterminal stop M; Åkulla stop times 10:23, 12:23, 14:23, 16:23."
+    },
+    {
+      "title": "Hallandstrafiken Ullared",
+      "url": "https://www.hallandstrafiken.se/resmal-i-halland/res-till-falkenberg/ullared",
+      "accessed": "2026-04-29",
+      "sourceType": "official transit operator page",
+      "note": "Confirms Ullareds bussterminal, lines 555, 556, 557, 558, 560 and more, about 250 m from the shopping area."
+    },
+    {
+      "title": "Hallandstrafiken Åkulla",
+      "url": "https://www.hallandstrafiken.se/resmal-i-halland/res-till-varberg/akulla",
+      "accessed": "2026-04-29",
+      "sourceType": "official transit operator page",
+      "note": "Names line 651 fallbacks Brännhult or Haksered. Its distance wording appears to be generic Åkulla Bokskogar access and should not override endpoint-to-stop measurements."
+    },
+    {
+      "title": "ResRobot stop lookup: Åkulla",
+      "url": "https://reseplanerare.resrobot.se/bin/ajax-getstop.exe/en?REQ0JourneyStopsS0A=1&S=%C3%85kulla&js=true&look_maxno=10&look_stopclass=1023",
+      "accessed": "2026-04-29",
+      "sourceType": "national transit stop data"
+    },
+    {
+      "title": "ResRobot stop lookup: Ullared bussterminal",
+      "url": "https://reseplanerare.resrobot.se/bin/ajax-getstop.exe/en?REQ0JourneyStopsS0A=1&S=Ullared%20bussterminal&js=true&look_maxno=10&look_stopclass=1023",
+      "accessed": "2026-04-29",
+      "sourceType": "national transit stop data"
+    },
+    {
+      "title": "Länsstyrelsen Åkullaboket",
+      "url": "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/akullaboket.html",
+      "accessed": "2026-04-29",
+      "sourceType": "official protected-area page",
+      "note": "Relevant at/near the Åkulla start. Rules include no unleashed dogs, no fires outside designated places, no damage to living/dead trees, and no off-road motor vehicles/parking outside designated places."
+    },
+    {
+      "title": "Länsstyrelsen Åkulla bokskogar",
+      "url": "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/akulla-bokskogar.html",
+      "accessed": "2026-04-29",
+      "sourceType": "official protected-area overview",
+      "note": "Åkulla bokskogar umbrella page lists Varberg/Falkenberg municipalities, Natura 2000/riksintresse context, access by seasonal Åkturen 15/6-16/8 2026, and warns individual reserve rules vary."
+    },
+    {
+      "title": "Länsstyrelsen Nabben",
+      "url": "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/nabben.html",
+      "accessed": "2026-04-29",
+      "sourceType": "official protected-area page",
+      "note": "Relevant only for the Bockstens mosse/Nabben side detour; not the main M1 line."
+    },
+    {
+      "title": "Länsstyrelsen Sumpafallen",
+      "url": "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/sumpafallen.html",
+      "accessed": "2026-04-29",
+      "sourceType": "official protected-area page",
+      "note": "Off-route side/nearby reserve south of Ullared. Rules include no unleashed dogs, no camping/caravan, fires only at designated places and no canoes/watercraft."
+    },
+    {
+      "title": "Länsstyrelsen Halland fire risk and fire bans",
+      "url": "https://www.lansstyrelsen.se/halland/samhalle/sakerhet-och-beredskap/brandrisk-och-eldningsforbud.html",
+      "accessed": "2026-04-29",
+      "sourceType": "official current fire-risk/fire-ban page"
+    },
+    {
+      "title": "Räddningstjänsten Väst",
+      "url": "https://www.rvast.se/",
+      "accessed": "2026-04-29",
+      "sourceType": "municipal rescue-service/fire-risk page",
+      "note": "Rules lane reported brandrisk 3 and olämpligt att elda but no active ban on 2026-04-29."
+    },
+    {
+      "title": "Nedre Ätran water protection area",
+      "url": "https://vivab.se/h%C3%A5llbar-framtid/h%C3%A5llbar-vattenanv%C3%A4ndning/vattenskydd/vattenskyddsomr%C3%A5de-nedre-%C3%A4tran",
+      "accessed": "2026-04-29",
+      "sourceType": "official/local water-protection context",
+      "note": "Rules lane found the GPX enters the Nedre Ätran water-protection area from roughly km 3 to Ullared."
+    }
+  ],
+  "endpointCoordinates": {
+    "start": {
+      "label": "Åkulla / Åkulla Outdoor Resort and shelter cluster",
+      "coordinates": {
+        "lat": 57.124927,
+        "lon": 12.563139
+      },
+      "source": "Official GPX first trackpoint and official API geo_json first coordinate",
+      "confidence": "high",
+      "nearbyOfficialPlaces": [
+        {
+          "name": "Dricksvatten Åkulla Outdoor Resort",
+          "coordinates": {
+            "lat": 57.12492995,
+            "lon": 12.56329
+          },
+          "approximateDistanceMeters": 9
+        },
+        {
+          "name": "Åkulla Outdoor Resort",
+          "coordinates": {
+            "lat": 57.12491377,
+            "lon": 12.56376195
+          },
+          "approximateDistanceMeters": 38
+        },
+        {
+          "name": "Hållplats Åkulla",
+          "coordinates": {
+            "lat": 57.12403959,
+            "lon": 12.56642837
+          },
+          "approximateDistanceMeters": 219
+        },
+        {
+          "name": "Lägerplats Åkulla",
+          "coordinates": {
+            "lat": 57.12525013,
+            "lon": 12.56173702
+          },
+          "approximateDistanceMeters": 92
+        },
+        {
+          "name": "Lägerplats Yasjön",
+          "coordinates": {
+            "lat": 57.12715122,
+            "lon": 12.5627808
+          },
+          "approximateDistanceMeters": 248
+        }
+      ],
+      "continuity": [
+        {
+          "adjacentSection": "hallandsleden-nosslinge-akulla",
+          "adjacentEndpoint": "end",
+          "gapMeters": 5.5,
+          "confidence": "high"
+        },
+        {
+          "adjacentSection": "hallandsleden-akulla-astad",
+          "adjacentEndpoint": "start",
+          "gapMeters": 5.8,
+          "confidence": "high"
+        },
+        {
+          "adjacentSection": "hallandsleden-varberg-akulla",
+          "adjacentEndpoint": "end",
+          "gapMeters": 59.9,
+          "confidence": "high",
+          "note": "N8 official GPX endpoint sits about 60 m west/southwest of the shared Åkulla junction used by M1/N6/N7; preserve as a connector/snap decision later."
+        }
+      ],
+      "caveats": [
+        "Åkulla is a multi-section junction with multiple nearby shelter, resort, water, toilet and bus-stop points; import should dedupe endpoint services carefully.",
+        "The closest official bus stop is seasonal Åkturen. Year-round transit requires line 651 fallback stops several kilometres away."
+      ]
+    },
+    "end": {
+      "label": "Ullared / Ullared bussterminal",
+      "coordinates": {
+        "lat": 57.136787,
+        "lon": 12.716396
+      },
+      "source": "Official GPX last trackpoint and official API geo_json last coordinate",
+      "confidence": "high",
+      "nearbyOfficialPlaces": [
+        {
+          "name": "Hållplats Ullared",
+          "coordinates": {
+            "lat": 57.13665507,
+            "lon": 12.71644391
+          },
+          "approximateDistanceMeters": 15
+        },
+        {
+          "name": "Ullared bussterminal / ResRobot stop 740000182",
+          "coordinates": {
+            "lat": 57.136536,
+            "lon": 12.716636
+          },
+          "approximateDistanceMeters": 31
+        },
+        {
+          "name": "Ica Supermarket Ullared",
+          "coordinates": {
+            "lat": 57.13670435,
+            "lon": 12.71725367
+          },
+          "approximateDistanceMeters": 53
+        },
+        {
+          "name": "Sveas Bed & Breakfast",
+          "coordinates": {
+            "lat": 57.1376785,
+            "lon": 12.7162393
+          },
+          "approximateDistanceMeters": 76
+        },
+        {
+          "name": "Ullared food/service aggregate",
+          "coordinates": {
+            "lat": 57.13591522,
+            "lon": 12.71413731
+          },
+          "approximateDistanceMeters": 157
+        }
+      ],
+      "continuity": [
+        {
+          "adjacentSection": "hallandsleden-ullared-karnebygd",
+          "adjacentEndpoint": "start",
+          "gapMeters": 31.6,
+          "confidence": "high"
+        }
+      ],
+      "caveats": [
+        "The official text says the trail reaches the bus station in Ullared. The GPX end, Hallandsleden public-transport POI and ResRobot stop all agree within about 31 m.",
+        "Ullared has dense commercial services around Gekås; only import a small set of trail-relevant endpoint services unless app policy supports urban service aggregation."
+      ]
+    }
+  },
+  "routeGeometry": {
+    "canonicalSource": {
+      "type": "official-gpx",
+      "url": "https://cdn.hoodin.com/hallandsleden/assets/geomanager/geofiles/Mellersta_Akulla_Ullared.gpx",
+      "pointCount": 272,
+      "computedDistanceKm": 16.857,
+      "metadataDistance": "Total: 16.9 km",
+      "metadataGeneratedAt": "2025-06-23T09:29:24+02:00",
+      "start": {
+        "lat": 57.124927,
+        "lon": 12.563139
+      },
+      "end": {
+        "lat": 57.136787,
+        "lon": 12.716396
+      },
+      "maxInternalSegmentMeters": 396.8,
+      "directionRelativeToOfficialOrder": "same direction, Åkulla to Ullared",
+      "geometryGrade": "planning-grade",
+      "confidence": "high",
+      "notes": "Official GPX is coordinate-identical to Hallandsleden API geo_json and Naturkartan site 19217 shape. Treat as planning-grade rather than dense turn-by-turn navigation because vertex spacing reaches about 397 m."
+    },
+    "alternateSources": [
+      {
+        "source": "Hallandsleden API geo_json",
+        "url": "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=akulla-ullared&token=<public-page-token>",
+        "pointCount": 272,
+        "computedDistanceKm": 16.857,
+        "start": {
+          "lat": 57.124927,
+          "lon": 12.563139
+        },
+        "end": {
+          "lat": 57.136787,
+          "lon": 12.716396
+        },
+        "relationshipToCanonical": "exact mirror of official GPX",
+        "importUse": "verification or canonical mirror",
+        "confidence": "high"
+      },
+      {
+        "source": "Naturkartan site API 19217",
+        "url": "https://api.naturkartan.se/v2/sites/19217",
+        "pointCount": 272,
+        "computedDistanceKm": 16.857,
+        "start": {
+          "lat": 57.124927,
+          "lon": 12.563139
+        },
+        "end": {
+          "lat": 57.136787,
+          "lon": 12.716396
+        },
+        "relationshipToCanonical": "agent route-geometry pass found coordinate-identical shapes[0].vertices",
+        "importUse": "verification only because Naturkartan page metadata remains stale",
+        "confidence": "high"
+      },
+      {
+        "source": "Hallandsleden API line.geometry",
+        "url": "https://www.hallandsleden.se/api/v2/track-segments/map?trackSegment=akulla-ullared&token=<public-page-token>",
+        "pointCount": 587,
+        "computedDistanceKm": 11.033,
+        "start": {
+          "lat": 57.12501268833876,
+          "lon": 12.562950029969215
+        },
+        "end": {
+          "lat": 57.11602829396725,
+          "lon": 12.687989668920636
+        },
+        "relationshipToCanonical": "stale/incomplete old Åkulla-Kogstorp line; starts 14.9 m from GPX start, ends about 2.875 km straight-line from Ullared endpoint and leaves about 4.251 km of current official route unrepresented",
+        "importUse": "do not use as canonical; retain as stale-source clue",
+        "confidence": "high"
+      },
+      {
+        "source": "OSM old split reconstruction",
+        "url": "https://www.openstreetmap.org/relation/4175923 and https://www.openstreetmap.org/relation/4175922",
+        "pointCount": 505,
+        "computedDistanceKm": 14.281,
+        "start": {
+          "lat": 57.125203,
+          "lon": 12.562392
+        },
+        "end": {
+          "lat": 57.136894,
+          "lon": 12.71638
+        },
+        "relationshipToCanonical": "outdated old split Åkulla-Kogstorp plus internal point on Kogstorp-Kärnebygd; diverges substantially and is about 2.6 km shorter than official current M1",
+        "importUse": "do not use as canonical",
+        "confidence": "medium"
+      }
+    ],
+    "endpointGapNotes": [
+      "M1 start is 5.5 m from N6 end and 5.8 m from N7 start, supporting a shared Åkulla junction.",
+      "M1 start is 59.9 m from N8 end, so N8-to-M1 continuity should be modeled as a short Åkulla endpoint connector/snap decision rather than silently merging coordinates.",
+      "M1 end is 31.6 m from M2 start and 31 m from Ullared bussterminal; this is strong endpoint continuity.",
+      "API line.geometry and old OSM relations preserve a stale Åkulla-Kogstorp/Kogstorp-Kärnebygd segmentation, not the current official Åkulla-Ullared/Ullared-Kärnebygd split."
+    ],
+    "navigationReadiness": "planning-grade ready with caveats",
+    "missingGeometry": false
+  },
+  "commuteAccess": {
+    "start": [
+      {
+        "name": "Åkulla",
+        "type": "seasonal bus stop",
+        "coordinates": {
+          "lat": 57.124016,
+          "lon": 12.566356
+        },
+        "distanceFromEndpointMeters": 219,
+        "operatorOrNetwork": "Hallandstrafiken Åkturen / GTFS line 669",
+        "sourceUrl": "https://www.hallandstrafiken.se/akturen",
+        "stopId": "740074382",
+        "confidence": "high",
+        "caveats": "Seasonal only. Current official 2026 operating window is 15 June through 16 August 2026. Stop times shown by Hallandstrafiken for Åkulla are 10:23, 12:23, 14:23 and 16:23 from Varbergs bussterminal departures."
+      },
+      {
+        "name": "Haksered",
+        "type": "bus stop fallback",
+        "coordinates": {
+          "lat": 57.150373,
+          "lon": 12.580748
+        },
+        "distanceFromEndpointMeters": 3020,
+        "operatorOrNetwork": "Hallandstrafiken line 651",
+        "sourceUrl": "https://www.hallandstrafiken.se/resmal-i-halland/res-till-varberg/akulla",
+        "stopId": "740017066",
+        "confidence": "high",
+        "caveats": "Fallback outside Åkturen season. Åkulla Outdoor Resort states Haksered is about a 4 km walk to Åkulla Friluftsgård; straight-line endpoint distance is about 3.02 km."
+      },
+      {
+        "name": "Brännhult Varberg",
+        "type": "bus stop fallback",
+        "coordinates": {
+          "lat": 57.150337,
+          "lon": 12.544297
+        },
+        "distanceFromEndpointMeters": 3050,
+        "operatorOrNetwork": "Hallandstrafiken line 651",
+        "sourceUrl": "https://www.hallandstrafiken.se/resmal-i-halland/res-till-varberg/akulla",
+        "stopId": "740034180",
+        "confidence": "medium-high",
+        "caveats": "Official Åkulla page names Brännhult or Haksered for line 651. Its approximately 600 m wording appears to refer to Åkulla Bokskogar access generally, not this GPX endpoint."
+      },
+      {
+        "name": "Åkulla Friluftsgård / Grillplats Åkulla",
+        "type": "parking / trailhead access",
+        "coordinates": {
+          "lat": 57.124488,
+          "lon": 12.564041
+        },
+        "distanceFromEndpointMeters": 73,
+        "operatorOrNetwork": "Varberg / Åkulla Outdoor Resort area",
+        "sourceUrl": "https://www.naturkartan.se/en/hallands-lan/grillplats-akulla",
+        "confidence": "medium-high",
+        "caveats": "Naturkartan marks parking/toilet context near the Åkulla cluster. Verify long-stay or overnight parking locally; do not treat commercial/resort parking as unrestricted."
+      },
+      {
+        "name": "Varberg station / bus terminal",
+        "type": "rail and bus interchange",
+        "coordinates": {
+          "lat": 57.11109,
+          "lon": 12.24976
+        },
+        "distanceFromEndpointMeters": 18980,
+        "operatorOrNetwork": "Hallandstrafiken / regional rail connections",
+        "sourceUrl": "https://www.hallandstrafiken.se/akturen",
+        "confidence": "medium",
+        "caveats": "Not a trailhead stop; practical interchange for Åkturen or line 651. No train service reaches Åkulla itself."
+      }
+    ],
+    "end": [
+      {
+        "name": "Ullared bussterminal",
+        "type": "bus terminal",
+        "coordinates": {
+          "lat": 57.136536,
+          "lon": 12.716636
+        },
+        "distanceFromEndpointMeters": 31,
+        "operatorOrNetwork": "Hallandstrafiken",
+        "sourceUrl": "https://www.hallandstrafiken.se/resmal-i-halland/res-till-falkenberg/ullared",
+        "stopId": "740000182",
+        "confidence": "high",
+        "caveats": "Official text says the stage reaches Ullared bus station. Hallandsleden Hållplats Ullared POI is 15 m from GPX end and ResRobot bus terminal coordinate is 31 m from GPX end. Hallandstrafiken page lists lines 555, 556, 557, 558, 560 and more; agent GTFS pass also found 651 and 959."
+      },
+      {
+        "name": "Ullared Apelskolan",
+        "type": "bus stop fallback",
+        "coordinates": {
+          "lat": 57.136457,
+          "lon": 12.722212
+        },
+        "distanceFromEndpointMeters": 353,
+        "operatorOrNetwork": "Hallandstrafiken",
+        "sourceUrl": "https://www.trafiklab.se/api/gtfs-datasets/gtfs-sverige-2/",
+        "stopId": "740033880",
+        "confidence": "medium-high",
+        "caveats": "Fallback if terminal access is disrupted. Agent transit pass found service by lines 555, 556, 558 and 560."
+      },
+      {
+        "name": "Ullared Skinnarlyngenvägen",
+        "type": "bus stop fallback",
+        "coordinates": {
+          "lat": 57.138357,
+          "lon": 12.703082
+        },
+        "distanceFromEndpointMeters": 822,
+        "operatorOrNetwork": "Hallandstrafiken",
+        "sourceUrl": "https://www.trafiklab.se/api/gtfs-datasets/gtfs-sverige-2/",
+        "stopId": "740033784",
+        "confidence": "medium-high",
+        "caveats": "Fallback for Varberg/Källsjö-side connections; agent transit pass found lines 651 and 959."
+      },
+      {
+        "name": "Gekås customer parking",
+        "type": "parking / commercial access",
+        "coordinates": {
+          "lat": 57.136944,
+          "lon": 12.710278
+        },
+        "distanceFromEndpointMeters": 370,
+        "operatorOrNetwork": "Gekås Ullared",
+        "sourceUrl": "https://www.gekas.se/en/visitor-information/parking/",
+        "confidence": "high",
+        "caveats": "Gekås reports 3,200 free customer spaces at this coordinate. Verify long-stay/overnight rules before modeling as trail parking."
+      },
+      {
+        "name": "Gekås Shoppingbussen",
+        "type": "private/local seasonal shuttle",
+        "coordinates": {
+          "lat": 57.136536,
+          "lon": 12.716636
+        },
+        "distanceFromEndpointMeters": 31,
+        "operatorOrNetwork": "Gekås",
+        "sourceUrl": "https://www.gekas.se/en/visitor-information/shopping-bus/",
+        "confidence": "high",
+        "caveats": "Not regional public transport. Agent transit pass reported 2026 operation on 1-2 May, 14-16 May and daily 22 June-9 August 09:00-20:30, with no animals. Treat only as commercial local access metadata."
+      },
+      {
+        "name": "Falkenberg station",
+        "type": "rail and bus interchange",
+        "coordinates": {
+          "lat": 56.919769,
+          "lon": 12.507558
+        },
+        "distanceFromEndpointMeters": 27240,
+        "operatorOrNetwork": "Regional rail plus Hallandstrafiken buses",
+        "sourceUrl": "https://www.hallandstrafiken.se/resmal-i-halland/res-till-falkenberg/ullared",
+        "confidence": "medium",
+        "caveats": "Not a trailhead stop. Practical rail interchange for buses toward Ullared/Falkenberg; always check exact travel date."
+      }
+    ],
+    "overallNotes": [
+      "Åkulla access is the weak endpoint because its closest bus is seasonal. Outside 15 June-16 August 2026, fallback bus access requires a multi-kilometre walk.",
+      "Ullared access is strong: the GPX endpoint, Hallandsleden public-transport POI, ResRobot stop and Hallandstrafiken Ullared page all align closely.",
+      "No ferry access was identified for either endpoint."
+    ]
+  },
+  "facilities": [
+    {
+      "name": "Lägerplats Åkulla",
+      "candidateTypes": [
+        "shelter",
+        "campsite",
+        "fireplace",
+        "rest_area",
+        "swimming"
+      ],
+      "coordinates": {
+        "lat": 57.12525013,
+        "lon": 12.56173702
+      },
+      "coordinateSource": "Hallandsleden places API / official place page",
+      "description": "Land shelter/fireplace and Åkulla campsite/rest cluster near the stage start. Official pages also reference water/toilet context at Åkulla, but those services are better deduped to Åkulla Outdoor Resort and its explicit water point.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/lagerplats-akulla",
+        "https://www.naturkartan.se/sv/hallands-lan/vindskydd-akulla"
+      ],
+      "routeProximity": {
+        "metersFromRoute": 92,
+        "approxRouteKm": 0.0
+      },
+      "confidence": "high",
+      "importDecision": "import",
+      "importNotes": "Import shelter/fireplace/rest/camping value, but dedupe water/toilet/food/firewood to the resort service cluster unless the later taxonomy supports linked child facilities."
+    },
+    {
+      "name": "Åkulla Outdoor Resort",
+      "candidateTypes": [
+        "lodging",
+        "food",
+        "toilet",
+        "service",
+        "water_access"
+      ],
+      "coordinates": {
+        "lat": 57.12491377,
+        "lon": 12.56376195
+      },
+      "coordinateSource": "Hallandsleden places API / official place page",
+      "description": "Primary Åkulla service node at the start with accommodation, food/drink, year-round toilet, drinking-water context and firewood context for nearby shelters. Opening hours and commercial access are dynamic.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/akulla-outdoor-resort",
+        "https://www.akullaresort.se/boende",
+        "https://www.akullaresort.se/%C3%B6ppettider"
+      ],
+      "routeProximity": {
+        "metersFromRoute": 38,
+        "approxRouteKm": 0.0
+      },
+      "confidence": "high",
+      "importDecision": "import-and-access-metadata",
+      "importNotes": "Use as a single service/lodging/toilet/water/firewood cluster. Verify opening hours/current commercial operation before runtime import."
+    },
+    {
+      "name": "Dricksvatten Åkulla Outdoor Resort",
+      "candidateTypes": [
+        "water"
+      ],
+      "coordinates": {
+        "lat": 57.12492995,
+        "lon": 12.56329
+      },
+      "coordinateSource": "Hallandsleden places API / official place page",
+      "description": "Explicit official potable-water point for refilling bottles at Åkulla Outdoor Resort.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/dricksvatten-akulla-outdoor-resort"
+      ],
+      "routeProximity": {
+        "metersFromRoute": 9,
+        "approxRouteKm": 0.0
+      },
+      "confidence": "high",
+      "importDecision": "import-or-dedupe-into-resort",
+      "importNotes": "Good coordinate for a water facility. If the app imports service clusters, this can be merged into Åkulla Outdoor Resort."
+    },
+    {
+      "name": "Lägerplats Yasjön",
+      "candidateTypes": [
+        "shelter",
+        "campsite",
+        "fireplace"
+      ],
+      "coordinates": {
+        "lat": 57.12715122,
+        "lon": 12.5627808
+      },
+      "coordinateSource": "Hallandsleden places API / official place page",
+      "description": "Island shelter in Yasjön near the Åkulla start cluster. Access is by cable ferry/raft; access to the island is prohibited during the bird nesting period 1 March-30 June and the raft normally operates from 1 July to mid-October. Firewood should be brought or bought at Åkulla Outdoor Resort.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/lagerplats-yasjon",
+        "https://www.naturkartan.se/sv/hallands-lan/vindskydd-yasjon"
+      ],
+      "routeProximity": {
+        "metersFromRoute": 248,
+        "approxRouteKm": 0.0
+      },
+      "confidence": "high",
+      "importDecision": "import-and-access-metadata",
+      "importNotes": "Import only with strong seasonal/access caveats; do not model as always accessible."
+    },
+    {
+      "name": "Den gamla banvallen",
+      "candidateTypes": [
+        "point_of_interest"
+      ],
+      "coordinates": {
+        "lat": 57.11878158,
+        "lon": 12.59803823
+      },
+      "coordinateSource": "Hallandsleden places API / official place page",
+      "description": "Official point of interest on the old railway embankment between Varberg and Kinnared/Ätranbanan.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/den-gamla-banvallen"
+      ],
+      "routeProximity": {
+        "metersFromRoute": 38,
+        "approxRouteKm": 2.3
+      },
+      "confidence": "high",
+      "importDecision": "pending-taxonomy",
+      "importNotes": "Good POI if the app imports route interpretation/history points; otherwise keep as description metadata."
+    },
+    {
+      "name": "Stig mot Bockstens mosse och Bockstensmannen",
+      "candidateTypes": [
+        "connection",
+        "side_trip",
+        "point_of_interest"
+      ],
+      "coordinates": {
+        "lat": 57.11589825,
+        "lon": 12.58461646
+      },
+      "coordinateSource": "Hallandsleden places API / official place page",
+      "description": "Officially highlighted side path toward Bockstens mosse and the Bocksten Man. Not a facility on the main M1 line.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/stig-mot-bockstens-mosse-och-bockstensmannen",
+        "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/nabben.html"
+      ],
+      "routeProximity": {
+        "metersFromRoute": 385,
+        "approxRouteKm": 1.41
+      },
+      "confidence": "medium-high",
+      "importDecision": "model-as-access-or-connection-metadata",
+      "importNotes": "Keep as side-trip connector only. Do not attach Nabben/Bockstens side-trip rules or POIs to the main route unless later overlay confirms the detour is modeled."
+    },
+    {
+      "name": "Linbastan i Kogstorp",
+      "candidateTypes": [
+        "point_of_interest",
+        "side_trip"
+      ],
+      "coordinates": {
+        "lat": 57.11425668,
+        "lon": 12.68453847
+      },
+      "coordinateSource": "Hallandsleden places API / official place page",
+      "description": "Old flax drying house in Kogstorp. Hallandsleden says it is a 300 m detour from the trail.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/linbastan-i-kogstorp"
+      ],
+      "routeProximity": {
+        "metersFromRoute": 287,
+        "approxRouteKm": 12.57
+      },
+      "confidence": "high",
+      "importDecision": "pending-taxonomy",
+      "importNotes": "Useful side POI; not a service facility."
+    },
+    {
+      "name": "Lägerplats Kogstorp",
+      "candidateTypes": [
+        "shelter",
+        "campsite",
+        "fireplace",
+        "toilet",
+        "rest_area",
+        "firewood"
+      ],
+      "coordinates": {
+        "lat": 57.11853642,
+        "lon": 12.69189656
+      },
+      "coordinateSource": "Hallandsleden places API / official place page",
+      "description": "Main mid/late-stage campsite directly by the trail, with a shelter for 4-5 adults, fireplace, firewood store and dry toilet. No potable water was verified.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/lagerplats-kogstorp",
+        "https://www.naturkartan.se/sv/hallands-lan/kogstorp"
+      ],
+      "routeProximity": {
+        "metersFromRoute": 11,
+        "approxRouteKm": 13.01
+      },
+      "confidence": "high",
+      "importDecision": "import",
+      "importNotes": "Import shelter/fireplace/dry toilet/rest/camping value. Do not add water or waste unless separately verified."
+    },
+    {
+      "name": "Dricksvatten Ullared",
+      "candidateTypes": [
+        "water"
+      ],
+      "coordinates": {
+        "lat": 57.126638,
+        "lon": 12.708687
+      },
+      "coordinateSource": "Official Hallandsleden place page reported by official/facilities agent lanes",
+      "description": "Official freshwater refill point near Gekåsbyn/Ullared camping.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/dricksvatten-ullared"
+      ],
+      "routeProximity": {
+        "metersFromRoute": 24,
+        "approxRouteKm": 14.39
+      },
+      "confidence": "medium",
+      "importDecision": "import-and-access-metadata",
+      "importNotes": "Likely commercial/service-dependent water at Gekåsbyn/Ullared camping; verify access/opening before import."
+    },
+    {
+      "name": "Gekåsbyn",
+      "candidateTypes": [
+        "lodging",
+        "campsite",
+        "toilet",
+        "service"
+      ],
+      "coordinates": {
+        "lat": 57.12786146,
+        "lon": 12.70563228
+      },
+      "coordinateSource": "Hallandsleden places API / official place page",
+      "description": "Commercial accommodation/service cluster near the Ullared end, with hotel, motel, camping and cabins.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/gekasbyn",
+        "https://www.gekas.se/en/stay/camping/",
+        "https://www.gekas.se/wp-content/uploads/2025/10/Gekasbyn_A-O.pdf"
+      ],
+      "routeProximity": {
+        "metersFromRoute": 142,
+        "approxRouteKm": 14.69
+      },
+      "confidence": "high",
+      "importDecision": "import-and-access-metadata",
+      "importNotes": "Import one commercial service/lodging/camping cluster. Do not expand Gekås into every restaurant, parking lot, retail amenity or waste/recycling point."
+    },
+    {
+      "name": "Musasjön",
+      "candidateTypes": [
+        "swimming"
+      ],
+      "coordinates": {
+        "lat": 57.13437625,
+        "lon": 12.70761967
+      },
+      "coordinateSource": "Hallandsleden places API / official place page",
+      "description": "Swimming place by Musasjön near the end approach to Ullared. Municipal page adds seasonal/toilet/grill context, but exact separate coordinates should be verified before importing extra child facilities.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/musasjon",
+        "https://falkenberg.se/se-gora/aktiviteter/bada-simma/insjobad/musasjon/"
+      ],
+      "routeProximity": {
+        "metersFromRoute": 125,
+        "approxRouteKm": 16.1
+      },
+      "confidence": "high",
+      "importDecision": "import",
+      "importNotes": "Import as swimming/bathing point; keep seasonal toilet/grill as metadata or pending until exact coordinates are verified."
+    },
+    {
+      "name": "ICA Supermarket Ullared",
+      "candidateTypes": [
+        "grocery",
+        "food"
+      ],
+      "coordinates": {
+        "lat": 57.13670435,
+        "lon": 12.71725367
+      },
+      "coordinateSource": "Hallandsleden places API / official place page",
+      "description": "Endpoint grocery in central Ullared near the bus terminal.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/ica-supermarket-ullared"
+      ],
+      "routeProximity": {
+        "metersFromRoute": 53,
+        "approxRouteKm": 16.86
+      },
+      "confidence": "high",
+      "importDecision": "import",
+      "importNotes": "Useful endpoint grocery/service record."
+    },
+    {
+      "name": "Ullared",
+      "candidateTypes": [
+        "food",
+        "services",
+        "settlement"
+      ],
+      "coordinates": {
+        "lat": 57.13591522,
+        "lon": 12.71413731
+      },
+      "coordinateSource": "Hallandsleden places API / official place page",
+      "description": "Official Hallandsleden food/drink/service area marker for Ullared.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/ullared",
+        "https://www.gekas.se/oppettider-matstallen-i-varuhuset/"
+      ],
+      "routeProximity": {
+        "metersFromRoute": 157,
+        "approxRouteKm": 16.76
+      },
+      "confidence": "medium",
+      "importDecision": "import-one-aggregate-or-pending",
+      "importNotes": "Use one town/commercial service aggregate if the app supports it. Do not import every Gekås/urban restaurant."
+    },
+    {
+      "name": "Sveas Bed & Breakfast",
+      "candidateTypes": [
+        "lodging"
+      ],
+      "coordinates": {
+        "lat": 57.1376785,
+        "lon": 12.7162393
+      },
+      "coordinateSource": "Hallandsleden places API / official place page",
+      "description": "Endpoint lodging near Ullared bus terminal.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/sveas-bed-breakfast",
+        "https://sveasbedandbreakfast.se/SE/om-oss"
+      ],
+      "routeProximity": {
+        "metersFromRoute": 76,
+        "approxRouteKm": 16.79
+      },
+      "confidence": "medium",
+      "importDecision": "import-or-pending-currentness",
+      "importNotes": "Commercial currentness should be checked at normalization/import time."
+    },
+    {
+      "name": "Lägerplats Björkasjö",
+      "candidateTypes": [
+        "shelter",
+        "toilet"
+      ],
+      "coordinates": {
+        "lat": 57.1010363,
+        "lon": 12.60058113
+      },
+      "coordinateSource": "Hallandsleden places API / official place page",
+      "description": "Shelter and toilet at Björkasjö, explicitly reached by a side trail/detour through Åkulla Bokskogar/Björkasjöstigen, not on the current M1 line.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/lagerplats-bjorkasjo"
+      ],
+      "routeProximity": {
+        "metersFromRoute": 1982,
+        "approxRouteKm": 2.3
+      },
+      "confidence": "high",
+      "importDecision": "suppress-or-detour-metadata",
+      "importNotes": "Do not import as an M1 on-route facility unless the app models detour facilities."
+    },
+    {
+      "name": "Gunnagård / Almas gård / Villa Stenhuset / Obbhultsgård",
+      "candidateTypes": [
+        "lodging",
+        "food",
+        "detour_service"
+      ],
+      "coordinates": null,
+      "coordinateSource": "Hallandsleden places API individual records",
+      "description": "Official places API includes several lodging/food records 2-3+ km from the current M1 line or associated with nearby areas.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/gunnagard",
+        "https://www.hallandsleden.se/plats/almas-gard",
+        "https://www.hallandsleden.se/plats/villa-stenhuset",
+        "https://www.hallandsleden.se/plats/obbhultsgard"
+      ],
+      "routeProximity": {
+        "metersFromRoute": "approximately 2200-3300+ depending on record",
+        "approxRouteKm": null
+      },
+      "confidence": "medium",
+      "importDecision": "suppress-or-detour-metadata",
+      "importNotes": "Useful only for planned detour/booking metadata; too far for normal section facility import."
+    },
+    {
+      "name": "Toppbjär / Bexells talande stenar / Sumpafallen",
+      "candidateTypes": [
+        "side_trip",
+        "protected_area",
+        "point_of_interest"
+      ],
+      "coordinates": null,
+      "coordinateSource": "Hallandsleden places API individual records and Länsstyrelsen pages",
+      "description": "Nearby/off-route protected-area and POI records from the official places feed. They are not current M1 route facilities.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/toppbjars-reservat",
+        "https://www.hallandsleden.se/plats/bexells-talande-stenar-4",
+        "https://www.hallandsleden.se/plats/sumpafallen-naturreservat",
+        "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/sumpafallen.html"
+      ],
+      "routeProximity": {
+        "metersFromRoute": "approximately 3000+ for most records",
+        "approxRouteKm": null
+      },
+      "confidence": "high",
+      "importDecision": "suppress-for-section-facility-import",
+      "importNotes": "Keep as side context only; do not attach to main M1 without a modeled detour."
+    },
+    {
+      "name": "Åkulla Skidspår",
+      "candidateTypes": [
+        "ski_trail",
+        "seasonal_activity"
+      ],
+      "coordinates": {
+        "lat": 57.12432,
+        "lon": 12.5650099
+      },
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Seasonal ski-track context at Åkulla near the stage start.",
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/akulla-skidspar"
+      ],
+      "routeProximity": {
+        "metersFromRoute": 40,
+        "approxRouteKm": 0.09
+      },
+      "confidence": "medium-high",
+      "importDecision": "suppress",
+      "importNotes": "Not a hiking-section facility. Relevant only as winter access/currentness context where ski tracks may affect southern reserve access."
+    }
+  ],
+  "waterSources": [
+    {
+      "name": "Dricksvatten Åkulla Outdoor Resort",
+      "type": "potable_water",
+      "coordinates": {
+        "lat": 57.12492995,
+        "lon": 12.56329
+      },
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/dricksvatten-akulla-outdoor-resort",
+        "https://www.hallandsleden.se/etapp/akulla-ullared"
+      ],
+      "reliability": "high but dependent on resort/service access",
+      "routeProximity": {
+        "metersFromRoute": 9,
+        "approxRouteKm": 0.0
+      },
+      "importDecision": "import-or-dedupe-into-resort",
+      "notes": "Official stage text says toilet and drinking water are available at Åkulla Outdoor Resort."
+    },
+    {
+      "name": "Dricksvatten Ullared",
+      "type": "potable_water",
+      "coordinates": {
+        "lat": 57.126638,
+        "lon": 12.708687
+      },
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/dricksvatten-ullared"
+      ],
+      "reliability": "medium; likely commercial/service-dependent",
+      "routeProximity": {
+        "metersFromRoute": 24,
+        "approxRouteKm": 14.39
+      },
+      "importDecision": "import-and-access-metadata",
+      "notes": "Official page says fresh water can be refilled at Gekåsbyn and Ullared camping. Verify open/access before import."
+    },
+    {
+      "name": "Lägerplats Kogstorp",
+      "type": "no_verified_potable_water",
+      "coordinates": {
+        "lat": 57.11853642,
+        "lon": 12.69189656
+      },
+      "sourceUrls": [
+        "https://www.hallandsleden.se/plats/lagerplats-kogstorp"
+      ],
+      "reliability": "none verified",
+      "routeProximity": {
+        "metersFromRoute": 11,
+        "approxRouteKm": 13.01
+      },
+      "importDecision": "do-not-import-water",
+      "notes": "Kogstorp has shelter, fireplace, firewood store and dry toilet, but no official potable water statement was found."
+    },
+    {
+      "name": "Natural lakes/streams along route",
+      "type": "natural_water_not_verified_potable",
+      "coordinates": null,
+      "sourceUrls": [
+        "https://www.hallandsleden.se/en/item/faq-vanliga-fragor-och-svar/v1j2h3khkboetb2p0d3zd2f2drj5x1yu"
+      ],
+      "reliability": "not potable without treatment and not verified",
+      "routeProximity": null,
+      "importDecision": "suppress",
+      "notes": "Rules/safety lane found Hallandsleden warns water is available only at certain marked sites and that summer wells may be dry or unsuitable. Carry water unless current water points are confirmed."
+    }
+  ],
+  "campingAndFire": {
+    "officialCampingShelterNotes": [
+      "Åkulla has two nearby shelters: Lägerplats Åkulla and the island shelter at Yasjön.",
+      "Yasjön island access is prohibited 1 March-30 June during bird nesting, and the cable ferry/raft normally operates 1 July to mid-October.",
+      "Kogstorp is the main on/near-route campsite about 4 km before Ullared, with shelter for 4-5 adults, fireplace, firewood store and dry toilet.",
+      "Björkasjö is a good shelter/toilet site but is an explicit detour and should not be imported as an on-route M1 facility without detour modeling."
+    ],
+    "fireRules": [
+      {
+        "source": "Hallandsleden Important Information",
+        "rule": "Use provided fireplaces, keep fires safe, extinguish before leaving, and check Brandrisk Ute/current fire rules before lighting fires.",
+        "url": "https://www.hallandsleden.se/item/viktig-information/i48rep1ncwkafz7wux50lp0dhxvboodp",
+        "confidence": "high"
+      },
+      {
+        "source": "Åkullaboket nature reserve",
+        "rule": "Fires are allowed only at designated places in/near the reserve context.",
+        "url": "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/akullaboket.html",
+        "confidence": "medium-high",
+        "caveat": "Relevant at/near the Åkulla start; do not generalize to the full stage without overlay."
+      },
+      {
+        "source": "Länsstyrelsen/Räddningstjänsten current fire check",
+        "rule": "Rules lane reported no active fire ban for Varberg or Falkenberg on 2026-04-29, but Räddningstjänsten Väst showed brandrisk 3 and olämpligt att elda.",
+        "url": "https://www.lansstyrelsen.se/halland/samhalle/sakerhet-och-beredskap/brandrisk-och-eldningsforbud.html",
+        "confidence": "medium",
+        "caveat": "This is date-specific and must be rechecked at runtime/import."
+      }
+    ],
+    "wildCampingNotes": [
+      "Use official shelters/campsites where available.",
+      "Åkullaboket and nearby reserve rules restrict fire and may restrict camping/parking depending on exact reserve boundary; check individual reserve rules.",
+      "Sumpafallen and Nabben side-trip reserves have stricter rules and should not be treated as main-line camping options."
+    ]
+  },
+  "rulesAndSafety": {
+    "protectedAreas": [
+      {
+        "name": "Åkullaboket nature reserve",
+        "relationshipToRoute": "at/near Åkulla start; rules lane reports Hallandsleden passes through the reserve",
+        "rulesSummary": [
+          "No unleashed dogs.",
+          "No fires except at designated places.",
+          "Do not damage living or dead trees.",
+          "No off-road motor vehicles and no parking outside designated places."
+        ],
+        "sourceUrl": "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/akullaboket.html",
+        "confidence": "medium-high"
+      },
+      {
+        "name": "Åkulla bokskogar",
+        "relationshipToRoute": "umbrella landscape/reserve area around Åkulla start; individual reserve rules vary",
+        "rulesSummary": [
+          "Länsstyrelsen says reserve rules may prohibit tents/caravans, off-road motor vehicles, mountain biking or riding depending on the reserve.",
+          "Area is in Varberg and Falkenberg municipalities and includes riksintresse/Natura 2000 context.",
+          "Seasonal Åkturen access to Åkulla bokskogar operates 15/6-16/8 2026."
+        ],
+        "sourceUrl": "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/akulla-bokskogar.html",
+        "confidence": "medium-high"
+      },
+      {
+        "name": "Nedre Ätran water protection area",
+        "relationshipToRoute": "rules lane found GPX intersects from roughly km 3 to Ullared",
+        "rulesSummary": [
+          "Water-protection context; avoid contamination and respect any posted local restrictions."
+        ],
+        "sourceUrl": "https://vivab.se/h%C3%A5llbar-framtid/h%C3%A5llbar-vattenanv%C3%A4ndning/vattenskydd/vattenskyddsomr%C3%A5de-nedre-%C3%A4tran",
+        "confidence": "medium"
+      },
+      {
+        "name": "Nabben / Bockstens mosse side context",
+        "relationshipToRoute": "side detour only; Länsstyrelsen says Hallandsleden passes north of Nabben",
+        "rulesSummary": [
+          "No camping, no fires and leashed dogs on the side reserve/detour context according to rules lane.",
+          "Do not apply these rules to the main M1 line unless the side detour is modeled."
+        ],
+        "sourceUrl": "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/nabben.html",
+        "confidence": "medium"
+      },
+      {
+        "name": "Sumpafallen nature reserve",
+        "relationshipToRoute": "off-route south of Ullared / side context only",
+        "rulesSummary": [
+          "No unleashed dogs.",
+          "No camping or caravan setup.",
+          "Fires only at designated places.",
+          "No canoes or other watercraft."
+        ],
+        "sourceUrl": "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/sumpafallen.html",
+        "confidence": "high"
+      }
+    ],
+    "closuresAndReroutes": [
+      {
+        "status": "none found for M1 on 2026-04-29",
+        "sourcesChecked": [
+          "Hallandsleden section page/news",
+          "Hallandsleden Important Information",
+          "Hallandsleden New Trail Routes",
+          "Länsstyrelsen Åkullaboket news/current page",
+          "rules/safety agent searches"
+        ],
+        "caveat": "Adjacent reroutes for Nösslinge - Åkulla and Åkulla - Ästad are listed, but not Åkulla - Ullared. Use the digital map/official GPX over June 2022 paper maps."
+      }
+    ],
+    "dogs": [
+      {
+        "rule": "Hallandsleden general guidance says dogs should be kept on a lead. From 1 March to 20 August, dogs must be leashed or under very strict supervision; this also applies in pastures with livestock.",
+        "sourceUrl": "https://www.hallandsleden.se/item/vandra-med-hund/gkvddie3ttmazifzlnqae9q4phuhj32b",
+        "confidence": "medium-high"
+      },
+      {
+        "rule": "Åkullaboket and nearby reserves prohibit unleashed dogs.",
+        "sourceUrl": "https://www.lansstyrelsen.se/halland/besoksmal/naturreservat/akullaboket.html",
+        "confidence": "medium-high"
+      }
+    ],
+    "huntingForestryAndLandUse": [
+      {
+        "note": "Rules lane reports Hallandsleden notes hunting may occur August-January, with the first weeks of the season most intense and peak elk hunting at the beginning of October.",
+        "confidence": "medium",
+        "sourceUrl": "https://www.hallandsleden.se/en/item/faq-vanliga-fragor-och-svar/v1j2h3khkboetb2p0d3zd2f2drj5x1yu"
+      },
+      {
+        "note": "No active forestry closure or M1-specific hunting notice was found. The route uses forest roads and private/farm contexts; obey temporary local signs, machinery closures and hunting instructions.",
+        "confidence": "medium"
+      },
+      {
+        "note": "Route passes farms/pastures. Close gates, keep distance from cattle/horses and be extra cautious around calves/foals.",
+        "confidence": "medium"
+      }
+    ],
+    "roadAndUrbanSafety": [
+      "Expect gravel/forest roads and farm access roads mid-stage, then paved road through Ullared after Musasjön.",
+      "Åkulla access is tied to road 153 and seasonal/remote bus access; be cautious when joining or leaving by road.",
+      "Ullared is an urban/commercial endpoint with heavy shopping traffic around Gekås and the bus terminal."
+    ],
+    "seasonalNotes": [
+      "Åkturen to Åkulla is seasonal: 15 June through 16 August 2026.",
+      "Yasjön island shelter access is prohibited 1 March-30 June; cable ferry/raft normally operates 1 July to mid-October.",
+      "Åkullaboket southern reserve access can be limited in winter when ski tracks have snow; northern trails remain accessible according to the rules lane.",
+      "Fire risk rises spring/summer and current fire-ban status must be checked before import/runtime display."
+    ],
+    "confidence": "medium-high"
+  },
+  "conditionReports": [
+    {
+      "source": "Vandra.se commercial Hallandsleden itinerary",
+      "url": "https://vandra.se",
+      "dateOrUpdated": "accessed 2026-04-29; exact page update not captured",
+      "coverage": "same Åkulla-Ullared day/corridor but commercial endpoint differs from official GPX endpoint",
+      "summary": "Describes the day as mostly easy, with path/forest road/short road/stugby/Musasjön/central Ullared surfaces. Notes that the path disappears bitwise and markings can be sparse until the next forest road, then markings become clear again.",
+      "confidence": "medium",
+      "importImpact": "Keep GPX as a useful planning aid; do not rely only on waymarking."
+    },
+    {
+      "source": "En Vandringssaga",
+      "url": "https://www.bejegard.se/vandring/halland/hallandsleden/hallandsleden-akulla-kogstorp-11-km/",
+      "dateOrUpdated": "published 2019-07-12",
+      "coverage": "older Åkulla-Kogstorp partial segment, about 11 km",
+      "summary": "Calls the walk to Kogstorp easy and about 2 hours to pass Kogstorp shelter in sunny weather. Subjectively did not consider Kogstorp one of the nicest overnight places, though the dry toilet was usable.",
+      "confidence": "medium for route character, low for present conditions",
+      "importImpact": "Use only as old route-character evidence and shelter subjective note."
+    },
+    {
+      "source": "Wikiloc Åkulla-Kogstorp",
+      "url": "https://www.wikiloc.com/hiking-trails/akulla-kogstorp-57151439",
+      "dateOrUpdated": "recorded/uploaded September 2020",
+      "coverage": "older partial Åkulla-Kogstorp segment",
+      "summary": "12.01 km easy one-way listing, 2 h 16 min moving time and 118 m ascent.",
+      "confidence": "medium for old track clue, low for current conditions",
+      "importImpact": "Supports old-segmentation caveat; do not use as current official geometry."
+    },
+    {
+      "source": "Pacer Åkulla-Kogstorp",
+      "url": "https://www.mypacer.com/routes/ohzxiq/hallandsleden-stage-%C3%A5kulla-kogstorp-hiking-trail-hallands-l%C3%A4n",
+      "dateOrUpdated": "last updated 2025-05-01",
+      "coverage": "older partial segment listing",
+      "summary": "6.9 mi, 324.7 ft gain, medium, one review but no useful public text.",
+      "confidence": "low-medium",
+      "importImpact": "Evidence that stale Åkulla-Kogstorp split remains on route apps."
+    },
+    {
+      "source": "Outdooractive / Scandinavian Trails Kogstorp-Åkulla",
+      "url": "https://www.outdooractive.com/en/route/hiking-trail/halland/hallandsleden-etapp-kogstorp-a-kulla-11-km/46409920/",
+      "dateOrUpdated": "accessed 2026-04-29",
+      "coverage": "older reverse/partial segment",
+      "summary": "10.8 km moderate route listing with one rating/no detailed reviews; appears to reflect old Kogstorp-Åkulla segmentation.",
+      "confidence": "low-medium",
+      "importImpact": "Stale-source evidence only."
+    },
+    {
+      "source": "AllTrails Gällarpesjön-Åkulla",
+      "url": "https://www.alltrails.com/trail/sweden/halland/hallandsleden-gallarpesjon-akulla-2",
+      "dateOrUpdated": "review date 2025-06-13",
+      "coverage": "adjacent Åkulla route, not M1",
+      "summary": "Nearby report says good conditions/good views/not crowded but flags obstructions.",
+      "confidence": "low for M1",
+      "importImpact": "Only a nearby currentness signal for possible obstructions."
+    },
+    {
+      "source": "AllTrails Ullared/Björkasjöstigen area",
+      "url": "https://www.alltrails.com/sweden/halland/ullared",
+      "dateOrUpdated": "review date 2025-01-01",
+      "coverage": "nearby Åkulla/Ullared area, not the official M1 line",
+      "summary": "Nearby review says parts were very wet after weeks of rain; AllTrails descriptions recommend boots for wet sections on Björkasjöstigen.",
+      "confidence": "low",
+      "importImpact": "Useful only as nearby terrain/weather signal; M1 has embankment/road portions but forest path parts may be wet after rain."
+    },
+    {
+      "source": "Wikiloc Kogstorp-Skinnarlyngen",
+      "url": "https://www.wikiloc.com/hiking-trails/kogstorp-skinnarlyngen-31949808",
+      "dateOrUpdated": "recorded January 2019",
+      "coverage": "adjacent/partly Hallandsleden around Kogstorp",
+      "summary": "Describes varied spruce forest, beech forest, pasture and small farms; generally well marked orange/red but poor markings near Fagerhult.",
+      "confidence": "low-medium around Kogstorp only",
+      "importImpact": "Supports mixed farm/forest character around Kogstorp; not a current condition report."
+    }
+  ],
+  "sourceContradictions": [
+    {
+      "topic": "Current official section versus old Åkulla-Kogstorp segmentation",
+      "details": "Current Hallandsleden page/API/GPX are consistent for Åkulla - Ullared at 17 km / 16.9 km. Naturkartan slug and metadata, Hallandsleden API line.geometry, OSM relations and many third-party route listings still preserve older Åkulla-Kogstorp/Kogstorp-Kärnebygd segmentation.",
+      "resolution": "Use official GPX/API geo_json/Naturkartan shape as current M1 geometry; suppress API line.geometry, OSM old relations and third-party old split listings as canonical geometry.",
+      "importImpact": "critical"
+    },
+    {
+      "topic": "Naturkartan metadata conflict",
+      "details": "Naturkartan page title says Åkulla - Ullared and site API shape mirrors official 16.857 km GPX, but visible metadata says length 11.0 km and difficulty red/krävande.",
+      "resolution": "Treat Naturkartan page metadata as stale and use only its geometry verification/facility text as secondary evidence.",
+      "importImpact": "high"
+    },
+    {
+      "topic": "Hallandsleden API line.geometry conflict",
+      "details": "Official API line.geometry has 587 points and 11.033 km, ending near Kogstorp rather than Ullared. The same pattern appears in M2 where line.geometry starts near Kogstorp, indicating an old segmentation split.",
+      "resolution": "Do not use line.geometry for M1 import. Use GPX/API geo_json.",
+      "importImpact": "critical"
+    },
+    {
+      "topic": "English navigation names next section differently",
+      "details": "English section page navigation says next section Ullared - Kvarnlyckan, while live official inventory and GPX use M2 Ullared - Kärnebygd.",
+      "resolution": "Use live inventory/trail.research.json and M2 GPX for section inventory; keep as stale-label risk.",
+      "importImpact": "medium"
+    },
+    {
+      "topic": "Static section prose versus official places API lodging/service lists",
+      "details": "English and Swedish/static snippets list some lodging options differently, including STF Bråtadal versus updated Swedish/service names.",
+      "resolution": "Use Hallandsleden places API and direct place pages for facility records; keep commercial lodging currentness checks for import time.",
+      "importImpact": "medium"
+    },
+    {
+      "topic": "Åkulla transit distance wording",
+      "details": "Hallandstrafiken Åkulla page names line 651 stops Brännhult/Haksered and an approximately 600 m access distance, but measured endpoint distances to the M1 GPX start are about 3 km straight-line.",
+      "resolution": "Use measured coordinates for M1 endpoint access and treat the 600 m text as generic Åkulla Bokskogar/access-area wording.",
+      "importImpact": "medium"
+    }
+  ],
+  "researchIterations": [
+    {
+      "iterationId": "m1-initial-six-lane-2026-04-29",
+      "startedAt": "2026-04-29T20:28:19Z",
+      "completedAt": "2026-04-29T20:45:45Z",
+      "agents": [
+        {
+          "lane": "official-sources",
+          "agentId": "019ddaed-9016-7ea0-aa55-5ee93613e270",
+          "nickname": "Einstein",
+          "status": "errored-context-exhausted"
+        },
+        {
+          "lane": "official-sources-replacement",
+          "agentId": "019ddaf3-9090-70b2-b3d4-781588ccb2c4",
+          "nickname": "Turing",
+          "status": "completed"
+        },
+        {
+          "lane": "route-geometry",
+          "agentId": "019ddaed-90a0-77e1-ae52-2f537f9ae0ed",
+          "nickname": "Wegener",
+          "status": "completed"
+        },
+        {
+          "lane": "facilities",
+          "agentId": "019ddaed-90d7-78a1-a6bd-219e527643d3",
+          "nickname": "Ohm",
+          "status": "completed"
+        },
+        {
+          "lane": "transit-access",
+          "agentId": "019ddaed-914f-7390-83c5-60118943817b",
+          "nickname": "Rawls",
+          "status": "completed"
+        },
+        {
+          "lane": "field-reports",
+          "agentId": "019ddaed-9187-7d91-9e52-5809993e020d",
+          "nickname": "Hooke",
+          "status": "completed"
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "agentId": "019ddaed-91ee-7e50-9adf-7ca88cd61adc",
+          "nickname": "Arendt",
+          "status": "completed"
+        }
+      ],
+      "mainThreadChecks": [
+        "Fetched official M1 page and English mirror; extracted official description, distance, difficulty, accommodation and access text.",
+        "Fetched official GPX, Hallandsleden map API and places API; computed GPX/API geo_json and line.geometry distances/endpoints.",
+        "Checked M2 API/GPX and old OSM relations to verify that API line.geometry reflects old Åkulla-Kogstorp/Kogstorp-Kärnebygd segmentation.",
+        "Opened Naturkartan akulla-kogstorp-hallandsleden page; extracted visible 11.0 km/red metadata and HTML preselected site id 19217.",
+        "Computed official place route proximities for the 27 Hallandsleden places API records.",
+        "Checked Hallandstrafiken Åkturen 2026, Hallandstrafiken Ullared, Hallandsleden public transport guidance, Important Information and New Trail Routes pages.",
+        "Reviewed Länsstyrelsen Åkulla bokskogar, Åkullaboket, Sumpafallen, fire-ban/fire-risk context and rules/safety agent report."
+      ],
+      "receivedReports": [
+        {
+          "lane": "official-sources",
+          "summary": "Replacement official-source lane confirmed current official section Åkulla - Ullared, central/Mellersta delleden context, 17 km/blue/medium, GPX metadata generated 2025-06-23, official facilities and access POIs. It noted M1 is not stated as an official section number and flagged old Åkulla-Kogstorp stale-source risks."
+        },
+        {
+          "lane": "route-geometry",
+          "summary": "Confirmed official GPX, Hallandsleden API geo_json and Naturkartan site 19217 shape are coordinate-identical 272-point 16.857 km lines from Åkulla to Ullared. API line.geometry is an incomplete 11.033 km old Åkulla-Kogstorp line, and OSM preserves old split relations 4175923/4175922."
+        },
+        {
+          "lane": "facilities",
+          "summary": "Identified import-ready core records: Lägerplats Åkulla, Åkulla Outdoor Resort/water cluster, Yasjön island shelter with seasonality, Kogstorp shelter/toilet/firewood, Dricksvatten Ullared, Gekåsbyn, Musasjön, ICA, one Ullared aggregate and optional Sveas B&B. Recommended suppressing/detour-modeling Björkasjö, Gunnagård/Almas/Villa/Obbhult, Toppbjär/Bexells/Sumpafallen and transit stops from the facility layer."
+        },
+        {
+          "lane": "transit-access",
+          "summary": "Confirmed Åkulla seasonal stop 740074382 about 219 m from start via Åkturen 15 Jun-16 Aug 2026; Haksered and Brännhult line 651 fallbacks about 3 km straight-line. Confirmed Ullared bussterminal 740000182 about 31 m from endpoint with strong Hallandstrafiken service and several fallback access/parking/shuttle options."
+        },
+        {
+          "lane": "field-reports",
+          "summary": "Found thin direct current field evidence for the full current 16.9 km alignment. Commercial Vandra notes mostly easy surfaces but sparse markings/path fade on one segment. Older En Vandringssaga, Wikiloc, Pacer and Outdooractive sources mostly reflect older Åkulla-Kogstorp segmentation. Nearby AllTrails reports provide only low-confidence wetness/obstruction context."
+        },
+        {
+          "lane": "rules-safety-currentness",
+          "summary": "Found Åkullaboket reserve and Nedre Ätran water-protection context on the main route, no current M1-specific closure/reroute, no main-line Natura/bird/species-protection layer hits, general dog/hunting/forestry/fire caveats, no active fire ban on 2026-04-29 but fire risk caution, and side-only Nabben/Sumpafallen rule contexts."
+        }
+      ],
+      "synthesisDecision": "Strong enough for research-ready section file with explicit caveats. No second targeted batch needed because the official replacement lane, route geometry lane, facilities lane, transit lane, field lane, rules lane and main-thread checks agree on canonical geometry, endpoint access, facility import filtering and stale-source risks. Remaining questions are import-time currentness/taxonomy/snap decisions."
+    }
+  ],
+  "openQuestions": [
+    {
+      "question": "Should the app import the Dricksvatten Ullared point as a standalone water facility or merge it into Gekåsbyn/Ullared camping service metadata?",
+      "status": "import-time taxonomy decision",
+      "priority": "medium"
+    },
+    {
+      "question": "Should Den gamla banvallen, Linbastan i Kogstorp and Stig mot Bockstens mosse be imported as POIs/connection metadata, or kept only in section description text?",
+      "status": "taxonomy decision",
+      "priority": "medium"
+    },
+    {
+      "question": "What exact connector/snap rule should be used for the 59.9 m N8-to-M1 Åkulla gap and the 31.6 m M1-to-M2 Ullared gap?",
+      "status": "geometry normalization decision",
+      "priority": "medium"
+    },
+    {
+      "question": "Verify commercial currentness/opening rules for Åkulla Outdoor Resort, Gekåsbyn, Sveas B&B, ICA and Ullared food aggregate immediately before import.",
+      "status": "import-time currentness check",
+      "priority": "medium"
+    },
+    {
+      "question": "If the app later models detours, should Björkasjö shelter, Bockstens mosse/Nabben, Linbastan and Sumpafallen receive separate access/side-trip relations?",
+      "status": "future modeling question",
+      "priority": "low"
+    }
+  ],
+  "importReadiness": {
+    "status": "research-ready-with-caveats",
+    "readyForNormalization": true,
+    "geometry": "ready with caveats: official GPX/API geo_json/Naturkartan shape is canonical planning-grade geometry; API line.geometry and OSM old split relations must be suppressed as canonical.",
+    "commuteAccess": "ready with caveats: Ullared endpoint access is strong; Åkulla closest stop is seasonal Åkturen and year-round fallback stops require multi-kilometre walks.",
+    "facilities": "core route/start/end facilities are ready with dedupe decisions; off-route API leakage and dense Ullared/Gekås commercial services require import filtering.",
+    "rulesAndSafety": "ready with runtime currentness caveats: fire-ban status, Åkullaboket reserve rules, Yasjön island seasonality, dog/hunting/forestry notes and water reliability must remain visible.",
+    "doNotImportYet": [
+      "Do not integrate into runtime app data until a later import phase.",
+      "Do not use Hallandsleden API line.geometry, Naturkartan visible 11.0 km metadata, OSM relation 4175923 or OSM relation 4175922 as canonical current M1 geometry.",
+      "Do not model M1 as only Åkulla-Kogstorp or combine it with old Kogstorp-Kärnebygd segmentation.",
+      "Do not treat Åkulla public transport as year-round via the nearby Åkulla stop; it is seasonal Åkturen in 2026.",
+      "Do not bulk-import Gekås/Ullared urban restaurants, shops, parking, waste or guest amenities as separate trail facilities without app policy support.",
+      "Do not model Yasjön island shelter as always accessible.",
+      "Do not attach off-route Sumpafallen, Bockstens/Nabben or Björkasjö facilities/rules to the main M1 line unless detours are modeled."
+    ],
+    "recommendedNextStep": "Continue Phase 2 with M2 hallandsleden-ullared-karnebygd using the same six-lane workflow, paying close attention to old Kogstorp-Kärnebygd segmentation leakage, Ullared endpoint dedupe/continuity with M1, Kärnebygd endpoint access, official GPX/API conflicts and facilities between Ullared and Kärnebygd."
+  }
+}

@@ -35,11 +35,7 @@ const expectedRequests = [
   "/data/trail-systems/sormlandsleden/sections-index.json",
   "/data/trail-systems/sormlandsleden/route-groups.json",
   "/data/trail-systems/sormlandsleden/presets.json",
-  "/data/trail-systems/sormlandsleden/sections/sormlandsleden-stage-1.json",
-  "/data/overviews/kayaking.geojson",
-  "/data/kayak-facilities.json",
-  "/data/kayak-trips/langholmen-reimersholme-loop.json",
-  "/routes/kayaking/langholmen-reimersholme-loop.geojson"
+  "/data/trail-systems/sormlandsleden/sections/sormlandsleden-stage-1.json"
 ];
 
 const forbiddenRequestPatterns = [
@@ -605,15 +601,25 @@ async function readHikingMapHelperState(client) {
       const facilityClusterMarkers = [...document.querySelectorAll(".facility-cluster-marker")].length;
       const facilitySpiderMarkers = [...document.querySelectorAll(".facility-spider-marker")].length;
       const commuteMarkers = [...document.querySelectorAll(".commute-marker")].length;
+      const commuteClusterMarkers = [...document.querySelectorAll(".commute-cluster-marker")].length;
+      const commuteSpiderMarkers = [...document.querySelectorAll(".commute-spider-marker")].length;
       const facilityMarkerPosition = getComputedStyle(document.querySelector(".facility-marker")).position;
       const chip = chips.find((candidate) => candidate.getAttribute("aria-label")?.includes("Camping"));
+      const chipType = chip?.dataset.facilityType ?? "";
+      const activeToggledTypeMarkers = chipType
+        ? [...document.querySelectorAll(".facility-marker-" + CSS.escape(chipType) + ", .facility-cluster-has-" + CSS.escape(chipType))].length
+        : 0;
       return {
         activeFacilityMarkers,
+        activeToggledTypeMarkers,
         facilityClusterMarkers,
         facilitySpiderMarkers,
         commuteMarkers,
+        commuteClusterMarkers,
+        commuteSpiderMarkers,
         facilityMarkerPosition,
         chipCount: chips.length,
+        chipType,
         pressed: chip?.getAttribute("aria-pressed") ?? null,
         chipLabel: chip?.getAttribute("aria-label") ?? "",
         chipTitle: chip?.getAttribute("title") ?? ""
@@ -636,11 +642,15 @@ async function waitForStableHikingMapHelperState(client, { campingPressed, label
 
       const signature = [
         state.activeFacilityMarkers,
+        state.activeToggledTypeMarkers,
         state.facilityClusterMarkers,
         state.facilitySpiderMarkers,
         state.commuteMarkers,
+        state.commuteClusterMarkers,
+        state.commuteSpiderMarkers,
         state.facilityMarkerPosition,
         state.chipCount,
+        state.chipType,
         state.pressed,
         state.chipLabel,
         state.chipTitle
@@ -677,12 +687,19 @@ async function assertHikingMapHelpers(client) {
   if (!before.activeFacilityMarkers) addError("browser hiking map helpers", "Facility markers were not rendered on the trail-system map.");
   if (!before.facilityClusterMarkers) addError("browser hiking map helpers", "Overlapping facility cluster markers were not rendered.");
   if (!before.commuteMarkers) addError("browser hiking map helpers", "Commute markers were not rendered on the trail-system map.");
+  if (!before.commuteClusterMarkers) addError("browser hiking map helpers", "Overlapping commute cluster markers were not rendered.");
   if (before.facilityMarkerPosition !== "absolute") {
     addError("browser hiking map helpers", `Facility markers must keep Leaflet absolute positioning, got "${before.facilityMarkerPosition}".`);
   }
   if (!before.chipCount) addError("browser hiking map helpers", "Facility map filter chips were not rendered.");
   if (!before.chipLabel.includes("Camping") || !before.chipTitle.includes("Camping")) {
     addError("browser hiking map helpers", `Camping facility filter label/title was not rendered correctly: ${before.chipLabel} / ${before.chipTitle}`);
+  }
+  if (!before.chipType) {
+    addError("browser hiking map helpers", "Camping facility filter does not expose its facility type for deterministic checks.");
+  }
+  if (!before.activeToggledTypeMarkers) {
+    addError("browser hiking map helpers", `Camping facility filter had no visible markers or clusters for type "${before.chipType}".`);
   }
   if (before.pressed !== "true") {
     addError("browser hiking map helpers", `Camping facility filter should start pressed, got ${before.pressed}.`);
@@ -691,19 +708,92 @@ async function assertHikingMapHelpers(client) {
   const expandedCluster = await evaluate(
     client,
     `(() => {
-      const cluster = document.querySelector(".facility-cluster-marker");
+      const cluster = document.querySelector(".facility-cluster-marker:not(.poi-cluster-origin-dot)");
       if (!cluster) return { ok: false };
+      const mapPane = cluster.closest(".leaflet-container")?.querySelector(".leaflet-map-pane");
+      const beforeTransform = mapPane?.style.transform || (mapPane ? getComputedStyle(mapPane).transform : "");
       cluster.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, view: window }));
-      return { ok: true };
+      return { ok: true, beforeTransform };
     })()`
   );
   if (!expandedCluster.ok) {
     addError("browser hiking map helpers", "Could not find an overlapping facility cluster marker to expand.");
   } else {
-    await waitFor(
-      () => evaluate(client, `document.querySelectorAll(".facility-spider-marker").length > 1`),
+    const expandedState = await waitFor(
+      () =>
+        evaluate(
+          client,
+          `(() => {
+            const spiderMarkers = document.querySelectorAll(".facility-spider-marker, .commute-spider-marker").length;
+            const originDots = document.querySelectorAll(".poi-cluster-origin-dot").length;
+            const openPopups = document.querySelectorAll(".leaflet-popup").length;
+            const mapPane = document.querySelector(".leaflet-map-pane");
+            const mapTransform = mapPane?.style.transform || (mapPane ? getComputedStyle(mapPane).transform : "");
+            return spiderMarkers > 1 && originDots > 0 && openPopups === 0 ? { mapTransform } : false;
+          })()`
+        ),
       { timeoutMs: 4_000, label: "facility cluster expansion" }
     );
+    if (expandedCluster.beforeTransform !== expandedState.mapTransform) {
+      addError("browser hiking map helpers", "Expanding a facility cluster panned the Leaflet map pane.");
+    }
+  }
+
+  const collapsedCluster = await evaluate(
+    client,
+    `(() => {
+      const originDot = document.querySelector(".poi-cluster-origin-dot");
+      if (!originDot) return { ok: false };
+      originDot.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, view: window }));
+      return { ok: true };
+    })()`
+  );
+  if (!collapsedCluster.ok) {
+    addError("browser hiking map helpers", "Expanded cluster did not leave a clickable origin dot for collapse.");
+  } else {
+    await waitFor(
+      () =>
+        evaluate(
+          client,
+          `document.querySelectorAll(".facility-spider-marker, .commute-spider-marker").length === 0 && document.querySelectorAll(".poi-cluster-origin-dot").length === 0`
+        ),
+      { timeoutMs: 4_000, label: "cluster recollapse" }
+    );
+  }
+
+  const expandedCommuteCluster = await evaluate(
+    client,
+    `(() => {
+      const cluster = document.querySelector(".commute-cluster-marker:not(.poi-cluster-origin-dot)");
+      if (!cluster) return { ok: false };
+      const mapPane = cluster.closest(".leaflet-container")?.querySelector(".leaflet-map-pane");
+      const beforeTransform = mapPane?.style.transform || (mapPane ? getComputedStyle(mapPane).transform : "");
+      cluster.dispatchEvent(new MouseEvent("click", { bubbles: true, cancelable: true, view: window }));
+      return { ok: true, beforeTransform };
+    })()`
+  );
+  if (!expandedCommuteCluster.ok) {
+    addError("browser hiking map helpers", "Could not find an overlapping commute cluster marker to expand.");
+  } else {
+    const expandedCommuteState = await waitFor(
+      () =>
+        evaluate(
+          client,
+          `(() => {
+            const commuteSpiders = document.querySelectorAll(".commute-spider-marker").length;
+            const allSpiders = document.querySelectorAll(".facility-spider-marker, .commute-spider-marker").length;
+            const originDots = document.querySelectorAll(".poi-cluster-origin-dot").length;
+            const openPopups = document.querySelectorAll(".leaflet-popup").length;
+            const mapPane = document.querySelector(".leaflet-map-pane");
+            const mapTransform = mapPane?.style.transform || (mapPane ? getComputedStyle(mapPane).transform : "");
+            return commuteSpiders > 0 && allSpiders > 1 && originDots > 0 && openPopups === 0 ? { mapTransform } : false;
+          })()`
+        ),
+      { timeoutMs: 4_000, label: "commute cluster expansion" }
+    );
+    if (expandedCommuteCluster.beforeTransform !== expandedCommuteState.mapTransform) {
+      addError("browser hiking map helpers", "Expanding a commute cluster panned the Leaflet map pane.");
+    }
   }
 
   const toggle = await evaluate(
@@ -745,10 +835,10 @@ async function assertHikingMapHelpers(client) {
   if (!after.chipTitle.includes("Show Camping")) {
     addError("browser hiking map helpers", `Camping facility filter title did not update after toggle: ${after.chipTitle}`);
   }
-  if (after.activeFacilityMarkers >= before.activeFacilityMarkers) {
+  if (after.activeToggledTypeMarkers >= before.activeToggledTypeMarkers) {
     addError(
       "browser hiking map helpers",
-      `Facility marker count did not decrease after disabling Camping (${before.activeFacilityMarkers} -> ${after.activeFacilityMarkers}).`
+      `Camping marker visibility did not decrease after disabling ${before.chipType} (${before.activeToggledTypeMarkers} -> ${after.activeToggledTypeMarkers}).`
     );
   }
   if (after.commuteMarkers !== before.commuteMarkers) {
@@ -877,7 +967,7 @@ async function assertOverviewRouteColorVariety(client, { scope, minimumUniqueCol
   }
 }
 
-async function exerciseApp(client, origin, expectations) {
+async function exerciseApp(client, origin) {
   await client.send("Network.enable");
   await client.send("Runtime.enable");
   await client.send("Page.enable");
@@ -921,31 +1011,10 @@ async function exerciseApp(client, origin, expectations) {
   await assertInfoPrintPolish(client);
   await clickButton(client, "Back to overview");
   await waitForText(client, "Hiking Routes");
-
-  await clickButton(client, "Kayaking");
-  await waitForText(client, "Kayak Trips");
-  await waitForRequest("/data/overviews/kayaking.geojson");
-  await assertOverviewRouteColorVariety(client, {
-    scope: "kayaking overview colors",
-    minimumUniqueColors: Math.min(expectations.total, 24)
-  });
-  await waitForRequest("/data/kayak-facilities.json");
-  await exerciseKayakFilters(client, expectations);
-
-  await clickButton(client, "Långholmen and Reimersholme loop");
-  await waitForText(client, "Långholmen and Reimersholme loop");
-  await waitForText(client, "Do not use this line for navigation");
-  await waitForRequest("/data/kayak-trips/langholmen-reimersholme-loop.json");
-  await waitForRequest("/routes/kayaking/langholmen-reimersholme-loop.geojson");
-  await settleBrowserRequests();
 }
 
 async function main() {
   const chromePath = await findChromeExecutable();
-  const expectations = await kayakFilterExpectations().catch((error) => {
-    addError("kayak filter expectations", `Could not read generated kayak index data: ${error.message}`);
-    return null;
-  });
   if (!chromePath) {
     addError("browser executable", "Could not find Chrome/Chromium. Set CHROME_BIN or BROWSER_BIN to run the browser runtime probe.");
   }
@@ -954,11 +1023,11 @@ async function main() {
   let browser;
   let client;
   try {
-    if (chromePath && expectations) {
+    if (chromePath) {
       vite = await startVite();
       browser = await launchBrowser(chromePath);
       client = await createPage(browser.debugPort);
-      await exerciseApp(client, vite.origin, expectations);
+      await exerciseApp(client, vite.origin);
       assertRequests();
       assertRouteRequestBudget();
     }
@@ -993,9 +1062,7 @@ async function main() {
   console.log("Browser runtime probe passed.");
   console.log(`- local runtime requests observed: ${new Set(requestPaths()).size} unique paths, ${appRequests.length} total requests`);
   console.log("- trail-system selections used shard JSON and did not request legacy all-in-one trail-system JSON");
-  console.log("- kayak overview, facilities, detail, and route corridor loaded from public runtime paths");
   console.log("- overview maps expose a broad visible route-color scale");
-  console.log("- kayak water/exposure/confidence filters update from compact index metadata without detail/route fetches");
   console.log("- trail-system maps stayed within the selected/context route request budget");
   console.log("- route builder accessibility and print overflow checks passed");
 }

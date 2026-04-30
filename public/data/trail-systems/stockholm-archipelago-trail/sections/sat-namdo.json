@@ -1,0 +1,260 @@
+{
+  "trailSystemId": "stockholm-archipelago-trail",
+  "id": "sat-namdo",
+  "stageNumber": 14,
+  "name": "Nämdö",
+  "from": "Nämdö",
+  "to": "Nämdö",
+  "distanceKm": 13.1,
+  "estimatedTime": "4:30",
+  "description": "Moderate 13.1 km multi-access island hike on Nämdö, with Solvik recommended as the clockwise start. The route mixes ferry quays, village lanes, active farm and pasture landscapes, forest paths, a quiet lake near Tjusvik, short sea-view detours and flexible exit points at several Waxholmsbolaget quays. Services are best at Solvik and Sand and are seasonal, while water/toilet details need winter caveats.",
+  "utilities": [
+    "Best service cluster is Solvik: grocery, seasonal restaurant/bakery/pizza, ferry quay and harbor/fuel context.",
+    "Sand has the strongest official public utility note: toilet and water at the museum, not available in winter.",
+    "Solvik seasonal toilet/summer water is now corroborated by SAT and OSM, but remains seasonal and tied to the access/service spur.",
+    "Östanvik farm/farm shop is a strong seasonal POI and possible service detour; the Östanvik/Själudden tent site is confirmed but should be optional/detour-managed rather than default route-side camping.",
+    "Långvik sauna is a public Skärgårdsstiftelsen service but is a side-route/white-trail context, not a normal SAT facility marker. Långvik water remains unreliable for drinking-water rendering.",
+    "Hembygdsgårdens bodar near Sand are a lodging/service metadata candidate with booked simple huts, not a normal trail shelter or public utility.",
+    "No public charging point was confirmed through iteration 3. Solvik guest harbor/fuel belongs in service-cluster metadata only; do not infer electricity, public charging, showers, drinking water or pump-out from harbor presence.",
+    "A limited-availability AED at Nämdö Hembygdsförening/Sand was found in iteration 3 and is emergency metadata only, not a normal POI/facility.",
+    "Do not render ferry waiting shelters as overnight shelters."
+  ],
+  "waterSources": [
+    "Sand museum / Gamla skolan: official SAT says water is available, not in winter; OSM water tap is at [59.1821550, 18.6886085].",
+    "Solvik: official step guide says summer water and OSM has public toilet/drinking-water tags at [59.1849827, 18.7006724]; treat as seasonal/service-spur utility, not year-round.",
+    "Östanvik: local/Visit Värmdö/OSM sources suggest fresh water; verify current availability and potability before relying on it as a primary refill.",
+    "Långvik pump: local/OSM context exists near [59.1999134, 18.7079436], but water testing/potability is uncertain; do not render as reliable drinking water yet.",
+    "Carry enough water outside high season and do not use private wells without permission."
+  ],
+  "notes": [
+    "Route shape: multi-access Nämdö island section; SAT recommends starting at Solvik and walking clockwise, while the step-by-step guide describes the section from Nämdöböte.",
+    "Official SAT public distance/time/difficulty remain 13.1 km, 4:30 and Moderate despite 12.8 km export artifacts.",
+    "Use mainRouteBboxFromGpx for route map bounds; the broader bbox intentionally includes off-route metadata such as Idöborg and Ängsholmen.",
+    "Solvik is the recommended start and an access/service spur, but the strict GPX passes closer to church/Sand than the quay/service cluster.",
+    "Östanvik/Själudden tent site is confirmed by Naturkartan but should be optional/managed, not default wild-camping guidance.",
+    "Nämdöskärgården National Park information belongs in context/secondary POI only; national-park islands and services are separate boat/kayak destinations.",
+    "Iteration 3 replaced the earlier AED absence note with a guarded, limited-availability AED metadata record at Nämdö Hembygdsförening/Sand."
+  ],
+  "facilities": [
+    {
+      "id": "sat-namdo-solvik-handlarn",
+      "name": "Handlar'n Solvik / Nämdö Solvik grocery",
+      "type": "food",
+      "sectionId": "sat-namdo",
+      "coordinates": [
+        59.185227,
+        18.700489
+      ],
+      "description": "Main grocery/resupply point at Solvik. Operator/Nämdöskärgården sources describe a local grocery with ombud services; do not render as a pharmacy.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-namdo/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-namdo-solvik-restaurant",
+      "name": "Restaurang Viken / Nämdö Solvik",
+      "type": "food",
+      "sectionId": "sat-namdo",
+      "coordinates": [
+        59.185,
+        18.700335
+      ],
+      "description": "Seasonal food service at Solvik service cluster.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-namdo/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-namdo-solvik-bakery-pizzeria",
+      "name": "Nämdö bakery / pizzeria",
+      "type": "food",
+      "sectionId": "sat-namdo",
+      "coordinates": [
+        59.184957,
+        18.700499
+      ],
+      "description": "Seasonal bakery/pizza food option in the Solvik cluster.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "namdosolvik.com",
+        "url": "https://www.namdosolvik.com/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-namdo-sand-museum-toilet",
+      "name": "Public toilet at Skärgårdsmuseet / Gamla skolan, Sand",
+      "type": "toilet",
+      "sectionId": "sat-namdo",
+      "coordinates": [
+        59.18209,
+        18.68865
+      ],
+      "description": "Official SAT step guide says a public toilet is available at the museum in Sand and not available in winter.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-namdo/step-by-step-hiking-instruction-for-section-namdo/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-namdo-sand-museum-water",
+      "name": "Water at Skärgårdsmuseet / Gamla skolan, Sand",
+      "type": "water",
+      "sectionId": "sat-namdo",
+      "coordinates": [
+        59.182155,
+        18.688609
+      ],
+      "description": "Official SAT step guide says water is available at the museum in Sand and not available in winter.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-namdo/step-by-step-hiking-instruction-for-section-namdo/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-namdo-sand-museum-cafe",
+      "name": "Skärgårdsmuseet Nämdöfilialen garden café",
+      "type": "food",
+      "sectionId": "sat-namdo",
+      "coordinates": [
+        59.18209,
+        18.68865
+      ],
+      "description": "Seasonal garden café and museum in Gamla skolan at Sand.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "skargardsmuseet.org",
+        "url": "https://www.skargardsmuseet.org/namdofilialen/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-namdo-ostanvik-farm-poi",
+      "name": "Östanviks gård",
+      "type": "attraction",
+      "sectionId": "sat-namdo",
+      "coordinates": [
+        59.197493,
+        18.731717
+      ],
+      "description": "Historic and active island farm; current farm buildings date from around 1916, with grazing animals maintaining Nämdö's open landscape.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-namdo/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-namdo-namdo-church",
+      "name": "Nämdö kyrka",
+      "type": "attraction",
+      "sectionId": "sat-namdo",
+      "coordinates": [
+        59.184635,
+        18.695637
+      ],
+      "description": "Wooden church/church environment near the Solvik-Sand part of the route, with roots in older island chapel history.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "svenskakyrkan.se",
+        "url": "https://www.svenskakyrkan.se/djuro-moja-namdo/namdo-kyrka",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-namdo-skargardsmuseum",
+      "name": "Skärgårdsmuseet Nämdöfilialen",
+      "type": "attraction",
+      "sectionId": "sat-namdo",
+      "coordinates": [
+        59.18222,
+        18.688712
+      ],
+      "description": "Museum/café in Gamla skolan at Sand, with seasonal opening and public utility context.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "skargardsmuseet.org",
+        "url": "https://www.skargardsmuseet.org/namdofilialen/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-namdo-hembygdsgarden",
+      "name": "Nämdö hembygdsgård",
+      "type": "attraction",
+      "sectionId": "sat-namdo",
+      "coordinates": [
+        59.182957,
+        18.68704
+      ],
+      "description": "Local heritage/community site near Sand, with events and booked facilities. Treat accommodation/venue functions as service metadata, not default trail facilities.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "xn--nmdhbf-bua0m.se",
+        "url": "https://www.xn--nmdhbf-bua0m.se/service-information/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    }
+  ],
+  "endpointCoordinates": {
+    "source": "approximate",
+    "start": [
+      59.184624,
+      18.700401
+    ],
+    "end": [
+      59.184624,
+      18.700401
+    ]
+  },
+  "accessPoints": [],
+  "source": {
+    "provider": "stockholm-archipelago-trail",
+    "url": "https://stockholmarchipelagotrail.com/section/section-namdo/",
+    "lastFetchedAt": "2026-04-26"
+  },
+  "route": {
+    "status": "marker-only"
+  }
+}

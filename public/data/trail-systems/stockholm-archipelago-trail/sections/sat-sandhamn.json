@@ -1,0 +1,374 @@
+{
+  "trailSystemId": "stockholm-archipelago-trail",
+  "id": "sat-sandhamn",
+  "stageNumber": 12,
+  "name": "Sandhamn",
+  "from": "Sandhamn",
+  "to": "Sandhamn",
+  "distanceKm": 8.1,
+  "estimatedTime": "2:30",
+  "description": "Sandhamn is an easy 8.1 km clockwise SAT loop from Sandhamn ferry quay on Sandön. It moves from the harbor village into sandy pine forest and open-coast beach terrain, with Trouville and other beaches, village heritage, and several seasonal food and lodging services close to the start/end. Treat services as strongly seasonal, and keep camping, fires, marina utilities and AEDs behind verification guards.",
+  "utilities": [
+    "Primary public hiker utilities are the harbor public toilet/water at about [59.2879099, 18.9170226] and the mapped beach toilets at Trouville and Fläskberget.",
+    "KSSS guest-harbor water, showers, waste, fuel and electricity are marina/boat-guest infrastructure unless a later pass verifies free public hiker access.",
+    "Westerbergs Livs is the main village resupply candidate but requires Tempo-app/self-service access outside staffed hours.",
+    "Village food/lodging services are clustered near the ferry quay and should be rendered with strong seasonal/current-hours caveats."
+  ],
+  "waterSources": [
+    "Primary refill: public harbor toilet/water at [59.2879099, 18.9170226], about 100 m east of Sandhamn ferry quay; SAT and OSM support 08:00-20:00.",
+    "Do not treat KSSS dock water as public hiker water: KSSS frames it as guest-harbor/desalination water with limited production and max 50 liters per boat.",
+    "Do not plan a Fläskberget refill. Only OSM currently tags drinking_water=yes there; local sources confirm toilets/facilities, not drinking water."
+  ],
+  "notes": [
+    "Route shape: clockwise round trip on Sandön from Sandhamn ferry quay.",
+    "Sandhamn is the village and Sandön is the island; use both names carefully in descriptions.",
+    "The loop passes harbor village, sandy pine forest, exposed sea views, Trouville, Västerudden, cemetery/chapel context and back through the village.",
+    "Village-wide pilot/customs history is important context but is better represented by the Tullhuset/museum POI plus description text than by a separate no-coordinate POI.",
+    "Do not apply Blekinge/Karlskrona Sandhamn Natura 2000 SE0410225, Sandhammaren reserve in Skåne/Ystad, Gotska Sandön/Fårö facts or Svartkobben rules to the main SAT Sandhamn loop.",
+    "Draft-to-app mapping required: promote selected facilitiesDraft and pointsOfInterestDraft records during integration; pendingFacilityDraft, emergencyMetadataDraft and secondaryPoiDraft are not normal app-facing layers by default.",
+    "Do not expose the Google Drive officialGpxUrl directly as a runtime geometry source. Import/store the actual GPX/polyline artifact, and keep Google KML/PDF/Outdooractive as conflict evidence.",
+    "Keep low-authority or blocked/community links such as AllTrails, Wikivoyage, Trippa, Restaurants10, Cafekartan and Commons out of final user-facing citations when stronger official/operator sources exist."
+  ],
+  "facilities": [
+    {
+      "id": "sat-sandhamn-harbor-public-toilet",
+      "name": "Sandhamn harbor public toilet",
+      "type": "toilet",
+      "sectionId": "sat-sandhamn",
+      "coordinates": [
+        59.28791,
+        18.917023
+      ],
+      "description": "SAT-confirmed public harbor toilet about 100 m east of Sandhamn ferry quay; OSM node matches closely. Keep distinct from KSSS marina services.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-sandhamn/step-by-step-hiking-instruction-section-sandhamn/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-sandhamn-harbor-drinking-water",
+      "name": "Sandhamn harbor drinking water",
+      "type": "water",
+      "sectionId": "sat-sandhamn",
+      "coordinates": [
+        59.28791,
+        18.917023
+      ],
+      "description": "Primary hiker refill remains the SAT-confirmed harbor toilet/water node. Do not merge with KSSS dock water.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-sandhamn/step-by-step-hiking-instruction-section-sandhamn/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-sandhamn-trouville-toilets-east",
+      "name": "Trouville beach toilets",
+      "type": "toilet",
+      "sectionId": "sat-sandhamn",
+      "coordinates": [
+        59.273906,
+        18.924232
+      ],
+      "description": "Route-side dry toilet at Trouville. OSM says no drinking water; Naturkartan supports nearby toilet availability.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org/way/1145185653",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-sandhamn-trouville-toilets-west",
+      "name": "Lilla Trouville toilet",
+      "type": "toilet",
+      "sectionId": "sat-sandhamn",
+      "coordinates": [
+        59.274363,
+        18.921221
+      ],
+      "description": "Second mapped route-side dry toilet in the Trouville/Lilla Trouville area. Keep seasonal/verify caveat and do not treat Sandhamn.net or Naturkartan as confirming two distinct toilets.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org/way/1145185654",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-sandhamn-flaskberget-toilet",
+      "name": "Fläskberget toilet",
+      "type": "toilet",
+      "sectionId": "sat-sandhamn",
+      "coordinates": [
+        59.289117,
+        18.905625
+      ],
+      "description": "Local sources confirm toilets at Fläskberget, but it is a short spur/near-route facility rather than directly on the SAT line. Treat OSM drinking_water=yes as guarded until non-OSM verification is found.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "OpenStreetMap",
+        "url": "https://www.openstreetmap.org/node/5734098673",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-sandhamn-westerbergs-livs",
+      "name": "Westerbergs Livs / Tempo Sandhamn",
+      "type": "food",
+      "sectionId": "sat-sandhamn",
+      "coordinates": [
+        59.288472,
+        18.91463
+      ],
+      "description": "Main grocery/resupply candidate in Sandhamn village, very close to the ferry quay.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "westerbergslivs.se",
+        "url": "https://westerbergslivs.se/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-sandhamn-vardshus-food",
+      "name": "Sandhamns Värdshus",
+      "type": "food",
+      "sectionId": "sat-sandhamn",
+      "coordinates": [
+        59.289496,
+        18.914315
+      ],
+      "description": "Historic inn/restaurant/pub near Sandhamn village and the ferry quay.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "destinationsandhamn.se",
+        "url": "https://destinationsandhamn.se/en/eat/restaurant/sandhamns-vardshus/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-sandhamn-seglarhotell-food-lodging",
+      "name": "Sandhamn Seglarhotell",
+      "type": "food",
+      "sectionId": "sat-sandhamn",
+      "coordinates": [
+        59.287933,
+        18.918591
+      ],
+      "description": "Hotel with restaurants/bars/spa close to the harbor; useful as a service landmark but not a public trail utility.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "sandhamn.com",
+        "url": "https://www.sandhamn.com/en",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-sandhamn-sands-hotell-bistro",
+      "name": "Sands Hotell Bistro",
+      "type": "food",
+      "sectionId": "sat-sandhamn",
+      "coordinates": [
+        59.287954,
+        18.914614
+      ],
+      "description": "Hotel/service candidate near the village/ferry area. Keep bistro-hour claims guarded until a live direct bistro page is verified.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "sandshotell.se",
+        "url": "https://sandshotell.se/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-sandhamn-bageriet",
+      "name": "Sandhamns Bageri",
+      "type": "food",
+      "sectionId": "sat-sandhamn",
+      "coordinates": [
+        59.289768,
+        18.914181
+      ],
+      "description": "Seasonal bakery/cafe in Sandhamn village.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "sandhamnsbageriet.com",
+        "url": "https://www.sandhamnsbageriet.com/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-sandhamn-dykarbaren",
+      "name": "Dykarbaren",
+      "type": "food",
+      "sectionId": "sat-sandhamn",
+      "coordinates": [
+        59.288555,
+        18.914379
+      ],
+      "description": "Seasonal harbor restaurant/bar close to the ferry area. Use Destination Sandhamn publicly; the operator domain is retained only as tainted/internal research because iteration 5 found unrelated spam text in its live HTML.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "destinationsandhamn.se",
+        "url": "https://destinationsandhamn.se/en/eat/restaurant/the-diving-bar/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-sandhamn-trouville-beach",
+      "name": "Trouville beach",
+      "type": "swimming",
+      "sectionId": "sat-sandhamn",
+      "coordinates": [
+        59.274082,
+        18.922054
+      ],
+      "description": "Signature southeast beach and major route anchor after the eastern/southern forest section; use as the primary beach POI.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "sandhamn.com",
+        "url": "https://www.sandhamn.com/en/upptack-sandhamn",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-sandhamn-kvarnberget-viewpoint",
+      "name": "Kvarnberget",
+      "type": "attraction",
+      "sectionId": "sat-sandhamn",
+      "coordinates": [
+        59.289637,
+        18.910256
+      ],
+      "description": "Village-side viewpoint above the old shipyard; good cultural/nature viewpoint POI.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "sandhamn.com",
+        "url": "https://www.sandhamn.com/en/sevardheter/natur",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-sandhamn-vasterudden",
+      "name": "Västerudden / Västerudde strand",
+      "type": "attraction",
+      "sectionId": "sat-sandhamn",
+      "coordinates": [
+        59.290906,
+        18.897045
+      ],
+      "description": "Western point and western-return route anchor before the cemetery/village return; keep primary because it helps structure the loop spatially. Coordinate follows the cited OSM Västerudden node.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "Stockholm Archipelago Trail",
+        "url": "https://stockholmarchipelagotrail.com/section/section-sandhamn/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-sandhamn-customs-house-museum",
+      "name": "Sandhamn customs house museum",
+      "type": "heritage",
+      "sectionId": "sat-sandhamn",
+      "coordinates": [
+        59.289389,
+        18.915167
+      ],
+      "description": "Tullhuset and museum heritage cluster tied to Sandhamn's pilot, customs, fishing, hunting and smuggling history; use this as the main heritage marker instead of a separate no-coordinate pilot/customs POI.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "stockholmshamnar.se",
+        "url": "https://www.stockholmshamnar.se/Historia/Platser/Sandhamn/",
+        "lastFetchedAt": "2026-04-26"
+      }
+    },
+    {
+      "id": "sat-sandhamn-kapell-cemetery",
+      "name": "Sandhamn cemetery and chapel heritage cluster",
+      "type": "heritage",
+      "sectionId": "sat-sandhamn",
+      "coordinates": [
+        59.288358,
+        18.905451
+      ],
+      "description": "Cemetery and chapel heritage cluster on the village return. Render the cemetery as the primary pin because it is directly route-relevant; keep the chapel as child/secondary coordinate.",
+      "routeProximity": {
+        "status": "unknown",
+        "thresholdKm": 2
+      },
+      "source": {
+        "provider": "sandhamn.com",
+        "url": "https://www.sandhamn.com/en/sevardheter/natur",
+        "lastFetchedAt": "2026-04-26"
+      }
+    }
+  ],
+  "endpointCoordinates": {
+    "source": "approximate",
+    "start": [
+      59.288453,
+      18.915581
+    ],
+    "end": [
+      59.288453,
+      18.915581
+    ]
+  },
+  "accessPoints": [],
+  "source": {
+    "provider": "stockholm-archipelago-trail",
+    "url": "https://stockholmarchipelagotrail.com/section/section-sandhamn/",
+    "lastFetchedAt": "2026-04-26"
+  },
+  "route": {
+    "status": "marker-only"
+  }
+}

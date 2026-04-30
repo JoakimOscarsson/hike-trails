@@ -7,15 +7,17 @@ import type {
   RecommendedTime
 } from "../types";
 import {
-  hasTrailSystemRouteInRange,
+  hasTrailSystemRouteInDistanceWindow,
   hasTrailSystemRouteOver,
   trailDistanceFilterRanges,
+  trailTimeFilterRanges,
   type TrailDistanceFilter as DistanceFilter
 } from "./trailRouteSelection";
 import { isKayakTripIndexItem } from "../utils/libraryItem";
 
 export type { DistanceFilter };
-export type RecommendedTimeFilter = "all" | RecommendedTime;
+export type HikingTimeFilter = Exclude<RecommendedTime, "6-plus-days">;
+export type RecommendedTimeFilter = "all" | HikingTimeFilter;
 export type KayakDurationFilter = "all" | "half-day" | "dayhike" | "weekend" | "multi-day";
 export type KayakServiceFilter = "all" | "rental" | "launch" | "parking" | "overnight";
 export type KayakWaterZoneFilter = "all" | KayakWaterZone;
@@ -24,57 +26,49 @@ export type KayakConfidenceFilter = "all" | KayakRouteConfidence;
 
 export const distanceFilterRanges = trailDistanceFilterRanges;
 
+function finiteItemDistance(item: LibraryIndexItem) {
+  return typeof item.distanceKm === "number" && Number.isFinite(item.distanceKm) ? item.distanceKm : null;
+}
+
+function itemDistanceInWindow(item: LibraryIndexItem, minKm: number, maxKm?: number) {
+  const distanceKm = finiteItemDistance(item);
+  return (
+    (distanceKm !== null && distanceKm > minKm && (typeof maxKm !== "number" || distanceKm <= maxKm)) ||
+    hasTrailSystemRouteInDistanceWindow(item, minKm, maxKm)
+  );
+}
+
 export const distanceFilters: Array<{ id: DistanceFilter; label: string; matches: (item: LibraryIndexItem) => boolean }> = [
   { id: "all", label: "Any", matches: () => true },
   {
     id: "short",
     label: "0-5 km",
-    matches: (item) => {
-      const distanceKm = typeof item.distanceKm === "number" && Number.isFinite(item.distanceKm) ? item.distanceKm : 0;
-      return (
-        (distanceKm > distanceFilterRanges.short!.minKm && distanceKm <= distanceFilterRanges.short!.maxKm) ||
-        hasTrailSystemRouteInRange(item, distanceFilterRanges.short!.minKm, distanceFilterRanges.short!.maxKm)
-      );
-    }
+    matches: (item) => itemDistanceInWindow(item, distanceFilterRanges.short!.minKm, distanceFilterRanges.short!.maxKm)
   },
   {
     id: "half-day",
     label: "5-10 km",
-    matches: (item) => {
-      const distanceKm = typeof item.distanceKm === "number" && Number.isFinite(item.distanceKm) ? item.distanceKm : 0;
-      return (
-        (distanceKm > distanceFilterRanges["half-day"]!.minKm &&
-          distanceKm <= distanceFilterRanges["half-day"]!.maxKm) ||
-        hasTrailSystemRouteInRange(
-          item,
-          distanceFilterRanges["half-day"]!.minKm,
-          distanceFilterRanges["half-day"]!.maxKm
-        )
-      );
-    }
+    matches: (item) =>
+      itemDistanceInWindow(item, distanceFilterRanges["half-day"]!.minKm, distanceFilterRanges["half-day"]!.maxKm)
   },
   {
     id: "full-day",
     label: "10-20 km",
-    matches: (item) => {
-      const distanceKm = typeof item.distanceKm === "number" && Number.isFinite(item.distanceKm) ? item.distanceKm : 0;
-      return (
-        (distanceKm > distanceFilterRanges["full-day"]!.minKm &&
-          distanceKm <= distanceFilterRanges["full-day"]!.maxKm) ||
-        hasTrailSystemRouteInRange(
-          item,
-          distanceFilterRanges["full-day"]!.minKm,
-          distanceFilterRanges["full-day"]!.maxKm
-        )
-      );
-    }
+    matches: (item) =>
+      itemDistanceInWindow(item, distanceFilterRanges["full-day"]!.minKm, distanceFilterRanges["full-day"]!.maxKm)
   },
   {
     id: "long",
-    label: "20+ km",
+    label: "20-40 km",
+    matches: (item) => itemDistanceInWindow(item, distanceFilterRanges.long!.minKm, distanceFilterRanges.long!.maxKm)
+  },
+  {
+    id: "very-long",
+    label: "40+ km",
     matches: (item) =>
-      (typeof item.distanceKm === "number" && Number.isFinite(item.distanceKm) ? item.distanceKm > 20 : false) ||
-      hasTrailSystemRouteOver(item, 20)
+      (typeof item.distanceKm === "number" && Number.isFinite(item.distanceKm)
+        ? item.distanceKm > distanceFilterRanges["very-long"]!.minKm
+        : false) || hasTrailSystemRouteOver(item, distanceFilterRanges["very-long"]!.minKm)
   }
 ];
 
@@ -89,7 +83,13 @@ export const recommendedTimeLabels: Record<RecommendedTime, string> = {
   dayhike: "Day hike",
   weekend: "Weekend",
   "3-5-days": "3-5 days",
-  "6-plus-days": "6+ days"
+  "6-10-days": "6-10 days",
+  "10-plus-days": "10+ days",
+  "6-plus-days": "6-10 days"
+};
+
+const legacyTimeFilters: Partial<Record<HikingTimeFilter, RecommendedTime>> = {
+  "6-10-days": "6-plus-days"
 };
 
 export const recommendedTimeFilters: Array<{
@@ -98,10 +98,15 @@ export const recommendedTimeFilters: Array<{
   matches: (item: LibraryIndexItem) => boolean;
 }> = [
   { id: "all", label: "Any", matches: () => true },
-  ...Object.entries(recommendedTimeLabels).map(([id, label]) => ({
-    id: id as RecommendedTime,
-    label,
-    matches: (item: LibraryIndexItem) => item.recommendedTimes.includes(id as RecommendedTime)
+  ...Object.entries(trailTimeFilterRanges).map(([id, window]) => ({
+    id: id as HikingTimeFilter,
+    label: recommendedTimeLabels[id as HikingTimeFilter],
+    matches: (item: LibraryIndexItem) => {
+      if (itemDistanceInWindow(item, window.minKm, window.maxKm)) return true;
+      const legacyTime = legacyTimeFilters[id as HikingTimeFilter];
+      const recommendedTimes = item.recommendedTimes ?? [];
+      return recommendedTimes.includes(id as RecommendedTime) || (legacyTime ? recommendedTimes.includes(legacyTime) : false);
+    }
   }))
 ];
 
@@ -148,7 +153,8 @@ export function recommendedTimeForDistance(distanceKm: number): RecommendedTime 
   if (distanceKm <= 20) return "dayhike";
   if (distanceKm <= 50) return "weekend";
   if (distanceKm <= 125) return "3-5-days";
-  return "6-plus-days";
+  if (distanceKm <= 250) return "6-10-days";
+  return "10-plus-days";
 }
 
 export function formatDistance(distanceKm: number) {
@@ -185,7 +191,11 @@ export function kayakFacilityServiceMatches(facility: KayakFacility, filter: Kay
 
 export function kayakDurationMatches(item: LibraryIndexItem, filter: KayakDurationFilter) {
   if (filter === "all") return true;
-  if (filter === "multi-day") return item.recommendedTimes.includes("3-5-days") || item.recommendedTimes.includes("6-plus-days");
+  if (filter === "multi-day") {
+    return item.recommendedTimes.some((duration) =>
+      ["3-5-days", "6-10-days", "10-plus-days", "6-plus-days"].includes(duration)
+    );
+  }
   return item.recommendedTimes.some((duration) => duration === filter);
 }
 

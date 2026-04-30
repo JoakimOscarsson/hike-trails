@@ -4,6 +4,9 @@ import L from "leaflet";
 import type { TrailCommuteStop } from "../types";
 import { commuteStopLabel, escapeHtml, type SelectedTrailAccessPoint } from "./hikingFacilities";
 
+const commuteMarkerSize = 25;
+const commuteMarkerAnchor = commuteMarkerSize / 2;
+
 function formatDistance(distanceKm: number) {
   return `${Number(distanceKm.toFixed(1))} km`;
 }
@@ -25,35 +28,40 @@ export function commuteStopsForAccessPoints(accessPoints: SelectedTrailAccessPoi
   return [...commuteStops.values()];
 }
 
-export function addHikingCommuteMarkers({
-  accessPoints,
-  markerLayerGroup
+export type CommuteMapStop = TrailCommuteStop & { accessNames: string[] };
+
+export function commuteIcon(stop: TrailCommuteStop, spidered = false) {
+  return L.divIcon({
+    className: `commute-marker commute-marker-${stop.type}${spidered ? " commute-spider-marker" : ""}`,
+    html: renderToStaticMarkup(stop.type === "bus" ? <BusFront size={14} /> : <Train size={14} />),
+    iconSize: [commuteMarkerSize, commuteMarkerSize],
+    iconAnchor: [commuteMarkerAnchor, commuteMarkerAnchor]
+  });
+}
+
+export function commutePopup(stop: CommuteMapStop) {
+  return `<strong>${escapeHtml(stop.name)}</strong><br><span>${stop.type === "bus" ? "Bus stop" : "Train stop"}</span><br>${escapeHtml(
+    stop.accessNames.join(", ")
+  )}<br>${formatDistance(stop.distanceKm)} from nearest listed route endpoint.`;
+}
+
+export function addCommuteMarker({
+  markerLayerGroup,
+  coordinates,
+  spidered = false,
+  stop
 }: {
-  accessPoints: SelectedTrailAccessPoint[];
   markerLayerGroup: L.LayerGroup;
+  coordinates?: [number, number];
+  spidered?: boolean;
+  stop: CommuteMapStop;
 }) {
-  const markers: L.Layer[] = [];
-
-  for (const stop of commuteStopsForAccessPoints(accessPoints)) {
-    const icon = L.divIcon({
-      className: `commute-marker commute-marker-${stop.type}`,
-      html: renderToStaticMarkup(stop.type === "bus" ? <BusFront size={14} /> : <Train size={14} />),
-      iconSize: [25, 25],
-      iconAnchor: [12, 12]
-    });
-    const marker = L.marker(stop.coordinates, {
-      icon,
-      title: commuteStopLabel(stop)
-    })
-      .bindPopup(
-        `<strong>${escapeHtml(stop.name)}</strong><br><span>${stop.type === "bus" ? "Bus stop" : "Train stop"}</span><br>${escapeHtml(
-          stop.accessNames.join(", ")
-        )}<br>${formatDistance(stop.distanceKm)} from nearest listed route endpoint.`
-      )
-      .addTo(markerLayerGroup);
-
-    markers.push(marker);
-  }
-
-  return markers;
+  if (!coordinates) return null;
+  return L.marker(coordinates, {
+    icon: commuteIcon(stop, spidered),
+    title: commuteStopLabel(stop),
+    zIndexOffset: spidered ? 1000 : 0
+  })
+    .bindPopup(commutePopup(stop))
+    .addTo(markerLayerGroup);
 }
