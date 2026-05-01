@@ -226,6 +226,7 @@ export type TrailFacility = {
     | "service";
   sectionId: string;
   coordinates?: [number, number];
+  coordinateSource?: string;
   description: string;
   routeProximity?: {
     status: "on-route" | "off-route" | "unknown";

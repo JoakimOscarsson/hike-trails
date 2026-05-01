@@ -1,4 +1,4 @@
-import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, rm, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { writeTrailSystemSourceShards } from "./lib/hiking-source-shards.mjs";
@@ -477,6 +477,7 @@ async function buildTrailSystem(trailId, config) {
 
   const sectionGeometryById = new Map((routeGeometryIndex.sections ?? []).map((section) => [section.sectionId, section]));
   const normalFacilitiesBySectionId = groupNormalFacilities(facilities.records ?? []);
+  const facilityCoordinateLookupsBySectionId = await readSectionFacilityCoordinateLookups(trailId);
   const geometryEndpointsById = await readGeometryEndpointsById(trailId, routeSections.sections ?? [], sectionGeometryById);
   const orderedSections = [...(routeSections.sections ?? [])]
     .sort((left, right) => sectionOrderValue(left) - sectionOrderValue(right))
@@ -487,7 +488,8 @@ async function buildTrailSystem(trailId, config) {
         sectionGeometryById.get(section.sectionId),
         normalFacilitiesBySectionId.get(section.sectionId) ?? [],
         config,
-        geometryEndpointsById.get(section.sectionId)
+        geometryEndpointsById.get(section.sectionId),
+        facilityCoordinateLookupsBySectionId.get(section.sectionId)
       )
     );
   const runtimeRouteGroups = toRuntimeRouteGroups(routeTopology.routeGroups ?? [], config);
@@ -531,7 +533,7 @@ async function buildTrailSystem(trailId, config) {
   };
 }
 
-function toRuntimeSection(trailId, section, geometryRecord, normalFacilities, config = {}, geometryEndpoints) {
+function toRuntimeSection(trailId, section, geometryRecord, normalFacilities, config = {}, geometryEndpoints, facilityCoordinateLookup) {
   const routePath = `/routes/hiking/${trailId}/sections/${section.sectionId}.geojson`;
   const timingNotes = estimatedTimeNotes(section.estimatedTime);
   const configNotes = config.sectionNotesById?.[section.sectionId] ?? [];
@@ -561,7 +563,7 @@ function toRuntimeSection(trailId, section, geometryRecord, normalFacilities, co
     utilities: sectionUtilities(normalFacilities),
     waterSources: sectionWaterSources(normalFacilities),
     notes: caveatNotes,
-    facilities: normalFacilities.map((facility) => toRuntimeFacility(facility)),
+    facilities: normalFacilities.map((facility) => toRuntimeFacility(facility, facilityCoordinateLookup)),
     source: {
       provider: section.sourceSummary?.source ?? "candidate-research",
       url: section.sourceSummary?.sourceUrl ?? section.sourceSummary?.gpxUrl,
@@ -615,13 +617,15 @@ function groupNormalFacilities(records) {
   return grouped;
 }
 
-function toRuntimeFacility(record) {
+function toRuntimeFacility(record, facilityCoordinateLookup) {
+  const coordinateDetails = runtimeFacilityCoordinates(record, facilityCoordinateLookup);
   return {
     id: record.facilityId,
     name: record.name,
     type: record.primaryType,
     sectionId: record.sectionId,
-    ...(isLatLonPair(record.coordinatesLatLon) ? { coordinates: record.coordinatesLatLon } : {}),
+    ...(coordinateDetails ? { coordinates: coordinateDetails.coordinates } : {}),
+    ...(coordinateDetails?.source ? { coordinateSource: coordinateDetails.source } : {}),
     description: facilityDescription(record),
     source: {
       provider: "candidate-research",
@@ -630,6 +634,91 @@ function toRuntimeFacility(record) {
     },
     routeProximity: record.routeProximity
   };
+}
+
+function runtimeFacilityCoordinates(record, facilityCoordinateLookup) {
+  const normalizedCoordinates = toRuntimeLatLon(record.coordinatesLatLon);
+  if (normalizedCoordinates) {
+    return { coordinates: normalizedCoordinates.coordinates, source: normalizedCoordinates.source };
+  }
+
+  const sectionCoordinates =
+    facilityCoordinateLookup?.byId.get(record.facilityId) ?? facilityCoordinateLookup?.byName.get(normalizedFacilityKey(record.name));
+  return sectionCoordinates ?? null;
+}
+
+async function readSectionFacilityCoordinateLookups(trailId) {
+  const sectionsDir = path.join(candidateRoot, trailId, "sections");
+  const lookups = new Map();
+  let files = [];
+  try {
+    files = await readdir(sectionsDir);
+  } catch {
+    return lookups;
+  }
+
+  await Promise.all(
+    files
+      .filter((file) => file.endsWith(".research.json"))
+      .map(async (file) => {
+        const sectionPacket = await readJson(path.join(sectionsDir, file));
+        const sectionId = sectionPacket.sectionId ?? file.replace(/\.research\.json$/, "");
+        const lookup = { byId: new Map(), byName: new Map() };
+        for (const facility of sectionPacket.facilities ?? []) {
+          const coordinateDetails = toRuntimeLatLon(facility.coordinates, facility.coordinateSource);
+          if (!coordinateDetails) continue;
+          if (typeof facility.id === "string" && facility.id.trim()) {
+            lookup.byId.set(facility.id, coordinateDetails);
+          }
+          const nameKey = normalizedFacilityKey(facility.name);
+          if (nameKey && !lookup.byName.has(nameKey)) lookup.byName.set(nameKey, coordinateDetails);
+        }
+        lookups.set(sectionId, lookup);
+      })
+  );
+
+  return lookups;
+}
+
+function toRuntimeLatLon(value, source) {
+  if (isLatLonPair(value)) return { coordinates: value, source };
+  if (value && typeof value === "object" && !Array.isArray(value)) {
+    const lat = Number(value.lat);
+    const lon = Number(value.lon);
+    if (Number.isFinite(lat) && Number.isFinite(lon)) return { coordinates: [round(lat, 6), round(lon, 6)], source };
+  }
+  if (Array.isArray(value)) {
+    const points = value
+      .map((point) => {
+        if (isLatLonPair(point)) return point;
+        if (!point || typeof point !== "object") return null;
+        const lat = Number(point.lat);
+        const lon = Number(point.lon);
+        return Number.isFinite(lat) && Number.isFinite(lon) ? [lat, lon] : null;
+      })
+      .filter(Boolean);
+    if (points.length === 1) return { coordinates: [round(points[0][0], 6), round(points[0][1], 6)], source };
+    if (points.length > 1) {
+      const coordinates = [
+        round(points.reduce((sum, point) => sum + point[0], 0) / points.length, 6),
+        round(points.reduce((sum, point) => sum + point[1], 0) / points.length, 6)
+      ];
+      const sourceSuffix = "marker uses centroid of coordinate cluster";
+      return { coordinates, source: [source, sourceSuffix].filter(Boolean).join("; ") };
+    }
+  }
+  return null;
+}
+
+function normalizedFacilityKey(value) {
+  return String(value ?? "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .replace(/\s+/g, " ");
 }
 
 function facilityDescription(record) {

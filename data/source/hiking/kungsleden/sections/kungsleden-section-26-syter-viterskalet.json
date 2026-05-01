@@ -6,7 +6,7 @@
   "to": "Viterskalet",
   "distanceKm": 12,
   "estimatedTime": "3-4 hours",
-  "description": "Syter to Viterskalet. Candidate import from normalized research; verify current notices before publication.",
+  "description": "Syter to Viterskalet. Check current trail, access and service notices before departure.",
   "utilities": [
     "STF Syter Fjällstuga cluster (lodging)",
     "Syterskalet rastskydd (shelter)",
@@ -26,11 +26,11 @@
   "notes": [
     "Final runtime source/licensing/capture policy for Naturvårdsverket, Naturkartan and OSM/Waymarked.",
     "Endpoint snapping/splitting policy at Viterskalet shared boundary with section 27.",
-    "Confirm exact final AC3 clipping point and coordinate transformation in import tooling.",
     "If importing standalone facilities, use Naturvårdsverket Anordningar as the primary coordinate source for Syterskalet/Viterskalet toilet, bridge and help-phone points and keep OSM only as QA.",
     "Treat Viterskalet capacity as 32 guest beds from current STF descriptive text unless a future live recheck changes the page.",
     "Keep Viterskalet sauna suppressed unless a future official source adds it.",
-    "Refresh live currentness before import: Länsstyrelsen closures/bridges, STF hut dates/services, fire bans, SMHI forecasts/warnings and transit timetables."
+    "Refresh live currentness before import: Länsstyrelsen closures/bridges, STF hut dates/services, fire bans, SMHI forecasts/warnings and transit timetables.",
+    "Klippen E12 is coordinate-resolved from GTFS-derived BusMaps data; exact trailhead/side-trail modeling remains access metadata."
   ],
   "facilities": [
     {
@@ -38,6 +38,11 @@
       "name": "STF Syter Fjällstuga cluster",
       "type": "lodging",
       "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "coordinates": [
+        65.892751,
+        15.396695
+      ],
+      "coordinateSource": "STF hut coordinate; detailed facility points carried from section 25",
       "description": "Shared northern endpoint. Staffed STF hut in season with old/safety room, help phone, toilets, wood/self-service water routines, pets in limited rooms. No current official shop or sauna.",
       "source": {
         "provider": "candidate-research",
@@ -51,6 +56,11 @@
       "name": "Bridge west of Syter / Svärfarbäcken bridge",
       "type": "hazard",
       "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "coordinates": [
+        65.892319,
+        15.395007
+      ],
+      "coordinateSource": "OSM QA center; bridge existence from STF stage text",
       "description": "Bridge over Svärfarbäcken just west of STF Syter. STF explicitly says the stage crosses Svärfarbäcken by the bridge just west of the hut; Naturvårdsverket Anordningar confirms a hanging bridge on AC3 at 65.892310,15.394974.",
       "source": {
         "provider": "candidate-research",
@@ -64,6 +74,11 @@
       "name": "Syterskalet rastskydd",
       "type": "shelter",
       "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "coordinates": [
+        65.873729,
+        15.289164
+      ],
+      "coordinateSource": "Naturkartan SWEREF99 N7305866 E513189 converted to WGS84; Naturvårdsverket Anordningar 30337954 at 65.873775,15.289259; OSM QA 65.8737595,15.2891975",
       "description": "Official Länsstyrelsen/Naturkartan rest shelter in Syterskalet. Naturvårdsverket Anordningar confirms Rastskydd on AC3. Temporary rest only; no overnight except mountain-safety need. Has help-phone activity tag, emergency box and emergency wood replenished by Länsstyrelsen in winter.",
       "source": {
         "provider": "candidate-research",
@@ -77,6 +92,11 @@
       "name": "Syterskalet rastskydd toilet",
       "type": "toilet",
       "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "coordinates": [
+        65.873233,
+        15.290233
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30450267 <=20 m; OSM QA has a nearby but different point at 65.873687,15.289563",
       "description": "Official Naturvårdsverket Anordningar Dass point associated with AC3 and located about 73 m from the Syterskalet shelter coordinate. Treat OSM's nearby mapped toilet as QA only.",
       "source": {
         "provider": "candidate-research",
@@ -90,6 +110,11 @@
       "name": "Syterskalet / Syterbäcken bridge",
       "type": "hazard",
       "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "coordinates": [
+        65.86851,
+        15.319197
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30335467 <=20 m; OSM QA coordinate 65.868532,15.319193 matches within about 2 m",
       "description": "Official Naturvårdsverket Anordningar bridge on AC3 in the Syterskalet/Syterbäcken area. This resolves the earlier OSM-only bridge caveat.",
       "source": {
         "provider": "candidate-research",
@@ -116,6 +141,11 @@
       "name": "Tent/camping near Viterskalet",
       "type": "camping",
       "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "coordinates": [
+        65.885314,
+        15.15853
+      ],
+      "coordinateSource": "STF Viterskalet hut coordinate as endpoint proxy; Naturkartan text",
       "description": "Naturkartan/Länsstyrelsen section page says there are many good tent sites closer to Viterskalsstugan. No discrete official tent-site coordinate found.",
       "source": {
         "provider": "candidate-research",
@@ -129,6 +159,11 @@
       "name": "STF Viterskalet Fjällstuga cluster",
       "type": "lodging",
       "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "coordinates": [
+        65.885314,
+        15.15853
+      ],
+      "coordinateSource": "STF hut coordinate; Naturvårdsverket Anordningar confirms two overnight-hut points in the cluster at 65.884982,15.158540 and Lilla Viterskalsstugan 65.885067,15.158082",
       "description": "Endpoint STF hut on Kungsleden. Current STF text says 32 guest beds, self-catering kitchen, drying room, wash room, dog/safety room, water/wood self-service routine and shop with large assortment. No current official sauna found.",
       "source": {
         "provider": "candidate-research",
@@ -142,6 +177,11 @@
       "name": "Viterskalet shop",
       "type": "food",
       "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "coordinates": [
+        65.885314,
+        15.15853
+      ],
+      "coordinateSource": "STF hut coordinate; no separate shop point",
       "description": "STF Viterskalet page lists a shop in the small cabin with large assortment; STF shop page lists Viterskalet among hut shops.",
       "source": {
         "provider": "candidate-research",
@@ -155,6 +195,11 @@
       "name": "Viterskalet safety room",
       "type": "service",
       "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "coordinates": [
+        65.885314,
+        15.15853
+      ],
+      "coordinateSource": "STF/Naturkartan hut coordinate",
       "description": "Naturkartan says the first room on the right in the main cabin is an open safety room outside STF season and also dog room. STF says one 4-bed room is used as safety room.",
       "source": {
         "provider": "candidate-research",
@@ -168,6 +213,11 @@
       "name": "Viterskalet help phone",
       "type": "emergency-phone",
       "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "coordinates": [
+        65.885193,
+        15.15831
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30389710 <=20 m",
       "description": "Official help phone point in the Viterskalet endpoint cluster, associated with AC3 and AC8.",
       "source": {
         "provider": "candidate-research",
@@ -181,6 +231,11 @@
       "name": "Viterskalet toilet",
       "type": "toilet",
       "sectionId": "kungsleden-section-26-syter-viterskalet",
+      "coordinates": [
+        65.885083,
+        15.158909
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30597807 <=20 m; OSM QA 65.885127,15.158924",
       "description": "Official Naturvårdsverket Anordningar Dass point in the Viterskalet hut cluster, corroborating OSM's nearby toilet point.",
       "source": {
         "provider": "candidate-research",
@@ -236,6 +291,14 @@
     "geojsonPath": "/routes/hiking/kungsleden/sections/kungsleden-section-26-syter-viterskalet.geojson"
   },
   "endpointCoordinates": {
-    "source": "candidate-normalized-route"
+    "source": "candidate-normalized-route-geometry",
+    "start": [
+      65.892704,
+      15.396523
+    ],
+    "end": [
+      65.884912,
+      15.157951
+    ]
   }
 }

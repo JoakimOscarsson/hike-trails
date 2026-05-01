@@ -55,6 +55,7 @@ Current handoff:
 - Boat, rowboat, road transfer and service-zone offsets are intentionally kept as transfer/access metadata or section notes rather than invented hiking linework.
 - The runtime import has one main route group, `kungsleden-mainline`, and one explicit Vakkotavare-Saltoluokta transfer. Sections 8, 10, 11, 13, 17 and 20 are marked `manual` route status because their map line is planning-grade or land-only around required transfer/gap context.
 - Runtime validation, generated-data checks and Kungsleden route-file sanity checks passed after import.
+- The initial runtime import carried the full facility inventory into section details but did not carry point coordinates into map markers. On 2026-05-01 the candidate importer was updated to backfill runtime facility coordinates from the section research packets when the normalized facility record lacks a point coordinate. After regenerating Kungsleden, 292 of 306 runtime facilities have map coordinates; the remaining unplaced records are broad water/service/transfer context without a safe single point.
 
 ## Safe Next Work
 

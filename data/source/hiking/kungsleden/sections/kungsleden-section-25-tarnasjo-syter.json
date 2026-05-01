@@ -6,7 +6,7 @@
   "to": "Syter",
   "distanceKm": 14,
   "estimatedTime": "4-5 hours STF; Naturkartan/Länsstyrelsen says 4-6 hours",
-  "description": "Tarnasjo to Syter. Candidate import from normalized research; verify current notices before publication.",
+  "description": "Tarnasjo to Syter. Check current trail, access and service notices before departure.",
   "utilities": [
     "STF Tärnasjö Fjällstuga (lodging)",
     "Lilla/Gamla Tärnasjöstugan (lodging)",
@@ -23,13 +23,10 @@
     "Syter hut / Svärfarbäcken water: Syter hut users fetch water from stream/lake; hut lies by/near Svärfarbäcken. Not treated tap water."
   ],
   "notes": [
-    "Final source/licensing/capture policy for Naturvårdsverket, Naturkartan and OSM/Waymarked geometry before runtime import.",
     "Endpoint snapping policy at Tärnasjö and Syter: route-line endpoints, hut centroids, or explicit short access connectors.",
-    "Recheck Naturkartan API/GPX availability and publish_gpx behavior for site 14045 before importing geometry.",
-    "Resolve whether NV-A bridge 30412704 at the life-ring point is a duplicate, side bridge or misaligned official bridge record before importing structure POIs.",
     "Re-verify Tärnasjö outdoor toilet coordinate/source if standalone toilet import is required.",
     "Refresh live currentness immediately before import: bridge closures/status, fire bans, SMHI warnings, STF hut seasons and transit timetables.",
-    "Decide whether prebooked helicopter access belongs in app access metadata or should be suppressed as non-ground/logistics-only information."
+    "If importing bridge POIs, compute route proximity against the final chosen route line rather than the simplified route estimates in the facility lane."
   ],
   "facilities": [
     {
@@ -37,6 +34,11 @@
       "name": "STF Tärnasjö Fjällstuga",
       "type": "lodging",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.988862,
+        15.49724
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30373994 <=20 m; STF/Naturkartan hut coordinate 65.988814,15.497300",
       "description": "Shared northern endpoint hut by Tärnasjön. STF/Naturkartan list 26-50 beds, self-catering kitchen, drying room, host in season, dog room, large-assortment shop and nearby sauna.",
       "source": {
         "provider": "candidate-research",
@@ -50,6 +52,11 @@
       "name": "Lilla/Gamla Tärnasjöstugan",
       "type": "lodging",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.98894,
+        15.495402
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30373993 <=20 m / Naturkartan site 4648",
       "description": "Older/secondary Tärnasjö hut building. Naturkartan says it functions as safety room outside STF season and dog room.",
       "source": {
         "provider": "candidate-research",
@@ -63,6 +70,11 @@
       "name": "Tärnasjö help phone",
       "type": "emergency-phone",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.989034,
+        15.496156
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30389718 <=20 m",
       "description": "Help phone in the Tärnasjöstugorna endpoint cluster.",
       "source": {
         "provider": "candidate-research",
@@ -76,6 +88,11 @@
       "name": "Tärnasjö sauna",
       "type": "service",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.988424,
+        15.494651
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30337589 <=20 m / Naturkartan Bastu Tärnasjöstugan",
       "description": "Sauna by Tärnasjön, used by STF hut guests. Attribute to Tärnasjö hut cluster unless standalone sauna POIs are supported.",
       "source": {
         "provider": "candidate-research",
@@ -89,6 +106,11 @@
       "name": "Tärnasjö outdoor toilet",
       "type": "toilet",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.988632,
+        15.497762
+      ],
+      "coordinateSource": "Naturkartan Dass Tärnasjöstugan site 5693 / section 24 carry-forward",
       "description": "Dry toilet at Tärnasjöstugorna. Facility lane did not find a matching AC2 NV-A toilet point, but official/Naturkartan hut evidence and prior section research support the coordinate.",
       "source": {
         "provider": "candidate-research",
@@ -102,6 +124,11 @@
       "name": "Tärnasjö wood storage",
       "type": "service",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.989078,
+        15.495471
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30599204 >20-50 m; assigned to adjacent AC16 in WFS but spatially in Tärnasjö cluster",
       "description": "Wood storage in the Tärnasjöstugorna hut cluster.",
       "source": {
         "provider": "candidate-research",
@@ -128,6 +155,11 @@
       "name": "Archipelago bridge 1 / Tärnasjöbroarna north bridge",
       "type": "hazard",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.914756,
+        15.474654
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30336590 <=20 m",
       "description": "Northern bridge in the seven-bridge Tärnasjö archipelago sequence.",
       "source": {
         "provider": "candidate-research",
@@ -141,6 +173,11 @@
       "name": "North archipelago toilet",
       "type": "toilet",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.914547,
+        15.475469
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30599196 <=20 m",
       "description": "Dry toilet near the north bridge cluster.",
       "source": {
         "provider": "candidate-research",
@@ -154,6 +191,11 @@
       "name": "Archipelago bridge 2",
       "type": "hazard",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.914261,
+        15.471551
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30336591 <=20 m",
       "description": "Second bridge in the official seven-bridge sequence.",
       "source": {
         "provider": "candidate-research",
@@ -167,6 +209,11 @@
       "name": "Archipelago bridge 3",
       "type": "hazard",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.913456,
+        15.469998
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30585806 <=20 m",
       "description": "Third bridge in the official seven-bridge sequence, near the shelter island.",
       "source": {
         "provider": "candidate-research",
@@ -180,6 +227,11 @@
       "name": "Tärnasjöbroarna wind shelter",
       "type": "shelter",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.913258,
+        15.468933
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30599195 >20-50 m; OSM node cross-check",
       "description": "Rest/weather shelter at the Tärnasjö bridge cluster. No fireplace confirmed.",
       "source": {
         "provider": "candidate-research",
@@ -193,6 +245,11 @@
       "name": "Tärnasjöbroarna toilet",
       "type": "toilet",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.913114,
+        15.467977
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30599194 >20-50 m; OSM node cross-check",
       "description": "Dry toilet near the shelter/bridge cluster.",
       "source": {
         "provider": "candidate-research",
@@ -206,6 +263,11 @@
       "name": "Tärnasjöbroarna life ring",
       "type": "service",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.910622,
+        15.47026
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30454521 <=20 m; OSM life-ring offset caveat",
       "description": "Safety life ring in/near the Tärnasjö bridge system.",
       "source": {
         "provider": "candidate-research",
@@ -219,6 +281,11 @@
       "name": "Archipelago bridge 4",
       "type": "hazard",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.909514,
+        15.467746
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30336592 <=20 m",
       "description": "Fourth bridge in the official seven-bridge sequence. The official point is offset from simplified route geometry.",
       "source": {
         "provider": "candidate-research",
@@ -232,6 +299,11 @@
       "name": "Archipelago bridge 5",
       "type": "hazard",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.908935,
+        15.465428
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30336593 <=20 m",
       "description": "Fifth bridge in the official seven-bridge sequence. The official point is offset from simplified route geometry.",
       "source": {
         "provider": "candidate-research",
@@ -245,6 +317,11 @@
       "name": "Archipelago bridge 6",
       "type": "hazard",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.908037,
+        15.460063
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30336594 <=20 m; OSM way cross-check",
       "description": "First of the two non-suspension/beam bridges in the official seven-bridge system.",
       "source": {
         "provider": "candidate-research",
@@ -258,6 +335,11 @@
       "name": "Archipelago bridge 7 / southern bridge",
       "type": "hazard",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.903547,
+        15.454128
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30477412 <=20 m; OSM way cross-check",
       "description": "Second non-suspension/beam bridge and southernmost bridge in the official seven-bridge system. STF says it is roughly 4 km from the last bridge to Syter.",
       "source": {
         "provider": "candidate-research",
@@ -271,6 +353,11 @@
       "name": "STF Syter Fjällstuga",
       "type": "lodging",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.892759,
+        15.396654
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30337955 <=20 m; STF GPS 65.892751,15.396695; OSM node 339309788 cross-check",
       "description": "Shared southern endpoint hut beside/near Svärfarbäcken at the treeline. STF/Naturkartan list 26-50 beds, self-catering, drying room, old hut safety/dog room, help phone and good Telia coverage. No current official shop or sauna listing.",
       "source": {
         "provider": "candidate-research",
@@ -284,6 +371,11 @@
       "name": "Gamla Syterstugan / secondary Syter hut",
       "type": "lodging",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.891585,
+        15.397598
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30382516 <=20 m / Naturkartan site 4652",
       "description": "Old Syter hut near main hut. Naturkartan says it is safety room outside STF season and dog room.",
       "source": {
         "provider": "candidate-research",
@@ -297,6 +389,11 @@
       "name": "Syter help phone",
       "type": "emergency-phone",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.891587,
+        15.397672
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30389716 <=20 m",
       "description": "Help phone at Syterstugorna, confirmed by Naturkartan.",
       "source": {
         "provider": "candidate-research",
@@ -310,6 +407,11 @@
       "name": "Syter toilet",
       "type": "toilet",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.892845,
+        15.397473
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30599192 <=20 m",
       "description": "Dry toilet in the Syter hut cluster.",
       "source": {
         "provider": "candidate-research",
@@ -323,6 +425,11 @@
       "name": "Syter wood storage",
       "type": "service",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.892865,
+        15.397418
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30599193 <=20 m",
       "description": "Wood storage in the Syter hut cluster.",
       "source": {
         "provider": "candidate-research",
@@ -336,6 +443,11 @@
       "name": "Syter mobile coverage",
       "type": "service",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.892759,
+        15.396654
+      ],
+      "coordinateSource": "Syter hut coordinate",
       "description": "Naturkartan/STF source text reports good Telia coverage at Syter. Model as access/safety metadata, not standalone POI.",
       "source": {
         "provider": "candidate-research",
@@ -349,6 +461,11 @@
       "name": "Svärfarbäcken bridge west of Syter",
       "type": "hazard",
       "sectionId": "kungsleden-section-25-tarnasjo-syter",
+      "coordinates": [
+        65.89231,
+        15.394974
+      ],
+      "coordinateSource": "Naturvårdsverket Anordningar 30378907 <=20 m; OSM way cross-check",
       "description": "Bridge just west of Syter that belongs to the next Syter-Viterskalet section. Useful endpoint connector note, not a section-25 facility.",
       "source": {
         "provider": "candidate-research",
@@ -404,6 +521,14 @@
     "geojsonPath": "/routes/hiking/kungsleden/sections/kungsleden-section-25-tarnasjo-syter.geojson"
   },
   "endpointCoordinates": {
-    "source": "candidate-normalized-route"
+    "source": "candidate-normalized-route-geometry",
+    "start": [
+      65.988715,
+      15.496932
+    ],
+    "end": [
+      65.892704,
+      15.396523
+    ]
   }
 }
