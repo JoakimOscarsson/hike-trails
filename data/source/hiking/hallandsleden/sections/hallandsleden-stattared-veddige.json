@@ -6,7 +6,7 @@
   "to": "Veddige",
   "distanceKm": 15,
   "estimatedTime": "No official estimate",
-  "description": "Stättared to Veddige. Candidate import from normalized research; verify current notices before publication.",
+  "description": "Stättared to Veddige. Check current trail, access and service notices before departure.",
   "utilities": [
     "Lägerplats Stättared (shelter)",
     "Björkholmens Glamping (lodging)",
@@ -26,12 +26,10 @@
     "Natural water along route: undefined"
   ],
   "notes": [
-    "Before normalization, verify exact Stättared shelter toilet point and whether any toilet should be modeled separately from the shelter/farm cluster.",
-    "Confirm whether Stättareds 4H water tap is available when farm buildings/cafe are unmanned.",
-    "Verify exact Stättared 4H parking-lot coordinate if parking is imported as a point.",
     "Find official Veddige station parking coordinates and posted time limits before importing parking metadata.",
-    "Decide how to model Dranstugan official facilities: adjacent/nearest-campsite metadata, N5 context, side-trip metadata, or suppression for current N4.",
-    "Resolve Dranstugan water seasonality conflict if Dranstugan is later imported anywhere."
+    "Run protected-area polygon overlay before final normalization to confirm whether Skoga or any other protected area intersects the N4 GPX.",
+    "No exact 2025-2026 first-person hiking report for the current post-2024 Stättared - Veddige alignment was found; use recent corridor reports only as caveated condition evidence.",
+    "Timing note: No official section-specific hiking time found. The official Hallandsleden page and API provide distance and difficulty only. At Hallandsleden's general planning pace of about 4 km/hour, 15 km implies about 3 h 45 min moving time, but this is not an official value and the red/hard grading reflects hilly and sometimes wet terrain."
   ],
   "facilities": [
     {
@@ -39,6 +37,11 @@
       "name": "Lägerplats Stättared",
       "type": "shelter",
       "sectionId": "hallandsleden-stattared-veddige",
+      "coordinates": [
+        57.345543,
+        12.353001
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Shelter for 4-5 adults at Stora Hornsjön with two fireplaces, toilet, bathing place and fishing nearby. Drinking water is at Stättareds 4H-gård, not at the shelter. Exact toilet placement needs normalization; sources associate toilet service with the Stättared shelter/farm cluster. Fire use depends on current fire-risk and fire-ban status.",
       "source": {
         "provider": "candidate-research",
@@ -54,6 +57,11 @@
       "name": "Rastplats vid Hornsjön",
       "type": "rest-area",
       "sectionId": "hallandsleden-stattared-veddige",
+      "coordinates": [
+        57.340338,
+        12.354834
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Rest point with seating and view over Stora Hornsjön. Likely overlaps unnamed local viewpoint objects; avoid duplicate OSM-derived viewpoint imports unless later normalized.",
       "source": {
         "provider": "candidate-research",
@@ -69,6 +77,11 @@
       "name": "Torpet Dalen",
       "type": "heritage",
       "sectionId": "hallandsleden-stattared-veddige",
+      "coordinates": [
+        57.339588,
+        12.35211
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Ruin of a former ridge-roof croft associated with Anna Charlotta 'Bär-Lotta' Friberg.",
       "source": {
         "provider": "candidate-research",
@@ -84,6 +97,11 @@
       "name": "Stenhäll med inskriptioner",
       "type": "heritage",
       "sectionId": "hallandsleden-stattared-veddige",
+      "coordinates": [
+        57.327905,
+        12.347884
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Inscribed stone slab near the trail; official text mentions names and the year 1864.",
       "source": {
         "provider": "candidate-research",
@@ -99,7 +117,12 @@
       "name": "Björkholmens Glamping",
       "type": "lodging",
       "sectionId": "hallandsleden-stattared-veddige",
-      "description": "Private bookable glamping at southwest Stora Hornsjön with running water, fireplace, toilet, shower and lake bathing nearby. Official text says 200 m from Hallandsleden while GPX proximity computes about 10 m; verify active booking/current availability before public use. Do not model private water/toilet/fireplace as public trail facilities.",
+      "coordinates": [
+        57.322362,
+        12.352828
+      ],
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Private bookable glamping at southwest Stora Hornsjön with running water, fireplace, toilet, shower and lake bathing nearby. Official text says 200 m from Hallandsleden while GPX proximity computes about 10 m; Check active booking/current availability before public use. Do not model private water/toilet/fireplace as public trail facilities.",
       "source": {
         "provider": "candidate-research",
         "url": "https://www.hallandsleden.se/plats/bjorkholmens-glamping",
@@ -114,6 +137,11 @@
       "name": "Stenbro från förr",
       "type": "heritage",
       "sectionId": "hallandsleden-stattared-veddige",
+      "coordinates": [
+        57.305696,
+        12.376196
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Old flat-stone bridge on a former track near Ärsjöarna. Official text warns hikers to be careful on the stones at high water.",
       "source": {
         "provider": "candidate-research",
@@ -129,6 +157,11 @@
       "name": "Fin utsikt",
       "type": "viewpoint",
       "sectionId": "hallandsleden-stattared-veddige",
+      "coordinates": [
+        57.302957,
+        12.373684
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Small viewpoint/rest point with forest views.",
       "source": {
         "provider": "candidate-research",
@@ -144,6 +177,11 @@
       "name": "Dricksvatten vid Veddige station",
       "type": "water",
       "sectionId": "hallandsleden-stattared-veddige",
+      "coordinates": [
+        57.267444,
+        12.336598
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Drinking-water tap outside the toilet at Veddige bus/train station; Varberg municipality is listed as responsible.",
       "source": {
         "provider": "candidate-research",
@@ -159,6 +197,11 @@
       "name": "Toalett Veddige station",
       "type": "toilet",
       "sectionId": "hallandsleden-stattared-veddige",
+      "coordinates": [
+        57.267439,
+        12.336571
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Public toilet at Veddige bus/train station, open year-round 07:00-23:00 according to official place text; drinking water is available outside.",
       "source": {
         "provider": "candidate-research",
@@ -174,7 +217,12 @@
       "name": "Hemköp Veddige",
       "type": "food",
       "sectionId": "hallandsleden-stattared-veddige",
-      "description": "Grocery store in central Veddige; official Hallandsleden text says open 08:00-21:00 daily. Verify store opening hours before public use.",
+      "coordinates": [
+        57.266743,
+        12.333688
+      ],
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Grocery store in central Veddige; official Hallandsleden text says open 08:00-21:00 daily. Check store opening hours before public use.",
       "source": {
         "provider": "candidate-research",
         "url": "https://www.hallandsleden.se/plats/hemkop-veddige",
@@ -189,6 +237,11 @@
       "name": "Hållplats - Veddige Station",
       "type": "transit",
       "sectionId": "hallandsleden-stattared-veddige",
+      "coordinates": [
+        57.2671,
+        12.337424
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Endpoint bus/train access at Veddige station; official text mentions Hallandstrafiken bus 616 and train service on Viskadalsbanan.",
       "source": {
         "provider": "candidate-research",
@@ -204,7 +257,12 @@
       "name": "Dricksvatten Stättareds gård",
       "type": "water",
       "sectionId": "hallandsleden-stattared-veddige",
-      "description": "Water refill at Stättareds 4H-gård via side path from the trail. Verify whether the tap is accessible when farm/cafe buildings are unmanned. Do not model as water at the Stättared shelter itself.",
+      "coordinates": [
+        57.337893,
+        12.340409
+      ],
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Water refill at Stättareds 4H-gård via side path from the trail. Check whether the tap is accessible when farm/cafe buildings are unmanned. Do not model as water at the Stättared shelter itself.",
       "source": {
         "provider": "candidate-research",
         "url": "https://www.hallandsleden.se/plats/dricksvatten-stattareds-gard",
@@ -219,6 +277,11 @@
       "name": "Stättareds 4H-gård & vandrarhem",
       "type": "lodging",
       "sectionId": "hallandsleden-stattared-veddige",
+      "coordinates": [
+        57.33789,
+        12.3404
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "4H farm, hostel, seasonal cafe, tent/camper options and paid parking; farm grounds are described as year-round while cafe hours are seasonal/weekend-based. Exact parking-lot coordinate should be verified before point import. Dogs are welcome but must be leashed around farm animals.",
       "source": {
         "provider": "candidate-research",
@@ -234,6 +297,11 @@
       "name": "Hållplats Stättaredsvägen",
       "type": "transit",
       "sectionId": "hallandsleden-stattared-veddige",
+      "coordinates": [
+        57.316419,
+        12.329476
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Bus stop for Stättared access; official text says 2.6 km walk to Stättareds 4H-gård, then local path to Hallandsleden.",
       "source": {
         "provider": "candidate-research",
@@ -249,6 +317,11 @@
       "name": "Hållplats Backen",
       "type": "transit",
       "sectionId": "hallandsleden-stattared-veddige",
+      "coordinates": [
+        57.370317,
+        12.363921
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Alternative Stättared access stop; official text says 4.4 km walk to Stättareds 4H-gård.",
       "source": {
         "provider": "candidate-research",
@@ -264,17 +337,11 @@
       "name": "Dricksvatten Stättareds gård",
       "type": "water",
       "sectionId": "hallandsleden-stattared-veddige",
-      "description": "",
-      "source": {
-        "provider": "candidate-research",
-        "lastFetchedAt": "2026-04-30"
-      }
-    },
-    {
-      "id": "hallandsleden-stattared-veddige-watersources-1-stattared-shelter-water",
-      "name": "Stättared shelter water",
-      "type": "water",
-      "sectionId": "hallandsleden-stattared-veddige",
+      "coordinates": [
+        57.337893,
+        12.340409
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "",
       "source": {
         "provider": "candidate-research",
@@ -286,17 +353,11 @@
       "name": "Dricksvatten vid Veddige station",
       "type": "water",
       "sectionId": "hallandsleden-stattared-veddige",
-      "description": "",
-      "source": {
-        "provider": "candidate-research",
-        "lastFetchedAt": "2026-04-30"
-      }
-    },
-    {
-      "id": "hallandsleden-stattared-veddige-watersources-4-natural-water-along-route",
-      "name": "Natural water along route",
-      "type": "water",
-      "sectionId": "hallandsleden-stattared-veddige",
+      "coordinates": [
+        57.267444,
+        12.336598
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "",
       "source": {
         "provider": "candidate-research",

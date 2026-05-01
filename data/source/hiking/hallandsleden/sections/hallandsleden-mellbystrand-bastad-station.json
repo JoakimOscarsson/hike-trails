@@ -6,7 +6,7 @@
   "to": "Båstad station",
   "distanceKm": 12,
   "estimatedTime": "No official estimate",
-  "description": "Mellbystrand to Båstad station. Candidate import from normalized research; verify current notices before publication.",
+  "description": "Mellbystrand to Båstad station. Check current trail, access and service notices before departure.",
   "utilities": [
     "Strandhotellet Mellbystrand (food)",
     "Hotell Hallandsgården Mellbystrand (lodging)",
@@ -22,11 +22,8 @@
   ],
   "notes": [
     "Use the local draw-ready GeoJSON artifact for rendering if a renderer cannot tolerate the official 762.82 m sparse segment; manually QA the segment before navigation-grade turn-detail import.",
-    "Decide endpoint snapping for the approximately 10.82 m K9-to-K10 Mellbystrand handoff and the Båstad station/Skåneleden terminal context.",
-    "Confirm whether OSM-only Mellbyvägen drinking water is public/current before importing it.",
-    "Confirm whether OSM-only BBQ/grill candidates at Mellbystrand and Allarp/Hemmeslöv are public/current and legal to use under local/reserve fire rules.",
-    "Decide import policy for private/side services 300-600 m from the route, including Havsstugorna, Solstickan, Båstad Camping and Mellbystrands Camping.",
-    "Suppress or side-model Hemmeslövsstrand, Malen and Båstad town/harbour official place records unless a broad endpoint city-service layer is intentionally supported."
+    "Suppress or side-model Hemmeslövsstrand, Malen and Båstad town/harbour official place records unless a broad endpoint city-service layer is intentionally supported.",
+    "Keep local Kustslingan, Skåneleden connector and route-app evidence separate from K10 canonical geometry."
   ],
   "facilities": [
     {
@@ -298,7 +295,7 @@
     {
       "id": "hallandsleden-mellbystrand-bastad-station-facilities-22-bastad-station-service-cluster",
       "name": "Båstad station service cluster",
-      "type": "transit",
+      "type": "service",
       "sectionId": "hallandsleden-mellbystrand-bastad-station",
       "coordinates": [
         56.4311641,
@@ -325,6 +322,14 @@
     "geojsonPath": "/routes/hiking/hallandsleden/sections/hallandsleden-mellbystrand-bastad-station.geojson"
   },
   "endpointCoordinates": {
-    "source": "candidate-normalized-route"
+    "source": "candidate-normalized-route-geometry",
+    "start": [
+      56.514711,
+      12.949898
+    ],
+    "end": [
+      56.432153,
+      12.906457
+    ]
   }
 }

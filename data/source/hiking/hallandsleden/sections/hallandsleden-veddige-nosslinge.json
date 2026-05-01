@@ -6,7 +6,7 @@
   "to": "Nösslinge",
   "distanceKm": 28,
   "estimatedTime": "No official estimate",
-  "description": "Veddige to Nösslinge. Candidate import from normalized research; verify current notices before publication.",
+  "description": "Veddige to Nösslinge. Check current trail, access and service notices before departure.",
   "utilities": [
     "Hållplats - Veddige Station (transit)",
     "Toalett Veddige station (toilet)",
@@ -28,10 +28,7 @@
   "notes": [
     "Preserve official 351-point MultiLineString geometry as-is, or allow a later non-authoritative densification/QA process for the 1.9 km max coordinate gap and inter-segment gaps.",
     "Flag the official GPX desc 'Total: 8.6 km' in any future importer so it is not confused with section distance.",
-    "Verify Dranstugan water tap seasonality/current operation before public guarantee.",
-    "Verify Nösslinge church water/service-building access before public guarantee.",
-    "Confirm Hallandstrafiken line 661 timetable for the intended hiking date, including any order-required markings and weekend/holiday exceptions.",
-    "Confirm Veddige station parking rules/capacity from Varberg municipality or on-site signage before importing formal parking metadata."
+    "Timing note: No official section-specific hiking time found. The official Hallandsleden page and API provide distance and difficulty only. At Hallandsleden's general planning pace of about 4 km/hour, 28 km implies about 7 hours moving time, but this is not an official value and the red/hard grading reflects length, steep slopes, wet/stony paths and mixed road/forest trail."
   ],
   "facilities": [
     {
@@ -39,6 +36,11 @@
       "name": "Hållplats - Veddige Station",
       "type": "transit",
       "sectionId": "hallandsleden-veddige-nosslinge",
+      "coordinates": [
+        57.2671,
+        12.337424
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Official start/end stop for Veddige stages; bus and train stop. Hallandsleden states bus 616 and Viskadalsbanan service.",
       "source": {
         "provider": "candidate-research",
@@ -54,6 +56,11 @@
       "name": "Toalett Veddige station",
       "type": "toilet",
       "sectionId": "hallandsleden-veddige-nosslinge",
+      "coordinates": [
+        57.267439,
+        12.336571
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Year-round toilet at Veddige bus/train station, stated open 07:00-23:00; also has drinking water. Varberg municipality responsible.",
       "source": {
         "provider": "candidate-research",
@@ -69,6 +76,11 @@
       "name": "Dricksvatten vid Veddige station",
       "type": "water",
       "sectionId": "hallandsleden-veddige-nosslinge",
+      "coordinates": [
+        57.267444,
+        12.336598
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Drinking-water tap on the outside of the toilet at Veddige bus/train station.",
       "source": {
         "provider": "candidate-research",
@@ -84,7 +96,12 @@
       "name": "Hemköp Veddige",
       "type": "food",
       "sectionId": "hallandsleden-veddige-nosslinge",
-      "description": "Grocery store in central Veddige; official text says open 08:00-21:00 daily. Verify opening hours before publication/use.",
+      "coordinates": [
+        57.266743,
+        12.333688
+      ],
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Grocery store in central Veddige; official text says open 08:00-21:00 daily. Check opening hours before relying on it/use.",
       "source": {
         "provider": "candidate-research",
         "url": "https://www.hallandsleden.se/plats/hemkop-veddige",
@@ -99,7 +116,12 @@
       "name": "Kullagårdens Glutenfria Stenugnsbageri",
       "type": "food",
       "sectionId": "hallandsleden-veddige-nosslinge",
-      "description": "Gluten-free stone-oven bakery/cafe near the trail. Operator page describes cafe, pizza and picnic-basket options. Verify current opening hours before publication/use.",
+      "coordinates": [
+        57.259818,
+        12.334782
+      ],
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Gluten-free stone-oven bakery/cafe near the trail. Operator page describes cafe, pizza and picnic-basket options. Check current opening hours before relying on it/use.",
       "source": {
         "provider": "candidate-research",
         "url": "https://www.hallandsleden.se/plats/kullagardens-glutenfria-stenugnsbageri",
@@ -114,6 +136,11 @@
       "name": "Lägerplats Dranstugan skogen",
       "type": "shelter",
       "sectionId": "hallandsleden-veddige-nosslinge",
+      "coordinates": [
+        57.26178,
+        12.381845
+      ],
+      "coordinateSource": "Hallandsleden places API; Naturkartan corroborates nearby",
       "description": "Newer Dranstugan shelter for 4-5 adults with fireplace and wood store. Toilet, water and older shelter are a few hundred meters southwest along Hallandsleden toward Nösslinge; parking nearby. This was off current N4 but is on current N5 around route km 6.",
       "source": {
         "provider": "candidate-research",
@@ -129,6 +156,11 @@
       "name": "Lägerplats Dranstugan stugan",
       "type": "shelter",
       "sectionId": "hallandsleden-veddige-nosslinge",
+      "coordinates": [
+        57.261154,
+        12.381018
+      ],
+      "coordinateSource": "Hallandsleden places API; Naturkartan corroborates",
       "description": "Older Dranstugan shelter for 4-5 adults with fireplace, dry toilet and water tap on the adjacent red building. Water seasonality wording conflicts across official sources; import with verification/seasonal caveat.",
       "source": {
         "provider": "candidate-research",
@@ -144,7 +176,12 @@
       "name": "Dricksvatten vid Dranstugan",
       "type": "water",
       "sectionId": "hallandsleden-veddige-nosslinge",
-      "description": "Water tap at the red building by Dranstugan, activated by push button. Official Swedish/place data suggests year-round water, while other English wording implies summertime; verify before public guarantee.",
+      "coordinates": [
+        57.261084,
+        12.381034
+      ],
+      "coordinateSource": "Hallandsleden places API",
+      "description": "Water tap at the red building by Dranstugan, activated by push button. Official Swedish/place data suggests year-round water, while other English wording implies summertime; Check before public guarantee.",
       "source": {
         "provider": "candidate-research",
         "url": "https://www.hallandsleden.se/plats/dricksvatten-vid-dranstugan",
@@ -159,6 +196,11 @@
       "name": "Parkering Dranstugan / Kvarndalen area",
       "type": "parking",
       "sectionId": "hallandsleden-veddige-nosslinge",
+      "coordinates": [
+        57.259204,
+        12.378894
+      ],
+      "coordinateSource": "OSM node; official text mentions nearby parking but no separate official parking record",
       "description": "Parking mapped near the Dranstugan/Kvarndalen facility cluster.",
       "source": {
         "provider": "candidate-research",
@@ -174,6 +216,11 @@
       "name": "Skvaltkvarnar i Kvarndalen",
       "type": "heritage",
       "sectionId": "hallandsleden-veddige-nosslinge",
+      "coordinates": [
+        57.255385,
+        12.39046
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Official route feature: seven preserved water mills in Kvarndalen. Visit Varberg/Kvarnadalen context says the area has preserved mills and information signs.",
       "source": {
         "provider": "candidate-research",
@@ -189,6 +236,11 @@
       "name": "Rastplats Kvarnsten",
       "type": "rest-area",
       "sectionId": "hallandsleden-veddige-nosslinge",
+      "coordinates": [
+        57.249645,
+        12.435466
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Official rest place on the trail with a table made from an old millstone.",
       "source": {
         "provider": "candidate-research",
@@ -204,6 +256,11 @@
       "name": "Mäshults Kurs och lägergård",
       "type": "lodging",
       "sectionId": "hallandsleden-veddige-nosslinge",
+      "coordinates": [
+        57.220268,
+        12.517912
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Official nearby hostel/lodging with rooms, Wi-Fi and bathing/boating/fishing possibilities at lake Mäsen.",
       "source": {
         "provider": "candidate-research",
@@ -219,6 +276,11 @@
       "name": "Stensträngar",
       "type": "heritage",
       "sectionId": "hallandsleden-veddige-nosslinge",
+      "coordinates": [
+        57.209577,
+        12.516545
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Official on-route historic field-boundary feature: parallel stone rows from old narrow fields.",
       "source": {
         "provider": "candidate-research",
@@ -234,6 +296,11 @@
       "name": "Lägerplats Gällarpesjön",
       "type": "shelter",
       "sectionId": "hallandsleden-veddige-nosslinge",
+      "coordinates": [
+        57.209491,
+        12.538137
+      ],
+      "coordinateSource": "Hallandsleden places API; Naturkartan corroborates",
       "description": "Endpoint shelter/campsite at Gällarpesjön for 4-5 adults with fireplace and wood store. Nearby bathing site and fishing; fishing permit may be required. No drinking water at shelter. Do not import drinking water at this shelter; official water is at Nösslinge church.",
       "source": {
         "provider": "candidate-research",
@@ -249,6 +316,11 @@
       "name": "Toalett Gällarpesjön",
       "type": "toilet",
       "sectionId": "hallandsleden-veddige-nosslinge",
+      "coordinates": [
+        57.208598,
+        12.54142
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Toilet south/east of the shelter by the car parking area. Official text says there is also a small lakeside rest area, waste bins and recycling containers.",
       "source": {
         "provider": "candidate-research",
@@ -264,6 +336,11 @@
       "name": "Hållplats Gällarp",
       "type": "transit",
       "sectionId": "hallandsleden-veddige-nosslinge",
+      "coordinates": [
+        57.208241,
+        12.541052
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Bus stop by Gällarpesjön and the trail; official text states bus line 661 from Varberg station.",
       "source": {
         "provider": "candidate-research",
@@ -279,6 +356,11 @@
       "name": "Parkering Gällarpesjön",
       "type": "parking",
       "sectionId": "hallandsleden-veddige-nosslinge",
+      "coordinates": [
+        57.208397,
+        12.540586
+      ],
+      "coordinateSource": "Naturkartan direction coordinate; OSM node corroborates",
       "description": "Parking adjacent to the Gällarpesjön shelter area; Naturkartan states toilet plus several grills/fireplaces with bench tables.",
       "source": {
         "provider": "candidate-research",
@@ -294,6 +376,11 @@
       "name": "Dricksvatten vid Nösslinge kyrka",
       "type": "water",
       "sectionId": "hallandsleden-veddige-nosslinge",
+      "coordinates": [
+        57.209787,
+        12.555445
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Endpoint-area water source at the red service building outside Nösslinge church. Official text says about 1 km from Gällarpesjön shelter and about 500 m side trip for hikers coming from Åkulla.",
       "source": {
         "provider": "candidate-research",
@@ -309,6 +396,11 @@
       "name": "Nösslinge kyrka",
       "type": "heritage",
       "sectionId": "hallandsleden-veddige-nosslinge",
+      "coordinates": [
+        57.209641,
+        12.55482
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "Red wooden church near Stora Neten with medieval origins. Important as the landmark/service-building location for the off-route endpoint drinking water.",
       "source": {
         "provider": "candidate-research",
@@ -324,6 +416,11 @@
       "name": "Dricksvatten vid Veddige station",
       "type": "water",
       "sectionId": "hallandsleden-veddige-nosslinge",
+      "coordinates": [
+        57.267444,
+        12.336598
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "",
       "source": {
         "provider": "candidate-research",
@@ -335,17 +432,11 @@
       "name": "Dricksvatten vid Dranstugan",
       "type": "water",
       "sectionId": "hallandsleden-veddige-nosslinge",
-      "description": "",
-      "source": {
-        "provider": "candidate-research",
-        "lastFetchedAt": "2026-04-30"
-      }
-    },
-    {
-      "id": "hallandsleden-veddige-nosslinge-watersources-2-gallarpesjon-shelter-water",
-      "name": "Gällarpesjön shelter water",
-      "type": "water",
-      "sectionId": "hallandsleden-veddige-nosslinge",
+      "coordinates": [
+        57.261084,
+        12.381034
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "",
       "source": {
         "provider": "candidate-research",
@@ -357,17 +448,11 @@
       "name": "Dricksvatten vid Nösslinge kyrka",
       "type": "water",
       "sectionId": "hallandsleden-veddige-nosslinge",
-      "description": "",
-      "source": {
-        "provider": "candidate-research",
-        "lastFetchedAt": "2026-04-30"
-      }
-    },
-    {
-      "id": "hallandsleden-veddige-nosslinge-watersources-4-natural-water-along-route",
-      "name": "Natural water along route",
-      "type": "water",
-      "sectionId": "hallandsleden-veddige-nosslinge",
+      "coordinates": [
+        57.209787,
+        12.555445
+      ],
+      "coordinateSource": "Hallandsleden places API",
       "description": "",
       "source": {
         "provider": "candidate-research",

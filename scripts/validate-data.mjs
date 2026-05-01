@@ -575,7 +575,7 @@ async function validateTrailSystem(trailSystem, scope, { runRouteAudits = true }
       if (facility.sectionId !== section.id) {
         addError(facilityScope, `facility.sectionId "${facility.sectionId}" does not match containing section "${section.id}"`);
       }
-      validateLatLon(facilityScope, "coordinates", facility.coordinates);
+      validateLatLon(facilityScope, "coordinates", facility.coordinates, { required: true });
     }
 
     if (section.route?.status === "ready") {

@@ -563,7 +563,9 @@ function toRuntimeSection(trailId, section, geometryRecord, normalFacilities, co
     utilities: sectionUtilities(normalFacilities),
     waterSources: sectionWaterSources(normalFacilities),
     notes: caveatNotes,
-    facilities: normalFacilities.map((facility) => toRuntimeFacility(facility, facilityCoordinateLookup)),
+    facilities: normalFacilities
+      .map((facility) => toRuntimeFacility(facility, facilityCoordinateLookup))
+      .filter(hasRuntimeFacilityCoordinates),
     source: {
       provider: section.sourceSummary?.source ?? "candidate-research",
       url: section.sourceSummary?.sourceUrl ?? section.sourceSummary?.gpxUrl,
@@ -634,6 +636,10 @@ function toRuntimeFacility(record, facilityCoordinateLookup) {
     },
     routeProximity: record.routeProximity
   };
+}
+
+function hasRuntimeFacilityCoordinates(facility) {
+  return isLatLonPair(facility.coordinates);
 }
 
 function runtimeFacilityCoordinates(record, facilityCoordinateLookup) {

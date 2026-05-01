@@ -12,6 +12,8 @@ This directory contains both current app inputs and research-only candidate inpu
 
 Generated runtime data for the app lives in `public/data/`, and generated route geometry lives in `public/routes/`.
 
+Runtime hiking `facilities` are map-placeable records and must include `[lat, lon]` coordinates. Broader context such as "no confirmed water", hut policy, route-wide water availability, or service-area summaries should live in section notes, utilities, or water-source text instead of the facilities array.
+
 ## Research-Only Candidate Data
 
 Unfinished trail research lives under `research/candidate-trails/`.

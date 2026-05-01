@@ -177,6 +177,10 @@ function toLatLonPair(value) {
   return [round(Number(value[0]), 6), round(Number(value[1]), 6)];
 }
 
+function hasFacilityCoordinates(facility) {
+  return isLatLonPair(facility?.coordinates);
+}
+
 function lonLatToLatLon(value) {
   if (!Array.isArray(value) || value.length < 2) return null;
   const lon = Number(value[0]);
@@ -628,7 +632,7 @@ async function buildUpplandsleden() {
             .map((facility) => facility.name)
         : ["No verified potable water source is listed for this section; carry water and treat natural water."],
       notes,
-      facilities,
+      facilities: facilities.filter(hasFacilityCoordinates),
       source: {
         provider: "Naturkartan / Upplandsstiftelsen research packet",
         url: mapdata.officialPageUrl ?? routeResult.sourceUrl,
@@ -746,7 +750,7 @@ async function buildUpplandsleden() {
           ? "The public Naturkartan GPX URL returned an error during this import; this runtime line is an endpoint corridor, not navigation-grade."
           : null
       ].filter(Boolean),
-      facilities,
+      facilities: facilities.filter(hasFacilityCoordinates),
       source: {
         provider: "Naturkartan / municipal research",
         url: record.officialUrl,
@@ -1215,6 +1219,7 @@ function nordRuntimeSection(modelSection, geometryResult, routePath, facilities)
     endpointFacility(modelSection.from, "trail-junction", modelSection.sectionId, endpoints.start, geometryResult.sourceUrl),
     endpointFacility(modelSection.to, /hytta|stugan|stue|hut|cabin/i.test(modelSection.to) ? "lodging" : "trail-junction", modelSection.sectionId, endpoints.end, geometryResult.sourceUrl)
   ].filter(Boolean);
+  const runtimeFacilities = [...facilities, ...endpointFacilities].filter(hasFacilityCoordinates);
   return {
     id: modelSection.sectionId,
     stageNumber: modelSection.order,
@@ -1230,7 +1235,7 @@ function nordRuntimeSection(modelSection, geometryResult, routePath, facilities)
       .slice(0, 12),
     waterSources: ["Remote mountain section; carry capacity and treat natural water unless a hut/service page confirms potable water."],
     notes: nordSectionNotes(modelSection, geometryResult),
-    facilities: [...facilities, ...endpointFacilities],
+    facilities: runtimeFacilities,
     source: {
       provider: geometryResult.sourceProvider,
       url: geometryResult.sourceUrl,
