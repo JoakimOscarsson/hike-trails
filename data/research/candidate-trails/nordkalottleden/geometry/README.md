@@ -1,6 +1,8 @@
 # Nordkalottleden Geometry QA Artifacts
 
-Research-only candidate geometry for the Reisa/Käsivarsi/Kautokeino 12-section model. These files are not runtime app data and have not been imported into `data/source/hiking`, `public/data`, or `public/routes`.
+Research candidate geometry for the Reisa/Käsivarsi/Kautokeino 12-section model.
+
+As of 2026-05-01 these files still remain research artifacts, but the runtime Nordkalottleden import reuses/reverses them for the first 12 Kautokeino-Kilpisjärvi mainline sections. Runtime copies live under `public/routes/hiking/nordkalottleden/sections/`.
 
 ## Files
 
